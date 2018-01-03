@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Arez Blog</title>
+        <link>https://arez.github.io/blog</link>
+        <description>The best place to stay up-to-date with the latest Arez news and events.</description>
+        <lastBuildDate>Mon, 18 Dec 2017 06:00:00 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>Arez Blog</title>
+            <url>https://arez.github.ioimg/logo.svg</url>
+            <link>https://arez.github.io/blog</link>
+        </image>
+        <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.37 released]]></title>
+            <link>https://arez.github.io/blog/2017/12/18/version-0.37-release.html</link>
+            <guid>https://arez.github.io/blog/2017/12/18/version-0.37-release.html</guid>
+            <pubDate>Mon, 18 Dec 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.36...v0.37)
+
+Changes in this release:
+
+#### Added
+
+* **\[docs\]** Add expected "Code of Conduct" documentation.
+
+#### Changed
+
+* Change the publish task so that it only publishes tag as an arti]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.36 released]]></title>
+            <link>https://arez.github.io/blog/2017/12/13/version-0.36-release.html</link>
+            <guid>https://arez.github.io/blog/2017/12/13/version-0.36-release.html</guid>
+            <pubDate>Wed, 13 Dec 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.35...v0.36)
+
+Changes in this release:
+
+#### Added
+* **\[docs\]** Add initial documentation about integrating Arez components into dependency injection
+  frameworks such as [Dagger2](https://goo]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.35 released]]></title>
+            <link>https://arez.github.io/blog/2017/12/12/version-0.35-release.html</link>
+            <guid>https://arez.github.io/blog/2017/12/12/version-0.35-release.html</guid>
+            <pubDate>Tue, 12 Dec 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.34...v0.35)
+
+Changes in this release:
+
+#### Added
+* **\[processor\]** Add a `dagger` parameter to `@ArezComponent` that controls whether a dagger module
+  is generated for a component. The defa]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.34 released]]></title>
+            <link>https://arez.github.io/blog/2017/12/10/version-0.34-release.html</link>
+            <guid>https://arez.github.io/blog/2017/12/10/version-0.34-release.html</guid>
+            <pubDate>Sun, 10 Dec 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.33...v0.34)
+
+Changes in this release:
+
+#### Added
+* **\[core\]** Add methods on the `Spy` interface that converts from core objects to the equivalent spy specific
+  info object. i.e. `Spy.asCom]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.33 released]]></title>
+            <link>https://arez.github.io/blog/2017/12/04/version-0.33-release.html</link>
+            <guid>https://arez.github.io/blog/2017/12/04/version-0.33-release.html</guid>
+            <pubDate>Mon, 04 Dec 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.32...v0.33)
+
+Changes in this release:
+
+#### Fixed
+* **\[core\]** Ensure that `@Observable` properties can have a parameterized type.
+* **\[core\]** Ensure that `@ObservableRef` can be used for ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.32 released]]></title>
+            <link>https://arez.github.io/blog/2017/12/01/version-0.32-release.html</link>
+            <guid>https://arez.github.io/blog/2017/12/01/version-0.32-release.html</guid>
+            <pubDate>Fri, 01 Dec 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.31...v0.32)
+
+Changes in this release:
+
+#### Added
+* **\[annotations\]** Add the `deferSchedule` boolean parameter to the `@ArezComponent` annotation to avoid
+  scheduling autorun actions at the]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.31 released]]></title>
+            <link>https://arez.github.io/blog/2017/12/01/version-0.31-release.html</link>
+            <guid>https://arez.github.io/blog/2017/12/01/version-0.31-release.html</guid>
+            <pubDate>Fri, 01 Dec 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.30...v0.31)
+
+Changes in this release:
+
+#### Added
+* **\[annotations\]** Add an `inject` parameter to `@ArezComponent` annotation that will add a
+  `@javax.inject.Inject` annotation on the gener]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.30 released]]></title>
+            <link>https://arez.github.io/blog/2017/11/29/version-0.30-release.html</link>
+            <guid>https://arez.github.io/blog/2017/11/29/version-0.30-release.html</guid>
+            <pubDate>Wed, 29 Nov 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.29...v0.30)
+
+Changes in this release:
+
+#### Changed
+* **\[processor\]** Shade the processor dependencies so that the only jar required during annotation processing
+  is the annotation processor]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.29 released]]></title>
+            <link>https://arez.github.io/blog/2017/11/28/version-0.29-release.html</link>
+            <guid>https://arez.github.io/blog/2017/11/28/version-0.29-release.html</guid>
+            <pubDate>Tue, 28 Nov 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.28...v0.29)
+
+Changes in this release:
+
+#### Added
+* **\[core\]** The `ObservableChangedEvent` spy event will now emit the value of the observable if
+  property introspectors are enabled and the]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.28 released]]></title>
+            <link>https://arez.github.io/blog/2017/11/28/version-0.28-release.html</link>
+            <guid>https://arez.github.io/blog/2017/11/28/version-0.28-release.html</guid>
+            <pubDate>Tue, 28 Nov 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.27...v0.28)
+
+Changes in this release:
+
+#### Fixed
+* **\[processor\]** Remove the direct dependency on the `javax.annotation.Nonnull` and
+  `javax.annotation.Nullable` annotations from the `arez]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.27 released]]></title>
+            <link>https://arez.github.io/blog/2017/11/28/version-0.27-release.html</link>
+            <guid>https://arez.github.io/blog/2017/11/28/version-0.27-release.html</guid>
+            <pubDate>Tue, 28 Nov 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.26...v0.27)
+
+Changes in this release:
+
+#### Added
+* **\[browser-extras\]** Enhance `NetworkStatus` component so that it exposes an observable property
+  `lastChangedAt` that exposes the time at]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.26 released]]></title>
+            <link>https://arez.github.io/blog/2017/11/14/version-0.26-release.html</link>
+            <guid>https://arez.github.io/blog/2017/11/14/version-0.26-release.html</guid>
+            <pubDate>Tue, 14 Nov 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.25...v0.26)
+
+Changes in this release:
+
+#### Changed
+* 💥 Move arez from `https://github.com/realityforge/arez` to own organization `https://github.com/arez/arez`.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.25 released]]></title>
+            <link>https://arez.github.io/blog/2017/11/08/version-0.25-release.html</link>
+            <guid>https://arez.github.io/blog/2017/11/08/version-0.25-release.html</guid>
+            <pubDate>Wed, 08 Nov 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.24...v0.25)
+
+Changes in this release:
+
+#### Fixed
+* **\[core\]** When exceptions are thrown when calculating the value for `ComputedValue`, the `ComputedValue`
+  was marked as in error and a nu]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.24 released]]></title>
+            <link>https://arez.github.io/blog/2017/11/02/version-0.24-release.html</link>
+            <guid>https://arez.github.io/blog/2017/11/02/version-0.24-release.html</guid>
+            <pubDate>Thu, 02 Nov 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.23...v0.24)
+
+Changes in this release:
+
+#### Changed
+* 💥 **\[annotations\]** Remove `disposable` parameter from the `@ArezComponent` annotation as all generated
+  components should implement `D]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.23 released]]></title>
+            <link>https://arez.github.io/blog/2017/11/01/version-0.23-release.html</link>
+            <guid>https://arez.github.io/blog/2017/11/01/version-0.23-release.html</guid>
+            <pubDate>Wed, 01 Nov 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.22...v0.23)
+
+Changes in this release:
+
+#### Added
+* **\[core\]** Add the `ArezContext.pauseScheduler()` method that allows the developer to manually pause
+  reactions and `ArezContext.isSchedul]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.22 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/29/version-0.22-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/29/version-0.22-release.html</guid>
+            <pubDate>Sun, 29 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.21...v0.22)
+
+Changes in this release:
+
+#### Added
+* **\[annotations\]** Add the `@ObserverRef` annotation to allow the reactive component to get access to
+  the underling `Observer` instance fo]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.21 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/28/version-0.21-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/28/version-0.21-release.html</guid>
+            <pubDate>Sat, 28 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.20...v0.21)
+
+Changes in this release:
+
+#### Fixed
+* Fixed bug where the annotation processor was not copying the access modifiers from the method annotated with the
+  `@ContextRef` annotation t]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.20 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/28/version-0.20-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/28/version-0.20-release.html</guid>
+            <pubDate>Sat, 28 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.19...v0.20)
+
+Changes in this release:
+
+#### Added
+* Added support for `@ContextRef` annotation that marks a method as returning the `ArezContext` that the
+  generated subclass is using.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.19 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/27/version-0.19-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/27/version-0.19-release.html</guid>
+            <pubDate>Fri, 27 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.18...v0.19)
+
+Changes in this release:
+
+#### Added
+* Introduce the concept of a [`Zone`](/docs/zones.html) which is an isolated Arez context.
+* Add some cute icons to start of "computed" message]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.18 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/23/version-0.18-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/23/version-0.18-release.html</guid>
+            <pubDate>Mon, 23 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.17...v0.18)
+
+Changes in this release:
+
+#### Added
+* Added the class `org.realityforge.arez.ArezTestUtil` that exposes methods that simplify testing `Arez` in
+  downstream consumers. It exposes ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.17 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/23/version-0.17-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/23/version-0.17-release.html</guid>
+            <pubDate>Mon, 23 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.16...v0.17)
+
+Changes in this release:
+
+#### Changed
+* Move to GWT 2.8.2.
+* Use a separate color in `ConsoleSpyEventProcessor` for "computed" related events.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.16 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/19/version-0.16-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/19/version-0.16-release.html</guid>
+            <pubDate>Thu, 19 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.15...v0.16)
+
+Changes in this release:
+
+#### Added
+* **\[component\]** Introduce the "component" module that provides supporting infrastructure for the components
+  and repositories generated by]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.15 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/18/version-0.15-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/18/version-0.15-release.html</guid>
+            <pubDate>Wed, 18 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.14...v0.15)
+
+Changes in this release:
+
+#### Fixed
+* **\[processor\]** Repositories that define a `create` method with no parameters no longer suffix the name with
+  a "_" character.
+* **\[proce]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.14 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/16/version-0.14-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/16/version-0.14-release.html</guid>
+            <pubDate>Mon, 16 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.13...v0.14)
+
+Changes in this release:
+
+#### Added
+* **\[browser-extras\]** Introduce the [`BrowserSpyUtil`](/api/org/realityforge/arez/browser/extras/spy/BrowserSpyUtil.html)
+  util class that ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.12 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/13/version-0.12-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/13/version-0.12-release.html</guid>
+            <pubDate>Fri, 13 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.11...v0.12)
+
+Changes in this release:
+
+#### Added
+* **\[processor\]** The processor now generates a `toString()` if the `@ArezComponent` annotated class has
+  not overridden to `Object.toString]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.11 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/11/version-0.11-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/11/version-0.11-release.html</guid>
+            <pubDate>Wed, 11 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.10...v0.11)
+
+Changes in this release:
+
+#### Added
+* **\[processor\]** Generated component subclasses that are not singletons will now have `equals()` and
+  `hashCode()` methods generated based ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.10 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/09/version-0.10-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/09/version-0.10-release.html</guid>
+            <pubDate>Mon, 09 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.09...v0.10)
+
+Changes in this release:
+
+#### Fixed
+* Fixed several gwt modules that were including too much much in downstream projects. For example the gwt module
+  `org.realityforge.arez.Arez`]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.09 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/09/version-0.09-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/09/version-0.09-release.html</guid>
+            <pubDate>Mon, 09 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.08...v0.09)
+
+Changes in this release:
+
+#### Fixed
+* Upgraded braincheck library to 1.1.0 to ensure that GWT will remove invariant checks in production mode. A
+  change that we were unable to id]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.08 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/08/version-0.08-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/08/version-0.08-release.html</guid>
+            <pubDate>Sun, 08 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.07...v0.08)
+
+Changes in this release:
+
+#### Added
+* **\[doc\]** Started to improve the infrastructure for building documentation. Started to document the basic
+  approach for defining Arez comp]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.07 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/05/version-0.07-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/05/version-0.07-release.html</guid>
+            <pubDate>Thu, 05 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.06...v0.07)
+
+Changes in this release:
+
+#### Added
+* **\[core\]** Added several helper methods to `ArezContext` to create actions without specifying mutation parameter.
+* **\[processor\]** Intro]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.06 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/04/version-0.06-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/04/version-0.06-release.html</guid>
+            <pubDate>Wed, 04 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.05...v0.06)
+
+Changes in this release:
+
+#### Added
+* **\[processor\]** Add an parameter `allowEmpty` to `@ArezComponent` that allows the developer to define
+  Arez components without explicitly ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.05 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/04/version-0.05-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/04/version-0.05-release.html</guid>
+            <pubDate>Wed, 04 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.04...v0.05)
+
+Changes in this release:
+
+#### Added
+* **\[extras\]** Extract the `StringifyReplacer` from the `ConsoleSpyEventProcessor` class to allow
+  subclasses of `ConsoleSpyEventProcessor` ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.04 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/03/version-0.04-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/03/version-0.04-release.html</guid>
+            <pubDate>Tue, 03 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.03...v0.04)
+
+Changes in this release:
+
+#### Added
+* **\[extras\]** Introduce the [`CssRules`](/api/org/realityforge/arez/browser/extras/spy/CssRules.html)
+  annotation to force IntelliJ IDEA to]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.03 released]]></title>
+            <link>https://arez.github.io/blog/2017/10/02/version-0.03-release.html</link>
+            <guid>https://arez.github.io/blog/2017/10/02/version-0.03-release.html</guid>
+            <pubDate>Mon, 02 Oct 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.02...v0.03)
+
+Changes in this release:
+
+#### Added
+* ✨ **\[extras\]** Add the Arez component [`ObservablePromise`](/api/org/realityforge/arez/browser/extras/ObservablePromise.html)
+  that wraps ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.02 released]]></title>
+            <link>https://arez.github.io/blog/2017/09/28/version-0.02-release.html</link>
+            <guid>https://arez.github.io/blog/2017/09/28/version-0.02-release.html</guid>
+            <pubDate>Thu, 28 Sep 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.01...v0.02)
+
+Changes in this release:
+
+#### Added
+* Initial support for adding a `@Repository` to an arez component that will cause the generation of a paired
+  repository for managing instance]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.01 released]]></title>
+            <link>https://arez.github.io/blog/2017/09/27/version-0.01-release.html</link>
+            <guid>https://arez.github.io/blog/2017/09/27/version-0.01-release.html</guid>
+            <pubDate>Wed, 27 Sep 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[Arez 0.01 released. First version 🎉]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Website Launched]]></title>
+            <link>https://arez.github.io/blog/2017/09/22/website-launched.html</link>
+            <guid>https://arez.github.io/blog/2017/09/22/website-launched.html</guid>
+            <pubDate>Fri, 22 Sep 2017 06:00:00 GMT</pubDate>
+            <description><![CDATA[This marks the date when the website was launched. The website marks the time
+when the development on the core features of Arez stabilized enough that documenting
+the toolkit became viable.
+
+**Features:**
+
+* Basic overview documentation.
+* [Javadocs]]]></description>
+        </item>
+    </channel>
+</rss>

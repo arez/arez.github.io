@@ -1,0 +1,240 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Components Example · Arez</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Components Example · Arez"/><meta property="og:type" content="website"/><meta property="og:url" content="https://arez.github.io/index.html"/><meta property="og:description" content="If you are here it is assumed that you understand the conceptual model of Arez and are ready to"/><link rel="shortcut icon" href="/img/favicon-32x32.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><link rel="alternate" type="application/atom+xml" href="https://arez.github.io/blog/atom.xml" title="Arez Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://arez.github.io/blog/feed.xml" title="Arez Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">Arez</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="/blog" target="_self">Blog</a></li><li><a href="https://github.com/arez/arez/releases" target="_blank">Releases</a></li><li><a href="https://github.com/arez/arez" target="_blank">GitHub</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Components</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>About</h3><ul><li class="navListItem"><a class="navItem" href="/docs/overview.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/motivation.html">Motivation</a></li><li class="navListItem"><a class="navItem" href="/docs/project_setup.html">Project Setup</a></li><li class="navListItem"><a class="navItem" href="/docs/getting_started.html">Getting Started</a></li></ul></div><div class="navGroup navGroupActive"><h3>Concepts</h3><ul><li class="navListItem"><a class="navItem" href="/docs/concepts.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/transactions.html">Transactions</a></li><li class="navListItem"><a class="navItem" href="/docs/observables.html">Observables</a></li><li class="navListItem"><a class="navItem" href="/docs/computed_values.html">Computed Values</a></li><li class="navListItem"><a class="navItem" href="/docs/observers.html">Observers</a></li><li class="navListItem"><a class="navItem" href="/docs/actions.html">Actions</a></li><li class="navListItem"><a class="navItem" href="/docs/scheduler.html">Scheduler</a></li><li class="navListItem"><a class="navItem" href="/docs/native_components.html">Native Components</a></li><li class="navListItem"><a class="navItem" href="/docs/zones.html">Zones</a></li></ul></div><div class="navGroup navGroupActive"><h3>Components</h3><ul><li class="navListItem"><a class="navItem" href="/docs/components.html">Overview</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/component_example.html">Example</a></li><li class="navListItem"><a class="navItem" href="/docs/repositories.html">Repositories</a></li><li class="navListItem"><a class="navItem" href="/docs/accessing_primitives.html">Accessing primitives</a></li><li class="navListItem"><a class="navItem" href="/docs/dependency_injection.html">Dependency Injection</a></li></ul></div><div class="navGroup navGroupActive"><h3>Project Documentation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq.html">Frequently Asked Questions</a></li><li class="navListItem"><a class="navItem" href="/docs/development_process.html">Development Process</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/arez/arez/tree/master/docs/component_example.md" target="_blank">Edit</a><h1>Components Example</h1></header><article><div><span><p>If you are here it is assumed that you understand the conceptual model of Arez and are ready to
+start building reactive components. A reactive component is annotated with the <a href="/api/org/realityforge/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a>
+annotation. Depending on the role the reactive component has in the system it may have one or more methods annotated
+with <a href="/api/org/realityforge/arez/annotations/Observable.html"><code>@Observable</code></a>, <a href="/api/org/realityforge/arez/annotations/Computed.html"><code>@Computed</code></a>, <a href="/api/org/realityforge/arez/annotations/Action.html"><code>@Action</code></a>,
+<a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a> or <a href="/api/org/realityforge/arez/annotations/Track.html"><code>@Track</code></a>.</p>
+<p>When the component is compiled by the java compiler, an annotation processor analyzes the component
+and verifies that the annotations make sense. The processor then generates a class that extends and
+enhances the component class to make it reactive. The developer then instantiates an instance of this
+enhanced class to enable the reactive features.</p>
+<p>The simplest way to understand what this means is to look at the code and how it is used.</p>
+<h2><a class="anchor" aria-hidden="true" name="observable-properties"></a><a href="#observable-properties" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Observable Properties</h2>
+<p>In most applications it is common to define one or more entities to represent the data in the application.
+In Arez, as in normal Java, properties on the entities are often defined using the java bean naming convention
+with a setter and getter. To make a property observable it is simply a matter of annotating the setter or
+the getter with the <a href="/api/org/realityforge/arez/annotations/Observable.html"><code>@Observable</code></a> annotation and the class with
+<a href="/api/org/realityforge/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a>.</p>
+<p>For example, imagine an application that tracks <code>remainingRides</code> on a train. Each ticket has a number of
+rides remaining. This could be represented by the component:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TrainTicket</span>
+</span>{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _remainingRides;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TrainTicket</span><span class="hljs-params">( <span class="hljs-keyword">int</span> remainingRides )</span>
+  </span>{
+    _remainingRides = remainingRides;
+  }
+
+  <span class="hljs-meta">@Observable</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getRemainingRides</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _remainingRides;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRemainingRides</span><span class="hljs-params">( <span class="hljs-keyword">int</span> remainingRides )</span>
+  </span>{
+    _remainingRides = remainingRides;
+  }
+}</code></pre></p>
+<p>Compiling this class will generate a new class named <code>Arez_TrainTicket</code>. Rather than directly exposing the
+<code>Arez_TrainTicket</code> class to downstream consumers it is more common to define a factory method on the
+<code>TrainTicket</code> class and change the constructor on the <code>TrainTicket</code> to be package access.</p>
+<p>This pattern eliminates the need for downstream users to know about the <code>Arez_TrainTicket</code> and treats the
+generated class as an implementation detail that should be hidden from the user. This pattern also makes it
+easier to document the component in javadocs. For example:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TrainTicket</span>
+</span>{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _remainingRides;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> TrainTicket <span class="hljs-title">create</span><span class="hljs-params">( <span class="hljs-keyword">int</span> remainingRides )</span>
+  </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Arez_TrainTicket( remainingRides );
+  }
+
+  TrainTicket( <span class="hljs-keyword">int</span> remainingRides )
+  {
+    _remainingRides = remainingRides;
+  }
+</code></pre></p>
+<h2><a class="anchor" aria-hidden="true" name="actions"></a><a href="#actions" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Actions</h2>
+<p>Observable properties in Arez should only be read within the scope of a transaction and should only be
+changed within the scope of a read-write transaction. If you enable invariant checking and try to invoke
+the method <code>Arez_TrainTicket.setRemainingRides(int)</code> you will get the exception:</p>
+<pre><code class="hljs">Attempting to get current transaction but no transaction is active.
+</code></pre>
+<p>The simplest way to create a transaction is to define an <a href="/api/org/realityforge/arez/annotations/Action.html"><code>@Action</code></a> annotated method. The method
+will be enclosed within a transaction. The location of the <a href="/api/org/realityforge/arez/annotations/Action.html"><code>@Action</code></a> annotated is up to you, some
+people would decide to put the action on the existing component while others would put it in a new <code>TrainTicketService</code>
+component. Arez is agnostic to this decision and supports either model.</p>
+<p>For the sake of brevity, this document will add actions to the existing component. If we imagine that the
+application needs a &quot;rideTrain&quot; action that simply decreases the number of rides remaining on a ticket by one
+we could define it using a method such as:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@Action</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rideTrain</span><span class="hljs-params">()</span>
+</span>{
+  setRemainingRides( getRemainingRides() - <span class="hljs-number">1</span> );
+}</code></pre></p>
+<p>You will notice that this method implementation uses both the setter and getter when modifying the <code>remainingRides</code>
+observable property. If the code did not use the setter then downstream observers would not be notified of the
+change. If the code did not use the getter then no problem would arise within the context of this method.
+however it can be a problem in other contexts (i.e. an <a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a> methods) so for the sake of consistency and
+simplicity we recommend that you always use the getter and setter when interacting with observable properties.</p>
+<h2><a class="anchor" aria-hidden="true" name="autorun-reactions"></a><a href="#autorun-reactions" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Autorun reactions</h2>
+<p>So far we have an entity with an observable property that we can read and write using an action. The application
+is not yet reactive. However let's imagine the application needs to notify the user when the value of the observable
+property <code>remainingRides</code> reaches <code>0</code>. We can do this using a method annotated with <a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a>
+such as</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@Autorun</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyUserWhenTicketExpires</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">if</span> ( <span class="hljs-number">0</span> == getRemainingRides() )
+  {
+    NotifyTool.notifyUserTicketExpired( <span class="hljs-keyword">this</span> );
+  }
+}</code></pre></p>
+<p>Any time that this method is executed, Arez will track which observable properties are accessed within the method.
+If the values of any of these observable properties changes, Arez will schedule this method to be re-run in the
+reactions phase. The very last step of constructing an arez component executes all the <a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a>
+annotated methods, ensuring that Arez knows which observable properties the <a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a> method is
+dependent on.</p>
+<p>This means that that any time the <code>remainingRides</code> observable property is modified, Arez will execute this method.
+If <code>remainingRides</code> is zero then the user will be notified that the ticket has expired.</p>
+<h2><a class="anchor" aria-hidden="true" name="computed-properties"></a><a href="#computed-properties" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Computed properties</h2>
+<p>If you were to put a <code>System.out.println(...)</code> call at the top of the <code>notifyUserWhenTicketExpires()</code> method you
+would notice that it is called every time that the <code>remainingRides</code> observable property is updated. So if
+<code>remainingRides</code> started at <code>10</code> and <code>rideTrain()</code> was invoked <code>10</code> times to count <code>remainingRides</code> down to <code>0</code>
+the <code>notifyUserWhenTicketExpires()</code> method would be invoked <code>10</code> times.</p>
+<p>For such a lightweight method this may not have a significant performance impact. If the method performed more
+expensive operations such as updating parts of the UI then you may want to optimize the <a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a>
+annotated method so that it is only invoked when there is actual work to do. The easiest way to do this is to use a
+<a href="/api/org/realityforge/arez/annotations/Computed.html"><code>@Computed</code></a> property as illustrated below.</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@Computed</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isTicketExpired</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span> == getRemainingRides();
+}
+
+<span class="hljs-meta">@Autorun</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyUserWhenTicketExpires</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">if</span> ( isTicketExpired() )
+  {
+    NotifyTool.notifyUserTicketExpired( <span class="hljs-keyword">this</span> );
+  }
+}</code></pre></p>
+<p>Extracting the test <code>0 == getRemainingRides()</code> as a <code>ticketExpired</code> computed property will mean that the <a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a>
+method no longer has a direct dependency on the <code>remainingRides</code> observable property and instead has a dependency
+on the <code>ticketExpired</code> computed property property so <code>notifyUserWhenTicketExpires()</code> will only be invoked when the
+<code>ticketExpired</code> computed property changes value. In the above scenario this would mean that the
+<code>notifyUserWhenTicketExpires()</code> method would only be invoked <code>2</code> times. The <code>ticketExpired</code> computed property
+would be recalculated <code>10</code> times but it is assumed the that this is significantly less expensive than the <a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a>
+method.</p>
+<h2><a class="anchor" aria-hidden="true" name="track-and-ondepschanged"></a><a href="#track-and-ondepschanged" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Track and OnDepsChanged</h2>
+<p>There are times at which it is not possible for Arez to directly schedule and execute a reaction. Existing
+frameworks will have their own mechanisms for scheduling work and if you need to integrate Arez into these
+frameworks you need to decouple the scheduling and execution of reactions. Another scenario where more more
+explicit control over scheduling and execution is required is when you want to rate-limit or &quot;debounce&quot; the
+change notifications to limit the number of times a reaction executes.</p>
+<p>To achieve either of these goals, you need to use the <a href="/api/org/realityforge/arez/annotations/Track.html"><code>@Track</code></a> and <a href="/api/org/realityforge/arez/annotations/OnDepsChanged.html"><code>@OnDepsChanged</code></a> annotations. The <a href="/api/org/realityforge/arez/annotations/Track.html"><code>@Track</code></a> annotation wraps a method in a tracking transaction which allows the Arez framework to detect which observable and computed properties are accessed within the scope of the transaction. If any of these properties are modified then Arez will invoke the corresponding method annotated with <a href="/api/org/realityforge/arez/annotations/OnDepsChanged.html"><code>@OnDepsChanged</code></a> to indicate that the tracked method needs to be rescheduled.</p>
+<p>An example is illustrated below:</p>
+<p><pre><code class="hljs">  <span class="hljs-meta">@Track</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">render</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"&lt;table class='ticket'&gt;"</span> +
+           <span class="hljs-string">"  &lt;tr&gt;"</span> +
+           <span class="hljs-string">"    &lt;th&gt;Remaining Rides&lt;/th&gt;"</span> +
+           <span class="hljs-string">"    &lt;td&gt;"</span> + getRemainingRides() + <span class="hljs-string">"&lt;/td&gt;"</span> +
+           <span class="hljs-string">"  &lt;/tr&gt;"</span> +
+           <span class="hljs-string">"&lt;/table&gt;"</span>;
+  }
+
+  <span class="hljs-meta">@OnDepsChanged</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChanged</span><span class="hljs-params">()</span>
+  </span>{
+    Renderer.scheduleRender( <span class="hljs-keyword">this</span> );
+  }
+</code></pre></p>
+<h1><a class="anchor" aria-hidden="true" name="summary"></a><a href="#summary" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Summary</h1>
+<p>This example, while not entirely realistic, demonstrates the basic mechanisms for enabling reactive Arez components
+within your application. There is more detailed documentation in separate sections for each major feature. However
+this should give you enough of a taste to understand how Arez components are authored from a high level perspective.</p>
+<p>The source for the entire example is as follows:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TrainTicket</span>
+</span>{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _remainingRides;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> TrainTicket <span class="hljs-title">create</span><span class="hljs-params">( <span class="hljs-keyword">int</span> remainingRides )</span>
+  </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Arez_TrainTicket( remainingRides );
+  }
+
+  TrainTicket( <span class="hljs-keyword">int</span> remainingRides )
+  {
+    _remainingRides = remainingRides;
+  }
+
+  <span class="hljs-meta">@Observable</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getRemainingRides</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _remainingRides;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRemainingRides</span><span class="hljs-params">( <span class="hljs-keyword">int</span> remainingRides )</span>
+  </span>{
+    _remainingRides = remainingRides;
+  }
+
+  <span class="hljs-meta">@Action</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rideTrain</span><span class="hljs-params">()</span>
+  </span>{
+    setRemainingRides( getRemainingRides() - <span class="hljs-number">1</span> );
+  }
+
+  <span class="hljs-meta">@Track</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">render</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"&lt;table class='ticket'&gt;"</span> +
+           <span class="hljs-string">"  &lt;tr&gt;"</span> +
+           <span class="hljs-string">"    &lt;th&gt;Remaining Rides&lt;/th&gt;"</span> +
+           <span class="hljs-string">"    &lt;td&gt;"</span> + getRemainingRides() + <span class="hljs-string">"&lt;/td&gt;"</span> +
+           <span class="hljs-string">"  &lt;/tr&gt;"</span> +
+           <span class="hljs-string">"&lt;/table&gt;"</span>;
+  }
+
+  <span class="hljs-meta">@OnDepsChanged</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChanged</span><span class="hljs-params">()</span>
+  </span>{
+    Renderer.scheduleRender( <span class="hljs-keyword">this</span> );
+  }
+
+  <span class="hljs-meta">@Computed</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isTicketExpired</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span> == getRemainingRides();
+  }
+
+  <span class="hljs-meta">@Autorun</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyUserWhenTicketExpires</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">if</span> ( isTicketExpired() )
+    {
+      NotifyTool.notifyUserTicketExpired( <span class="hljs-keyword">this</span> );
+    }
+  }
+}</code></pre></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="components.html">← Components Overview</a><a class="docs-next button" href="repositories.html">Repositories →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="Arez" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/docs/concepts.html">Concepts</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/arez/arez" data-icon="octicon-star" data-count-href="/arez/arez/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the Arez Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                apiKey: 'b8c49751e0914443436822868f0c5000',
+                indexName: 'arez',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

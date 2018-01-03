@@ -1,0 +1,121 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Frequently Asked Questions · Arez</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Frequently Asked Questions · Arez"/><meta property="og:type" content="website"/><meta property="og:url" content="https://arez.github.io/index.html"/><meta property="og:description" content="## Application Development"/><link rel="shortcut icon" href="/img/favicon-32x32.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><link rel="alternate" type="application/atom+xml" href="https://arez.github.io/blog/atom.xml" title="Arez Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://arez.github.io/blog/feed.xml" title="Arez Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">Arez</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="/blog" target="_self">Blog</a></li><li><a href="https://github.com/arez/arez/releases" target="_blank">Releases</a></li><li><a href="https://github.com/arez/arez" target="_blank">GitHub</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Project Documentation</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>About</h3><ul><li class="navListItem"><a class="navItem" href="/docs/overview.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/motivation.html">Motivation</a></li><li class="navListItem"><a class="navItem" href="/docs/project_setup.html">Project Setup</a></li><li class="navListItem"><a class="navItem" href="/docs/getting_started.html">Getting Started</a></li></ul></div><div class="navGroup navGroupActive"><h3>Concepts</h3><ul><li class="navListItem"><a class="navItem" href="/docs/concepts.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/transactions.html">Transactions</a></li><li class="navListItem"><a class="navItem" href="/docs/observables.html">Observables</a></li><li class="navListItem"><a class="navItem" href="/docs/computed_values.html">Computed Values</a></li><li class="navListItem"><a class="navItem" href="/docs/observers.html">Observers</a></li><li class="navListItem"><a class="navItem" href="/docs/actions.html">Actions</a></li><li class="navListItem"><a class="navItem" href="/docs/scheduler.html">Scheduler</a></li><li class="navListItem"><a class="navItem" href="/docs/native_components.html">Native Components</a></li><li class="navListItem"><a class="navItem" href="/docs/zones.html">Zones</a></li></ul></div><div class="navGroup navGroupActive"><h3>Components</h3><ul><li class="navListItem"><a class="navItem" href="/docs/components.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/component_example.html">Example</a></li><li class="navListItem"><a class="navItem" href="/docs/repositories.html">Repositories</a></li><li class="navListItem"><a class="navItem" href="/docs/accessing_primitives.html">Accessing primitives</a></li><li class="navListItem"><a class="navItem" href="/docs/dependency_injection.html">Dependency Injection</a></li></ul></div><div class="navGroup navGroupActive"><h3>Project Documentation</h3><ul><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/faq.html">Frequently Asked Questions</a></li><li class="navListItem"><a class="navItem" href="/docs/development_process.html">Development Process</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/arez/arez/tree/master/docs/faq.md" target="_blank">Edit</a><h1>Frequently Asked Questions</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" name="application-development"></a><a href="#application-development" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Application Development</h2>
+<h3><a class="anchor" aria-hidden="true" name="why-are-autorun-methods-not-being-re-run-when-observable-properties-change"></a><a href="#why-are-autorun-methods-not-being-re-run-when-observable-properties-change" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why are @Autorun methods not being re-run when observable properties change?</h3>
+<p>Arez only re-runs <a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a> annotated methods if it is told that an observable property that
+is a dependency of the <a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a> method is changed. Assuming you are using classes annotated
+with <a href="/api/org/realityforge/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a>  then this means
+that the code must:</p>
+<ul>
+<li>mutate the property using the setter method to mark the property as changed. The generated code ultimately calls
+the <a href="/api/org/realityforge/arez/Observable.html#reportChanged--"><code>Observable.reportChanged()</code></a> method to mark the property as changed.</li>
+<li>access the property using the getter method.. The generated code ultimately calls the
+<a href="/api/org/realityforge/arez/Observable.html#reportObserved--"><code>Observable.reportObserved()</code></a> method to mark the property as observed.
+This will add it as a dependency to the containing <code>@Autorun</code> method.</li>
+</ul>
+<p>Typically this problem arises when you mutate field directly within the same class. Consider this problematic code
+snippet:</p>
+<pre><code class="hljs css java">  <span class="hljs-meta">@Observable</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getRemainingRides</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _remainingRides;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRemainingRides</span><span class="hljs-params">( <span class="hljs-keyword">int</span> remainingRides )</span>
+  </span>{
+    _remainingRides = remainingRides;
+  }
+
+  <span class="hljs-meta">@Action</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rideTrain</span><span class="hljs-params">()</span>
+  </span>{
+    _remainingRides = _remainingRides - <span class="hljs-number">1</span>;
+  }
+</code></pre>
+<p>Compare it to this code that correctly notifies observers that the <code>remainingRides</code> property has updated. The only
+difference is how the state is mutated within <code>rideTrain()</code> method.</p>
+<pre><code class="hljs css java">  <span class="hljs-meta">@Observable</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getRemainingRides</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _remainingRides;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRemainingRides</span><span class="hljs-params">( <span class="hljs-keyword">int</span> remainingRides )</span>
+  </span>{
+    _remainingRides = remainingRides;
+  }
+
+  <span class="hljs-meta">@Action</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rideTrain</span><span class="hljs-params">()</span>
+  </span>{
+    setRemainingRides( getRemainingRides() - <span class="hljs-number">1</span> );
+  }
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" name="library-design"></a><a href="#library-design" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Library Design</h2>
+<h3><a class="anchor" aria-hidden="true" name="why-do-the-change-events-notifications-not-include-a-description-of-the-change"></a><a href="#why-do-the-change-events-notifications-not-include-a-description-of-the-change" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why do the change events/notifications not include a description of the change?</h3>
+<p>In many state management frameworks, notifications of change are accompanied by a description
+of change but not so in Arez. For example in Arez the <a href="/api/org/realityforge/arez/Observable.html#reportChanged--"><code>Observable.reportChanged()</code></a>
+method accepts no change description, the <a href="/api/org/realityforge/arez/spy/ObservableChangedEvent.html"><code>ObservableChangedEvent</code></a> class
+has no description of a change and there is no way for an <a href="/api/org/realityforge/arez/Observer.html"><code>Observer</code></a> to receive changes.</p>
+<p>The reason is that change descriptions seem to be used as an optimization strategy needed in very specific
+scenarios. For example, consider the scenario where you are representing an <code>Employee</code> as a react component
+and you maintain a list of <code>Employee</code> instances that are candidates for a particular allowance. Calculating the
+applicability of an allowance for a particular <code>Employee</code> is an expensive operation. In Arez you are forced to
+regenerate the list of allowance candidates each time the set of <code>Employee</code> instances changes. In other
+systems you could just listen for an event such as <code>EntityAdded(Employee)</code>, calculate the applicability for that
+specific instance and insert them into the allowance candidates if appropriate. In that scenario the event
+listen approach can be better optimized.</p>
+<p>However building this in Arez with judicious use of <a href="/api/org/realityforge/arez/annotations/Computed.html"><code>@Computed</code></a> annotated
+methods can achieve acceptable performance, at least in our tests of up to ~8000 entities in the original <code>Employee</code>
+set. It is possible that in the future, change messages will be added back into Arez but will only occur when
+it is determined that the implementation and performance costs for other scenarios is worth the tradeoff.</p>
+<p>This decision was not made lightly and the original Arez implementation included change events such as
+<code>AtomicChange(FromValue, ToValue)</code>, <code>MapAdd(Key, Value)</code>, <code>Disposed()</code>, <code>UnspecifiedChange()</code> etc. These events
+had to be queued on the <code>Observer</code> in the order they were generated and explicitly consumed by the <code>Observer</code>
+during the reaction phase. This added some complexity to the Arez implementation. The author of Arez has also
+previously implemented two other state management frameworks using this technique and considers the complexity
+for downstream consumers to be the greatest problem with this strategy.</p>
+<h3><a class="anchor" aria-hidden="true" name="why-is-there-not-a-memoize-annotation-for-caching-method-calls"></a><a href="#why-is-there-not-a-memoize-annotation-for-caching-method-calls" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why is there not a @Memoize annotation for caching method calls?</h3>
+<p><a href="https://en.wikipedia.org/wiki/Memoization">Memoization</a> of expensive method calls seems like a good fit for
+the Arez library and yet there is no <code>@Memoize</code> annotation that can be applied to <a href="/api/org/realityforge/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a>
+annotated classes. There is no real reason why this feature is lacking other than a lack of time to implement it. An
+initial spike implementation created a <a href="/api/org/realityforge/arez/ComputedValue.html"><code>ComputedValue</code></a> instance for each
+combination of unique parameters in method and seemed to work effectively. There was some complexity in the
+implementation as testing for parameter equality needed to be configurable for each parameter and deactivation
+typically triggered a dispose after a delay. Until this feature is implemented, it is reasonable easy to
+implemented this with a <a href="/api/org/realityforge/arez/annotations/Computed.html"><code>@Computed</code></a> annotation.</p>
+<h2><a class="anchor" aria-hidden="true" name="component-model"></a><a href="#component-model" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Component Model</h2>
+<h3><a class="anchor" aria-hidden="true" name="why-do-the-generated-enhanced-arez-components-implement-disposable"></a><a href="#why-do-the-generated-enhanced-arez-components-implement-disposable" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why do the generated/enhanced Arez components implement Disposable?</h3>
+<p>The enhanced component classes generated by the annotation processor all implement the <a href="/api/org/realityforge/arez/Disposable.html"><code>Disposable</code></a>. This
+makes it possible to explicitly decommission the reactive component and release all the Arez resources
+associated with the component. A previous iteration of the framework made it optional for components to
+support <a href="/api/org/realityforge/arez/Disposable.html"><code>Disposable</code></a> but this just lead to resource leaks.</p>
+<p>It should also be noted that all resources within a component are disposed within the scope of a single
+transaction, to avoid scenario where a partially disposed component reacts to changes occuring during
+dispose.</p>
+<h3><a class="anchor" aria-hidden="true" name="why-does-the-annotation-processor-override-equals-and-hashcode-methods-for-non-singletons"></a><a href="#why-does-the-annotation-processor-override-equals-and-hashcode-methods-for-non-singletons" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why does the annotation processor override equals() and hashCode() methods for non-singletons?</h3>
+<p>The annotation processor overrides the <code>equals()</code> and <code>hashCode()</code> methods as these methods
+are used internally by Arez when storing instances of these classes. These methods are implemented with
+the assumption that the component id is unique. If the component id is supplied by the toolkit user via
+the <a href="/api/org/realityforge/arez/annotations/ComponentId.html"><code>@ComponentId</code></a> annotation, the user must be careful to ensure that the component
+id is unique. This constraint is less relevant for singletons as it is assued that there is at most one
+singleton at any one time.</p>
+<h3><a class="anchor" aria-hidden="true" name="why-does-the-annotation-processor-only-sometimes-generate-a-tostring-method"></a><a href="#why-does-the-annotation-processor-only-sometimes-generate-a-tostring-method" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why does the annotation processor only sometimes generate a toString() method?</h3>
+<p>The Arez annotation processor will generate a <code>toString()</code> method on a component if the user has not provided
+their own <code>toString()</code> method. If any superclass other than the base <code>Object</code> class has overridden the <code>toString()</code>
+method, then Arez assumes that the user will want to keep that method. If the method has not been overridden
+then Arez will override <code>toString()</code> to return a value such as <code>&quot;ArezComponent[myComponentName]&quot;</code>. It should be
+noted that if names are not enabled by the Arez compile time configuration (i.e.
+<a href="/api/org/realityforge/arez/Arez.html#areNamesEnabled--"><code>Arez.areNamesEnabled()</code></a> returns false) then the base <code>Object.toString()</code>
+method will be invoked.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="dependency_injection.html">← Dependency Injection</a><a class="docs-next button" href="development_process.html">Development Process →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="Arez" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/docs/concepts.html">Concepts</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/arez/arez" data-icon="octicon-star" data-count-href="/arez/arez/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the Arez Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                apiKey: 'b8c49751e0914443436822868f0c5000',
+                indexName: 'arez',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

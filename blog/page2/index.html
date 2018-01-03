@@ -1,0 +1,287 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Blog · Arez</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Blog · Arez"/><meta property="og:type" content="website"/><meta property="og:url" content="https://arez.github.io/index.html"/><meta property="og:description" content="Fast, easy, reactive state"/><link rel="shortcut icon" href="/img/favicon-32x32.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><link rel="alternate" type="application/atom+xml" href="https://arez.github.io/blog/atom.xml" title="Arez Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://arez.github.io/blog/feed.xml" title="Arez Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">Arez</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="/blog" target="_self">Blog</a></li><li><a href="https://github.com/arez/arez/releases" target="_blank">Releases</a></li><li><a href="https://github.com/arez/arez" target="_blank">GitHub</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Recent Posts</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Recent Posts</h3><ul><li class="navListItem"><a class="navItem" href="/blog/2017/12/18/version-0.37-release.html">Arez 0.37 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2017/12/13/version-0.36-release.html">Arez 0.36 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2017/12/12/version-0.35-release.html">Arez 0.35 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2017/12/10/version-0.34-release.html">Arez 0.34 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2017/12/04/version-0.33-release.html">Arez 0.33 released</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer documentContainer postContainer blogContainer"><div class="wrapper"><div class="posts"><div class="post"><header class="postHeader"><h1><a href="/blog/2017/11/28/version-0.27-release.html">Arez 0.27 released</a></h1><p class="post-meta">November 28, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.26...v0.27">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<h4><a class="anchor" aria-hidden="true" name="added"></a><a href="#added" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Added</h4>
+<ul>
+<li><strong>[browser-extras]</strong> Enhance <code>NetworkStatus</code> component so that it exposes an observable property
+<code>lastChangedAt</code> that exposes the time at which online status last changed.</li>
+<li><strong>[annotations]</strong> Add boolean parameter <code>dagger</code> to <code>@Repository</code> annotation that defaults to false. If
+the <code>dagger</code> parameter is set to true then a <a href="https://google.github.io/dagger">Dagger2</a> module will be
+generated for the generated repository class.</li>
+<li><strong>[docs]</strong> Define a placeholder Logo for project and add favicon support to website.</li>
+<li><strong>[docs]</strong> Move the documentation to a separate repository <code>https://github.com/arez/arez.github.io</code> so
+that it is published to `` rather than <code>/arez</code>.</li>
+<li><strong>[docs]</strong> Add basic documentation of repositories.</li>
+<li><strong>[core]</strong> Expose the method <code>ArezContext.isTransactionActive()</code> with public access.</li>
+<li><strong>[processor]</strong> Treat the <code>Disposable.isDisposed()</code> method on enhanced component classes as &quot;optionally&quot;
+observable. If a transaction is currently active then it is treated as observable otherwise it is treated
+as a non-observable property.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="fixed"></a><a href="#fixed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fixed</h4>
+<ul>
+<li><strong>[annotations]</strong> Fix the documentation on <code>@OnDepsChanged</code> annotation to correctly describe the default
+naming convention.</li>
+<li><strong>[processor]</strong> Enhance the processor to remove the direct dependency on the <code>arez-component</code> and
+<code>arez-annotations</code> artifact. If the <code>arez-processor</code> is added to a separate <code>-processorpath</code> during
+compilation, the <code>arez-component</code> no longer needs to be added to the <code>-processorpath</code>.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="changed"></a><a href="#changed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changed</h4>
+<ul>
+<li>Upgrade the version of javapoet to 1.8.0.</li>
+<li>💥 <strong>[processor]</strong> Changed the naming convention of the classes generated from nested static classes.
+Previously the name components were separated by a <code>$</code> but this is the same convention that is used by
+nested classes and thus a nested class could have aname collision with a generated class. Instead the
+<code>_</code> character has been used to separate name components.</li>
+<li><strong>[processor]</strong> Change the enhanced component classes to not cache the <code>ArezContext</code> in single zone
+systems. Instead single-zone systems use <code>Arez.context()</code> to get the context which allows GWT/GCC to
+identify the <code>context</code> field as unused and eliminate it.</li>
+</ul>
+</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2017/11/14/version-0.26-release.html">Arez 0.26 released</a></h1><p class="post-meta">November 14, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.25...v0.26">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<h4><a class="anchor" aria-hidden="true" name="changed"></a><a href="#changed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changed</h4>
+<ul>
+<li>💥 Move arez from <code>https://github.com/realityforge/arez</code> to own organization <code>https://github.com/arez/arez</code>.</li>
+</ul>
+</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2017/11/08/version-0.25-release.html">Arez 0.25 released</a></h1><p class="post-meta">November 8, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.24...v0.25">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<h4><a class="anchor" aria-hidden="true" name="fixed"></a><a href="#fixed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fixed</h4>
+<ul>
+<li><strong>[core]</strong> When exceptions are thrown when calculating the value for <code>ComputedValue</code>, the <code>ComputedValue</code>
+was marked as in error and a null was returned to the caller. This could mislead the observer into thinking
+that the state was valid and/or may lead to hard to track down errors such as <code>NullPointerException</code>s when
+the components cast the result of <code>ComputedValue</code> to a primitive value. This has been fixed so that if a
+computation results in an exception then this exception will be cached for the <code>ComputedValue</code> and thrown
+for the caller to handle. Subsequent invocations of <code>ComputedValue.get()</code> will re-throw the same exception
+if the <code>ComputedValue</code> is still in a state of <code>UP_TO_DATE</code>. If the <code>ComputedValue</code> invokes compute again
+and produces another exception then the toolkit assumes that the <code>ComputedValue</code> is in the same error state
+and does not transition dependencies from <code>POSSIBLY_STALE</code> to <code>STALE</code>.</li>
+<li><strong>[extras]</strong> Ensure that the <code>dispose()</code> method on <code>org.realityforge.arez.extras.Watcher</code> is performed in a
+single transaction. This makes sure that the <code>Watcher</code> does not react whilst partially disposed.</li>
+<li><strong>[core]</strong> Ensure that <code>ComputedValue.dispose()</code> never attempts to dispose value multiple times by moving
+the setting of the <code>_disposed</code> flag to the top of the method.</li>
+<li><strong>[core]</strong> If an <code>Observable</code> is disposed that is a derivation of a <code>ComputedValue</code> then avoid generating a
+<code>ObservableDisposedEvent</code> spy event aso the <code>ComputedValueDisposedEvent</code> is sufficient to indicate that it
+is being disposed.</li>
+<li><strong>[core]</strong> When disposing a <code>ComputedValue</code>, ensure the spy event indicating it has been disposes is disposed
+prior to disposing the associated <code>Observer</code> and <code>Observable</code>.</li>
+<li><strong>[core]</strong> If an <code>Observable</code> is disposed that is a derivation of a <code>ComputedValue</code> then ensure that the
+associated <code>Observer</code> and <code>ComputedValue</code> are also disposed.</li>
+<li><strong>[core]</strong> Move the code that propagates the spy event when a <code>Observable</code> is disposed outside of the
+transaction so that event ordering is consistent across different scenarios.</li>
+<li><strong>[core]</strong> Always wrap the <code>Observable.dispose()</code> method in it's own transaction, regardless of whether there
+is currently a transaction active.</li>
+<li><strong>[annotations]</strong> Made sure that the return value from an <code>@ObservableRef</code> annotated method could accept a
+type parameter. The bug was introduced in v0.23 when <code>Observable</code> started to take a type parameter but the annotation
+processing code had not been updated to reflect change.</li>
+<li><strong>[core]</strong> Fix the generics on the <code>ArezContext.createObservable(...)</code> methods to pass the type parameter to
+observable and make sure the type parameter is documented.</li>
+<li><strong>[annotations]</strong> Enforced naming convention for <code>type</code> parameter of the <code>@ArezComponent</code> annotation.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="added"></a><a href="#added" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Added</h4>
+<ul>
+<li><strong>[core]</strong> Add the <code>ArezContext.createObservable()</code> method that will synthesize the observable name if
+names are enabled.</li>
+<li>Update the release process so that every release creates a &quot;Github Release&quot; and any open milestone that
+matches the release is closed.</li>
+<li><strong>[core]</strong> Introduce the concept of <a href="/docs/native_components.html">Native Components</a>. Native
+components allow the explicit representation of components within the core of Arez. This is in contrast to the
+implicit representation of components that already exists as a result of the <code>@ArezComponent</code> annotation and the
+annotation processor. Native components can be enabled or disabled at compile time and if disabled will have no
+performance impact. Native components make it possible to introspect the component structure at runtime. This
+feature is designed to enable the construction of DevTools and as such native components are enabled by default
+in development mode and disabled in production mode.</li>
+<li><strong>[annotations]</strong> Add the <code>@ComputedValueRef</code> annotation to allow the reactive component to get access to
+the underling <code>ComputedValue</code> instance for a <code>@Computed</code> annotated property. This is useful for framework authors
+who need access to low level primitives but still want to make use of the arez component model.</li>
+<li><strong>[core]</strong> Expose the <code>Observable</code> and <code>ComputedValue</code> property introspectors introduced in v0.23 via the spy
+interface. This is designed to enable the ability to write DevTools that introspects these values.</li>
+<li><strong>[core]</strong> Define registries for all instances of <code>Observer</code>, <code>Observable</code> and <code>ComputedValue</code> that are not
+contained by a <code>Component</code>. These registries are exposed via the spy interface. As the registries add significant
+overhead, provide a configuration setting <code>arez.enable_registries</code> that is disabled by default but is enabled
+in development mode.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="changed"></a><a href="#changed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changed</h4>
+<ul>
+<li>💥 <strong>[annotations]</strong> Actually remove <code>disposable</code> parameter from the <code>@ArezComponent</code> as v0.24 just removed
+all the associated functionality and made the parameter ignored.</li>
+<li>💥 <strong>[core]</strong> Changed the type of the first parameter of <code>ObserverErrorHandler.onObserverError</code> from <code>Node</code>
+to <code>Observer</code>. It was originally <code>Node</code> as <code>Observer</code> was a package private type but now that <code>Observer</code> is public
+it can be exposed as part of the public API.</li>
+<li><strong>[extras]</strong> Changed the <code>org.realityforge.arez.extras.Watcher</code> class from being a handcrafted reactive component
+to being a class annotated with <code>@ArezComponent</code> and managed using the standard reactive infrastructure.</li>
+<li>💥 <strong>[extras]</strong> Stopped the <code>org.realityforge.arez.extras.Watcher</code> class from extending <code>Node</code> as it is really
+a component rather than a node. This means that the <code>ArezExtras.when(...)</code> functions need to return a <code>Disposable</code>
+rather than a <code>Node</code>.</li>
+<li>💥 <strong>[extras]</strong> Changed the effect of the <code>Watcher</code> class from type <code>Procedure</code> to <code>SafeProcedure</code> as it is not
+expected to throw an exception as it would be swallowed by the framework. This forces the toolkit users to handle
+any error scenarios explicitly.</li>
+<li><strong>[core]</strong> Change the invariant for enforcing transaction type from an <code>invariant</code> to a <code>apiInvariant</code> so that
+can disable invariants but keep apiInvariants enabled and still invariant. This is useful for downstream consumers.</li>
+<li>💥 <strong>[annotations]</strong> Remove <code>singleton</code> parameter from the <code>@ArezComponent</code> annotation. The only valid use case
+was to control whether the names generated in enhanced component classes included the id of the component in the
+name. It significantly increased the complexity of code in generators as there was two separate code paths, one for
+when <code>singleton=true</code> and one for where <code>singleton=false</code>. It was also used to stop toolkit users from using
+certain annotations when <code>singleton=true</code> (i.e. You could not use <code>@ContainerId</code>, <code>@ContainerName</code>, <code>@Repository</code>).
+These were arbitrary design decisions and the constraint has been removed. The enhanced component classes will now
+always generate name helper methods and a synthetic component id if none has been specified. This has simplified
+the annotation processor and the generated code. To restore the ability to elide the id from the component name,
+the parameter <code>nameIncludesId=false</code> is now supported on the <code>@ArezComponent</code> annotation.</li>
+<li>💥 <strong>[annotations]</strong> Rename <code>name</code> parameter on <code>@ArezComponent</code> to <code>type</code> to correctly reflect semantics.</li>
+<li>💥 <strong>[core]</strong> Removed the <code>Zone.activate()</code> and <code>Zone.deactivate()</code> methods and replace them with
+<code>Zone.run(Procedure)</code>, <code>Zone.run(Function)</code>, <code>Zone.safeRun(SafeProcedure)</code> and <code>Zone.safeRun(SafeFunction)</code> as
+these methods eliminate the need to correct pair activate and deactivate calls.</li>
+</ul>
+</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2017/11/02/version-0.24-release.html">Arez 0.24 released</a></h1><p class="post-meta">November 2, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.23...v0.24">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<h4><a class="anchor" aria-hidden="true" name="changed"></a><a href="#changed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changed</h4>
+<ul>
+<li>💥 <strong>[annotations]</strong> Remove <code>disposable</code> parameter from the <code>@ArezComponent</code> annotation as all generated
+components should implement <code>Disposable</code>. Not doing so can lead to memory leaks.</li>
+<li>💥 <strong>[core]</strong> Change the default value of the compile time property <code>arez.logger</code> to be derived from the
+<code>arez.environment</code> setting. If <code>arez.environment</code> is <code>production</code> then <code>arez.logger</code> is set to <code>jul</code> and a
+<code>java.util.Logger</code> based implementation is used. If <code>arez.environment</code> is <code>development</code> then a proxy based
+version is used, that is useful during testing. Specify the proeprty in <code>Arez.gwt.xml</code> so that GWT compiles
+will treat it as a compile time constant and default it to <code>jul.</code></li>
+</ul>
+</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2017/11/01/version-0.23-release.html">Arez 0.23 released</a></h1><p class="post-meta">November 1, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.22...v0.23">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<h4><a class="anchor" aria-hidden="true" name="added"></a><a href="#added" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Added</h4>
+<ul>
+<li><strong>[core]</strong> Add the <code>ArezContext.pauseScheduler()</code> method that allows the developer to manually pause
+reactions and <code>ArezContext.isSchedulerPaused()</code> to determine if the scheduler is paused. This gives the
+toolkit user the ability to manually batch actions so application can react to the changes once.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="fixed"></a><a href="#fixed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fixed</h4>
+<ul>
+<li><strong>[core]</strong> Invariant failures could refer to <code>ArezConfig.enableNames()</code> which is a package access internal
+API. Update messages to use public API <code>Arez.areNamesEnabled()</code>. Also update internal code to use public API
+where appropriate.</li>
+<li><strong>[core]</strong> Invariant failures could refer to <code>ArezConfig.enableSpy()</code> which is a package access internal
+API. Update messages to use public API <code>Arez.areSpiesEnabled()</code>. Also update internal code to use public API
+where appropriate.</li>
+<li><strong>[core]</strong> Avoid referencing <code>TransactionMode</code> if <code>ArezConfig.enforceTransactionType()</code> returns false. The
+dispose actions had been implemented without taking this into account.</li>
+<li><strong>[core]</strong> <code>ArezTestUtil</code> could still modify settings when in production mode if assertions were disabled.
+Explicitly disable this by throwing an exception after assertion so settings will never be modified in
+production mode.</li>
+<li><strong>[core]</strong> Ensured that <code>arez.enable_spies</code> is a compile time constant by adding it to the <code>.gwt.xml</code>
+modules. This was previously omitted which could lead to inconsistent behaviour.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="changed"></a><a href="#changed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changed</h4>
+<ul>
+<li>💥 <strong>[core]</strong> Enhance <code>Observable</code> to accept accessors and mutators during construction. These accessors
+and mutators allow introspection of the <code>Observable</code> at runtime. These are primarily aimed at supporting
+development time tooling and should be optimized away during production builds. To enable this <code>Observable</code>
+needs to be defined with a type parameter and the <code>ArezContext.createObservable(...)</code> needed to be updated
+to support this use-case. This capability should be compiled out if <code>Arez.arePropertyIntrospectorsEnabled()</code>
+returns false and this is controlled by the gwt configuration property <code>&quot;arez.enable_property_introspection&quot;</code>.
+The annotation processor has also been updated to supply the accessor and mutator (if a setter has been
+defined) to the <code>Observable</code> iff <code>Arez.arePropertyIntrospectorsEnabled()</code> returns true.</li>
+<li><strong>[processor]</strong> Consistently prefix field access with <code>this.</code> in generated component classes.</li>
+<li>💥 <strong>[core]</strong> Replaced all usages of <code>ArezTestUtil.set*(boolean)</code> with a pair of methods that enable or
+disable a setting. Ensured all of the names of configuration used in <code>ArezTestUtil</code> align with names used
+by <code>Arez</code> to refer to same setting.</li>
+<li>💥 <strong>[core]</strong> Rename and invert compile time setting from <code>arez.repositories_return_immutables</code> to
+<code>arez.repositories_results_modifiable</code> and expose it via <code>Arez.areRepositoryResultsModifiable()</code> and allow
+configuration during development via <code>ArezTestUtil</code>. The annotation processor was updated to use
+<code>Arez.areRepositoryResultsModifiable()</code> when generating repositories.</li>
+</ul>
+</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2017/10/29/version-0.22-release.html">Arez 0.22 released</a></h1><p class="post-meta">October 29, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.21...v0.22">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<h4><a class="anchor" aria-hidden="true" name="added"></a><a href="#added" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Added</h4>
+<ul>
+<li><strong>[annotations]</strong> Add the <code>@ObserverRef</code> annotation to allow the reactive component to get access to
+the underling <code>Observer</code> instance for either a <code>@Track</code> or <code>@Autorun</code> annotated method. This is useful for
+framework authors who need access to low level primitives but still want to make use of the arez component
+model.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="fixed"></a><a href="#fixed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fixed</h4>
+<ul>
+<li>Fixed bug where the annotation processor was not copying the documented annotations from the method annotated
+with the <code>@ContextRef</code> annotation to the overriding method in generated subclass.</li>
+<li>Fixed bug where the source code generated for <code>@Tracked</code> methods would fail if the <code>@OnDepsChanged</code> method
+is protected access and in a different package.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="changed"></a><a href="#changed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changed</h4>
+<ul>
+<li>💥 <strong>[annotations]</strong> Renamed the <code>@OnDepsUpdated</code> annotation to <code>@OnDepsChanged</code> to reflect nomenclature
+used through the rest of the toolkit.</li>
+</ul>
+</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2017/10/28/version-0.21-release.html">Arez 0.21 released</a></h1><p class="post-meta">October 28, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.20...v0.21">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<h4><a class="anchor" aria-hidden="true" name="fixed"></a><a href="#fixed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fixed</h4>
+<ul>
+<li>Fixed bug where the annotation processor was not copying the access modifiers from the method annotated with the
+<code>@ContextRef</code> annotation to the overriding method in generated subclass.</li>
+</ul>
+</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2017/10/28/version-0.20-release.html">Arez 0.20 released</a></h1><p class="post-meta">October 28, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.19...v0.20">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<h4><a class="anchor" aria-hidden="true" name="added"></a><a href="#added" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Added</h4>
+<ul>
+<li>Added support for <code>@ContextRef</code> annotation that marks a method as returning the <code>ArezContext</code> that the
+generated subclass is using.</li>
+</ul>
+</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2017/10/27/version-0.19-release.html">Arez 0.19 released</a></h1><p class="post-meta">October 27, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.18...v0.19">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<h4><a class="anchor" aria-hidden="true" name="added"></a><a href="#added" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Added</h4>
+<ul>
+<li>Introduce the concept of a <a href="/docs/zones.html"><code>Zone</code></a> which is an isolated Arez context.</li>
+<li>Add some cute icons to start of &quot;computed&quot; messages and &quot;scheduled&quot; messages in <code>ConsoleSpyEventProcessor</code>.
+These were source from the <a href="https://github.com/andykog/mobx-devtools">mobx-devtools</a> project.</li>
+<li>Add support for interleaving transactions from different instances of <code>ArezContext</code>. Beginning a transaction
+in one context will suspend the active transaction even if it is from a different context. The goal is to
+enable isolation between multiple contexts running within the same application.</li>
+<li><strong>[core]</strong> Introduced <code>ArezTestUtil.resetConfig(boolean productionMode)</code> to simplify test setup.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="fixed"></a><a href="#fixed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fixed</h4>
+<ul>
+<li><strong>[processor]</strong> Fixed bug where disposable of an arez component did not wrap all the dispose actions in
+a single transaction which could result in the <code>dispose()</code> causing an observer on the component to react
+when it is partially disposed which often causes failures.</li>
+<li><strong>[processor]</strong> Ensure that the types of the setter and getter for an <code>@Observable</code> property are the
+same. Otherwise the overridden setter method method will call <code>Objects.equal(...)</code> on values of incompatible
+types which would always be &quot;not equal&quot;. If a developer desires different types on the setter and getter they
+can use a package access setter or getter that matches paired methods type and then expose another method that
+is not annotated with <code>@Observable</code> to transform to the desired type.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="changed"></a><a href="#changed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changed</h4>
+<ul>
+<li>💥 <strong>[core]</strong> Made the <code>ArezContext</code> constructors package access so that developers are forced to access
+contexts through the <code>org.realityforge.arez.Arez</code> class.</li>
+<li>💥 <strong>[core]</strong> Move <code>ArezContext.areNamesEnabled()</code> to <code>Arez.areNamesEnabled()</code>.</li>
+<li>💥 <strong>[core]</strong> Move <code>ArezContext.areSpiesEnabled()</code> to <code>Arez.areSpiesEnabled()</code>.</li>
+<li>Upgrade to BrainCheck 1.3.0 so assertion failures open the debugger.</li>
+<li>💥 <strong>[core]</strong> Remove <code>Arez.bindProvider()</code> and all associated support infrastructure. Explicitly binding
+providers did not give enough flexibility to implement the desired features (i.e. <code>Zones</code> and thread-local
+<code>ArezContext</code> instances) so remove it until a suitable alternative can be found.</li>
+<li><strong>[core]</strong> Remove <code>@Unsupported</code> annotation from <code>org.realityforge.arez.Arez</code> as it is now stable.</li>
+</ul>
+</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2017/10/23/version-0.18-release.html">Arez 0.18 released</a></h1><p class="post-meta">October 23, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.17...v0.18">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<h4><a class="anchor" aria-hidden="true" name="added"></a><a href="#added" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Added</h4>
+<ul>
+<li>Added the class <code>org.realityforge.arez.ArezTestUtil</code> that exposes methods that simplify testing <code>Arez</code> in
+downstream consumers. It exposes mechanisms already used within the Arez library, that were previously
+restricted to use within Arez.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" name="changed"></a><a href="#changed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changed</h4>
+<ul>
+<li><strong>[core]</strong> Expose the method <code>ArezContext.generateNodeName(...)</code> to make it easier for downstream libraries
+to generate names for reactive components. Update <code>ArezExtras</code> class to make use of this method and remove
+local name generation methods.</li>
+<li><strong>[processor]</strong> Enhanced the processor so that disposable entities that are created by a repository will
+be removed from the repository if they are disposed directly by invoking <code>Disposable.dispose( entity )</code> or
+similar.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev" href="/blog/">← Prev</a><a class="docs-next" href="/blog/page3/">Next →</a></div></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="Arez" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/docs/concepts.html">Concepts</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/arez/arez" data-icon="octicon-star" data-count-href="/arez/arez/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the Arez Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                apiKey: 'b8c49751e0914443436822868f0c5000',
+                indexName: 'arez',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

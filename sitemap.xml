@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://arez.github.io/index.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/en/index.html" /> </url>
+<url> <loc>https://arez.github.io/blog/2017/12/18/version-0.37-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/12/13/version-0.36-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/12/12/version-0.35-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/12/10/version-0.34-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/12/04/version-0.33-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/12/01/version-0.32-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/12/01/version-0.31-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/11/29/version-0.30-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/11/28/version-0.29-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/11/28/version-0.28-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/11/28/version-0.27-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/11/14/version-0.26-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/11/08/version-0.25-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/11/02/version-0.24-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/11/01/version-0.23-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/29/version-0.22-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/28/version-0.21-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/28/version-0.20-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/27/version-0.19-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/23/version-0.18-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/23/version-0.17-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/19/version-0.16-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/18/version-0.15-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/16/version-0.14-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/13/version-0.12-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/11/version-0.11-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/09/version-0.10-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/09/version-0.09-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/08/version-0.08-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/05/version-0.07-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/04/version-0.06-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/04/version-0.05-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/03/version-0.04-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/10/02/version-0.03-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/09/28/version-0.02-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/09/27/version-0.01-release.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/blog/2017/09/22/website-launched.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://arez.github.io/docs/accessing_primitives.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/accessing_primitives.html" /> </url>
+<url> <loc>https://arez.github.io/docs/actions.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/actions.html" /> </url>
+<url> <loc>https://arez.github.io/docs/component_example.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/component_example.html" /> </url>
+<url> <loc>https://arez.github.io/docs/components.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/components.html" /> </url>
+<url> <loc>https://arez.github.io/docs/computed_values.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/computed_values.html" /> </url>
+<url> <loc>https://arez.github.io/docs/concepts.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/concepts.html" /> </url>
+<url> <loc>https://arez.github.io/docs/dependency_injection.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/dependency_injection.html" /> </url>
+<url> <loc>https://arez.github.io/docs/development_process.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/development_process.html" /> </url>
+<url> <loc>https://arez.github.io/docs/faq.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/faq.html" /> </url>
+<url> <loc>https://arez.github.io/docs/getting_started.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/getting_started.html" /> </url>
+<url> <loc>https://arez.github.io/docs/motivation.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/motivation.html" /> </url>
+<url> <loc>https://arez.github.io/docs/native_components.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/native_components.html" /> </url>
+<url> <loc>https://arez.github.io/docs/observables.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/observables.html" /> </url>
+<url> <loc>https://arez.github.io/docs/observers.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/observers.html" /> </url>
+<url> <loc>https://arez.github.io/docs/overview.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/overview.html" /> </url>
+<url> <loc>https://arez.github.io/docs/project_setup.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/project_setup.html" /> </url>
+<url> <loc>https://arez.github.io/docs/repositories.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/repositories.html" /> </url>
+<url> <loc>https://arez.github.io/docs/scheduler.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/scheduler.html" /> </url>
+<url> <loc>https://arez.github.io/docs/transactions.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/transactions.html" /> </url>
+<url> <loc>https://arez.github.io/docs/zones.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/zones.html" /> </url>
+</urlset>

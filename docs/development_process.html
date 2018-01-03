@@ -1,0 +1,92 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Development Process · Arez</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Development Process · Arez"/><meta property="og:type" content="website"/><meta property="og:url" content="https://arez.github.io/index.html"/><meta property="og:description" content="## Documenting changes in CHANGELOG.md"/><link rel="shortcut icon" href="/img/favicon-32x32.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><link rel="alternate" type="application/atom+xml" href="https://arez.github.io/blog/atom.xml" title="Arez Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://arez.github.io/blog/feed.xml" title="Arez Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">Arez</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="/blog" target="_self">Blog</a></li><li><a href="https://github.com/arez/arez/releases" target="_blank">Releases</a></li><li><a href="https://github.com/arez/arez" target="_blank">GitHub</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Project Documentation</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>About</h3><ul><li class="navListItem"><a class="navItem" href="/docs/overview.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/motivation.html">Motivation</a></li><li class="navListItem"><a class="navItem" href="/docs/project_setup.html">Project Setup</a></li><li class="navListItem"><a class="navItem" href="/docs/getting_started.html">Getting Started</a></li></ul></div><div class="navGroup navGroupActive"><h3>Concepts</h3><ul><li class="navListItem"><a class="navItem" href="/docs/concepts.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/transactions.html">Transactions</a></li><li class="navListItem"><a class="navItem" href="/docs/observables.html">Observables</a></li><li class="navListItem"><a class="navItem" href="/docs/computed_values.html">Computed Values</a></li><li class="navListItem"><a class="navItem" href="/docs/observers.html">Observers</a></li><li class="navListItem"><a class="navItem" href="/docs/actions.html">Actions</a></li><li class="navListItem"><a class="navItem" href="/docs/scheduler.html">Scheduler</a></li><li class="navListItem"><a class="navItem" href="/docs/native_components.html">Native Components</a></li><li class="navListItem"><a class="navItem" href="/docs/zones.html">Zones</a></li></ul></div><div class="navGroup navGroupActive"><h3>Components</h3><ul><li class="navListItem"><a class="navItem" href="/docs/components.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/component_example.html">Example</a></li><li class="navListItem"><a class="navItem" href="/docs/repositories.html">Repositories</a></li><li class="navListItem"><a class="navItem" href="/docs/accessing_primitives.html">Accessing primitives</a></li><li class="navListItem"><a class="navItem" href="/docs/dependency_injection.html">Dependency Injection</a></li></ul></div><div class="navGroup navGroupActive"><h3>Project Documentation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq.html">Frequently Asked Questions</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/development_process.html">Development Process</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/arez/arez/tree/master/docs/development_process.md" target="_blank">Edit</a><h1>Development Process</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" name="documenting-changes-in-changelogmd"></a><a href="#documenting-changes-in-changelogmd" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Documenting changes in CHANGELOG.md</h2>
+<p>The Changelog is where users go to see what has changed between versions so it is essential we keep it
+up to date. A poor changelog should be considered a bug to be fixed.</p>
+<p>The basic structure of the changelog is sourced from the <a href="http://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>
+site but the format should be obvious from reviewing the file. The valid sections in each version and their
+meanings are as follows:</p>
+<ul>
+<li>✨ <strong>Added</strong> for new features.</li>
+<li><strong>Changed</strong> for changes in existing functionality.</li>
+<li>💥 <strong>Changed</strong> for breaking changes in existing functionality.</li>
+<li><strong>Deprecated</strong> for soon-to-be removed features.</li>
+<li><strong>Removed</strong> for now removed features.</li>
+<li><strong>Fixed</strong> for any bug fixes.</li>
+<li><strong>Security</strong> in case of vulnerabilities.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" name="publishing-the-website"></a><a href="#publishing-the-website" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publishing the Website</h2>
+<p>TravisCI regenerates the website every time a commit is pushed to the master branch. The initial setup was
+derived from a <a href="https://gist.github.com/domenic/ec8b0fc8ab45f39403dd">gist</a> and customized for our project.
+The basic idea is to setup the GitHub project with a deploy key, encrypt the key and make it available to
+TravisCI that will unencrypt it as part of the build.</p>
+<p>Firstly you create the key via the following command. Make sure you use an empty password.</p>
+<pre><code class="hljs">$ ssh-keygen -t rsa -b 4096 -C &quot;peter@realityforge.org&quot; -f ../deploy
+</code></pre>
+<p>This is a private key and should NOT be checked into source code repository. Instead an encrypted version
+of the file is checked in. See the &quot;Encrypting Files for TravisCI&quot; section below for how to do this.</p>
+<p>Then update the travis configuration file in the <code>before_install</code> section and after the encrypted file has been
+decoded add the following.</p>
+<pre><code class="hljs css yaml"><span class="hljs-bullet">  -</span> <span class="hljs-string">chmod</span> <span class="hljs-number">600</span> <span class="hljs-string">../deploy</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">eval</span> <span class="hljs-string">`ssh-agent</span> <span class="hljs-bullet">-s`</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">ssh-add</span> <span class="hljs-string">../deploy</span>
+</code></pre>
+<p>Finally you add the public part of the deploy key to the repository at
+<a href="https://github.com/arez/arez.github.io/settings/keys">https://github.com/arez/arez.github.io/settings/keys</a> and
+make sure you give the key write access.</p>
+<h2><a class="anchor" aria-hidden="true" name="publishing-to-maven-central"></a><a href="#publishing-to-maven-central" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publishing to Maven Central</h2>
+<p>Arez releases are published to Maven Central. To simplify this process we have automated the release
+process so that the last step of the TravisCI build is to run the task <code>publish_if_tagged</code>. If the
+current git version is a tag, the artifacts produced by the build will be published to Maven Central.</p>
+<p>To enable this we needed to provide encrypted credentials to TravisCI. The easiest way to do this is
+to run the commands below and add the output under <code>env.global</code> key in the travis configuration.
+This encrypts the password but makes it available when building on TravisCI.</p>
+<pre><code class="hljs">travis encrypt MAVEN_CENTRAL_PASSWORD=MyPassword --add
+travis encrypt GPG_USER=MyGpgUsername --add
+travis encrypt GPG_PASS=MyGpgPassword --add
+</code></pre>
+<p>You also need to provide a gpg key that can be used to sign the releases. To do this export a GPG that
+can be used to sign releases to a file such as <code>../release.asc</code>. This should contain the private key and
+should NOT be checked into source code repository. Instead an encrypted version of the file is checked.
+See the &quot;Encrypting Files for TravisCI&quot; section below for how to do this.</p>
+<p>Then update the travis configuration file in the <code>before_install</code> section and after the encrypted file has been
+decoded add the following.</p>
+<pre><code class="hljs css yaml"><span class="hljs-bullet">  -</span> <span class="hljs-string">chmod</span> <span class="hljs-number">600</span> <span class="hljs-string">../release.asc</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">gpg</span> <span class="hljs-bullet">--import</span> <span class="hljs-string">../release.asc</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" name="publishing-coverage-reports-to-codecov"></a><a href="#publishing-coverage-reports-to-codecov" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publishing Coverage Reports to codecov</h2>
+<p>The project publishes the code coverage reports to codecov. This is to make it easier to review pull requests
+and to get a quick overview on how we are doing test-coverage wise. It is not a goal of the project to get 100%
+test coverage as that does not necessarily mean the tests are any good. Some parts of the codebase we do try and
+keep reasonably high coverage as they are complex pieces of code. The coverage just helps asses the code and
+may suggest parts that need more testing.</p>
+<p>To get codecov reports, the project was signed up to codecov and then we enabled the buildr <code>jacoco</code> addon. Then
+all that remains is to add the following snippet in out TravisCI configuration.</p>
+<pre><code class="hljs css yaml"><span class="hljs-attr">after_success:</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">bash</span> <span class="hljs-string">&lt;(curl</span> <span class="hljs-bullet">-s</span> <span class="hljs-attr">https://codecov.io/bash)</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" name="encrypting-files-for-travisci"></a><a href="#encrypting-files-for-travisci" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Encrypting Files for TravisCI</h2>
+<p>TravisCI can only decrypt a single file in a build. As soon as you start requiring multiple secret files you need
+to package them into an archive and encrypt the archive. As we need multiple keys to publish to Maven Central
+and publish to GitHub we have been forced to use this strategy.</p>
+<pre><code class="hljs">$ (cd .. &amp;&amp; tar cvf secrets.tar release.asc deploy)
+$ mkdir etc
+$ travis encrypt-file ../secrets.tar etc/secrets --add
+$ git add etc/secrets
+</code></pre>
+<p>Then update the travis configuration file as specified by <code>travis encrypt-file</code> command and unpack the archive.
+The start of the <code>before_install</code> section should look something like:</p>
+<pre><code class="hljs css yaml"><span class="hljs-attr">before_install:</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">openssl</span> <span class="hljs-string">aes-256-cbc</span> <span class="hljs-bullet">-K</span> <span class="hljs-string">$encrypted_000000000000_key</span> <span class="hljs-bullet">-iv</span> <span class="hljs-string">$encrypted_000000000000_iv</span> <span class="hljs-bullet">-in</span> <span class="hljs-string">etc/secrets</span> <span class="hljs-bullet">-out</span> <span class="hljs-string">../secrets.tar</span> <span class="hljs-bullet">-d</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">(cd</span> <span class="hljs-string">../</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">tar</span> <span class="hljs-string">xvf</span> <span class="hljs-string">secrets.tar)</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="faq.html">← Frequently Asked Questions</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="Arez" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/docs/concepts.html">Concepts</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/arez/arez" data-icon="octicon-star" data-count-href="/arez/arez/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the Arez Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                apiKey: 'b8c49751e0914443436822868f0c5000',
+                indexName: 'arez',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
