@@ -27,9 +27,9 @@ zone.run( () -&gt; {
   <span class="hljs-comment">// Zone is deactivated when it leaves this block</span>
 } );</code></pre></p>
 <p>Zones also work with annotation-based <a href="/docs/components.html">components</a>. When components defined by the
-<a href="/api/org/realityforge/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a> are created, they will invoke <a href="/api/org/realityforge/arez/ArezContext.html#context--"><code>Arez.context()</code></a>
-and the component will be bound to the current zone. If a method annotated with <a href="/api/org/realityforge/arez/annotations/Action.html"><code>@Action</code></a>,
-<a href="/api/org/realityforge/arez/annotations/Track.html"><code>@Track</code></a> or <a href="/api/org/realityforge/arez/annotations/Autorun.html"><code>@Autorun</code></a> is invoked, the method will switch to the zone
+<a href="/docs/at_arez_component.html">@ArezComponent</a> are created, they will invoke <a href="/api/org/realityforge/arez/ArezContext.html#context--"><code>Arez.context()</code></a>
+and the component will be bound to the current zone. If a method annotated with <a href="/docs/at_action.html">@Action</a>,
+<a href="/docs/at_track.html">@Track</a> or <a href="/docs/at_autorun.html">@Autorun</a> is invoked, the method will switch to the zone
 in which they were created if is different from the current zone.</p>
 <p>An example that uses components is:</p>
 <p><pre><code class="hljs"><span class="hljs-comment">// Create zone</span>
