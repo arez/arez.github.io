@@ -11,12 +11,12 @@ them wherever possible.</p>
 <p>Computed values are automatically derived from your state if any value that affects them changes. Computed
 values can be optimized away in many cases by Arez as they are assumed to be pure. For example, a computed
 property won't re-run if none of the data used in the previous computation changed. Nor will a computed
-property re-run if is not in use by some other computed property or reaction. In such cases it will be
+property re-run if is not in use by some other computed property or observer. In such cases it will be
 suspended.</p>
 <p>Don't confuse computed values with autorun <a href="/docs/observers.html">observers</a>. They are both reactively invoked
 expressions, but use computed values if you want to produce a value that can be used by other observers
-or computed values and use autorun <a href="/docs/observers.html">observers</a> if you don't want to produce a new value but
-rather want to achieve an effect. For example imperative side effects like logging, making network requests
+or computed values. Use autorun <a href="/docs/observers.html">observers</a> if you don't want to produce a new value but
+rather want to achieve an effect such as imperative side effects like logging, making network requests
 etc.</p>
 <p>This automatic suspension is very convenient. If a computed value is no longer observed, for example the
 UI in which it was used no longer exists, then Arez wil no longer recalculate the value. This differs from
@@ -46,6 +46,16 @@ is often used to initiate processes to update the computed value.</li>
 <li><strong>onDispose</strong>: This callback is invoked when the computed value is disposed. This callback is used to release
 resources (i.e. event listeners) that have been allocated in other callbacks.</li>
 </ul>
+<h2><a class="anchor" aria-hidden="true" name="equality-comparison"></a><a href="#equality-comparison" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Equality Comparison</h2>
+<p>Every time an activated computed value's dependency is marked as stale, the computed value will attempt to
+re-computed the computed value. If the computed value is equal to the cached value then the computed value
+will be marked as unchanged and no downstream observers or computed values will be scheduled.</p>
+<p>The determination of whether &quot;the computed value is equal&quot; is delegated to a functional interface that is
+supplied to the <a href="/api/org/realityforge/arez/ComputedValue.html"><code>ComputedValue</code></a> instance when it is constructed. The most common approach is to
+use the <code>Object.equals(...)</code> to perform comparison and thus delegate equality comparison to the supplied
+value. (The <a href="/docs/components.html">components</a> framework achieves this by passing the a method reference to
+builtin comparator via <code>Objects::equals</code>.) However users can supply their own equality code when using the
+low-level API.</p>
 <h2><a class="anchor" aria-hidden="true" name="error-handling"></a><a href="#error-handling" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Handling</h2>
 <p>Exceptions thrown when calculating computed values are caught by the Arez runtime using the same mechanisms that
 handle <a href="/docs/observers.html#error-handling">errors</a> in observers. The exception is cached and will be re-thrown in any
