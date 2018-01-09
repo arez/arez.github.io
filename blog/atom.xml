@@ -9,6 +9,24 @@
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
     <entry>
+        <title type="html"><![CDATA[Arez 0.39 released]]></title>
+        <id>https://arez.github.io/blog/2018/01/09/version-0.39-release.html</id>
+        <link href="https://arez.github.io/blog/2018/01/09/version-0.39-release.html">
+        </link>
+        <updated>2018-01-09T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.38...v0.39)
+
+Changes in this release:
+
+#### Fixed
+* Ensure that the source of the annotation generated artifacts is included in the `extras` and
+  `browser-extras` gwt classifier artifact.]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Arez 0.38 released]]></title>
         <id>https://arez.github.io/blog/2018/01/09/version-0.38-release.html</id>
         <link href="https://arez.github.io/blog/2018/01/09/version-0.38-release.html">
