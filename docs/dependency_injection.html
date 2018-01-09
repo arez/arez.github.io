@@ -56,7 +56,7 @@ construct and wire together a graph of objects however a common strategy is to a
 a single constructor for the type to be injected. Within the context of Arez this means annotating a constructor
 in the enhanced classes (i.e. <code>com.example.Arez_MyComponent</code> and <code>com.example.Arez_MyComponentRepository</code>).</p>
 <p>Arez will add the <code>@Inject</code> annotation to the constructor of the enhanced component if the <code>inject</code> parameter
-on the <code>@ArezComponent</code> is set to <code>TRUE</code>. If the <code>inject</code> parameter is <code>IF_DETECTED</code> and the base component is
+on the <code>@ArezComponent</code> is set to <code>ENABLE</code>. If the <code>inject</code> parameter is <code>AUTODETECT</code> and the base component is
 annotated with a &quot;scope&quot; annotation then Arez will annotate the enhanced subclass with the same scope annotation
 and add an <code>@Inject</code> annotation to the constructor.</p>
 <p>The <a href="/api/arez/annotations/Repository.html"><code>@Repository</code></a> annotation has a similar <code>inject</code> parameter and the base repository will
@@ -101,7 +101,7 @@ via <code>@dagger.Module</code> annotated classes.</p>
 <p>Arez has greater support for the dagger injection framework than GIN. The <a href="/api/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a>
 and <a href="/api/arez/annotations/Repository.html"><code>@Repository</code></a> annotations have a <code>dagger</code> parameter that controls whether the Arez
 annotation processor generates dagger modules.</p>
-<p>If the value of the <code>dagger</code> parameter is <code>TRUE</code> or <code>IF_DETECTED</code> and the <code>dagger.Component</code> class is on the
+<p>If the value of the <code>dagger</code> parameter is <code>ENABLE</code> or <code>AUTODETECT</code> and the <code>dagger.Component</code> class is on the
 classpath then a module will be generated for each base component and base repository that looks like:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@Generated</span>(<span class="hljs-string">"arez.processor.ArezProcessor"</span>)
 <span class="hljs-meta">@Module</span>

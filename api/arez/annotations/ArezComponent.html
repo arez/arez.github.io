@@ -272,8 +272,8 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <h4>inject</h4>
 <pre>public abstract&nbsp;<a href="../../arez/annotations/Injectible.html" title="enum in arez.annotations">Injectible</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.81">inject</a></pre>
 <div class="block">Indicate whether an @Inject annotation should be added to constructor of the generated class.
- <a href="../../arez/annotations/Injectible.html#TRUE"><code>Injectible.TRUE</code></a> will force the addition of an @Inject annotation, <a href="../../arez/annotations/Injectible.html#FALSE"><code>Injectible.FALSE</code></a>
- will result in no @Inject annotation and <a href="../../arez/annotations/Injectible.html#IF_DETECTED"><code>Injectible.IF_DETECTED</code></a> will add an @Inject
+ <a href="../../arez/annotations/Injectible.html#ENABLE"><code>Injectible.ENABLE</code></a> will force the addition of an @Inject annotation, <a href="../../arez/annotations/Injectible.html#DISABLE"><code>Injectible.DISABLE</code></a>
+ will result in no @Inject annotation and <a href="../../arez/annotations/Injectible.html#AUTODETECT"><code>Injectible.AUTODETECT</code></a> will add an @Inject
  if any fields or methods in the component or any parent type has an @Inject annotation OR the class
  has an annotation that is itself annotated with the javax.inject.Scope annotation.</div>
 <dl>
@@ -282,7 +282,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>arez.annotations.Injectible.IF_DETECTED</dd>
+<dd>arez.annotations.Injectible.AUTODETECT</dd>
 </dl>
 </li>
 </ul>
@@ -297,8 +297,8 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <h4>dagger</h4>
 <pre>public abstract&nbsp;<a href="../../arez/annotations/Injectible.html" title="enum in arez.annotations">Injectible</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.92">dagger</a></pre>
 <div class="block">Indicate whether a dagger module should be generated for enhanced component class.
- <a href="../../arez/annotations/Injectible.html#TRUE"><code>Injectible.TRUE</code></a> will force the generation of the module, <a href="../../arez/annotations/Injectible.html#FALSE"><code>Injectible.FALSE</code></a>
- will result in no dagger module and <a href="../../arez/annotations/Injectible.html#IF_DETECTED"><code>Injectible.IF_DETECTED</code></a> will add a dagger
+ <a href="../../arez/annotations/Injectible.html#ENABLE"><code>Injectible.ENABLE</code></a> will force the generation of the module, <a href="../../arez/annotations/Injectible.html#DISABLE"><code>Injectible.DISABLE</code></a>
+ will result in no dagger module and <a href="../../arez/annotations/Injectible.html#AUTODETECT"><code>Injectible.AUTODETECT</code></a> will add a dagger
  module if the <code>dagger.Module</code> class is present on the classpath AND the class
  has an annotation that is itself annotated with the javax.inject.Scope annotation.</div>
 <dl>
@@ -307,7 +307,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>arez.annotations.Injectible.IF_DETECTED</dd>
+<dd>arez.annotations.Injectible.AUTODETECT</dd>
 </dl>
 </li>
 </ul>
