@@ -437,8 +437,10 @@ Changes in this release:
 Changes in this release:
 
 #### Added
-* **\[browser-extras\]** Introduce the [`BrowserSpyUtil`](/api/org/realityforge/arez/browser/extras/spy/BrowserSpyUtil.html)
-  util class that ]]></summary>
+* **\[browser-extras\]** Introduce the `BrowserSpyUtil` util class that helps enabling and disabling a
+  singleton console logging spy.
+
+#### C]]></summary>
         <author>
             <name>Arez Project</name>
             <uri>https://github.com/arez</uri>
@@ -599,8 +601,8 @@ Changes in this release:
 Changes in this release:
 
 #### Added
-* **\[extras\]** Introduce the [`CssRules`](/api/org/realityforge/arez/browser/extras/spy/CssRules.html)
-  annotation to force IntelliJ IDEA to]]></summary>
+* **\[extras\]** Introduce the `CssRules` annotation to force IntelliJ IDEA to treat annotate content as css
+  rules for code formatting, compl]]></summary>
         <author>
             <name>Arez Project</name>
             <uri>https://github.com/arez</uri>
@@ -617,8 +619,9 @@ Changes in this release:
 Changes in this release:
 
 #### Added
-* ✨ **\[extras\]** Add the Arez component [`ObservablePromise`](/api/org/realityforge/arez/browser/extras/ObservablePromise.html)
-  that wraps ]]></summary>
+* ✨ **\[extras\]** Add the Arez component `ObservablePromise` that wraps a javascript native promise
+  and exposes the observable properties.
+*]]></summary>
         <author>
             <name>Arez Project</name>
             <uri>https://github.com/arez</uri>

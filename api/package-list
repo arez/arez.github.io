@@ -1,8 +1,8 @@
-org.realityforge.arez
-org.realityforge.arez.annotations
-org.realityforge.arez.browser.extras
-org.realityforge.arez.browser.extras.spy
-org.realityforge.arez.extras
-org.realityforge.arez.extras.spy
-org.realityforge.arez.processor
-org.realityforge.arez.spy
+arez
+arez.annotations
+arez.browser.extras
+arez.browser.extras.spy
+arez.extras
+arez.extras.spy
+arez.processor
+arez.spy

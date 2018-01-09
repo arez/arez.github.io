@@ -8,29 +8,26 @@
 <p>Changes in this release:</p>
 <h4><a class="anchor" aria-hidden="true" name="added"></a><a href="#added" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Added</h4>
 <ul>
-<li>✨ <strong>[extras]</strong> Add the Arez component <a href="/api/org/realityforge/arez/browser/extras/ObservablePromise.html"><code>ObservablePromise</code></a>
-that wraps a javascript native promise and exposes the observable properties.</li>
-<li>✨ <strong>[extras]</strong> Add the Arez component <a href="/api/org/realityforge/arez/browser/extras/IntervalTicker.html"><code>IntervalTicker</code></a>
-that &quot;ticks&quot; at a specified interval. The tick is actually updating the value of an observable property.</li>
-<li>✨ <strong>[extras]</strong> Add the utility class <a href="/api/org/realityforge/arez/browser/extras/TimedDisposer.html"><code>TimedDisposer</code></a>
-that disposes a target object after a specified timeout. Combining this with existing Arez components
-makes it easy to add timeouts to reactive elements.</li>
-<li><strong>[core]</strong> Added <a href="/api/org/realityforge/arez/Disposable.html#asDisposed-java.lang.Object-"><code>Disposable.asDisposable(Object)</code></a>
-utility that casts the specified object to a <code>Disposable</code>.</li>
+<li>✨ <strong>[extras]</strong> Add the Arez component <code>ObservablePromise</code> that wraps a javascript native promise
+and exposes the observable properties.</li>
+<li>✨ <strong>[extras]</strong> Add the Arez component <code>IntervalTicker</code> that &quot;ticks&quot; at a specified interval. The tick
+is actually updating the value of an observable property.</li>
+<li>✨ <strong>[extras]</strong> Add the utility class <code>TimedDisposer</code> that disposes a target object after a specified
+timeout. Combining this with existing Arez components makes it easy to add timeouts to reactive elements.</li>
+<li><strong>[core]</strong> Added <code>Disposable.asDisposable(Object)</code> utility that casts the specified object to a <code>Disposable</code>.</li>
 <li>Added automation to site deploy that verifies there are no broken links before uploading website.</li>
-<li>Added a <a href="/docs/motivation.html">Motivation</a> section to the website.</li>
+<li>Added a <a href="https://arez.github.io/docs/motivation.html">Motivation</a> section to the website.</li>
 <li><strong>[core]</strong> Began experimenting with the ability to serialize spy events (i.e. Those in the
 <code>org.realityforge.arez.spy</code> package) to <code>java.util.Map</code> instances. The goal is to extract and backport
 functionality from several downstream projects including the <code>example</code> and <code>gwt-example</code> sample projects
-aimed at serializing events. See the <a href="/api/org/realityforge/arez/spy/SerializableEvent.html"><code>SerializableEvent</code></a>
-interface implemented by all builtin spy events.</li>
-<li>✨ <strong>[extras]</strong> Extract a <a href="/api/org/realityforge/arez/extras/spy/SpyUtil.html"><code>SpyUtil</code></a>
-class from downstream projects. At this stage it just supports determining whether a spy event increases, decreases
-or does not modify the level of &quot;nesting&quot; in an event stream.</li>
-<li>✨ <strong>[extras]</strong> Extract the <a href="/api/org/realityforge/arez/extras/spy/AbstractSpyEventProcessor.html"><code>AbstractSpyEventProcessor</code></a>
-base class from downstream projects. This class is intended to make it easy to write tools that process spy events.</li>
-<li>✨ <strong>[browser-extras]</strong> Build the <a href="/api/org/realityforge/arez/browser/extras/spy/ConsoleSpyEventProcessor.html"><code>ConsoleSpyEventProcessor</code></a>
-class. It is a <code>SpyEventHandler</code> that prints spy events to the browser console in a developer friendly manner.</li>
+aimed at serializing events. See the <code>SerializableEvent</code> interface implemented by all builtin spy events.</li>
+<li>✨ <strong>[extras]</strong> Extract a <code>SpyUtil</code> class from downstream projects. At this stage it just supports
+determining whether a spy event increases, decreases or does not modify the level of &quot;nesting&quot; in an
+event stream.</li>
+<li>✨ <strong>[extras]</strong> Extract the <code>AbstractSpyEventProcessor</code> base class from downstream projects. This
+class is intended to make it easy to write tools that process spy events.</li>
+<li>✨ <strong>[browser-extras]</strong> Build the <code>ConsoleSpyEventProcessor</code> class. It is a <code>SpyEventHandler</code> that
+prints spy events to the browser console in a developer friendly manner.</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" name="changed"></a><a href="#changed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changed</h4>
 <ul>
