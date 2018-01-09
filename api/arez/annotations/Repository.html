@@ -94,7 +94,7 @@
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>)
  @Unsupported(value="This may change in the future as it is incorporated with replicant and the wider ecosystem")
-public @interface <a href="../../src-html/arez/annotations/Repository.html#line.56">Repository</a></pre>
+public @interface <a href="../../src-html/arez/annotations/Repository.html#line.51">Repository</a></pre>
 <div class="block">Annotation that indicates that a repository must be generated for component.
  A repository is the default mechanism for managing instances of classes
  annotated with <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a>. The repository provides mechanisms to
@@ -105,25 +105,18 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
  <p>This annotation can only be added to classes that have been annotated with the
  <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation.</p>
 
- <p>Annotating a class with this annotation will result in the following artifacts.</p>
+ <p>Annotating a class with this annotation will result in a class named "[MyComponent]Repository"</p>
 
- <ul>
- <li>A repository named "[MyComponent]Repository"</li>
- <li>An interface used to define extensions of the repository "[MyComponent]BaseRepositoryExtension"</li>
- </ul>
-
- <p>The way to add custom queries or \@Computed queries is to define an interface
- that extends the base extension interface. The extension interface defines a <code>self()</code>
- method that you can use to get at the underlying repository. Using this combined with
- default methods you can define as many new queries and mutations as is desired. The
- extension class then needs to be registered by setting the appropriate parameter on this
+ <p>The way to add custom queries or \@Computed queries is to define an interface that
+ defines an abstract <code>self()</code> that returns the underlying repository. Using this
+ combined with default methods, you can define as many new queries and mutations as is desired.
+ The extension class then needs to be registered by setting the appropriate parameter on this
  annotation.</p>
 
  <p>An example of what an extension may look like for a <code>Todo</code> component. See below:</p>
 
  <pre><code>
  public interface MyTodoRepositoryExtension
-   extends TodoBaseRepositoryExtension
  {
    default Todo findByTitle( final String title )
    {
@@ -135,6 +128,8 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
    {
      return self().findAllByQuery( Todo::isCompleted );
    }
+
+   MyTodoRepository self();
  }
  </code></pre></div>
 </li>
@@ -201,7 +196,7 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.66">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.61">name</a></pre>
 <div class="block">Return the name of the repository.
  The value must conform to the requirements of a java identifier.
  The default value if not specified is the name of the associated ArezComponent suffixed with "Repository".</div>
@@ -224,7 +219,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>extensions</h4>
-<pre>public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>[]&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.75">extensions</a></pre>
+<pre>public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>[]&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.70">extensions</a></pre>
 <div class="block">Return the list of extension interfaces that the repository will implement.
  The extension interfaces should not define any non-default methods besides
  self().</div>
@@ -247,7 +242,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>dagger</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Injectible.html" title="enum in arez.annotations">Injectible</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.85">dagger</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Injectible.html" title="enum in arez.annotations">Injectible</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.80">dagger</a></pre>
 <div class="block">Indicate whether a dagger module should be generated for repository.
  <a href="../../arez/annotations/Injectible.html#TRUE"><code>Injectible.TRUE</code></a> will force the generation of the module, <a href="../../arez/annotations/Injectible.html#FALSE"><code>Injectible.FALSE</code></a>
  will result in no dagger module and <a href="../../arez/annotations/Injectible.html#IF_DETECTED"><code>Injectible.IF_DETECTED</code></a> will add a dagger
@@ -271,7 +266,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>inject</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Injectible.html" title="enum in arez.annotations">Injectible</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.96">inject</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Injectible.html" title="enum in arez.annotations">Injectible</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.91">inject</a></pre>
 <div class="block">Indicate whether an @Inject annotation should be added to constructor of the generated repository.
  <a href="../../arez/annotations/Injectible.html#TRUE"><code>Injectible.TRUE</code></a> will force the addition of an @Inject annotation, <a href="../../arez/annotations/Injectible.html#FALSE"><code>Injectible.FALSE</code></a>
  will result in no @Inject annotation and <a href="../../arez/annotations/Injectible.html#IF_DETECTED"><code>Injectible.IF_DETECTED</code></a> will add an @Inject
