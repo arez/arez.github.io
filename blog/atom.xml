@@ -9,6 +9,24 @@
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
     <entry>
+        <title type="html"><![CDATA[Arez 0.42 released]]></title>
+        <id>https://arez.github.io/blog/2018/01/11/version-0.42-release.html</id>
+        <link href="https://arez.github.io/blog/2018/01/11/version-0.42-release.html">
+        </link>
+        <updated>2018-01-11T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.41...v0.42)
+
+Changes in this release:
+
+#### Changed
+* 💥 **\[annotations\]** Rename the `arez.annotations.Injectible` class to `arez.annotations.Feature` to
+  follow conventions in other projec]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Arez 0.41 released]]></title>
         <id>https://arez.github.io/blog/2018/01/11/version-0.41-release.html</id>
         <link href="https://arez.github.io/blog/2018/01/11/version-0.41-release.html">

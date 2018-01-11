@@ -79,24 +79,24 @@
 <span class="sourceLineNo">071</span><a name="line.71"></a>
 <span class="sourceLineNo">072</span>  /**<a name="line.72"></a>
 <span class="sourceLineNo">073</span>   * Indicate whether a dagger module should be generated for repository.<a name="line.73"></a>
-<span class="sourceLineNo">074</span>   * {@link Injectible#ENABLE} will force the generation of the module, {@link Injectible#DISABLE}<a name="line.74"></a>
-<span class="sourceLineNo">075</span>   * will result in no dagger module and {@link Injectible#AUTODETECT} will add a dagger<a name="line.75"></a>
+<span class="sourceLineNo">074</span>   * {@link Feature#ENABLE} will force the generation of the module, {@link Feature#DISABLE}<a name="line.74"></a>
+<span class="sourceLineNo">075</span>   * will result in no dagger module and {@link Feature#AUTODETECT} will add a dagger<a name="line.75"></a>
 <span class="sourceLineNo">076</span>   * module if the &lt;code&gt;dagger.Module&lt;/code&gt; class is present on the classpath.<a name="line.76"></a>
 <span class="sourceLineNo">077</span>   *<a name="line.77"></a>
 <span class="sourceLineNo">078</span>   * @return enum controlling whether a dagger module should be generated for repository.<a name="line.78"></a>
 <span class="sourceLineNo">079</span>   */<a name="line.79"></a>
-<span class="sourceLineNo">080</span>  Injectible dagger() default Injectible.AUTODETECT;<a name="line.80"></a>
+<span class="sourceLineNo">080</span>  Feature dagger() default Feature.AUTODETECT;<a name="line.80"></a>
 <span class="sourceLineNo">081</span><a name="line.81"></a>
 <span class="sourceLineNo">082</span>  /**<a name="line.82"></a>
 <span class="sourceLineNo">083</span>   * Indicate whether an @Inject annotation should be added to constructor of the generated repository.<a name="line.83"></a>
-<span class="sourceLineNo">084</span>   * {@link Injectible#ENABLE} will force the addition of an @Inject annotation, {@link Injectible#DISABLE}<a name="line.84"></a>
-<span class="sourceLineNo">085</span>   * will result in no @Inject annotation and {@link Injectible#AUTODETECT} will add an @Inject<a name="line.85"></a>
-<span class="sourceLineNo">086</span>   * if any it is present on the classpath. Note that this is effectively {@link Injectible#ENABLE} if<a name="line.86"></a>
+<span class="sourceLineNo">084</span>   * {@link Feature#ENABLE} will force the addition of an @Inject annotation, {@link Feature#DISABLE}<a name="line.84"></a>
+<span class="sourceLineNo">085</span>   * will result in no @Inject annotation and {@link Feature#AUTODETECT} will add an @Inject<a name="line.85"></a>
+<span class="sourceLineNo">086</span>   * if any it is present on the classpath. Note that this is effectively {@link Feature#ENABLE} if<a name="line.86"></a>
 <span class="sourceLineNo">087</span>   * dagger parameter is true.<a name="line.87"></a>
 <span class="sourceLineNo">088</span>   *<a name="line.88"></a>
 <span class="sourceLineNo">089</span>   * @return enum controlling present of Inject annotation on constructor of repository.<a name="line.89"></a>
 <span class="sourceLineNo">090</span>   */<a name="line.90"></a>
-<span class="sourceLineNo">091</span>  Injectible inject() default Injectible.AUTODETECT;<a name="line.91"></a>
+<span class="sourceLineNo">091</span>  Feature inject() default Feature.AUTODETECT;<a name="line.91"></a>
 <span class="sourceLineNo">092</span>}<a name="line.92"></a>
 
 
