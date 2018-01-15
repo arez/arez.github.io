@@ -8,7 +8,8 @@
 For most applications, most of the time, this is sufficient. Very occasionally it is useful to get access to the
 underlying primitives. This could mean getting access to the <a href="/api/arez/Observable.html"><code>Observable</code></a> instance for
 an <a href="/api/arez/annotations/Observable.html"><code>@Observable</code></a> property, getting access to the <a href="/api/arez/ComputedValue.html"><code>ComputedValue</code></a> instance for a
-<a href="/api/arez/annotations/Computed.html"><code>@Computed</code></a> property etc. The primary reason that these primitives need to be exposed are to
+<a href="/api/arez/annotations/Computed.html"><code>@Computed</code></a> property etc. It could also be accessing information about the component such
+as the component name or the components type name. The primary reason that these primitives need to be exposed are to
 enable integration with framework specific DevTools although conceivably there are other valid use cases.</p>
 <p>Accessing these these primitives is made possible through the user of the <code>@*Ref</code> annotations. The <code>@*Ref</code>
 annotations are placed on accessor methods that return the appropriate primitive. Some of these <code>@*Ref</code> annotations
@@ -19,6 +20,8 @@ the associated <a href="/api/arez/annotations/Observable.html"><code>@Observable
 the pattern <code>get[Name]Observable</code>. See the javadocs for the individual annotation requirements.</p>
 <p>The <code>@*Ref</code> annotations include the following:</p>
 <ul>
+<li><a href="/api/arez/annotations/ComponentNameRef.html"><code>@ComponentNameRef</code></a>: This method exposes the underlying name of the component.</li>
+<li><a href="/api/arez/annotations/ComponentTypeNameRef.html"><code>@ComponentTypeNameRef</code></a>: This method exposes the underlying name of the component type.</li>
 <li><a href="/api/arez/annotations/ObservableRef.html"><code>@ObservableRef</code></a>: This method exposes the underlying <a href="/api/arez/Observable.html"><code>Observable</code></a> for an <a href="/api/arez/annotations/Observable.html"><code>@Observable</code></a> property.</li>
 <li><a href="/api/arez/annotations/ComputedValueRef.html"><code>@ComputedValueRef</code></a>: This method exposes the underlying <a href="/api/arez/ComputedValue.html"><code>ComputedValue</code></a> for a <a href="/api/arez/annotations/Computed.html"><code>@Computed</code></a> property.</li>
 <li><a href="/api/arez/annotations/ObserverRef.html"><code>@ObserverRef</code></a>: This method exposes the underlying <a href="/api/arez/Observer.html"><code>Observer</code></a> for either an <a href="/api/arez/annotations/Autorun.html"><code>@Autorun</code></a> annotated method or a <a href="/api/arez/annotations/Track.html"><code>@Track</code></a> annotated method.</li>

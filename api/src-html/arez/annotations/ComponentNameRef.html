@@ -23,7 +23,7 @@
 <span class="sourceLineNo">015</span> * annotation should be on a method that accepts no parameters and returns<a name="line.15"></a>
 <span class="sourceLineNo">016</span> * a String.&lt;/p&gt;<a name="line.16"></a>
 <span class="sourceLineNo">017</span> *<a name="line.17"></a>
-<span class="sourceLineNo">018</span> * &lt;p&gt;The method that is annotated with @ComponentName must comply with the additional constraints:&lt;/p&gt;<a name="line.18"></a>
+<span class="sourceLineNo">018</span> * &lt;p&gt;The method that is annotated with @ComponentNameRef must comply with the additional constraints:&lt;/p&gt;<a name="line.18"></a>
 <span class="sourceLineNo">019</span> * &lt;ul&gt;<a name="line.19"></a>
 <span class="sourceLineNo">020</span> * &lt;li&gt;Must not be annotated with any other arez annotation&lt;/li&gt;<a name="line.20"></a>
 <span class="sourceLineNo">021</span> * &lt;li&gt;Must have 0 parameters&lt;/li&gt;<a name="line.21"></a>
@@ -35,11 +35,11 @@
 <span class="sourceLineNo">027</span> * &lt;li&gt;Must not throw exceptions&lt;/li&gt;<a name="line.27"></a>
 <span class="sourceLineNo">028</span> * &lt;/ul&gt;<a name="line.28"></a>
 <span class="sourceLineNo">029</span> * @see ComponentId<a name="line.29"></a>
-<span class="sourceLineNo">030</span> * @see ComponentTypeName<a name="line.30"></a>
+<span class="sourceLineNo">030</span> * @see ComponentTypeNameRef<a name="line.30"></a>
 <span class="sourceLineNo">031</span> */<a name="line.31"></a>
 <span class="sourceLineNo">032</span>@Documented<a name="line.32"></a>
 <span class="sourceLineNo">033</span>@Target( ElementType.METHOD )<a name="line.33"></a>
-<span class="sourceLineNo">034</span>public @interface ComponentName<a name="line.34"></a>
+<span class="sourceLineNo">034</span>public @interface ComponentNameRef<a name="line.34"></a>
 <span class="sourceLineNo">035</span>{<a name="line.35"></a>
 <span class="sourceLineNo">036</span>}<a name="line.36"></a>
 

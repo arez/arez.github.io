@@ -17,13 +17,13 @@
 <span class="sourceLineNo">009</span> * Annotate the method that will be overridden to return the value of ArezComponent.name().<a name="line.9"></a>
 <span class="sourceLineNo">010</span> * This is only useful when a class potentially has multiple {@link ArezComponent} annotated subclasses.<a name="line.10"></a>
 <span class="sourceLineNo">011</span> * This method is used when manually setting up debug context and you want it to align with the concrete<a name="line.11"></a>
-<span class="sourceLineNo">012</span> * implementations. However often {@link ComponentName} is a better solution. If not specified Arez will<a name="line.12"></a>
+<span class="sourceLineNo">012</span> * implementations. However often {@link ComponentNameRef} is a better solution. If not specified Arez will<a name="line.12"></a>
 <span class="sourceLineNo">013</span> * generate a private method if needed.<a name="line.13"></a>
 <span class="sourceLineNo">014</span> *<a name="line.14"></a>
 <span class="sourceLineNo">015</span> * &lt;p&gt;This annotation should appear at most once on a component. The annotation should be on a method that<a name="line.15"></a>
 <span class="sourceLineNo">016</span> * can be overridden, accepts no parameters and returns a String.&lt;/p&gt;<a name="line.16"></a>
 <span class="sourceLineNo">017</span> *<a name="line.17"></a>
-<span class="sourceLineNo">018</span> * &lt;p&gt;The method that is annotated with @ComponentTypeName must comply with the additional constraints:&lt;/p&gt;<a name="line.18"></a>
+<span class="sourceLineNo">018</span> * &lt;p&gt;The method that is annotated with @ComponentTypeNameRef must comply with the additional constraints:&lt;/p&gt;<a name="line.18"></a>
 <span class="sourceLineNo">019</span> * &lt;ul&gt;<a name="line.19"></a>
 <span class="sourceLineNo">020</span> * &lt;li&gt;Must not be annotated with any other arez annotation&lt;/li&gt;<a name="line.20"></a>
 <span class="sourceLineNo">021</span> * &lt;li&gt;Must have 0 parameters&lt;/li&gt;<a name="line.21"></a>
@@ -38,7 +38,7 @@
 <span class="sourceLineNo">030</span>@Documented<a name="line.30"></a>
 <span class="sourceLineNo">031</span>@Target( ElementType.METHOD )<a name="line.31"></a>
 <span class="sourceLineNo">032</span>@Unsupported( "The utility of this annotation is in question and may be removed in a future version of the library" )<a name="line.32"></a>
-<span class="sourceLineNo">033</span>public @interface ComponentTypeName<a name="line.33"></a>
+<span class="sourceLineNo">033</span>public @interface ComponentTypeNameRef<a name="line.33"></a>
 <span class="sourceLineNo">034</span>{<a name="line.34"></a>
 <span class="sourceLineNo">035</span>}<a name="line.35"></a>
 
