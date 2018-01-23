@@ -226,8 +226,10 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>nameIncludesId</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.61">nameIncludesId</a></pre>
-<div class="block">Return true if the name derived for component should include the id, false otherwise.</div>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.63">nameIncludesId</a></pre>
+<div class="block">Return true if the name derived for component should include the id, false otherwise.
+ If the user does not specify a value for this parameter but does specify the <tt>javax.inject.Singleton</tt>
+ on the same type then the default value of this parameter is false, otherwise it is true.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true to include the id in the component name, false otherwise.</dd>
@@ -247,7 +249,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>allowEmpty</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.70">allowEmpty</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.72">allowEmpty</a></pre>
 <div class="block">Return true if the component does not need to explicitly declare elements.
  Otherwise if no elements (i.e. <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a>s, <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>s, <a href="../../arez/annotations/Autorun.html" title="annotation in arez.annotations"><code>Autorun</code></a>s etc) are defined
  on a component it will generate an error.</div>
@@ -270,7 +272,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>inject</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.81">inject</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.83">inject</a></pre>
 <div class="block">Indicate whether an @Inject annotation should be added to constructor of the generated class.
  <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the addition of an @Inject annotation, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
  will result in no @Inject annotation and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add an @Inject
@@ -295,7 +297,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>dagger</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.92">dagger</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.94">dagger</a></pre>
 <div class="block">Indicate whether a dagger module should be generated for enhanced component class.
  <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the generation of the module, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
  will result in no dagger module and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add a dagger
@@ -320,7 +322,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>deferSchedule</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.100">deferSchedule</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.102">deferSchedule</a></pre>
 <div class="block">Return true if an the generated component should NOT schedule autorun actions at the end of the
  constructor. This is useful if the component creator will trigger schedules manually at a later time.</div>
 <dl>
