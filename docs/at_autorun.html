@@ -6,8 +6,8 @@
           };
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/arez/arez/tree/master/docs/at_autorun.md" target="_blank">Edit</a><h1>@Autorun</h1></header><article><div><span><p>The <a href="/api/arez/annotations/Autorun.html"><code>@Autorun</code></a> annotation is used to define an <a href="/docs/observers.html#autorun-observers">autorun observers</a>.
 These observers are useful for reflecting Arez state as side-effects. The observer <a href="/docs/transactions.html">transaction</a> is
-read-write by default but the <a href="/api/arez/annotations/Autorun.html#mutation--"><code>mutation</code></a> parameter can be used to set the
-transaction mode to read-only.</p>
+read-only by default but the <a href="/api/arez/annotations/Autorun.html#mutation--"><code>mutation</code></a> parameter can be used to set the
+transaction mode to read-write.</p>
 <p>An example where an <code>@Autorun</code> can be used is to automatically update a view when data changes. For example,
 imagine you wanted to display the value of 1 Bitcoin in Australian dollars as the value changes over time. Assuming
 the currency is observable, the <code>@Autorun</code> method may look something like:</p>

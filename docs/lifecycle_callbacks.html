@@ -6,7 +6,7 @@
           };
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/arez/arez/tree/master/docs/lifecycle_callbacks.md" target="_blank">Edit</a><h1>Lifecycle Callbacks</h1></header><article><div><span><p>The lifecycle callbacks are used to allow the user to run custom code when the component is constructed
 or disposed. The <a href="/api/arez/annotations/PreDispose.html"><code>@PreDispose</code></a> and <a href="/api/arez/annotations/PostDispose.html"><code>@PostDispose</code></a> API documentation
-describes the behaviour and requirements in detail. Methods annotated with <code>PostConstruct</code>
+describes the behaviour and requirements in detail. Methods annotated with <a href="/api/arez/annotations/PostConstruct.html"><code>@PostConstruct</code></a>
 are invoked after the arez components constructor has been invoked and after all the reactive elements (i.e. the
 <a href="/api/arez/Observable.html"><code>Observable</code></a>, <a href="/api/arez/Observer.html"><code>Observer</code></a> and <a href="/api/arez/ComputedValue.html"><code>ComputedValue</code></a> instances) have been created <strong>but</strong>
 before any <a href="/docs/at_autorun.html">@Autorun</a> methods have been scheduled for the first time.</p>

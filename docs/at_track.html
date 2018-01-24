@@ -13,9 +13,9 @@ method is annotated with the <a href="/api/arez/annotations/Track.html"><code>@T
 side-effects but tracker observers decouple the scheduling of an update from running the observer. In fact,
 Arez leaves responsibility for running the observer to external code. This makes it possible for Arez to be
 integrated into other frameworks that have their own scheduler.</p>
-<p>The observer <a href="/docs/transactions.html">transaction</a> is read-write by default but the
+<p>The observer <a href="/docs/transactions.html">transaction</a> is read-only by default but the
 <a href="/api/arez/annotations/Autorun.html#mutation--"><code>mutation</code></a> parameter can be used to set the transaction mode to
-read-only. The author of the tracker observer can also omit one of the pair of annotations if the methods are
+read-write. The author of the tracker observer can also omit one of the pair of annotations if the methods are
 named appropriately.</p>
 <p>The <a href="/api/arez/annotations/Track.html"><code>@Track</code></a> annotation is used in libraries such as <a href="https://react4j.github.io">React4j</a>
 that integrate Arez into external schedulers. An example that demonstrates something similar is:</p>

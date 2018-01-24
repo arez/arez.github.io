@@ -181,15 +181,17 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>mutation</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Autorun.html#line.41">mutation</a></pre>
-<div class="block">Does the autorun mutate state or not.</div>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Autorun.html#line.43">mutation</a></pre>
+<div class="block">Does the autorun mutate state or not.
+ The default value us false thus making the transaction mode read-only. The intention is that autorun observers
+ should primarily be reflecting Arez state to external systems. (i.e. views, network layers etc.)</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the autorun should run in a READ_WRITE transaction, false if it should run in a READ_ONLY transaction.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>true</dd>
+<dd>false</dd>
 </dl>
 </li>
 </ul>

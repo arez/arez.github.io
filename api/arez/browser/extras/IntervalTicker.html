@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre><a href="../../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations">@ArezComponent</a>
-public class <a href="../../../src-html/arez/browser/extras/IntervalTicker.html#line.39">IntervalTicker</a>
+public class <a href="../../../src-html/arez/browser/extras/IntervalTicker.html#line.38">IntervalTicker</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">An Observable model that "ticks" at a specified interval. The tick is actually updating the
  "tickTime" observable property. The ticks are only generated when there is an observer of the
@@ -202,7 +202,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>create</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../../../arez/browser/extras/IntervalTicker.html" title="class in arez.browser.extras">IntervalTicker</a>&nbsp;<a href="../../../src-html/arez/browser/extras/IntervalTicker.html#line.64">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnegative.html?is-external=true" title="class or interface in javax.annotation">@Nonnegative</a>
+public static&nbsp;<a href="../../../arez/browser/extras/IntervalTicker.html" title="class in arez.browser.extras">IntervalTicker</a>&nbsp;<a href="../../../src-html/arez/browser/extras/IntervalTicker.html#line.63">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnegative.html?is-external=true" title="class or interface in javax.annotation">@Nonnegative</a>
                                              long&nbsp;interval)</pre>
 <div class="block">Create a ticker for specified interval.</div>
 <dl>
@@ -220,7 +220,7 @@ public static&nbsp;<a href="../../../arez/browser/extras/IntervalTicker.html" ti
 <li class="blockList">
 <h4>getInterval</h4>
 <pre><a href="../../../arez/annotations/Observable.html" title="annotation in arez.annotations">@Observable</a>
-public&nbsp;long&nbsp;<a href="../../../src-html/arez/browser/extras/IntervalTicker.html#line.81">getInterval</a>()</pre>
+public&nbsp;long&nbsp;<a href="../../../src-html/arez/browser/extras/IntervalTicker.html#line.80">getInterval</a>()</pre>
 <div class="block">Return the interval that the ticker ticks at in milliseconds.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -234,7 +234,7 @@ public&nbsp;long&nbsp;<a href="../../../src-html/arez/browser/extras/IntervalTic
 <ul class="blockList">
 <li class="blockList">
 <h4>setInterval</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/browser/extras/IntervalTicker.html#line.93">setInterval</a>(long&nbsp;interval)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/browser/extras/IntervalTicker.html#line.92">setInterval</a>(long&nbsp;interval)</pre>
 <div class="block">Specify the interval that the ticker ticks at in milliseconds.
  This will restart the ticker if there is an observer watching the ticks
  and thus is safe to call at any time. Howevwer, it will reset the last tick time to now.</div>
@@ -251,7 +251,7 @@ public&nbsp;long&nbsp;<a href="../../../src-html/arez/browser/extras/IntervalTic
 <li class="blockList">
 <h4>getTickTime</h4>
 <pre><a href="../../../arez/annotations/Computed.html" title="annotation in arez.annotations">@Computed</a>
-public&nbsp;long&nbsp;<a href="../../../src-html/arez/browser/extras/IntervalTicker.html#line.113">getTickTime</a>()</pre>
+public&nbsp;long&nbsp;<a href="../../../src-html/arez/browser/extras/IntervalTicker.html#line.112">getTickTime</a>()</pre>
 <div class="block">Return the time that the ticker last ticked.
  If there is no observers yet, the last tick time will be now and the interval timer will start.</div>
 <dl>

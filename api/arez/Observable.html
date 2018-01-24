@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -116,7 +116,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public final class <a href="../src-html/arez/Observable.html#line.20">Observable</a>&lt;T&gt;
+<pre>public final class <a href="../src-html/arez/Observable.html#line.21">Observable</a>&lt;T&gt;
 extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <div class="block">The observable represents state that can be observed within the system.</div>
 </li>
@@ -151,11 +151,17 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/Observable.html#preReportChanged--">preReportChanged</a></span>()</code>
+<div class="block">Check that pre-conditions are satisfied before changing observable value.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Observable.html#reportChanged--">reportChanged</a></span>()</code>
 <div class="block">Notify Arez that this observable has changed.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Observable.html#reportObserved--">reportObserved</a></span>()</code>
 <div class="block">Notify Arez that this observable has been "observed" in the current transaction.</div>
@@ -203,7 +209,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.139">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.140">dispose</a>()</pre>
 <div class="block">Dispose the element. See <a href="../arez/Disposable.html" title="interface in arez"><code>Disposable</code></a> for a description of the implications.</div>
 </li>
 </ul>
@@ -213,7 +219,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Observable.html#line.189">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Observable.html#line.190">isDisposed</a>()</pre>
 <div class="block">Return true if dispose() has been called on object.
  This is very useful when the Disposable is a @Computed value representing
  the selected item in a UI component but the item can be disposed by other
@@ -230,8 +236,20 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportObserved</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.427">reportObserved</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.428">reportObserved</a>()</pre>
 <div class="block">Notify Arez that this observable has been "observed" in the current transaction.</div>
+</li>
+</ul>
+<a name="preReportChanged--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>preReportChanged</h4>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.438">preReportChanged</a>()</pre>
+<div class="block">Check that pre-conditions are satisfied before changing observable value.
+ In production mode this will typically be a no-op. This method should be invoked
+ before state is modified.</div>
 </li>
 </ul>
 <a name="reportChanged--">
@@ -240,7 +258,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>reportChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.436">reportChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.450">reportChanged</a>()</pre>
 <div class="block">Notify Arez that this observable has changed.
  This is called when the observable has definitely changed.</div>
 </li>
