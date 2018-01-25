@@ -22,7 +22,7 @@ this code:</p>
 <p><pre><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyContainer</span>
 </span>{
   <span class="hljs-meta">@ArezComponent</span>
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span>
   </span>{
   ...
   }
@@ -33,7 +33,7 @@ this code:</p>
 If the lifecycle of the enhanced component class is not managed by a <a href="/docs/dependency_injection.html">dependency injection</a>
 framework such as <a href="https://google.github.io/dagger">Dagger2</a> then it is suggested that one or more static
 factory methods such as in the following example:</p>
-<p><pre><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span>
+<p><pre><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span>
 </span>{
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> MyComponent <span class="hljs-title">create</span><span class="hljs-params">()</span>
   </span>{

@@ -147,36 +147,42 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#allowConcrete--">allowConcrete</a></span></code>
+<div class="block">Return true if the component type does not need to be abstract.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#allowEmpty--">allowEmpty</a></span></code>
 <div class="block">Return true if the component does not need to explicitly declare elements.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#dagger--">dagger</a></span></code>
 <div class="block">Indicate whether a dagger module should be generated for enhanced component class.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#deferSchedule--">deferSchedule</a></span></code>
 <div class="block">Return true if an the generated component should NOT schedule autorun actions at the end of the
  constructor.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#inject--">inject</a></span></code>
 <div class="block">Indicate whether an @Inject annotation should be added to constructor of the generated class.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#nameIncludesId--">nameIncludesId</a></span></code>
 <div class="block">Return true if the name derived for component should include the id, false otherwise.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#type--">type</a></span></code>
 <div class="block">Return the name of the type.</div>
@@ -266,13 +272,35 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </li>
 </ul>
 <ul class="blockList">
+<li class="blockList"><a name="allowConcrete--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>allowConcrete</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.80">allowConcrete</a></pre>
+<div class="block">Return true if the component type does not need to be abstract.
+ Otherwise an error will be generated if this annotation is added to a concrete type.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true true if the component type does not need to be abstract.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a name="inject--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>inject</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.83">inject</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.91">inject</a></pre>
 <div class="block">Indicate whether an @Inject annotation should be added to constructor of the generated class.
  <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the addition of an @Inject annotation, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
  will result in no @Inject annotation and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add an @Inject
@@ -297,7 +325,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>dagger</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.94">dagger</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.102">dagger</a></pre>
 <div class="block">Indicate whether a dagger module should be generated for enhanced component class.
  <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the generation of the module, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
  will result in no dagger module and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add a dagger
@@ -322,7 +350,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>deferSchedule</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.102">deferSchedule</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.110">deferSchedule</a></pre>
 <div class="block">Return true if an the generated component should NOT schedule autorun actions at the end of the
  constructor. This is useful if the component creator will trigger schedules manually at a later time.</div>
 <dl>

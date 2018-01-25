@@ -16,7 +16,7 @@ state when an event occurs.</p>
 <p>Below is an example that was extracted from a reactive component that exposed the &quot;hash&quot; part of the url as
 reactive state.</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BrowserLocation</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BrowserLocation</span>
 </span>{
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> EventListener _listener = <span class="hljs-keyword">this</span>::onHashChangeEvent;
   ...

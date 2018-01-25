@@ -20,10 +20,10 @@ named appropriately.</p>
 <p>The <a href="/api/arez/annotations/Track.html"><code>@Track</code></a> annotation is used in libraries such as <a href="https://react4j.github.io">React4j</a>
 that integrate Arez into external schedulers. An example that demonstrates something similar is:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurrencyView</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurrencyView</span>
 </span>{
   <span class="hljs-comment">// A read-only observer that renders</span>
-  <span class="hljs-meta">@Track</span>( mutation = <span class="hljs-keyword">false</span> )
+  <span class="hljs-meta">@Track</span>
   <span class="hljs-function"><span class="hljs-keyword">public</span> ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-comment">//Render component here</span>

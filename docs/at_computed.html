@@ -11,7 +11,7 @@ value changes. Typically methods annotated with the <a href="/api/arez/annotatio
 derive the return value from other <a href="/docs/at_observable.html"><code>@Observable</code></a> and <code>@Computed</code> annotated methods.</p>
 <p>A basic example:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurrencyCollection</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurrencyCollection</span>
 </span>{
   <span class="hljs-meta">@Observable</span>
   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getFilter</span><span class="hljs-params">()</span>
@@ -58,7 +58,7 @@ is defined in the API documentation.</p>
 updates the computed value is as follows. This is extracted and simplified from an existing component that
 manages online state.</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NetworkStatus</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NetworkStatus</span>
 </span>{
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> EventListener _listener;
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> _rawOnLine;

@@ -8,7 +8,7 @@
 The simplest use-case involves annotating one of a standard getter/setter pair with the annotation.</p>
 <p>For example:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyModel</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyModel</span>
 </span>{
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _value;
 
@@ -32,7 +32,7 @@ to the annotation to explicitly name the observable property. This may require a
 the setter with the <code>@Observable</code> annotation.</p>
 <p>For example:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Currency</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Currency</span>
 </span>{
   <span class="hljs-keyword">private</span> BigDecimal _amount;
 
@@ -67,7 +67,7 @@ See <a href="/docs/accessing_primitives.html">accessing primitives</a> documenta
 </ul>
 <p>For example:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReactComponent</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReactComponent</span>
 </span>{
   <span class="hljs-meta">@Observable</span>( expectSetter = <span class="hljs-keyword">false</span> )
   <span class="hljs-function"><span class="hljs-keyword">protected</span> Props <span class="hljs-title">props</span><span class="hljs-params">()</span>
@@ -76,12 +76,9 @@ See <a href="/docs/accessing_primitives.html">accessing primitives</a> documenta
     ...
   }
 
+  <span class="hljs-comment">//This will be overridden and implemented in the Arez subclass</span>
   <span class="hljs-meta">@ObservableRef</span>
-  <span class="hljs-keyword">protected</span> arez.<span class="hljs-function">Observable&lt;Props&gt; <span class="hljs-title">getPropsObservable</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-comment">//This will be overridden and implemented in the Arez subclass</span>
-    ...
-  }
+  <span class="hljs-keyword">abstract</span> arez.<span class="hljs-function">Observable&lt;Props&gt; <span class="hljs-title">getPropsObservable</span><span class="hljs-params">()</span></span>;
 
   <span class="hljs-comment">// This method is wrapped in an Action to ensure change is propagated</span>
   <span class="hljs-comment">// correctly in arez system.</span>
@@ -97,6 +94,7 @@ See <a href="/docs/accessing_primitives.html">accessing primitives</a> documenta
     reportPropsChanged();
     ...
   }
+
   ...
 }</code></pre></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="lifecycle_callbacks.html">← Lifecycle Callbacks</a><a class="docs-next button" href="at_computed.html">@Computed →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="Arez" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/docs/concepts.html">Concepts</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/arez/arez" data-icon="octicon-star" data-count-href="/arez/arez/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the Arez Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
