@@ -178,10 +178,6 @@
 <dd>
 <div class="block">Browser based introspection tools based on the core Arez spy infrastructure.</div>
 </dd>
-<dt><a href="arez/extras/package-summary.html">arez.extras</a> - package arez.extras</dt>
-<dd>
-<div class="block">Additional utilities and abstractions based on the core Arez primitives.</div>
-</dd>
 <dt><a href="arez/extras/spy/package-summary.html">arez.extras.spy</a> - package arez.extras.spy</dt>
 <dd>
 <div class="block">Additional utilities and introspection tools based on the core Arez spy infrastructure.</div>
@@ -201,10 +197,6 @@
 <dt><a href="arez/ArezContext.html" title="class in arez"><span class="typeNameLink">ArezContext</span></a> - Class in <a href="arez/package-summary.html">arez</a></dt>
 <dd>
 <div class="block">The ArezContext defines the top level container of interconnected observables and observers.</div>
-</dd>
-<dt><a href="arez/extras/ArezExtras.html" title="class in arez.extras"><span class="typeNameLink">ArezExtras</span></a> - Class in <a href="arez/extras/package-summary.html">arez.extras</a></dt>
-<dd>
-<div class="block">Simplified interface for interacting with extras package.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#areZonesEnabled--">areZonesEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
@@ -690,10 +682,6 @@
 </a>
 <h2 class="title">G</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#generateNodeName-java.lang.String-java.lang.String-">generateNodeName(String, String)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Build name for node.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/ComputedValue.html#get--">get()</a></span> - Method in class arez.<a href="arez/ComputedValue.html" title="class in arez">ComputedValue</a></dt>
 <dd>
 <div class="block">Return the computed value, calculating the value if it is not up to date.</div>
@@ -1212,6 +1200,14 @@
 <dd>
 <div class="block">Set `arez.purge_reactions_when_runaway_detected` setting to false.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#noTxAction-arez.Procedure-">noTxAction(Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Execute the specified action outside of a transaction.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#noTxAction-arez.Function-">noTxAction(Function&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Execute the specified action outside of a transaction.</div>
+</dd>
 </dl>
 <a name="I:O">
 <!--   -->
@@ -1580,6 +1576,14 @@
 <dd>
 <div class="block">Functional interface for returning a value.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#safeNoTxAction-arez.SafeProcedure-">safeNoTxAction(SafeProcedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Execute the specified action outside of a transaction.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#safeNoTxAction-arez.SafeFunction-">safeNoTxAction(SafeFunction&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Execute the specified action outside of a transaction.</div>
+</dd>
 <dt><a href="arez/SafeProcedure.html" title="interface in arez"><span class="typeNameLink">SafeProcedure</span></a> - Interface in <a href="arez/package-summary.html">arez</a></dt>
 <dd>
 <div class="block">Interface for performing an action that does not return a value.</div>
@@ -1912,15 +1916,15 @@ the order they are declared.</div>
 </a>
 <h2 class="title">W</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="arez/extras/ArezExtras.html#when-arez.SafeFunction-arez.SafeProcedure-">when(SafeFunction&lt;Boolean&gt;, SafeProcedure)</a></span> - Static method in class arez.extras.<a href="arez/extras/ArezExtras.html" title="class in arez.extras">ArezExtras</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#when-arez.SafeFunction-arez.SafeProcedure-">when(SafeFunction&lt;Boolean&gt;, SafeProcedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Wait until a condition is true, then run effect.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/extras/ArezExtras.html#when-boolean-arez.SafeFunction-arez.SafeProcedure-">when(boolean, SafeFunction&lt;Boolean&gt;, SafeProcedure)</a></span> - Static method in class arez.extras.<a href="arez/extras/ArezExtras.html" title="class in arez.extras">ArezExtras</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#when-boolean-arez.SafeFunction-arez.SafeProcedure-">when(boolean, SafeFunction&lt;Boolean&gt;, SafeProcedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Wait until a condition is true, then run effect.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/extras/ArezExtras.html#when-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-">when(String, boolean, SafeFunction&lt;Boolean&gt;, SafeProcedure)</a></span> - Static method in class arez.extras.<a href="arez/extras/ArezExtras.html" title="class in arez.extras">ArezExtras</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#when-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-">when(String, boolean, SafeFunction&lt;Boolean&gt;, SafeProcedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Wait until a condition is true, then run effect.</div>
 </dd>
