@@ -14,6 +14,19 @@
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
         <item>
+            <title><![CDATA[Arez 0.47 released]]></title>
+            <link>https://arez.github.io/blog/2018/01/31/version-0.47-release.html</link>
+            <guid>https://arez.github.io/blog/2018/01/31/version-0.47-release.html</guid>
+            <pubDate>Wed, 31 Jan 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.46...v0.47)
+
+Changes in this release:
+
+#### Fixed
+* **\[component\]** Make the `AbstractRepository.entities()` method public so that it can be used by extensions.
+* **\[component\]** Extract ut]]></description>
+        </item>
+        <item>
             <title><![CDATA[Arez 0.46 released]]></title>
             <link>https://arez.github.io/blog/2018/01/31/version-0.46-release.html</link>
             <guid>https://arez.github.io/blog/2018/01/31/version-0.46-release.html</guid>
