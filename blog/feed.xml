@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Wed, 31 Jan 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 02 Feb 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.48 released]]></title>
+            <link>https://arez.github.io/blog/2018/02/02/version-0.48-release.html</link>
+            <guid>https://arez.github.io/blog/2018/02/02/version-0.48-release.html</guid>
+            <pubDate>Fri, 02 Feb 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.47...v0.48)
+
+Changes in this release:
+
+#### Fixed
+* **\[core\]** Fixed inefficiency where dependencies of an observer that are in a `POSSIBLY_STALE` state
+  will cause the observer to be marked]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.47 released]]></title>
             <link>https://arez.github.io/blog/2018/01/31/version-0.47-release.html</link>
