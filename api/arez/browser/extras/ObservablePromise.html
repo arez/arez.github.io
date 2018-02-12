@@ -114,7 +114,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>@Unsupported(value="This is still considered experimental and will likely evolve over time")
  <a href="../../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations">@ArezComponent</a>
-public abstract class <a href="../../../src-html/arez/browser/extras/ObservablePromise.html#line.49">ObservablePromise</a>&lt;T,E&gt;
+public abstract class <a href="../../../src-html/arez/browser/extras/ObservablePromise.html#line.50">ObservablePromise</a>&lt;T,E&gt;
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">An observable model that wraps a Promise and exposes observable state that track
  the state of the promise. The observable exposes the state of the promise as well
@@ -235,7 +235,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>create</h4>
-<pre>public static&nbsp;&lt;T,E&gt;&nbsp;<a href="../../../arez/browser/extras/ObservablePromise.html" title="class in arez.browser.extras">ObservablePromise</a>&lt;T,E&gt;&nbsp;<a href="../../../src-html/arez/browser/extras/ObservablePromise.html#line.89">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public static&nbsp;&lt;T,E&gt;&nbsp;<a href="../../../arez/browser/extras/ObservablePromise.html" title="class in arez.browser.extras">ObservablePromise</a>&lt;T,E&gt;&nbsp;<a href="../../../src-html/arez/browser/extras/ObservablePromise.html#line.90">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   elemental2.promise.Promise&lt;T&gt;&nbsp;promise)</pre>
 <div class="block">Create the observable model that wraps specified promise.</div>
 <dl>
@@ -257,7 +257,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>getState</h4>
 <pre><a href="../../../arez/annotations/Observable.html" title="annotation in arez.annotations">@Observable</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="../../../arez/browser/extras/ObservablePromise.State.html" title="enum in arez.browser.extras">ObservablePromise.State</a>&nbsp;<a href="../../../src-html/arez/browser/extras/ObservablePromise.html#line.108">getState</a>()</pre>
+public&nbsp;<a href="../../../arez/browser/extras/ObservablePromise.State.html" title="enum in arez.browser.extras">ObservablePromise.State</a>&nbsp;<a href="../../../src-html/arez/browser/extras/ObservablePromise.html#line.109">getState</a>()</pre>
 <div class="block">Return the promise state.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -272,7 +272,7 @@ public&nbsp;<a href="../../../arez/browser/extras/ObservablePromise.State.html" 
 <li class="blockList">
 <h4>getValue</h4>
 <pre><a href="../../../arez/annotations/Observable.html" title="annotation in arez.annotations">@Observable</a>
-public&nbsp;<a href="../../../arez/browser/extras/ObservablePromise.html" title="type parameter in ObservablePromise">T</a>&nbsp;<a href="../../../src-html/arez/browser/extras/ObservablePromise.html#line.126">getValue</a>()</pre>
+public&nbsp;<a href="../../../arez/browser/extras/ObservablePromise.html" title="type parameter in ObservablePromise">T</a>&nbsp;<a href="../../../src-html/arez/browser/extras/ObservablePromise.html#line.127">getValue</a>()</pre>
 <div class="block">Return the value that the promise was resolved to.
  This should NOT be called if the state is not <a href="../../../arez/browser/extras/ObservablePromise.State.html#FULFILLED"><code>ObservablePromise.State.FULFILLED</code></a> and will result in an invariant
  failure if invariants are enabled.</div>
@@ -289,7 +289,7 @@ public&nbsp;<a href="../../../arez/browser/extras/ObservablePromise.html" title=
 <li class="blockList">
 <h4>getError</h4>
 <pre><a href="../../../arez/annotations/Observable.html" title="annotation in arez.annotations">@Observable</a>
-public&nbsp;<a href="../../../arez/browser/extras/ObservablePromise.html" title="type parameter in ObservablePromise">E</a>&nbsp;<a href="../../../src-html/arez/browser/extras/ObservablePromise.html#line.150">getError</a>()</pre>
+public&nbsp;<a href="../../../arez/browser/extras/ObservablePromise.html" title="type parameter in ObservablePromise">E</a>&nbsp;<a href="../../../src-html/arez/browser/extras/ObservablePromise.html#line.157">getError</a>()</pre>
 <div class="block">Return the error that the promise was rejected with.
  This should NOT be called if the state is not <a href="../../../arez/browser/extras/ObservablePromise.State.html#REJECTED"><code>ObservablePromise.State.REJECTED</code></a> and will result in an invariant
  failure if invariants are enabled.</div>

@@ -115,7 +115,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public abstract class <a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.16">AbstractSpyEventProcessor</a>
+<pre>public abstract class <a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.17">AbstractSpyEventProcessor</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="../../../arez/SpyEventHandler.html" title="interface in arez">SpyEventHandler</a></pre>
 <div class="block">Abstract base class for processing spy events.
@@ -228,7 +228,7 @@ implements <a href="../../../arez/SpyEventHandler.html" title="interface in arez
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractSpyEventProcessor</h4>
-<pre>public&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.16">AbstractSpyEventProcessor</a>()</pre>
+<pre>public&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.17">AbstractSpyEventProcessor</a>()</pre>
 </li>
 </ul>
 </li>
@@ -245,7 +245,7 @@ implements <a href="../../../arez/SpyEventHandler.html" title="interface in arez
 <ul class="blockList">
 <li class="blockList">
 <h4>on</h4>
-<pre>protected final&nbsp;&lt;T&gt;&nbsp;void&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.35">on</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected final&nbsp;&lt;T&gt;&nbsp;void&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.36">on</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;type,
                             <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                             <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html?is-external=true" title="class or interface in java.util.function">BiConsumer</a>&lt;<a href="../../../arez/extras/spy/SpyUtil.NestingDelta.html" title="enum in arez.extras.spy">SpyUtil.NestingDelta</a>,T&gt;&nbsp;processor)</pre>
@@ -265,7 +265,7 @@ implements <a href="../../../arez/SpyEventHandler.html" title="interface in arez
 <ul class="blockList">
 <li class="blockList">
 <h4>onSpyEvent</h4>
-<pre>public final&nbsp;void&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.51">onSpyEvent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public final&nbsp;void&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.55">onSpyEvent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;event)</pre>
 <div class="block">Handle the specified event by delegating to the registered processor.</div>
 <dl>
@@ -282,7 +282,7 @@ implements <a href="../../../arez/SpyEventHandler.html" title="interface in arez
 <ul class="blockList">
 <li class="blockList">
 <h4>getNestingLevel</h4>
-<pre>protected final&nbsp;int&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.82">getNestingLevel</a>()</pre>
+<pre>protected final&nbsp;int&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.86">getNestingLevel</a>()</pre>
 <div class="block">Return the current nesting level.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -296,7 +296,7 @@ implements <a href="../../../arez/SpyEventHandler.html" title="interface in arez
 <ul class="blockList">
 <li class="blockList">
 <h4>increaseNestingLevel</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.91">increaseNestingLevel</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.95">increaseNestingLevel</a>()</pre>
 <div class="block">Hook method called when the nesting level increases.
  Override as appropriate in subclasses.</div>
 </li>
@@ -307,7 +307,7 @@ implements <a href="../../../arez/SpyEventHandler.html" title="interface in arez
 <ul class="blockList">
 <li class="blockList">
 <h4>decreaseNestingLevel</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.99">decreaseNestingLevel</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.103">decreaseNestingLevel</a>()</pre>
 <div class="block">Hook method called when the nesting level decreases.
  Override as appropriate in subclasses.</div>
 </li>
@@ -318,7 +318,7 @@ implements <a href="../../../arez/SpyEventHandler.html" title="interface in arez
 <ul class="blockList">
 <li class="blockList">
 <h4>handleUnhandledEvent</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.108">handleUnhandledEvent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.112">handleUnhandledEvent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;event)</pre>
 <div class="block">Handle the specified event that had no processors defined for it.</div>
 <dl>
@@ -334,7 +334,7 @@ implements <a href="../../../arez/SpyEventHandler.html" title="interface in arez
 <li class="blockList">
 <h4>getNestingDelta</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected&nbsp;<a href="../../../arez/extras/spy/SpyUtil.NestingDelta.html" title="enum in arez.extras.spy">SpyUtil.NestingDelta</a>&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.121">getNestingDelta</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+protected&nbsp;<a href="../../../arez/extras/spy/SpyUtil.NestingDelta.html" title="enum in arez.extras.spy">SpyUtil.NestingDelta</a>&nbsp;<a href="../../../src-html/arez/extras/spy/AbstractSpyEventProcessor.html#line.125">getNestingDelta</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;event)</pre>
 <div class="block">Return the change in nesting level for event if any.
  This method is used rather than directly deferring to <a href="../../../arez/extras/spy/SpyUtil.html#getNestingDelta-java.lang.Class-"><code>SpyUtil.getNestingDelta(Class)</code></a> so that
