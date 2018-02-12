@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Mon, 12 Feb 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 13 Feb 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.52 released]]></title>
+            <link>https://arez.github.io/blog/2018/02/13/version-0.52-release.html</link>
+            <guid>https://arez.github.io/blog/2018/02/13/version-0.52-release.html</guid>
+            <pubDate>Tue, 13 Feb 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.51...v0.52)
+
+Changes in this release:
+
+#### Fixed
+* **\[core\]** Ensure that `ArezContext.willPropagateSpyEvents()` is used internally rather than chaining
+  it with other checks such as `Arez.]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.51 released]]></title>
             <link>https://arez.github.io/blog/2018/02/12/version-0.51-release.html</link>
