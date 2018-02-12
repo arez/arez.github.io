@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Mon, 05 Feb 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 12 Feb 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.50 released]]></title>
+            <link>https://arez.github.io/blog/2018/02/12/version-0.50-release.html</link>
+            <guid>https://arez.github.io/blog/2018/02/12/version-0.50-release.html</guid>
+            <pubDate>Mon, 12 Feb 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.49...v0.50)
+
+Changes in this release:
+
+#### Fixed
+* **\[extras\]** Remove useless invariant check in `IntervalTicker` class.
+* **\[core\]** Reordered code in `ArezContext.action(...)` so that c]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.49 released]]></title>
             <link>https://arez.github.io/blog/2018/02/05/version-0.49-release.html</link>
