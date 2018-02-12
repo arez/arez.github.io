@@ -203,7 +203,7 @@
 <span class="sourceLineNo">195</span>    }<a name="line.195"></a>
 <span class="sourceLineNo">196</span>    final Component component = new Component( this, type, id, name, preDispose, postDispose );<a name="line.196"></a>
 <span class="sourceLineNo">197</span>    map.put( id, component );<a name="line.197"></a>
-<span class="sourceLineNo">198</span>    if ( Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.198"></a>
+<span class="sourceLineNo">198</span>    if ( willPropagateSpyEvents() )<a name="line.198"></a>
 <span class="sourceLineNo">199</span>    {<a name="line.199"></a>
 <span class="sourceLineNo">200</span>      getSpy().reportSpyEvent( new ComponentCreateStartedEvent( component ) );<a name="line.200"></a>
 <span class="sourceLineNo">201</span>    }<a name="line.201"></a>
@@ -1035,7 +1035,7 @@
 <span class="sourceLineNo">1027</span>    T result;<a name="line.1027"></a>
 <span class="sourceLineNo">1028</span>    try<a name="line.1028"></a>
 <span class="sourceLineNo">1029</span>    {<a name="line.1029"></a>
-<span class="sourceLineNo">1030</span>      if ( Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1030"></a>
+<span class="sourceLineNo">1030</span>      if ( willPropagateSpyEvents() )<a name="line.1030"></a>
 <span class="sourceLineNo">1031</span>      {<a name="line.1031"></a>
 <span class="sourceLineNo">1032</span>        startedAt = System.currentTimeMillis();<a name="line.1032"></a>
 <span class="sourceLineNo">1033</span>        assert null != name;<a name="line.1033"></a>
@@ -1050,7 +1050,7 @@
 <span class="sourceLineNo">1042</span>      {<a name="line.1042"></a>
 <span class="sourceLineNo">1043</span>        Transaction.commit( transaction );<a name="line.1043"></a>
 <span class="sourceLineNo">1044</span>      }<a name="line.1044"></a>
-<span class="sourceLineNo">1045</span>      if ( Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1045"></a>
+<span class="sourceLineNo">1045</span>      if ( willPropagateSpyEvents() )<a name="line.1045"></a>
 <span class="sourceLineNo">1046</span>      {<a name="line.1046"></a>
 <span class="sourceLineNo">1047</span>        completed = true;<a name="line.1047"></a>
 <span class="sourceLineNo">1048</span>        final long duration = System.currentTimeMillis() - startedAt;<a name="line.1048"></a>
@@ -1066,7 +1066,7 @@
 <span class="sourceLineNo">1058</span>    }<a name="line.1058"></a>
 <span class="sourceLineNo">1059</span>    finally<a name="line.1059"></a>
 <span class="sourceLineNo">1060</span>    {<a name="line.1060"></a>
-<span class="sourceLineNo">1061</span>      if ( Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1061"></a>
+<span class="sourceLineNo">1061</span>      if ( willPropagateSpyEvents() )<a name="line.1061"></a>
 <span class="sourceLineNo">1062</span>      {<a name="line.1062"></a>
 <span class="sourceLineNo">1063</span>        if ( !completed )<a name="line.1063"></a>
 <span class="sourceLineNo">1064</span>        {<a name="line.1064"></a>
@@ -1191,7 +1191,7 @@
 <span class="sourceLineNo">1183</span>    T result;<a name="line.1183"></a>
 <span class="sourceLineNo">1184</span>    try<a name="line.1184"></a>
 <span class="sourceLineNo">1185</span>    {<a name="line.1185"></a>
-<span class="sourceLineNo">1186</span>      if ( Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1186"></a>
+<span class="sourceLineNo">1186</span>      if ( willPropagateSpyEvents() )<a name="line.1186"></a>
 <span class="sourceLineNo">1187</span>      {<a name="line.1187"></a>
 <span class="sourceLineNo">1188</span>        startedAt = System.currentTimeMillis();<a name="line.1188"></a>
 <span class="sourceLineNo">1189</span>        assert null != name;<a name="line.1189"></a>
@@ -1206,7 +1206,7 @@
 <span class="sourceLineNo">1198</span>      {<a name="line.1198"></a>
 <span class="sourceLineNo">1199</span>        Transaction.commit( transaction );<a name="line.1199"></a>
 <span class="sourceLineNo">1200</span>      }<a name="line.1200"></a>
-<span class="sourceLineNo">1201</span>      if ( Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1201"></a>
+<span class="sourceLineNo">1201</span>      if ( willPropagateSpyEvents() )<a name="line.1201"></a>
 <span class="sourceLineNo">1202</span>      {<a name="line.1202"></a>
 <span class="sourceLineNo">1203</span>        completed = true;<a name="line.1203"></a>
 <span class="sourceLineNo">1204</span>        final long duration = System.currentTimeMillis() - startedAt;<a name="line.1204"></a>
@@ -1222,7 +1222,7 @@
 <span class="sourceLineNo">1214</span>    }<a name="line.1214"></a>
 <span class="sourceLineNo">1215</span>    finally<a name="line.1215"></a>
 <span class="sourceLineNo">1216</span>    {<a name="line.1216"></a>
-<span class="sourceLineNo">1217</span>      if ( Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1217"></a>
+<span class="sourceLineNo">1217</span>      if ( willPropagateSpyEvents() )<a name="line.1217"></a>
 <span class="sourceLineNo">1218</span>      {<a name="line.1218"></a>
 <span class="sourceLineNo">1219</span>        if ( !completed )<a name="line.1219"></a>
 <span class="sourceLineNo">1220</span>        {<a name="line.1220"></a>
@@ -1354,7 +1354,7 @@
 <span class="sourceLineNo">1346</span>    long startedAt = 0L;<a name="line.1346"></a>
 <span class="sourceLineNo">1347</span>    try<a name="line.1347"></a>
 <span class="sourceLineNo">1348</span>    {<a name="line.1348"></a>
-<span class="sourceLineNo">1349</span>      if ( Arez.areSpiesEnabled() &amp;&amp; reportAction &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1349"></a>
+<span class="sourceLineNo">1349</span>      if ( willPropagateSpyEvents() &amp;&amp; reportAction )<a name="line.1349"></a>
 <span class="sourceLineNo">1350</span>      {<a name="line.1350"></a>
 <span class="sourceLineNo">1351</span>        startedAt = System.currentTimeMillis();<a name="line.1351"></a>
 <span class="sourceLineNo">1352</span>        assert null != name;<a name="line.1352"></a>
@@ -1369,7 +1369,7 @@
 <span class="sourceLineNo">1361</span>      {<a name="line.1361"></a>
 <span class="sourceLineNo">1362</span>        Transaction.commit( transaction );<a name="line.1362"></a>
 <span class="sourceLineNo">1363</span>      }<a name="line.1363"></a>
-<span class="sourceLineNo">1364</span>      if ( Arez.areSpiesEnabled() &amp;&amp; reportAction &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1364"></a>
+<span class="sourceLineNo">1364</span>      if ( willPropagateSpyEvents() &amp;&amp; reportAction )<a name="line.1364"></a>
 <span class="sourceLineNo">1365</span>      {<a name="line.1365"></a>
 <span class="sourceLineNo">1366</span>        completed = true;<a name="line.1366"></a>
 <span class="sourceLineNo">1367</span>        final long duration = System.currentTimeMillis() - startedAt;<a name="line.1367"></a>
@@ -1384,7 +1384,7 @@
 <span class="sourceLineNo">1376</span>    }<a name="line.1376"></a>
 <span class="sourceLineNo">1377</span>    finally<a name="line.1377"></a>
 <span class="sourceLineNo">1378</span>    {<a name="line.1378"></a>
-<span class="sourceLineNo">1379</span>      if ( Arez.areSpiesEnabled() &amp;&amp; reportAction &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1379"></a>
+<span class="sourceLineNo">1379</span>      if ( willPropagateSpyEvents() &amp;&amp; reportAction )<a name="line.1379"></a>
 <span class="sourceLineNo">1380</span>      {<a name="line.1380"></a>
 <span class="sourceLineNo">1381</span>        if ( !completed )<a name="line.1381"></a>
 <span class="sourceLineNo">1382</span>        {<a name="line.1382"></a>
@@ -1498,7 +1498,7 @@
 <span class="sourceLineNo">1490</span>    long startedAt = 0L;<a name="line.1490"></a>
 <span class="sourceLineNo">1491</span>    try<a name="line.1491"></a>
 <span class="sourceLineNo">1492</span>    {<a name="line.1492"></a>
-<span class="sourceLineNo">1493</span>      if ( Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1493"></a>
+<span class="sourceLineNo">1493</span>      if ( willPropagateSpyEvents() )<a name="line.1493"></a>
 <span class="sourceLineNo">1494</span>      {<a name="line.1494"></a>
 <span class="sourceLineNo">1495</span>        startedAt = System.currentTimeMillis();<a name="line.1495"></a>
 <span class="sourceLineNo">1496</span>        assert null != name;<a name="line.1496"></a>
@@ -1513,7 +1513,7 @@
 <span class="sourceLineNo">1505</span>      {<a name="line.1505"></a>
 <span class="sourceLineNo">1506</span>        Transaction.commit( transaction );<a name="line.1506"></a>
 <span class="sourceLineNo">1507</span>      }<a name="line.1507"></a>
-<span class="sourceLineNo">1508</span>      if ( Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1508"></a>
+<span class="sourceLineNo">1508</span>      if ( willPropagateSpyEvents() )<a name="line.1508"></a>
 <span class="sourceLineNo">1509</span>      {<a name="line.1509"></a>
 <span class="sourceLineNo">1510</span>        completed = true;<a name="line.1510"></a>
 <span class="sourceLineNo">1511</span>        final long duration = System.currentTimeMillis() - startedAt;<a name="line.1511"></a>
@@ -1528,7 +1528,7 @@
 <span class="sourceLineNo">1520</span>    }<a name="line.1520"></a>
 <span class="sourceLineNo">1521</span>    finally<a name="line.1521"></a>
 <span class="sourceLineNo">1522</span>    {<a name="line.1522"></a>
-<span class="sourceLineNo">1523</span>      if ( Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents() )<a name="line.1523"></a>
+<span class="sourceLineNo">1523</span>      if ( willPropagateSpyEvents() )<a name="line.1523"></a>
 <span class="sourceLineNo">1524</span>      {<a name="line.1524"></a>
 <span class="sourceLineNo">1525</span>        if ( !completed )<a name="line.1525"></a>
 <span class="sourceLineNo">1526</span>        {<a name="line.1526"></a>
