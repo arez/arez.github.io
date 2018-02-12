@@ -14,6 +14,19 @@
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
         <item>
+            <title><![CDATA[Arez 0.51 released]]></title>
+            <link>https://arez.github.io/blog/2018/02/12/version-0.51-release.html</link>
+            <guid>https://arez.github.io/blog/2018/02/12/version-0.51-release.html</guid>
+            <pubDate>Mon, 12 Feb 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.50...v0.51)
+
+Changes in this release:
+
+#### Fixed
+* **\[processor\]** The annotation processor generated multiple catch and throw blocks to handle declared
+  exceptions on actions. This resulte]]></description>
+        </item>
+        <item>
             <title><![CDATA[Arez 0.50 released]]></title>
             <link>https://arez.github.io/blog/2018/02/12/version-0.50-release.html</link>
             <guid>https://arez.github.io/blog/2018/02/12/version-0.50-release.html</guid>
