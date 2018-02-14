@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Tue, 13 Feb 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 14 Feb 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.53 released]]></title>
+            <link>https://arez.github.io/blog/2018/02/14/version-0.53-release.html</link>
+            <guid>https://arez.github.io/blog/2018/02/14/version-0.53-release.html</guid>
+            <pubDate>Wed, 14 Feb 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.52...v0.53)
+
+Changes in this release:
+
+#### Fixed
+* **\[processor\]** The `create` methods on the generated repository incorrectly had their access level
+  determined by the access level of the]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.52 released]]></title>
             <link>https://arez.github.io/blog/2018/02/13/version-0.52-release.html</link>
