@@ -116,7 +116,18 @@
 <span class="sourceLineNo">108</span>   * @return Return true if an the generated component should NOT schedule autorun actions at the end of the constructor.<a name="line.108"></a>
 <span class="sourceLineNo">109</span>   */<a name="line.109"></a>
 <span class="sourceLineNo">110</span>  boolean deferSchedule() default false;<a name="line.110"></a>
-<span class="sourceLineNo">111</span>}<a name="line.111"></a>
+<span class="sourceLineNo">111</span><a name="line.111"></a>
+<span class="sourceLineNo">112</span>  /**<a name="line.112"></a>
+<span class="sourceLineNo">113</span>   * Indicate whether a component requires that the {@link Object#hashCode()} and {@link Object#equals(Object)}<a name="line.113"></a>
+<span class="sourceLineNo">114</span>   * methods are implemented. These methods MUST be implemented if the {@link Repository} annotation is present<a name="line.114"></a>
+<span class="sourceLineNo">115</span>   * but may be implemented in other scenarios. {@link Feature#ENABLE} will force the generation of the methods,<a name="line.115"></a>
+<span class="sourceLineNo">116</span>   * {@link Feature#DISABLE} will no generate these methods and {@link Feature#AUTODETECT} will generated these<a name="line.116"></a>
+<span class="sourceLineNo">117</span>   * methods if the {@link Repository} annotation is present.<a name="line.117"></a>
+<span class="sourceLineNo">118</span>   *<a name="line.118"></a>
+<span class="sourceLineNo">119</span>   * @return enum controlling whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods are implemented.<a name="line.119"></a>
+<span class="sourceLineNo">120</span>   */<a name="line.120"></a>
+<span class="sourceLineNo">121</span>  Feature requireEquals() default Feature.AUTODETECT;<a name="line.121"></a>
+<span class="sourceLineNo">122</span>}<a name="line.122"></a>
 
 
 

@@ -183,6 +183,13 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#requireEquals--">requireEquals</a></span></code>
+<div class="block">Indicate whether a component requires that the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang"><code>Object.equals(Object)</code></a>
+ methods are implemented.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#type--">type</a></span></code>
 <div class="block">Return the name of the type.</div>
@@ -347,7 +354,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="deferSchedule--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>deferSchedule</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.110">deferSchedule</a></pre>
@@ -360,6 +367,31 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>false</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="requireEquals--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>requireEquals</h4>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.121">requireEquals</a></pre>
+<div class="block">Indicate whether a component requires that the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang"><code>Object.equals(Object)</code></a>
+ methods are implemented. These methods MUST be implemented if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present
+ but may be implemented in other scenarios. <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the generation of the methods,
+ <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> will no generate these methods and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will generated these
+ methods if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>enum controlling whether the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang"><code>Object.equals(Object)</code></a> methods are implemented.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>arez.annotations.Feature.AUTODETECT</dd>
 </dl>
 </li>
 </ul>
