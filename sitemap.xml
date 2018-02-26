@@ -65,6 +65,7 @@
 <url> <loc>https://arez.github.io/docs/at_autorun.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/at_autorun.html" /> </url>
 <url> <loc>https://arez.github.io/docs/at_component_id.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/at_component_id.html" /> </url>
 <url> <loc>https://arez.github.io/docs/at_computed.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/at_computed.html" /> </url>
+<url> <loc>https://arez.github.io/docs/at_dependency.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/at_dependency.html" /> </url>
 <url> <loc>https://arez.github.io/docs/at_memoize.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/at_memoize.html" /> </url>
 <url> <loc>https://arez.github.io/docs/at_observable.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/at_observable.html" /> </url>
 <url> <loc>https://arez.github.io/docs/at_track.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://arez.github.io/docs/at_track.html" /> </url>
