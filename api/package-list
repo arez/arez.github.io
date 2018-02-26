@@ -2,6 +2,7 @@ arez
 arez.annotations
 arez.browser.extras
 arez.browser.extras.spy
+arez.component
 arez.extras.spy
 arez.processor
 arez.spy
