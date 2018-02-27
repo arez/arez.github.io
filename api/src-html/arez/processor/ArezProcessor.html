@@ -132,7 +132,7 @@
 <span class="sourceLineNo">124</span>    }<a name="line.124"></a>
 <span class="sourceLineNo">125</span>    final AnnotationMirror arezComponent =<a name="line.125"></a>
 <span class="sourceLineNo">126</span>      ProcessorUtil.getAnnotationByType( typeElement, Constants.COMPONENT_ANNOTATION_CLASSNAME );<a name="line.126"></a>
-<span class="sourceLineNo">127</span>    final String declaredType = getAnnotationParameter( arezComponent, "type" );<a name="line.127"></a>
+<span class="sourceLineNo">127</span>    final String declaredType = getAnnotationParameter( arezComponent, "name" );<a name="line.127"></a>
 <span class="sourceLineNo">128</span>    final AnnotationValue nameIncludesIdValue =<a name="line.128"></a>
 <span class="sourceLineNo">129</span>      ProcessorUtil.findAnnotationValue( processingEnv.getElementUtils(), arezComponent, "nameIncludesId", false );<a name="line.129"></a>
 <span class="sourceLineNo">130</span>    final AnnotationMirror singletonAnnotation =<a name="line.130"></a>
