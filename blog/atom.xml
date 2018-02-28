@@ -9,6 +9,24 @@
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
     <entry>
+        <title type="html"><![CDATA[Arez 0.62 released]]></title>
+        <id>https://arez.github.io/blog/2018/02/28/version-0.62-release.html</id>
+        <link href="https://arez.github.io/blog/2018/02/28/version-0.62-release.html">
+        </link>
+        <updated>2018-02-28T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.61...v0.62)
+
+Changes in this release:
+
+#### Added
+* **\[core\]** Add the ability to control the execution environment in which reactions are scheduled by supplying a
+  `ReactionEnvironment` ins]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Arez 0.61 released]]></title>
         <id>https://arez.github.io/blog/2018/02/28/version-0.61-release.html</id>
         <link href="https://arez.github.io/blog/2018/02/28/version-0.61-release.html">
