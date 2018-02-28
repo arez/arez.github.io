@@ -9,6 +9,24 @@
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
     <entry>
+        <title type="html"><![CDATA[Arez 0.61 released]]></title>
+        <id>https://arez.github.io/blog/2018/02/28/version-0.61-release.html</id>
+        <link href="https://arez.github.io/blog/2018/02/28/version-0.61-release.html">
+        </link>
+        <updated>2018-02-28T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.60...v0.61)
+
+Changes in this release:
+
+#### Fixed
+* **\[processor\]** Changed the generated `cascadeOnDispose` method for collecting dependencies to defer
+  accessing the dependency until it is]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Arez 0.60 released]]></title>
         <id>https://arez.github.io/blog/2018/02/28/version-0.60-release.html</id>
         <link href="https://arez.github.io/blog/2018/02/28/version-0.60-release.html">
