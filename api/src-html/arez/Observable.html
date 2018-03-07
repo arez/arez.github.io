@@ -105,7 +105,7 @@
 <span class="sourceLineNo">097</span>              @Nullable final PropertyMutator&lt;T&gt; mutator )<a name="line.97"></a>
 <span class="sourceLineNo">098</span>  {<a name="line.98"></a>
 <span class="sourceLineNo">099</span>    super( context, name );<a name="line.99"></a>
-<span class="sourceLineNo">100</span>    _component = component;<a name="line.100"></a>
+<span class="sourceLineNo">100</span>    _component = Arez.areNativeComponentsEnabled() ? component : null;<a name="line.100"></a>
 <span class="sourceLineNo">101</span>    _owner = owner;<a name="line.101"></a>
 <span class="sourceLineNo">102</span>    _accessor = accessor;<a name="line.102"></a>
 <span class="sourceLineNo">103</span>    _mutator = mutator;<a name="line.103"></a>

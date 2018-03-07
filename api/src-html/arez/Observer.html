@@ -162,7 +162,7 @@
 <span class="sourceLineNo">154</span>                       "Arez.areNativeComponentsEnabled() is false." );<a name="line.154"></a>
 <span class="sourceLineNo">155</span>    }<a name="line.155"></a>
 <span class="sourceLineNo">156</span>    assert null == computedValue || !Arez.areNamesEnabled() || computedValue.getName().equals( name );<a name="line.156"></a>
-<span class="sourceLineNo">157</span>    _component = component;<a name="line.157"></a>
+<span class="sourceLineNo">157</span>    _component = Arez.areNativeComponentsEnabled() ? component : null;<a name="line.157"></a>
 <span class="sourceLineNo">158</span>    _computedValue = computedValue;<a name="line.158"></a>
 <span class="sourceLineNo">159</span>    _mode = Arez.shouldEnforceTransactionType() ? Objects.requireNonNull( mode ) : null;<a name="line.159"></a>
 <span class="sourceLineNo">160</span>    _reaction = Objects.requireNonNull( reaction );<a name="line.160"></a>
