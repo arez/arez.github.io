@@ -14,6 +14,19 @@
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
         <item>
+            <title><![CDATA[Arez 0.64 released]]></title>
+            <link>https://arez.github.io/blog/2018/03/07/version-0.64-release.html</link>
+            <guid>https://arez.github.io/blog/2018/03/07/version-0.64-release.html</guid>
+            <pubDate>Wed, 07 Mar 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.63...v0.64)
+
+Changes in this release:
+
+#### Fixed
+* **\[core\]** Fixed a bug that occurred when a "When" observer was explicitly disposed prior to the effect
+  running. This left the associated]]></description>
+        </item>
+        <item>
             <title><![CDATA[Arez 0.63 released]]></title>
             <link>https://arez.github.io/blog/2018/03/07/version-0.63-release.html</link>
             <guid>https://arez.github.io/blog/2018/03/07/version-0.63-release.html</guid>
