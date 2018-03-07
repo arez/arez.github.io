@@ -235,7 +235,7 @@
 <span class="sourceLineNo">227</span>  @Override<a name="line.227"></a>
 <span class="sourceLineNo">228</span>  public void dispose()<a name="line.228"></a>
 <span class="sourceLineNo">229</span>  {<a name="line.229"></a>
-<span class="sourceLineNo">230</span>    if ( !_disposed )<a name="line.230"></a>
+<span class="sourceLineNo">230</span>    if ( !_disposed &amp;&amp; !_disposing )<a name="line.230"></a>
 <span class="sourceLineNo">231</span>    {<a name="line.231"></a>
 <span class="sourceLineNo">232</span>      _disposing = true;<a name="line.232"></a>
 <span class="sourceLineNo">233</span>      runHook( getOnDispose(), ObserverError.ON_DISPOSE_ERROR );<a name="line.233"></a>
