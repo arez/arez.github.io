@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Wed, 07 Mar 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 08 Mar 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,15 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.65 released]]></title>
+            <link>https://arez.github.io/blog/2018/03/08/version-0.65-release.html</link>
+            <guid>https://arez.github.io/blog/2018/03/08/version-0.65-release.html</guid>
+            <pubDate>Thu, 08 Mar 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.64...v0.65)
+
+Changes in this release:]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.64 released]]></title>
             <link>https://arez.github.io/blog/2018/03/07/version-0.64-release.html</link>
