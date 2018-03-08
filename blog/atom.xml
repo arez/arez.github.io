@@ -9,6 +9,23 @@
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
     <entry>
+        <title type="html"><![CDATA[Arez 0.66 released]]></title>
+        <id>https://arez.github.io/blog/2018/03/08/version-0.66-release.html</id>
+        <link href="https://arez.github.io/blog/2018/03/08/version-0.66-release.html">
+        </link>
+        <updated>2018-03-08T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.65...v0.66)
+
+Changes in this release:
+
+#### Fixed
+* Fixed a bug in the release process that resulted in failing to update downstream artifacts.]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Arez 0.65 released]]></title>
         <id>https://arez.github.io/blog/2018/03/08/version-0.65-release.html</id>
         <link href="https://arez.github.io/blog/2018/03/08/version-0.65-release.html">
