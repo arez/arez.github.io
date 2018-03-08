@@ -16,7 +16,10 @@
         <updated>2018-03-08T06:00:00Z</updated>
         <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.64...v0.65)
 
-Changes in this release:]]></summary>
+Changes in this release:
+
+#### Changed
+* Update the version of Arez in `react4j-todomvc` as part of the Arez release process.]]></summary>
         <author>
             <name>Arez Project</name>
             <uri>https://github.com/arez</uri>

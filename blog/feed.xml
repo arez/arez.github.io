@@ -20,7 +20,10 @@
             <pubDate>Thu, 08 Mar 2018 06:00:00 GMT</pubDate>
             <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.64...v0.65)
 
-Changes in this release:]]></description>
+Changes in this release:
+
+#### Changed
+* Update the version of Arez in `react4j-todomvc` as part of the Arez release process.]]></description>
         </item>
         <item>
             <title><![CDATA[Arez 0.64 released]]></title>
