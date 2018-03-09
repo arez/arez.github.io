@@ -68,7 +68,7 @@
 <span class="sourceLineNo">060</span>   */<a name="line.60"></a>
 <span class="sourceLineNo">061</span>  private boolean _disposed;<a name="line.61"></a>
 <span class="sourceLineNo">062</span><a name="line.62"></a>
-<span class="sourceLineNo">063</span>  ComputedValue( @Nonnull final ArezContext context,<a name="line.63"></a>
+<span class="sourceLineNo">063</span>  ComputedValue( @Nullable final ArezContext context,<a name="line.63"></a>
 <span class="sourceLineNo">064</span>                 @Nullable final Component component,<a name="line.64"></a>
 <span class="sourceLineNo">065</span>                 @Nullable final String name,<a name="line.65"></a>
 <span class="sourceLineNo">066</span>                 @Nonnull final SafeFunction&lt;T&gt; function,<a name="line.66"></a>
@@ -87,7 +87,7 @@
 <span class="sourceLineNo">079</span>    _equalityComparator = Objects.requireNonNull( equalityComparator );<a name="line.79"></a>
 <span class="sourceLineNo">080</span>    _value = null;<a name="line.80"></a>
 <span class="sourceLineNo">081</span>    _computing = false;<a name="line.81"></a>
-<span class="sourceLineNo">082</span>    _observer = new Observer( context,<a name="line.82"></a>
+<span class="sourceLineNo">082</span>    _observer = new Observer( Arez.areZonesEnabled() ? context : null,<a name="line.82"></a>
 <span class="sourceLineNo">083</span>                              null,<a name="line.83"></a>
 <span class="sourceLineNo">084</span>                              Arez.areNamesEnabled() ? getName() : null,<a name="line.84"></a>
 <span class="sourceLineNo">085</span>                              this,<a name="line.85"></a>
