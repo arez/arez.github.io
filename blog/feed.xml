@@ -14,6 +14,18 @@
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
         <item>
+            <title><![CDATA[Arez 0.68 released]]></title>
+            <link>https://arez.github.io/blog/2018/03/09/version-0.68-release.html</link>
+            <guid>https://arez.github.io/blog/2018/03/09/version-0.68-release.html</guid>
+            <pubDate>Fri, 09 Mar 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.67...v0.68)
+
+Changes in this release:
+
+#### Fixed
+* Fixed the `downstream-test` project so that it correctly builds even when run on a release branch.]]></description>
+        </item>
+        <item>
             <title><![CDATA[Arez 0.67 released]]></title>
             <link>https://arez.github.io/blog/2018/03/09/version-0.67-release.html</link>
             <guid>https://arez.github.io/blog/2018/03/09/version-0.67-release.html</guid>
