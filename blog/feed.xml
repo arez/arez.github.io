@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Fri, 09 Mar 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 14 Mar 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.69 released]]></title>
+            <link>https://arez.github.io/blog/2018/03/14/version-0.69-release.html</link>
+            <guid>https://arez.github.io/blog/2018/03/14/version-0.69-release.html</guid>
+            <pubDate>Wed, 14 Mar 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.68...v0.69)
+
+Changes in this release:
+
+#### Added
+* **\[core\]** Add the build time configuration setting `arez.enable_observer_error_handlers` and default
+  it to `true`. Expose the setting as]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.68 released]]></title>
             <link>https://arez.github.io/blog/2018/03/09/version-0.68-release.html</link>
