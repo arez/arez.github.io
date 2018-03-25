@@ -9,6 +9,23 @@
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
     <entry>
+        <title type="html"><![CDATA[Arez 0.73 released]]></title>
+        <id>https://arez.github.io/blog/2018/03/25/version-0.73-release.html</id>
+        <link href="https://arez.github.io/blog/2018/03/25/version-0.73-release.html">
+        </link>
+        <updated>2018-03-25T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.72...v0.73)
+
+Changes in this release:
+
+##### Fixed
+* The annotation processor code was not packaged in gwt jars.]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Arez 0.72 released]]></title>
         <id>https://arez.github.io/blog/2018/03/25/version-0.72-release.html</id>
         <link href="https://arez.github.io/blog/2018/03/25/version-0.72-release.html">
