@@ -44,8 +44,8 @@ meanings are as follows:</p>
 derived from a <a href="https://gist.github.com/domenic/ec8b0fc8ab45f39403dd">gist</a> and customized for our project.
 The basic idea is to setup the GitHub project with a deploy key, encrypt the key and make it available to
 TravisCI that will unencrypt it as part of the build.</p>
-<p>Firstly you create the key via the following command. Make sure you use an empty password.</p>
-<pre><code class="hljs">$ ssh-keygen -t rsa -b 4096 -C &quot;peter@realityforge.org&quot; -f ../deploy
+<p>Firstly you create the key via the following command.</p>
+<pre><code class="hljs">$ ssh-keygen -t rsa -b 4096 -C &quot;peter@realityforge.org&quot; -f ../deploy -P &quot;&quot;
 </code></pre>
 <p>This is a private key and should NOT be checked into source code repository. Instead an encrypted version
 of the file is checked in. See the &quot;Encrypting Files for TravisCI&quot; section below for how to do this.</p>
