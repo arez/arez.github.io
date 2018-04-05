@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Mon, 26 Mar 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 06 Apr 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.75 released]]></title>
+            <link>https://arez.github.io/blog/2018/04/06/version-0.75-release.html</link>
+            <guid>https://arez.github.io/blog/2018/04/06/version-0.75-release.html</guid>
+            <pubDate>Fri, 06 Apr 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.74...v0.75)
+
+Changes in this release:
+
+##### Fixed
+* **\[core\]** Fixed a bug where the `LeastStaleObserverState` of an `Observable` could be incorrect during
+  `dispose()` invocation of a `Com]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.74 released]]></title>
             <link>https://arez.github.io/blog/2018/03/26/version-0.74-release.html</link>

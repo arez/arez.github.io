@@ -2,12 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://arez.github.io/blog</id>
     <title>Arez Blog</title>
-    <updated>2018-03-26T06:00:00Z</updated>
+    <updated>2018-04-06T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://arez.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Arez news and events.</subtitle>
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
+    <entry>
+        <title type="html"><![CDATA[Arez 0.75 released]]></title>
+        <id>https://arez.github.io/blog/2018/04/06/version-0.75-release.html</id>
+        <link href="https://arez.github.io/blog/2018/04/06/version-0.75-release.html">
+        </link>
+        <updated>2018-04-06T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.74...v0.75)
+
+Changes in this release:
+
+##### Fixed
+* **\[core\]** Fixed a bug where the `LeastStaleObserverState` of an `Observable` could be incorrect during
+  `dispose()` invocation of a `Com]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Arez 0.74 released]]></title>
         <id>https://arez.github.io/blog/2018/03/26/version-0.74-release.html</id>
