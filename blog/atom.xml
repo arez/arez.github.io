@@ -2,12 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://arez.github.io/blog</id>
     <title>Arez Blog</title>
-    <updated>2018-04-06T06:00:00Z</updated>
+    <updated>2018-04-08T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://arez.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Arez news and events.</subtitle>
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
+    <entry>
+        <title type="html"><![CDATA[Arez 0.76 released]]></title>
+        <id>https://arez.github.io/blog/2018/04/08/version-0.76-release.html</id>
+        <link href="https://arez.github.io/blog/2018/04/08/version-0.76-release.html">
+        </link>
+        <updated>2018-04-08T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.75...v0.76)
+
+Changes in this release:
+
+#### Changed
+* 💥 **\[browser-extras\]** The `ObservablePromise` class has been removed from the `arez` project and migrated
+  to it's own top level proje]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Arez 0.75 released]]></title>
         <id>https://arez.github.io/blog/2018/04/06/version-0.75-release.html</id>
