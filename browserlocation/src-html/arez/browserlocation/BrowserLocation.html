@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>package arez.browserlocation;<a name="line.1"></a>
+<span class="sourceLineNo">002</span><a name="line.2"></a>
+<span class="sourceLineNo">003</span>import arez.annotations.Action;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import arez.annotations.ArezComponent;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import arez.annotations.Observable;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import arez.annotations.PostConstruct;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import arez.annotations.PreDispose;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import elemental2.dom.DomGlobal;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import elemental2.dom.Event;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import elemental2.dom.EventListener;<a name="line.10"></a>
+<span class="sourceLineNo">011</span>import java.util.Objects;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>import javax.annotation.Nonnull;<a name="line.12"></a>
+<span class="sourceLineNo">013</span>import org.realityforge.anodoc.Unsupported;<a name="line.13"></a>
+<span class="sourceLineNo">014</span><a name="line.14"></a>
+<span class="sourceLineNo">015</span>/**<a name="line.15"></a>
+<span class="sourceLineNo">016</span> * This is a simple abstraction over browser location as a hash.<a name="line.16"></a>
+<span class="sourceLineNo">017</span> * The model exposes the observable values for the location as the application sees it via<a name="line.17"></a>
+<span class="sourceLineNo">018</span> * {@link #getLocation()}, the way the browser sees it via {@link #getBrowserLocation()}.<a name="line.18"></a>
+<span class="sourceLineNo">019</span> * The application code should define an autorun that monitors the location as the browser<a name="line.19"></a>
+<span class="sourceLineNo">020</span> * sees it and update the location as the application sees it via {@link #changeLocation(String)}<a name="line.20"></a>
+<span class="sourceLineNo">021</span> * if the browser location is valid. Otherwise the browser location should be reset to the application<a name="line.21"></a>
+<span class="sourceLineNo">022</span> * location.<a name="line.22"></a>
+<span class="sourceLineNo">023</span> *<a name="line.23"></a>
+<span class="sourceLineNo">024</span> * &lt;p&gt;It should be noted that this class is not a router but a primitive that can be used to<a name="line.24"></a>
+<span class="sourceLineNo">025</span> * implement a router. Observing the application location will allow the application to update<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * the view. Observing the browser location will allow the application to decide whether the<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * route should be updated.&lt;/p&gt;<a name="line.27"></a>
+<span class="sourceLineNo">028</span> */<a name="line.28"></a>
+<span class="sourceLineNo">029</span>@ArezComponent( nameIncludesId = false )<a name="line.29"></a>
+<span class="sourceLineNo">030</span>@Unsupported( "This is still considered experimental and will likely evolve over time" )<a name="line.30"></a>
+<span class="sourceLineNo">031</span>public abstract class BrowserLocation<a name="line.31"></a>
+<span class="sourceLineNo">032</span>{<a name="line.32"></a>
+<span class="sourceLineNo">033</span>  private final EventListener _listener = this::onHashChangeEvent;<a name="line.33"></a>
+<span class="sourceLineNo">034</span><a name="line.34"></a>
+<span class="sourceLineNo">035</span>  /**<a name="line.35"></a>
+<span class="sourceLineNo">036</span>   * The location according to the application.<a name="line.36"></a>
+<span class="sourceLineNo">037</span>   */<a name="line.37"></a>
+<span class="sourceLineNo">038</span>  @Nonnull<a name="line.38"></a>
+<span class="sourceLineNo">039</span>  private String _location = "";<a name="line.39"></a>
+<span class="sourceLineNo">040</span>  /**<a name="line.40"></a>
+<span class="sourceLineNo">041</span>   * The location according to the browser.<a name="line.41"></a>
+<span class="sourceLineNo">042</span>   */<a name="line.42"></a>
+<span class="sourceLineNo">043</span>  @Nonnull<a name="line.43"></a>
+<span class="sourceLineNo">044</span>  private String _browserLocation = "";<a name="line.44"></a>
+<span class="sourceLineNo">045</span>  /**<a name="line.45"></a>
+<span class="sourceLineNo">046</span>   * The location that the application is attempting to update the browser to.<a name="line.46"></a>
+<span class="sourceLineNo">047</span>   */<a name="line.47"></a>
+<span class="sourceLineNo">048</span>  @Nonnull<a name="line.48"></a>
+<span class="sourceLineNo">049</span>  private String _targetLocation = "";<a name="line.49"></a>
+<span class="sourceLineNo">050</span>  /**<a name="line.50"></a>
+<span class="sourceLineNo">051</span>   * Should we prevent the default action associated with hash change?<a name="line.51"></a>
+<span class="sourceLineNo">052</span>   */<a name="line.52"></a>
+<span class="sourceLineNo">053</span>  private boolean _preventDefault = true;<a name="line.53"></a>
+<span class="sourceLineNo">054</span><a name="line.54"></a>
+<span class="sourceLineNo">055</span>  /**<a name="line.55"></a>
+<span class="sourceLineNo">056</span>   * Create the model object.<a name="line.56"></a>
+<span class="sourceLineNo">057</span>   *<a name="line.57"></a>
+<span class="sourceLineNo">058</span>   * @return the BrowserLocation instance.<a name="line.58"></a>
+<span class="sourceLineNo">059</span>   */<a name="line.59"></a>
+<span class="sourceLineNo">060</span>  public static BrowserLocation create()<a name="line.60"></a>
+<span class="sourceLineNo">061</span>  {<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    return new Arez_BrowserLocation();<a name="line.62"></a>
+<span class="sourceLineNo">063</span>  }<a name="line.63"></a>
+<span class="sourceLineNo">064</span><a name="line.64"></a>
+<span class="sourceLineNo">065</span>  BrowserLocation()<a name="line.65"></a>
+<span class="sourceLineNo">066</span>  {<a name="line.66"></a>
+<span class="sourceLineNo">067</span>  }<a name="line.67"></a>
+<span class="sourceLineNo">068</span><a name="line.68"></a>
+<span class="sourceLineNo">069</span>  @PostConstruct<a name="line.69"></a>
+<span class="sourceLineNo">070</span>  final void postConstruct()<a name="line.70"></a>
+<span class="sourceLineNo">071</span>  {<a name="line.71"></a>
+<span class="sourceLineNo">072</span>    DomGlobal.window.addEventListener( "hashchange", _listener, false );<a name="line.72"></a>
+<span class="sourceLineNo">073</span>    _targetLocation = _browserLocation = _location = getHash();<a name="line.73"></a>
+<span class="sourceLineNo">074</span>  }<a name="line.74"></a>
+<span class="sourceLineNo">075</span><a name="line.75"></a>
+<span class="sourceLineNo">076</span>  @PreDispose<a name="line.76"></a>
+<span class="sourceLineNo">077</span>  final void preDispose()<a name="line.77"></a>
+<span class="sourceLineNo">078</span>  {<a name="line.78"></a>
+<span class="sourceLineNo">079</span>    DomGlobal.window.removeEventListener( "hashchange", _listener, false );<a name="line.79"></a>
+<span class="sourceLineNo">080</span>  }<a name="line.80"></a>
+<span class="sourceLineNo">081</span><a name="line.81"></a>
+<span class="sourceLineNo">082</span>  /**<a name="line.82"></a>
+<span class="sourceLineNo">083</span>   * Return true if component will prevent default actions when hash.<a name="line.83"></a>
+<span class="sourceLineNo">084</span>   *<a name="line.84"></a>
+<span class="sourceLineNo">085</span>   * @return true if component will prevent default actions when hash.<a name="line.85"></a>
+<span class="sourceLineNo">086</span>   */<a name="line.86"></a>
+<span class="sourceLineNo">087</span>  public boolean shouldPreventDefault()<a name="line.87"></a>
+<span class="sourceLineNo">088</span>  {<a name="line.88"></a>
+<span class="sourceLineNo">089</span>    return _preventDefault;<a name="line.89"></a>
+<span class="sourceLineNo">090</span>  }<a name="line.90"></a>
+<span class="sourceLineNo">091</span><a name="line.91"></a>
+<span class="sourceLineNo">092</span>  /**<a name="line.92"></a>
+<span class="sourceLineNo">093</span>   * Set a flag to determine whether events default action will be prevented.<a name="line.93"></a>
+<span class="sourceLineNo">094</span>   *<a name="line.94"></a>
+<span class="sourceLineNo">095</span>   * @param preventDefault true to prevent default action.<a name="line.95"></a>
+<span class="sourceLineNo">096</span>   */<a name="line.96"></a>
+<span class="sourceLineNo">097</span>  public void setPreventDefault( final boolean preventDefault )<a name="line.97"></a>
+<span class="sourceLineNo">098</span>  {<a name="line.98"></a>
+<span class="sourceLineNo">099</span>    _preventDefault = preventDefault;<a name="line.99"></a>
+<span class="sourceLineNo">100</span>  }<a name="line.100"></a>
+<span class="sourceLineNo">101</span><a name="line.101"></a>
+<span class="sourceLineNo">102</span>  /**<a name="line.102"></a>
+<span class="sourceLineNo">103</span>   * Change the target location to the specified parameter.<a name="line.103"></a>
+<span class="sourceLineNo">104</span>   * This will ultimately result in a side-effect that updates the browsers location.<a name="line.104"></a>
+<span class="sourceLineNo">105</span>   * This location parameter should not include "#" as the first character.<a name="line.105"></a>
+<span class="sourceLineNo">106</span>   *<a name="line.106"></a>
+<span class="sourceLineNo">107</span>   * @param targetLocation the location to change to.<a name="line.107"></a>
+<span class="sourceLineNo">108</span>   */<a name="line.108"></a>
+<span class="sourceLineNo">109</span>  @Action<a name="line.109"></a>
+<span class="sourceLineNo">110</span>  public void changeLocation( @Nonnull final String targetLocation )<a name="line.110"></a>
+<span class="sourceLineNo">111</span>  {<a name="line.111"></a>
+<span class="sourceLineNo">112</span>    _targetLocation = targetLocation;<a name="line.112"></a>
+<span class="sourceLineNo">113</span>    if ( targetLocation.equals( getBrowserLocation() ) )<a name="line.113"></a>
+<span class="sourceLineNo">114</span>    {<a name="line.114"></a>
+<span class="sourceLineNo">115</span>      setLocation( targetLocation );<a name="line.115"></a>
+<span class="sourceLineNo">116</span>    }<a name="line.116"></a>
+<span class="sourceLineNo">117</span>    setHash( targetLocation );<a name="line.117"></a>
+<span class="sourceLineNo">118</span>    /*<a name="line.118"></a>
+<span class="sourceLineNo">119</span>     * setHash does not trigger a "hashchange" event so explicitly call the hook here<a name="line.119"></a>
+<span class="sourceLineNo">120</span>     */<a name="line.120"></a>
+<span class="sourceLineNo">121</span>    updateBrowserLocation();<a name="line.121"></a>
+<span class="sourceLineNo">122</span>  }<a name="line.122"></a>
+<span class="sourceLineNo">123</span><a name="line.123"></a>
+<span class="sourceLineNo">124</span>  /**<a name="line.124"></a>
+<span class="sourceLineNo">125</span>   * Revert the browsers location to the application location.<a name="line.125"></a>
+<span class="sourceLineNo">126</span>   */<a name="line.126"></a>
+<span class="sourceLineNo">127</span>  @Action<a name="line.127"></a>
+<span class="sourceLineNo">128</span>  public void resetBrowserLocation()<a name="line.128"></a>
+<span class="sourceLineNo">129</span>  {<a name="line.129"></a>
+<span class="sourceLineNo">130</span>    changeLocation( getLocation() );<a name="line.130"></a>
+<span class="sourceLineNo">131</span>  }<a name="line.131"></a>
+<span class="sourceLineNo">132</span><a name="line.132"></a>
+<span class="sourceLineNo">133</span>  /**<a name="line.133"></a>
+<span class="sourceLineNo">134</span>   * Return the location as the application sees it.<a name="line.134"></a>
+<span class="sourceLineNo">135</span>   * This return value does not include a "#" as the first character.<a name="line.135"></a>
+<span class="sourceLineNo">136</span>   *<a name="line.136"></a>
+<span class="sourceLineNo">137</span>   * @return the location.<a name="line.137"></a>
+<span class="sourceLineNo">138</span>   */<a name="line.138"></a>
+<span class="sourceLineNo">139</span>  @Observable<a name="line.139"></a>
+<span class="sourceLineNo">140</span>  @Nonnull<a name="line.140"></a>
+<span class="sourceLineNo">141</span>  public String getLocation()<a name="line.141"></a>
+<span class="sourceLineNo">142</span>  {<a name="line.142"></a>
+<span class="sourceLineNo">143</span>    return _location;<a name="line.143"></a>
+<span class="sourceLineNo">144</span>  }<a name="line.144"></a>
+<span class="sourceLineNo">145</span><a name="line.145"></a>
+<span class="sourceLineNo">146</span>  @Observable<a name="line.146"></a>
+<span class="sourceLineNo">147</span>  void setLocation( @Nonnull final String location )<a name="line.147"></a>
+<span class="sourceLineNo">148</span>  {<a name="line.148"></a>
+<span class="sourceLineNo">149</span>    _location = Objects.requireNonNull( location );<a name="line.149"></a>
+<span class="sourceLineNo">150</span>  }<a name="line.150"></a>
+<span class="sourceLineNo">151</span><a name="line.151"></a>
+<span class="sourceLineNo">152</span>  @Observable<a name="line.152"></a>
+<span class="sourceLineNo">153</span>  @Nonnull<a name="line.153"></a>
+<span class="sourceLineNo">154</span>  public String getBrowserLocation()<a name="line.154"></a>
+<span class="sourceLineNo">155</span>  {<a name="line.155"></a>
+<span class="sourceLineNo">156</span>    return _browserLocation;<a name="line.156"></a>
+<span class="sourceLineNo">157</span>  }<a name="line.157"></a>
+<span class="sourceLineNo">158</span><a name="line.158"></a>
+<span class="sourceLineNo">159</span>  void setBrowserLocation( @Nonnull final String browserLocation )<a name="line.159"></a>
+<span class="sourceLineNo">160</span>  {<a name="line.160"></a>
+<span class="sourceLineNo">161</span>    _browserLocation = Objects.requireNonNull( browserLocation );<a name="line.161"></a>
+<span class="sourceLineNo">162</span>  }<a name="line.162"></a>
+<span class="sourceLineNo">163</span><a name="line.163"></a>
+<span class="sourceLineNo">164</span>  @Action<a name="line.164"></a>
+<span class="sourceLineNo">165</span>  void updateBrowserLocation()<a name="line.165"></a>
+<span class="sourceLineNo">166</span>  {<a name="line.166"></a>
+<span class="sourceLineNo">167</span>    final String location = getHash();<a name="line.167"></a>
+<span class="sourceLineNo">168</span>    setBrowserLocation( location );<a name="line.168"></a>
+<span class="sourceLineNo">169</span>    if ( _targetLocation.equals( location ) )<a name="line.169"></a>
+<span class="sourceLineNo">170</span>    {<a name="line.170"></a>
+<span class="sourceLineNo">171</span>      setLocation( location );<a name="line.171"></a>
+<span class="sourceLineNo">172</span>    }<a name="line.172"></a>
+<span class="sourceLineNo">173</span>  }<a name="line.173"></a>
+<span class="sourceLineNo">174</span><a name="line.174"></a>
+<span class="sourceLineNo">175</span>  private void onHashChangeEvent( @Nonnull final Event e )<a name="line.175"></a>
+<span class="sourceLineNo">176</span>  {<a name="line.176"></a>
+<span class="sourceLineNo">177</span>    if ( _preventDefault )<a name="line.177"></a>
+<span class="sourceLineNo">178</span>    {<a name="line.178"></a>
+<span class="sourceLineNo">179</span>      e.preventDefault();<a name="line.179"></a>
+<span class="sourceLineNo">180</span>    }<a name="line.180"></a>
+<span class="sourceLineNo">181</span>    updateBrowserLocation();<a name="line.181"></a>
+<span class="sourceLineNo">182</span>  }<a name="line.182"></a>
+<span class="sourceLineNo">183</span><a name="line.183"></a>
+<span class="sourceLineNo">184</span>  @Nonnull<a name="line.184"></a>
+<span class="sourceLineNo">185</span>  private String getHash()<a name="line.185"></a>
+<span class="sourceLineNo">186</span>  {<a name="line.186"></a>
+<span class="sourceLineNo">187</span>    final String hash = DomGlobal.window.location.getHash();<a name="line.187"></a>
+<span class="sourceLineNo">188</span>    return null == hash ? "" : hash.substring( 1 );<a name="line.188"></a>
+<span class="sourceLineNo">189</span>  }<a name="line.189"></a>
+<span class="sourceLineNo">190</span><a name="line.190"></a>
+<span class="sourceLineNo">191</span>  private void setHash( @Nonnull final String hash )<a name="line.191"></a>
+<span class="sourceLineNo">192</span>  {<a name="line.192"></a>
+<span class="sourceLineNo">193</span>    if ( 0 == hash.length() )<a name="line.193"></a>
+<span class="sourceLineNo">194</span>    {<a name="line.194"></a>
+<span class="sourceLineNo">195</span>      /*<a name="line.195"></a>
+<span class="sourceLineNo">196</span>       * This code is needed to remove the stray #.<a name="line.196"></a>
+<span class="sourceLineNo">197</span>       * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684<a name="line.197"></a>
+<span class="sourceLineNo">198</span>       */<a name="line.198"></a>
+<span class="sourceLineNo">199</span>      final String url = DomGlobal.window.location.getPathname() + DomGlobal.window.location.getSearch();<a name="line.199"></a>
+<span class="sourceLineNo">200</span>      DomGlobal.window.history.pushState( "", DomGlobal.document.title, url );<a name="line.200"></a>
+<span class="sourceLineNo">201</span>    }<a name="line.201"></a>
+<span class="sourceLineNo">202</span>    else<a name="line.202"></a>
+<span class="sourceLineNo">203</span>    {<a name="line.203"></a>
+<span class="sourceLineNo">204</span>      DomGlobal.window.location.setHash( hash );<a name="line.204"></a>
+<span class="sourceLineNo">205</span>    }<a name="line.205"></a>
+<span class="sourceLineNo">206</span>  }<a name="line.206"></a>
+<span class="sourceLineNo">207</span>}<a name="line.207"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>
