@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Mon, 09 Apr 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 16 Apr 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.78 released]]></title>
+            <link>https://arez.github.io/blog/2018/04/16/version-0.78-release.html</link>
+            <guid>https://arez.github.io/blog/2018/04/16/version-0.78-release.html</guid>
+            <pubDate>Mon, 16 Apr 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.77...v0.78)
+
+Changes in this release:
+
+##### Fixed
+* **\[processor\]** A package access method annotated with an Arez annotation, in a superclass
+  of the `@ArezComponent` that is in a differen]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.77 released]]></title>
             <link>https://arez.github.io/blog/2018/04/09/version-0.77-release.html</link>
