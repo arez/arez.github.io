@@ -93,13 +93,15 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/Autorun.html#line.22">Autorun</a></pre>
+public @interface <a href="../../src-html/arez/annotations/Autorun.html#line.24">Autorun</a></pre>
 <div class="block">Methods marked with this annotation are converted to autoruns.
+ Autorun methods are invoked by the Arez runtime and should never be invoked directly by user code.
 
  <p>The method that is annotated with @Autorun must comply with the additional constraints:</p>
  <ul>
  <li>Must not be annotated with any other arez annotation</li>
  <li>Must not be private</li>
+ <li>Must not be public</li>
  <li>Must not be static</li>
  <li>Must not be final</li>
  <li>Must not be abstract</li>
@@ -156,7 +158,7 @@ public @interface <a href="../../src-html/arez/annotations/Autorun.html#line.22"
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Autorun.html#line.34">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Autorun.html#line.36">name</a></pre>
 <div class="block">Return the name of the Autorun relative to the component.
  The value must conform to the requirements of a java identifier.
  The name must also be unique across <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a>s,
@@ -181,7 +183,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>mutation</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Autorun.html#line.43">mutation</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Autorun.html#line.45">mutation</a></pre>
 <div class="block">Does the autorun mutate state or not.
  The default value us false thus making the transaction mode read-only. The intention is that autorun observers
  should primarily be reflecting Arez state to external systems. (i.e. views, network layers etc.)</div>

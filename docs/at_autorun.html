@@ -17,7 +17,7 @@ the currency is observable, the <code>@Autorun</code> method may look something 
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Currency bitcoin = <span class="hljs-keyword">new</span> Arez_Currency();
 
   <span class="hljs-meta">@Autorun</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">renderView</span><span class="hljs-params">()</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">renderView</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-keyword">final</span> Element element = DomGlobal.document.getElementById( <span class="hljs-string">"currencyTracker"</span> );
     element.innerHTML = <span class="hljs-string">"1 BTC = $"</span> + bitcoin.getAmount() + <span class="hljs-string">"AUD"</span>;

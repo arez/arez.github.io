@@ -93,7 +93,7 @@ is not yet reactive. However let's imagine the application needs to notify the u
 property <code>remainingRides</code> reaches <code>0</code>. We can do this using a method annotated with <a href="/api/arez/annotations/Autorun.html"><code>@Autorun</code></a>
 such as</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@Autorun</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyUserWhenTicketExpires</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">notifyUserWhenTicketExpires</span><span class="hljs-params">()</span>
 </span>{
   <span class="hljs-keyword">if</span> ( <span class="hljs-number">0</span> == getRemainingRides() )
   {
@@ -123,7 +123,7 @@ annotated method so that it is only invoked when there is actual work to do. The
 }
 
 <span class="hljs-meta">@Autorun</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyUserWhenTicketExpires</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">notifyUserWhenTicketExpires</span><span class="hljs-params">()</span>
 </span>{
   <span class="hljs-keyword">if</span> ( isTicketExpired() )
   {
@@ -223,7 +223,7 @@ this should give you enough of a taste to understand how Arez components are aut
   }
 
   <span class="hljs-meta">@Autorun</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyUserWhenTicketExpires</span><span class="hljs-params">()</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">notifyUserWhenTicketExpires</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-keyword">if</span> ( isTicketExpired() )
     {
