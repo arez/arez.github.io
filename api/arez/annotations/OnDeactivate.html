@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/OnDeactivate.html#line.24">OnDeactivate</a></pre>
+public @interface <a href="../../src-html/arez/annotations/OnDeactivate.html#line.25">OnDeactivate</a></pre>
 <div class="block">Identifies method that is called when the ComputedValue changes to the INACTIVE state from any other state.
 
  <p>The method must also conform to the following constraints:</p>
@@ -105,6 +105,7 @@ public @interface <a href="../../src-html/arez/annotations/OnDeactivate.html#lin
  <li>Must not be static</li>
  <li>Must not be abstract</li>
  <li>Must not throw exceptions</li>
+ <li>Must not be for a computed property that has keepAlive parameter set to true</li>
  </ul></div>
 </li>
 </ul>
@@ -152,7 +153,7 @@ public @interface <a href="../../src-html/arez/annotations/OnDeactivate.html#lin
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/OnDeactivate.html#line.34">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/OnDeactivate.html#line.35">name</a></pre>
 <div class="block">Return the name of the ComputedValue that this method is associated with.
  This value will be derived if the method name matches the pattern "on[Name]Deactivate",
  otherwise it must be specified.</div>

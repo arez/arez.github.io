@@ -131,6 +131,12 @@ public @interface <a href="../../src-html/arez/annotations/Computed.html#line.30
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#keepAlive--">keepAlive</a></span></code>
+<div class="block">A flag indicating whether the computed should be "kept alive".</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#name--">name</a></span></code>
 <div class="block">Return the name of the ComputedValue relative to the component.</div>
@@ -154,7 +160,7 @@ public @interface <a href="../../src-html/arez/annotations/Computed.html#line.30
 <a name="name--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -171,6 +177,29 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>"&lt;default&gt;"</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="keepAlive--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>keepAlive</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.51">keepAlive</a></pre>
+<div class="block">A flag indicating whether the computed should be "kept alive". A computed that is kept alive
+ is activated on creation and never deactivates. This is useful if the computed property is only
+ accessed from within actions but should be kept up to date and not recomputed on each access.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true to keep computed alive.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
 </dl>
 </li>
 </ul>
