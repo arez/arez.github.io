@@ -17,7 +17,7 @@ and enhances the component with the reactive capabilities.</p>
 Arez component class is <code>com.example.MyComponent</code> then the enhanced component class would be named
 <code>com.example.Arez_MyComponent</code>.</p>
 <p>If the <a href="/docs/at_arez_component.html"><code>@ArezComponent</code></a> annotated class is not a top-level type, the enhanced
-component class name will be include its enclosing types’ names, joined with an underscore. For example,
+component class name will be include its enclosing types names, joined with an underscore. For example,
 this code:</p>
 <p><pre><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyContainer</span>
 </span>{
@@ -32,7 +32,7 @@ this code:</p>
 <a href="/docs/at_arez_component.html"><code>@ArezComponent</code></a> annotated class is public and has at least one public constructor.
 If the lifecycle of the enhanced component class is not managed by a <a href="/docs/dependency_injection.html">dependency injection</a>
 framework such as <a href="https://google.github.io/dagger">Dagger2</a> then it is suggested that one or more static
-factory methods such as in the following example:</p>
+factory methods are defined such as in the following example:</p>
 <p><pre><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span>
 </span>{
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> MyComponent <span class="hljs-title">create</span><span class="hljs-params">()</span>
@@ -49,16 +49,16 @@ factory methods such as in the following example:</p>
 <p>The Dagger module class is used to enable integration with the <a href="https://google.github.io/dagger">Dagger2</a>
 dependency injection framework to manage Arez components. The <a href="/docs/dependency_injection.html">dependency injection</a>
 documentation describes the exact scenarios when this class is generated. In short this class is generated if the
-annotation processor detect dagger injection is required or if the user explicitly enables dagger support.</p>
+annotation processor detects dagger injection is required or if the user explicitly enables dagger support.</p>
 <p>The name of the dagger module class is the same name as the Arez component suffixed with <code>DaggerModule</code>. i.e. If
 the name of the Arez component class is <code>com.example.MyComponent</code> then the dagger module class would be named
 <code>com.example.MyComponentDaggerModule</code>. If the <a href="/docs/at_arez_component.html"><code>@ArezComponent</code></a> annotated class is not a
-top-level type, the enhanced component class name will be include its enclosing types’ names, joined with an
+top-level type, the enhanced component class name will be include its enclosing types names, joined with an
 underscore similar to the way the <a href="#the-enhanced-component-class">enhanced component class</a> is named. i.e. The
 inner class <code>com.example.MyContainer.MyComponent</code> would generate a dagger module class named
 <code>com.example.MyContainer_MyComponentDaggerModule</code>.</p>
 <p>The dagger module class is public, regardless of the access level of the underlying
-<a href="/docs/at_arez_component.html"><code>@ArezComponent</code></a> annotated classes access modifier as it is required to integrate with
+<a href="/docs/at_arez_component.html"><code>@ArezComponent</code></a> annotated classes as public access is required to integrate with
 a Dagger2 component in a different package.</p>
 <p>It should be noted that the dagger annotation processor will also generate several other java classes during the
 compilation process. These are not documented here. Consult the Dagger2 documentation for further details on the

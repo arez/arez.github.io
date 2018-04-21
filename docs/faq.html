@@ -114,10 +114,12 @@ transaction, to avoid scenario where a partially disposed component reacts to ch
 dispose.</p>
 <h3><a class="anchor" aria-hidden="true" name="why-does-the-annotation-processor-override-equals-and-hashcode-methods"></a><a href="#why-does-the-annotation-processor-override-equals-and-hashcode-methods" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why does the annotation processor override equals() and hashCode() methods?</h3>
 <p>The annotation processor overrides the <code>equals()</code> and <code>hashCode()</code> methods as these methods
-are used internally by Arez when storing instances of these classes. These methods are implemented with
+are used internally by Arez when storing instances of these classes in a repository is generated or the
+<code>Arez.areNativeComponentsEnabled()</code> method returns true. The methods are implemented with
 the assumption that the component id is unique. If the component id is supplied by the toolkit user via
 the <a href="/api/arez/annotations/ComponentId.html"><code>@ComponentId</code></a> annotation, the user must be careful to ensure that the component
-id is unique.</p>
+id is unique. It should be noted that the user may more explicitly control the generation of these
+methods using the <code>requireEquals</code> parameter on the <a href="/api/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a> annotation.</p>
 <h3><a class="anchor" aria-hidden="true" name="why-does-the-annotation-processor-only-sometimes-generate-a-tostring-method"></a><a href="#why-does-the-annotation-processor-only-sometimes-generate-a-tostring-method" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why does the annotation processor only sometimes generate a toString() method?</h3>
 <p>The Arez annotation processor will generate a <code>toString()</code> method on a component if the user has not provided
 their own <code>toString()</code> method. If any superclass other than the base <code>Object</code> class has overridden the <code>toString()</code>
