@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":6,"i13":6,"i14":6,"i15":10,"i16":10,"i17":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../arez/component/AbstractContainer.html" title="class in arez.component"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../arez/component/ComponentObservable.html" title="interface in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -98,7 +98,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../arez/component/AbstractContainer.html" title="class in arez.component">arez.component.AbstractContainer</a>&lt;K,T&gt;</li>
+<li>
+<ul class="inheritance">
 <li>arez.component.AbstractRepository&lt;K,T,R&gt;</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -107,8 +112,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public abstract class <a href="../../src-html/arez/component/AbstractRepository.html#line.35">AbstractRepository</a>&lt;K,T,R extends AbstractRepository&lt;K,T,R&gt;&gt;
-extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<pre>public abstract class <a href="../../src-html/arez/component/AbstractRepository.html#line.23">AbstractRepository</a>&lt;K,T,R extends AbstractRepository&lt;K,T,R&gt;&gt;
+extends <a href="../../arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a>&lt;K,T&gt;</pre>
 <div class="block">Abstract base class for repositories that contain Arez components.
  This class is used by the annotation processor as a base class from which to derive the actual
  repositories for each type.
@@ -148,121 +153,86 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected abstract <a href="../../arez/Component.html" title="class in arez">Component</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#component--">component</a></span>()</code>
-<div class="block">Return the component associated with component if native components enabled.</div>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#contains-T-">contains</a></span>(<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;entity)</code>
+<div class="block">Return true if the specified entity is contained in the container.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#contains-T-">contains</a></span>(<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;entity)</code>
-<div class="block">Return true if the specified entity is contained in the repository.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#destroy-T-">destroy</a></span>(<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;entity)</code>
 <div class="block">Destroy the supplied entity.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#entities--">entities</a></span>()</code>
-<div class="block">Return a stream of all entities in the repository.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#findAll--">findAll</a></span>()</code>
 <div class="block">Return all the entities.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#findAll-java.util.Comparator-">findAll</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html?is-external=true" title="class or interface in java.util">Comparator</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;sorter)</code>
 <div class="block">Return all entities sorted by supplied comparator.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#findAllByQuery-java.util.function.Predicate-">findAllByQuery</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html?is-external=true" title="class or interface in java.util.function">Predicate</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;query)</code>
 <div class="block">Return all entities that match query.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#findAllByQuery-java.util.function.Predicate-java.util.Comparator-">findAllByQuery</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html?is-external=true" title="class or interface in java.util.function">Predicate</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;query,
               <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html?is-external=true" title="class or interface in java.util">Comparator</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;sorter)</code>
 <div class="block">Return all entities that match query sorted by supplied comparator.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#findByArezId-K-">findByArezId</a></span>(<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>&nbsp;arezId)</code>
 <div class="block">Return the entity with the specified ArezId or null if no such entity.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#findByQuery-java.util.function.Predicate-">findByQuery</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html?is-external=true" title="class or interface in java.util.function">Predicate</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;query)</code>
 <div class="block">Return the entity that matches query or null if unable to locate matching entity.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#getByArezId-K-">getByArezId</a></span>(<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>&nbsp;arezId)</code>
 <div class="block">Return the entity with the specified ArezId else throw an exception.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#getByQuery-java.util.function.Predicate-">getByQuery</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html?is-external=true" title="class or interface in java.util.function">Predicate</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;query)</code>
 <div class="block">Return the entity that matches query else throw an exception.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>protected abstract <a href="../../arez/ArezContext.html" title="class in arez">ArezContext</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#getContext--">getContext</a></span>()</code>
-<div class="block">Return the context associated with the repository.</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
-<td class="colFirst"><code>protected abstract <a href="../../arez/Observable.html" title="class in arez">Observable</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#getEntitiesObservable--">getEntitiesObservable</a></span>()</code>
-<div class="block">Return the observable associated with entities.</div>
-</td>
-</tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>protected abstract <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#getRepositoryName--">getRepositoryName</a></span>()</code>
-<div class="block">Return the name associated with the repository.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#preDispose--">preDispose</a></span>()</code>
-<div class="block">Dispose all the entities associated with the repository.</div>
-</td>
-</tr>
-<tr id="i16" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#registerEntity-T-">registerEntity</a></span>(<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;entity)</code>
-<div class="block">Register specified entity in list of entities managed by the repository.</div>
-</td>
-</tr>
-<tr id="i17" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">R</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractRepository.html#self--">self</a></span>()</code>
 <div class="block">Return the repository instance cast to typed subtype.</div>
 </td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.arez.component.AbstractContainer">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;arez.component.<a href="../../arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></h3>
+<code><a href="../../arez/component/AbstractContainer.html#component--">component</a>, <a href="../../arez/component/AbstractContainer.html#entities--">entities</a>, <a href="../../arez/component/AbstractContainer.html#getContainerName--">getContainerName</a>, <a href="../../arez/component/AbstractContainer.html#getContext--">getContext</a>, <a href="../../arez/component/AbstractContainer.html#getEntitiesObservable--">getEntitiesObservable</a>, <a href="../../arez/component/AbstractContainer.html#notDisposed-arez.component.RepositoryEntry-">notDisposed</a>, <a href="../../arez/component/AbstractContainer.html#preDispose--">preDispose</a>, <a href="../../arez/component/AbstractContainer.html#registerEntity-T-">registerEntity</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -290,7 +260,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractRepository</h4>
-<pre>public&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.35">AbstractRepository</a>()</pre>
+<pre>public&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.23">AbstractRepository</a>()</pre>
 </li>
 </ul>
 </li>
@@ -301,52 +271,6 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="component--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>component</h4>
-<pre><a href="../../arez/annotations/ComponentRef.html" title="annotation in arez.annotations">@ComponentRef</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="../../arez/Component.html" title="class in arez">Component</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.49">component</a>()</pre>
-<div class="block">Return the component associated with component if native components enabled.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the component associated with component if native components enabled.</dd>
-</dl>
-</li>
-</ul>
-<a name="registerEntity-java.lang.Object-">
-<!--   -->
-</a><a name="registerEntity-T-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>registerEntity</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.58">registerEntity</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                    <a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;entity)</pre>
-<div class="block">Register specified entity in list of entities managed by the repository.
- The expectation that this is invoked after the entity has been created but before it is returned
- to the repository user.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>entity</code> - the entity to register.</dd>
-</dl>
-</li>
-</ul>
-<a name="preDispose--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>preDispose</h4>
-<pre><a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations">@PreDispose</a>
-protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.80">preDispose</a>()</pre>
-<div class="block">Dispose all the entities associated with the repository.</div>
-</li>
-</ul>
 <a name="contains-java.lang.Object-">
 <!--   -->
 </a><a name="contains-T-">
@@ -355,14 +279,16 @@ protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractReposito
 <ul class="blockList">
 <li class="blockList">
 <h4>contains</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.94">contains</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.29">contains</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                         <a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;entity)</pre>
-<div class="block">Return true if the specified entity is contained in the repository.</div>
+<div class="block">Return true if the specified entity is contained in the container.</div>
 <dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../arez/component/AbstractContainer.html#contains-T-">contains</a></code>&nbsp;in class&nbsp;<code><a href="../../arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>entity</code> - the entity.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the specified entity is contained in the repository, false otherwise.</dd>
+<dd>true if the specified entity is contained in the container, false otherwise.</dd>
 </dl>
 </li>
 </ul>
@@ -375,12 +301,14 @@ protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractReposito
 <li class="blockList">
 <h4>destroy</h4>
 <pre><a href="../../arez/annotations/Action.html" title="annotation in arez.annotations">@Action</a>
-public&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.108">destroy</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.38">destroy</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                             <a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;entity)</pre>
 <div class="block">Destroy the supplied entity.
- The entity must have been created in this repository and must not have already been destroyed.
+ The entity must have been created in this container and must not have already been destroyed.
  The entity will be removed from the map and will be disposed.</div>
 <dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../arez/component/AbstractContainer.html#destroy-T-">destroy</a></code>&nbsp;in class&nbsp;<code><a href="../../arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>entity</code> - the entity to destroy.</dd>
 </dl>
@@ -393,7 +321,7 @@ public&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractRepository.
 <li class="blockList">
 <h4>findAll</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.129">findAll</a>()</pre>
+public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.49">findAll</a>()</pre>
 <div class="block">Return all the entities.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -408,7 +336,7 @@ public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/L
 <li class="blockList">
 <h4>findAll</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.141">findAll</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.61">findAll</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html?is-external=true" title="class or interface in java.util">Comparator</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;sorter)</pre>
 <div class="block">Return all entities sorted by supplied comparator.</div>
 <dl>
@@ -426,7 +354,7 @@ public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/L
 <li class="blockList">
 <h4>findAllByQuery</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.153">findAllByQuery</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.73">findAllByQuery</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html?is-external=true" title="class or interface in java.util.function">Predicate</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;query)</pre>
 <div class="block">Return all entities that match query.</div>
 <dl>
@@ -444,7 +372,7 @@ public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/L
 <li class="blockList">
 <h4>findAllByQuery</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.166">findAllByQuery</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.86">findAllByQuery</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html?is-external=true" title="class or interface in java.util.function">Predicate</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;query,
                                              <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html?is-external=true" title="class or interface in java.util">Comparator</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;sorter)</pre>
@@ -465,7 +393,7 @@ public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/L
 <li class="blockList">
 <h4>findByQuery</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.178">findByQuery</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.98">findByQuery</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                      <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html?is-external=true" title="class or interface in java.util.function">Predicate</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;query)</pre>
 <div class="block">Return the entity that matches query or null if unable to locate matching entity.</div>
 <dl>
@@ -483,7 +411,7 @@ public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="
 <li class="blockList">
 <h4>getByQuery</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.191">getByQuery</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.111">getByQuery</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html?is-external=true" title="class or interface in java.util.function">Predicate</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;query)
                             throws <a href="../../arez/component/NoResultException.html" title="class in arez.component">NoResultException</a></pre>
 <div class="block">Return the entity that matches query else throw an exception.</div>
@@ -506,10 +434,12 @@ public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="
 <li class="blockList">
 <h4>findByArezId</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-public&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.209">findByArezId</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                <a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>&nbsp;arezId)</pre>
+public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.126">findByArezId</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                      <a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>&nbsp;arezId)</pre>
 <div class="block">Return the entity with the specified ArezId or null if no such entity.</div>
 <dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../arez/component/AbstractContainer.html#findByArezId-K-">findByArezId</a></code>&nbsp;in class&nbsp;<code><a href="../../arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>arezId</code> - the id of entity.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -526,11 +456,13 @@ public&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type p
 <li class="blockList">
 <h4>getByArezId</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.233">getByArezId</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.135">getByArezId</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                     <a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>&nbsp;arezId)
                              throws <a href="../../arez/component/NoSuchEntityException.html" title="class in arez.component">NoSuchEntityException</a></pre>
 <div class="block">Return the entity with the specified ArezId else throw an exception.</div>
 <dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../arez/component/AbstractContainer.html#getByArezId-K-">getByArezId</a></code>&nbsp;in class&nbsp;<code><a href="../../arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>arezId</code> - the id of entity.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -543,82 +475,15 @@ public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="
 <a name="self--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>self</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">R</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.251">self</a>()</pre>
+public final&nbsp;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">R</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.148">self</a>()</pre>
 <div class="block">Return the repository instance cast to typed subtype.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the repository instance.</dd>
-</dl>
-</li>
-</ul>
-<a name="getContext--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getContext</h4>
-<pre><a href="../../arez/annotations/ContextRef.html" title="annotation in arez.annotations">@ContextRef</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="../../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.263">getContext</a>()</pre>
-<div class="block">Return the context associated with the repository.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the context associated with the repository.</dd>
-</dl>
-</li>
-</ul>
-<a name="getRepositoryName--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getRepositoryName</h4>
-<pre><a href="../../arez/annotations/ComponentNameRef.html" title="annotation in arez.annotations">@ComponentNameRef</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.272">getRepositoryName</a>()</pre>
-<div class="block">Return the name associated with the repository.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the name associated with the repository.</dd>
-</dl>
-</li>
-</ul>
-<a name="getEntitiesObservable--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getEntitiesObservable</h4>
-<pre><a href="../../arez/annotations/ObservableRef.html" title="annotation in arez.annotations">@ObservableRef</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="../../arez/Observable.html" title="class in arez">Observable</a>&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.283">getEntitiesObservable</a>()</pre>
-<div class="block">Return the observable associated with entities.
- This template method is implemented by the Arez annotation processor and is used internally
- to repository. It should not be invoked by extensions.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Arez observable associated with entities observable property.</dd>
-</dl>
-</li>
-</ul>
-<a name="entities--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>entities</h4>
-<pre><a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations">@Observable</a>(<a href="../../arez/annotations/Observable.html#expectSetter--">expectSetter</a>=false)
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;<a href="../../arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractRepository.html#line.293">entities</a>()</pre>
-<div class="block">Return a stream of all entities in the repository.
- This method is typically used by repository extensions.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the underlying entities.</dd>
 </dl>
 </li>
 </ul>
@@ -649,7 +514,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../arez/component/AbstractContainer.html" title="class in arez.component"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../arez/component/ComponentObservable.html" title="interface in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

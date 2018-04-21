@@ -144,6 +144,12 @@ public @interface <a href="../../src-html/arez/annotations/Observable.html#line.
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observable.html#initializer--">initializer</a></span></code>
+<div class="block">Indicate whether the generated component class should add a parameter to the constructor to initialize this property.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observable.html#name--">name</a></span></code>
 <div class="block">Return the name of the Observable relative to the component.</div>
@@ -194,7 +200,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="expectSetter--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>expectSetter</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observable.html#line.57">expectSetter</a></pre>
@@ -207,6 +213,35 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>true</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="initializer--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>initializer</h4>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/Observable.html#line.72">initializer</a></pre>
+<div class="block">Indicate whether the generated component class should add a parameter to the constructor to initialize this property.
+ This parameter should only be set to <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> when the observable property is defined by a
+ pair of abstract methods. If set to <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then an initializer will be added for an
+ observable property if it is defined by a pair of abstract methods and the values is annotated with the
+ <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation"><code>Nonnull</code></a> annotation.
+
+ <p>The initializer parameters will be added as additional parameters at the end of the parameter list in
+ the generated classes constructors. The initializers will be defined in the order that the observable
+ properties are declared. They properties be assigned after the parent constructor has been invoked.</p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>flag controlling whether a parameter should be added to the constructor to initialize the property.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>arez.annotations.Feature.AUTODETECT</dd>
 </dl>
 </li>
 </ul>
