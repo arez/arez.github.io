@@ -2,12 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://arez.github.io/blog</id>
     <title>Arez Blog</title>
-    <updated>2018-04-17T06:00:00Z</updated>
+    <updated>2018-04-22T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://arez.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Arez news and events.</subtitle>
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
+    <entry>
+        <title type="html"><![CDATA[Arez 0.80 released]]></title>
+        <id>https://arez.github.io/blog/2018/04/22/version-0.80-release.html</id>
+        <link href="https://arez.github.io/blog/2018/04/22/version-0.80-release.html">
+        </link>
+        <updated>2018-04-22T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.79...v0.80)
+
+Changes in this release:
+
+##### Added
+* **\[core\]** Add the `keepAlive` parameter to the `ComputedValue`. If true the `ComputedValue`
+  instance activates when it is created and w]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Arez 0.79 released]]></title>
         <id>https://arez.github.io/blog/2018/04/17/version-0.79-release.html</id>
