@@ -126,11 +126,17 @@ public @interface <a href="../../src-html/arez/annotations/Autorun.html#line.24"
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Autorun.html#highPriority--">highPriority</a></span></code>
+<div class="block">Is the autorun scheduled at a high-priority.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Autorun.html#mutation--">mutation</a></span></code>
 <div class="block">Does the autorun mutate state or not.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Autorun.html#name--">name</a></span></code>
 <div class="block">Return the name of the Autorun relative to the component.</div>
@@ -180,7 +186,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="mutation--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>mutation</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Autorun.html#line.45">mutation</a></pre>
@@ -190,6 +196,36 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the autorun should run in a READ_WRITE transaction, false if it should run in a READ_ONLY transaction.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="highPriority--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>highPriority</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Autorun.html#line.61">highPriority</a></pre>
+<div class="block">Is the autorun scheduled at a high-priority.
+ A high priority autorun is placed at the start of the scheduler queue when is scheduled, meaning it will
+ react next unless another high priority Observer or ComputedValue needs rescheduling.
+
+ <p>A user should be very careful when marking
+ an autorun as a high priority as it is possible that the autorun will be scheduled part way through the process
+ of disposing one-or-more components (in most environments dispose reactions are the only high priority observer
+ and thus a partially disposed state is never exposed to user code). In most cases this may mean invoking
+ <code>Disposable.isDisposed(component)</code> before accessing arez components. A high priority autorun
+ should only access high priority <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> annotated methods to ensure consistency.</p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the autorun scheduled at a high-priority, false otherwise.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>

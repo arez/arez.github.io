@@ -63,7 +63,23 @@
 <span class="sourceLineNo">055</span>   * @return true to report the parameters, false otherwise.<a name="line.55"></a>
 <span class="sourceLineNo">056</span>   */<a name="line.56"></a>
 <span class="sourceLineNo">057</span>  boolean reportParameters() default true;<a name="line.57"></a>
-<span class="sourceLineNo">058</span>}<a name="line.58"></a>
+<span class="sourceLineNo">058</span><a name="line.58"></a>
+<span class="sourceLineNo">059</span>  /**<a name="line.59"></a>
+<span class="sourceLineNo">060</span>   * Is the observer scheduled at a high-priority.<a name="line.60"></a>
+<span class="sourceLineNo">061</span>   * A high priority observer is placed at the start of the scheduler queue when is scheduled, meaning it will<a name="line.61"></a>
+<span class="sourceLineNo">062</span>   * react next unless another high priority observer or ComputedValue needs rescheduling.<a name="line.62"></a>
+<span class="sourceLineNo">063</span>   *<a name="line.63"></a>
+<span class="sourceLineNo">064</span>   * &lt;p&gt;A user should be very careful when marking a @Track as a high priority as it is possible that<a name="line.64"></a>
+<span class="sourceLineNo">065</span>   * the method will be scheduled part way through the process of disposing one-or-more components (in<a name="line.65"></a>
+<span class="sourceLineNo">066</span>   * most environments dispose reactions are the only high priority observer and thus a partially disposed<a name="line.66"></a>
+<span class="sourceLineNo">067</span>   * state is never exposed to user code). In most cases this may mean invoking<a name="line.67"></a>
+<span class="sourceLineNo">068</span>   * &lt;code&gt;Disposable.isDisposed(component)&lt;/code&gt; before accessing arez components. A high priority @Track<a name="line.68"></a>
+<span class="sourceLineNo">069</span>   * should only access high priority @Computed annotated methods to ensure consistency.&lt;/p&gt;<a name="line.69"></a>
+<span class="sourceLineNo">070</span>   *<a name="line.70"></a>
+<span class="sourceLineNo">071</span>   * @return true if the observer is scheduled at a high-priority, false otherwise.<a name="line.71"></a>
+<span class="sourceLineNo">072</span>   */<a name="line.72"></a>
+<span class="sourceLineNo">073</span>  boolean highPriority() default false;<a name="line.73"></a>
+<span class="sourceLineNo">074</span>}<a name="line.74"></a>
 
 
 
