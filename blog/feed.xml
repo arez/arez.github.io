@@ -23,10 +23,8 @@
 Changes in this release:
 
 ##### Fixed
-* **\[component\]** Fixed a bug in `Abstract.preDispose()` that invoked an `@ObservableRef` method
-  during dispose of the container.
-
-##### A]]></description>
+* **\[component\]** Fixed a bug in `AbstractContainer.preDispose()` that invoked an `@ObservableRef` method
+  during dispose of the container.]]></description>
         </item>
         <item>
             <title><![CDATA[Arez 0.80 released]]></title>
