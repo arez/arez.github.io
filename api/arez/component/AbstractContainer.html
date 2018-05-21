@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":6,"i7":6,"i8":6,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var methods = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":6,"i7":6,"i8":6,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -210,30 +210,24 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#notDisposed-arez.component.RepositoryEntry-">notDisposed</a></span>(arez.component.RepositoryEntry&lt;<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&gt;&nbsp;entry)</code>
-<div class="block">Return true if entry is not disposed.</div>
-</td>
-</tr>
-<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#postEntryDispose-T-">postEntryDispose</a></span>(<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;entity)</code>
 <div class="block">Hook method invoked just after the entry containing entity is disposed.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#preDispose--">preDispose</a></span>()</code>
 <div class="block">Dispose all the entities associated with the container.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#preEntryDispose-T-">preEntryDispose</a></span>(<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;entity)</code>
 <div class="block">Hook method invoked just before the entry containing entity is disposed.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#registerEntity-T-">registerEntity</a></span>(<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;entity)</code>
 <div class="block">Register specified entity in list of entities managed by the container.</div>
@@ -496,7 +490,7 @@ protected abstract&nbsp;<a href="../../arez/Observable.html" title="class in are
 <a name="entities--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>entities</h4>
 <pre><a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations">@Observable</a>(<a href="../../arez/annotations/Observable.html#expectSetter--">expectSetter</a>=false)
@@ -506,23 +500,6 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the underlying entities.</dd>
-</dl>
-</li>
-</ul>
-<a name="notDisposed-arez.component.RepositoryEntry-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>notDisposed</h4>
-<pre>protected final&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.230">notDisposed</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                    arez.component.RepositoryEntry&lt;<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&gt;&nbsp;entry)</pre>
-<div class="block">Return true if entry is not disposed.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>entry</code> - the entry to check.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if entry is not disposed.</dd>
 </dl>
 </li>
 </ul>
