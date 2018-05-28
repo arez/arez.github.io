@@ -140,6 +140,10 @@
 <dd>
 <div class="block">Add a spy handler to the list of handlers.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--">areCollectionsPropertiesUnmodifiable()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
+<dd>
+<div class="block">Return true if observable properties, computed properties or query results that are of type collection are wrapped in unmodifiable variant prior to returning.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#areNamesEnabled--">areNamesEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
 <div class="block">Return true if user should pass names into API methods, false if should pass null.</div>
@@ -159,10 +163,6 @@
 <dt><span class="memberNameLink"><a href="arez/Arez.html#areRegistriesEnabled--">areRegistriesEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
 <div class="block">Return true if registries for top level reactive components are enabled.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/Arez.html#areRepositoryResultsModifiable--">areRepositoryResultsModifiable()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
-<dd>
-<div class="block">Return false if collections returned by generated repositories are wrapped in unmodifiable prior to returning.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#areSpiesEnabled--">areSpiesEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
@@ -250,9 +250,9 @@
 <dd>
 <div class="block">Cast specified object to instance of Identifiable.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/RepositoryUtil.html#asList-java.util.stream.Stream-">asList(Stream&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/RepositoryUtil.html" title="class in arez.component">RepositoryUtil</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#asList-java.util.stream.Stream-">asList(Stream&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
 <dd>
-<div class="block">Convert specified stream to a list, wrapping as an immutable list if required.</div>
+<div class="block">Convert specified stream to a list, wrapping as an unmodifiable list if required.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Spy.html#asObservableInfo-arez.Observable-">asObservableInfo(Observable&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
@@ -261,6 +261,10 @@
 <dt><span class="memberNameLink"><a href="arez/Spy.html#asObserverInfo-arez.Observer-">asObserverInfo(Observer)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
 <div class="block">Convert the specified observer into an ObserverInfo.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#asSet-java.util.stream.Stream-">asSet(Stream&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
+<dd>
+<div class="block">Convert specified stream to a set, wrapping as an unmodifiable set if required.</div>
 </dd>
 <dt><a href="arez/annotations/Autorun.html" title="annotation in arez.annotations"><span class="typeNameLink">Autorun</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -331,6 +335,10 @@
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#checkInvariants--">checkInvariants()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
 <div class="block">Set `arez.check_invariants` setting to true.</div>
+</dd>
+<dt><a href="arez/component/CollectionsUtil.html" title="class in arez.component"><span class="typeNameLink">CollectionsUtil</span></a> - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dd>
+<div class="block">Utility methods used when returning results from repositories.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Component.html#complete--">complete()</a></span> - Method in class arez.<a href="arez/Component.html" title="class in arez">Component</a></dt>
 <dd>
@@ -1240,13 +1248,13 @@
 </a>
 <h2 class="title">M</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#makeRepositoryResultsModifiable--">makeRepositoryResultsModifiable()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#makeCollectionPropertiesModifiable--">makeCollectionPropertiesModifiable()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
-<div class="block">Set `arez.repositories_results_modifiable` setting to true.</div>
+<div class="block">Set `arez.collections_properties_unmodifiable` setting to true.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#makeRepositoryResultsUnmodifiable--">makeRepositoryResultsUnmodifiable()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#makeCollectionPropertiesUnmodifiable--">makeCollectionPropertiesUnmodifiable()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
-<div class="block">Set `arez.repositories_results_modifiable` setting to false.</div>
+<div class="block">Set `arez.collections_properties_unmodifiable` setting to false.</div>
 </dd>
 <dt><a href="arez/annotations/Memoize.html" title="annotation in arez.annotations"><span class="typeNameLink">Memoize</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -1541,10 +1549,6 @@
 <dd>
 <div class="block">Annotation that indicates that a repository must be generated for component.</div>
 </dd>
-<dt><a href="arez/component/RepositoryUtil.html" title="class in arez.component"><span class="typeNameLink">RepositoryUtil</span></a> - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
-<dd>
-<div class="block">Utility methods used when returning results from repositories.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#resetConfig-boolean-">resetConfig(boolean)</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
 <div class="block">Reset the state of Arez config to either production or development state.</div>
@@ -1775,10 +1779,6 @@
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/RepositoryUtil.html#toResults-java.util.List-">toResults(List&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/RepositoryUtil.html" title="class in arez.component">RepositoryUtil</a></dt>
-<dd>
-<div class="block">Convert specified list to results to return from query.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/component/NoSuchEntityException.html#toString--">toString()</a></span> - Method in exception arez.component.<a href="arez/component/NoSuchEntityException.html" title="class in arez.component">NoSuchEntityException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/Component.html#toString--">toString()</a></span> - Method in class arez.<a href="arez/Component.html" title="class in arez">Component</a></dt>
@@ -1947,6 +1947,26 @@ the order they are declared.</div>
 <dt><span class="memberNameLink"><a href="arez/Spy.html#willPropagateSpyEvents--">willPropagateSpyEvents()</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
 <div class="block">Return true if spy events will be propagated.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#wrap-java.util.Collection-">wrap(Collection&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
+<dd>
+<div class="block">Wrap specified parameter with unmodifiable variant if and only if <a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
+ returns true, otherwise return the supplied list.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#wrap-java.util.Set-">wrap(Set&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
+<dd>
+<div class="block">Wrap specified parameter with unmodifiable set if and only if <a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
+ returns true, otherwise return the supplied set.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#wrap-java.util.Map-">wrap(Map&lt;K, V&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
+<dd>
+<div class="block">Wrap specified parameter with unmodifiable map if and only if <a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
+ returns true, otherwise return the supplied map.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#wrap-java.util.List-">wrap(List&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
+<dd>
+<div class="block">Wrap specified list with unmodifiable list if and only if <a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
+ returns true, otherwise return the supplied list.</div>
 </dd>
 </dl>
 <a name="I:Z">

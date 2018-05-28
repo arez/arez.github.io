@@ -47,7 +47,7 @@
 <span class="sourceLineNo">039</span>      disablePropertyIntrospectors();<a name="line.39"></a>
 <span class="sourceLineNo">040</span>      noEnforceTransactionType();<a name="line.40"></a>
 <span class="sourceLineNo">041</span>      disableSpies();<a name="line.41"></a>
-<span class="sourceLineNo">042</span>      makeRepositoryResultsModifiable();<a name="line.42"></a>
+<span class="sourceLineNo">042</span>      makeCollectionPropertiesModifiable();<a name="line.42"></a>
 <span class="sourceLineNo">043</span>      disableNativeComponents();<a name="line.43"></a>
 <span class="sourceLineNo">044</span>      disableRegistries();<a name="line.44"></a>
 <span class="sourceLineNo">045</span>      noCheckInvariants();<a name="line.45"></a>
@@ -59,7 +59,7 @@
 <span class="sourceLineNo">051</span>      enablePropertyIntrospectors();<a name="line.51"></a>
 <span class="sourceLineNo">052</span>      enforceTransactionType();<a name="line.52"></a>
 <span class="sourceLineNo">053</span>      enableSpies();<a name="line.53"></a>
-<span class="sourceLineNo">054</span>      makeRepositoryResultsUnmodifiable();<a name="line.54"></a>
+<span class="sourceLineNo">054</span>      makeCollectionPropertiesUnmodifiable();<a name="line.54"></a>
 <span class="sourceLineNo">055</span>      enableNativeComponents();<a name="line.55"></a>
 <span class="sourceLineNo">056</span>      enableRegistries();<a name="line.56"></a>
 <span class="sourceLineNo">057</span>      checkInvariants();<a name="line.57"></a>
@@ -233,29 +233,29 @@
 <span class="sourceLineNo">225</span>  }<a name="line.225"></a>
 <span class="sourceLineNo">226</span><a name="line.226"></a>
 <span class="sourceLineNo">227</span>  /**<a name="line.227"></a>
-<span class="sourceLineNo">228</span>   * Set `arez.repositories_results_modifiable` setting to true.<a name="line.228"></a>
+<span class="sourceLineNo">228</span>   * Set `arez.collections_properties_unmodifiable` setting to true.<a name="line.228"></a>
 <span class="sourceLineNo">229</span>   */<a name="line.229"></a>
-<span class="sourceLineNo">230</span>  public static void makeRepositoryResultsModifiable()<a name="line.230"></a>
+<span class="sourceLineNo">230</span>  public static void makeCollectionPropertiesModifiable()<a name="line.230"></a>
 <span class="sourceLineNo">231</span>  {<a name="line.231"></a>
-<span class="sourceLineNo">232</span>    setRepositoriesResultsModifiable( true );<a name="line.232"></a>
+<span class="sourceLineNo">232</span>    setCollectionPropertiesUnmodifiable( false );<a name="line.232"></a>
 <span class="sourceLineNo">233</span>  }<a name="line.233"></a>
 <span class="sourceLineNo">234</span><a name="line.234"></a>
 <span class="sourceLineNo">235</span>  /**<a name="line.235"></a>
-<span class="sourceLineNo">236</span>   * Set `arez.repositories_results_modifiable` setting to false.<a name="line.236"></a>
+<span class="sourceLineNo">236</span>   * Set `arez.collections_properties_unmodifiable` setting to false.<a name="line.236"></a>
 <span class="sourceLineNo">237</span>   */<a name="line.237"></a>
-<span class="sourceLineNo">238</span>  public static void makeRepositoryResultsUnmodifiable()<a name="line.238"></a>
+<span class="sourceLineNo">238</span>  public static void makeCollectionPropertiesUnmodifiable()<a name="line.238"></a>
 <span class="sourceLineNo">239</span>  {<a name="line.239"></a>
-<span class="sourceLineNo">240</span>    setRepositoriesResultsModifiable( false );<a name="line.240"></a>
+<span class="sourceLineNo">240</span>    setCollectionPropertiesUnmodifiable( true );<a name="line.240"></a>
 <span class="sourceLineNo">241</span>  }<a name="line.241"></a>
 <span class="sourceLineNo">242</span><a name="line.242"></a>
 <span class="sourceLineNo">243</span>  /**<a name="line.243"></a>
-<span class="sourceLineNo">244</span>   * Configure the `arez.repositories_results_modifiable` setting.<a name="line.244"></a>
+<span class="sourceLineNo">244</span>   * Configure the `arez.collections_properties_unmodifiable` setting.<a name="line.244"></a>
 <span class="sourceLineNo">245</span>   *<a name="line.245"></a>
 <span class="sourceLineNo">246</span>   * @param value the setting.<a name="line.246"></a>
 <span class="sourceLineNo">247</span>   */<a name="line.247"></a>
-<span class="sourceLineNo">248</span>  private static void setRepositoriesResultsModifiable( final boolean value )<a name="line.248"></a>
+<span class="sourceLineNo">248</span>  private static void setCollectionPropertiesUnmodifiable( final boolean value )<a name="line.248"></a>
 <span class="sourceLineNo">249</span>  {<a name="line.249"></a>
-<span class="sourceLineNo">250</span>    setConstant( "REPOSITORIES_RESULTS_MODIFIABLE", value );<a name="line.250"></a>
+<span class="sourceLineNo">250</span>    setConstant( "COLLECTION_PROPERTIES_UNMODIFIABLE", value );<a name="line.250"></a>
 <span class="sourceLineNo">251</span>  }<a name="line.251"></a>
 <span class="sourceLineNo">252</span><a name="line.252"></a>
 <span class="sourceLineNo">253</span>  /**<a name="line.253"></a>

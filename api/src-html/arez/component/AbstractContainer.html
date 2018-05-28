@@ -31,9 +31,9 @@
 <span class="sourceLineNo">023</span>/**<a name="line.23"></a>
 <span class="sourceLineNo">024</span> * Abstract base class for observable Arez components that contain other components.<a name="line.24"></a>
 <span class="sourceLineNo">025</span> *<a name="line.25"></a>
-<span class="sourceLineNo">026</span> * &lt;p&gt;When multiple results are returned as a list, they are passed through {@link RepositoryUtil#asList(Stream)} or<a name="line.26"></a>
-<span class="sourceLineNo">027</span> * {@link RepositoryUtil#toResults(List)} and this will convert the result set to an unmodifiable list if<a name="line.27"></a>
-<span class="sourceLineNo">028</span> * {@link Arez#areRepositoryResultsModifiable()} returns true. Typically this means that in<a name="line.28"></a>
+<span class="sourceLineNo">026</span> * &lt;p&gt;When multiple results are returned as a list, they are passed through {@link CollectionsUtil#asList(Stream)} or<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * {@link CollectionsUtil#wrap(List)} and this will convert the result set to an unmodifiable variant if<a name="line.27"></a>
+<span class="sourceLineNo">028</span> * {@link Arez#areCollectionsPropertiesUnmodifiable()} returns true. Typically this means that in<a name="line.28"></a>
 <span class="sourceLineNo">029</span> * development mode these will be made immutable but that the lists will be passed through as-is<a name="line.29"></a>
 <span class="sourceLineNo">030</span> * in production mode for maximum performance.&lt;/p&gt;<a name="line.30"></a>
 <span class="sourceLineNo">031</span> */<a name="line.31"></a>

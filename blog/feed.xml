@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Wed, 23 May 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 28 May 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,30 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.87 released]]></title>
+            <link>https://arez.github.io/blog/2018/05/28/version-0.87-release.html</link>
+            <guid>https://arez.github.io/blog/2018/05/28/version-0.87-release.html</guid>
+            <pubDate>Mon, 28 May 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.86...v0.87)
+
+Changes in this release:
+
+* **\[processor\]** `@Observable` properties that return a collection but have no setter were not having
+  the cache of the unmodifiable variant cleared. ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Arez 0.86 released]]></title>
+            <link>https://arez.github.io/blog/2018/05/28/version-0.86-release.html</link>
+            <guid>https://arez.github.io/blog/2018/05/28/version-0.86-release.html</guid>
+            <pubDate>Mon, 28 May 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.85...v0.86)
+
+Changes in this release:
+
+* **\[core\]** Replace the compile time configuration property `arez.repositories_results_modifiable`
+  with the inverse compile time configuration proper]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.85 released]]></title>
             <link>https://arez.github.io/blog/2018/05/23/version-0.85-release.html</link>

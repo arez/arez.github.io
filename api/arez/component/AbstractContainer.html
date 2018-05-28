@@ -115,9 +115,9 @@ var activeTableTab = "activeTableTab";
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Abstract base class for observable Arez components that contain other components.
 
- <p>When multiple results are returned as a list, they are passed through <a href="../../arez/component/RepositoryUtil.html#asList-java.util.stream.Stream-"><code>RepositoryUtil.asList(Stream)</code></a> or
- <a href="../../arez/component/RepositoryUtil.html#toResults-java.util.List-"><code>RepositoryUtil.toResults(List)</code></a> and this will convert the result set to an unmodifiable list if
- <a href="../../arez/Arez.html#areRepositoryResultsModifiable--"><code>Arez.areRepositoryResultsModifiable()</code></a> returns true. Typically this means that in
+ <p>When multiple results are returned as a list, they are passed through <a href="../../arez/component/CollectionsUtil.html#asList-java.util.stream.Stream-"><code>CollectionsUtil.asList(Stream)</code></a> or
+ <a href="../../arez/component/CollectionsUtil.html#wrap-java.util.List-"><code>CollectionsUtil.wrap(List)</code></a> and this will convert the result set to an unmodifiable variant if
+ <a href="../../arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a> returns true. Typically this means that in
  development mode these will be made immutable but that the lists will be passed through as-is
  in production mode for maximum performance.</p></div>
 </li>

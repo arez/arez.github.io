@@ -2,12 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://arez.github.io/blog</id>
     <title>Arez Blog</title>
-    <updated>2018-05-23T06:00:00Z</updated>
+    <updated>2018-05-28T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://arez.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Arez news and events.</subtitle>
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
+    <entry>
+        <title type="html"><![CDATA[Arez 0.87 released]]></title>
+        <id>https://arez.github.io/blog/2018/05/28/version-0.87-release.html</id>
+        <link href="https://arez.github.io/blog/2018/05/28/version-0.87-release.html">
+        </link>
+        <updated>2018-05-28T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.86...v0.87)
+
+Changes in this release:
+
+* **\[processor\]** `@Observable` properties that return a collection but have no setter were not having
+  the cache of the unmodifiable variant cleared. ]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Arez 0.86 released]]></title>
+        <id>https://arez.github.io/blog/2018/05/28/version-0.86-release.html</id>
+        <link href="https://arez.github.io/blog/2018/05/28/version-0.86-release.html">
+        </link>
+        <updated>2018-05-28T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.85...v0.86)
+
+Changes in this release:
+
+* **\[core\]** Replace the compile time configuration property `arez.repositories_results_modifiable`
+  with the inverse compile time configuration proper]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Arez 0.85 released]]></title>
         <id>https://arez.github.io/blog/2018/05/23/version-0.85-release.html</id>
