@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>@Unsupported(value="This class relies on unsupported Spy API and will co-evolve with Spy capabilities.")
-public final class <a href="../../src-html/arez/spytools/WhyRun.html#line.16">WhyRun</a>
+public final class <a href="../../src-html/arez/spytools/WhyRun.html#line.18">WhyRun</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">A very simple utility that describes why an observer or computed value runs.</div>
 </li>
@@ -130,12 +130,20 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spytools/WhyRun.html#log--">log</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spytools/WhyRun.html#whyRun--">whyRun</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spytools/WhyRun.html#whyRun-arez.Spy-">whyRun</a></span>(<a href="https://arez.github.io/api/arez/Spy.html?is-external=true" title="class or interface in arez">Spy</a>&nbsp;spy)</code>
 <div class="block">Return a human readable explanation why the current transaction is running.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spytools/WhyRun.html#whyRun-arez.Spy-arez.spy.ObserverInfo-">whyRun</a></span>(<a href="https://arez.github.io/api/arez/Spy.html?is-external=true" title="class or interface in arez">Spy</a>&nbsp;spy,
       <a href="https://arez.github.io/api/arez/spy/ObserverInfo.html?is-external=true" title="class or interface in arez.spy">ObserverInfo</a>&nbsp;observer)</code>
@@ -164,6 +172,24 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="log--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>log</h4>
+<pre>public static&nbsp;void&nbsp;<a href="../../src-html/arez/spytools/WhyRun.html#line.24">log</a>()</pre>
+</li>
+</ul>
+<a name="whyRun--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>whyRun</h4>
+<pre>public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/spytools/WhyRun.html#line.29">whyRun</a>()</pre>
+</li>
+</ul>
 <a name="whyRun-arez.Spy-">
 <!--   -->
 </a>
@@ -172,7 +198,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>whyRun</h4>
 <pre>@Unsupported(value="Expect the output format to change and evolve over time as Spy capabilities improve.")
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/spytools/WhyRun.html#line.31">whyRun</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/spytools/WhyRun.html#line.43">whyRun</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                                                                                                                  <a href="https://arez.github.io/api/arez/Spy.html?is-external=true" title="class or interface in arez">Spy</a>&nbsp;spy)</pre>
 <div class="block">Return a human readable explanation why the current transaction is running.
  This method will cause an invariant failure if called outside a transaction.</div>
@@ -192,7 +218,7 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 <h4>whyRun</h4>
 <pre>@Unsupported(value="Expect the output format to change and evolve over time as Spy capabilities improve.")
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/spytools/WhyRun.html#line.60">whyRun</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/spytools/WhyRun.html#line.72">whyRun</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                                                                                                                  <a href="https://arez.github.io/api/arez/Spy.html?is-external=true" title="class or interface in arez">Spy</a>&nbsp;spy,
                                                                                                                                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                                                                                                                  <a href="https://arez.github.io/api/arez/spy/ObserverInfo.html?is-external=true" title="class or interface in arez.spy">ObserverInfo</a>&nbsp;observer)</pre>
