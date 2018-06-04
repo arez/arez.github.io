@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Mon, 28 May 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 04 Jun 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.88 released]]></title>
+            <link>https://arez.github.io/blog/2018/06/04/version-0.88-release.html</link>
+            <guid>https://arez.github.io/blog/2018/06/04/version-0.88-release.html</guid>
+            <pubDate>Mon, 04 Jun 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.87...v0.88)
+
+Changes in this release:
+
+* **\[processor\]** Setters for `@Observable` properties where the parameter is annotated with `@Nonnull` now
+  enforce non-nullness by generating an asse]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.87 released]]></title>
             <link>https://arez.github.io/blog/2018/05/28/version-0.87-release.html</link>
