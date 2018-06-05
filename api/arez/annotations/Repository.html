@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../arez/annotations/Track.html" title="annotation in arez.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/annotations/Repository.AttachType.html" title="enum in arez.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/annotations/Repository.html" target="_top">Frames</a></li>
@@ -151,9 +151,21 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../arez/annotations/Repository.AttachType.html" title="enum in arez.annotations">Repository.AttachType</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Repository.html#attach--">attach</a></span></code>
+<div class="block">Indicate the strategy for attaching entities to the repository.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Repository.html#dagger--">dagger</a></span></code>
 <div class="block">Indicate whether a dagger module should be generated for repository.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../arez/annotations/Repository.DetachType.html" title="enum in arez.annotations">Repository.DetachType</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Repository.html#detach--">detach</a></span></code>
+<div class="block">Indicate the strategy for detaching entities from the repository.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -263,7 +275,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="inject--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>inject</h4>
 <pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.91">inject</a></pre>
@@ -279,6 +291,48 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>arez.annotations.Feature.AUTODETECT</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="attach--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>attach</h4>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Repository.AttachType.html" title="enum in arez.annotations">Repository.AttachType</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.98">attach</a></pre>
+<div class="block">Indicate the strategy for attaching entities to the repository.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the strategy for attaching entities to the repository.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>arez.annotations.Repository.AttachType.CREATE_ONLY</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="detach--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>detach</h4>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Repository.DetachType.html" title="enum in arez.annotations">Repository.DetachType</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.105">detach</a></pre>
+<div class="block">Indicate the strategy for detaching entities from the repository.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the strategy for detaching entities from the repository.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>arez.annotations.Repository.DetachType.DESTROY_ONLY</dd>
 </dl>
 </li>
 </ul>
@@ -310,7 +364,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../arez/annotations/Track.html" title="annotation in arez.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/annotations/Repository.AttachType.html" title="enum in arez.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/annotations/Repository.html" target="_top">Frames</a></li>
