@@ -88,55 +88,63 @@
 <span class="sourceLineNo">080</span>  boolean allowConcrete() default false;<a name="line.80"></a>
 <span class="sourceLineNo">081</span><a name="line.81"></a>
 <span class="sourceLineNo">082</span>  /**<a name="line.82"></a>
-<span class="sourceLineNo">083</span>   * Return true if the component should dispose itself once it is no longer "observed".<a name="line.83"></a>
-<span class="sourceLineNo">084</span>   * By "observed" it means that the component will have {@link arez.component.ComponentObservable#observe(Object)}<a name="line.84"></a>
-<span class="sourceLineNo">085</span>   * called on it.<a name="line.85"></a>
-<span class="sourceLineNo">086</span>   *<a name="line.86"></a>
-<span class="sourceLineNo">087</span>   * @return true if the component should dispose itself once it is no longer "observed".<a name="line.87"></a>
-<span class="sourceLineNo">088</span>   */<a name="line.88"></a>
-<span class="sourceLineNo">089</span>  boolean disposeOnDeactivate() default false;<a name="line.89"></a>
-<span class="sourceLineNo">090</span><a name="line.90"></a>
-<span class="sourceLineNo">091</span>  /**<a name="line.91"></a>
-<span class="sourceLineNo">092</span>   * Indicate whether an @Inject annotation should be added to constructor of the generated class.<a name="line.92"></a>
-<span class="sourceLineNo">093</span>   * {@link Feature#ENABLE} will force the addition of an @Inject annotation, {@link Feature#DISABLE}<a name="line.93"></a>
-<span class="sourceLineNo">094</span>   * will result in no @Inject annotation and {@link Feature#AUTODETECT} will add an @Inject<a name="line.94"></a>
-<span class="sourceLineNo">095</span>   * if any fields or methods in the component or any parent type has an @Inject annotation OR the class<a name="line.95"></a>
-<span class="sourceLineNo">096</span>   * has an annotation that is itself annotated with the javax.inject.Scope annotation.<a name="line.96"></a>
-<span class="sourceLineNo">097</span>   *<a name="line.97"></a>
-<span class="sourceLineNo">098</span>   * @return enum controlling present of Inject annotation on constructor.<a name="line.98"></a>
-<span class="sourceLineNo">099</span>   */<a name="line.99"></a>
-<span class="sourceLineNo">100</span>  Feature inject() default Feature.AUTODETECT;<a name="line.100"></a>
-<span class="sourceLineNo">101</span><a name="line.101"></a>
-<span class="sourceLineNo">102</span>  /**<a name="line.102"></a>
-<span class="sourceLineNo">103</span>   * Indicate whether a dagger module should be generated for enhanced component class.<a name="line.103"></a>
-<span class="sourceLineNo">104</span>   * {@link Feature#ENABLE} will force the generation of the module, {@link Feature#DISABLE}<a name="line.104"></a>
-<span class="sourceLineNo">105</span>   * will result in no dagger module and {@link Feature#AUTODETECT} will add a dagger<a name="line.105"></a>
-<span class="sourceLineNo">106</span>   * module if the &lt;code&gt;dagger.Module&lt;/code&gt; class is present on the classpath AND the class<a name="line.106"></a>
-<span class="sourceLineNo">107</span>   * has an annotation that is itself annotated with the javax.inject.Scope annotation.<a name="line.107"></a>
-<span class="sourceLineNo">108</span>   *<a name="line.108"></a>
-<span class="sourceLineNo">109</span>   * @return enum controlling whether a dagger module should be generated for repository.<a name="line.109"></a>
-<span class="sourceLineNo">110</span>   */<a name="line.110"></a>
-<span class="sourceLineNo">111</span>  Feature dagger() default Feature.AUTODETECT;<a name="line.111"></a>
-<span class="sourceLineNo">112</span><a name="line.112"></a>
-<span class="sourceLineNo">113</span>  /**<a name="line.113"></a>
-<span class="sourceLineNo">114</span>   * Return true if an the generated component should NOT schedule autorun actions at the end of the<a name="line.114"></a>
-<span class="sourceLineNo">115</span>   * constructor. This is useful if the component creator will trigger schedules manually at a later time.<a name="line.115"></a>
+<span class="sourceLineNo">083</span>   * Return true if the component should support being "observed" by<a name="line.83"></a>
+<span class="sourceLineNo">084</span>   * {@link arez.component.ComponentObservable#observe(Object)}.<a name="line.84"></a>
+<span class="sourceLineNo">085</span>   *<a name="line.85"></a>
+<span class="sourceLineNo">086</span>   * @return true if the component should support being "observed".<a name="line.86"></a>
+<span class="sourceLineNo">087</span>   */<a name="line.87"></a>
+<span class="sourceLineNo">088</span>  boolean observable() default true;<a name="line.88"></a>
+<span class="sourceLineNo">089</span><a name="line.89"></a>
+<span class="sourceLineNo">090</span>  /**<a name="line.90"></a>
+<span class="sourceLineNo">091</span>   * Return true if the component should dispose itself once it is no longer "observed".<a name="line.91"></a>
+<span class="sourceLineNo">092</span>   * By "observed" it means that the component will have {@link arez.component.ComponentObservable#observe(Object)}<a name="line.92"></a>
+<span class="sourceLineNo">093</span>   * called on it. This MUST be false if {@link #observable()} is false.<a name="line.93"></a>
+<span class="sourceLineNo">094</span>   *<a name="line.94"></a>
+<span class="sourceLineNo">095</span>   * @return true if the component should dispose itself once it is no longer "observed".<a name="line.95"></a>
+<span class="sourceLineNo">096</span>   */<a name="line.96"></a>
+<span class="sourceLineNo">097</span>  boolean disposeOnDeactivate() default false;<a name="line.97"></a>
+<span class="sourceLineNo">098</span><a name="line.98"></a>
+<span class="sourceLineNo">099</span>  /**<a name="line.99"></a>
+<span class="sourceLineNo">100</span>   * Indicate whether an @Inject annotation should be added to constructor of the generated class.<a name="line.100"></a>
+<span class="sourceLineNo">101</span>   * {@link Feature#ENABLE} will force the addition of an @Inject annotation, {@link Feature#DISABLE}<a name="line.101"></a>
+<span class="sourceLineNo">102</span>   * will result in no @Inject annotation and {@link Feature#AUTODETECT} will add an @Inject<a name="line.102"></a>
+<span class="sourceLineNo">103</span>   * if any fields or methods in the component or any parent type has an @Inject annotation OR the class<a name="line.103"></a>
+<span class="sourceLineNo">104</span>   * has an annotation that is itself annotated with the javax.inject.Scope annotation.<a name="line.104"></a>
+<span class="sourceLineNo">105</span>   *<a name="line.105"></a>
+<span class="sourceLineNo">106</span>   * @return enum controlling present of Inject annotation on constructor.<a name="line.106"></a>
+<span class="sourceLineNo">107</span>   */<a name="line.107"></a>
+<span class="sourceLineNo">108</span>  Feature inject() default Feature.AUTODETECT;<a name="line.108"></a>
+<span class="sourceLineNo">109</span><a name="line.109"></a>
+<span class="sourceLineNo">110</span>  /**<a name="line.110"></a>
+<span class="sourceLineNo">111</span>   * Indicate whether a dagger module should be generated for enhanced component class.<a name="line.111"></a>
+<span class="sourceLineNo">112</span>   * {@link Feature#ENABLE} will force the generation of the module, {@link Feature#DISABLE}<a name="line.112"></a>
+<span class="sourceLineNo">113</span>   * will result in no dagger module and {@link Feature#AUTODETECT} will add a dagger<a name="line.113"></a>
+<span class="sourceLineNo">114</span>   * module if the &lt;code&gt;dagger.Module&lt;/code&gt; class is present on the classpath AND the class<a name="line.114"></a>
+<span class="sourceLineNo">115</span>   * has an annotation that is itself annotated with the javax.inject.Scope annotation.<a name="line.115"></a>
 <span class="sourceLineNo">116</span>   *<a name="line.116"></a>
-<span class="sourceLineNo">117</span>   * @return Return true if an the generated component should NOT schedule autorun actions at the end of the constructor.<a name="line.117"></a>
+<span class="sourceLineNo">117</span>   * @return enum controlling whether a dagger module should be generated for repository.<a name="line.117"></a>
 <span class="sourceLineNo">118</span>   */<a name="line.118"></a>
-<span class="sourceLineNo">119</span>  boolean deferSchedule() default false;<a name="line.119"></a>
+<span class="sourceLineNo">119</span>  Feature dagger() default Feature.AUTODETECT;<a name="line.119"></a>
 <span class="sourceLineNo">120</span><a name="line.120"></a>
 <span class="sourceLineNo">121</span>  /**<a name="line.121"></a>
-<span class="sourceLineNo">122</span>   * Indicate whether a component requires that the {@link Object#hashCode()} and {@link Object#equals(Object)}<a name="line.122"></a>
-<span class="sourceLineNo">123</span>   * methods are implemented. These methods MUST be implemented if the {@link Repository} annotation is present<a name="line.123"></a>
-<span class="sourceLineNo">124</span>   * but may be implemented in other scenarios. {@link Feature#ENABLE} will force the generation of the methods,<a name="line.124"></a>
-<span class="sourceLineNo">125</span>   * {@link Feature#DISABLE} will not generate these methods and {@link Feature#AUTODETECT} will generated these<a name="line.125"></a>
-<span class="sourceLineNo">126</span>   * methods if the {@link Repository} annotation is present.<a name="line.126"></a>
-<span class="sourceLineNo">127</span>   *<a name="line.127"></a>
-<span class="sourceLineNo">128</span>   * @return enum controlling whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods are implemented.<a name="line.128"></a>
-<span class="sourceLineNo">129</span>   */<a name="line.129"></a>
-<span class="sourceLineNo">130</span>  Feature requireEquals() default Feature.AUTODETECT;<a name="line.130"></a>
-<span class="sourceLineNo">131</span>}<a name="line.131"></a>
+<span class="sourceLineNo">122</span>   * Return true if an the generated component should NOT schedule autorun actions at the end of the<a name="line.122"></a>
+<span class="sourceLineNo">123</span>   * constructor. This is useful if the component creator will trigger schedules manually at a later time.<a name="line.123"></a>
+<span class="sourceLineNo">124</span>   *<a name="line.124"></a>
+<span class="sourceLineNo">125</span>   * @return Return true if an the generated component should NOT schedule autorun actions at the end of the constructor.<a name="line.125"></a>
+<span class="sourceLineNo">126</span>   */<a name="line.126"></a>
+<span class="sourceLineNo">127</span>  boolean deferSchedule() default false;<a name="line.127"></a>
+<span class="sourceLineNo">128</span><a name="line.128"></a>
+<span class="sourceLineNo">129</span>  /**<a name="line.129"></a>
+<span class="sourceLineNo">130</span>   * Indicate whether a component requires that the {@link Object#hashCode()} and {@link Object#equals(Object)}<a name="line.130"></a>
+<span class="sourceLineNo">131</span>   * methods are implemented. These methods MUST be implemented if the {@link Repository} annotation is present<a name="line.131"></a>
+<span class="sourceLineNo">132</span>   * but may be implemented in other scenarios. {@link Feature#ENABLE} will force the generation of the methods,<a name="line.132"></a>
+<span class="sourceLineNo">133</span>   * {@link Feature#DISABLE} will not generate these methods and {@link Feature#AUTODETECT} will generated these<a name="line.133"></a>
+<span class="sourceLineNo">134</span>   * methods if the {@link Repository} annotation is present.<a name="line.134"></a>
+<span class="sourceLineNo">135</span>   *<a name="line.135"></a>
+<span class="sourceLineNo">136</span>   * @return enum controlling whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods are implemented.<a name="line.136"></a>
+<span class="sourceLineNo">137</span>   */<a name="line.137"></a>
+<span class="sourceLineNo">138</span>  Feature requireEquals() default Feature.AUTODETECT;<a name="line.138"></a>
+<span class="sourceLineNo">139</span>}<a name="line.139"></a>
 
 
 
