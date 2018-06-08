@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -157,12 +157,18 @@ extends <a href="../../arez/component/AbstractEntryContainer.html" title="class 
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractEntityReference.html#hasEntity--">hasEntity</a></span>()</code>
+<div class="block">Return true if reference for entity exists.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractEntityReference.html#preDispose--">preDispose</a></span>()</code>
 <div class="block">Dispose or detach the associated entity if any.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractEntityReference.html#setEntity-T-">setEntity</a></span>(<a href="../../arez/component/AbstractEntityReference.html" title="type parameter in AbstractEntityReference">T</a>&nbsp;entity)</code>
 <div class="block">Set the entity that this reference points to.</div>
@@ -240,6 +246,20 @@ protected&nbsp;<a href="../../arez/component/AbstractEntityReference.html" title
 </dl>
 </li>
 </ul>
+<a name="hasEntity--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasEntity</h4>
+<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.46">hasEntity</a>()</pre>
+<div class="block">Return true if reference for entity exists.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if reference for entity exists.</dd>
+</dl>
+</li>
+</ul>
 <a name="setEntity-java.lang.Object-">
 <!--   -->
 </a><a name="setEntity-T-">
@@ -249,7 +269,7 @@ protected&nbsp;<a href="../../arez/component/AbstractEntityReference.html" title
 <li class="blockList">
 <h4>setEntity</h4>
 <pre><a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations">@Observable</a>
-protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.47">setEntity</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.68">setEntity</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                      <a href="../../arez/component/AbstractEntityReference.html" title="type parameter in AbstractEntityReference">T</a>&nbsp;entity)</pre>
 <div class="block">Set the entity that this reference points to.</div>
 <dl>
