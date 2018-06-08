@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":6,"i9":6,"i10":6,"i11":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":6,"i8":10,"i9":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../arez/component/AbstractRepository.html" title="class in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/component/AbstractEntityReference.html" title="class in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/component/AbstractContainer.html" target="_top">Frames</a></li>
@@ -98,7 +98,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../arez/component/AbstractEntryContainer.html" title="class in arez.component">arez.component.AbstractEntryContainer</a>&lt;T&gt;</li>
+<li>
+<ul class="inheritance">
 <li>arez.component.AbstractContainer&lt;K,T&gt;</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -111,8 +116,8 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public abstract class <a href="../../src-html/arez/component/AbstractContainer.html#line.31">AbstractContainer</a>&lt;K,T&gt;
-extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<pre>public abstract class <a href="../../src-html/arez/component/AbstractContainer.html#line.26">AbstractContainer</a>&lt;K,T&gt;
+extends <a href="../../arez/component/AbstractEntryContainer.html" title="class in arez.component">AbstractEntryContainer</a>&lt;T&gt;</pre>
 <div class="block">Abstract base class for observable Arez components that contain other components.
 
  <p>When multiple results are returned as a list, they are passed through <a href="../../arez/component/CollectionsUtil.html#asList-java.util.stream.Stream-"><code>CollectionsUtil.asList(Stream)</code></a> or
@@ -162,72 +167,67 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected abstract <a href="../../arez/Component.html" title="class in arez">Component</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#component--">component</a></span>()</code>
-<div class="block">Return the component associated with the container if native components enabled.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#contains-T-">contains</a></span>(<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;entity)</code>
 <div class="block">Return true if the specified entity is contained in the container.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#destroy-T-">destroy</a></span>(<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;entity)</code>
 <div class="block">Detach the entity from the container and dispose the entity.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#detach-T-">detach</a></span>(<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;entity)</code>
 <div class="block">Detach entity from container without disposing entity.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#entities--">entities</a></span>()</code>
 <div class="block">Return a stream of all entities in the container.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#findByArezId-K-">findByArezId</a></span>(<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">K</a>&nbsp;arezId)</code>
 <div class="block">Return the entity with the specified ArezId or null if no such entity.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected <a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#getByArezId-K-">getByArezId</a></span>(<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">K</a>&nbsp;arezId)</code>
 <div class="block">Return the entity with the specified ArezId else throw an exception.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>protected abstract <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#getContainerName--">getContainerName</a></span>()</code>
-<div class="block">Return the name associated with the container.</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>protected abstract <a href="../../arez/ArezContext.html" title="class in arez">ArezContext</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#getContext--">getContext</a></span>()</code>
-<div class="block">Return the context associated with the container.</div>
-</td>
-</tr>
-<tr id="i10" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../../arez/Observable.html" title="class in arez">Observable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#getEntitiesObservable--">getEntitiesObservable</a></span>()</code>
 <div class="block">Return the observable associated with entities.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#preDispose--">preDispose</a></span>()</code>
-<div class="block">Dispose all the entities associated with the container.</div>
+<div class="block">Dispose or detach all the entities associated with the container.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>protected abstract boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractContainer.html#shouldDisposeEntryOnDispose--">shouldDisposeEntryOnDispose</a></span>()</code>
+<div class="block">Return true if disposing the container should result in disposing contained entities or just detaching the entities.</div>
 </td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.arez.component.AbstractEntryContainer">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;arez.component.<a href="../../arez/component/AbstractEntryContainer.html" title="class in arez.component">AbstractEntryContainer</a></h3>
+<code><a href="../../arez/component/AbstractEntryContainer.html#component--">component</a>, <a href="../../arez/component/AbstractEntryContainer.html#getContext--">getContext</a>, <a href="../../arez/component/AbstractEntryContainer.html#getName--">getName</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -255,7 +255,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractContainer</h4>
-<pre>public&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.31">AbstractContainer</a>()</pre>
+<pre>public&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.26">AbstractContainer</a>()</pre>
 </li>
 </ul>
 </li>
@@ -274,13 +274,27 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>attach</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.44">attach</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.41">attach</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                       <a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;entity)</pre>
 <div class="block">Attach specified entity to the set of entities managed by the container.
  This should not be invoked if the entity is already attached to the repository.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>entity</code> - the entity to register.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldDisposeEntryOnDispose--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldDisposeEntryOnDispose</h4>
+<pre>protected abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.60">shouldDisposeEntryOnDispose</a>()</pre>
+<div class="block">Return true if disposing the container should result in disposing contained entities or just detaching the entities.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true to dispose entities on container dispose, false to detach entities on container disposed.</dd>
 </dl>
 </li>
 </ul>
@@ -292,7 +306,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>preDispose</h4>
 <pre><a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations">@PreDispose</a>
 protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.66">preDispose</a>()</pre>
-<div class="block">Dispose all the entities associated with the container.</div>
+<div class="block">Dispose or detach all the entities associated with the container.</div>
 </li>
 </ul>
 <a name="contains-java.lang.Object-">
@@ -359,7 +373,7 @@ protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractContaine
 <li class="blockList">
 <h4>findByArezId</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.147">findByArezId</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+protected&nbsp;<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.136">findByArezId</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                    <a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">K</a>&nbsp;arezId)</pre>
 <div class="block">Return the entity with the specified ArezId or null if no such entity.</div>
 <dl>
@@ -379,7 +393,7 @@ protected&nbsp;<a href="../../arez/component/AbstractContainer.html" title="type
 <li class="blockList">
 <h4>getByArezId</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected&nbsp;<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.171">getByArezId</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+protected&nbsp;<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.160">getByArezId</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">K</a>&nbsp;arezId)
                           throws <a href="../../arez/component/NoSuchEntityException.html" title="class in arez.component">NoSuchEntityException</a></pre>
 <div class="block">Return the entity with the specified ArezId else throw an exception.</div>
@@ -393,54 +407,6 @@ protected&nbsp;<a href="../../arez/component/AbstractContainer.html" title="type
 </dl>
 </li>
 </ul>
-<a name="component--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>component</h4>
-<pre><a href="../../arez/annotations/ComponentRef.html" title="annotation in arez.annotations">@ComponentRef</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="../../arez/Component.html" title="class in arez">Component</a>&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.189">component</a>()</pre>
-<div class="block">Return the component associated with the container if native components enabled.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the component associated with the container if native components enabled.</dd>
-</dl>
-</li>
-</ul>
-<a name="getContext--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getContext</h4>
-<pre><a href="../../arez/annotations/ContextRef.html" title="annotation in arez.annotations">@ContextRef</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="../../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.198">getContext</a>()</pre>
-<div class="block">Return the context associated with the container.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the context associated with the container.</dd>
-</dl>
-</li>
-</ul>
-<a name="getContainerName--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getContainerName</h4>
-<pre><a href="../../arez/annotations/ComponentNameRef.html" title="annotation in arez.annotations">@ComponentNameRef</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.207">getContainerName</a>()</pre>
-<div class="block">Return the name associated with the container.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the name associated with the container.</dd>
-</dl>
-</li>
-</ul>
 <a name="getEntitiesObservable--">
 <!--   -->
 </a>
@@ -449,7 +415,7 @@ protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/
 <h4>getEntitiesObservable</h4>
 <pre><a href="../../arez/annotations/ObservableRef.html" title="annotation in arez.annotations">@ObservableRef</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="../../arez/Observable.html" title="class in arez">Observable</a>&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.218">getEntitiesObservable</a>()</pre>
+protected abstract&nbsp;<a href="../../arez/Observable.html" title="class in arez">Observable</a>&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.180">getEntitiesObservable</a>()</pre>
 <div class="block">Return the observable associated with entities.
  This template method is implemented by the Arez annotation processor and is used internally
  to container. It should not be invoked by extensions.</div>
@@ -467,7 +433,7 @@ protected abstract&nbsp;<a href="../../arez/Observable.html" title="class in are
 <h4>entities</h4>
 <pre><a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations">@Observable</a>(<a href="../../arez/annotations/Observable.html#expectSetter--">expectSetter</a>=false)
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.227">entities</a>()</pre>
+public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;<a href="../../arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/AbstractContainer.html#line.189">entities</a>()</pre>
 <div class="block">Return a stream of all entities in the container.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -503,7 +469,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../arez/component/AbstractRepository.html" title="class in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/component/AbstractEntityReference.html" title="class in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/component/AbstractContainer.html" target="_top">Frames</a></li>
