@@ -345,7 +345,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.97">disposeOnDeactivate</a></pre>
 <div class="block">Return true if the component should dispose itself once it is no longer "observed".
  By "observed" it means that the component will have <a href="../../arez/component/ComponentObservable.html#observe-java.lang.Object-"><code>ComponentObservable.observe(Object)</code></a>
- called on it. This MUST be false if <a href="../../arez/annotations/ArezComponent.html#observable--"><code>observable()</code></a> is false.</div>
+ called on it. This parameter MUST be false if <a href="../../arez/annotations/ArezComponent.html#observable--"><code>observable()</code></a> is false.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the component should dispose itself once it is no longer "observed".</dd>
@@ -415,9 +415,10 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>deferSchedule</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.127">deferSchedule</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.128">deferSchedule</a></pre>
 <div class="block">Return true if an the generated component should NOT schedule autorun actions at the end of the
- constructor. This is useful if the component creator will trigger schedules manually at a later time.</div>
+ constructor. This is useful if the component creator will trigger schedules manually at a later time.
+ This MUST be false if there is no autorun methods annotated on the component.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Return true if an the generated component should NOT schedule autorun actions at the end of the constructor.</dd>
@@ -437,7 +438,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>requireEquals</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.138">requireEquals</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.139">requireEquals</a></pre>
 <div class="block">Indicate whether a component requires that the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang"><code>Object.equals(Object)</code></a>
  methods are implemented. These methods MUST be implemented if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present
  but may be implemented in other scenarios. <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the generation of the methods,

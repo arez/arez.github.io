@@ -98,7 +98,7 @@
 <span class="sourceLineNo">090</span>  /**<a name="line.90"></a>
 <span class="sourceLineNo">091</span>   * Return true if the component should dispose itself once it is no longer "observed".<a name="line.91"></a>
 <span class="sourceLineNo">092</span>   * By "observed" it means that the component will have {@link arez.component.ComponentObservable#observe(Object)}<a name="line.92"></a>
-<span class="sourceLineNo">093</span>   * called on it. This MUST be false if {@link #observable()} is false.<a name="line.93"></a>
+<span class="sourceLineNo">093</span>   * called on it. This parameter MUST be false if {@link #observable()} is false.<a name="line.93"></a>
 <span class="sourceLineNo">094</span>   *<a name="line.94"></a>
 <span class="sourceLineNo">095</span>   * @return true if the component should dispose itself once it is no longer "observed".<a name="line.95"></a>
 <span class="sourceLineNo">096</span>   */<a name="line.96"></a>
@@ -129,22 +129,23 @@
 <span class="sourceLineNo">121</span>  /**<a name="line.121"></a>
 <span class="sourceLineNo">122</span>   * Return true if an the generated component should NOT schedule autorun actions at the end of the<a name="line.122"></a>
 <span class="sourceLineNo">123</span>   * constructor. This is useful if the component creator will trigger schedules manually at a later time.<a name="line.123"></a>
-<span class="sourceLineNo">124</span>   *<a name="line.124"></a>
-<span class="sourceLineNo">125</span>   * @return Return true if an the generated component should NOT schedule autorun actions at the end of the constructor.<a name="line.125"></a>
-<span class="sourceLineNo">126</span>   */<a name="line.126"></a>
-<span class="sourceLineNo">127</span>  boolean deferSchedule() default false;<a name="line.127"></a>
-<span class="sourceLineNo">128</span><a name="line.128"></a>
-<span class="sourceLineNo">129</span>  /**<a name="line.129"></a>
-<span class="sourceLineNo">130</span>   * Indicate whether a component requires that the {@link Object#hashCode()} and {@link Object#equals(Object)}<a name="line.130"></a>
-<span class="sourceLineNo">131</span>   * methods are implemented. These methods MUST be implemented if the {@link Repository} annotation is present<a name="line.131"></a>
-<span class="sourceLineNo">132</span>   * but may be implemented in other scenarios. {@link Feature#ENABLE} will force the generation of the methods,<a name="line.132"></a>
-<span class="sourceLineNo">133</span>   * {@link Feature#DISABLE} will not generate these methods and {@link Feature#AUTODETECT} will generated these<a name="line.133"></a>
-<span class="sourceLineNo">134</span>   * methods if the {@link Repository} annotation is present.<a name="line.134"></a>
-<span class="sourceLineNo">135</span>   *<a name="line.135"></a>
-<span class="sourceLineNo">136</span>   * @return enum controlling whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods are implemented.<a name="line.136"></a>
-<span class="sourceLineNo">137</span>   */<a name="line.137"></a>
-<span class="sourceLineNo">138</span>  Feature requireEquals() default Feature.AUTODETECT;<a name="line.138"></a>
-<span class="sourceLineNo">139</span>}<a name="line.139"></a>
+<span class="sourceLineNo">124</span>   * This MUST be false if there is no autorun methods annotated on the component.<a name="line.124"></a>
+<span class="sourceLineNo">125</span>   *<a name="line.125"></a>
+<span class="sourceLineNo">126</span>   * @return Return true if an the generated component should NOT schedule autorun actions at the end of the constructor.<a name="line.126"></a>
+<span class="sourceLineNo">127</span>   */<a name="line.127"></a>
+<span class="sourceLineNo">128</span>  boolean deferSchedule() default false;<a name="line.128"></a>
+<span class="sourceLineNo">129</span><a name="line.129"></a>
+<span class="sourceLineNo">130</span>  /**<a name="line.130"></a>
+<span class="sourceLineNo">131</span>   * Indicate whether a component requires that the {@link Object#hashCode()} and {@link Object#equals(Object)}<a name="line.131"></a>
+<span class="sourceLineNo">132</span>   * methods are implemented. These methods MUST be implemented if the {@link Repository} annotation is present<a name="line.132"></a>
+<span class="sourceLineNo">133</span>   * but may be implemented in other scenarios. {@link Feature#ENABLE} will force the generation of the methods,<a name="line.133"></a>
+<span class="sourceLineNo">134</span>   * {@link Feature#DISABLE} will not generate these methods and {@link Feature#AUTODETECT} will generated these<a name="line.134"></a>
+<span class="sourceLineNo">135</span>   * methods if the {@link Repository} annotation is present.<a name="line.135"></a>
+<span class="sourceLineNo">136</span>   *<a name="line.136"></a>
+<span class="sourceLineNo">137</span>   * @return enum controlling whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods are implemented.<a name="line.137"></a>
+<span class="sourceLineNo">138</span>   */<a name="line.138"></a>
+<span class="sourceLineNo">139</span>  Feature requireEquals() default Feature.AUTODETECT;<a name="line.139"></a>
+<span class="sourceLineNo">140</span>}<a name="line.140"></a>
 
 
 
