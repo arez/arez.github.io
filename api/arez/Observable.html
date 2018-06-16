@@ -116,7 +116,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public final class <a href="../src-html/arez/Observable.html#line.20">Observable</a>&lt;T&gt;
+<pre>public final class <a href="../src-html/arez/Observable.html#line.19">Observable</a>&lt;T&gt;
 extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <div class="block">The observable represents state that can be observed within the system.</div>
 </li>
@@ -209,7 +209,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.148">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.147">dispose</a>()</pre>
 <div class="block">Dispose the element. See <a href="../arez/Disposable.html" title="interface in arez"><code>Disposable</code></a> for a description of the implications.</div>
 </li>
 </ul>
@@ -219,7 +219,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Observable.html#line.196">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Observable.html#line.195">isDisposed</a>()</pre>
 <div class="block">Return true if dispose() has been called on object.
  This is very useful when the Disposable is a @Computed value representing
  the selected item in a UI component but the item can be disposed by other
@@ -236,7 +236,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportObserved</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.477">reportObserved</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.476">reportObserved</a>()</pre>
 <div class="block">Notify Arez that this observable has been "observed" in the current transaction.</div>
 </li>
 </ul>
@@ -246,7 +246,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>preReportChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.487">preReportChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.486">preReportChanged</a>()</pre>
 <div class="block">Check that pre-conditions are satisfied before changing observable value.
  In production mode this will typically be a no-op. This method should be invoked
  before state is modified.</div>
@@ -258,7 +258,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>reportChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.499">reportChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.498">reportChanged</a>()</pre>
 <div class="block">Notify Arez that this observable has changed.
  This is called when the observable has definitely changed.</div>
 </li>
