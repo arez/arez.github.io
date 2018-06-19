@@ -218,11 +218,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-arez.Component-java.lang.String-boolean-arez.Procedure-boolean-boolean-">autorun</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-">autorun</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
        <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
-       boolean&nbsp;highPriority,
+       <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
        boolean&nbsp;runImmediately)</code>
 <div class="block">Create an autorun observer.</div>
 </td>
@@ -252,10 +252,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-java.lang.String-boolean-arez.Procedure-boolean-boolean-">autorun</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-">autorun</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
        <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
-       boolean&nbsp;highPriority,
+       <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
        boolean&nbsp;runImmediately)</code>
 <div class="block">Create an autorun observer.</div>
 </td>
@@ -324,7 +324,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in arez">ComputedValue</a>&lt;T&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#createComputedValue-arez.Component-java.lang.String-arez.SafeFunction-arez.EqualityComparator-arez.Procedure-arez.Procedure-arez.Procedure-arez.Procedure-boolean-">createComputedValue</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#createComputedValue-arez.Component-java.lang.String-arez.SafeFunction-arez.EqualityComparator-arez.Procedure-arez.Procedure-arez.Procedure-arez.Procedure-arez.Priority-">createComputedValue</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;function,
                    <a href="../arez/EqualityComparator.html" title="interface in arez">EqualityComparator</a>&lt;T&gt;&nbsp;equalityComparator,
@@ -332,13 +332,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                    <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDeactivate,
                    <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;onStale,
                    <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDispose,
-                   boolean&nbsp;highPriority)</code>
+                   <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority)</code>
 <div class="block">Create a ComputedValue with specified parameters.</div>
 </td>
 </tr>
 <tr id="i24" class="altColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in arez">ComputedValue</a>&lt;T&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#createComputedValue-arez.Component-java.lang.String-arez.SafeFunction-arez.EqualityComparator-arez.Procedure-arez.Procedure-arez.Procedure-arez.Procedure-boolean-boolean-boolean-">createComputedValue</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#createComputedValue-arez.Component-java.lang.String-arez.SafeFunction-arez.EqualityComparator-arez.Procedure-arez.Procedure-arez.Procedure-arez.Procedure-arez.Priority-boolean-boolean-">createComputedValue</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;function,
                    <a href="../arez/EqualityComparator.html" title="interface in arez">EqualityComparator</a>&lt;T&gt;&nbsp;equalityComparator,
@@ -346,7 +346,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                    <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDeactivate,
                    <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;onStale,
                    <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDispose,
-                   boolean&nbsp;highPriority,
+                   <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                    boolean&nbsp;keepAlive,
                    boolean&nbsp;runImmediately)</code>
 <div class="block">Create a ComputedValue with specified parameters.</div>
@@ -623,11 +623,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i62" class="altColor">
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#tracker-arez.Component-java.lang.String-boolean-arez.Procedure-boolean-">tracker</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#tracker-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-">tracker</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
        <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
-       boolean&nbsp;highPriority)</code>
+       <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority)</code>
 <div class="block">Create a "tracker" observer.</div>
 </td>
 </tr>
@@ -661,12 +661,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i67" class="rowColor">
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-boolean-boolean-">when</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-">when</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
     boolean&nbsp;mutation,
     <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;condition,
     <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;effect,
-    boolean&nbsp;highPriority,
+    <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
     boolean&nbsp;runImmediately)</code>
 <div class="block">Wait until a condition is true, then run effect.</div>
 </td>
@@ -699,11 +699,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i71" class="rowColor">
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#when-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-boolean-boolean-">when</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#when-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-">when</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
     boolean&nbsp;mutation,
     <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;condition,
     <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;effect,
-    boolean&nbsp;highPriority,
+    <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
     boolean&nbsp;runImmediately)</code>
 <div class="block">Wait until a condition is true, then run effect.</div>
 </td>
@@ -1042,7 +1042,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
 </dl>
 </li>
 </ul>
-<a name="createComputedValue-arez.Component-java.lang.String-arez.SafeFunction-arez.EqualityComparator-arez.Procedure-arez.Procedure-arez.Procedure-arez.Procedure-boolean-">
+<a name="createComputedValue-arez.Component-java.lang.String-arez.SafeFunction-arez.EqualityComparator-arez.Procedure-arez.Procedure-arez.Procedure-arez.Procedure-arez.Priority-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -1065,7 +1065,8 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
                                                          <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;onStale,
                                                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                          <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDispose,
-                                                         boolean&nbsp;highPriority)</pre>
+                                                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                         <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority)</pre>
 <div class="block">Create a ComputedValue with specified parameters.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -1079,13 +1080,13 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
 <dd><code>onDeactivate</code> - the procedure to invoke when the ComputedValue changes to the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.</dd>
 <dd><code>onStale</code> - the procedure to invoke when the ComputedValue changes changes from the UP_TO_DATE state to STALE or POSSIBLY_STALE. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.</dd>
 <dd><code>onDispose</code> - the procedure to invoke when the ComputedValue id disposed.</dd>
-<dd><code>highPriority</code> - true if the associated observer is created as a high-priority observer.</dd>
+<dd><code>priority</code> - the priority of the associated observer.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the ComputedValue instance.</dd>
 </dl>
 </li>
 </ul>
-<a name="createComputedValue-arez.Component-java.lang.String-arez.SafeFunction-arez.EqualityComparator-arez.Procedure-arez.Procedure-arez.Procedure-arez.Procedure-boolean-boolean-boolean-">
+<a name="createComputedValue-arez.Component-java.lang.String-arez.SafeFunction-arez.EqualityComparator-arez.Procedure-arez.Procedure-arez.Procedure-arez.Procedure-arez.Priority-boolean-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -1108,7 +1109,8 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
                                                          <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;onStale,
                                                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                          <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDispose,
-                                                         boolean&nbsp;highPriority,
+                                                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                         <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                                                          boolean&nbsp;keepAlive,
                                                          boolean&nbsp;runImmediately)</pre>
 <div class="block">Create a ComputedValue with specified parameters.</div>
@@ -1124,7 +1126,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
 <dd><code>onDeactivate</code> - the procedure to invoke when the ComputedValue changes to the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.</dd>
 <dd><code>onStale</code> - the procedure to invoke when the ComputedValue changes changes from the UP_TO_DATE state to STALE or POSSIBLY_STALE. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.</dd>
 <dd><code>onDispose</code> - the procedure to invoke when the ComputedValue id disposed.</dd>
-<dd><code>highPriority</code> - true if the associated observer is created as a high-priority observer.</dd>
+<dd><code>priority</code> - the priority of the associated observer.</dd>
 <dd><code>keepAlive</code> - true if the ComputedValue should be activated when it is created and never deactivated. If this is true then the onActivate and onDeactivate parameters should be null.</dd>
 <dd><code>runImmediately</code> - ignored unless keepAlive is true. true to compute the value immediately, false to schedule compute for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -1190,7 +1192,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
                      <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                      <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;effect)</pre>
 <div class="block">Wait until a condition is true, then run effect.
- See <a href="../arez/ArezContext.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-boolean-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, boolean, boolean)</code></a> for further details.</div>
+ See <a href="../arez/ArezContext.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, Priority, boolean)</code></a> for further details.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the debug name (if any) used when naming the underlying Arez resources.</dd>
@@ -1217,7 +1219,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
                      <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;effect,
                      boolean&nbsp;runImmediately)</pre>
 <div class="block">Wait until a condition is true, then run effect.
- See <a href="../arez/ArezContext.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-boolean-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, boolean, boolean)</code></a> for further details.</div>
+ See <a href="../arez/ArezContext.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, Priority, boolean)</code></a> for further details.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the debug name (if any) used when naming the underlying Arez resources.</dd>
@@ -1230,7 +1232,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
 </dl>
 </li>
 </ul>
-<a name="when-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-boolean-boolean-">
+<a name="when-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -1243,24 +1245,25 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
                      <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;condition,
                      <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                      <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;effect,
-                     boolean&nbsp;highPriority,
+                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                     <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                      boolean&nbsp;runImmediately)</pre>
 <div class="block">Wait until a condition is true, then run effect.
- See <a href="../arez/ArezContext.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-boolean-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, boolean, boolean)</code></a> for further details.</div>
+ See <a href="../arez/ArezContext.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, Priority, boolean)</code></a> for further details.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the debug name (if any) used when naming the underlying Arez resources.</dd>
 <dd><code>mutation</code> - true if the effect can mutate state, false otherwise.</dd>
 <dd><code>condition</code> - The function that determines when the effect is run.</dd>
 <dd><code>effect</code> - The procedure that is executed when the condition is true.</dd>
-<dd><code>highPriority</code> - true if the observer is a high priority observer.</dd>
+<dd><code>priority</code> - the priority of the observer.</dd>
 <dd><code>runImmediately</code> - true to invoke condition immediately, false to schedule reaction for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Node representing the reactive component. The user can dispose the node if it is no longer required.</dd>
 </dl>
 </li>
 </ul>
-<a name="when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-boolean-boolean-">
+<a name="when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -1275,7 +1278,8 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
                      <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;condition,
                      <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                      <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;effect,
-                     boolean&nbsp;highPriority,
+                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                     <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                      boolean&nbsp;runImmediately)</pre>
 <div class="block">Wait until a condition is true, then run effect.
  The condition function is run in a read-only, tracking transaction and will be re-evaluated
@@ -1288,7 +1292,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
 <dd><code>mutation</code> - true if the effect can mutate state, false otherwise.</dd>
 <dd><code>condition</code> - The function that determines when the effect is run.</dd>
 <dd><code>effect</code> - The procedure that is executed when the condition is true.</dd>
-<dd><code>highPriority</code> - true if the observer is a high priority observer.</dd>
+<dd><code>priority</code> - the priority of the observer.</dd>
 <dd><code>runImmediately</code> - true to invoke condition immediately, false to schedule reaction for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Node representing the reactive component. The user can dispose the node if it is no longer required.</dd>
@@ -1402,7 +1406,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 </dl>
 </li>
 </ul>
-<a name="autorun-java.lang.String-boolean-arez.Procedure-boolean-boolean-">
+<a name="autorun-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -1414,7 +1418,8 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
-                                 boolean&nbsp;highPriority,
+                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                 <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                                  boolean&nbsp;runImmediately)</pre>
 <div class="block">Create an autorun observer.</div>
 <dl>
@@ -1422,7 +1427,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <dd><code>name</code> - the name of the observer.</dd>
 <dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
 <dd><code>action</code> - the action defining the observer.</dd>
-<dd><code>highPriority</code> - true if the observer is a high priority observer.</dd>
+<dd><code>priority</code> - the priority of the observer.</dd>
 <dd><code>runImmediately</code> - true to invoke action immediately, false to schedule reaction for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
@@ -1455,7 +1460,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 </dl>
 </li>
 </ul>
-<a name="autorun-arez.Component-java.lang.String-boolean-arez.Procedure-boolean-boolean-">
+<a name="autorun-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -1469,7 +1474,8 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
-                                 boolean&nbsp;highPriority,
+                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                 <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                                  boolean&nbsp;runImmediately)</pre>
 <div class="block">Create an autorun observer.</div>
 <dl>
@@ -1478,7 +1484,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <dd><code>name</code> - the name of the observer.</dd>
 <dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
 <dd><code>action</code> - the action defining the observer.</dd>
-<dd><code>highPriority</code> - true if the observer is a high priority observer.</dd>
+<dd><code>priority</code> - the priority of the observer.</dd>
 <dd><code>runImmediately</code> - true to invoke action immediately, false to schedule reaction for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
@@ -1580,7 +1586,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 </dl>
 </li>
 </ul>
-<a name="tracker-arez.Component-java.lang.String-boolean-arez.Procedure-boolean-">
+<a name="tracker-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -1594,7 +1600,8 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
-                                 boolean&nbsp;highPriority)</pre>
+                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                 <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority)</pre>
 <div class="block">Create a "tracker" observer.
  The "tracker" observer triggers the specified action any time any of the observers dependencies are updated.
  To track dependencies, this returned observer must be passed as the tracker to an action method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
@@ -1603,7 +1610,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <dd><code>component</code> - the component containing tracker if any. Should be null if <a href="../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</dd>
 <dd><code>name</code> - the name of the observer.</dd>
 <dd><code>mutation</code> - true if the observer may modify state during tracking, false otherwise.</dd>
-<dd><code>highPriority</code> - true if the observer is a high priority observer.</dd>
+<dd><code>priority</code> - the priority of the observer.</dd>
 <dd><code>action</code> - the action invoked as the reaction.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
@@ -1617,7 +1624,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <li class="blockList">
 <h4>createObservable</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.984">createObservable</a>()</pre>
+public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.989">createObservable</a>()</pre>
 <div class="block">Create an Observable synthesizing name if required.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -1634,7 +1641,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in are
 <li class="blockList">
 <h4>createObservable</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.997">createObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.1002">createObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Create an Observable with the specified name.</div>
 <dl>
@@ -1654,7 +1661,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in are
 <li class="blockList">
 <h4>createObservable</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.1012">createObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.1017">createObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                    <a href="../arez/spy/PropertyAccessor.html" title="interface in arez.spy">PropertyAccessor</a>&lt;T&gt;&nbsp;accessor,
@@ -1680,7 +1687,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in are
 <li class="blockList">
 <h4>createObservable</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.1028">createObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.1033">createObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                    <a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
                                                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
@@ -1703,7 +1710,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in are
 <li class="blockList">
 <h4>createObservable</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.1044">createObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.1049">createObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                    <a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
                                                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
@@ -1729,7 +1736,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in are
 <li class="blockList">
 <h4>createObservable</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.1062">createObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in arez">Observable</a>&lt;T&gt;&nbsp;<a href="../src-html/arez/ArezContext.html#line.1067">createObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                    <a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
                                                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
@@ -1757,7 +1764,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in are
 <ul class="blockList">
 <li class="blockList">
 <h4>isTransactionActive</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ArezContext.html#line.1113">isTransactionActive</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ArezContext.html#line.1118">isTransactionActive</a>()</pre>
 <div class="block">Return true if there is a transaction in progress.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -1771,7 +1778,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in are
 <ul class="blockList">
 <li class="blockList">
 <h4>isSchedulerPaused</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ArezContext.html#line.1186">isSchedulerPaused</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ArezContext.html#line.1191">isSchedulerPaused</a>()</pre>
 <div class="block">Return true if the scheduler is paused.
  True means that <a href="../arez/ArezContext.html#pauseScheduler--"><code>pauseScheduler()</code></a> has been called one or more times and the lock not disposed.</div>
 <dl>
@@ -1787,7 +1794,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/Observable.html" title="class in are
 <li class="blockList">
 <h4>pauseScheduler</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.1212">pauseScheduler</a>()</pre>
+public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.1217">pauseScheduler</a>()</pre>
 <div class="block">Pause scheduler so that it will not run any reactions next time <a href="../arez/ArezContext.html#triggerScheduler--"><code>triggerScheduler()</code></a> is invoked.
  The scheduler will not resume scheduling reactions until the lock returned from this method is disposed.
 
@@ -1816,7 +1823,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>setEnvironment</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1223">setEnvironment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1228">setEnvironment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                            <a href="../arez/ReactionEnvironment.html" title="interface in arez">ReactionEnvironment</a>&nbsp;environment)</pre>
 <div class="block">Specify the environment in which reactions are invoked.</div>
 <dl>
@@ -1831,7 +1838,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>triggerScheduler</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1236">triggerScheduler</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1241">triggerScheduler</a>()</pre>
 <div class="block">Method invoked to trigger the scheduler to run any pending reactions. The scheduler will only be
  triggered if there is no transaction active. This method is typically used after one or more Observers
  have been created outside a transaction with the runImmediately flag set to false and the caller wants
@@ -1846,7 +1853,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>action</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1262">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1267">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                     <a href="../arez/Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;action,
                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;parameters)
@@ -1874,7 +1881,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>action</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1280">action</a>(boolean&nbsp;mutation,
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1285">action</a>(boolean&nbsp;mutation,
                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                     <a href="../arez/Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;action,
                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -1904,7 +1911,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>action</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1297">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1302">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                     <a href="../arez/Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;action,
@@ -1934,7 +1941,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>action</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1317">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1322">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                     boolean&nbsp;mutation,
                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -1966,7 +1973,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>track</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1342">track</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1347">track</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                    <a href="../arez/Observer.html" title="class in arez">Observer</a>&nbsp;tracker,
                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                    <a href="../arez/Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;action,
@@ -1997,7 +2004,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeAction</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1427">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1432">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                         <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;action,
                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;parameters)</pre>
@@ -2020,7 +2027,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeAction</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1442">safeAction</a>(boolean&nbsp;mutation,
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1447">safeAction</a>(boolean&nbsp;mutation,
                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                         <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;action,
                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -2045,7 +2052,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeAction</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1459">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1464">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                         <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;action,
@@ -2071,7 +2078,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeAction</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1477">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1482">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                         boolean&nbsp;mutation,
                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -2099,7 +2106,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeTrack</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1500">safeTrack</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.1505">safeTrack</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                        <a href="../arez/Observer.html" title="class in arez">Observer</a>&nbsp;tracker,
                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                        <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;action,
@@ -2126,7 +2133,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>action</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1582">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1587">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                    <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;parameters)
@@ -2148,7 +2155,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>action</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1597">action</a>(boolean&nbsp;mutation,
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1602">action</a>(boolean&nbsp;mutation,
                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                    <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -2172,7 +2179,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>action</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1612">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1617">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                    <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
@@ -2197,7 +2204,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>action</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1630">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1635">action</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    boolean&nbsp;mutation,
                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -2224,7 +2231,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>track</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1654">track</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1659">track</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                   <a href="../arez/Observer.html" title="class in arez">Observer</a>&nbsp;tracker,
                   <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                   <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
@@ -2250,7 +2257,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeAction</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1743">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1748">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                        <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action,
                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;parameters)</pre>
@@ -2269,7 +2276,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeAction</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1756">safeAction</a>(boolean&nbsp;mutation,
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1761">safeAction</a>(boolean&nbsp;mutation,
                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                        <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action,
                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -2290,7 +2297,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeAction</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1771">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1776">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                        <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action,
@@ -2312,7 +2319,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeAction</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1787">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1792">safeAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                        boolean&nbsp;mutation,
                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -2336,7 +2343,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeTrack</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1808">safeTrack</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1813">safeTrack</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                       <a href="../arez/Observer.html" title="class in arez">Observer</a>&nbsp;tracker,
                       <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                       <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action,
@@ -2359,7 +2366,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1889">dispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1894">dispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                     <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
 <div class="block">Execute the supplied action in a "DISPOSE" transaction.
  The action is used to dispose Arez elements and should not be used to read or modify
@@ -2379,7 +2386,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1904">dispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1909">dispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;elementName,
                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                     <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
@@ -2401,7 +2408,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>noTxAction</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1988">noTxAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.1993">noTxAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                        <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)
                 throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
 <div class="block">Execute the specified action outside of a transaction.
@@ -2422,7 +2429,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>noTxAction</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.2014">noTxAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.2019">noTxAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                         <a href="../arez/Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;action)
                  throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
 <div class="block">Execute the specified action outside of a transaction.
@@ -2447,7 +2454,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeNoTxAction</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2036">safeNoTxAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2041">safeNoTxAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                            <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
 <div class="block">Execute the specified action outside of a transaction.
  The transaction is suspended for the duration of the action and the action must not
@@ -2464,7 +2471,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>safeNoTxAction</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.2059">safeNoTxAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/ArezContext.html#line.2064">safeNoTxAction</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                             <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;action)</pre>
 <div class="block">Execute the specified action outside of a transaction.
  The transaction is suspended for the duration of the action and the action must not
@@ -2485,7 +2492,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>addObserverErrorHandler</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2091">addObserverErrorHandler</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2096">addObserverErrorHandler</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                     <a href="../arez/ObserverErrorHandler.html" title="interface in arez">ObserverErrorHandler</a>&nbsp;handler)</pre>
 <div class="block">Add error handler to the list of error handlers called.
  The handler should not already be in the list. This method should NOT be called if
@@ -2502,7 +2509,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <ul class="blockList">
 <li class="blockList">
 <h4>removeObserverErrorHandler</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2109">removeObserverErrorHandler</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2114">removeObserverErrorHandler</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="../arez/ObserverErrorHandler.html" title="interface in arez">ObserverErrorHandler</a>&nbsp;handler)</pre>
 <div class="block">Remove error handler from list of existing error handlers.
  The handler should already be in the list. This method should NOT be called if
@@ -2520,7 +2527,7 @@ public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <li class="blockList">
 <h4>getSpy</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="../arez/Spy.html" title="interface in arez">Spy</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.2160">getSpy</a>()</pre>
+public&nbsp;<a href="../arez/Spy.html" title="interface in arez">Spy</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.2165">getSpy</a>()</pre>
 <div class="block">Return the spy associated with context.
  This method should not be invoked unless <a href="../arez/Arez.html#areSpiesEnabled--"><code>Arez.areSpiesEnabled()</code></a> returns true.</div>
 <dl>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>package arez;<a name="line.1"></a>
+<span class="sourceLineNo">002</span><a name="line.2"></a>
+<span class="sourceLineNo">003</span>/**<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * Enum to control scheduling priority of observers/reactions.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> * Observers with higher priorities will react first. If observers have equal priorities then observers<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * scheduled first will react first. Observers must not depend upon ComputedValue instances with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> * a lower priority otherwise priority is ignored.<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> * &lt;p&gt;A user should be very careful when specifying a {@link #HIGHEST} or {@link #HIGH} priority as it<a name="line.9"></a>
+<span class="sourceLineNo">010</span> * is possible that the the reaction will be scheduled part way through the process of disposing and/or<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * unlinking one-or-more components. In many cases this may mean invoking<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * &lt;code&gt;Disposable.isDisposed(component)&lt;/code&gt; before accessing arez components.&lt;/p&gt;<a name="line.12"></a>
+<span class="sourceLineNo">013</span> */<a name="line.13"></a>
+<span class="sourceLineNo">014</span>public enum Priority<a name="line.14"></a>
+<span class="sourceLineNo">015</span>{<a name="line.15"></a>
+<span class="sourceLineNo">016</span>  /**<a name="line.16"></a>
+<span class="sourceLineNo">017</span>   * Highest priority.<a name="line.17"></a>
+<span class="sourceLineNo">018</span>   * This priority should only be used by reactions responsible for disposing or releasing reactive components.<a name="line.18"></a>
+<span class="sourceLineNo">019</span>   * This priority is used when executing the reaction is likely to reduce the load of reactions that may react<a name="line.19"></a>
+<span class="sourceLineNo">020</span>   * within the same round. Any reaction scheduled with this priority must guard against accessing partially or<a name="line.20"></a>
+<span class="sourceLineNo">021</span>   * wholly disposed reactive elements.<a name="line.21"></a>
+<span class="sourceLineNo">022</span>   */<a name="line.22"></a>
+<span class="sourceLineNo">023</span>  HIGHEST,<a name="line.23"></a>
+<span class="sourceLineNo">024</span>  /**<a name="line.24"></a>
+<span class="sourceLineNo">025</span>   * High priority.<a name="line.25"></a>
+<span class="sourceLineNo">026</span>   * This priority should be used when the reaction will dispose other reactive elements (and thus they<a name="line.26"></a>
+<span class="sourceLineNo">027</span>   * need not be scheduled) or if the reaction will trigger many downstream reactions.<a name="line.27"></a>
+<span class="sourceLineNo">028</span>   */<a name="line.28"></a>
+<span class="sourceLineNo">029</span>  HIGH,<a name="line.29"></a>
+<span class="sourceLineNo">030</span>  /**<a name="line.30"></a>
+<span class="sourceLineNo">031</span>   * Normal priority if not otherwise specified.<a name="line.31"></a>
+<span class="sourceLineNo">032</span>   */<a name="line.32"></a>
+<span class="sourceLineNo">033</span>  NORMAL,<a name="line.33"></a>
+<span class="sourceLineNo">034</span>  /**<a name="line.34"></a>
+<span class="sourceLineNo">035</span>   * Lowest priority.<a name="line.35"></a>
+<span class="sourceLineNo">036</span>   */<a name="line.36"></a>
+<span class="sourceLineNo">037</span>  LOW<a name="line.37"></a>
+<span class="sourceLineNo">038</span>}<a name="line.38"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

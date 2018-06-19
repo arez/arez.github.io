@@ -77,7 +77,7 @@
 <span class="sourceLineNo">069</span>                 @Nullable final String name,<a name="line.69"></a>
 <span class="sourceLineNo">070</span>                 @Nonnull final SafeFunction&lt;T&gt; function,<a name="line.70"></a>
 <span class="sourceLineNo">071</span>                 @Nonnull final EqualityComparator&lt;T&gt; equalityComparator,<a name="line.71"></a>
-<span class="sourceLineNo">072</span>                 final boolean highPriority,<a name="line.72"></a>
+<span class="sourceLineNo">072</span>                 @Nonnull final Priority priority,<a name="line.72"></a>
 <span class="sourceLineNo">073</span>                 final boolean keepAlive )<a name="line.73"></a>
 <span class="sourceLineNo">074</span>  {<a name="line.74"></a>
 <span class="sourceLineNo">075</span>    super( context, name );<a name="line.75"></a>
@@ -103,7 +103,7 @@
 <span class="sourceLineNo">095</span>                                                          this::compute,<a name="line.95"></a>
 <span class="sourceLineNo">096</span>                                                          false,<a name="line.96"></a>
 <span class="sourceLineNo">097</span>                                                          o ),<a name="line.97"></a>
-<span class="sourceLineNo">098</span>                              highPriority,<a name="line.98"></a>
+<span class="sourceLineNo">098</span>                              priority,<a name="line.98"></a>
 <span class="sourceLineNo">099</span>                              false );<a name="line.99"></a>
 <span class="sourceLineNo">100</span>    if ( null != _component )<a name="line.100"></a>
 <span class="sourceLineNo">101</span>    {<a name="line.101"></a>

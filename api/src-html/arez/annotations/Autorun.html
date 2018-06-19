@@ -53,21 +53,12 @@
 <span class="sourceLineNo">045</span>  boolean mutation() default false;<a name="line.45"></a>
 <span class="sourceLineNo">046</span><a name="line.46"></a>
 <span class="sourceLineNo">047</span>  /**<a name="line.47"></a>
-<span class="sourceLineNo">048</span>   * Is the autorun scheduled at a high-priority.<a name="line.48"></a>
-<span class="sourceLineNo">049</span>   * A high priority autorun is placed at the start of the scheduler queue when is scheduled, meaning it will<a name="line.49"></a>
-<span class="sourceLineNo">050</span>   * react next unless another high priority Observer or ComputedValue needs rescheduling.<a name="line.50"></a>
-<span class="sourceLineNo">051</span>   *<a name="line.51"></a>
-<span class="sourceLineNo">052</span>   * &lt;p&gt;A user should be very careful when marking<a name="line.52"></a>
-<span class="sourceLineNo">053</span>   * an autorun as a high priority as it is possible that the autorun will be scheduled part way through the process<a name="line.53"></a>
-<span class="sourceLineNo">054</span>   * of disposing one-or-more components (in most environments dispose reactions are the only high priority observer<a name="line.54"></a>
-<span class="sourceLineNo">055</span>   * and thus a partially disposed state is never exposed to user code). In most cases this may mean invoking<a name="line.55"></a>
-<span class="sourceLineNo">056</span>   * &lt;code&gt;Disposable.isDisposed(component)&lt;/code&gt; before accessing arez components. A high priority autorun<a name="line.56"></a>
-<span class="sourceLineNo">057</span>   * should only access high priority {@link Computed} annotated methods to ensure consistency.&lt;/p&gt;<a name="line.57"></a>
-<span class="sourceLineNo">058</span>   *<a name="line.58"></a>
-<span class="sourceLineNo">059</span>   * @return true if the autorun scheduled at a high-priority, false otherwise.<a name="line.59"></a>
-<span class="sourceLineNo">060</span>   */<a name="line.60"></a>
-<span class="sourceLineNo">061</span>  boolean highPriority() default false;<a name="line.61"></a>
-<span class="sourceLineNo">062</span>}<a name="line.62"></a>
+<span class="sourceLineNo">048</span>   * The priority of the underlying autorun observer<a name="line.48"></a>
+<span class="sourceLineNo">049</span>   *<a name="line.49"></a>
+<span class="sourceLineNo">050</span>   * @return the priority of the autorun observer.<a name="line.50"></a>
+<span class="sourceLineNo">051</span>   */<a name="line.51"></a>
+<span class="sourceLineNo">052</span>  Priority priority() default Priority.NORMAL;<a name="line.52"></a>
+<span class="sourceLineNo">053</span>}<a name="line.53"></a>
 
 
 
