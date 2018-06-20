@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":6,"i2":10,"i3":10,"i4":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -112,7 +112,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public abstract class <a href="../../src-html/arez/component/AbstractEntityReference.html#line.11">AbstractEntityReference</a>&lt;T&gt;
+<pre>public abstract class <a href="../../src-html/arez/component/AbstractEntityReference.html#line.13">AbstractEntityReference</a>&lt;T&gt;
 extends <a href="../../arez/component/AbstractEntryContainer.html" title="class in arez.component">AbstractEntryContainer</a>&lt;T&gt;</pre>
 <div class="block">Abstract base class for reference to a component where reference should be cleared when the component is disposed.</div>
 </li>
@@ -145,7 +145,7 @@ extends <a href="../../arez/component/AbstractEntryContainer.html" title="class 
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -157,18 +157,24 @@ extends <a href="../../arez/component/AbstractEntryContainer.html" title="class 
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected abstract <a href="../../arez/Observable.html" title="class in arez">Observable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractEntityReference.html#getEntityObservable--">getEntityObservable</a></span>()</code>
+<div class="block">Return the observable associated with entity.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractEntityReference.html#hasEntity--">hasEntity</a></span>()</code>
 <div class="block">Return true if reference for entity exists.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractEntityReference.html#preDispose--">preDispose</a></span>()</code>
 <div class="block">Dispose or detach the associated entity if any.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/AbstractEntityReference.html#setEntity-T-">setEntity</a></span>(<a href="../../arez/component/AbstractEntityReference.html" title="type parameter in AbstractEntityReference">T</a>&nbsp;entity)</code>
 <div class="block">Set the entity that this reference points to.</div>
@@ -209,7 +215,7 @@ extends <a href="../../arez/component/AbstractEntryContainer.html" title="class 
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractEntityReference</h4>
-<pre>public&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.11">AbstractEntityReference</a>()</pre>
+<pre>public&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.13">AbstractEntityReference</a>()</pre>
 </li>
 </ul>
 </li>
@@ -227,7 +233,7 @@ extends <a href="../../arez/component/AbstractEntryContainer.html" title="class 
 <li class="blockList">
 <h4>preDispose</h4>
 <pre><a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations">@PreDispose</a>
-protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.21">preDispose</a>()</pre>
+protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.23">preDispose</a>()</pre>
 <div class="block">Dispose or detach the associated entity if any.</div>
 </li>
 </ul>
@@ -238,7 +244,7 @@ protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityRe
 <li class="blockList">
 <h4>getEntity</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../../arez/component/AbstractEntityReference.html" title="type parameter in AbstractEntityReference">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.32">getEntity</a>()</pre>
+protected&nbsp;<a href="../../arez/component/AbstractEntityReference.html" title="type parameter in AbstractEntityReference">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.34">getEntity</a>()</pre>
 <div class="block">Return the entity that this reference points to.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -252,11 +258,27 @@ protected&nbsp;<a href="../../arez/component/AbstractEntityReference.html" title
 <ul class="blockList">
 <li class="blockList">
 <h4>hasEntity</h4>
-<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.42">hasEntity</a>()</pre>
+<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.44">hasEntity</a>()</pre>
 <div class="block">Return true if reference for entity exists.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if reference for entity exists.</dd>
+</dl>
+</li>
+</ul>
+<a name="getEntityObservable--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEntityObservable</h4>
+<pre><a href="../../arez/annotations/ObservableRef.html" title="annotation in arez.annotations">@ObservableRef</a>
+ <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+protected abstract&nbsp;<a href="../../arez/Observable.html" title="class in arez">Observable</a>&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.70">getEntityObservable</a>()</pre>
+<div class="block">Return the observable associated with entity.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Arez observable associated with entities observable property.</dd>
 </dl>
 </li>
 </ul>
@@ -269,7 +291,7 @@ protected&nbsp;<a href="../../arez/component/AbstractEntityReference.html" title
 <li class="blockList">
 <h4>setEntity</h4>
 <pre><a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations">@Observable</a>
-protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.66">setEntity</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.78">setEntity</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                      <a href="../../arez/component/AbstractEntityReference.html" title="type parameter in AbstractEntityReference">T</a>&nbsp;entity)</pre>
 <div class="block">Set the entity that this reference points to.</div>
 <dl>
