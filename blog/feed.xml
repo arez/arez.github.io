@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Wed, 20 Jun 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 22 Jun 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.94 released]]></title>
+            <link>https://arez.github.io/blog/2018/06/22/version-0.94-release.html</link>
+            <guid>https://arez.github.io/blog/2018/06/22/version-0.94-release.html</guid>
+            <pubDate>Fri, 22 Jun 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.93...v0.94)
+
+Changes in this release:
+
+* **\[core\]** Clear the cached value in `arez.ComputedValue` when it is deactivated. This reduces
+  the memory pressure when there is many deactivated in]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.93 released]]></title>
             <link>https://arez.github.io/blog/2018/06/20/version-0.93-release.html</link>
