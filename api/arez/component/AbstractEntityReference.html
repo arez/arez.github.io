@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../arez/component/AbstractContainer.html" title="class in arez.component"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../arez/component/AbstractEntryContainer.html" title="class in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/component/AbstractRepository.html" title="class in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/component/AbstractEntityReference.html" target="_top">Frames</a></li>
@@ -98,12 +98,7 @@ var activeTableTab = "activeTableTab";
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../arez/component/AbstractEntryContainer.html" title="class in arez.component">arez.component.AbstractEntryContainer</a>&lt;T&gt;</li>
-<li>
-<ul class="inheritance">
 <li>arez.component.AbstractEntityReference&lt;T&gt;</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -112,8 +107,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public abstract class <a href="../../src-html/arez/component/AbstractEntityReference.html#line.13">AbstractEntityReference</a>&lt;T&gt;
-extends <a href="../../arez/component/AbstractEntryContainer.html" title="class in arez.component">AbstractEntryContainer</a>&lt;T&gt;</pre>
+<pre>public abstract class <a href="../../src-html/arez/component/AbstractEntityReference.html#line.15">AbstractEntityReference</a>&lt;T&gt;
+extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Abstract base class for reference to a component where reference should be cleared when the component is disposed.</div>
 </li>
 </ul>
@@ -182,13 +177,6 @@ extends <a href="../../arez/component/AbstractEntryContainer.html" title="class 
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.arez.component.AbstractEntryContainer">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;arez.component.<a href="../../arez/component/AbstractEntryContainer.html" title="class in arez.component">AbstractEntryContainer</a></h3>
-<code><a href="../../arez/component/AbstractEntryContainer.html#component--">component</a>, <a href="../../arez/component/AbstractEntryContainer.html#getContext--">getContext</a>, <a href="../../arez/component/AbstractEntryContainer.html#getName--">getName</a></code></li>
-</ul>
-<ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
@@ -215,7 +203,7 @@ extends <a href="../../arez/component/AbstractEntryContainer.html" title="class 
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractEntityReference</h4>
-<pre>public&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.13">AbstractEntityReference</a>()</pre>
+<pre>public&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.15">AbstractEntityReference</a>()</pre>
 </li>
 </ul>
 </li>
@@ -233,7 +221,7 @@ extends <a href="../../arez/component/AbstractEntryContainer.html" title="class 
 <li class="blockList">
 <h4>preDispose</h4>
 <pre><a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations">@PreDispose</a>
-protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.23">preDispose</a>()</pre>
+protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.24">preDispose</a>()</pre>
 <div class="block">Dispose or detach the associated entity if any.</div>
 </li>
 </ul>
@@ -244,7 +232,7 @@ protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityRe
 <li class="blockList">
 <h4>getEntity</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../../arez/component/AbstractEntityReference.html" title="type parameter in AbstractEntityReference">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.34">getEntity</a>()</pre>
+protected&nbsp;<a href="../../arez/component/AbstractEntityReference.html" title="type parameter in AbstractEntityReference">T</a>&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.39">getEntity</a>()</pre>
 <div class="block">Return the entity that this reference points to.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -258,7 +246,7 @@ protected&nbsp;<a href="../../arez/component/AbstractEntityReference.html" title
 <ul class="blockList">
 <li class="blockList">
 <h4>hasEntity</h4>
-<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.44">hasEntity</a>()</pre>
+<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.49">hasEntity</a>()</pre>
 <div class="block">Return true if reference for entity exists.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -274,7 +262,7 @@ protected&nbsp;<a href="../../arez/component/AbstractEntityReference.html" title
 <h4>getEntityObservable</h4>
 <pre><a href="../../arez/annotations/ObservableRef.html" title="annotation in arez.annotations">@ObservableRef</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="../../arez/Observable.html" title="class in arez">Observable</a>&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.70">getEntityObservable</a>()</pre>
+protected abstract&nbsp;<a href="../../arez/Observable.html" title="class in arez">Observable</a>&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.62">getEntityObservable</a>()</pre>
 <div class="block">Return the observable associated with entity.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -291,7 +279,7 @@ protected abstract&nbsp;<a href="../../arez/Observable.html" title="class in are
 <li class="blockList">
 <h4>setEntity</h4>
 <pre><a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations">@Observable</a>
-protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.78">setEntity</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityReference.html#line.70">setEntity</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                      <a href="../../arez/component/AbstractEntityReference.html" title="type parameter in AbstractEntityReference">T</a>&nbsp;entity)</pre>
 <div class="block">Set the entity that this reference points to.</div>
 <dl>
@@ -328,7 +316,7 @@ protected&nbsp;void&nbsp;<a href="../../src-html/arez/component/AbstractEntityRe
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../arez/component/AbstractContainer.html" title="class in arez.component"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../arez/component/AbstractEntryContainer.html" title="class in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/component/AbstractRepository.html" title="class in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/component/AbstractEntityReference.html" target="_top">Frames</a></li>

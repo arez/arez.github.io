@@ -153,9 +153,9 @@
 <span class="sourceLineNo">145</span>  @Override<a name="line.145"></a>
 <span class="sourceLineNo">146</span>  public void dispose()<a name="line.146"></a>
 <span class="sourceLineNo">147</span>  {<a name="line.147"></a>
-<span class="sourceLineNo">148</span>    if ( !isDisposed() )<a name="line.148"></a>
+<span class="sourceLineNo">148</span>    if ( isNotDisposed() )<a name="line.148"></a>
 <span class="sourceLineNo">149</span>    {<a name="line.149"></a>
-<span class="sourceLineNo">150</span>      getContext().dispose( Arez.areNamesEnabled() ? getName() : null, this::performDispose );<a name="line.150"></a>
+<span class="sourceLineNo">150</span>      getContext().safeAction( Arez.areNamesEnabled() ? getName() + ".dispose" : null, this::performDispose );<a name="line.150"></a>
 <span class="sourceLineNo">151</span>      // All dependencies should have been released by the time it comes to deactivate phase.<a name="line.151"></a>
 <span class="sourceLineNo">152</span>      // The Observable has been marked as changed, forcing all observers to re-evaluate and<a name="line.152"></a>
 <span class="sourceLineNo">153</span>      // ultimately this will result in their removal of this Observable as a dependency as<a name="line.153"></a>
@@ -191,7 +191,7 @@
 <span class="sourceLineNo">183</span>  private void performDispose()<a name="line.183"></a>
 <span class="sourceLineNo">184</span>  {<a name="line.184"></a>
 <span class="sourceLineNo">185</span>    getContext().getTransaction().reportDispose( this );<a name="line.185"></a>
-<span class="sourceLineNo">186</span>    reportChanged( false );<a name="line.186"></a>
+<span class="sourceLineNo">186</span>    reportChanged();<a name="line.186"></a>
 <span class="sourceLineNo">187</span>    _workState = DISPOSED;<a name="line.187"></a>
 <span class="sourceLineNo">188</span>  }<a name="line.188"></a>
 <span class="sourceLineNo">189</span><a name="line.189"></a>
@@ -392,10 +392,10 @@
 <span class="sourceLineNo">384</span>      invariant( () -&gt; !hasObserver( observer ),<a name="line.384"></a>
 <span class="sourceLineNo">385</span>                 () -&gt; "Arez-0066: Attempting to add observer named '" + observer.getName() + "' to " +<a name="line.385"></a>
 <span class="sourceLineNo">386</span>                       "observable named '" + getName() + "' when observer is already observing observable." );<a name="line.386"></a>
-<span class="sourceLineNo">387</span>      invariant( () -&gt; !isDisposed(),<a name="line.387"></a>
+<span class="sourceLineNo">387</span>      invariant( this::isNotDisposed,<a name="line.387"></a>
 <span class="sourceLineNo">388</span>                 () -&gt; "Arez-0067: Attempting to add observer named '" + observer.getName() + "' to " +<a name="line.388"></a>
 <span class="sourceLineNo">389</span>                       "observable named '" + getName() + "' when observable is disposed." );<a name="line.389"></a>
-<span class="sourceLineNo">390</span>      invariant( observer::isLive,<a name="line.390"></a>
+<span class="sourceLineNo">390</span>      invariant( observer::isNotDisposed,<a name="line.390"></a>
 <span class="sourceLineNo">391</span>                 () -&gt; "Arez-0068: Attempting to add observer named '" + observer.getName() + "' to observable " +<a name="line.391"></a>
 <span class="sourceLineNo">392</span>                       "named '" + getName() + "' when observer is disposed." );<a name="line.392"></a>
 <span class="sourceLineNo">393</span>      invariant( () -&gt; !hasOwner() || observer.getPriority().ordinal() &gt;= getOwner().getPriority().ordinal(),<a name="line.393"></a>
@@ -505,105 +505,94 @@
 <span class="sourceLineNo">497</span>   */<a name="line.497"></a>
 <span class="sourceLineNo">498</span>  public void reportChanged()<a name="line.498"></a>
 <span class="sourceLineNo">499</span>  {<a name="line.499"></a>
-<span class="sourceLineNo">500</span>    reportChanged( true );<a name="line.500"></a>
-<span class="sourceLineNo">501</span>  }<a name="line.501"></a>
-<span class="sourceLineNo">502</span><a name="line.502"></a>
-<span class="sourceLineNo">503</span>  /**<a name="line.503"></a>
-<span class="sourceLineNo">504</span>   * Method is called when the observable has definitely changed or when<a name="line.504"></a>
-<span class="sourceLineNo">505</span>   * it disposing. When disposing the shouldVerifyWriteAllowed parameter will be false.<a name="line.505"></a>
-<span class="sourceLineNo">506</span>   *<a name="line.506"></a>
-<span class="sourceLineNo">507</span>   * @param shouldVerifyWriteAllowed flag indicating whether we need to verify whether transaction can write.<a name="line.507"></a>
-<span class="sourceLineNo">508</span>   */<a name="line.508"></a>
-<span class="sourceLineNo">509</span>  private void reportChanged( final boolean shouldVerifyWriteAllowed )<a name="line.509"></a>
-<span class="sourceLineNo">510</span>  {<a name="line.510"></a>
-<span class="sourceLineNo">511</span>    if ( willPropagateSpyEvents() )<a name="line.511"></a>
-<span class="sourceLineNo">512</span>    {<a name="line.512"></a>
-<span class="sourceLineNo">513</span>      reportSpyEvent( new ObservableChangedEvent( new ObservableInfoImpl( getSpy(), this ), getObservableValue() ) );<a name="line.513"></a>
-<span class="sourceLineNo">514</span>    }<a name="line.514"></a>
-<span class="sourceLineNo">515</span>    getContext().getTransaction().reportChanged( this, shouldVerifyWriteAllowed );<a name="line.515"></a>
-<span class="sourceLineNo">516</span>  }<a name="line.516"></a>
-<span class="sourceLineNo">517</span><a name="line.517"></a>
-<span class="sourceLineNo">518</span>  void reportChangeConfirmed()<a name="line.518"></a>
-<span class="sourceLineNo">519</span>  {<a name="line.519"></a>
-<span class="sourceLineNo">520</span>    if ( willPropagateSpyEvents() )<a name="line.520"></a>
-<span class="sourceLineNo">521</span>    {<a name="line.521"></a>
-<span class="sourceLineNo">522</span>      reportSpyEvent( new ObservableChangedEvent( new ObservableInfoImpl( getSpy(), this ), getObservableValue() ) );<a name="line.522"></a>
-<span class="sourceLineNo">523</span>    }<a name="line.523"></a>
-<span class="sourceLineNo">524</span>    getContext().getTransaction().reportChangeConfirmed( this );<a name="line.524"></a>
-<span class="sourceLineNo">525</span>  }<a name="line.525"></a>
-<span class="sourceLineNo">526</span><a name="line.526"></a>
-<span class="sourceLineNo">527</span>  void reportPossiblyChanged()<a name="line.527"></a>
-<span class="sourceLineNo">528</span>  {<a name="line.528"></a>
-<span class="sourceLineNo">529</span>    getContext().getTransaction().reportPossiblyChanged( this );<a name="line.529"></a>
-<span class="sourceLineNo">530</span>  }<a name="line.530"></a>
-<span class="sourceLineNo">531</span><a name="line.531"></a>
-<span class="sourceLineNo">532</span>  /**<a name="line.532"></a>
-<span class="sourceLineNo">533</span>   * Return the value from observable if introspectors are enabled and an accessor has been supplied.<a name="line.533"></a>
-<span class="sourceLineNo">534</span>   */<a name="line.534"></a>
-<span class="sourceLineNo">535</span>  @Nullable<a name="line.535"></a>
-<span class="sourceLineNo">536</span>  private Object getObservableValue()<a name="line.536"></a>
-<span class="sourceLineNo">537</span>  {<a name="line.537"></a>
-<span class="sourceLineNo">538</span>    if ( Arez.arePropertyIntrospectorsEnabled() &amp;&amp; null != getAccessor() )<a name="line.538"></a>
-<span class="sourceLineNo">539</span>    {<a name="line.539"></a>
-<span class="sourceLineNo">540</span>      try<a name="line.540"></a>
-<span class="sourceLineNo">541</span>      {<a name="line.541"></a>
-<span class="sourceLineNo">542</span>        return getAccessor().get();<a name="line.542"></a>
-<span class="sourceLineNo">543</span>      }<a name="line.543"></a>
-<span class="sourceLineNo">544</span>      catch ( final Throwable ignored )<a name="line.544"></a>
-<span class="sourceLineNo">545</span>      {<a name="line.545"></a>
-<span class="sourceLineNo">546</span>      }<a name="line.546"></a>
+<span class="sourceLineNo">500</span>    if ( willPropagateSpyEvents() )<a name="line.500"></a>
+<span class="sourceLineNo">501</span>    {<a name="line.501"></a>
+<span class="sourceLineNo">502</span>      reportSpyEvent( new ObservableChangedEvent( new ObservableInfoImpl( getSpy(), this ), getObservableValue() ) );<a name="line.502"></a>
+<span class="sourceLineNo">503</span>    }<a name="line.503"></a>
+<span class="sourceLineNo">504</span>    getContext().getTransaction().reportChanged( this );<a name="line.504"></a>
+<span class="sourceLineNo">505</span>  }<a name="line.505"></a>
+<span class="sourceLineNo">506</span><a name="line.506"></a>
+<span class="sourceLineNo">507</span>  void reportChangeConfirmed()<a name="line.507"></a>
+<span class="sourceLineNo">508</span>  {<a name="line.508"></a>
+<span class="sourceLineNo">509</span>    if ( willPropagateSpyEvents() )<a name="line.509"></a>
+<span class="sourceLineNo">510</span>    {<a name="line.510"></a>
+<span class="sourceLineNo">511</span>      reportSpyEvent( new ObservableChangedEvent( new ObservableInfoImpl( getSpy(), this ), getObservableValue() ) );<a name="line.511"></a>
+<span class="sourceLineNo">512</span>    }<a name="line.512"></a>
+<span class="sourceLineNo">513</span>    getContext().getTransaction().reportChangeConfirmed( this );<a name="line.513"></a>
+<span class="sourceLineNo">514</span>  }<a name="line.514"></a>
+<span class="sourceLineNo">515</span><a name="line.515"></a>
+<span class="sourceLineNo">516</span>  void reportPossiblyChanged()<a name="line.516"></a>
+<span class="sourceLineNo">517</span>  {<a name="line.517"></a>
+<span class="sourceLineNo">518</span>    getContext().getTransaction().reportPossiblyChanged( this );<a name="line.518"></a>
+<span class="sourceLineNo">519</span>  }<a name="line.519"></a>
+<span class="sourceLineNo">520</span><a name="line.520"></a>
+<span class="sourceLineNo">521</span>  /**<a name="line.521"></a>
+<span class="sourceLineNo">522</span>   * Return the value from observable if introspectors are enabled and an accessor has been supplied.<a name="line.522"></a>
+<span class="sourceLineNo">523</span>   */<a name="line.523"></a>
+<span class="sourceLineNo">524</span>  @Nullable<a name="line.524"></a>
+<span class="sourceLineNo">525</span>  private Object getObservableValue()<a name="line.525"></a>
+<span class="sourceLineNo">526</span>  {<a name="line.526"></a>
+<span class="sourceLineNo">527</span>    if ( Arez.arePropertyIntrospectorsEnabled() &amp;&amp; null != getAccessor() )<a name="line.527"></a>
+<span class="sourceLineNo">528</span>    {<a name="line.528"></a>
+<span class="sourceLineNo">529</span>      try<a name="line.529"></a>
+<span class="sourceLineNo">530</span>      {<a name="line.530"></a>
+<span class="sourceLineNo">531</span>        return getAccessor().get();<a name="line.531"></a>
+<span class="sourceLineNo">532</span>      }<a name="line.532"></a>
+<span class="sourceLineNo">533</span>      catch ( final Throwable ignored )<a name="line.533"></a>
+<span class="sourceLineNo">534</span>      {<a name="line.534"></a>
+<span class="sourceLineNo">535</span>      }<a name="line.535"></a>
+<span class="sourceLineNo">536</span>    }<a name="line.536"></a>
+<span class="sourceLineNo">537</span>    return null;<a name="line.537"></a>
+<span class="sourceLineNo">538</span>  }<a name="line.538"></a>
+<span class="sourceLineNo">539</span><a name="line.539"></a>
+<span class="sourceLineNo">540</span>  void invariantOwner()<a name="line.540"></a>
+<span class="sourceLineNo">541</span>  {<a name="line.541"></a>
+<span class="sourceLineNo">542</span>    if ( Arez.shouldCheckInvariants() &amp;&amp; null != _owner )<a name="line.542"></a>
+<span class="sourceLineNo">543</span>    {<a name="line.543"></a>
+<span class="sourceLineNo">544</span>      invariant( () -&gt; Objects.equals( _owner.getDerivedValue(), this ),<a name="line.544"></a>
+<span class="sourceLineNo">545</span>                 () -&gt; "Arez-0076: Observable named '" + getName() + "' has owner specified but owner does " +<a name="line.545"></a>
+<span class="sourceLineNo">546</span>                       "not link to observable as derived value." );<a name="line.546"></a>
 <span class="sourceLineNo">547</span>    }<a name="line.547"></a>
-<span class="sourceLineNo">548</span>    return null;<a name="line.548"></a>
-<span class="sourceLineNo">549</span>  }<a name="line.549"></a>
-<span class="sourceLineNo">550</span><a name="line.550"></a>
-<span class="sourceLineNo">551</span>  void invariantOwner()<a name="line.551"></a>
-<span class="sourceLineNo">552</span>  {<a name="line.552"></a>
-<span class="sourceLineNo">553</span>    if ( Arez.shouldCheckInvariants() &amp;&amp; null != _owner )<a name="line.553"></a>
-<span class="sourceLineNo">554</span>    {<a name="line.554"></a>
-<span class="sourceLineNo">555</span>      invariant( () -&gt; Objects.equals( _owner.getDerivedValue(), this ),<a name="line.555"></a>
-<span class="sourceLineNo">556</span>                 () -&gt; "Arez-0076: Observable named '" + getName() + "' has owner specified but owner does " +<a name="line.556"></a>
-<span class="sourceLineNo">557</span>                       "not link to observable as derived value." );<a name="line.557"></a>
-<span class="sourceLineNo">558</span>    }<a name="line.558"></a>
-<span class="sourceLineNo">559</span>  }<a name="line.559"></a>
-<span class="sourceLineNo">560</span><a name="line.560"></a>
-<span class="sourceLineNo">561</span>  void invariantObserversLinked()<a name="line.561"></a>
-<span class="sourceLineNo">562</span>  {<a name="line.562"></a>
-<span class="sourceLineNo">563</span>    if ( Arez.shouldCheckInvariants() )<a name="line.563"></a>
-<span class="sourceLineNo">564</span>    {<a name="line.564"></a>
-<span class="sourceLineNo">565</span>      getObservers().forEach( observer -&gt;<a name="line.565"></a>
-<span class="sourceLineNo">566</span>                                invariant( () -&gt; observer.getDependencies().contains( this ),<a name="line.566"></a>
-<span class="sourceLineNo">567</span>                                           () -&gt; "Arez-0077: Observable named '" + getName() + "' has observer " +<a name="line.567"></a>
-<span class="sourceLineNo">568</span>                                                 "named '" + observer.getName() + "' which does not contain " +<a name="line.568"></a>
-<span class="sourceLineNo">569</span>                                                 "observable as dependency." ) );<a name="line.569"></a>
-<span class="sourceLineNo">570</span>    }<a name="line.570"></a>
-<span class="sourceLineNo">571</span>  }<a name="line.571"></a>
-<span class="sourceLineNo">572</span><a name="line.572"></a>
-<span class="sourceLineNo">573</span>  void invariantLeastStaleObserverState()<a name="line.573"></a>
-<span class="sourceLineNo">574</span>  {<a name="line.574"></a>
-<span class="sourceLineNo">575</span>    if ( Arez.shouldCheckInvariants() )<a name="line.575"></a>
-<span class="sourceLineNo">576</span>    {<a name="line.576"></a>
-<span class="sourceLineNo">577</span>      final ObserverState leastStaleObserverState =<a name="line.577"></a>
-<span class="sourceLineNo">578</span>        getObservers().stream().<a name="line.578"></a>
-<span class="sourceLineNo">579</span>          map( Observer::getState ).map( s -&gt; s == ObserverState.INACTIVE ? ObserverState.UP_TO_DATE : s ).<a name="line.579"></a>
-<span class="sourceLineNo">580</span>          min( Comparator.comparing( Enum::ordinal ) ).orElse( ObserverState.UP_TO_DATE );<a name="line.580"></a>
-<span class="sourceLineNo">581</span>      invariant( () -&gt; leastStaleObserverState.ordinal() &gt;= _leastStaleObserverState.ordinal(),<a name="line.581"></a>
-<span class="sourceLineNo">582</span>                 () -&gt; "Arez-0078: Calculated leastStaleObserverState on observable named '" + getName() +<a name="line.582"></a>
-<span class="sourceLineNo">583</span>                       "' is '" + leastStaleObserverState.name() + "' which is unexpectedly less " +<a name="line.583"></a>
-<span class="sourceLineNo">584</span>                       "than cached value '" + _leastStaleObserverState.name() + "'." );<a name="line.584"></a>
-<span class="sourceLineNo">585</span>    }<a name="line.585"></a>
+<span class="sourceLineNo">548</span>  }<a name="line.548"></a>
+<span class="sourceLineNo">549</span><a name="line.549"></a>
+<span class="sourceLineNo">550</span>  void invariantObserversLinked()<a name="line.550"></a>
+<span class="sourceLineNo">551</span>  {<a name="line.551"></a>
+<span class="sourceLineNo">552</span>    if ( Arez.shouldCheckInvariants() )<a name="line.552"></a>
+<span class="sourceLineNo">553</span>    {<a name="line.553"></a>
+<span class="sourceLineNo">554</span>      getObservers().forEach( observer -&gt;<a name="line.554"></a>
+<span class="sourceLineNo">555</span>                                invariant( () -&gt; observer.getDependencies().contains( this ),<a name="line.555"></a>
+<span class="sourceLineNo">556</span>                                           () -&gt; "Arez-0077: Observable named '" + getName() + "' has observer " +<a name="line.556"></a>
+<span class="sourceLineNo">557</span>                                                 "named '" + observer.getName() + "' which does not contain " +<a name="line.557"></a>
+<span class="sourceLineNo">558</span>                                                 "observable as dependency." ) );<a name="line.558"></a>
+<span class="sourceLineNo">559</span>    }<a name="line.559"></a>
+<span class="sourceLineNo">560</span>  }<a name="line.560"></a>
+<span class="sourceLineNo">561</span><a name="line.561"></a>
+<span class="sourceLineNo">562</span>  void invariantLeastStaleObserverState()<a name="line.562"></a>
+<span class="sourceLineNo">563</span>  {<a name="line.563"></a>
+<span class="sourceLineNo">564</span>    if ( Arez.shouldCheckInvariants() )<a name="line.564"></a>
+<span class="sourceLineNo">565</span>    {<a name="line.565"></a>
+<span class="sourceLineNo">566</span>      final ObserverState leastStaleObserverState =<a name="line.566"></a>
+<span class="sourceLineNo">567</span>        getObservers().stream().<a name="line.567"></a>
+<span class="sourceLineNo">568</span>          map( Observer::getState ).map( s -&gt; s == ObserverState.INACTIVE ? ObserverState.UP_TO_DATE : s ).<a name="line.568"></a>
+<span class="sourceLineNo">569</span>          min( Comparator.comparing( Enum::ordinal ) ).orElse( ObserverState.UP_TO_DATE );<a name="line.569"></a>
+<span class="sourceLineNo">570</span>      invariant( () -&gt; leastStaleObserverState.ordinal() &gt;= _leastStaleObserverState.ordinal(),<a name="line.570"></a>
+<span class="sourceLineNo">571</span>                 () -&gt; "Arez-0078: Calculated leastStaleObserverState on observable named '" + getName() +<a name="line.571"></a>
+<span class="sourceLineNo">572</span>                       "' is '" + leastStaleObserverState.name() + "' which is unexpectedly less " +<a name="line.572"></a>
+<span class="sourceLineNo">573</span>                       "than cached value '" + _leastStaleObserverState.name() + "'." );<a name="line.573"></a>
+<span class="sourceLineNo">574</span>    }<a name="line.574"></a>
+<span class="sourceLineNo">575</span>  }<a name="line.575"></a>
+<span class="sourceLineNo">576</span><a name="line.576"></a>
+<span class="sourceLineNo">577</span>  @Nullable<a name="line.577"></a>
+<span class="sourceLineNo">578</span>  Component getComponent()<a name="line.578"></a>
+<span class="sourceLineNo">579</span>  {<a name="line.579"></a>
+<span class="sourceLineNo">580</span>    return _component;<a name="line.580"></a>
+<span class="sourceLineNo">581</span>  }<a name="line.581"></a>
+<span class="sourceLineNo">582</span><a name="line.582"></a>
+<span class="sourceLineNo">583</span>  int getWorkState()<a name="line.583"></a>
+<span class="sourceLineNo">584</span>  {<a name="line.584"></a>
+<span class="sourceLineNo">585</span>    return _workState;<a name="line.585"></a>
 <span class="sourceLineNo">586</span>  }<a name="line.586"></a>
-<span class="sourceLineNo">587</span><a name="line.587"></a>
-<span class="sourceLineNo">588</span>  @Nullable<a name="line.588"></a>
-<span class="sourceLineNo">589</span>  Component getComponent()<a name="line.589"></a>
-<span class="sourceLineNo">590</span>  {<a name="line.590"></a>
-<span class="sourceLineNo">591</span>    return _component;<a name="line.591"></a>
-<span class="sourceLineNo">592</span>  }<a name="line.592"></a>
-<span class="sourceLineNo">593</span><a name="line.593"></a>
-<span class="sourceLineNo">594</span>  int getWorkState()<a name="line.594"></a>
-<span class="sourceLineNo">595</span>  {<a name="line.595"></a>
-<span class="sourceLineNo">596</span>    return _workState;<a name="line.596"></a>
-<span class="sourceLineNo">597</span>  }<a name="line.597"></a>
-<span class="sourceLineNo">598</span>}<a name="line.598"></a>
+<span class="sourceLineNo">587</span>}<a name="line.587"></a>
 
 
 

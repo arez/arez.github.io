@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Fri, 22 Jun 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 28 Jun 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.95 released]]></title>
+            <link>https://arez.github.io/blog/2018/06/28/version-0.95-release.html</link>
+            <guid>https://arez.github.io/blog/2018/06/28/version-0.95-release.html</guid>
+            <pubDate>Thu, 28 Jun 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.94...v0.95)
+
+Changes in this release:
+
+* **\[core\]** Add a `Disposable.isNotDisposed()` default method that is equivalent to the
+  `!Disposable.isDisposed()` method. This makes it possible to ]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.94 released]]></title>
             <link>https://arez.github.io/blog/2018/06/22/version-0.94-release.html</link>

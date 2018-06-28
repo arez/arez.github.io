@@ -93,16 +93,18 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/Dependency.html#line.26">Dependency</a></pre>
+public @interface <a href="../../src-html/arez/annotations/Dependency.html#line.28">Dependency</a></pre>
 <div class="block">Methods marked with this annotation are dependencies of the component.
- THe component observes the dependency and if the dependency is disposed takes
- an action to cascade the dispose or null the property referencing dependency.
+ If the dependency is disposed then the component takes an action to cascade the dispose
+ or null the property referencing dependency. The dependency MUST implement the
+ <a href="../../arez/component/DisposeTrackable.html" title="interface in arez.component"><code>DisposeTrackable</code></a> interface.
 
  <p>The method that is annotated with @Dependency must comply with the additional constraints:</p>
  <ul>
- <li>Must not be annotated with any other arez annotation except <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> or <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a></li>
+ <li>Must not be annotated with any other arez annotation except <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a></li>
+ <li>If not annotated with <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> then must be final</li>
  <li>Must have 0 parameters</li>
- <li>Must return a value</li>
+ <li>Must return a value that implements <a href="../../arez/component/DisposeTrackable.html" title="interface in arez.component"><code>DisposeTrackable</code></a> or is annotated with <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a></li>
  <li>Must not be private</li>
  <li>Must not be static</li>
  <li>Must not be abstract</li>
@@ -154,7 +156,7 @@ public @interface <a href="../../src-html/arez/annotations/Dependency.html#line.
 <li class="blockList">
 <h4>action</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="../../arez/annotations/Dependency.Action.html" title="enum in arez.annotations">Dependency.Action</a>&nbsp;<a href="../../src-html/arez/annotations/Dependency.html#line.53">action</a></pre>
+public abstract&nbsp;<a href="../../arez/annotations/Dependency.Action.html" title="enum in arez.annotations">Dependency.Action</a>&nbsp;<a href="../../src-html/arez/annotations/Dependency.html#line.55">action</a></pre>
 <div class="block">Return the action to take when the dependency is disposed.
  A <a href="../../arez/annotations/Dependency.Action.html#CASCADE"><code>Dependency.Action.CASCADE</code></a> value indicates that the component should be deleted, while a
  <a href="../../arez/annotations/Dependency.Action.html#SET_NULL"><code>Dependency.Action.SET_NULL</code></a> value indicates that the observable field should be set to null.

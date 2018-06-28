@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":17,"i1":6,"i2":17,"i3":6,"i4":17,"i5":17};
+var methods = {"i0":17,"i1":6,"i2":17,"i3":6,"i4":17,"i5":18,"i6":17};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../arez/ComputedValue.html" title="class in arez"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../arez/EqualityComparator.html" title="interface in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../arez/Function.html" title="interface in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../index.html?arez/Disposable.html" target="_top">Frames</a></li>
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../arez/Component.html" title="class in arez">Component</a>, <a href="../arez/ComputedValue.html" title="class in arez">ComputedValue</a>, <a href="../arez/component/MemoizeCache.html" title="class in arez.component">MemoizeCache</a>, <a href="../arez/Node.html" title="class in arez">Node</a>, <a href="../arez/Observable.html" title="class in arez">Observable</a>, <a href="../arez/Observer.html" title="class in arez">Observer</a></dd>
+<dd><a href="../arez/Component.html" title="class in arez">Component</a>, <a href="../arez/ComputedValue.html" title="class in arez">ComputedValue</a>, <a href="../arez/component/DisposeNotifier.html" title="class in arez.component">DisposeNotifier</a>, <a href="../arez/component/MemoizeCache.html" title="class in arez.component">MemoizeCache</a>, <a href="../arez/Node.html" title="class in arez">Node</a>, <a href="../arez/Observable.html" title="class in arez">Observable</a>, <a href="../arez/Observer.html" title="class in arez">Observer</a></dd>
 </dl>
 <hr>
 <br>
@@ -159,6 +159,12 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/Disposable.html#isNotDisposed--">isNotDisposed</a></span>()</code>
+<div class="block">Return true if <a href="../arez/Disposable.html#isDisposed--"><code>isDisposed()</code></a> returns false.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Disposable.html#isNotDisposed-java.lang.Object-">isNotDisposed</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</code>
 <div class="block">Return true if <a href="../arez/Disposable.html#isDisposed-java.lang.Object-"><code>isDisposed(Object)</code></a> returns false for the same parameter.</div>
@@ -206,13 +212,27 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
+<a name="isNotDisposed--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isNotDisposed</h4>
+<pre>default&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.36">isNotDisposed</a>()</pre>
+<div class="block">Return true if <a href="../arez/Disposable.html#isDisposed--"><code>isDisposed()</code></a> returns false.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if <a href="../arez/Disposable.html#isDisposed--"><code>isDisposed()</code></a> returns false.</dd>
+</dl>
+</li>
+</ul>
 <a name="dispose-java.lang.Object-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>static&nbsp;void&nbsp;<a href="../src-html/arez/Disposable.html#line.36">dispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>static&nbsp;void&nbsp;<a href="../src-html/arez/Disposable.html#line.46">dispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Dispose the supplied object if it is Disposable, else do nothing.</div>
 <dl>
@@ -227,7 +247,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>static&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.50">isDisposed</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>static&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.60">isDisposed</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Return true if the parameter is Disposable and has been disposed, else return false.</div>
 <dl>
@@ -244,7 +264,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>isNotDisposed</h4>
-<pre>static&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.61">isNotDisposed</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>static&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.71">isNotDisposed</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Return true if <a href="../arez/Disposable.html#isDisposed-java.lang.Object-"><code>isDisposed(Object)</code></a> returns false for the same parameter.</div>
 <dl>
@@ -262,7 +282,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>asDisposable</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-static&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/Disposable.html#line.74">asDisposable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+static&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/Disposable.html#line.84">asDisposable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Cast specified object to instance of Disposable.
  Invariant checks will verify that the cast is valid before proceeding.</div>
@@ -302,7 +322,7 @@ static&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposab
 <div class="subNav">
 <ul class="navList">
 <li><a href="../arez/ComputedValue.html" title="class in arez"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../arez/EqualityComparator.html" title="interface in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../arez/Function.html" title="interface in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../index.html?arez/Disposable.html" target="_top">Frames</a></li>
