@@ -152,10 +152,15 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?i
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#LOW">LOW</a></span></code>
-<div class="block">Lowest priority.</div>
+<div class="block">Low priority.</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#LOWEST">LOWEST</a></span></code>
+<div class="block">Lowest priority.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#NORMAL">NORMAL</a></span></code>
 <div class="block">Normal priority if not otherwise specified.</div>
 </td>
@@ -242,11 +247,29 @@ the order they are declared.</div>
 <a name="LOW">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>LOW</h4>
-<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.30">LOW</a></pre>
-<div class="block">Lowest priority.</div>
+<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.35">LOW</a></pre>
+<div class="block">Low priority.
+ Usually used to schedule observers that reflect state onto non-reactive
+ application components. i.e. Observers that are used to build html views,
+ perform network operations etc. These reactions are often at low priority
+ to avoid recalculation of dependencies (i.e. <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a>s) triggering
+ this reaction multiple times within a single reaction round.</div>
+</li>
+</ul>
+<a name="LOWEST">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>LOWEST</h4>
+<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.42">LOWEST</a></pre>
+<div class="block">Lowest priority.
+ This is low-priority reactions that reflect onto non-reactive applications. It is
+ also used for (i.e. <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a>s) that may be unobserved when a <a href="../../arez/annotations/Priority.html#LOW"><code>LOW</code></a>
+ priority reaction runs.</div>
 </li>
 </ul>
 </li>

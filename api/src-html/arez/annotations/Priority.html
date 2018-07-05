@@ -33,10 +33,22 @@
 <span class="sourceLineNo">025</span>   */<a name="line.25"></a>
 <span class="sourceLineNo">026</span>  NORMAL,<a name="line.26"></a>
 <span class="sourceLineNo">027</span>  /**<a name="line.27"></a>
-<span class="sourceLineNo">028</span>   * Lowest priority.<a name="line.28"></a>
-<span class="sourceLineNo">029</span>   */<a name="line.29"></a>
-<span class="sourceLineNo">030</span>  LOW<a name="line.30"></a>
-<span class="sourceLineNo">031</span>}<a name="line.31"></a>
+<span class="sourceLineNo">028</span>   * Low priority.<a name="line.28"></a>
+<span class="sourceLineNo">029</span>   * Usually used to schedule observers that reflect state onto non-reactive<a name="line.29"></a>
+<span class="sourceLineNo">030</span>   * application components. i.e. Observers that are used to build html views,<a name="line.30"></a>
+<span class="sourceLineNo">031</span>   * perform network operations etc. These reactions are often at low priority<a name="line.31"></a>
+<span class="sourceLineNo">032</span>   * to avoid recalculation of dependencies (i.e. {@link Computed}s) triggering<a name="line.32"></a>
+<span class="sourceLineNo">033</span>   * this reaction multiple times within a single reaction round.<a name="line.33"></a>
+<span class="sourceLineNo">034</span>   */<a name="line.34"></a>
+<span class="sourceLineNo">035</span>  LOW,<a name="line.35"></a>
+<span class="sourceLineNo">036</span>  /**<a name="line.36"></a>
+<span class="sourceLineNo">037</span>   * Lowest priority.<a name="line.37"></a>
+<span class="sourceLineNo">038</span>   * This is low-priority reactions that reflect onto non-reactive applications. It is<a name="line.38"></a>
+<span class="sourceLineNo">039</span>   * also used for (i.e. {@link Computed}s) that may be unobserved when a {@link #LOW}<a name="line.39"></a>
+<span class="sourceLineNo">040</span>   * priority reaction runs.<a name="line.40"></a>
+<span class="sourceLineNo">041</span>   */<a name="line.41"></a>
+<span class="sourceLineNo">042</span>  LOWEST<a name="line.42"></a>
+<span class="sourceLineNo">043</span>}<a name="line.43"></a>
 
 
 
