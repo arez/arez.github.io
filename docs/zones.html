@@ -22,7 +22,7 @@ transaction in the zone will be suspended and and resumed when the action or obs
 <span class="hljs-comment">// Activate the newly created zone and suspend the current zone if any</span>
 zone.run( () -&gt; {
   <span class="hljs-comment">// Create new observable and ensure it is bound to the current zone</span>
-  <span class="hljs-keyword">final</span> Observable&lt;Object&gt; observable = Arez.context().createObservable();
+  <span class="hljs-keyword">final</span> Observable&lt;Object&gt; observable = Arez.context().observable();
 
   <span class="hljs-comment">// Zone is deactivated when it leaves this block</span>
 } );</code></pre></p>

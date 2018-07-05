@@ -141,12 +141,18 @@ public @interface <a href="../../src-html/arez/annotations/Track.html#line.28">T
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Track.html#observeLowerPriorityDependencies--">observeLowerPriorityDependencies</a></span></code>
+<div class="block">Flag controlling whether the underlying observer can observe ComputedValue instances with lower priorities.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Track.html#priority--">priority</a></span></code>
 <div class="block">The priority of the underlying track observer</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Track.html#reportParameters--">reportParameters</a></span></code>
 <div class="block">Return true if the parameters should be reported to the core Arez runtime.</div>
@@ -241,7 +247,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="priority--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>priority</h4>
 <pre>public abstract&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a>&nbsp;<a href="../../src-html/arez/annotations/Track.html#line.64">priority</a></pre>
@@ -253,6 +259,32 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>arez.annotations.Priority.NORMAL</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="observeLowerPriorityDependencies--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>observeLowerPriorityDependencies</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Track.html#line.76">observeLowerPriorityDependencies</a></pre>
+<div class="block">Flag controlling whether the underlying observer can observe ComputedValue instances with lower priorities.
+ The default value of false will result in an invariant failure (in development mode) if a lower priority
+ dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher
+ priority observer is dependent upon a lower priority computed value. If the value is true then the no
+ invariant failure is triggered and the component relies on the component author to handle possible priority
+ inversion.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>false if observing lower priority dependencies should result in invariant failure in development mode.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
 </dl>
 </li>
 </ul>
