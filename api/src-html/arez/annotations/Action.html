@@ -55,7 +55,15 @@
 <span class="sourceLineNo">047</span>   * @return true to report the parameters, false otherwise.<a name="line.47"></a>
 <span class="sourceLineNo">048</span>   */<a name="line.48"></a>
 <span class="sourceLineNo">049</span>  boolean reportParameters() default true;<a name="line.49"></a>
-<span class="sourceLineNo">050</span>}<a name="line.50"></a>
+<span class="sourceLineNo">050</span><a name="line.50"></a>
+<span class="sourceLineNo">051</span>  /**<a name="line.51"></a>
+<span class="sourceLineNo">052</span>   * Flag indicating whether the code should verify that at least one read or write occurs within<a name="line.52"></a>
+<span class="sourceLineNo">053</span>   * the scope of the action.<a name="line.53"></a>
+<span class="sourceLineNo">054</span>   *<a name="line.54"></a>
+<span class="sourceLineNo">055</span>   * @return true to verify action reads or writes observable data.<a name="line.55"></a>
+<span class="sourceLineNo">056</span>   */<a name="line.56"></a>
+<span class="sourceLineNo">057</span>  boolean verifyRequired() default true;<a name="line.57"></a>
+<span class="sourceLineNo">058</span>}<a name="line.58"></a>
 
 
 

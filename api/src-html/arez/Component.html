@@ -146,7 +146,7 @@
 <span class="sourceLineNo">138</span>      {<a name="line.138"></a>
 <span class="sourceLineNo">139</span>        getContext().getSpy().reportSpyEvent( new ComponentDisposeStartedEvent( this ) );<a name="line.139"></a>
 <span class="sourceLineNo">140</span>      }<a name="line.140"></a>
-<span class="sourceLineNo">141</span>      getContext().safeAction( Arez.areNamesEnabled() ? getName() + ".dispose" : null, () -&gt; {<a name="line.141"></a>
+<span class="sourceLineNo">141</span>      getContext().safeAction( Arez.areNamesEnabled() ? getName() + ".dispose" : null, true, false, () -&gt; {<a name="line.141"></a>
 <span class="sourceLineNo">142</span>        if ( null != _preDispose )<a name="line.142"></a>
 <span class="sourceLineNo">143</span>        {<a name="line.143"></a>
 <span class="sourceLineNo">144</span>          _preDispose.call();<a name="line.144"></a>
