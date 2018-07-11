@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Thu, 05 Jul 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 12 Jul 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.97 released]]></title>
+            <link>https://arez.github.io/blog/2018/07/12/version-0.97-release.html</link>
+            <guid>https://arez.github.io/blog/2018/07/12/version-0.97-release.html</guid>
+            <pubDate>Thu, 12 Jul 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.96...v0.97)
+
+Changes in this release:
+
+* **\[core\]** Add the `verifyActionRequired` parameter to the `action(...)`, `safeAction(...)` and
+  `when(...)` methods on the `ArezContext`class . Sett]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.96 released]]></title>
             <link>https://arez.github.io/blog/2018/07/05/version-0.96-release.html</link>
