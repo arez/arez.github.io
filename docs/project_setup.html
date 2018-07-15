@@ -12,16 +12,16 @@ develop Arez applications using an IDE and this is the recommended approach.</p>
 <h2><a class="anchor" aria-hidden="true" name="configure-maven"></a><a href="#configure-maven" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure Maven</h2>
 <p>To configure Maven to support Arez you need to add a dependency on the library as well as
 configure the compiler to use the Arez annotation processor.</p>
-<p>Most Arez applications make use of the annotation driven <a href="/docs/components.html">component model</a> and
-will thus use of the <code>arez-component</code> artifact. To add this library to your Maven project, simply
-add the following to your <code>pom.xml</code>:</p>
+<p>The core elements of Arez as well as the annotations and infrastructure for the annotation driven
+<a href="/docs/components.html">component model</a> are included in the <code>arez-core</code> artifact. To add this library to
+your Maven project, simply add the following to your <code>pom.xml</code>:</p>
 <pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span>&gt;</span>
   ...
   <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
     ...
     <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.realityforge.arez<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>arez-component<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>arez-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.97<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
     ...
@@ -54,22 +54,6 @@ snippet to configure the maven compiler plugin from within the <code>pom.xml</co
       ...
     <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
-</code></pre>
-<p>Note: Some projects will not use the component model and will thus not need to depend on
-the <code>arez-components</code> artifact, nor will they need to enable the annotation processor, in
-which case it is sufficient to add the following snippet into your <code>pom.xml</code>:</p>
-<pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span>&gt;</span>
-  ...
-  <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
-    ...
-    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.realityforge.arez<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>arez-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.97<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-    ...
-  <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" name="configure-your-ide"></a><a href="#configure-your-ide" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure your IDE</h2>
