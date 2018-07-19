@@ -2,12 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://arez.github.io/blog</id>
     <title>Arez Blog</title>
-    <updated>2018-07-16T06:00:00Z</updated>
+    <updated>2018-07-19T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://arez.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Arez news and events.</subtitle>
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the Arez Project</rights>
+    <entry>
+        <title type="html"><![CDATA[Arez 0.99 released]]></title>
+        <id>https://arez.github.io/blog/2018/07/19/version-0.99-release.html</id>
+        <link href="https://arez.github.io/blog/2018/07/19/version-0.99-release.html">
+        </link>
+        <updated>2018-07-19T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.98...v0.99)
+
+Changes in this release:
+
+* Update the `org.realityforge.guiceyloops:guiceyloops:jar` dependency to version `0.95`.
+* Upgrade the `org.realityforge.braincheck:braincheck:jar` depen]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Arez 0.98 released]]></title>
         <id>https://arez.github.io/blog/2018/07/16/version-0.98-release.html</id>
