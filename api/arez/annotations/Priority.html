@@ -147,20 +147,25 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?i
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#HIGH">HIGH</a></span></code>
-<div class="block">Highest user controllable priority.</div>
+<div class="block">High priority.</div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#HIGHEST">HIGHEST</a></span></code>
+<div class="block">Highest priority.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#LOW">LOW</a></span></code>
 <div class="block">Low priority.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#LOWEST">LOWEST</a></span></code>
 <div class="block">Lowest priority.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#NORMAL">NORMAL</a></span></code>
 <div class="block">Normal priority if not otherwise specified.</div>
 </td>
@@ -222,16 +227,27 @@ the order they are declared.</div>
 <!--   -->
 </a>
 <h3>Enum Constant Detail</h3>
+<a name="HIGHEST">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>HIGHEST</h4>
+<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.22">HIGHEST</a></pre>
+<div class="block">Highest priority.
+ This priority should be used when the reaction will dispose other reactive elements (and thus they
+ need not be scheduled).</div>
+</li>
+</ul>
 <a name="HIGH">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>HIGH</h4>
-<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.22">HIGH</a></pre>
-<div class="block">Highest user controllable priority.
- This priority should be used when the reaction will dispose other reactive elements (and thus they
- need not be scheduled) or if the reaction will trigger many downstream reactions.</div>
+<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.27">HIGH</a></pre>
+<div class="block">High priority.
+ This priority should be used when the reaction will trigger many downstream reactions.</div>
 </li>
 </ul>
 <a name="NORMAL">
@@ -240,7 +256,7 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <h4>NORMAL</h4>
-<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.26">NORMAL</a></pre>
+<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.31">NORMAL</a></pre>
 <div class="block">Normal priority if not otherwise specified.</div>
 </li>
 </ul>
@@ -250,7 +266,7 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <h4>LOW</h4>
-<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.35">LOW</a></pre>
+<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.40">LOW</a></pre>
 <div class="block">Low priority.
  Usually used to schedule observers that reflect state onto non-reactive
  application components. i.e. Observers that are used to build html views,
@@ -265,7 +281,7 @@ the order they are declared.</div>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>LOWEST</h4>
-<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.42">LOWEST</a></pre>
+<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.47">LOWEST</a></pre>
 <div class="block">Lowest priority.
  This is low-priority reactions that reflect onto non-reactive applications. It is
  also used for (i.e. <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a>s) that may be unobserved when a <a href="../../arez/annotations/Priority.html#LOW"><code>LOW</code></a>

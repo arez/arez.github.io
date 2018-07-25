@@ -17,32 +17,37 @@
 <span class="sourceLineNo">009</span>public enum Priority<a name="line.9"></a>
 <span class="sourceLineNo">010</span>{<a name="line.10"></a>
 <span class="sourceLineNo">011</span>  /**<a name="line.11"></a>
-<span class="sourceLineNo">012</span>   * High priority.<a name="line.12"></a>
+<span class="sourceLineNo">012</span>   * Highest priority.<a name="line.12"></a>
 <span class="sourceLineNo">013</span>   * This priority should be used when the reaction will dispose other reactive elements (and thus they<a name="line.13"></a>
-<span class="sourceLineNo">014</span>   * need not be scheduled) or if the reaction will trigger many downstream reactions.<a name="line.14"></a>
+<span class="sourceLineNo">014</span>   * need not be scheduled).<a name="line.14"></a>
 <span class="sourceLineNo">015</span>   */<a name="line.15"></a>
-<span class="sourceLineNo">016</span>  HIGH,<a name="line.16"></a>
+<span class="sourceLineNo">016</span>  HIGHEST,<a name="line.16"></a>
 <span class="sourceLineNo">017</span>  /**<a name="line.17"></a>
-<span class="sourceLineNo">018</span>   * Normal priority if not otherwise specified.<a name="line.18"></a>
-<span class="sourceLineNo">019</span>   */<a name="line.19"></a>
-<span class="sourceLineNo">020</span>  NORMAL,<a name="line.20"></a>
-<span class="sourceLineNo">021</span>  /**<a name="line.21"></a>
-<span class="sourceLineNo">022</span>   * Low priority.<a name="line.22"></a>
-<span class="sourceLineNo">023</span>   * Usually used to schedule observers that reflect state onto non-reactive<a name="line.23"></a>
-<span class="sourceLineNo">024</span>   * application components. i.e. Observers that are used to build html views,<a name="line.24"></a>
-<span class="sourceLineNo">025</span>   * perform network operations etc. These reactions are often at low priority<a name="line.25"></a>
-<span class="sourceLineNo">026</span>   * to avoid recalculation of dependencies (i.e. {@link ComputedValue}s) triggering<a name="line.26"></a>
-<span class="sourceLineNo">027</span>   * this reaction multiple times within a single reaction round.<a name="line.27"></a>
-<span class="sourceLineNo">028</span>   */<a name="line.28"></a>
-<span class="sourceLineNo">029</span>  LOW,<a name="line.29"></a>
-<span class="sourceLineNo">030</span>  /**<a name="line.30"></a>
-<span class="sourceLineNo">031</span>   * Lowest priority.<a name="line.31"></a>
-<span class="sourceLineNo">032</span>   * This is low-priority reactions that reflect onto non-reactive applications. It is<a name="line.32"></a>
-<span class="sourceLineNo">033</span>   * also used for (i.e. {@link ComputedValue}s) that may be unobserved when a {@link #LOW}<a name="line.33"></a>
-<span class="sourceLineNo">034</span>   * priority reaction runs.<a name="line.34"></a>
-<span class="sourceLineNo">035</span>   */<a name="line.35"></a>
-<span class="sourceLineNo">036</span>  LOWEST<a name="line.36"></a>
-<span class="sourceLineNo">037</span>}<a name="line.37"></a>
+<span class="sourceLineNo">018</span>   * High priority.<a name="line.18"></a>
+<span class="sourceLineNo">019</span>   * This priority should be used when the reaction will trigger many downstream reactions.<a name="line.19"></a>
+<span class="sourceLineNo">020</span>   */<a name="line.20"></a>
+<span class="sourceLineNo">021</span>  HIGH,<a name="line.21"></a>
+<span class="sourceLineNo">022</span>  /**<a name="line.22"></a>
+<span class="sourceLineNo">023</span>   * Normal priority if not otherwise specified.<a name="line.23"></a>
+<span class="sourceLineNo">024</span>   */<a name="line.24"></a>
+<span class="sourceLineNo">025</span>  NORMAL,<a name="line.25"></a>
+<span class="sourceLineNo">026</span>  /**<a name="line.26"></a>
+<span class="sourceLineNo">027</span>   * Low priority.<a name="line.27"></a>
+<span class="sourceLineNo">028</span>   * Usually used to schedule observers that reflect state onto non-reactive<a name="line.28"></a>
+<span class="sourceLineNo">029</span>   * application components. i.e. Observers that are used to build html views,<a name="line.29"></a>
+<span class="sourceLineNo">030</span>   * perform network operations etc. These reactions are often at low priority<a name="line.30"></a>
+<span class="sourceLineNo">031</span>   * to avoid recalculation of dependencies (i.e. {@link ComputedValue}s) triggering<a name="line.31"></a>
+<span class="sourceLineNo">032</span>   * this reaction multiple times within a single reaction round.<a name="line.32"></a>
+<span class="sourceLineNo">033</span>   */<a name="line.33"></a>
+<span class="sourceLineNo">034</span>  LOW,<a name="line.34"></a>
+<span class="sourceLineNo">035</span>  /**<a name="line.35"></a>
+<span class="sourceLineNo">036</span>   * Lowest priority.<a name="line.36"></a>
+<span class="sourceLineNo">037</span>   * This is low-priority reactions that reflect onto non-reactive applications. It is<a name="line.37"></a>
+<span class="sourceLineNo">038</span>   * also used for (i.e. {@link ComputedValue}s) that may be unobserved when a {@link #LOW}<a name="line.38"></a>
+<span class="sourceLineNo">039</span>   * priority reaction runs.<a name="line.39"></a>
+<span class="sourceLineNo">040</span>   */<a name="line.40"></a>
+<span class="sourceLineNo">041</span>  LOWEST<a name="line.41"></a>
+<span class="sourceLineNo">042</span>}<a name="line.42"></a>
 
 
 
