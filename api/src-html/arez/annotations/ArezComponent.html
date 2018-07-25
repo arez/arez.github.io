@@ -8,163 +8,179 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package arez.annotations;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import java.lang.annotation.Documented;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import java.lang.annotation.ElementType;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import java.lang.annotation.Target;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import javax.annotation.Nonnull;<a name="line.6"></a>
-<span class="sourceLineNo">007</span><a name="line.7"></a>
-<span class="sourceLineNo">008</span>/**<a name="line.8"></a>
-<span class="sourceLineNo">009</span> * Annotation that marks classes to be processed by Arez annotation processor.<a name="line.9"></a>
-<span class="sourceLineNo">010</span> * Classes with this annotation can contain {@link Observable} properties,<a name="line.10"></a>
-<span class="sourceLineNo">011</span> * {@link Computed} properties, {@link Autorun} methods, {@link Track} methods<a name="line.11"></a>
-<span class="sourceLineNo">012</span> * and {@link Action} methods.<a name="line.12"></a>
-<span class="sourceLineNo">013</span> *<a name="line.13"></a>
-<span class="sourceLineNo">014</span> * &lt;p&gt;The annotation controls the way that contained actions and observables are<a name="line.14"></a>
-<span class="sourceLineNo">015</span> * named (if names are enabled in the system.&lt;/p&gt;<a name="line.15"></a>
-<span class="sourceLineNo">016</span> * &lt;ul&gt;<a name="line.16"></a>
-<span class="sourceLineNo">017</span> * &lt;li&gt;The value returned by {@link #name()} indicates the type name for instances<a name="line.17"></a>
-<span class="sourceLineNo">018</span> * of this object. If not specified it will default to the SimpleName of the class.<a name="line.18"></a>
-<span class="sourceLineNo">019</span> * i.e. The class &lt;tt&gt;com.biz.models.MyModel&lt;/tt&gt; will default to a name of<a name="line.19"></a>
-<span class="sourceLineNo">020</span> * "MyModel".&lt;/li&gt;<a name="line.20"></a>
-<span class="sourceLineNo">021</span> * &lt;li&gt;The {@link #nameIncludesId()} method indicates whether the names in generated components<a name="line.21"></a>
-<span class="sourceLineNo">022</span> * should include the id. If you expect only one instance of this component, it can be simpler<a name="line.22"></a>
-<span class="sourceLineNo">023</span> * to elide the id.&lt;/li&gt;<a name="line.23"></a>
-<span class="sourceLineNo">024</span> * &lt;/ul&gt;<a name="line.24"></a>
-<span class="sourceLineNo">025</span> * &lt;p&gt;The name of any elements contained within the component follows the pattern<a name="line.25"></a>
-<span class="sourceLineNo">026</span> * "&lt;tt&gt;[ArezComponent.name].[ArezComponent.id].[Element.name]&lt;/tt&gt;". If the value of {@link #nameIncludesId()}<a name="line.26"></a>
-<span class="sourceLineNo">027</span> * is false then the "&lt;tt&gt;[ArezComponent.id].&lt;/tt&gt;" element of the name will be elided.&lt;/p&gt;<a name="line.27"></a>
-<span class="sourceLineNo">028</span> *<a name="line.28"></a>
-<span class="sourceLineNo">029</span> * &lt;p&gt;The type that is annotated with &lt;tt&gt;@ArezComponent&lt;/tt&gt; annotation must comply with the additional constraints:&lt;/p&gt;<a name="line.29"></a>
-<span class="sourceLineNo">030</span> * &lt;ul&gt;<a name="line.30"></a>
-<span class="sourceLineNo">031</span> * &lt;li&gt;Must be a class, not an interface or enum&lt;/li&gt;<a name="line.31"></a>
-<span class="sourceLineNo">032</span> * &lt;li&gt;Must be concrete, not abstract&lt;/li&gt;<a name="line.32"></a>
-<span class="sourceLineNo">033</span> * &lt;li&gt;Must not be final&lt;/li&gt;<a name="line.33"></a>
-<span class="sourceLineNo">034</span> * &lt;li&gt;Must not be a non-static nested class&lt;/li&gt;<a name="line.34"></a>
-<span class="sourceLineNo">035</span> * &lt;li&gt;Must have at least one method annotated with {@link Action}, {@link Autorun}, {@link Track}, {@link Computed} or {@link Observable}&lt;/li&gt;<a name="line.35"></a>
-<span class="sourceLineNo">036</span> * &lt;/ul&gt;<a name="line.36"></a>
-<span class="sourceLineNo">037</span> *<a name="line.37"></a>
-<span class="sourceLineNo">038</span> * &lt;p&gt;The annotation processor that handles this annotation will analyze all super classes and super<a name="line.38"></a>
-<span class="sourceLineNo">039</span> * interfaces. This includes analysis of default methods on interfaces. So it is perfectly valid to<a name="line.39"></a>
-<span class="sourceLineNo">040</span> * add {@link Observable}, {@link Computed}, {@link Action}, {@link PreDispose} and {@link PostDispose}<a name="line.40"></a>
-<span class="sourceLineNo">041</span> * annotations to default methods on implemented interfaces.&lt;/p&gt;<a name="line.41"></a>
-<span class="sourceLineNo">042</span> */<a name="line.42"></a>
-<span class="sourceLineNo">043</span>@Documented<a name="line.43"></a>
-<span class="sourceLineNo">044</span>@Target( ElementType.TYPE )<a name="line.44"></a>
-<span class="sourceLineNo">045</span>public @interface ArezComponent<a name="line.45"></a>
-<span class="sourceLineNo">046</span>{<a name="line.46"></a>
-<span class="sourceLineNo">047</span>  /**<a name="line.47"></a>
-<span class="sourceLineNo">048</span>   * Return the name of the type.<a name="line.48"></a>
-<span class="sourceLineNo">049</span>   * The value must conform to the requirements of a java identifier.<a name="line.49"></a>
-<span class="sourceLineNo">050</span>   *<a name="line.50"></a>
-<span class="sourceLineNo">051</span>   * @return the name of the type.<a name="line.51"></a>
-<span class="sourceLineNo">052</span>   */<a name="line.52"></a>
-<span class="sourceLineNo">053</span>  @Nonnull<a name="line.53"></a>
-<span class="sourceLineNo">054</span>  String name() default "&lt;default&gt;";<a name="line.54"></a>
-<span class="sourceLineNo">055</span><a name="line.55"></a>
-<span class="sourceLineNo">056</span>  /**<a name="line.56"></a>
-<span class="sourceLineNo">057</span>   * Return true if the name derived for component should include the id, false otherwise.<a name="line.57"></a>
-<span class="sourceLineNo">058</span>   * If the user does not specify a value for this parameter but does specify the &lt;tt&gt;javax.inject.Singleton&lt;/tt&gt;<a name="line.58"></a>
-<span class="sourceLineNo">059</span>   * on the same type then the default value of this parameter is false, otherwise it is true.<a name="line.59"></a>
-<span class="sourceLineNo">060</span>   *<a name="line.60"></a>
-<span class="sourceLineNo">061</span>   * @return true to include the id in the component name, false otherwise.<a name="line.61"></a>
-<span class="sourceLineNo">062</span>   */<a name="line.62"></a>
-<span class="sourceLineNo">063</span>  boolean nameIncludesId() default true;<a name="line.63"></a>
-<span class="sourceLineNo">064</span><a name="line.64"></a>
-<span class="sourceLineNo">065</span>  /**<a name="line.65"></a>
-<span class="sourceLineNo">066</span>   * Return true if the component does not need to explicitly declare elements.<a name="line.66"></a>
-<span class="sourceLineNo">067</span>   * Otherwise if no elements (i.e. {@link Observable}s, {@link Action}s, {@link Autorun}s etc) are defined<a name="line.67"></a>
-<span class="sourceLineNo">068</span>   * on a component it will generate an error.<a name="line.68"></a>
-<span class="sourceLineNo">069</span>   *<a name="line.69"></a>
-<span class="sourceLineNo">070</span>   * @return true if the component does not need to explicitly declare elements, false otherwise.<a name="line.70"></a>
-<span class="sourceLineNo">071</span>   */<a name="line.71"></a>
-<span class="sourceLineNo">072</span>  boolean allowEmpty() default false;<a name="line.72"></a>
-<span class="sourceLineNo">073</span><a name="line.73"></a>
-<span class="sourceLineNo">074</span>  /**<a name="line.74"></a>
-<span class="sourceLineNo">075</span>   * Return true if the component type does not need to be abstract.<a name="line.75"></a>
-<span class="sourceLineNo">076</span>   * Otherwise an error will be generated if this annotation is added to a concrete type.<a name="line.76"></a>
-<span class="sourceLineNo">077</span>   *<a name="line.77"></a>
-<span class="sourceLineNo">078</span>   * @return true if the component type does not need to be abstract.<a name="line.78"></a>
-<span class="sourceLineNo">079</span>   */<a name="line.79"></a>
-<span class="sourceLineNo">080</span>  boolean allowConcrete() default false;<a name="line.80"></a>
-<span class="sourceLineNo">081</span><a name="line.81"></a>
-<span class="sourceLineNo">082</span>  /**<a name="line.82"></a>
-<span class="sourceLineNo">083</span>   * Return the enum to control whether the component should support being "observed" by<a name="line.83"></a>
-<span class="sourceLineNo">084</span>   * {@link arez.component.ComponentObservable#observe(Object)}.<a name="line.84"></a>
-<span class="sourceLineNo">085</span>   * {@link Feature#ENABLE} will force the implementation of the ComponentObservable interface,<a name="line.85"></a>
-<span class="sourceLineNo">086</span>   * {@link Feature#DISABLE} will result in not implementing the ComponentObservable interface and<a name="line.86"></a>
-<span class="sourceLineNo">087</span>   * {@link Feature#AUTODETECT} will cause the component to implement the interface if the component<a name="line.87"></a>
-<span class="sourceLineNo">088</span>   * is also annotated with the {@link Repository} annotation or if the {@link #disposeOnDeactivate()}<a name="line.88"></a>
-<span class="sourceLineNo">089</span>   * parameter is true.<a name="line.89"></a>
-<span class="sourceLineNo">090</span>   *<a name="line.90"></a>
-<span class="sourceLineNo">091</span>   * @return enum to control whether the component should support being "observed".<a name="line.91"></a>
-<span class="sourceLineNo">092</span>   */<a name="line.92"></a>
-<span class="sourceLineNo">093</span>  Feature observable() default Feature.AUTODETECT;<a name="line.93"></a>
-<span class="sourceLineNo">094</span><a name="line.94"></a>
-<span class="sourceLineNo">095</span>  /**<a name="line.95"></a>
-<span class="sourceLineNo">096</span>   * Return enum to control whether the component should support implement {@link arez.component.DisposeTrackable}.<a name="line.96"></a>
-<span class="sourceLineNo">097</span>   * This will result in the component invoking dispose listener callbacks during dispose operation<a name="line.97"></a>
-<span class="sourceLineNo">098</span>   * within the scope of the disposing transaction.<a name="line.98"></a>
-<span class="sourceLineNo">099</span>   *<a name="line.99"></a>
-<span class="sourceLineNo">100</span>   * &lt;p&gt;{@link Feature#ENABLE} will force the implementation of the DisposeTrackable interface,<a name="line.100"></a>
-<span class="sourceLineNo">101</span>   * {@link Feature#DISABLE} will result in not implementing the DisposeTrackable interface and<a name="line.101"></a>
-<span class="sourceLineNo">102</span>   * {@link Feature#AUTODETECT} will cause the component to implement the interface if the component<a name="line.102"></a>
-<span class="sourceLineNo">103</span>   * is not annotated with &lt;tt&gt;javax.inject.Singleton&lt;/tt&gt;.&lt;/p&gt;<a name="line.103"></a>
-<span class="sourceLineNo">104</span>   *<a name="line.104"></a>
-<span class="sourceLineNo">105</span>   * @return Return enum to control whether the component should support implement DisposeTrackable.<a name="line.105"></a>
-<span class="sourceLineNo">106</span>   */<a name="line.106"></a>
-<span class="sourceLineNo">107</span>  Feature disposeTrackable() default Feature.AUTODETECT;<a name="line.107"></a>
-<span class="sourceLineNo">108</span><a name="line.108"></a>
-<span class="sourceLineNo">109</span>  /**<a name="line.109"></a>
-<span class="sourceLineNo">110</span>   * Return true if the component should dispose itself once it is no longer "observed".<a name="line.110"></a>
-<span class="sourceLineNo">111</span>   * By "observed" it means that the component will have {@link arez.component.ComponentObservable#observe(Object)}<a name="line.111"></a>
-<span class="sourceLineNo">112</span>   * called on it. This parameter MUST be false if {@link #observable()} has the value {@link Feature#DISABLE}.<a name="line.112"></a>
-<span class="sourceLineNo">113</span>   *<a name="line.113"></a>
-<span class="sourceLineNo">114</span>   * @return true if the component should dispose itself once it is no longer "observed".<a name="line.114"></a>
-<span class="sourceLineNo">115</span>   */<a name="line.115"></a>
-<span class="sourceLineNo">116</span>  boolean disposeOnDeactivate() default false;<a name="line.116"></a>
-<span class="sourceLineNo">117</span><a name="line.117"></a>
-<span class="sourceLineNo">118</span>  /**<a name="line.118"></a>
-<span class="sourceLineNo">119</span>   * Indicate whether an @Inject annotation should be added to constructor of the generated class.<a name="line.119"></a>
-<span class="sourceLineNo">120</span>   * {@link Feature#ENABLE} will force the addition of an @Inject annotation, {@link Feature#DISABLE}<a name="line.120"></a>
-<span class="sourceLineNo">121</span>   * will result in no @Inject annotation and {@link Feature#AUTODETECT} will add an @Inject<a name="line.121"></a>
-<span class="sourceLineNo">122</span>   * if any fields or methods in the component or any parent type has an @Inject annotation OR the class<a name="line.122"></a>
-<span class="sourceLineNo">123</span>   * has an annotation that is itself annotated with the javax.inject.Scope annotation.<a name="line.123"></a>
-<span class="sourceLineNo">124</span>   *<a name="line.124"></a>
-<span class="sourceLineNo">125</span>   * @return enum controlling present of Inject annotation on constructor.<a name="line.125"></a>
-<span class="sourceLineNo">126</span>   */<a name="line.126"></a>
-<span class="sourceLineNo">127</span>  Feature inject() default Feature.AUTODETECT;<a name="line.127"></a>
-<span class="sourceLineNo">128</span><a name="line.128"></a>
-<span class="sourceLineNo">129</span>  /**<a name="line.129"></a>
-<span class="sourceLineNo">130</span>   * Indicate whether a dagger module should be generated for enhanced component class.<a name="line.130"></a>
-<span class="sourceLineNo">131</span>   * {@link Feature#ENABLE} will force the generation of the module, {@link Feature#DISABLE}<a name="line.131"></a>
-<span class="sourceLineNo">132</span>   * will result in no dagger module and {@link Feature#AUTODETECT} will add a dagger<a name="line.132"></a>
-<span class="sourceLineNo">133</span>   * module if the &lt;code&gt;dagger.Module&lt;/code&gt; class is present on the classpath AND the class<a name="line.133"></a>
-<span class="sourceLineNo">134</span>   * has an annotation that is itself annotated with the javax.inject.Scope annotation.<a name="line.134"></a>
-<span class="sourceLineNo">135</span>   *<a name="line.135"></a>
-<span class="sourceLineNo">136</span>   * @return enum controlling whether a dagger module should be generated for repository.<a name="line.136"></a>
-<span class="sourceLineNo">137</span>   */<a name="line.137"></a>
-<span class="sourceLineNo">138</span>  Feature dagger() default Feature.AUTODETECT;<a name="line.138"></a>
-<span class="sourceLineNo">139</span><a name="line.139"></a>
-<span class="sourceLineNo">140</span>  /**<a name="line.140"></a>
-<span class="sourceLineNo">141</span>   * Return true if an the generated component should NOT schedule autorun actions at the end of the<a name="line.141"></a>
-<span class="sourceLineNo">142</span>   * constructor. This is useful if the component creator will trigger schedules manually at a later time.<a name="line.142"></a>
-<span class="sourceLineNo">143</span>   * This MUST be false if there is no autorun methods annotated on the component.<a name="line.143"></a>
-<span class="sourceLineNo">144</span>   *<a name="line.144"></a>
-<span class="sourceLineNo">145</span>   * @return Return true if an the generated component should NOT schedule autorun actions at the end of the constructor.<a name="line.145"></a>
-<span class="sourceLineNo">146</span>   */<a name="line.146"></a>
-<span class="sourceLineNo">147</span>  boolean deferSchedule() default false;<a name="line.147"></a>
-<span class="sourceLineNo">148</span><a name="line.148"></a>
-<span class="sourceLineNo">149</span>  /**<a name="line.149"></a>
-<span class="sourceLineNo">150</span>   * Indicate whether a component requires that the {@link Object#hashCode()} and {@link Object#equals(Object)}<a name="line.150"></a>
-<span class="sourceLineNo">151</span>   * methods are implemented. These methods MUST be implemented if the {@link Repository} annotation is present<a name="line.151"></a>
-<span class="sourceLineNo">152</span>   * but may be implemented in other scenarios. {@link Feature#ENABLE} will force the generation of the methods,<a name="line.152"></a>
-<span class="sourceLineNo">153</span>   * {@link Feature#DISABLE} will not generate these methods and {@link Feature#AUTODETECT} will generated these<a name="line.153"></a>
-<span class="sourceLineNo">154</span>   * methods if the {@link Repository} annotation is present.<a name="line.154"></a>
-<span class="sourceLineNo">155</span>   *<a name="line.155"></a>
-<span class="sourceLineNo">156</span>   * @return enum controlling whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods are implemented.<a name="line.156"></a>
-<span class="sourceLineNo">157</span>   */<a name="line.157"></a>
-<span class="sourceLineNo">158</span>  Feature requireEquals() default Feature.AUTODETECT;<a name="line.158"></a>
-<span class="sourceLineNo">159</span>}<a name="line.159"></a>
+<span class="sourceLineNo">003</span>import arez.Arez;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import java.lang.annotation.Documented;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import java.lang.annotation.ElementType;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import java.lang.annotation.Target;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import javax.annotation.Nonnull;<a name="line.7"></a>
+<span class="sourceLineNo">008</span><a name="line.8"></a>
+<span class="sourceLineNo">009</span>/**<a name="line.9"></a>
+<span class="sourceLineNo">010</span> * Annotation that marks classes to be processed by Arez annotation processor.<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * Classes with this annotation can contain {@link Observable} properties,<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * {@link Computed} properties, {@link Autorun} methods, {@link Track} methods<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * and {@link Action} methods.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * &lt;p&gt;The annotation controls the way that contained actions and observables are<a name="line.15"></a>
+<span class="sourceLineNo">016</span> * named (if names are enabled in the system.&lt;/p&gt;<a name="line.16"></a>
+<span class="sourceLineNo">017</span> * &lt;ul&gt;<a name="line.17"></a>
+<span class="sourceLineNo">018</span> * &lt;li&gt;The value returned by {@link #name()} indicates the type name for instances<a name="line.18"></a>
+<span class="sourceLineNo">019</span> * of this object. If not specified it will default to the SimpleName of the class.<a name="line.19"></a>
+<span class="sourceLineNo">020</span> * i.e. The class &lt;tt&gt;com.biz.models.MyModel&lt;/tt&gt; will default to a name of<a name="line.20"></a>
+<span class="sourceLineNo">021</span> * "MyModel".&lt;/li&gt;<a name="line.21"></a>
+<span class="sourceLineNo">022</span> * &lt;li&gt;The {@link #nameIncludesId()} method indicates whether the names in generated components<a name="line.22"></a>
+<span class="sourceLineNo">023</span> * should include the id. If you expect only one instance of this component, it can be simpler<a name="line.23"></a>
+<span class="sourceLineNo">024</span> * to elide the id.&lt;/li&gt;<a name="line.24"></a>
+<span class="sourceLineNo">025</span> * &lt;/ul&gt;<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * &lt;p&gt;The name of any elements contained within the component follows the pattern<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * "&lt;tt&gt;[ArezComponent.name].[ArezComponent.id].[Element.name]&lt;/tt&gt;". If the value of {@link #nameIncludesId()}<a name="line.27"></a>
+<span class="sourceLineNo">028</span> * is false then the "&lt;tt&gt;[ArezComponent.id].&lt;/tt&gt;" element of the name will be elided.&lt;/p&gt;<a name="line.28"></a>
+<span class="sourceLineNo">029</span> *<a name="line.29"></a>
+<span class="sourceLineNo">030</span> * &lt;p&gt;The type that is annotated with &lt;tt&gt;@ArezComponent&lt;/tt&gt; annotation must comply with the additional constraints:&lt;/p&gt;<a name="line.30"></a>
+<span class="sourceLineNo">031</span> * &lt;ul&gt;<a name="line.31"></a>
+<span class="sourceLineNo">032</span> * &lt;li&gt;Must be a class, not an interface or enum&lt;/li&gt;<a name="line.32"></a>
+<span class="sourceLineNo">033</span> * &lt;li&gt;Must be concrete, not abstract&lt;/li&gt;<a name="line.33"></a>
+<span class="sourceLineNo">034</span> * &lt;li&gt;Must not be final&lt;/li&gt;<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * &lt;li&gt;Must not be a non-static nested class&lt;/li&gt;<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * &lt;li&gt;Must have at least one method annotated with {@link Action}, {@link Autorun}, {@link Track}, {@link Computed} or {@link Observable}&lt;/li&gt;<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * &lt;/ul&gt;<a name="line.37"></a>
+<span class="sourceLineNo">038</span> *<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * &lt;p&gt;The annotation processor that handles this annotation will analyze all super classes and super<a name="line.39"></a>
+<span class="sourceLineNo">040</span> * interfaces. This includes analysis of default methods on interfaces. So it is perfectly valid to<a name="line.40"></a>
+<span class="sourceLineNo">041</span> * add {@link Observable}, {@link Computed}, {@link Action}, {@link PreDispose} and {@link PostDispose}<a name="line.41"></a>
+<span class="sourceLineNo">042</span> * annotations to default methods on implemented interfaces.&lt;/p&gt;<a name="line.42"></a>
+<span class="sourceLineNo">043</span> */<a name="line.43"></a>
+<span class="sourceLineNo">044</span>@Documented<a name="line.44"></a>
+<span class="sourceLineNo">045</span>@Target( ElementType.TYPE )<a name="line.45"></a>
+<span class="sourceLineNo">046</span>public @interface ArezComponent<a name="line.46"></a>
+<span class="sourceLineNo">047</span>{<a name="line.47"></a>
+<span class="sourceLineNo">048</span>  /**<a name="line.48"></a>
+<span class="sourceLineNo">049</span>   * Return the name of the type.<a name="line.49"></a>
+<span class="sourceLineNo">050</span>   * The value must conform to the requirements of a java identifier.<a name="line.50"></a>
+<span class="sourceLineNo">051</span>   *<a name="line.51"></a>
+<span class="sourceLineNo">052</span>   * @return the name of the type.<a name="line.52"></a>
+<span class="sourceLineNo">053</span>   */<a name="line.53"></a>
+<span class="sourceLineNo">054</span>  @Nonnull<a name="line.54"></a>
+<span class="sourceLineNo">055</span>  String name() default "&lt;default&gt;";<a name="line.55"></a>
+<span class="sourceLineNo">056</span><a name="line.56"></a>
+<span class="sourceLineNo">057</span>  /**<a name="line.57"></a>
+<span class="sourceLineNo">058</span>   * Return true if the name derived for component should include the id, false otherwise.<a name="line.58"></a>
+<span class="sourceLineNo">059</span>   * If the user does not specify a value for this parameter but does specify the &lt;tt&gt;javax.inject.Singleton&lt;/tt&gt;<a name="line.59"></a>
+<span class="sourceLineNo">060</span>   * on the same type then the default value of this parameter is false, otherwise it is true.<a name="line.60"></a>
+<span class="sourceLineNo">061</span>   *<a name="line.61"></a>
+<span class="sourceLineNo">062</span>   * @return true to include the id in the component name, false otherwise.<a name="line.62"></a>
+<span class="sourceLineNo">063</span>   */<a name="line.63"></a>
+<span class="sourceLineNo">064</span>  boolean nameIncludesId() default true;<a name="line.64"></a>
+<span class="sourceLineNo">065</span><a name="line.65"></a>
+<span class="sourceLineNo">066</span>  /**<a name="line.66"></a>
+<span class="sourceLineNo">067</span>   * Return true if the component does not need to explicitly declare elements.<a name="line.67"></a>
+<span class="sourceLineNo">068</span>   * Otherwise if no elements (i.e. {@link Observable}s, {@link Action}s, {@link Autorun}s etc) are defined<a name="line.68"></a>
+<span class="sourceLineNo">069</span>   * on a component it will generate an error.<a name="line.69"></a>
+<span class="sourceLineNo">070</span>   *<a name="line.70"></a>
+<span class="sourceLineNo">071</span>   * @return true if the component does not need to explicitly declare elements, false otherwise.<a name="line.71"></a>
+<span class="sourceLineNo">072</span>   */<a name="line.72"></a>
+<span class="sourceLineNo">073</span>  boolean allowEmpty() default false;<a name="line.73"></a>
+<span class="sourceLineNo">074</span><a name="line.74"></a>
+<span class="sourceLineNo">075</span>  /**<a name="line.75"></a>
+<span class="sourceLineNo">076</span>   * Return true if the component type does not need to be abstract.<a name="line.76"></a>
+<span class="sourceLineNo">077</span>   * Otherwise an error will be generated if this annotation is added to a concrete type.<a name="line.77"></a>
+<span class="sourceLineNo">078</span>   *<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * @return true if the component type does not need to be abstract.<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   */<a name="line.80"></a>
+<span class="sourceLineNo">081</span>  boolean allowConcrete() default false;<a name="line.81"></a>
+<span class="sourceLineNo">082</span><a name="line.82"></a>
+<span class="sourceLineNo">083</span>  /**<a name="line.83"></a>
+<span class="sourceLineNo">084</span>   * Return the enum to control whether the component should support being "observed" by<a name="line.84"></a>
+<span class="sourceLineNo">085</span>   * {@link arez.component.ComponentObservable#observe(Object)}.<a name="line.85"></a>
+<span class="sourceLineNo">086</span>   * {@link Feature#ENABLE} will force the implementation of the ComponentObservable interface,<a name="line.86"></a>
+<span class="sourceLineNo">087</span>   * {@link Feature#DISABLE} will result in not implementing the ComponentObservable interface and<a name="line.87"></a>
+<span class="sourceLineNo">088</span>   * {@link Feature#AUTODETECT} will cause the component to implement the interface if the component<a name="line.88"></a>
+<span class="sourceLineNo">089</span>   * is also annotated with the {@link Repository} annotation or if the {@link #disposeOnDeactivate()}<a name="line.89"></a>
+<span class="sourceLineNo">090</span>   * parameter is true.<a name="line.90"></a>
+<span class="sourceLineNo">091</span>   *<a name="line.91"></a>
+<span class="sourceLineNo">092</span>   * @return enum to control whether the component should support being "observed".<a name="line.92"></a>
+<span class="sourceLineNo">093</span>   */<a name="line.93"></a>
+<span class="sourceLineNo">094</span>  Feature observable() default Feature.AUTODETECT;<a name="line.94"></a>
+<span class="sourceLineNo">095</span><a name="line.95"></a>
+<span class="sourceLineNo">096</span>  /**<a name="line.96"></a>
+<span class="sourceLineNo">097</span>   * Return enum to control whether the component should support implement {@link arez.component.DisposeTrackable}.<a name="line.97"></a>
+<span class="sourceLineNo">098</span>   * This will result in the component invoking dispose listener callbacks during dispose operation<a name="line.98"></a>
+<span class="sourceLineNo">099</span>   * within the scope of the disposing transaction.<a name="line.99"></a>
+<span class="sourceLineNo">100</span>   *<a name="line.100"></a>
+<span class="sourceLineNo">101</span>   * &lt;p&gt;{@link Feature#ENABLE} will force the implementation of the DisposeTrackable interface,<a name="line.101"></a>
+<span class="sourceLineNo">102</span>   * {@link Feature#DISABLE} will result in not implementing the DisposeTrackable interface and<a name="line.102"></a>
+<span class="sourceLineNo">103</span>   * {@link Feature#AUTODETECT} will cause the component to implement the interface if the component<a name="line.103"></a>
+<span class="sourceLineNo">104</span>   * is not annotated with &lt;tt&gt;javax.inject.Singleton&lt;/tt&gt;.&lt;/p&gt;<a name="line.104"></a>
+<span class="sourceLineNo">105</span>   *<a name="line.105"></a>
+<span class="sourceLineNo">106</span>   * @return Return enum to control whether the component should support implement DisposeTrackable.<a name="line.106"></a>
+<span class="sourceLineNo">107</span>   */<a name="line.107"></a>
+<span class="sourceLineNo">108</span>  Feature disposeTrackable() default Feature.AUTODETECT;<a name="line.108"></a>
+<span class="sourceLineNo">109</span><a name="line.109"></a>
+<span class="sourceLineNo">110</span>  /**<a name="line.110"></a>
+<span class="sourceLineNo">111</span>   * Return true if the component should dispose itself once it is no longer "observed".<a name="line.111"></a>
+<span class="sourceLineNo">112</span>   * By "observed" it means that the component will have {@link arez.component.ComponentObservable#observe(Object)}<a name="line.112"></a>
+<span class="sourceLineNo">113</span>   * called on it. This parameter MUST be false if {@link #observable()} has the value {@link Feature#DISABLE}.<a name="line.113"></a>
+<span class="sourceLineNo">114</span>   *<a name="line.114"></a>
+<span class="sourceLineNo">115</span>   * @return true if the component should dispose itself once it is no longer "observed".<a name="line.115"></a>
+<span class="sourceLineNo">116</span>   */<a name="line.116"></a>
+<span class="sourceLineNo">117</span>  boolean disposeOnDeactivate() default false;<a name="line.117"></a>
+<span class="sourceLineNo">118</span><a name="line.118"></a>
+<span class="sourceLineNo">119</span>  /**<a name="line.119"></a>
+<span class="sourceLineNo">120</span>   * Indicate whether an @Inject annotation should be added to constructor of the generated class.<a name="line.120"></a>
+<span class="sourceLineNo">121</span>   * {@link Feature#ENABLE} will force the addition of an @Inject annotation, {@link Feature#DISABLE}<a name="line.121"></a>
+<span class="sourceLineNo">122</span>   * will result in no @Inject annotation and {@link Feature#AUTODETECT} will add an @Inject<a name="line.122"></a>
+<span class="sourceLineNo">123</span>   * if any fields or methods in the component or any parent type has an @Inject annotation OR the class<a name="line.123"></a>
+<span class="sourceLineNo">124</span>   * has an annotation that is itself annotated with the javax.inject.Scope annotation.<a name="line.124"></a>
+<span class="sourceLineNo">125</span>   *<a name="line.125"></a>
+<span class="sourceLineNo">126</span>   * @return enum controlling present of Inject annotation on constructor.<a name="line.126"></a>
+<span class="sourceLineNo">127</span>   */<a name="line.127"></a>
+<span class="sourceLineNo">128</span>  Feature inject() default Feature.AUTODETECT;<a name="line.128"></a>
+<span class="sourceLineNo">129</span><a name="line.129"></a>
+<span class="sourceLineNo">130</span>  /**<a name="line.130"></a>
+<span class="sourceLineNo">131</span>   * Indicate whether a dagger module should be generated for enhanced component class.<a name="line.131"></a>
+<span class="sourceLineNo">132</span>   * {@link Feature#ENABLE} will force the generation of the module, {@link Feature#DISABLE}<a name="line.132"></a>
+<span class="sourceLineNo">133</span>   * will result in no dagger module and {@link Feature#AUTODETECT} will add a dagger<a name="line.133"></a>
+<span class="sourceLineNo">134</span>   * module if the &lt;code&gt;dagger.Module&lt;/code&gt; class is present on the classpath AND the class<a name="line.134"></a>
+<span class="sourceLineNo">135</span>   * has an annotation that is itself annotated with the javax.inject.Scope annotation.<a name="line.135"></a>
+<span class="sourceLineNo">136</span>   *<a name="line.136"></a>
+<span class="sourceLineNo">137</span>   * @return enum controlling whether a dagger module should be generated for repository.<a name="line.137"></a>
+<span class="sourceLineNo">138</span>   */<a name="line.138"></a>
+<span class="sourceLineNo">139</span>  Feature dagger() default Feature.AUTODETECT;<a name="line.139"></a>
+<span class="sourceLineNo">140</span><a name="line.140"></a>
+<span class="sourceLineNo">141</span>  /**<a name="line.141"></a>
+<span class="sourceLineNo">142</span>   * Return true if an the generated component should NOT schedule autorun actions at the end of the<a name="line.142"></a>
+<span class="sourceLineNo">143</span>   * constructor. This is useful if the component creator will trigger schedules manually at a later time.<a name="line.143"></a>
+<span class="sourceLineNo">144</span>   * This MUST be false if there is no autorun methods annotated on the component.<a name="line.144"></a>
+<span class="sourceLineNo">145</span>   *<a name="line.145"></a>
+<span class="sourceLineNo">146</span>   * @return Return true if an the generated component should NOT schedule autorun actions at the end of the constructor.<a name="line.146"></a>
+<span class="sourceLineNo">147</span>   */<a name="line.147"></a>
+<span class="sourceLineNo">148</span>  boolean deferSchedule() default false;<a name="line.148"></a>
+<span class="sourceLineNo">149</span><a name="line.149"></a>
+<span class="sourceLineNo">150</span>  /**<a name="line.150"></a>
+<span class="sourceLineNo">151</span>   * Indicate whether a component requires that the {@link Object#hashCode()} and {@link Object#equals(Object)}<a name="line.151"></a>
+<span class="sourceLineNo">152</span>   * methods are implemented. These methods MUST be implemented if the {@link Repository} annotation is present<a name="line.152"></a>
+<span class="sourceLineNo">153</span>   * but may be implemented in other scenarios. {@link Feature#ENABLE} will force the generation of the methods,<a name="line.153"></a>
+<span class="sourceLineNo">154</span>   * {@link Feature#DISABLE} will not generate these methods and {@link Feature#AUTODETECT} will generated these<a name="line.154"></a>
+<span class="sourceLineNo">155</span>   * methods if the {@link Repository} annotation is present.<a name="line.155"></a>
+<span class="sourceLineNo">156</span>   *<a name="line.156"></a>
+<span class="sourceLineNo">157</span>   * @return enum controlling whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods are implemented.<a name="line.157"></a>
+<span class="sourceLineNo">158</span>   */<a name="line.158"></a>
+<span class="sourceLineNo">159</span>  Feature requireEquals() default Feature.AUTODETECT;<a name="line.159"></a>
+<span class="sourceLineNo">160</span><a name="line.160"></a>
+<span class="sourceLineNo">161</span>  /**<a name="line.161"></a>
+<span class="sourceLineNo">162</span>   * Indicates whether the component should support access of the id via {@link arez.component.Identifiable#getArezId(Object)}.<a name="line.162"></a>
+<span class="sourceLineNo">163</span>   * This must be supported if the {@link Repository} annotation is present but may be supported in other scenarios.<a name="line.163"></a>
+<span class="sourceLineNo">164</span>   * This feature is present on all components if {@link Arez#areNativeComponentsEnabled()} is true,<a name="line.164"></a>
+<span class="sourceLineNo">165</span>   * {@link Arez#areRegistriesEnabled()} is true or {@link Arez#areNamesEnabled()} is true and {@link #nameIncludesId()}<a name="line.165"></a>
+<span class="sourceLineNo">166</span>   * is true. In other scenarios it can be disabled. This is usually done to decrease code-size.<a name="line.166"></a>
+<span class="sourceLineNo">167</span>   * {@link Feature#ENABLE} will require support, {@link Feature#DISABLE} will remove support and {@link Feature#AUTODETECT}<a name="line.167"></a>
+<span class="sourceLineNo">168</span>   * will add support if the {@link Repository} annotation is present or a method annotated with {@link ComponentId}<a name="line.168"></a>
+<span class="sourceLineNo">169</span>   * is present. If the {@link Repository} annotation is present or a method annotated with {@link ComponentId}<a name="line.169"></a>
+<span class="sourceLineNo">170</span>   * is present then it is an error to set the value to {@link Feature#DISABLE}.<a name="line.170"></a>
+<span class="sourceLineNo">171</span>   *<a name="line.171"></a>
+<span class="sourceLineNo">172</span>   * @return enum controlling whether a unique if of the component can be accessed via {@link arez.component.Identifiable#getArezId(Object)}.<a name="line.172"></a>
+<span class="sourceLineNo">173</span>   */<a name="line.173"></a>
+<span class="sourceLineNo">174</span>  Feature requireId() default Feature.AUTODETECT;<a name="line.174"></a>
+<span class="sourceLineNo">175</span>}<a name="line.175"></a>
 
 
 
