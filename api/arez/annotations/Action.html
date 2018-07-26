@@ -142,6 +142,12 @@ public @interface <a href="../../src-html/arez/annotations/Action.html#line.22">
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Action.html#requireNewTransaction--">requireNewTransaction</a></span></code>
+<div class="block">True if the action should always start a new transaction.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Action.html#verifyRequired--">verifyRequired</a></span></code>
 <div class="block">Flag indicating whether the code should verify that at least one read or write occurs within
  the scope of the action.</div>
@@ -231,13 +237,35 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </li>
 </ul>
 <ul class="blockList">
+<li class="blockList"><a name="requireNewTransaction--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>requireNewTransaction</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Action.html#line.57">requireNewTransaction</a></pre>
+<div class="block">True if the action should always start a new transaction. A false value indicates that the action will
+ use the invoking transaction if present, otherwise will create a new transaction to invoke action.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the action will create a new transaction, false if it will use the existing transaction if present.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a name="verifyRequired--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>verifyRequired</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Action.html#line.57">verifyRequired</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Action.html#line.65">verifyRequired</a></pre>
 <div class="block">Flag indicating whether the code should verify that at least one read or write occurs within
  the scope of the action.</div>
 <dl>
