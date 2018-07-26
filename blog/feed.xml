@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Wed, 25 Jul 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 26 Jul 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.102 released]]></title>
+            <link>https://arez.github.io/blog/2018/07/26/version-0.102-release.html</link>
+            <guid>https://arez.github.io/blog/2018/07/26/version-0.102-release.html</guid>
+            <pubDate>Thu, 26 Jul 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.101...v0.102)
+
+Changes in this release:
+
+* **\[core\]** Add the `readOutsideTransaction` parameter to the `@Observable` annotation. If set to `true`
+  the observable can be read outside a trans]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.100 released]]></title>
             <link>https://arez.github.io/blog/2018/07/25/version-0.100-release.html</link>

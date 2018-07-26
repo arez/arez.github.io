@@ -82,7 +82,21 @@
 <span class="sourceLineNo">074</span>   * @return false if observing lower priority dependencies should result in invariant failure in development mode.<a name="line.74"></a>
 <span class="sourceLineNo">075</span>   */<a name="line.75"></a>
 <span class="sourceLineNo">076</span>  boolean observeLowerPriorityDependencies() default false;<a name="line.76"></a>
-<span class="sourceLineNo">077</span>}<a name="line.77"></a>
+<span class="sourceLineNo">077</span><a name="line.77"></a>
+<span class="sourceLineNo">078</span>  /**<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * Flag controlling whether the observer can invoke actions.<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   * An action that specifies {@link Action#requireNewTransaction()} as true will start a new transaction<a name="line.80"></a>
+<span class="sourceLineNo">081</span>   * and any observables accessed within the action will not be dependencies of the observer. Sometimes this<a name="line.81"></a>
+<span class="sourceLineNo">082</span>   * behaviour is desired. Sometimes an action that specifies {@link Action#requireNewTransaction()} as false<a name="line.82"></a>
+<span class="sourceLineNo">083</span>   * will be used instead and any observable accessed within the scope of the action will be a dependency of<a name="line.83"></a>
+<span class="sourceLineNo">084</span>   * the observer and thus changes in the observable will reschedule the observer. Sometimes this<a name="line.84"></a>
+<span class="sourceLineNo">085</span>   * behaviour is desired. Either way the developer must be conscious of these decisions and thus must explicitly<a name="line.85"></a>
+<span class="sourceLineNo">086</span>   * set this flag to true to invoke any actions within the scope of the observers reaction.<a name="line.86"></a>
+<span class="sourceLineNo">087</span>   *<a name="line.87"></a>
+<span class="sourceLineNo">088</span>   * @return true if the observer can invoke actions, false otherwise.<a name="line.88"></a>
+<span class="sourceLineNo">089</span>   */<a name="line.89"></a>
+<span class="sourceLineNo">090</span>  boolean canNestActions() default false;<a name="line.90"></a>
+<span class="sourceLineNo">091</span>}<a name="line.91"></a>
 
 
 

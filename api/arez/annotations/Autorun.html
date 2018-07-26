@@ -126,23 +126,29 @@ public @interface <a href="../../src-html/arez/annotations/Autorun.html#line.24"
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Autorun.html#canNestActions--">canNestActions</a></span></code>
+<div class="block">Flag controlling whether the observer can invoke actions.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Autorun.html#mutation--">mutation</a></span></code>
 <div class="block">Does the autorun mutate state or not.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Autorun.html#name--">name</a></span></code>
 <div class="block">Return the name of the Autorun relative to the component.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Autorun.html#observeLowerPriorityDependencies--">observeLowerPriorityDependencies</a></span></code>
 <div class="block">Flag controlling whether the underlying observer can observe ComputedValue instances with lower priorities.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Autorun.html#priority--">priority</a></span></code>
 <div class="block">The priority of the underlying autorun observer</div>
@@ -236,7 +242,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="observeLowerPriorityDependencies--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>observeLowerPriorityDependencies</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Autorun.html#line.64">observeLowerPriorityDependencies</a></pre>
@@ -249,6 +255,34 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>false if observing lower priority dependencies should result in invariant failure in development mode.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="canNestActions--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>canNestActions</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Autorun.html#line.78">canNestActions</a></pre>
+<div class="block">Flag controlling whether the observer can invoke actions.
+ An action that specifies <a href="../../arez/annotations/Action.html#requireNewTransaction--"><code>Action.requireNewTransaction()</code></a> as true will start a new transaction
+ and any observables accessed within the action will not be dependencies of the observer. Sometimes this
+ behaviour is desired. Sometimes an action that specifies <a href="../../arez/annotations/Action.html#requireNewTransaction--"><code>Action.requireNewTransaction()</code></a> as false
+ will be used instead and any observable accessed within the scope of the action will be a dependency of
+ the observer and thus changes in the observable will reschedule the observer. Sometimes this
+ behaviour is desired. Either way the developer must be conscious of these decisions and thus must explicitly
+ set this flag to true to invoke any actions within the scope of the observers reaction.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the observer can invoke actions, false otherwise.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>
