@@ -158,7 +158,7 @@ public @interface <a href="../../src-html/arez/annotations/Observable.html#line.
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observable.html#readOutsideTransaction--">readOutsideTransaction</a></span></code>
-<div class="block">Can True if the observable be read outside a transaction.</div>
+<div class="block">Return true if the observable be read outside a transaction.</div>
 </td>
 </tr>
 </table>
@@ -260,8 +260,13 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>readOutsideTransaction</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observable.html#line.79">readOutsideTransaction</a></pre>
-<div class="block">Can True if the observable be read outside a transaction.</div>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observable.html#line.84">readOutsideTransaction</a></pre>
+<div class="block">Return true if the observable be read outside a transaction.
+ If the observable can be read outside a transaction then <a href="../../arez/Observable.html#reportObserved--"><code>Observable.reportObserved()</code></a> will
+ only be invoked in a tracking transaction (i.e. when an <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a> created the transaction).
+ Thus <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a> annotated methods that only access observables that set the readOutsideTransaction
+ parameter to true and neither access nor modify other arez elements no longer need to be annotated with
+ <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a> annotations.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true to allow reads outside a transaction, false to require a transaction to read observable.</dd>

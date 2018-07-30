@@ -80,12 +80,17 @@
 <span class="sourceLineNo">072</span>  Feature initializer() default Feature.AUTODETECT;<a name="line.72"></a>
 <span class="sourceLineNo">073</span><a name="line.73"></a>
 <span class="sourceLineNo">074</span>  /**<a name="line.74"></a>
-<span class="sourceLineNo">075</span>   * Can True if the observable be read outside a transaction.<a name="line.75"></a>
-<span class="sourceLineNo">076</span>   *<a name="line.76"></a>
-<span class="sourceLineNo">077</span>   * @return true to allow reads outside a transaction, false to require a transaction to read observable.<a name="line.77"></a>
-<span class="sourceLineNo">078</span>   */<a name="line.78"></a>
-<span class="sourceLineNo">079</span>  boolean readOutsideTransaction() default false;<a name="line.79"></a>
-<span class="sourceLineNo">080</span>}<a name="line.80"></a>
+<span class="sourceLineNo">075</span>   * Return true if the observable be read outside a transaction.<a name="line.75"></a>
+<span class="sourceLineNo">076</span>   * If the observable can be read outside a transaction then {@link arez.Observable#reportObserved()} will<a name="line.76"></a>
+<span class="sourceLineNo">077</span>   * only be invoked in a tracking transaction (i.e. when an {@link arez.Observer} created the transaction).<a name="line.77"></a>
+<span class="sourceLineNo">078</span>   * Thus {@link Action} annotated methods that only access observables that set the readOutsideTransaction<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * parameter to true and neither access nor modify other arez elements no longer need to be annotated with<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   * {@link Action} annotations.<a name="line.80"></a>
+<span class="sourceLineNo">081</span>   *<a name="line.81"></a>
+<span class="sourceLineNo">082</span>   * @return true to allow reads outside a transaction, false to require a transaction to read observable.<a name="line.82"></a>
+<span class="sourceLineNo">083</span>   */<a name="line.83"></a>
+<span class="sourceLineNo">084</span>  boolean readOutsideTransaction() default false;<a name="line.84"></a>
+<span class="sourceLineNo">085</span>}<a name="line.85"></a>
 
 
 
