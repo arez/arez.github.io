@@ -140,6 +140,18 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.34"
 <div class="block">Return the root name of the Memoized value relative to the component.</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#observeLowerPriorityDependencies--">observeLowerPriorityDependencies</a></span></code>
+<div class="block">Flag controlling whether the underlying observer can observe ComputedValue instances with lower priorities.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#priority--">priority</a></span></code>
+<div class="block">The priority of the underlying ComputedValue observer</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -158,7 +170,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.34"
 <a name="name--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -176,6 +188,53 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>"&lt;default&gt;"</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="priority--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>priority</h4>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a>&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.54">priority</a></pre>
+<div class="block">The priority of the underlying ComputedValue observer</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the priority of the ComputedValue observer.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>arez.annotations.Priority.NORMAL</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="observeLowerPriorityDependencies--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>observeLowerPriorityDependencies</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.66">observeLowerPriorityDependencies</a></pre>
+<div class="block">Flag controlling whether the underlying observer can observe ComputedValue instances with lower priorities.
+ The default value of false will result in an invariant failure (in development mode) if a lower priority
+ dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher
+ priority observer is dependent upon a lower priority computed value. If the value is true then the no
+ invariant failure is triggered and the component relies on the component author to handle possible priority
+ inversion.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>false if observing lower priority dependencies should result in invariant failure in development mode.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
 </dl>
 </li>
 </ul>
