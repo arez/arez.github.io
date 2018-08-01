@@ -232,7 +232,7 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <ul class="blockListLast">
 <li class="blockList">
 <h4>MemoizeCache</h4>
-<pre>public&nbsp;<a href="../../src-html/arez/component/MemoizeCache.html#line.100">MemoizeCache</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>public&nbsp;<a href="../../src-html/arez/component/MemoizeCache.html#line.102">MemoizeCache</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                     <a href="../../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;context,
                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                     <a href="../../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
@@ -252,6 +252,8 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <dd><code>name</code> - a human consumable prefix for computed values.</dd>
 <dd><code>function</code> - the memoized function.</dd>
 <dd><code>argCount</code> - the number of arguments expected to be passed to memoized function.</dd>
+<dd><code>priority</code> - the priority that used to create the ComputedValue instances.</dd>
+<dd><code>observeLowerPriorityDependencies</code> - the observeLowerPriorityDependencies flag that used when creating ComputedValue instances.</dd>
 </dl>
 </li>
 </ul>
@@ -269,7 +271,7 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <ul class="blockList">
 <li class="blockList">
 <h4>get</h4>
-<pre>public&nbsp;<a href="../../arez/component/MemoizeCache.html" title="type parameter in MemoizeCache">T</a>&nbsp;<a href="../../src-html/arez/component/MemoizeCache.html#line.133">get</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;<a href="../../arez/component/MemoizeCache.html" title="type parameter in MemoizeCache">T</a>&nbsp;<a href="../../src-html/arez/component/MemoizeCache.html#line.135">get</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;args)</pre>
 <div class="block">Return the result of the memoized function, calculating if necessary.</div>
 <dl>
@@ -286,7 +288,7 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/MemoizeCache.html#line.147">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/MemoizeCache.html#line.149">isDisposed</a>()</pre>
 <div class="block">Return true if dispose() has been called on object.
  This is very useful when the Disposable is a @Computed value representing
  the selected item in a UI component but the item can be disposed by other
@@ -305,7 +307,7 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <ul class="blockListLast">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/component/MemoizeCache.html#line.153">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/component/MemoizeCache.html#line.155">dispose</a>()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../arez/Disposable.html#dispose--">Disposable</a></code></span></div>
 <div class="block">Dispose the element. See <a href="../../arez/Disposable.html" title="interface in arez"><code>Disposable</code></a> for a description of the implications.</div>
 <dl>
