@@ -97,18 +97,24 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../arez/annotations/LinkType.html" title="enum in arez.annotations">LinkType</a></td>
+<td class="colLast">
+<div class="block">Defines the strategy for loading references from the <a href="../../arez/component/Locator.html" title="interface in arez.component"><code>Locator</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></td>
 <td class="colLast">
 <div class="block">Enum to control scheduling priority of observers/reactions.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../arez/annotations/Repository.AttachType.html" title="enum in arez.annotations">Repository.AttachType</a></td>
 <td class="colLast">
 <div class="block">Enum to control how entities can be attached to the repository.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../arez/annotations/Repository.DetachType.html" title="enum in arez.annotations">Repository.DetachType</a></td>
 <td class="colLast">
 <div class="block">Enum to control how entities can be detached from the repository.</div>
@@ -193,86 +199,104 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../arez/annotations/LocatorRef.html" title="annotation in arez.annotations">LocatorRef</a></td>
+<td class="colLast">
+<div class="block">Marks a template method that returns the <a href="../../arez/component/Locator.html" title="interface in arez.component"><code>Locator</code></a> instance for the component.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations">Memoize</a></td>
 <td class="colLast">
 <div class="block">Methods marked with this annotation are <a href="https://en.wikipedia.org/wiki/Memoization">memoized</a> while there is an observer.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations">Observable</a></td>
 <td class="colLast">
 <div class="block">Annotation applied to methods that expose an Observable value in Arez.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../arez/annotations/ObservableRef.html" title="annotation in arez.annotations">ObservableRef</a></td>
 <td class="colLast">
 <div class="block">Marks a template method that returns the <a href="../../arez/Observable.html" title="class in arez"><code>Observable</code></a> instance for
  the <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> annotated property.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../arez/annotations/ObserverRef.html" title="annotation in arez.annotations">ObserverRef</a></td>
 <td class="colLast">
 <div class="block">Marks a template method that returns the <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a> instance for
  the associated <a href="../../arez/annotations/Track.html" title="annotation in arez.annotations"><code>Track</code></a> or <a href="../../arez/annotations/Autorun.html" title="annotation in arez.annotations"><code>Autorun</code></a> annotated method.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../arez/annotations/OnActivate.html" title="annotation in arez.annotations">OnActivate</a></td>
 <td class="colLast">
 <div class="block">Identifies method that is called when the ComputedValue changes from the INACTIVE state to any other state.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../arez/annotations/OnDeactivate.html" title="annotation in arez.annotations">OnDeactivate</a></td>
 <td class="colLast">
 <div class="block">Identifies method that is called when the ComputedValue changes to the INACTIVE state from any other state.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../arez/annotations/OnDepsChanged.html" title="annotation in arez.annotations">OnDepsChanged</a></td>
 <td class="colLast">
 <div class="block">Identifies method that will be invoked when the dependencies of the paired @Track annotated method are changed.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../arez/annotations/OnDispose.html" title="annotation in arez.annotations">OnDispose</a></td>
 <td class="colLast">
 <div class="block">Identifies method that is called when the ComputedValue is disposed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../arez/annotations/OnStale.html" title="annotation in arez.annotations">OnStale</a></td>
 <td class="colLast">
 <div class="block">Identifies method that is called when the ComputedValue changes from the UP_TO_DATE state to STALE or POSSIBLY_STALE.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../arez/annotations/PostConstruct.html" title="annotation in arez.annotations">PostConstruct</a></td>
 <td class="colLast">
 <div class="block">Annotation to identify method invoked after constructing component.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../arez/annotations/PostDispose.html" title="annotation in arez.annotations">PostDispose</a></td>
 <td class="colLast">
 <div class="block">Annotation to identify method invoked after disposing element.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations">PreDispose</a></td>
 <td class="colLast">
 <div class="block">Annotation to identify method invoked prior to disposing element.</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../arez/annotations/Reference.html" title="annotation in arez.annotations">Reference</a></td>
+<td class="colLast">
+<div class="block">A Reference annotation is placed on an abstract method that will resolve to a referenced object.</div>
+</td>
+</tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../arez/annotations/ReferenceId.html" title="annotation in arez.annotations">ReferenceId</a></td>
+<td class="colLast">
+<div class="block">This annotation designates the method used to retrieve the id of the reference.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations">Repository</a></td>
 <td class="colLast">
 <div class="block">Annotation that indicates that a repository must be generated for component.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../arez/annotations/Track.html" title="annotation in arez.annotations">Track</a></td>
 <td class="colLast">
 <div class="block">Methods marked with this annotation are run in tracking transactions.</div>
