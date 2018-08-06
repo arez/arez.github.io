@@ -67,7 +67,7 @@
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a href="#I:Z">Z</a>&nbsp;<a name="I:A">
+<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a href="#I:Z">Z</a>&nbsp;<a name="I:A">
 <!--   -->
 </a>
 <h2 class="title">A</h2>
@@ -83,6 +83,12 @@
 <div class="block">Abstract base class for reference to a component where reference should be cleared when the component is disposed.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/AbstractEntityReference.html#AbstractEntityReference--">AbstractEntityReference()</a></span> - Constructor for class arez.component.<a href="arez/component/AbstractEntityReference.html" title="class in arez.component">AbstractEntityReference</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/component/AbstractLocator.html" title="class in arez.component"><span class="typeNameLink">AbstractLocator</span></a> - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dd>
+<div class="block">An Locator implementation that supports registration of methods for each type to resolve.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/AbstractLocator.html#AbstractLocator--">AbstractLocator()</a></span> - Constructor for class arez.component.<a href="arez/component/AbstractLocator.html" title="class in arez.component">AbstractLocator</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/component/AbstractRepository.html" title="class in arez.component"><span class="typeNameLink">AbstractRepository</span></a>&lt;<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">R</a> extends <a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a>&lt;<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">R</a>&gt;&gt; - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
 <dd>
@@ -165,6 +171,14 @@
 <dt><span class="memberNameLink"><a href="arez/Spy.html#addSpyEventHandler-arez.SpyEventHandler-">addSpyEventHandler(SpyEventHandler)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
 <div class="block">Add a spy handler to the list of handlers.</div>
+</dd>
+<dt><a href="arez/component/AggregateLocator.html" title="class in arez.component"><span class="typeNameLink">AggregateLocator</span></a> - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dd>
+<div class="block">An Locator implementation that delegates queries to a list of other Locator implementations.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/AggregateLocator.html#AggregateLocator-arez.component.Locator...-">AggregateLocator(Locator...)</a></span> - Constructor for class arez.component.<a href="arez/component/AggregateLocator.html" title="class in arez.component">AggregateLocator</a></dt>
+<dd>
+<div class="block">Create the locator registering the supplied locators.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--">areCollectionsPropertiesUnmodifiable()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
@@ -791,6 +805,18 @@
 <dd>
 <div class="block">Return the entity with the specified ArezId or null if no such entity.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/component/AbstractLocator.html#findById-java.lang.Class-java.lang.Object-">findById(Class&lt;T&gt;, Object)</a></span> - Method in class arez.component.<a href="arez/component/AbstractLocator.html" title="class in arez.component">AbstractLocator</a></dt>
+<dd>
+<div class="block">Lookup the entity with the specified type and the specified id, returning null if not present.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/AggregateLocator.html#findById-java.lang.Class-java.lang.Object-">findById(Class&lt;T&gt;, Object)</a></span> - Method in class arez.component.<a href="arez/component/AggregateLocator.html" title="class in arez.component">AggregateLocator</a></dt>
+<dd>
+<div class="block">Lookup the entity with the specified type and the specified id, returning null if not present.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/Locator.html#findById-java.lang.Class-java.lang.Object-">findById(Class&lt;T&gt;, Object)</a></span> - Method in interface arez.component.<a href="arez/component/Locator.html" title="interface in arez.component">Locator</a></dt>
+<dd>
+<div class="block">Lookup the entity with the specified type and the specified id, returning null if not present.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#findByQuery-java.util.function.Predicate-">findByQuery(Predicate&lt;T&gt;)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return the entity that matches query or null if unable to locate matching entity.</div>
@@ -836,6 +862,10 @@
 <dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#getByArezId-K-">getByArezId(K)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return the entity with the specified ArezId else throw an exception.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/Locator.html#getById-java.lang.Class-java.lang.Object-">getById(Class&lt;T&gt;, Object)</a></span> - Method in interface arez.component.<a href="arez/component/Locator.html" title="interface in arez.component">Locator</a></dt>
+<dd>
+<div class="block">Return the entity with the specified type and the specified id, throwing an exception if not present.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#getByQuery-java.util.function.Predicate-">getByQuery(Predicate&lt;T&gt;)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
 <dd>
@@ -1276,6 +1306,28 @@
 <div class="block">Return true if there is a read-write transaction in progress.</div>
 </dd>
 </dl>
+<a name="I:L">
+<!--   -->
+</a>
+<h2 class="title">L</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="arez/component/Linkable.html#link--">link()</a></span> - Method in interface arez.component.<a href="arez/component/Linkable.html" title="interface in arez.component">Linkable</a></dt>
+<dd>
+<div class="block">Resolve any references.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/Linkable.html#link-java.lang.Object-">link(Object)</a></span> - Static method in interface arez.component.<a href="arez/component/Linkable.html" title="interface in arez.component">Linkable</a></dt>
+<dd>
+<div class="block">Link specified object if it is linkable.</div>
+</dd>
+<dt><a href="arez/component/Linkable.html" title="interface in arez.component"><span class="typeNameLink">Linkable</span></a> - Interface in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dd>
+<div class="block">Interface implemented by components that have references that need to be eagerly resolved.</div>
+</dd>
+<dt><a href="arez/component/Locator.html" title="interface in arez.component"><span class="typeNameLink">Locator</span></a> - Interface in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dd>
+<div class="block">The interface used to look up components by type and id.</div>
+</dd>
+</dl>
 <a name="I:M">
 <!--   -->
 </a>
@@ -1586,6 +1638,14 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ReactionStartedEvent.html#ReactionStartedEvent-arez.spy.ObserverInfo-">ReactionStartedEvent(ObserverInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ReactionStartedEvent.html" title="class in arez.spy">ReactionStartedEvent</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="arez/component/AggregateLocator.html#registerLocator-arez.component.Locator-">registerLocator(Locator)</a></span> - Method in class arez.component.<a href="arez/component/AggregateLocator.html" title="class in arez.component">AggregateLocator</a></dt>
+<dd>
+<div class="block">Register an entity locator to be searched.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/AbstractLocator.html#registerLookup-java.lang.Class-java.util.function.Function-">registerLookup(Class&lt;T&gt;, Function&lt;Object, T&gt;)</a></span> - Method in class arez.component.<a href="arez/component/AbstractLocator.html" title="class in arez.component">AbstractLocator</a></dt>
+<dd>
+<div class="block">Register a function that will find entities of specified type by id.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#removeObserverErrorHandler-arez.ObserverErrorHandler-">removeObserverErrorHandler(ObserverErrorHandler)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Remove error handler from list of existing error handlers.</div>
@@ -1605,6 +1665,10 @@
 <dt><span class="memberNameLink"><a href="arez/Observable.html#reportObserved--">reportObserved()</a></span> - Method in class arez.<a href="arez/Observable.html" title="class in arez">Observable</a></dt>
 <dd>
 <div class="block">Notify Arez that this observable has been "observed" in the current transaction.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Observable.html#reportObservedIfTrackingTransactionActive--">reportObservedIfTrackingTransactionActive()</a></span> - Method in class arez.<a href="arez/Observable.html" title="class in arez">Observable</a></dt>
+<dd>
+<div class="block">Notify Arez that this observable has been "observed" if a tracking transaction is active.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Spy.html#reportSpyEvent-java.lang.Object-">reportSpyEvent(Object)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
@@ -2136,7 +2200,7 @@ the order they are declared.</div>
 <div class="block">An isolated Arez context.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a href="#I:Z">Z</a>&nbsp;</div>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a href="#I:Z">Z</a>&nbsp;</div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav"><a name="navbar.bottom">
 <!--   -->

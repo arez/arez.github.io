@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -167,6 +167,12 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <div class="block">Notify Arez that this observable has been "observed" in the current transaction.</div>
 </td>
 </tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/Observable.html#reportObservedIfTrackingTransactionActive--">reportObservedIfTrackingTransactionActive</a></span>()</code>
+<div class="block">Notify Arez that this observable has been "observed" if a tracking transaction is active.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.arez.Node">
@@ -240,13 +246,23 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <div class="block">Notify Arez that this observable has been "observed" in the current transaction.</div>
 </li>
 </ul>
+<a name="reportObservedIfTrackingTransactionActive--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>reportObservedIfTrackingTransactionActive</h4>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.486">reportObservedIfTrackingTransactionActive</a>()</pre>
+<div class="block">Notify Arez that this observable has been "observed" if a tracking transaction is active.</div>
+</li>
+</ul>
 <a name="preReportChanged--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>preReportChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.488">preReportChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.499">preReportChanged</a>()</pre>
 <div class="block">Check that pre-conditions are satisfied before changing observable value.
  In production mode this will typically be a no-op. This method should be invoked
  before state is modified.</div>
@@ -258,7 +274,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>reportChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.500">reportChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observable.html#line.511">reportChanged</a>()</pre>
 <div class="block">Notify Arez that this observable has changed.
  This is called when the observable has definitely changed.</div>
 </li>
