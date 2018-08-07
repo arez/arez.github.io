@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -163,41 +163,47 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/Arez.html#areReferencesEnabled--">areReferencesEnabled</a></span>()</code>
+<div class="block">Return true if references are enabled.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Arez.html#areRegistriesEnabled--">areRegistriesEnabled</a></span>()</code>
 <div class="block">Return true if registries for top level reactive components are enabled.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Arez.html#areSpiesEnabled--">areSpiesEnabled</a></span>()</code>
 <div class="block">Return true if spies are enabled.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Arez.html#areZonesEnabled--">areZonesEnabled</a></span>()</code>
 <div class="block">Return true if zones are enabled, false otherwise.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static <a href="../arez/ArezContext.html" title="class in arez">ArezContext</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Arez.html#context--">context</a></span>()</code>
 <div class="block">Return the ArezContext from the provider.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static <a href="../arez/Zone.html" title="class in arez">Zone</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Arez.html#createZone--">createZone</a></span>()</code>
 <div class="block">Create a new zone.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Arez.html#shouldCheckApiInvariants--">shouldCheckApiInvariants</a></span>()</code>
 <div class="block">Return true if apiInvariants will be checked.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Arez.html#shouldCheckInvariants--">shouldCheckInvariants</a></span>()</code>
 <div class="block">Return true if invariants will be checked.</div>
@@ -267,13 +273,27 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </dl>
 </li>
 </ul>
+<a name="areReferencesEnabled--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>areReferencesEnabled</h4>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.57">areReferencesEnabled</a>()</pre>
+<div class="block">Return true if references are enabled.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if references are enabled, false otherwise.</dd>
+</dl>
+</li>
+</ul>
 <a name="areCollectionsPropertiesUnmodifiable--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>areCollectionsPropertiesUnmodifiable</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.57">areCollectionsPropertiesUnmodifiable</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.67">areCollectionsPropertiesUnmodifiable</a>()</pre>
 <div class="block">Return true if observable properties, computed properties or query results that are of type collection are wrapped in unmodifiable variant prior to returning.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -287,7 +307,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>arePropertyIntrospectorsEnabled</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.67">arePropertyIntrospectorsEnabled</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.77">arePropertyIntrospectorsEnabled</a>()</pre>
 <div class="block">Return true if property introspectors for Observables are enabled.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -301,7 +321,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>areRegistriesEnabled</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.77">areRegistriesEnabled</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.87">areRegistriesEnabled</a>()</pre>
 <div class="block">Return true if registries for top level reactive components are enabled.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -315,7 +335,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>areNativeComponentsEnabled</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.87">areNativeComponentsEnabled</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.97">areNativeComponentsEnabled</a>()</pre>
 <div class="block">Return true if native components are enabled.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -329,7 +349,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>areObserverErrorHandlersEnabled</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.97">areObserverErrorHandlersEnabled</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.107">areObserverErrorHandlersEnabled</a>()</pre>
 <div class="block">Return true if observer error handlers are enabled.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -343,7 +363,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>shouldCheckInvariants</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.117">shouldCheckInvariants</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.127">shouldCheckInvariants</a>()</pre>
 <div class="block">Return true if invariants will be checked.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -357,7 +377,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>shouldCheckApiInvariants</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.127">shouldCheckApiInvariants</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/arez/Arez.html#line.137">shouldCheckApiInvariants</a>()</pre>
 <div class="block">Return true if apiInvariants will be checked.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -372,7 +392,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>context</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;<a href="../src-html/arez/Arez.html#line.138">context</a>()</pre>
+public static&nbsp;<a href="../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;<a href="../src-html/arez/Arez.html#line.148">context</a>()</pre>
 <div class="block">Return the ArezContext from the provider.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -387,7 +407,7 @@ public static&nbsp;<a href="../arez/ArezContext.html" title="class in arez">Arez
 <li class="blockList">
 <h4>createZone</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../arez/Zone.html" title="class in arez">Zone</a>&nbsp;<a href="../src-html/arez/Arez.html#line.150">createZone</a>()</pre>
+public static&nbsp;<a href="../arez/Zone.html" title="class in arez">Zone</a>&nbsp;<a href="../src-html/arez/Arez.html#line.160">createZone</a>()</pre>
 <div class="block">Create a new zone.
  This zone is not yet activated.</div>
 <dl>

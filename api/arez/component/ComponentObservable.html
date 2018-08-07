@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public interface <a href="../../src-html/arez/component/ComponentObservable.html#line.12">ComponentObservable</a></pre>
+<pre>public interface <a href="../../src-html/arez/component/ComponentObservable.html#line.11">ComponentObservable</a></pre>
 <div class="block">Interface implemented by components so that observers can observe the component without
  observing a particular property.</div>
 </li>
@@ -165,7 +165,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>observe</h4>
-<pre>boolean&nbsp;<a href="../../src-html/arez/component/ComponentObservable.html#line.22">observe</a>()</pre>
+<pre>boolean&nbsp;<a href="../../src-html/arez/component/ComponentObservable.html#line.21">observe</a>()</pre>
 <div class="block">Return true if the component is "alive" a.k.a. not disposing or disposed.
  This method MUST be invoked within a non-DISPOSE transaction and will add
  the component as a dependency if the transaction is tracking, unless
@@ -182,7 +182,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>observe</h4>
-<pre>static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentObservable.html#line.32">observe</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentObservable.html#line.31">observe</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Invoke <a href="../../arez/component/ComponentObservable.html#observe--"><code>observe()</code></a> on the supplied object if any.
  If a null object is passed into this method then it will return true.
@@ -201,7 +201,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>notObserved</h4>
-<pre>static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentObservable.html#line.43">notObserved</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentObservable.html#line.42">notObserved</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                            <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Return true if <a href="../../arez/component/ComponentObservable.html#observe-java.lang.Object-"><code>observe(Object)</code></a> returns false for the same parameter.</div>
 <dl>
@@ -219,7 +219,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>asComponentObservable</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-static&nbsp;<a href="../../arez/component/ComponentObservable.html" title="interface in arez.component">ComponentObservable</a>&nbsp;<a href="../../src-html/arez/component/ComponentObservable.html#line.56">asComponentObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+static&nbsp;<a href="../../arez/component/ComponentObservable.html" title="interface in arez.component">ComponentObservable</a>&nbsp;<a href="../../src-html/arez/component/ComponentObservable.html#line.55">asComponentObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Cast specified object to an instance of ComponentObservable.
  Invariant checks will verify that the cast is valid before proceeding.</div>
