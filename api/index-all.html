@@ -650,6 +650,10 @@
 <dd>
 <div class="block">Set `arez.enable_spies` setting to false.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#disableVerify--">disableVerify()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
+<dd>
+<div class="block">Set `arez.enable_verify` setting to false.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#disableZones--">disableZones()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
 <div class="block">Set `arez.enable_zones` setting to false.</div>
@@ -736,6 +740,10 @@
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#enableSpies--">enableSpies()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
 <div class="block">Set `arez.enable_spies` setting to true.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#enableVerify--">enableVerify()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
+<dd>
+<div class="block">Set `arez.enable_verify` setting to true.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#enableZones--">enableZones()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
@@ -1290,6 +1298,10 @@
 <dt><span class="memberNameLink"><a href="arez/Spy.html#isTransactionActive--">isTransactionActive()</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
 <div class="block">Return true if there is a transaction active.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Arez.html#isVerifyEnabled--">isVerifyEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
+<dd>
+<div class="block">Return true if <a href="arez/component/Verifiable.html" title="interface in arez.component"><code>Verifiable</code></a> will veriyf components be used, false if not.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#isWriteTransactionActive--">isWriteTransactionActive()</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
@@ -2151,6 +2163,18 @@ the order they are declared.</div>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
+</dd>
+<dt><a href="arez/component/Verifiable.html" title="interface in arez.component"><span class="typeNameLink">Verifiable</span></a> - Interface in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dd>
+<div class="block">Interface implemented by components that can verify their internal state.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/Verifiable.html#verify--">verify()</a></span> - Method in interface arez.component.<a href="arez/component/Verifiable.html" title="interface in arez.component">Verifiable</a></dt>
+<dd>
+<div class="block">verify the state of the component and raise an exception if any state fails to verify.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/Verifiable.html#verify-java.lang.Object-">verify(Object)</a></span> - Static method in interface arez.component.<a href="arez/component/Verifiable.html" title="interface in arez.component">Verifiable</a></dt>
+<dd>
+<div class="block">Verify they supplied object if it is verifiable.</div>
 </dd>
 </dl>
 <a name="I:W">

@@ -180,7 +180,16 @@
 <span class="sourceLineNo">172</span>   * @return enum controlling whether a unique if of the component can be accessed via {@link arez.component.Identifiable#getArezId(Object)}.<a name="line.172"></a>
 <span class="sourceLineNo">173</span>   */<a name="line.173"></a>
 <span class="sourceLineNo">174</span>  Feature requireId() default Feature.AUTODETECT;<a name="line.174"></a>
-<span class="sourceLineNo">175</span>}<a name="line.175"></a>
+<span class="sourceLineNo">175</span><a name="line.175"></a>
+<span class="sourceLineNo">176</span>  /**<a name="line.176"></a>
+<span class="sourceLineNo">177</span>   * Indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.177"></a>
+<span class="sourceLineNo">178</span>   * This feature is ignored unless {@link Arez#isVerifyEnabled()} ()} is true. The {@link Feature#AUTODETECT}<a name="line.178"></a>
+<span class="sourceLineNo">179</span>   * value will enable this feature if the component has an {@link Reference} methods.<a name="line.179"></a>
+<span class="sourceLineNo">180</span>   *<a name="line.180"></a>
+<span class="sourceLineNo">181</span>   * @return enum that indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.181"></a>
+<span class="sourceLineNo">182</span>   */<a name="line.182"></a>
+<span class="sourceLineNo">183</span>  Feature verify() default Feature.AUTODETECT;<a name="line.183"></a>
+<span class="sourceLineNo">184</span>}<a name="line.184"></a>
 
 
 
