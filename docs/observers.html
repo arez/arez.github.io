@@ -8,8 +8,8 @@
 initiating effects. Each observer is associated with a tracked function. When the function executes,
 Arez tracks which <a href="/docs/observables.html">observables</a> and <a href="/docs/computed_values.html">computed values</a> are accessed
 within the scope of the function and these elements are recorded as dependencies of the observer. Any
-time a dependency is changed, Arez will re-schedule the observer. There are three types of observer
-supported within Arez; <strong>Autorun</strong> observers, <strong>Tracker</strong> observers and <strong>When</strong> observers.</p>
+time a dependency is changed, Arez will re-schedule the observer. There are two types of observer
+supported within Arez; <strong>Autorun</strong> observers and <strong>Tracker</strong> observers.</p>
 <h2><a class="anchor" aria-hidden="true" name="autorun-observers"></a><a href="#autorun-observers" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Autorun Observers</h2>
 <p>The Arez scheduler is responsible for scheduling the tracked function for autorun observers. Normally when
 an autorun observer is defined, the tracked function will be triggered once immediately and then once again
@@ -56,25 +56,6 @@ invocation.</p>
 Arez.context().track( tracker, trackedFunction );</code></pre></p>
 <p>As with Autorun observers these primitive APIs are unlikely to be directly used by the user but it is more likely
 that they will be used indirectly by high-level apis such as the <a href="/docs/at_track.html">@Track</a> annotation.</p>
-<h2><a class="anchor" aria-hidden="true" name="when-observers"></a><a href="#when-observers" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>When Observers</h2>
-<p>When observers contain two functions; the condition function and the effect callback. The condition function
-is the tracked function that re-executes anytime a dependency changes and returns a boolean value. When the
-condition callback returns true, the observer invokes the effect function as an action and disposes itself.
-i.e. &quot;When&quot; observers are used when the developer needs to perform an action when a condition is true.</p>
-<p>A when observer is more complex than other observers within Arez. The when observer is actually composed of
-an autorun observer, a computed property and an action. There are several low-level
-<a href="/api/arez/ArezContext.html#when-arez.SafeFunction-arez.SafeProcedure-"><code>ArezContext.when(*)</code></a> methods that can be
-used to create when observers.</p>
-<p>An example of a basic autorun observer:</p>
-<p><pre><code class="hljs">Arez.context().when( () -&gt; {
-  <span class="hljs-comment">// Interact with arez observable state (or computed values) here</span>
-  <span class="hljs-comment">// and any time these changed this function will be re-run.</span>
-  <span class="hljs-comment">// This method should return true, when the effect is to be run</span>
-  ...
-}, () -&gt; {
-  <span class="hljs-comment">// This action will be invoked when the condition block returns true</span>
-  ...
-} );</code></pre></p>
 <h2><a class="anchor" aria-hidden="true" name="error-handling"></a><a href="#error-handling" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Handling</h2>
 <p>Exceptions thrown in an autorun observers's tracked function or a tracker observer's schedule callback are caught by
 the Arez scheduler and passed to an error handler. This is to make sure that an exception in one observer does not

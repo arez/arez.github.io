@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public interface <a href="../../src-html/arez/spy/ObserverInfo.html#line.11">ObserverInfo</a>
+<pre>public interface <a href="../../src-html/arez/spy/ObserverInfo.html#line.12">ObserverInfo</a>
 extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">ElementInfo</a></pre>
 <div class="block">A representation of a observer instance exposed to spy framework.</div>
 </li>
@@ -143,24 +143,30 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../arez/Priority.html" title="enum in arez">Priority</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/ObserverInfo.html#getPriority--">getPriority</a></span>()</code>
+<div class="block">Return the priority of the Observer.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/ObserverInfo.html#isComputedValue--">isComputedValue</a></span>()</code>
 <div class="block">Return true if the Observer is a ComputedValue.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/ObserverInfo.html#isReadOnly--">isReadOnly</a></span>()</code>
 <div class="block">Return true if the Observer will use a read-only transaction.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/ObserverInfo.html#isRunning--">isRunning</a></span>()</code>
 <div class="block">Return true if the Observer is currently running.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/ObserverInfo.html#isScheduled--">isScheduled</a></span>()</code>
 <div class="block">Return true if the Observer is scheduled to run.</div>
@@ -194,7 +200,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>isRunning</h4>
-<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.20">isRunning</a>()</pre>
+<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.21">isRunning</a>()</pre>
 <div class="block">Return true if the Observer is currently running.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -210,7 +216,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>isScheduled</h4>
-<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.28">isScheduled</a>()</pre>
+<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.29">isScheduled</a>()</pre>
 <div class="block">Return true if the Observer is scheduled to run.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -226,7 +232,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>isComputedValue</h4>
-<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.36">isComputedValue</a>()</pre>
+<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.37">isComputedValue</a>()</pre>
 <div class="block">Return true if the Observer is a ComputedValue.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -242,7 +248,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>isReadOnly</h4>
-<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.44">isReadOnly</a>()</pre>
+<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.45">isReadOnly</a>()</pre>
 <div class="block">Return true if the Observer will use a read-only transaction.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -252,13 +258,28 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 </dl>
 </li>
 </ul>
+<a name="getPriority--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPriority</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<a href="../../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.53">getPriority</a>()</pre>
+<div class="block">Return the priority of the Observer.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the priority of the Observer.</dd>
+</dl>
+</li>
+</ul>
 <a name="asComputedValue--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>asComputedValue</h4>
-<pre><a href="../../arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a>&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.53">asComputedValue</a>()</pre>
+<pre><a href="../../arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a>&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.62">asComputedValue</a>()</pre>
 <div class="block">Convert the Observer to a ComputedValue.
  This method should only be called if <a href="../../arez/spy/ObserverInfo.html#isComputedValue--"><code>isComputedValue()</code></a> returns true.</div>
 <dl>
@@ -276,7 +297,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <li class="blockList">
 <h4>getDependencies</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObservableInfo.html" title="interface in arez.spy">ObservableInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.66">getDependencies</a>()</pre>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObservableInfo.html" title="interface in arez.spy">ObservableInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.75">getDependencies</a>()</pre>
 <div class="block">Return the list of dependencies of the Observer.
  The list is an immutable copy of the dependencies of the <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a>.
  If the <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a> is currently running (i.e. <a href="../../arez/spy/ObserverInfo.html#isRunning--"><code>isRunning()</code></a>
@@ -297,7 +318,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <li class="blockList">
 <h4>getComponent</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-<a href="../../arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a>&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.76">getComponent</a>()</pre>
+<a href="../../arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a>&nbsp;<a href="../../src-html/arez/spy/ObserverInfo.html#line.85">getComponent</a>()</pre>
 <div class="block">Return the component for the specified Observer.
  This method should not be invoked if <a href="../../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</div>
 <dl>

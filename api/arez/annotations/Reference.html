@@ -132,12 +132,30 @@ public @interface <a href="../../src-html/arez/annotations/Reference.html#line.3
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Reference.html#inverse--">inverse</a></span></code>
+<div class="block">Return the enum controlling whether there is an inverse for reference.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../arez/annotations/Multiplicity.html" title="enum in arez.annotations">Multiplicity</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Reference.html#inverseMultiplicity--">inverseMultiplicity</a></span></code>
+<div class="block">Define the expected multiplicity of the inverse associated with the reference.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Reference.html#inverseName--">inverseName</a></span></code>
+<div class="block">Return the name of the inverse associated with the reference.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../arez/annotations/LinkType.html" title="enum in arez.annotations">LinkType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Reference.html#load--">load</a></span></code>
 <div class="block">Return the strategy for resolving reference.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Reference.html#name--">name</a></span></code>
 <div class="block">Return the name of the reference relative to the component.</div>
@@ -185,7 +203,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="load--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>load</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -198,6 +216,79 @@ public abstract&nbsp;<a href="../../arez/annotations/LinkType.html" title="enum 
 <dl>
 <dt>Default:</dt>
 <dd>arez.annotations.LinkType.EAGER</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="inverse--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>inverse</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.62">inverse</a></pre>
+<div class="block">Return the enum controlling whether there is an inverse for reference.
+ <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> tells the annotation processor to expect an inverse and add code
+ to maintain the inverse. <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> will generate no code to maintain
+ inverse module. <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will be treated as <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a>
+ if either the <a href="../../arez/annotations/Reference.html#inverseName--"><code>inverseName()</code></a> or <a href="../../arez/annotations/Reference.html#inverseMultiplicity--"><code>inverseMultiplicity()</code></a> is specified.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the enum controlling whether there is an inverse for reference</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>arez.annotations.Feature.AUTODETECT</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="inverseName--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>inverseName</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.73">inverseName</a></pre>
+<div class="block">Return the name of the inverse associated with the reference. The value must conform
+ to the requirements of a java identifier. If not specified, the name will be derived
+ by camelCasing the simple name of the class on which the <a href="../../arez/annotations/Reference.html" title="annotation in arez.annotations"><code>Reference</code></a> annotation
+ is placed and then adding an s if <a href="../../arez/annotations/Reference.html#inverseMultiplicity--"><code>inverseMultiplicity()</code></a> is <a href="../../arez/annotations/Multiplicity.html#MANY"><code>Multiplicity.MANY</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the name of the reference relative to the component.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>"&lt;default&gt;"</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="inverseMultiplicity--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>inverseMultiplicity</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public abstract&nbsp;<a href="../../arez/annotations/Multiplicity.html" title="enum in arez.annotations">Multiplicity</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.81">inverseMultiplicity</a></pre>
+<div class="block">Define the expected multiplicity of the inverse associated with the reference.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the expected multiplicity of the inverse associated with the reference.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>arez.annotations.Multiplicity.MANY</dd>
 </dl>
 </li>
 </ul>
