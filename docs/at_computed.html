@@ -50,10 +50,9 @@ derive the return value from other <a href="/docs/at_observable.html"><code>@Obs
 }</code></pre></p>
 <p>The component model supports the definition of callback methods as described in the
 <a href="/docs/computed_values.html">computed values</a> document. This is done through the annotations:
-<a href="/api/arez/annotations/OnActivate.html"><code>@OnActivate</code></a>, <a href="/api/arez/annotations/OnDeactivate.html"><code>@OnDeactivate</code></a>,  <a href="/api/arez/annotations/OnStale.html"><code>@OnStale</code></a> and
-<a href="/api/arez/annotations/OnDispose.html"><code>@OnDispose</code></a>. These methods are associated with a <code>@Computed</code> annotated method via naming
-conventions or through explicit configuration. The exact requirements for methods annotated by these annotations
-is defined in the API documentation.</p>
+<a href="/api/arez/annotations/OnActivate.html"><code>@OnActivate</code></a>, <a href="/api/arez/annotations/OnDeactivate.html"><code>@OnDeactivate</code></a> and <a href="/api/arez/annotations/OnStale.html"><code>@OnStale</code></a>.
+These methods are associated with a <code>@Computed</code> annotated method via naming conventions or through explicit
+configuration. The exact requirements for methods annotated by these annotations is defined in the API documentation.</p>
 <p>A simpl-ish example that uses the callbacks to register a listener on the underlying browser objects and
 updates the computed value is as follows. This is extracted and simplified from an existing component that
 manages online state.</p>
