@@ -245,7 +245,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-boolean-arez.Procedure-">autorun</a></span>(boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</code>
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</code>
 <div class="block">Create an autorun observer and run immediately.</div>
 </td>
 </tr>
@@ -254,7 +254,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-arez.Component-java.lang.String-boolean-arez.Procedure-">autorun</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</code>
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</code>
 <div class="block">Create an autorun observer.</div>
 </td>
 </tr>
@@ -263,7 +263,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-">autorun</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
        <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
        boolean&nbsp;runImmediately)</code>
 <div class="block">Create an autorun observer.</div>
@@ -274,7 +274,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-boolean-">autorun</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
        <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
        boolean&nbsp;runImmediately,
        boolean&nbsp;observeLowerPriorityDependencies)</code>
@@ -286,7 +286,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-boolean-boolean-">autorun</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
        <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
        boolean&nbsp;runImmediately,
        boolean&nbsp;observeLowerPriorityDependencies,
@@ -299,7 +299,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-boolean-boolean-arez.Procedure-">autorun</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
        <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
        boolean&nbsp;runImmediately,
        boolean&nbsp;observeLowerPriorityDependencies,
@@ -310,7 +310,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-arez.Procedure-">autorun</a></span>(<a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-arez.Procedure-">autorun</a></span>(<a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</code>
 <div class="block">Create a read-only autorun observer and run immediately.</div>
 </td>
 </tr>
@@ -318,7 +318,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-java.lang.String-boolean-arez.Procedure-">autorun</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</code>
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</code>
 <div class="block">Create an autorun observer and run immediately.</div>
 </td>
 </tr>
@@ -326,7 +326,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-java.lang.String-boolean-arez.Procedure-boolean-">autorun</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
        boolean&nbsp;runImmediately)</code>
 <div class="block">Create an autorun observer.</div>
 </td>
@@ -335,7 +335,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-">autorun</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
        <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
        boolean&nbsp;runImmediately)</code>
 <div class="block">Create an autorun observer.</div>
@@ -344,7 +344,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#autorun-java.lang.String-arez.Procedure-">autorun</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</code>
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</code>
 <div class="block">Create a read-only autorun observer and run immediately.</div>
 </td>
 </tr>
@@ -752,7 +752,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i74" class="altColor">
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#tracker-boolean-arez.Procedure-">tracker</a></span>(boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</code>
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</code>
 <div class="block">Create a "tracker" observer.</div>
 </td>
 </tr>
@@ -761,7 +761,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#tracker-arez.Component-java.lang.String-boolean-arez.Procedure-">tracker</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</code>
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</code>
 <div class="block">Create a "tracker" observer.</div>
 </td>
 </tr>
@@ -770,7 +770,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#tracker-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-">tracker</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
        <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority)</code>
 <div class="block">Create a "tracker" observer.</div>
 </td>
@@ -780,7 +780,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#tracker-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-">tracker</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
        <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
        boolean&nbsp;observeLowerPriorityDependencies)</code>
 <div class="block">Create a "tracker" observer.</div>
@@ -791,7 +791,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#tracker-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-boolean-">tracker</a></span>(<a href="../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
        <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
        boolean&nbsp;observeLowerPriorityDependencies,
        boolean&nbsp;canNestActions)</code>
@@ -800,7 +800,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i79" class="rowColor">
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#tracker-arez.Procedure-">tracker</a></span>(<a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#tracker-arez.Procedure-">tracker</a></span>(<a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</code>
 <div class="block">Create a "tracker" observer that tracks code using a read-only transaction.</div>
 </td>
 </tr>
@@ -808,7 +808,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colFirst"><code><a href="../arez/Observer.html" title="class in arez">Observer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezContext.html#tracker-java.lang.String-boolean-arez.Procedure-">tracker</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        boolean&nbsp;mutation,
-       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</code>
+       <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</code>
 <div class="block">Create a "tracker" observer.</div>
 </td>
 </tr>
@@ -1247,7 +1247,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
 <dd><code>priority</code> - the priority of the associated observer.</dd>
 <dd><code>keepAlive</code> - true if the ComputedValue should be activated when it is created and never deactivated. If this is true then the onActivate and onDeactivate parameters should be null.</dd>
 <dd><code>runImmediately</code> - ignored unless keepAlive is true. true to compute the value immediately, false to schedule compute for next reaction cycle.</dd>
-<dd><code>observeLowerPriorityDependencies</code> - true if the tracker can observe lower priority dependencies.</dd>
+<dd><code>observeLowerPriorityDependencies</code> - true if the computed can observe lower priority dependencies.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the ComputedValue instance.</dd>
 </dl>
@@ -1261,11 +1261,11 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
 <h4>autorun</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
 public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.620">autorun</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</pre>
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</pre>
 <div class="block">Create a read-only autorun observer and run immediately.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>action</code> - the action defining the observer.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1281,12 +1281,12 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.633">autorun</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</pre>
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</pre>
 <div class="block">Create a read-only autorun observer and run immediately.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the name of the observer.</dd>
-<dd><code>action</code> - the action defining the observer.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1301,12 +1301,12 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
 public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.646">autorun</a>(boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</pre>
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</pre>
 <div class="block">Create an autorun observer and run immediately.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
-<dd><code>action</code> - the action defining the observer.</dd>
+<dd><code>mutation</code> - true if the executable may modify state, false otherwise.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1323,13 +1323,13 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</pre>
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</pre>
 <div class="block">Create an autorun observer and run immediately.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the name of the observer.</dd>
-<dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
-<dd><code>action</code> - the action defining the observer.</dd>
+<dd><code>mutation</code> - true if the executable may modify state, false otherwise.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1346,15 +1346,15 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
                                  boolean&nbsp;runImmediately)</pre>
 <div class="block">Create an autorun observer.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the name of the observer.</dd>
-<dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
-<dd><code>action</code> - the action defining the observer.</dd>
-<dd><code>runImmediately</code> - true to invoke action immediately, false to schedule reaction for next reaction cycle.</dd>
+<dd><code>mutation</code> - true if the executable may modify state, false otherwise.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
+<dd><code>runImmediately</code> - true to invoke executable immediately, false to schedule for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1371,7 +1371,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                                  boolean&nbsp;runImmediately)</pre>
@@ -1379,10 +1379,10 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the name of the observer.</dd>
-<dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
-<dd><code>action</code> - the action defining the observer.</dd>
+<dd><code>mutation</code> - true if the executable may modify state, false otherwise.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
 <dd><code>priority</code> - the priority of the observer.</dd>
-<dd><code>runImmediately</code> - true to invoke action immediately, false to schedule reaction for next reaction cycle.</dd>
+<dd><code>runImmediately</code> - true to invoke executable immediately, false to schedule for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1401,14 +1401,14 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</pre>
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</pre>
 <div class="block">Create an autorun observer.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - the component containing autorun observer if any. Should be null if <a href="../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</dd>
 <dd><code>name</code> - the name of the observer.</dd>
-<dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
-<dd><code>action</code> - the action defining the observer.</dd>
+<dd><code>mutation</code> - true if the executable may modify state, false otherwise.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1427,7 +1427,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                                  boolean&nbsp;runImmediately)</pre>
@@ -1436,10 +1436,10 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - the component containing autorun observer if any. Should be null if <a href="../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</dd>
 <dd><code>name</code> - the name of the observer.</dd>
-<dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
-<dd><code>action</code> - the action defining the observer.</dd>
+<dd><code>mutation</code> - true if the executable may modify state, false otherwise.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
 <dd><code>priority</code> - the priority of the observer.</dd>
-<dd><code>runImmediately</code> - true to invoke action immediately, false to schedule reaction for next reaction cycle.</dd>
+<dd><code>runImmediately</code> - true to invoke executable immediately, false to schedule for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1458,7 +1458,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                                  boolean&nbsp;runImmediately,
@@ -1468,11 +1468,11 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - the component containing autorun observer if any. Should be null if <a href="../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</dd>
 <dd><code>name</code> - the name of the observer.</dd>
-<dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
-<dd><code>action</code> - the action defining the observer.</dd>
+<dd><code>mutation</code> - true if the executable may modify state, false otherwise.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
 <dd><code>priority</code> - the priority of the observer.</dd>
-<dd><code>runImmediately</code> - true to invoke action immediately, false to schedule reaction for next reaction cycle.</dd>
-<dd><code>observeLowerPriorityDependencies</code> - true if the tracker can observe lower priority dependencies.</dd>
+<dd><code>runImmediately</code> - true to invoke executable immediately, false to schedule for next reaction cycle.</dd>
+<dd><code>observeLowerPriorityDependencies</code> - true if the observer can observe lower priority dependencies.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1491,7 +1491,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                                  boolean&nbsp;runImmediately,
@@ -1502,12 +1502,12 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - the component containing autorun observer if any. Should be null if <a href="../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</dd>
 <dd><code>name</code> - the name of the observer.</dd>
-<dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
-<dd><code>action</code> - the action defining the observer.</dd>
+<dd><code>mutation</code> - true if the executable may modify state, false otherwise.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
 <dd><code>priority</code> - the priority of the observer.</dd>
-<dd><code>runImmediately</code> - true to invoke action immediately, false to schedule reaction for next reaction cycle.</dd>
-<dd><code>observeLowerPriorityDependencies</code> - true if the tracker can observe lower priority dependencies.</dd>
-<dd><code>canNestActions</code> - true if the tracker can start actions from tracker action.</dd>
+<dd><code>runImmediately</code> - true to invoke executable immediately, false to schedule for next reaction cycle.</dd>
+<dd><code>observeLowerPriorityDependencies</code> - true if the observer can observe lower priority dependencies.</dd>
+<dd><code>canNestActions</code> - true if the observer can start actions from autorun.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1526,7 +1526,7 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                                  boolean&nbsp;runImmediately,
@@ -1539,12 +1539,12 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - the component containing autorun observer if any. Should be null if <a href="../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</dd>
 <dd><code>name</code> - the name of the observer.</dd>
-<dd><code>mutation</code> - true if the action may modify state, false otherwise.</dd>
-<dd><code>action</code> - the action defining the observer.</dd>
+<dd><code>mutation</code> - true if the executable may modify state, false otherwise.</dd>
+<dd><code>executable</code> - the executable defining the observer.</dd>
 <dd><code>priority</code> - the priority of the observer.</dd>
-<dd><code>runImmediately</code> - true to invoke action immediately, false to schedule reaction for next reaction cycle.</dd>
-<dd><code>observeLowerPriorityDependencies</code> - true if the tracker can observe lower priority dependencies.</dd>
-<dd><code>canNestActions</code> - true if the tracker can start actions from tracker action.</dd>
+<dd><code>runImmediately</code> - true to invoke executable immediately, false to schedule for next reaction cycle.</dd>
+<dd><code>observeLowerPriorityDependencies</code> - true if the observer can observe lower priority dependencies.</dd>
+<dd><code>canNestActions</code> - true if the observer can start actions from autorun.</dd>
 <dd><code>onDispose</code> - the hook function invoked when the autroun is disposed, if any.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
@@ -1559,13 +1559,13 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <h4>tracker</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
 public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.865">tracker</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</pre>
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</pre>
 <div class="block">Create a "tracker" observer that tracks code using a read-only transaction.
- The "tracker" observer triggers the specified action any time any of the observers dependencies are updated.
- To track dependencies, this returned observer must be passed as the tracker to an action method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
+ The "tracker" observer triggers the specified executable any time any of the observers dependencies are updated.
+ To track dependencies, this returned observer must be passed as the tracker to an track method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>action</code> - the action invoked as the reaction.</dd>
+<dd><code>executable</code> - the executable invoked as the reaction.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1580,14 +1580,14 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
 public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.880">tracker</a>(boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</pre>
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</pre>
 <div class="block">Create a "tracker" observer.
- The "tracker" observer triggers the specified action any time any of the observers dependencies are updated.
- To track dependencies, this returned observer must be passed as the tracker to an action method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
+ The "tracker" observer triggers the specified executable any time any of the observers dependencies are updated.
+ To track dependencies, this returned observer must be passed as the tracker to an track method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>mutation</code> - true if the observer may modify state during tracking, false otherwise.</dd>
-<dd><code>action</code> - the action invoked as the reaction.</dd>
+<dd><code>executable</code> - the executable invoked as the reaction.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1604,15 +1604,15 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</pre>
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</pre>
 <div class="block">Create a "tracker" observer.
- The "tracker" observer triggers the specified action any time any of the observers dependencies are updated.
- To track dependencies, this returned observer must be passed as the tracker to an action method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
+ The "tracker" observer triggers the specified executable any time any of the observers dependencies are updated.
+ To track dependencies, this returned observer must be passed as the tracker to an track method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the name of the observer.</dd>
 <dd><code>mutation</code> - true if the observer may modify state during tracking, false otherwise.</dd>
-<dd><code>action</code> - the action invoked as the reaction.</dd>
+<dd><code>executable</code> - the executable invoked as the reaction.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1631,16 +1631,16 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)</pre>
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</pre>
 <div class="block">Create a "tracker" observer.
- The "tracker" observer triggers the specified action any time any of the observers dependencies are updated.
- To track dependencies, this returned observer must be passed as the tracker to an action method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
+ The "tracker" observer triggers the specified executable any time any of the observers dependencies are updated.
+ To track dependencies, this returned observer must be passed as the tracker to an track method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - the component containing tracker if any. Should be null if <a href="../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</dd>
 <dd><code>name</code> - the name of the observer.</dd>
 <dd><code>mutation</code> - true if the observer may modify state during tracking, false otherwise.</dd>
-<dd><code>action</code> - the action invoked as the reaction.</dd>
+<dd><code>executable</code> - the executable invoked as the reaction.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1659,19 +1659,19 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority)</pre>
 <div class="block">Create a "tracker" observer.
- The "tracker" observer triggers the specified action any time any of the observers dependencies are updated.
- To track dependencies, this returned observer must be passed as the tracker to an action method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
+ The "tracker" observer triggers the specified executable any time any of the observers dependencies are updated.
+ To track dependencies, this returned observer must be passed as the tracker to an track method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - the component containing tracker if any. Should be null if <a href="../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</dd>
 <dd><code>name</code> - the name of the observer.</dd>
 <dd><code>mutation</code> - true if the observer may modify state during tracking, false otherwise.</dd>
 <dd><code>priority</code> - the priority of the observer.</dd>
-<dd><code>action</code> - the action invoked as the reaction.</dd>
+<dd><code>executable</code> - the executable invoked as the reaction.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1690,21 +1690,21 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                                  boolean&nbsp;observeLowerPriorityDependencies)</pre>
 <div class="block">Create a "tracker" observer.
- The "tracker" observer triggers the specified action any time any of the observers dependencies are updated.
- To track dependencies, this returned observer must be passed as the tracker to an action method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
+ The "tracker" observer triggers the specified executable any time any of the observers dependencies are updated.
+ To track dependencies, this returned observer must be passed as the tracker to an track method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - the component containing tracker if any. Should be null if <a href="../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</dd>
 <dd><code>name</code> - the name of the observer.</dd>
 <dd><code>mutation</code> - true if the observer may modify state during tracking, false otherwise.</dd>
 <dd><code>priority</code> - the priority of the observer.</dd>
-<dd><code>action</code> - the action invoked as the reaction.</dd>
-<dd><code>observeLowerPriorityDependencies</code> - true if the tracker can observe lower priority dependencies.</dd>
+<dd><code>executable</code> - the executable invoked as the reaction.</dd>
+<dd><code>observeLowerPriorityDependencies</code> - true if the observer can observe lower priority dependencies.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
@@ -1723,23 +1723,23 @@ public&nbsp;<a href="../arez/Observer.html" title="class in arez">Observer</a>&n
                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                  boolean&nbsp;mutation,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action,
+                                 <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;priority,
                                  boolean&nbsp;observeLowerPriorityDependencies,
                                  boolean&nbsp;canNestActions)</pre>
 <div class="block">Create a "tracker" observer.
- The "tracker" observer triggers the specified action any time any of the observers dependencies are updated.
- To track dependencies, this returned observer must be passed as the tracker to an action method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
+ The "tracker" observer triggers the specified executable any time any of the observers dependencies are updated.
+ To track dependencies, this returned observer must be passed as the tracker to an track method like <a href="../arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-"><code>track(Observer, Function, Object...)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - the component containing tracker if any. Should be null if <a href="../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</dd>
 <dd><code>name</code> - the name of the observer.</dd>
 <dd><code>mutation</code> - true if the observer may modify state during tracking, false otherwise.</dd>
 <dd><code>priority</code> - the priority of the observer.</dd>
-<dd><code>action</code> - the action invoked as the reaction.</dd>
-<dd><code>observeLowerPriorityDependencies</code> - true if the tracker can observe lower priority dependencies.</dd>
-<dd><code>canNestActions</code> - true if the tracker can start actions from tracker action.</dd>
+<dd><code>executable</code> - the executable invoked as the reaction.</dd>
+<dd><code>observeLowerPriorityDependencies</code> - true if the observer can observe lower priority dependencies.</dd>
+<dd><code>canNestActions</code> - true if the observer can start actions from tracker action.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the new Observer.</dd>
 </dl>
