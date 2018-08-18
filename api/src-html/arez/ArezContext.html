@@ -403,7 +403,7 @@
 <span class="sourceLineNo">395</span>   * @param onActivate   the procedure to invoke when the ComputedValue changes from the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.395"></a>
 <span class="sourceLineNo">396</span>   * @param onDeactivate the procedure to invoke when the ComputedValue changes to the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.396"></a>
 <span class="sourceLineNo">397</span>   * @param onStale      the procedure to invoke when the ComputedValue changes changes from the UP_TO_DATE state to STALE or POSSIBLY_STALE. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.397"></a>
-<span class="sourceLineNo">398</span>   * @param onDispose    the procedure to invoke when the ComputedValue id disposed.<a name="line.398"></a>
+<span class="sourceLineNo">398</span>   * @param onDispose    the procedure to invoke when the ComputedValue is disposed.<a name="line.398"></a>
 <span class="sourceLineNo">399</span>   * @return the ComputedValue instance.<a name="line.399"></a>
 <span class="sourceLineNo">400</span>   */<a name="line.400"></a>
 <span class="sourceLineNo">401</span>  @Nonnull<a name="line.401"></a>
@@ -433,7 +433,7 @@
 <span class="sourceLineNo">425</span>   * @param onActivate   the procedure to invoke when the ComputedValue changes from the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.425"></a>
 <span class="sourceLineNo">426</span>   * @param onDeactivate the procedure to invoke when the ComputedValue changes to the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.426"></a>
 <span class="sourceLineNo">427</span>   * @param onStale      the procedure to invoke when the ComputedValue changes changes from the UP_TO_DATE state to STALE or POSSIBLY_STALE. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.427"></a>
-<span class="sourceLineNo">428</span>   * @param onDispose    the procedure to invoke when the ComputedValue id disposed.<a name="line.428"></a>
+<span class="sourceLineNo">428</span>   * @param onDispose    the procedure to invoke when the ComputedValue is disposed.<a name="line.428"></a>
 <span class="sourceLineNo">429</span>   * @return the ComputedValue instance.<a name="line.429"></a>
 <span class="sourceLineNo">430</span>   */<a name="line.430"></a>
 <span class="sourceLineNo">431</span>  @Nonnull<a name="line.431"></a>
@@ -465,7 +465,7 @@
 <span class="sourceLineNo">457</span>   * @param onActivate   the procedure to invoke when the ComputedValue changes from the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.457"></a>
 <span class="sourceLineNo">458</span>   * @param onDeactivate the procedure to invoke when the ComputedValue changes to the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.458"></a>
 <span class="sourceLineNo">459</span>   * @param onStale      the procedure to invoke when the ComputedValue changes changes from the UP_TO_DATE state to STALE or POSSIBLY_STALE. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.459"></a>
-<span class="sourceLineNo">460</span>   * @param onDispose    the procedure to invoke when the ComputedValue id disposed.<a name="line.460"></a>
+<span class="sourceLineNo">460</span>   * @param onDispose    the procedure to invoke when the ComputedValue is disposed.<a name="line.460"></a>
 <span class="sourceLineNo">461</span>   * @param priority     the priority of the associated observer.<a name="line.461"></a>
 <span class="sourceLineNo">462</span>   * @return the ComputedValue instance.<a name="line.462"></a>
 <span class="sourceLineNo">463</span>   */<a name="line.463"></a>
@@ -501,7 +501,7 @@
 <span class="sourceLineNo">493</span>   * @param onActivate     the procedure to invoke when the ComputedValue changes from the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.493"></a>
 <span class="sourceLineNo">494</span>   * @param onDeactivate   the procedure to invoke when the ComputedValue changes to the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.494"></a>
 <span class="sourceLineNo">495</span>   * @param onStale        the procedure to invoke when the ComputedValue changes changes from the UP_TO_DATE state to STALE or POSSIBLY_STALE. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.495"></a>
-<span class="sourceLineNo">496</span>   * @param onDispose      the procedure to invoke when the ComputedValue id disposed.<a name="line.496"></a>
+<span class="sourceLineNo">496</span>   * @param onDispose      the procedure to invoke when the ComputedValue is disposed.<a name="line.496"></a>
 <span class="sourceLineNo">497</span>   * @param priority       the priority of the associated observer.<a name="line.497"></a>
 <span class="sourceLineNo">498</span>   * @param keepAlive      true if the ComputedValue should be activated when it is created and never deactivated. If this is true then the onActivate and onDeactivate parameters should be null.<a name="line.498"></a>
 <span class="sourceLineNo">499</span>   * @param runImmediately ignored unless keepAlive is true. true to compute the value immediately, false to schedule compute for next reaction cycle.<a name="line.499"></a>
@@ -542,7 +542,7 @@
 <span class="sourceLineNo">534</span>   * @param onActivate                       the procedure to invoke when the ComputedValue changes from the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.534"></a>
 <span class="sourceLineNo">535</span>   * @param onDeactivate                     the procedure to invoke when the ComputedValue changes to the INACTIVE state to any other state. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.535"></a>
 <span class="sourceLineNo">536</span>   * @param onStale                          the procedure to invoke when the ComputedValue changes changes from the UP_TO_DATE state to STALE or POSSIBLY_STALE. This will be invoked when the transition occurs and will occur in the context of the transaction that made the change.<a name="line.536"></a>
-<span class="sourceLineNo">537</span>   * @param onDispose                        the procedure to invoke when the ComputedValue id disposed.<a name="line.537"></a>
+<span class="sourceLineNo">537</span>   * @param onDispose                        the procedure to invoke when the ComputedValue is disposed.<a name="line.537"></a>
 <span class="sourceLineNo">538</span>   * @param priority                         the priority of the associated observer.<a name="line.538"></a>
 <span class="sourceLineNo">539</span>   * @param keepAlive                        true if the ComputedValue should be activated when it is created and never deactivated. If this is true then the onActivate and onDeactivate parameters should be null.<a name="line.539"></a>
 <span class="sourceLineNo">540</span>   * @param runImmediately                   ignored unless keepAlive is true. true to compute the value immediately, false to schedule compute for next reaction cycle.<a name="line.540"></a>
