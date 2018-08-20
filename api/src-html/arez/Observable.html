@@ -128,7 +128,7 @@
 <span class="sourceLineNo">120</span>      // check in this scenario.<a name="line.120"></a>
 <span class="sourceLineNo">121</span>      if ( Arez.shouldCheckInvariants() )<a name="line.121"></a>
 <span class="sourceLineNo">122</span>      {<a name="line.122"></a>
-<span class="sourceLineNo">123</span>        invariant( () -&gt; !Arez.shouldEnforceTransactionType() || _owner.isDerivation(),<a name="line.123"></a>
+<span class="sourceLineNo">123</span>        invariant( () -&gt; !Arez.shouldEnforceTransactionType() || _owner.isComputedValue(),<a name="line.123"></a>
 <span class="sourceLineNo">124</span>                   () -&gt; "Arez-0057: Observable named '" + getName() + "' has owner specified " +<a name="line.124"></a>
 <span class="sourceLineNo">125</span>                         "but owner is not a derivation." );<a name="line.125"></a>
 <span class="sourceLineNo">126</span>      }<a name="line.126"></a>
@@ -562,7 +562,7 @@
 <span class="sourceLineNo">554</span>  {<a name="line.554"></a>
 <span class="sourceLineNo">555</span>    if ( Arez.shouldCheckInvariants() &amp;&amp; null != _owner )<a name="line.555"></a>
 <span class="sourceLineNo">556</span>    {<a name="line.556"></a>
-<span class="sourceLineNo">557</span>      invariant( () -&gt; Objects.equals( _owner.getDerivedValue(), this ),<a name="line.557"></a>
+<span class="sourceLineNo">557</span>      invariant( () -&gt; Objects.equals( _owner.getComputedValue().getObservable(), this ),<a name="line.557"></a>
 <span class="sourceLineNo">558</span>                 () -&gt; "Arez-0076: Observable named '" + getName() + "' has owner specified but owner does " +<a name="line.558"></a>
 <span class="sourceLineNo">559</span>                       "not link to observable as derived value." );<a name="line.559"></a>
 <span class="sourceLineNo">560</span>    }<a name="line.560"></a>
