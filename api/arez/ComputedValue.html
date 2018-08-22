@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -118,11 +118,11 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public final class <a href="../src-html/arez/ComputedValue.html#line.19">ComputedValue</a>&lt;T&gt;
 extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
-<div class="block">The ComputedValue represents an Observable derived from other observables within
+<div class="block">The ComputedValue represents an ObservableValue derived from other ObservableValues within
  the Arez system. The value is calculated lazily. i.e. The ComputedValue will only
  be calculated if there is current observers on the calculated value.
 
- <p>It should be notes that the ComputedValue is backed by both an Observable and
+ <p>It should be noted that the ComputedValue is backed by both an ObservableValue and
  an Observer. The id's of each of these nodes differ but they share the name and
  thus while debugging appear to be a single element.</p></div>
 </li>
@@ -159,6 +159,12 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ComputedValue.html#isDisposed--">isDisposed</a></span>()</code>
 <div class="block">Return true if dispose() has been called on object.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ComputedValue.html#reportPossiblyChanged--">reportPossiblyChanged</a></span>()</code>
+<div class="block">Invoked when a non-arez dependency of the ComputedValue has changed.</div>
 </td>
 </tr>
 </table>
@@ -211,13 +217,27 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 </dl>
 </li>
 </ul>
+<a name="reportPossiblyChanged--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>reportPossiblyChanged</h4>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputedValue.html#line.183">reportPossiblyChanged</a>()</pre>
+<div class="block">Invoked when a non-arez dependency of the ComputedValue has changed. The ComputedValue
+ may or may not change as a result of the dependency change but Arez will recalculate
+ the ComputedValue during the normal reaction cycle or when next accessed and will propagate
+ the change at that time if required. This method must be explicitly invoked by the
+ developer if the ComputedValue is derived from non-arez data and that data changes.</div>
+</li>
+</ul>
 <a name="dispose--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputedValue.html#line.180">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputedValue.html#line.196">dispose</a>()</pre>
 <div class="block">Dispose the ComputedValue so that it can no longer be used.</div>
 </li>
 </ul>
@@ -227,7 +247,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ComputedValue.html#line.220">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ComputedValue.html#line.236">isDisposed</a>()</pre>
 <div class="block">Return true if dispose() has been called on object.
  This is very useful when the Disposable is a @Computed value representing
  the selected item in a UI component but the item can be disposed by other

@@ -36,9 +36,9 @@ with <a href="/api/arez/annotations/ArezComponent.html"><code>@ArezComponent</co
 that the code must:</p>
 <ul>
 <li>mutate the property using the setter method to mark the property as changed. The generated code ultimately calls
-the <a href="/api/arez/Observable.html#reportChanged--"><code>Observable.reportChanged()</code></a> method to mark the property as changed.</li>
+the <a href="/api/arez/ObservableValue.html#reportChanged--"><code>ObservableValue.reportChanged()</code></a> method to mark the property as changed.</li>
 <li>access the property using the getter method.. The generated code ultimately calls the
-<a href="/api/arez/Observable.html#reportObserved--"><code>Observable.reportObserved()</code></a> method to mark the property as observed.
+<a href="/api/arez/ObservableValue.html#reportObserved--"><code>ObservableValue.reportObserved()</code></a> method to mark the property as observed.
 This will add it as a dependency to the containing <code>@Autorun</code> method.</li>
 </ul>
 <p>Typically this problem arises when you mutate field directly within the same class. Consider this problematic code
@@ -82,8 +82,8 @@ difference is how the state is mutated within <code>rideTrain()</code> method.</
 <h2><a class="anchor" aria-hidden="true" name="library-design"></a><a href="#library-design" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Library Design</h2>
 <h3><a class="anchor" aria-hidden="true" name="why-do-the-change-events-notifications-not-include-a-description-of-the-change"></a><a href="#why-do-the-change-events-notifications-not-include-a-description-of-the-change" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why do the change events/notifications not include a description of the change?</h3>
 <p>In many state management frameworks, notifications of change are accompanied by a description
-of change but not so in Arez. For example in Arez the <a href="/api/arez/Observable.html#reportChanged--"><code>Observable.reportChanged()</code></a>
-method accepts no change description, the <a href="/api/arez/spy/ObservableChangedEvent.html"><code>ObservableChangedEvent</code></a> class
+of change but not so in Arez. For example in Arez the <a href="/api/arez/ObservableValue.html#reportChanged--"><code>ObservableValue.reportChanged()</code></a>
+method accepts no change description, the <a href="/api/arez/spy/ObservableValueChangedEvent.html"><code>ObservableValueChangedEvent</code></a> class
 has no description of a change and there is no way for an <a href="/api/arez/Observer.html"><code>Observer</code></a> to receive changes.</p>
 <p>The reason is that change descriptions seem to be used as an optimization strategy needed in very specific
 scenarios. For example, consider the scenario where you are representing an <code>Employee</code> as a react component

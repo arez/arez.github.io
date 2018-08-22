@@ -10,7 +10,7 @@
 <span class="sourceLineNo">002</span><a name="line.2"></a>
 <span class="sourceLineNo">003</span>import arez.spy.ComponentInfo;<a name="line.3"></a>
 <span class="sourceLineNo">004</span>import arez.spy.ComputedValueInfo;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import arez.spy.ObservableInfo;<a name="line.5"></a>
+<span class="sourceLineNo">005</span>import arez.spy.ObservableValueInfo;<a name="line.5"></a>
 <span class="sourceLineNo">006</span>import arez.spy.ObserverInfo;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import arez.spy.TransactionInfo;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import java.util.Collection;<a name="line.8"></a>
@@ -110,34 +110,34 @@
 <span class="sourceLineNo">102</span>   * @return the list of dependencies for ComputedValue.<a name="line.102"></a>
 <span class="sourceLineNo">103</span>   */<a name="line.103"></a>
 <span class="sourceLineNo">104</span>  @Nonnull<a name="line.104"></a>
-<span class="sourceLineNo">105</span>  List&lt;ObservableInfo&gt; getDependencies( @Nonnull ComputedValue&lt;?&gt; computedValue );<a name="line.105"></a>
+<span class="sourceLineNo">105</span>  List&lt;ObservableValueInfo&gt; getDependencies( @Nonnull ComputedValue&lt;?&gt; computedValue );<a name="line.105"></a>
 <span class="sourceLineNo">106</span><a name="line.106"></a>
 <span class="sourceLineNo">107</span>  /**<a name="line.107"></a>
-<span class="sourceLineNo">108</span>   * Return true if the Observable is a ComputedValue.<a name="line.108"></a>
+<span class="sourceLineNo">108</span>   * Return true if the ObservableValue is a ComputedValue.<a name="line.108"></a>
 <span class="sourceLineNo">109</span>   *<a name="line.109"></a>
-<span class="sourceLineNo">110</span>   * @param observable the Observable.<a name="line.110"></a>
-<span class="sourceLineNo">111</span>   * @return true if the Observable is a ComputedValue.<a name="line.111"></a>
+<span class="sourceLineNo">110</span>   * @param observableValue the ObservableValue.<a name="line.110"></a>
+<span class="sourceLineNo">111</span>   * @return true if the ObservableValue is a ComputedValue.<a name="line.111"></a>
 <span class="sourceLineNo">112</span>   */<a name="line.112"></a>
-<span class="sourceLineNo">113</span>  boolean isComputedValue( @Nonnull Observable&lt;?&gt; observable );<a name="line.113"></a>
+<span class="sourceLineNo">113</span>  boolean isComputedValue( @Nonnull ObservableValue&lt;?&gt; observableValue );<a name="line.113"></a>
 <span class="sourceLineNo">114</span><a name="line.114"></a>
 <span class="sourceLineNo">115</span>  /**<a name="line.115"></a>
-<span class="sourceLineNo">116</span>   * Convert the Observable to a ComputedValue.<a name="line.116"></a>
-<span class="sourceLineNo">117</span>   * This method should only be called if {@link #isComputedValue(Observable)} returns true.<a name="line.117"></a>
+<span class="sourceLineNo">116</span>   * Convert the ObservableValue to a ComputedValue.<a name="line.116"></a>
+<span class="sourceLineNo">117</span>   * This method should only be called if {@link #isComputedValue(ObservableValue)} returns true.<a name="line.117"></a>
 <span class="sourceLineNo">118</span>   *<a name="line.118"></a>
-<span class="sourceLineNo">119</span>   * @param observable the Observable.<a name="line.119"></a>
+<span class="sourceLineNo">119</span>   * @param observableValue the ObservableValue.<a name="line.119"></a>
 <span class="sourceLineNo">120</span>   * @return the ComputedValue instance.<a name="line.120"></a>
 <span class="sourceLineNo">121</span>   */<a name="line.121"></a>
-<span class="sourceLineNo">122</span>  ComputedValueInfo asComputedValue( @Nonnull Observable&lt;?&gt; observable );<a name="line.122"></a>
+<span class="sourceLineNo">122</span>  ComputedValueInfo asComputedValue( @Nonnull ObservableValue&lt;?&gt; observableValue );<a name="line.122"></a>
 <span class="sourceLineNo">123</span><a name="line.123"></a>
 <span class="sourceLineNo">124</span>  /**<a name="line.124"></a>
-<span class="sourceLineNo">125</span>   * Return the list of observers for the Observable.<a name="line.125"></a>
-<span class="sourceLineNo">126</span>   * The list is an immutable copy of the observers of the {@link Observable}.<a name="line.126"></a>
+<span class="sourceLineNo">125</span>   * Return the list of observers for the ObservableValue.<a name="line.125"></a>
+<span class="sourceLineNo">126</span>   * The list is an immutable copy of the observers of the {@link ObservableValue}.<a name="line.126"></a>
 <span class="sourceLineNo">127</span>   *<a name="line.127"></a>
-<span class="sourceLineNo">128</span>   * @param observable the Observable.<a name="line.128"></a>
-<span class="sourceLineNo">129</span>   * @return the list of observers for Observable.<a name="line.129"></a>
+<span class="sourceLineNo">128</span>   * @param observableValue the ObservableValue.<a name="line.128"></a>
+<span class="sourceLineNo">129</span>   * @return the list of observers for ObservableValue.<a name="line.129"></a>
 <span class="sourceLineNo">130</span>   */<a name="line.130"></a>
 <span class="sourceLineNo">131</span>  @Nonnull<a name="line.131"></a>
-<span class="sourceLineNo">132</span>  List&lt;ObserverInfo&gt; getObservers( @Nonnull Observable&lt;?&gt; observable );<a name="line.132"></a>
+<span class="sourceLineNo">132</span>  List&lt;ObserverInfo&gt; getObservers( @Nonnull ObservableValue&lt;?&gt; observableValue );<a name="line.132"></a>
 <span class="sourceLineNo">133</span><a name="line.133"></a>
 <span class="sourceLineNo">134</span>  /**<a name="line.134"></a>
 <span class="sourceLineNo">135</span>   * Return true if the Observer is currently running.<a name="line.135"></a>
@@ -197,17 +197,17 @@
 <span class="sourceLineNo">189</span>   * @see arez.spy.ObserverInfo#getDependencies()<a name="line.189"></a>
 <span class="sourceLineNo">190</span>   */<a name="line.190"></a>
 <span class="sourceLineNo">191</span>  @Nonnull<a name="line.191"></a>
-<span class="sourceLineNo">192</span>  List&lt;ObservableInfo&gt; getDependencies( @Nonnull Observer observer );<a name="line.192"></a>
+<span class="sourceLineNo">192</span>  List&lt;ObservableValueInfo&gt; getDependencies( @Nonnull Observer observer );<a name="line.192"></a>
 <span class="sourceLineNo">193</span><a name="line.193"></a>
 <span class="sourceLineNo">194</span>  /**<a name="line.194"></a>
-<span class="sourceLineNo">195</span>   * Return the component for specified Observable.<a name="line.195"></a>
+<span class="sourceLineNo">195</span>   * Return the component for specified ObservableValue.<a name="line.195"></a>
 <span class="sourceLineNo">196</span>   * This method should not be invoked if {@link Arez#areNativeComponentsEnabled()} returns false.<a name="line.196"></a>
 <span class="sourceLineNo">197</span>   *<a name="line.197"></a>
-<span class="sourceLineNo">198</span>   * @param observable the Observable.<a name="line.198"></a>
-<span class="sourceLineNo">199</span>   * @return the component that contains Observable if any.<a name="line.199"></a>
+<span class="sourceLineNo">198</span>   * @param observableValue the ObservableValue.<a name="line.198"></a>
+<span class="sourceLineNo">199</span>   * @return the component that contains ObservableValue if any.<a name="line.199"></a>
 <span class="sourceLineNo">200</span>   */<a name="line.200"></a>
 <span class="sourceLineNo">201</span>  @Nullable<a name="line.201"></a>
-<span class="sourceLineNo">202</span>  ComponentInfo getComponent( @Nonnull Observable&lt;?&gt; observable );<a name="line.202"></a>
+<span class="sourceLineNo">202</span>  ComponentInfo getComponent( @Nonnull ObservableValue&lt;?&gt; observableValue );<a name="line.202"></a>
 <span class="sourceLineNo">203</span><a name="line.203"></a>
 <span class="sourceLineNo">204</span>  /**<a name="line.204"></a>
 <span class="sourceLineNo">205</span>   * Return the component for specified Observer.<a name="line.205"></a>
@@ -268,7 +268,7 @@
 <span class="sourceLineNo">260</span>   * @return the collection of observables not contained by a native component.<a name="line.260"></a>
 <span class="sourceLineNo">261</span>   */<a name="line.261"></a>
 <span class="sourceLineNo">262</span>  @Nonnull<a name="line.262"></a>
-<span class="sourceLineNo">263</span>  Collection&lt;ObservableInfo&gt; findAllTopLevelObservables();<a name="line.263"></a>
+<span class="sourceLineNo">263</span>  Collection&lt;ObservableValueInfo&gt; findAllTopLevelObservableValues();<a name="line.263"></a>
 <span class="sourceLineNo">264</span><a name="line.264"></a>
 <span class="sourceLineNo">265</span>  /**<a name="line.265"></a>
 <span class="sourceLineNo">266</span>   * Find all the collection of observers not contained by a native component.<a name="line.266"></a>
@@ -291,50 +291,50 @@
 <span class="sourceLineNo">283</span>  Collection&lt;ComputedValueInfo&gt; findAllTopLevelComputedValues();<a name="line.283"></a>
 <span class="sourceLineNo">284</span><a name="line.284"></a>
 <span class="sourceLineNo">285</span>  /**<a name="line.285"></a>
-<span class="sourceLineNo">286</span>   * Return true if the specified Observable has an accessor.<a name="line.286"></a>
+<span class="sourceLineNo">286</span>   * Return true if the specified ObservableValue has an accessor.<a name="line.286"></a>
 <span class="sourceLineNo">287</span>   * This method should not be invoked if {@link Arez#arePropertyIntrospectorsEnabled()} returns false.<a name="line.287"></a>
 <span class="sourceLineNo">288</span>   *<a name="line.288"></a>
-<span class="sourceLineNo">289</span>   * @param &lt;T&gt;        The type of the value that is observable.<a name="line.289"></a>
-<span class="sourceLineNo">290</span>   * @param observable the Observable.<a name="line.290"></a>
+<span class="sourceLineNo">289</span>   * @param &lt;T&gt;        The type of the value that is observableValue.<a name="line.289"></a>
+<span class="sourceLineNo">290</span>   * @param observableValue the ObservableValue.<a name="line.290"></a>
 <span class="sourceLineNo">291</span>   * @return true if an accessor is available.<a name="line.291"></a>
 <span class="sourceLineNo">292</span>   */<a name="line.292"></a>
-<span class="sourceLineNo">293</span>  &lt;T&gt; boolean hasAccessor( @Nonnull Observable&lt;T&gt; observable );<a name="line.293"></a>
+<span class="sourceLineNo">293</span>  &lt;T&gt; boolean hasAccessor( @Nonnull ObservableValue&lt;T&gt; observableValue );<a name="line.293"></a>
 <span class="sourceLineNo">294</span><a name="line.294"></a>
 <span class="sourceLineNo">295</span>  /**<a name="line.295"></a>
-<span class="sourceLineNo">296</span>   * Return the value of the specified Observable.<a name="line.296"></a>
+<span class="sourceLineNo">296</span>   * Return the value of the specified ObservableValue.<a name="line.296"></a>
 <span class="sourceLineNo">297</span>   * This method should only be invoked if {@link Arez#arePropertyIntrospectorsEnabled()} returns true<a name="line.297"></a>
-<span class="sourceLineNo">298</span>   * and {@link #hasAccessor(Observable)} for the same element returns true.<a name="line.298"></a>
+<span class="sourceLineNo">298</span>   * and {@link #hasAccessor(ObservableValue)} for the same element returns true.<a name="line.298"></a>
 <span class="sourceLineNo">299</span>   *<a name="line.299"></a>
-<span class="sourceLineNo">300</span>   * @param &lt;T&gt;        The type of the value that is observable.<a name="line.300"></a>
-<span class="sourceLineNo">301</span>   * @param observable the Observable.<a name="line.301"></a>
-<span class="sourceLineNo">302</span>   * @return the value of the observable.<a name="line.302"></a>
+<span class="sourceLineNo">300</span>   * @param &lt;T&gt;        The type of the value that is observableValue.<a name="line.300"></a>
+<span class="sourceLineNo">301</span>   * @param observableValue the ObservableValue.<a name="line.301"></a>
+<span class="sourceLineNo">302</span>   * @return the value of the observableValue.<a name="line.302"></a>
 <span class="sourceLineNo">303</span>   * @throws Throwable if the property accessor throws an exception.<a name="line.303"></a>
 <span class="sourceLineNo">304</span>   */<a name="line.304"></a>
 <span class="sourceLineNo">305</span>  @Nullable<a name="line.305"></a>
-<span class="sourceLineNo">306</span>  &lt;T&gt; T getValue( @Nonnull Observable&lt;T&gt; observable )<a name="line.306"></a>
+<span class="sourceLineNo">306</span>  &lt;T&gt; T getValue( @Nonnull ObservableValue&lt;T&gt; observableValue )<a name="line.306"></a>
 <span class="sourceLineNo">307</span>    throws Throwable;<a name="line.307"></a>
 <span class="sourceLineNo">308</span><a name="line.308"></a>
 <span class="sourceLineNo">309</span>  /**<a name="line.309"></a>
-<span class="sourceLineNo">310</span>   * Return true if the specified Observable has a mutator.<a name="line.310"></a>
+<span class="sourceLineNo">310</span>   * Return true if the specified ObservableValue has a mutator.<a name="line.310"></a>
 <span class="sourceLineNo">311</span>   * This method should not be invoked if {@link Arez#arePropertyIntrospectorsEnabled()} returns false.<a name="line.311"></a>
 <span class="sourceLineNo">312</span>   *<a name="line.312"></a>
-<span class="sourceLineNo">313</span>   * @param &lt;T&gt;        The type of the value that is observable.<a name="line.313"></a>
-<span class="sourceLineNo">314</span>   * @param observable the Observable.<a name="line.314"></a>
+<span class="sourceLineNo">313</span>   * @param &lt;T&gt;        The type of the value that is observableValue.<a name="line.313"></a>
+<span class="sourceLineNo">314</span>   * @param observableValue the ObservableValue.<a name="line.314"></a>
 <span class="sourceLineNo">315</span>   * @return true if a mutator is available.<a name="line.315"></a>
 <span class="sourceLineNo">316</span>   */<a name="line.316"></a>
-<span class="sourceLineNo">317</span>  &lt;T&gt; boolean hasMutator( @Nonnull Observable&lt;T&gt; observable );<a name="line.317"></a>
+<span class="sourceLineNo">317</span>  &lt;T&gt; boolean hasMutator( @Nonnull ObservableValue&lt;T&gt; observableValue );<a name="line.317"></a>
 <span class="sourceLineNo">318</span><a name="line.318"></a>
 <span class="sourceLineNo">319</span>  /**<a name="line.319"></a>
-<span class="sourceLineNo">320</span>   * Set the value of the specified Observable.<a name="line.320"></a>
+<span class="sourceLineNo">320</span>   * Set the value of the specified ObservableValue.<a name="line.320"></a>
 <span class="sourceLineNo">321</span>   * This method should only be invoked if {@link Arez#arePropertyIntrospectorsEnabled()} returns true<a name="line.321"></a>
-<span class="sourceLineNo">322</span>   * and {@link #hasMutator(Observable)} for the same element returns true.<a name="line.322"></a>
+<span class="sourceLineNo">322</span>   * and {@link #hasMutator(ObservableValue)} for the same element returns true.<a name="line.322"></a>
 <span class="sourceLineNo">323</span>   *<a name="line.323"></a>
-<span class="sourceLineNo">324</span>   * @param &lt;T&gt;        The type of the value that is observable.<a name="line.324"></a>
-<span class="sourceLineNo">325</span>   * @param observable the Observable.<a name="line.325"></a>
+<span class="sourceLineNo">324</span>   * @param &lt;T&gt;        The type of the value that is observableValue.<a name="line.324"></a>
+<span class="sourceLineNo">325</span>   * @param observableValue the ObservableValue.<a name="line.325"></a>
 <span class="sourceLineNo">326</span>   * @param value      the value to set<a name="line.326"></a>
 <span class="sourceLineNo">327</span>   * @throws Throwable if the property accessor throws an exception.<a name="line.327"></a>
 <span class="sourceLineNo">328</span>   */<a name="line.328"></a>
-<span class="sourceLineNo">329</span>  &lt;T&gt; void setValue( @Nonnull Observable&lt;T&gt; observable, @Nullable T value )<a name="line.329"></a>
+<span class="sourceLineNo">329</span>  &lt;T&gt; void setValue( @Nonnull ObservableValue&lt;T&gt; observableValue, @Nullable T value )<a name="line.329"></a>
 <span class="sourceLineNo">330</span>    throws Throwable;<a name="line.330"></a>
 <span class="sourceLineNo">331</span><a name="line.331"></a>
 <span class="sourceLineNo">332</span>  /**<a name="line.332"></a>
@@ -351,10 +351,10 @@
 <span class="sourceLineNo">343</span>    throws Throwable;<a name="line.343"></a>
 <span class="sourceLineNo">344</span><a name="line.344"></a>
 <span class="sourceLineNo">345</span>  /**<a name="line.345"></a>
-<span class="sourceLineNo">346</span>   * Convert the specified observer into an ObserverInfo.<a name="line.346"></a>
+<span class="sourceLineNo">346</span>   * Convert the specified component into an ComponentInfo.<a name="line.346"></a>
 <span class="sourceLineNo">347</span>   *<a name="line.347"></a>
 <span class="sourceLineNo">348</span>   * @param component the Component.<a name="line.348"></a>
-<span class="sourceLineNo">349</span>   * @return the ObservableInfo wrapping observable.<a name="line.349"></a>
+<span class="sourceLineNo">349</span>   * @return the ComponentInfo.<a name="line.349"></a>
 <span class="sourceLineNo">350</span>   */<a name="line.350"></a>
 <span class="sourceLineNo">351</span>  @Nonnull<a name="line.351"></a>
 <span class="sourceLineNo">352</span>  ComponentInfo asComponentInfo( @Nonnull Component component );<a name="line.352"></a>
@@ -363,20 +363,20 @@
 <span class="sourceLineNo">355</span>   * Convert the specified observer into an ObserverInfo.<a name="line.355"></a>
 <span class="sourceLineNo">356</span>   *<a name="line.356"></a>
 <span class="sourceLineNo">357</span>   * @param observer the Observer.<a name="line.357"></a>
-<span class="sourceLineNo">358</span>   * @return the ObservableInfo wrapping observable.<a name="line.358"></a>
+<span class="sourceLineNo">358</span>   * @return the ObserverInfo.<a name="line.358"></a>
 <span class="sourceLineNo">359</span>   */<a name="line.359"></a>
 <span class="sourceLineNo">360</span>  @Nonnull<a name="line.360"></a>
 <span class="sourceLineNo">361</span>  ObserverInfo asObserverInfo( @Nonnull Observer observer );<a name="line.361"></a>
 <span class="sourceLineNo">362</span><a name="line.362"></a>
 <span class="sourceLineNo">363</span>  /**<a name="line.363"></a>
-<span class="sourceLineNo">364</span>   * Convert the specified observable into an ObservableInfo.<a name="line.364"></a>
+<span class="sourceLineNo">364</span>   * Convert the specified observableValue into an ObservableValueInfo.<a name="line.364"></a>
 <span class="sourceLineNo">365</span>   *<a name="line.365"></a>
-<span class="sourceLineNo">366</span>   * @param &lt;T&gt;        The type of the value that is observable.<a name="line.366"></a>
-<span class="sourceLineNo">367</span>   * @param observable the Observable.<a name="line.367"></a>
-<span class="sourceLineNo">368</span>   * @return the ObservableInfo wrapping observable.<a name="line.368"></a>
+<span class="sourceLineNo">366</span>   * @param &lt;T&gt;        The type of the value that is observableValue.<a name="line.366"></a>
+<span class="sourceLineNo">367</span>   * @param observableValue the ObservableValue.<a name="line.367"></a>
+<span class="sourceLineNo">368</span>   * @return the ObservableValueInfo wrapping observableValue.<a name="line.368"></a>
 <span class="sourceLineNo">369</span>   */<a name="line.369"></a>
 <span class="sourceLineNo">370</span>  @Nonnull<a name="line.370"></a>
-<span class="sourceLineNo">371</span>  &lt;T&gt; ObservableInfo asObservableInfo( @Nonnull Observable&lt;T&gt; observable );<a name="line.371"></a>
+<span class="sourceLineNo">371</span>  &lt;T&gt; ObservableValueInfo asObservableValueInfo( @Nonnull ObservableValue&lt;T&gt; observableValue );<a name="line.371"></a>
 <span class="sourceLineNo">372</span><a name="line.372"></a>
 <span class="sourceLineNo">373</span>  /**<a name="line.373"></a>
 <span class="sourceLineNo">374</span>   * Convert the specified computedValue into an ComputedValueInfo.<a name="line.374"></a>

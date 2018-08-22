@@ -70,11 +70,11 @@ the component another value for <code>props</code>. The react framework is wholl
 component that <code>props</code> has changed. Making this <code>props</code> property observable within Arez involved the following
 changes.</p>
 <ul>
-<li>Disabling the <code>@Observable</code> setter via the <a href="/api/arez/annotations/Observable.html#expectSetter--"><code>Observable.expectSetter()</code></a>
+<li>Disabling the <code>@Observable</code> setter via the <a href="/api/arez/annotations/Observable.html#expectSetter--"><code>ObservableValue.expectSetter()</code></a>
 parameter on the getter.</li>
-<li>Accessing the underlying <a href="/api/arez/Observable.html"><code>Observable</code></a> primitive using the <a href="/api/arez/annotations/ObservableRef.html"><code>@ObservableRef</code></a> annotation.
+<li>Accessing the underlying <a href="/api/arez/ObservableValue.html"><code>ObservableValue</code></a> primitive using the <a href="/api/arez/annotations/ObservableRef.html"><code>@ObservableRef</code></a> annotation.
 See <a href="/docs/accessing_primitives.html">accessing primitives</a> documentation on details on how this is achieved.</li>
-<li>Manually invoking <a href="/api/arez/Observable.html#reportChanged--"><code>Observable.reportChanged()</code></a> in the callback.</li>
+<li>Manually invoking <a href="/api/arez/ObservableValue.html#reportChanged--"><code>ObservableValue.reportChanged()</code></a> in the callback.</li>
 </ul>
 <p>For example:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
@@ -89,7 +89,7 @@ See <a href="/docs/accessing_primitives.html">accessing primitives</a> documenta
 
   <span class="hljs-comment">//This will be overridden and implemented in the Arez subclass</span>
   <span class="hljs-meta">@ObservableRef</span>
-  <span class="hljs-keyword">abstract</span> arez.<span class="hljs-function">Observable&lt;Props&gt; <span class="hljs-title">getPropsObservable</span><span class="hljs-params">()</span></span>;
+  <span class="hljs-function"><span class="hljs-keyword">abstract</span> ObservableValue&lt;Props&gt; <span class="hljs-title">getPropsObservable</span><span class="hljs-params">()</span></span>;
 
   <span class="hljs-comment">// This method is wrapped in an Action to ensure change is propagated</span>
   <span class="hljs-comment">// correctly in arez system.</span>

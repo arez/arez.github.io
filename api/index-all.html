@@ -78,12 +78,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#AbstractContainer--">AbstractContainer()</a></span> - Constructor for class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="arez/component/AbstractEntityReference.html" title="class in arez.component"><span class="typeNameLink">AbstractEntityReference</span></a>&lt;<a href="arez/component/AbstractEntityReference.html" title="type parameter in AbstractEntityReference">T</a>&gt; - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
-<dd>
-<div class="block">Abstract base class for reference to a component where reference should be cleared when the component is disposed.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractEntityReference.html#AbstractEntityReference--">AbstractEntityReference()</a></span> - Constructor for class arez.component.<a href="arez/component/AbstractEntityReference.html" title="class in arez.component">AbstractEntityReference</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="arez/component/AbstractRepository.html" title="class in arez.component"><span class="typeNameLink">AbstractRepository</span></a>&lt;<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">R</a> extends <a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a>&lt;<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">R</a>&gt;&gt; - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
 <dd>
 <div class="block">Abstract base class for repositories that contain Arez components.</div>
@@ -246,21 +240,21 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Spy.html#asComponentInfo-arez.Component-">asComponentInfo(Component)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
-<div class="block">Convert the specified observer into an ObserverInfo.</div>
+<div class="block">Convert the specified component into an ComponentInfo.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/ComponentObservable.html#asComponentObservable-java.lang.Object-">asComponentObservable(Object)</a></span> - Static method in interface arez.component.<a href="arez/component/ComponentObservable.html" title="interface in arez.component">ComponentObservable</a></dt>
 <dd>
 <div class="block">Cast specified object to an instance of ComponentObservable.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Spy.html#asComputedValue-arez.Observable-">asComputedValue(Observable&lt;?&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Spy.html#asComputedValue-arez.ObservableValue-">asComputedValue(ObservableValue&lt;?&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
-<div class="block">Convert the Observable to a ComputedValue.</div>
+<div class="block">Convert the ObservableValue to a ComputedValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Spy.html#asComputedValue-arez.Observer-">asComputedValue(Observer)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
 <div class="block">Convert the Observer to a ComputedValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableInfo.html#asComputedValue--">asComputedValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableInfo.html" title="interface in arez.spy">ObservableInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#asComputedValue--">asComputedValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
 <div class="block">Convert the Observable to a ComputedValue.</div>
 </dd>
@@ -288,9 +282,9 @@
 <dd>
 <div class="block">Convert specified stream to a list, wrapping as an unmodifiable list if required.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Spy.html#asObservableInfo-arez.Observable-">asObservableInfo(Observable&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Spy.html#asObservableValueInfo-arez.ObservableValue-">asObservableValueInfo(ObservableValue&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
-<div class="block">Convert the specified observable into an ObservableInfo.</div>
+<div class="block">Convert the specified observableValue into an ObservableValueInfo.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Spy.html#asObserverInfo-arez.Observer-">asObserverInfo(Observer)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
@@ -445,25 +439,25 @@
 <dd>
 <div class="block">Notification when a Component is has finished being created.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentCreateCompletedEvent.html#ComponentCreateCompletedEvent-arez.Component-">ComponentCreateCompletedEvent(Component)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComponentCreateCompletedEvent.html" title="class in arez.spy">ComponentCreateCompletedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComponentCreateCompletedEvent.html#ComponentCreateCompletedEvent-arez.spy.ComponentInfo-">ComponentCreateCompletedEvent(ComponentInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComponentCreateCompletedEvent.html" title="class in arez.spy">ComponentCreateCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/spy/ComponentCreateStartedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComponentCreateStartedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification when a Component is starting to be created.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentCreateStartedEvent.html#ComponentCreateStartedEvent-arez.Component-">ComponentCreateStartedEvent(Component)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComponentCreateStartedEvent.html" title="class in arez.spy">ComponentCreateStartedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComponentCreateStartedEvent.html#ComponentCreateStartedEvent-arez.spy.ComponentInfo-">ComponentCreateStartedEvent(ComponentInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComponentCreateStartedEvent.html" title="class in arez.spy">ComponentCreateStartedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/spy/ComponentDisposeCompletedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComponentDisposeCompletedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification when a Component dispose has completed.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeCompletedEvent.html#ComponentDisposeCompletedEvent-arez.Component-">ComponentDisposeCompletedEvent(Component)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComponentDisposeCompletedEvent.html" title="class in arez.spy">ComponentDisposeCompletedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeCompletedEvent.html#ComponentDisposeCompletedEvent-arez.spy.ComponentInfo-">ComponentDisposeCompletedEvent(ComponentInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComponentDisposeCompletedEvent.html" title="class in arez.spy">ComponentDisposeCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/spy/ComponentDisposeStartedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComponentDisposeStartedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification when a Component is disposed.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeStartedEvent.html#ComponentDisposeStartedEvent-arez.Component-">ComponentDisposeStartedEvent(Component)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComponentDisposeStartedEvent.html" title="class in arez.spy">ComponentDisposeStartedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeStartedEvent.html#ComponentDisposeStartedEvent-arez.spy.ComponentInfo-">ComponentDisposeStartedEvent(ComponentInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComponentDisposeStartedEvent.html" title="class in arez.spy">ComponentDisposeStartedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/annotations/ComponentId.html" title="annotation in arez.annotations"><span class="typeNameLink">ComponentId</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -538,7 +532,7 @@
 </dd>
 <dt><a href="arez/ComputedValue.html" title="class in arez"><span class="typeNameLink">ComputedValue</span></a>&lt;<a href="arez/ComputedValue.html" title="type parameter in ComputedValue">T</a>&gt; - Class in <a href="arez/package-summary.html">arez</a></dt>
 <dd>
-<div class="block">The ComputedValue represents an Observable derived from other observables within
+<div class="block">The ComputedValue represents an ObservableValue derived from other ObservableValues within
  the Arez system.</div>
 </dd>
 <dt><a href="arez/spy/ComputedValueActivatedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputedValueActivatedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
@@ -688,7 +682,7 @@
 <dd>
 <div class="block">Dispose the supplied object if it is Disposable, else do nothing.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Observable.html#dispose--">dispose()</a></span> - Method in class arez.<a href="arez/Observable.html" title="class in arez">Observable</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ObservableValue.html#dispose--">dispose()</a></span> - Method in class arez.<a href="arez/ObservableValue.html" title="class in arez">ObservableValue</a></dt>
 <dd>
 <div class="block">Dispose the element.</div>
 </dd>
@@ -799,7 +793,7 @@
 <dd>
 <div class="block">Find all the collection of computed values not contained by a native component.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Spy.html#findAllTopLevelObservables--">findAllTopLevelObservables()</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Spy.html#findAllTopLevelObservableValues--">findAllTopLevelObservableValues()</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
 <div class="block">Find all the collection of observables not contained by a native component.</div>
 </dd>
@@ -851,7 +845,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/PropertyAccessor.html#get--">get()</a></span> - Method in interface arez.spy.<a href="arez/spy/PropertyAccessor.html" title="interface in arez.spy">PropertyAccessor</a></dt>
 <dd>
-<div class="block">Return the value of an Observable.</div>
+<div class="block">Return the value of an ObservableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/Identifiable.html#getArezId--">getArezId()</a></span> - Method in interface arez.component.<a href="arez/component/Identifiable.html" title="interface in arez.component">Identifiable</a></dt>
 <dd>
@@ -873,21 +867,13 @@
 <dd>
 <div class="block">Return the entity that matches query else throw an exception.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentCreateCompletedEvent.html#getComponent--">getComponent()</a></span> - Method in class arez.spy.<a href="arez/spy/ComponentCreateCompletedEvent.html" title="class in arez.spy">ComponentCreateCompletedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentCreateStartedEvent.html#getComponent--">getComponent()</a></span> - Method in class arez.spy.<a href="arez/spy/ComponentCreateStartedEvent.html" title="class in arez.spy">ComponentCreateStartedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeCompletedEvent.html#getComponent--">getComponent()</a></span> - Method in class arez.spy.<a href="arez/spy/ComponentDisposeCompletedEvent.html" title="class in arez.spy">ComponentDisposeCompletedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeStartedEvent.html#getComponent--">getComponent()</a></span> - Method in class arez.spy.<a href="arez/spy/ComponentDisposeStartedEvent.html" title="class in arez.spy">ComponentDisposeStartedEvent</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputedValueInfo.html#getComponent--">getComponent()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a></dt>
 <dd>
 <div class="block">Return the component for the ComputedValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Spy.html#getComponent-arez.Observable-">getComponent(Observable&lt;?&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Spy.html#getComponent-arez.ObservableValue-">getComponent(ObservableValue&lt;?&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
-<div class="block">Return the component for specified Observable.</div>
+<div class="block">Return the component for specified ObservableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Spy.html#getComponent-arez.Observer-">getComponent(Observer)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
@@ -897,7 +883,7 @@
 <dd>
 <div class="block">Return the component for specified ComputedValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableInfo.html#getComponent--">getComponent()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableInfo.html" title="interface in arez.spy">ObservableInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#getComponent--">getComponent()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
 <div class="block">Return the component for the Observable.</div>
 </dd>
@@ -905,6 +891,14 @@
 <dd>
 <div class="block">Return the component for the specified Observer.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComponentCreateCompletedEvent.html#getComponentInfo--">getComponentInfo()</a></span> - Method in class arez.spy.<a href="arez/spy/ComponentCreateCompletedEvent.html" title="class in arez.spy">ComponentCreateCompletedEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComponentCreateStartedEvent.html#getComponentInfo--">getComponentInfo()</a></span> - Method in class arez.spy.<a href="arez/spy/ComponentCreateStartedEvent.html" title="class in arez.spy">ComponentCreateStartedEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeCompletedEvent.html#getComponentInfo--">getComponentInfo()</a></span> - Method in class arez.spy.<a href="arez/spy/ComponentDisposeCompletedEvent.html" title="class in arez.spy">ComponentDisposeCompletedEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeStartedEvent.html#getComponentInfo--">getComponentInfo()</a></span> - Method in class arez.spy.<a href="arez/spy/ComponentDisposeStartedEvent.html" title="class in arez.spy">ComponentDisposeStartedEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeCompletedEvent.html#getComputedValue--">getComputedValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeCompletedEvent.html" title="class in arez.spy">ComputeCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputedValueActivatedEvent.html#getComputedValue--">getComputedValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputedValueActivatedEvent.html" title="class in arez.spy">ComputedValueActivatedEvent</a></dt>
@@ -953,14 +947,6 @@
 <dd>
 <div class="block">Return the observable associated with entities.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractEntityReference.html#getEntity--">getEntity()</a></span> - Method in class arez.component.<a href="arez/component/AbstractEntityReference.html" title="class in arez.component">AbstractEntityReference</a></dt>
-<dd>
-<div class="block">Return the entity that this reference points to.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractEntityReference.html#getEntityObservable--">getEntityObservable()</a></span> - Method in class arez.component.<a href="arez/component/AbstractEntityReference.html" title="class in arez.component">AbstractEntityReference</a></dt>
-<dd>
-<div class="block">Return the observable associated with entity.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverErrorEvent.html#getError--">getError()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserverErrorEvent.html" title="class in arez.spy">ObserverErrorEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/Component.html#getId--">getId()</a></span> - Method in class arez.<a href="arez/Component.html" title="class in arez">Component</a></dt>
@@ -1007,13 +993,13 @@
 <dd>
 <div class="block">Return the notifier associated with the supplied object if object implements DisposeTrackable.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableChangedEvent.html#getObservable--">getObservable()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableChangedEvent.html" title="class in arez.spy">ObservableChangedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueChangedEvent.html#getObservableValue--">getObservableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableValueChangedEvent.html" title="class in arez.spy">ObservableValueChangedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableCreatedEvent.html#getObservable--">getObservable()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableCreatedEvent.html" title="class in arez.spy">ObservableCreatedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueCreatedEvent.html#getObservableValue--">getObservableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableValueCreatedEvent.html" title="class in arez.spy">ObservableValueCreatedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableDisposedEvent.html#getObservable--">getObservable()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableDisposedEvent.html" title="class in arez.spy">ObservableDisposedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueDisposedEvent.html#getObservableValue--">getObservableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableValueDisposedEvent.html" title="class in arez.spy">ObservableValueDisposedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentInfo.html#getObservables--">getObservables()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComponentInfo.html#getObservableValues--">getObservableValues()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a></dt>
 <dd>
 <div class="block">Return the Observables associated with the component.</div>
 </dd>
@@ -1041,11 +1027,11 @@
 <dd>
 <div class="block">Return the list of observers for ComputedValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Spy.html#getObservers-arez.Observable-">getObservers(Observable&lt;?&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Spy.html#getObservers-arez.ObservableValue-">getObservers(ObservableValue&lt;?&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
-<div class="block">Return the list of observers for the Observable.</div>
+<div class="block">Return the list of observers for the ObservableValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableInfo.html#getObservers--">getObservers()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableInfo.html" title="interface in arez.spy">ObservableInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#getObservers--">getObservers()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
 <div class="block">Return the list of observers for the Observable.</div>
 </dd>
@@ -1099,17 +1085,17 @@
 <dd>
 <div class="block">Return the value of the ComputedValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Spy.html#getValue-arez.Observable-">getValue(Observable&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Spy.html#getValue-arez.ObservableValue-">getValue(ObservableValue&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
-<div class="block">Return the value of the specified Observable.</div>
+<div class="block">Return the value of the specified ObservableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Spy.html#getValue-arez.ComputedValue-">getValue(ComputedValue&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
 <div class="block">Return the value of the specified ComputedValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableChangedEvent.html#getValue--">getValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableChangedEvent.html" title="class in arez.spy">ObservableChangedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueChangedEvent.html#getValue--">getValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableValueChangedEvent.html" title="class in arez.spy">ObservableValueChangedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableInfo.html#getValue--">getValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableInfo.html" title="interface in arez.spy">ObservableInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#getValue--">getValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
 <div class="block">Return the value of the specified Observable.</div>
 </dd>
@@ -1119,11 +1105,11 @@
 </a>
 <h2 class="title">H</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="arez/Spy.html#hasAccessor-arez.Observable-">hasAccessor(Observable&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Spy.html#hasAccessor-arez.ObservableValue-">hasAccessor(ObservableValue&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
-<div class="block">Return true if the specified Observable has an accessor.</div>
+<div class="block">Return true if the specified ObservableValue has an accessor.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableInfo.html#hasAccessor--">hasAccessor()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableInfo.html" title="interface in arez.spy">ObservableInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#hasAccessor--">hasAccessor()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
 <div class="block">Return true if the specified Observable has an accessor.</div>
 </dd>
@@ -1139,15 +1125,11 @@
 <dd>
 <div class="block">Return true if the component has been initialized.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractEntityReference.html#hasEntity--">hasEntity()</a></span> - Method in class arez.component.<a href="arez/component/AbstractEntityReference.html" title="class in arez.component">AbstractEntityReference</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Spy.html#hasMutator-arez.ObservableValue-">hasMutator(ObservableValue&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
-<div class="block">Return true if reference for entity exists.</div>
+<div class="block">Return true if the specified ObservableValue has a mutator.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Spy.html#hasMutator-arez.Observable-">hasMutator(Observable&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
-<dd>
-<div class="block">Return true if the specified Observable has a mutator.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableInfo.html#hasMutator--">hasMutator()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableInfo.html" title="interface in arez.spy">ObservableInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#hasMutator--">hasMutator()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
 <div class="block">Return true if the specified Observable has a mutator.</div>
 </dd>
@@ -1188,15 +1170,15 @@
 <dd>
 <div class="block">Return true if the component identified by type and id has been defined in context.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Spy.html#isComputedValue-arez.Observable-">isComputedValue(Observable&lt;?&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Spy.html#isComputedValue-arez.ObservableValue-">isComputedValue(ObservableValue&lt;?&gt;)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
-<div class="block">Return true if the Observable is a ComputedValue.</div>
+<div class="block">Return true if the ObservableValue is a ComputedValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Spy.html#isComputedValue-arez.Observer-">isComputedValue(Observer)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
 <div class="block">Return true if the Observer is a ComputedValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableInfo.html#isComputedValue--">isComputedValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableInfo.html" title="interface in arez.spy">ObservableInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#isComputedValue--">isComputedValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
 <div class="block">Return true if the Observable is a ComputedValue.</div>
 </dd>
@@ -1236,7 +1218,7 @@
 <dd>
 <div class="block">Return true if the parameter is Disposable and has been disposed, else return false.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Observable.html#isDisposed--">isDisposed()</a></span> - Method in class arez.<a href="arez/Observable.html" title="class in arez">Observable</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ObservableValue.html#isDisposed--">isDisposed()</a></span> - Method in class arez.<a href="arez/ObservableValue.html" title="class in arez">ObservableValue</a></dt>
 <dd>
 <div class="block">Return true if dispose() has been called on object.</div>
 </dd>
@@ -1450,62 +1432,62 @@
 <dl>
 <dt><a href="arez/annotations/Observable.html" title="annotation in arez.annotations"><span class="typeNameLink">Observable</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Annotation applied to methods that expose an Observable value in Arez.</div>
+<div class="block">Annotation applied to methods that expose an ObservableValue value in Arez.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observable--">observable()</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an Observable synthesizing name if required.</div>
+<div class="block">Create an ObservableValue synthesizing name if required.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observable-java.lang.String-">observable(String)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an Observable with the specified name.</div>
+<div class="block">Create an ObservableValue with the specified name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observable-java.lang.String-arez.spy.PropertyAccessor-arez.spy.PropertyMutator-">observable(String, PropertyAccessor&lt;T&gt;, PropertyMutator&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an Observable.</div>
+<div class="block">Create an ObservableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observable-arez.Component-java.lang.String-">observable(Component, String)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an Observable.</div>
+<div class="block">Create an ObservableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observable-arez.Component-java.lang.String-arez.spy.PropertyAccessor-">observable(Component, String, PropertyAccessor&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an Observable.</div>
+<div class="block">Create an ObservableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observable-arez.Component-java.lang.String-arez.spy.PropertyAccessor-arez.spy.PropertyMutator-">observable(Component, String, PropertyAccessor&lt;T&gt;, PropertyMutator&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an Observable.</div>
-</dd>
-<dt><a href="arez/Observable.html" title="class in arez"><span class="typeNameLink">Observable</span></a>&lt;<a href="arez/Observable.html" title="type parameter in Observable">T</a>&gt; - Class in <a href="arez/package-summary.html">arez</a></dt>
-<dd>
-<div class="block">The observable represents state that can be observed within the system.</div>
-</dd>
-<dt><a href="arez/spy/ObservableChangedEvent.html" title="class in arez.spy"><span class="typeNameLink">ObservableChangedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">Notification when Observable has changed.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableChangedEvent.html#ObservableChangedEvent-arez.spy.ObservableInfo-java.lang.Object-">ObservableChangedEvent(ObservableInfo, Object)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ObservableChangedEvent.html" title="class in arez.spy">ObservableChangedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="arez/spy/ObservableCreatedEvent.html" title="class in arez.spy"><span class="typeNameLink">ObservableCreatedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">Notification when Observable is created.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableCreatedEvent.html#ObservableCreatedEvent-arez.spy.ObservableInfo-">ObservableCreatedEvent(ObservableInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ObservableCreatedEvent.html" title="class in arez.spy">ObservableCreatedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="arez/spy/ObservableDisposedEvent.html" title="class in arez.spy"><span class="typeNameLink">ObservableDisposedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">Notification when Observable is disposed.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableDisposedEvent.html#ObservableDisposedEvent-arez.spy.ObservableInfo-">ObservableDisposedEvent(ObservableInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ObservableDisposedEvent.html" title="class in arez.spy">ObservableDisposedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="arez/spy/ObservableInfo.html" title="interface in arez.spy"><span class="typeNameLink">ObservableInfo</span></a> - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">A representation of an observable instance exposed to spy framework.</div>
+<div class="block">Create an ObservableValue.</div>
 </dd>
 <dt><a href="arez/annotations/ObservableRef.html" title="annotation in arez.annotations"><span class="typeNameLink">ObservableRef</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Marks a template method that returns the <a href="arez/Observable.html" title="class in arez"><code>Observable</code></a> instance for
+<div class="block">Marks a template method that returns the <a href="arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> instance for
  the <a href="arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> annotated property.</div>
+</dd>
+<dt><a href="arez/ObservableValue.html" title="class in arez"><span class="typeNameLink">ObservableValue</span></a>&lt;<a href="arez/ObservableValue.html" title="type parameter in ObservableValue">T</a>&gt; - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">The observable represents state that can be observed within the system.</div>
+</dd>
+<dt><a href="arez/spy/ObservableValueChangedEvent.html" title="class in arez.spy"><span class="typeNameLink">ObservableValueChangedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">Notification when ObservableValue has changed.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueChangedEvent.html#ObservableValueChangedEvent-arez.spy.ObservableValueInfo-java.lang.Object-">ObservableValueChangedEvent(ObservableValueInfo, Object)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ObservableValueChangedEvent.html" title="class in arez.spy">ObservableValueChangedEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ObservableValueCreatedEvent.html" title="class in arez.spy"><span class="typeNameLink">ObservableValueCreatedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">Notification when ObservableValue is created.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueCreatedEvent.html#ObservableValueCreatedEvent-arez.spy.ObservableValueInfo-">ObservableValueCreatedEvent(ObservableValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ObservableValueCreatedEvent.html" title="class in arez.spy">ObservableValueCreatedEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ObservableValueDisposedEvent.html" title="class in arez.spy"><span class="typeNameLink">ObservableValueDisposedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">Notification when ObservableValue is disposed.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueDisposedEvent.html#ObservableValueDisposedEvent-arez.spy.ObservableValueInfo-">ObservableValueDisposedEvent(ObservableValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ObservableValueDisposedEvent.html" title="class in arez.spy">ObservableValueDisposedEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy"><span class="typeNameLink">ObservableValueInfo</span></a> - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">A representation of an ObservableValue instance exposed to spy framework.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/ComponentObservable.html#observe--">observe()</a></span> - Method in interface arez.component.<a href="arez/component/ComponentObservable.html" title="interface in arez.component">ComponentObservable</a></dt>
 <dd>
@@ -1604,17 +1586,9 @@
 <dd>
 <div class="block">Dispose or detach all the entities associated with the container.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractEntityReference.html#preDispose--">preDispose()</a></span> - Method in class arez.component.<a href="arez/component/AbstractEntityReference.html" title="class in arez.component">AbstractEntityReference</a></dt>
-<dd>
-<div class="block">Dispose or detach the associated entity if any.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/Observable.html#preReportChanged--">preReportChanged()</a></span> - Method in class arez.<a href="arez/Observable.html" title="class in arez">Observable</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ObservableValue.html#preReportChanged--">preReportChanged()</a></span> - Method in class arez.<a href="arez/ObservableValue.html" title="class in arez">ObservableValue</a></dt>
 <dd>
 <div class="block">Check that pre-conditions are satisfied before changing observable value.</div>
-</dd>
-<dt><a href="arez/annotations/Priority.html" title="enum in arez.annotations"><span class="typeNameLink">Priority</span></a> - Enum in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
-<dd>
-<div class="block">Enum to control scheduling priority of observers/reactions.</div>
 </dd>
 <dt><a href="arez/Priority.html" title="enum in arez"><span class="typeNameLink">Priority</span></a> - Enum in <a href="arez/package-summary.html">arez</a></dt>
 <dd>
@@ -1627,11 +1601,11 @@
 <dt><span class="memberNameLink"><a href="arez/processor/ArezProcessor.html#process-java.util.Set-javax.annotation.processing.RoundEnvironment-">process(Set&lt;? extends TypeElement&gt;, RoundEnvironment)</a></span> - Method in class arez.processor.<a href="arez/processor/ArezProcessor.html" title="class in arez.processor">ArezProcessor</a></dt>
 <dt><a href="arez/spy/PropertyAccessor.html" title="interface in arez.spy"><span class="typeNameLink">PropertyAccessor</span></a>&lt;<a href="arez/spy/PropertyAccessor.html" title="type parameter in PropertyAccessor">T</a>&gt; - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
-<div class="block">Returning the value of an Observable.</div>
+<div class="block">Returning the value of an ObservableValue.</div>
 </dd>
 <dt><a href="arez/spy/PropertyMutator.html" title="interface in arez.spy"><span class="typeNameLink">PropertyMutator</span></a>&lt;<a href="arez/spy/PropertyMutator.html" title="type parameter in PropertyMutator">T</a>&gt; - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
-<div class="block">Changing the value of an Observable.</div>
+<div class="block">Changing the value of an ObservableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#purgeReactionsWhenRunawayDetected--">purgeReactionsWhenRunawayDetected()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
@@ -1693,17 +1667,21 @@
 <dd>
 <div class="block">Remove spy handler from list of existing handlers.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Observable.html#reportChanged--">reportChanged()</a></span> - Method in class arez.<a href="arez/Observable.html" title="class in arez">Observable</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ObservableValue.html#reportChanged--">reportChanged()</a></span> - Method in class arez.<a href="arez/ObservableValue.html" title="class in arez">ObservableValue</a></dt>
 <dd>
 <div class="block">Notify Arez that this observable has changed.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Observable.html#reportObserved--">reportObserved()</a></span> - Method in class arez.<a href="arez/Observable.html" title="class in arez">Observable</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ObservableValue.html#reportObserved--">reportObserved()</a></span> - Method in class arez.<a href="arez/ObservableValue.html" title="class in arez">ObservableValue</a></dt>
 <dd>
 <div class="block">Notify Arez that this observable has been "observed" in the current transaction.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Observable.html#reportObservedIfTrackingTransactionActive--">reportObservedIfTrackingTransactionActive()</a></span> - Method in class arez.<a href="arez/Observable.html" title="class in arez">Observable</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ObservableValue.html#reportObservedIfTrackingTransactionActive--">reportObservedIfTrackingTransactionActive()</a></span> - Method in class arez.<a href="arez/ObservableValue.html" title="class in arez">ObservableValue</a></dt>
 <dd>
 <div class="block">Notify Arez that this observable has been "observed" if a tracking transaction is active.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ComputedValue.html#reportPossiblyChanged--">reportPossiblyChanged()</a></span> - Method in class arez.<a href="arez/ComputedValue.html" title="class in arez">ComputedValue</a></dt>
+<dd>
+<div class="block">Invoked when a non-arez dependency of the ComputedValue has changed.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Spy.html#reportSpyEvent-java.lang.Object-">reportSpyEvent(Object)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
@@ -1843,23 +1821,19 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/PropertyMutator.html#set-T-">set(T)</a></span> - Method in interface arez.spy.<a href="arez/spy/PropertyMutator.html" title="interface in arez.spy">PropertyMutator</a></dt>
 <dd>
-<div class="block">Change the value of an Observable to specified value.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractEntityReference.html#setEntity-T-">setEntity(T)</a></span> - Method in class arez.component.<a href="arez/component/AbstractEntityReference.html" title="class in arez.component">AbstractEntityReference</a></dt>
-<dd>
-<div class="block">Set the entity that this reference points to.</div>
+<div class="block">Change the value of an ObservableValue to specified value.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#setEnvironment-arez.ReactionEnvironment-">setEnvironment(ReactionEnvironment)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Specify the environment in which reactions are invoked.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableInfo.html#setValue-java.lang.Object-">setValue(Object)</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableInfo.html" title="interface in arez.spy">ObservableInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#setValue-java.lang.Object-">setValue(Object)</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
 <div class="block">Set the value of the specified Observable.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Spy.html#setValue-arez.Observable-T-">setValue(Observable&lt;T&gt;, T)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Spy.html#setValue-arez.ObservableValue-T-">setValue(ObservableValue&lt;T&gt;, T)</a></span> - Method in interface arez.<a href="arez/Spy.html" title="interface in arez">Spy</a></dt>
 <dd>
-<div class="block">Set the value of the specified Observable.</div>
+<div class="block">Set the value of the specified ObservableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#shouldCheckApiInvariants--">shouldCheckApiInvariants()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
@@ -1939,15 +1913,15 @@
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableChangedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableChangedEvent.html" title="class in arez.spy">ObservableChangedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueChangedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableValueChangedEvent.html" title="class in arez.spy">ObservableValueChangedEvent</a></dt>
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableCreatedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableCreatedEvent.html" title="class in arez.spy">ObservableCreatedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueCreatedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableValueCreatedEvent.html" title="class in arez.spy">ObservableValueCreatedEvent</a></dt>
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableDisposedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableDisposedEvent.html" title="class in arez.spy">ObservableDisposedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueDisposedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableValueDisposedEvent.html" title="class in arez.spy">ObservableValueDisposedEvent</a></dt>
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
@@ -2075,11 +2049,11 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeStartedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComputeStartedEvent.html" title="class in arez.spy">ComputeStartedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableChangedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObservableChangedEvent.html" title="class in arez.spy">ObservableChangedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueChangedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObservableValueChangedEvent.html" title="class in arez.spy">ObservableValueChangedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableCreatedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObservableCreatedEvent.html" title="class in arez.spy">ObservableCreatedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueCreatedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObservableValueCreatedEvent.html" title="class in arez.spy">ObservableValueCreatedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableDisposedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObservableDisposedEvent.html" title="class in arez.spy">ObservableDisposedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueDisposedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObservableValueDisposedEvent.html" title="class in arez.spy">ObservableValueDisposedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverCreatedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObserverCreatedEvent.html" title="class in arez.spy">ObserverCreatedEvent</a></dt>
 <dd>&nbsp;</dd>
@@ -2125,10 +2099,6 @@
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/annotations/Priority.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></dt>
-<dd>
-<div class="block">Returns the enum constant of this type with the specified name.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/annotations/Repository.AttachType.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Repository.AttachType.html" title="enum in arez.annotations">Repository.AttachType</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
@@ -2161,11 +2131,6 @@ the order they are declared.</div>
 the order they are declared.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/annotations/Multiplicity.html#values--">values()</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Multiplicity.html" title="enum in arez.annotations">Multiplicity</a></dt>
-<dd>
-<div class="block">Returns an array containing the constants of this enum type, in
-the order they are declared.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/annotations/Priority.html#values--">values()</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>

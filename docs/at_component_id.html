@@ -6,7 +6,7 @@
           };
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/arez/arez/tree/master/docs/at_component_id.md" target="_blank">Edit</a><h1>@ComponentId</h1></header><article><div><span><p>The <a href="/api/arez/annotations/ComponentId.html"><code>@ComponentId</code></a> annotation can be applied to a single method in the component. The
 method must return a unique, non-null identifier for the component instance. This value will be converted
-to a string to create the names of the underlying <a href="/api/arez/Observable.html"><code>Observable</code></a>, <a href="/api/arez/Observer.html"><code>Observer</code></a> and
+to a string to create the names of the underlying <a href="/api/arez/ObservableValue.html"><code>ObservableValue</code></a>, <a href="/api/arez/Observer.html"><code>Observer</code></a> and
 <a href="/api/arez/ComputedValue.html"><code>ComputedValue</code></a> primitives. If the <a href="/docs/repositories.html"><code>@Repository</code></a> annotation is present on the
 component, the method will also return the key that is used to store the component in a map.</p>
 <p>The user typically makes use of this method to align the identifier of the Arez component with the underlying

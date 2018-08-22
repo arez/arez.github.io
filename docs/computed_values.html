@@ -25,7 +25,7 @@ autorun observer's values where you must dispose of them yourself.</p>
 class. The <a href="/api/arez/ComputedValue.html"><code>ComputedValue</code></a> class contains a cache of the value that is computed and a reference to the
 function that computes the value. It provides a method <a href="/api/arez/ComputedValue.html#get--"><code>ComputedValue.get()</code></a> to
 access the cached value or recalculate the value if it is stale. The <a href="/api/arez/ComputedValue.html"><code>ComputedValue</code></a> contains the necessary
-logic required to determine staleness and notify dependencies. Internally it uses instances of <a href="/api/arez/Observable.html"><code>Observable</code></a>
+logic required to determine staleness and notify dependencies. Internally it uses instances of <a href="/api/arez/ObservableValue.html"><code>ObservableValue</code></a>
 and <a href="/api/arez/Observer.html"><code>Observer</code></a> to achieve this goal.</p>
 <p>The <a href="/api/arez/ComputedValue.html"><code>ComputedValue</code></a> class is a relatively low-level primitive and users typically use higher level
 constructs such as the <a href="/docs/at_computed.html">@Computed</a> annotation.</p>

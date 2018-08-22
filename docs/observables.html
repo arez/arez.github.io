@@ -8,18 +8,18 @@
 to track changes in a property and react to changes in the property this property should be made into
 an observable property. The only exception is when that property is derived from other observable properties
 in which case it should be modelled as a <a href="/docs/computed_values.html">computed value</a>.</p>
-<p>Within the Arez system an observable is represented by an instance of the <a href="/api/arez/Observable.html"><code>Observable</code></a> class. The
-<a href="/api/arez/Observable.html"><code>Observable</code></a> class does not contain the state that is observed but provides methods that can be
+<p>Within the Arez system an observable is represented by an instance of the <a href="/api/arez/ObservableValue.html"><code>ObservableValue</code></a> class. The
+<a href="/api/arez/ObservableValue.html"><code>ObservableValue</code></a> class does not contain the state that is observed but provides methods that can be
 used to notify Arez when the state is queried or mutated.</p>
-<p>The <a href="/api/arez/Observable.html"><code>Observable</code></a> class is a low-level primitive and is not intended to be directly used by Arez users.
+<p>The <a href="/api/arez/ObservableValue.html"><code>ObservableValue</code></a> class is a low-level primitive and is not intended to be directly used by Arez users.
 (See the <a href="/docs/at_observable.html">@Observable</a> documentation for a higher level API for defining observables.) However
 but it would be possible to implement an observable property using code such as:</p>
-<p><pre><code class="hljs"><span class="hljs-keyword">private</span> Observable&lt;Integer&gt; _valueObservable;
+<p><pre><code class="hljs"><span class="hljs-keyword">private</span> ObservableValue&lt;Integer&gt; _valueObservableValue;
 <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _value;
 
 <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getValue</span><span class="hljs-params">()</span>
 </span>{
-  _valueObservable.reportObserved();
+  _valueObservableValue.reportObserved();
   <span class="hljs-keyword">return</span> _value;
 }
 
@@ -28,18 +28,18 @@ but it would be possible to implement an observable property using code such as:
   <span class="hljs-keyword">if</span> ( value != _value )
   {
     _value = value;
-    _valueObservable.reportChanged();
+    _valueObservableValue.reportChanged();
   }
 }</code></pre></p>
 <p>This example does illustrate the basic usage of the class, notably the explicit call to
-<a href="/api/arez/Observable.html#reportObserved--"><code>Observable.reportObserved()</code></a> when the property is read and the explicit call to
-<a href="/api/arez/Observable.html#reportChanged--"><code>Observable.reportChanged()</code></a> when the property is mutated. However most
+<a href="/api/arez/ObservableValue.html#reportObserved--"><code>ObservableValue.reportObserved()</code></a> when the property is read and the explicit call to
+<a href="/api/arez/ObservableValue.html#reportChanged--"><code>ObservableValue.reportChanged()</code></a> when the property is mutated. However most
 users will use higher level abstractions such as the <a href="/docs/components.html">component</a> annotations and the annotation
 processor that generates the required infrastructure.</p>
 <p>Observables <strong>must</strong> only be accessed from within a transaction otherwise Arez will be unable to track access
-and mutations. In development mode, when invariant checks are enabled the <a href="/api/arez/Observable.html#reportObserved--"><code>reportObserved()</code></a>
-method and the <a href="/api/arez/Observable.html#reportChanged--"><code>reportChanged()</code></a> method will throw exceptions if they
-are not invoked from within a transaction. The <a href="/api/arez/Observable.html#reportChanged--"><code>reportChanged()</code></a> method
+and mutations. In development mode, when invariant checks are enabled the <a href="/api/arez/ObservableValue.html#reportObserved--"><code>reportObserved()</code></a>
+method and the <a href="/api/arez/ObservableValue.html#reportChanged--"><code>reportChanged()</code></a> method will throw exceptions if they
+are not invoked from within a transaction. The <a href="/api/arez/ObservableValue.html#reportChanged--"><code>reportChanged()</code></a> method
 <strong>must</strong> only be invoked from within a read-write transaction and in development it will fail an invariant check if
 invoked from within a read-only transaction.</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="transactions.html">← Transactions</a><a class="docs-next button" href="computed_values.html">Computed Values →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="Arez" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/docs/concepts.html">Concepts</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/arez/arez" data-icon="octicon-star" data-count-href="/arez/arez/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the Arez Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
