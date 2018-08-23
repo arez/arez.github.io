@@ -11,7 +11,7 @@
 <span class="sourceLineNo">003</span>import arez.Arez;<a name="line.3"></a>
 <span class="sourceLineNo">004</span>import arez.Spy;<a name="line.4"></a>
 <span class="sourceLineNo">005</span>import arez.spy.ComputedValueInfo;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import arez.spy.ObservableInfo;<a name="line.6"></a>
+<span class="sourceLineNo">006</span>import arez.spy.ObservableValueInfo;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import arez.spy.ObserverInfo;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import arez.spy.TransactionInfo;<a name="line.8"></a>
 <span class="sourceLineNo">009</span>import elemental2.dom.DomGlobal;<a name="line.9"></a>
@@ -196,9 +196,9 @@
 <span class="sourceLineNo">188</span>  }<a name="line.188"></a>
 <span class="sourceLineNo">189</span><a name="line.189"></a>
 <span class="sourceLineNo">190</span>  private static void describeDependencies( @Nonnull final StringBuilder sb,<a name="line.190"></a>
-<span class="sourceLineNo">191</span>                                            @Nonnull final List&lt;ObservableInfo&gt; dependencies )<a name="line.191"></a>
+<span class="sourceLineNo">191</span>                                            @Nonnull final List&lt;ObservableValueInfo&gt; dependencies )<a name="line.191"></a>
 <span class="sourceLineNo">192</span>  {<a name="line.192"></a>
-<span class="sourceLineNo">193</span>    for ( final ObservableInfo observable : dependencies )<a name="line.193"></a>
+<span class="sourceLineNo">193</span>    for ( final ObservableValueInfo observable : dependencies )<a name="line.193"></a>
 <span class="sourceLineNo">194</span>    {<a name="line.194"></a>
 <span class="sourceLineNo">195</span>      sb.append( "    - " );<a name="line.195"></a>
 <span class="sourceLineNo">196</span>      describeObservable( sb, observable );<a name="line.196"></a>
@@ -206,7 +206,7 @@
 <span class="sourceLineNo">198</span>    }<a name="line.198"></a>
 <span class="sourceLineNo">199</span>  }<a name="line.199"></a>
 <span class="sourceLineNo">200</span><a name="line.200"></a>
-<span class="sourceLineNo">201</span>  private static void describeObservable( @Nonnull final StringBuilder sb, @Nonnull final ObservableInfo observable )<a name="line.201"></a>
+<span class="sourceLineNo">201</span>  private static void describeObservable( @Nonnull final StringBuilder sb, @Nonnull final ObservableValueInfo observable )<a name="line.201"></a>
 <span class="sourceLineNo">202</span>  {<a name="line.202"></a>
 <span class="sourceLineNo">203</span>    sb.append( observable.isComputedValue() ? "ComputedValue" : "Observable" );<a name="line.203"></a>
 <span class="sourceLineNo">204</span>    sb.append( " '" );<a name="line.204"></a>
