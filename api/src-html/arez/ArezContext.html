@@ -562,7 +562,7 @@
 <span class="sourceLineNo">554</span>   * @param keepAlive                        true if the ComputedValue should be activated when it is created and never deactivated. If this is true then the onActivate and onDeactivate parameters should be null.<a name="line.554"></a>
 <span class="sourceLineNo">555</span>   * @param runImmediately                   ignored unless keepAlive is true. true to compute the value immediately, false to schedule compute for next reaction cycle.<a name="line.555"></a>
 <span class="sourceLineNo">556</span>   * @param observeLowerPriorityDependencies true if the computed can observe lower priority dependencies.<a name="line.556"></a>
-<span class="sourceLineNo">557</span>   * @param mustAccessArezState              true if the function is expected to access arez state.<a name="line.557"></a>
+<span class="sourceLineNo">557</span>   * @param arezOnlyDependencies             true if the computed is only derived from arez state.<a name="line.557"></a>
 <span class="sourceLineNo">558</span>   * @return the ComputedValue instance.<a name="line.558"></a>
 <span class="sourceLineNo">559</span>   */<a name="line.559"></a>
 <span class="sourceLineNo">560</span>  @Nonnull<a name="line.560"></a>
@@ -577,7 +577,7 @@
 <span class="sourceLineNo">569</span>                                        final boolean keepAlive,<a name="line.569"></a>
 <span class="sourceLineNo">570</span>                                        final boolean runImmediately,<a name="line.570"></a>
 <span class="sourceLineNo">571</span>                                        final boolean observeLowerPriorityDependencies,<a name="line.571"></a>
-<span class="sourceLineNo">572</span>                                        final boolean mustAccessArezState )<a name="line.572"></a>
+<span class="sourceLineNo">572</span>                                        final boolean arezOnlyDependencies )<a name="line.572"></a>
 <span class="sourceLineNo">573</span>  {<a name="line.573"></a>
 <span class="sourceLineNo">574</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.574"></a>
 <span class="sourceLineNo">575</span>    {<a name="line.575"></a>
@@ -595,7 +595,7 @@
 <span class="sourceLineNo">587</span>                           priority,<a name="line.587"></a>
 <span class="sourceLineNo">588</span>                           keepAlive,<a name="line.588"></a>
 <span class="sourceLineNo">589</span>                           observeLowerPriorityDependencies,<a name="line.589"></a>
-<span class="sourceLineNo">590</span>                           mustAccessArezState );<a name="line.590"></a>
+<span class="sourceLineNo">590</span>                           arezOnlyDependencies );<a name="line.590"></a>
 <span class="sourceLineNo">591</span>    final Observer observer = computedValue.getObserver();<a name="line.591"></a>
 <span class="sourceLineNo">592</span>    // Null check before setting hook fields. It seems that this decreases runtime memory pressure<a name="line.592"></a>
 <span class="sourceLineNo">593</span>    // in some environments with the penalty of a slight increase in code size. This will need to be<a name="line.593"></a>

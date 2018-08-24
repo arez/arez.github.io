@@ -459,7 +459,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
         boolean&nbsp;keepAlive,
         boolean&nbsp;runImmediately,
         boolean&nbsp;observeLowerPriorityDependencies,
-        boolean&nbsp;mustAccessArezState)</code>
+        boolean&nbsp;arezOnlyDependencies)</code>
 <div class="block">Create a ComputedValue with specified parameters.</div>
 </td>
 </tr>
@@ -1296,7 +1296,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
                                               boolean&nbsp;keepAlive,
                                               boolean&nbsp;runImmediately,
                                               boolean&nbsp;observeLowerPriorityDependencies,
-                                              boolean&nbsp;mustAccessArezState)</pre>
+                                              boolean&nbsp;arezOnlyDependencies)</pre>
 <div class="block">Create a ComputedValue with specified parameters.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -1313,7 +1313,7 @@ public&nbsp;&lt;T&gt;&nbsp;<a href="../arez/ComputedValue.html" title="class in 
 <dd><code>keepAlive</code> - true if the ComputedValue should be activated when it is created and never deactivated. If this is true then the onActivate and onDeactivate parameters should be null.</dd>
 <dd><code>runImmediately</code> - ignored unless keepAlive is true. true to compute the value immediately, false to schedule compute for next reaction cycle.</dd>
 <dd><code>observeLowerPriorityDependencies</code> - true if the computed can observe lower priority dependencies.</dd>
-<dd><code>mustAccessArezState</code> - true if the function is expected to access arez state.</dd>
+<dd><code>arezOnlyDependencies</code> - true if the computed is only derived from arez state.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the ComputedValue instance.</dd>
 </dl>
