@@ -217,7 +217,7 @@ implements <a href="../arez/Disposable.html" title="interface in arez">Disposabl
 <li class="blockList">
 <h4>getType</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/arez/Component.html#line.89">getType</a>()</pre>
+public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/arez/Component.html#line.95">getType</a>()</pre>
 <div class="block">Return the component type.
  This is an opaque string specified by the user.</div>
 <dl>
@@ -233,7 +233,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.
 <li class="blockList">
 <h4>getId</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../src-html/arez/Component.html#line.101">getId</a>()</pre>
+public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../src-html/arez/Component.html#line.107">getId</a>()</pre>
 <div class="block">Return the unique id of the component.
  This will return null for singletons.</div>
 <dl>
@@ -249,7 +249,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.
 <li class="blockList">
 <h4>getName</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/arez/Component.html#line.112">getName</a>()</pre>
+public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/arez/Component.html#line.118">getName</a>()</pre>
 <div class="block">Return the unique name of the component.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -263,7 +263,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Component.html#line.133">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Component.html#line.139">dispose</a>()</pre>
 <div class="block">Dispose the element. See <a href="../arez/Disposable.html" title="interface in arez"><code>Disposable</code></a> for a description of the implications.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -277,7 +277,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Component.html#line.175">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Component.html#line.181">isDisposed</a>()</pre>
 <div class="block">Return true if dispose() has been called on object.
  This is very useful when the Disposable is a @Computed value representing
  the selected item in a UI component but the item can be disposed by other
@@ -297,7 +297,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.
 <li class="blockList">
 <h4>toString</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/arez/Component.html#line.185">toString</a>()</pre>
+public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/arez/Component.html#line.191">toString</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dd>
@@ -310,7 +310,7 @@ public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/S
 <ul class="blockList">
 <li class="blockList">
 <h4>isComplete</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Component.html#line.202">isComplete</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Component.html#line.208">isComplete</a>()</pre>
 <div class="block">Return true if the creation of this component is complete.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -324,7 +324,7 @@ public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/S
 <ul class="blockListLast">
 <li class="blockList">
 <h4>complete</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Component.html#line.212">complete</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Component.html#line.218">complete</a>()</pre>
 <div class="block">The toolkit user should call this method when the component is complete.
  After this method has been invoked the user should not attempt to define any more <a href="../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a>s,
  <a href="../arez/Observer.html" title="class in arez"><code>Observer</code></a>s or <a href="../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>s on the component.</div>
