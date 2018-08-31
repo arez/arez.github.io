@@ -346,6 +346,14 @@
 <dd>
 <div class="block">Create an autorun observer.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#autorun-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-boolean-boolean-boolean-arez.Procedure-">autorun(Component, String, boolean, Procedure, Priority, boolean, boolean, boolean, boolean, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create an autorun observer.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#autorun-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Procedure-arez.Priority-boolean-boolean-boolean-boolean-arez.Procedure-">autorun(Component, String, boolean, Procedure, Procedure, Priority, boolean, boolean, boolean, boolean, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create an autorun observer.</div>
+</dd>
 </dl>
 <a name="I:C">
 <!--   -->
@@ -1699,6 +1707,11 @@
 <dd>
 <div class="block">Report an event in the Arez system.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.html#reportStale--">reportStale()</a></span> - Method in class arez.<a href="arez/Observer.html" title="class in arez">Observer</a></dt>
+<dd>
+<div class="block">This method should be invoked if the observer has non-arez dependencies and one of
+ these dependencies has been updated.</div>
+</dd>
 <dt><a href="arez/annotations/Repository.html" title="annotation in arez.annotations"><span class="typeNameLink">Repository</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Annotation that indicates that a repository must be generated for component.</div>
@@ -1818,6 +1831,10 @@
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#safeTrack-arez.Observer-arez.SafeProcedure-java.lang.Object...-">safeTrack(Observer, SafeProcedure, Object...)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Execute the supplied executable with the specified Observer as the tracker.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.html#schedule--">schedule()</a></span> - Method in class arez.<a href="arez/Observer.html" title="class in arez">Observer</a></dt>
+<dd>
+<div class="block">Schedule this observer if it does not already have a reaction pending.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#scheduleDispose-arez.Disposable-">scheduleDispose(Disposable)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
@@ -2014,6 +2031,10 @@
 <div class="block">Create a "tracker" observer.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#tracker-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-boolean-">tracker(Component, String, boolean, Procedure, Priority, boolean, boolean)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a "tracker" observer.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#tracker-arez.Component-java.lang.String-boolean-arez.Procedure-arez.Priority-boolean-boolean-boolean-">tracker(Component, String, boolean, Procedure, Priority, boolean, boolean, boolean)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Create a "tracker" observer.</div>
 </dd>
