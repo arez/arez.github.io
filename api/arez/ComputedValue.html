@@ -116,7 +116,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public final class <a href="../src-html/arez/ComputedValue.html#line.20">ComputedValue</a>&lt;T&gt;
+<pre>public final class <a href="../src-html/arez/ComputedValue.html#line.21">ComputedValue</a>&lt;T&gt;
 extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <div class="block">The ComputedValue represents an ObservableValue derived from other ObservableValues within
  the Arez system. The value is calculated lazily. i.e. The ComputedValue will only
@@ -209,7 +209,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>get</h4>
-<pre>public&nbsp;<a href="../arez/ComputedValue.html" title="type parameter in ComputedValue">T</a>&nbsp;<a href="../src-html/arez/ComputedValue.html#line.145">get</a>()</pre>
+<pre>public&nbsp;<a href="../arez/ComputedValue.html" title="type parameter in ComputedValue">T</a>&nbsp;<a href="../src-html/arez/ComputedValue.html#line.148">get</a>()</pre>
 <div class="block">Return the computed value, calculating the value if it is not up to date.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -223,7 +223,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportPossiblyChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputedValue.html#line.186">reportPossiblyChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputedValue.html#line.189">reportPossiblyChanged</a>()</pre>
 <div class="block">Invoked when a non-arez dependency of the ComputedValue has changed. The ComputedValue
  may or may not change as a result of the dependency change but Arez will recalculate
  the ComputedValue during the normal reaction cycle or when next accessed and will propagate
@@ -237,7 +237,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputedValue.html#line.205">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputedValue.html#line.208">dispose</a>()</pre>
 <div class="block">Dispose the ComputedValue so that it can no longer be used.</div>
 </li>
 </ul>
@@ -247,7 +247,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ComputedValue.html#line.245">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ComputedValue.html#line.248">isDisposed</a>()</pre>
 <div class="block">Return true if dispose() has been called on object.
  This is very useful when the Disposable is a @Computed value representing
  the selected item in a UI component but the item can be disposed by other

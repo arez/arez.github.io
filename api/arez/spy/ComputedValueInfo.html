@@ -194,15 +194,13 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>isComputing</h4>
-<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.23">isComputing</a>()</pre>
+<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.22">isComputing</a>()</pre>
 <div class="block">Return true if the ComputedValue is "computing".
  This implies that the current transaction or one of the parent transactions is calculating the
  ComputedValue at the moment.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if there is a transaction active.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../arez/Spy.html#isComputing-arez.ComputedValue-"><code>Spy.isComputing(arez.ComputedValue)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -213,7 +211,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <li class="blockList">
 <h4>getPriority</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-<a href="../../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.31">getPriority</a>()</pre>
+<a href="../../arez/Priority.html" title="enum in arez">Priority</a>&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.30">getPriority</a>()</pre>
 <div class="block">Return the priority of the ComputedValue.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -227,14 +225,12 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>isActive</h4>
-<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.40">isActive</a>()</pre>
+<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.38">isActive</a>()</pre>
 <div class="block">Return true if the ComputedValue is active.
  A ComputedValue is active if there is one or more Observers and the value will be calculated.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the ComputedValue is active.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../arez/Spy.html#isActive-arez.ComputedValue-"><code>Spy.isActive(arez.ComputedValue)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -245,14 +241,12 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <li class="blockList">
 <h4>getObservers</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.50">getObservers</a>()</pre>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.47">getObservers</a>()</pre>
 <div class="block">Return the list of observers for ComputedValue.
  The list is an immutable copy of the observers of the <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the list of observers for ComputedValue.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../arez/Spy.html#getObservers-arez.ComputedValue-"><code>Spy.getObservers(arez.ComputedValue)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -263,7 +257,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <li class="blockList">
 <h4>getDependencies</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.63">getDependencies</a>()</pre>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.59">getDependencies</a>()</pre>
 <div class="block">Return the list of dependencies of the ComputedValue.
  The list is an immutable copy of the dependencies of the <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>.
  If the <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a> is currently being computed (i.e. <a href="../../arez/spy/ComputedValueInfo.html#isComputing--"><code>isComputing()</code></a>
@@ -272,8 +266,6 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the list of dependencies for ComputedValue.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../arez/Spy.html#getDependencies-arez.ComputedValue-"><code>Spy.getDependencies(arez.ComputedValue)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -284,14 +276,12 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <li class="blockList">
 <h4>getComponent</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-<a href="../../arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a>&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.73">getComponent</a>()</pre>
+<a href="../../arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a>&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.68">getComponent</a>()</pre>
 <div class="block">Return the component for the ComputedValue.
  This method should not be invoked if <a href="../../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the component that contains ComputedValue if any.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../arez/Spy.html#getComponent-arez.ComputedValue-"><code>Spy.getComponent(arez.ComputedValue)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -302,7 +292,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <li class="blockList">
 <h4>getValue</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.84">getValue</a>()
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/arez/spy/ComputedValueInfo.html#line.78">getValue</a>()
                    throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
 <div class="block">Return the value of the ComputedValue.
  This method should only be invoked if <a href="../../arez/Arez.html#arePropertyIntrospectorsEnabled--"><code>Arez.arePropertyIntrospectorsEnabled()</code></a> returns true.</div>
@@ -311,8 +301,6 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <dd>the value of the ComputedValue.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></code> - if the property accessor throws an exception.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../arez/Spy.html#getValue-arez.ComputedValue-"><code>Spy.getValue(arez.ComputedValue)</code></a></dd>
 </dl>
 </li>
 </ul>
