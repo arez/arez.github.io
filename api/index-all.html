@@ -216,6 +216,10 @@
 <dd>
 <div class="block">Spy events and introspection utilities.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/Flags.html#AREZ_DEPENDENCIES_ONLY">AREZ_DEPENDENCIES_ONLY</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dd>
+<div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to indicate dependency has changed.</div>
+</dd>
 <dt><a href="arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><span class="typeNameLink">ArezComponent</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Annotation that marks classes to be processed by Arez annotation processor.</div>
@@ -1317,7 +1321,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Flags.html#NON_AREZ_DEPENDENCIES">NON_AREZ_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
-<div class="block">Flag set to true if the application code can invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to indicate non-arez dependency has changed.</div>
+<div class="block">Flag set if the application code can invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to indicate non-arez dependency has changed.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#noPurgeReactionsWhenRunawayDetected--">noPurgeReactionsWhenRunawayDetected()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
@@ -2047,52 +2051,6 @@
 <dd>
 <div class="block">Method invoked to trigger the scheduler to run any pending reactions.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ActionCompletedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ActionCompletedEvent.html" title="class in arez.spy">ActionCompletedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ActionStartedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ActionStartedEvent.html" title="class in arez.spy">ActionStartedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentCreateCompletedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComponentCreateCompletedEvent.html" title="class in arez.spy">ComponentCreateCompletedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentCreateStartedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComponentCreateStartedEvent.html" title="class in arez.spy">ComponentCreateStartedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeCompletedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComponentDisposeCompletedEvent.html" title="class in arez.spy">ComponentDisposeCompletedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeStartedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComponentDisposeStartedEvent.html" title="class in arez.spy">ComponentDisposeStartedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputeCompletedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComputeCompletedEvent.html" title="class in arez.spy">ComputeCompletedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueActivatedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComputedValueActivatedEvent.html" title="class in arez.spy">ComputedValueActivatedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueCreatedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComputedValueCreatedEvent.html" title="class in arez.spy">ComputedValueCreatedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueDeactivatedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComputedValueDeactivatedEvent.html" title="class in arez.spy">ComputedValueDeactivatedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueDisposedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComputedValueDisposedEvent.html" title="class in arez.spy">ComputedValueDisposedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputeStartedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ComputeStartedEvent.html" title="class in arez.spy">ComputeStartedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueChangedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObservableValueChangedEvent.html" title="class in arez.spy">ObservableValueChangedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueCreatedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObservableValueCreatedEvent.html" title="class in arez.spy">ObservableValueCreatedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueDisposedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObservableValueDisposedEvent.html" title="class in arez.spy">ObservableValueDisposedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObserverCreatedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObserverCreatedEvent.html" title="class in arez.spy">ObserverCreatedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObserverDisposedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObserverDisposedEvent.html" title="class in arez.spy">ObserverDisposedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObserverErrorEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ObserverErrorEvent.html" title="class in arez.spy">ObserverErrorEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionCompletedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ReactionCompletedEvent.html" title="class in arez.spy">ReactionCompletedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionScheduledEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ReactionScheduledEvent.html" title="class in arez.spy">ReactionScheduledEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionStartedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/ReactionStartedEvent.html" title="class in arez.spy">ReactionStartedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/TransactionCompletedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/TransactionCompletedEvent.html" title="class in arez.spy">TransactionCompletedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/TransactionStartedEvent.html#TYPE_NAME">TYPE_NAME</a></span> - Static variable in class arez.spy.<a href="arez/spy/TransactionStartedEvent.html" title="class in arez.spy">TransactionStartedEvent</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="arez/component/TypeBasedLocator.html" title="class in arez.component"><span class="typeNameLink">TypeBasedLocator</span></a> - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
 <dd>
 <div class="block">An Locator implementation where you can register a function-per type to be resolved.</div>
