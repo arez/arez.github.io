@@ -161,6 +161,12 @@ public @interface <a href="../../src-html/arez/annotations/Observable.html#line.
 <div class="block">Return true if the observable be read outside a transaction.</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observable.html#setterAlwaysMutates--">setterAlwaysMutates</a></span></code>
+<div class="block">Return false if the setter should verify observable value has changed before propagating change.</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -257,7 +263,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="readOutsideTransaction--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>readOutsideTransaction</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observable.html#line.85">readOutsideTransaction</a></pre>
@@ -274,6 +280,34 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>false</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="setterAlwaysMutates--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setterAlwaysMutates</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observable.html#line.99">setterAlwaysMutates</a></pre>
+<div class="block">Return false if the setter should verify observable value has changed before propagating change.
+ In some scenarios, the setter method will modify the value before updating the observable or may
+ decide to abort the update. This setting will force the generated code to check the value of the
+ observable property after the setter and only invoke <a href="../../arez/ObservableValue.html#reportChanged--"><code>ObservableValue.reportChanged()</code></a> if
+ a change has actually occurred.
+
+ <p>This parameter should not be set to false if the associated setter is abstract. It is also
+ invalid to set this value to false if <a href="../../arez/annotations/Observable.html#expectSetter--"><code>expectSetter()</code></a> is false.</p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>false if the setter should verify observable value has changed before propagating change.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>true</dd>
 </dl>
 </li>
 </ul>
