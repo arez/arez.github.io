@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public final class <a href="../../src-html/arez/component/ComponentState.html#line.11">ComponentState</a>
+<pre>public final class <a href="../../src-html/arez/component/ComponentState.html#line.12">ComponentState</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">This class is used in generated code to manage the state of the component.
  This is centralized here so that it is easier for GWT to optimize it either by sharing the methods
@@ -165,8 +165,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr class="rowColor">
 <td class="colFirst"><code>static byte</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/ComponentState.html#COMPONENT_READY">COMPONENT_READY</a></span></code>
-<div class="block">The scheduler has been triggered and any <a href="../../arez/annotations/Autorun.html" title="annotation in arez.annotations"><code>Autorun</code></a> methods have been invoked
- or scheduled.</div>
+<div class="block">The scheduler has been triggered and any <a href="../../arez/annotations/Observed.html" title="annotation in arez.annotations"><code>Observed</code></a> methods have been invoked if runtime managed.</div>
 </td>
 </tr>
 </table>
@@ -248,7 +247,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>COMPONENT_INITIALIZED</h4>
-<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.21">COMPONENT_INITIALIZED</a></pre>
+<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.22">COMPONENT_INITIALIZED</a></pre>
 <div class="block">The components constructor has been called, the <a href="../../arez/ArezContext.html" title="class in arez"><code>ArezContext</code></a> field initialized (if necessary),
  and the synthetic id has been generated (if required).</div>
 <dl>
@@ -263,7 +262,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>COMPONENT_CONSTRUCTED</h4>
-<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.28">COMPONENT_CONSTRUCTED</a></pre>
+<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.29">COMPONENT_CONSTRUCTED</a></pre>
 <div class="block">The reactive elements have been created (i.e. the <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a>, <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a>,
  <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a> etc.). The <a href="../../arez/annotations/PostConstruct.html" title="annotation in arez.annotations"><code>PostConstruct</code></a> has NOT been invoked nor
  has the <a href="../../arez/Component.html" title="class in arez"><code>Component</code></a> been instantiated. This means the component is ready to be interacted with
@@ -280,9 +279,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>COMPONENT_COMPLETE</h4>
-<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.33">COMPONENT_COMPLETE</a></pre>
+<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.35">COMPONENT_COMPLETE</a></pre>
 <div class="block">The <a href="../../arez/annotations/PostConstruct.html" title="annotation in arez.annotations"><code>PostConstruct</code></a> method has been invoked and
- the <a href="../../arez/Component.html" title="class in arez"><code>Component</code></a> has been instantiated. The scheduler has not been triggered.</div>
+ the <a href="../../arez/Component.html" title="class in arez"><code>Component</code></a> has been instantiated. Observers have been scheduled but the scheduler
+ has not been triggered.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../constant-values.html#arez.component.ComponentState.COMPONENT_COMPLETE">Constant Field Values</a></dd>
@@ -295,9 +295,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>COMPONENT_READY</h4>
-<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.38">COMPONENT_READY</a></pre>
-<div class="block">The scheduler has been triggered and any <a href="../../arez/annotations/Autorun.html" title="annotation in arez.annotations"><code>Autorun</code></a> methods have been invoked
- or scheduled.</div>
+<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.39">COMPONENT_READY</a></pre>
+<div class="block">The scheduler has been triggered and any <a href="../../arez/annotations/Observed.html" title="annotation in arez.annotations"><code>Observed</code></a> methods have been invoked if runtime managed.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../constant-values.html#arez.component.ComponentState.COMPONENT_READY">Constant Field Values</a></dd>
@@ -310,7 +309,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>COMPONENT_DISPOSING</h4>
-<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.42">COMPONENT_DISPOSING</a></pre>
+<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.43">COMPONENT_DISPOSING</a></pre>
 <div class="block">The component is disposing.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -324,7 +323,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>COMPONENT_DISPOSED</h4>
-<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.46">COMPONENT_DISPOSED</a></pre>
+<pre>public static final&nbsp;byte <a href="../../src-html/arez/component/ComponentState.html#line.47">COMPONENT_DISPOSED</a></pre>
 <div class="block">The component has been disposed.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -346,7 +345,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>hasBeenInitialized</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.54">hasBeenInitialized</a>(byte&nbsp;state)</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.55">hasBeenInitialized</a>(byte&nbsp;state)</pre>
 <div class="block">Return true if the component has been initialized.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -362,7 +361,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>hasBeenConstructed</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.65">hasBeenConstructed</a>(byte&nbsp;state)</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.66">hasBeenConstructed</a>(byte&nbsp;state)</pre>
 <div class="block">Return true if the component has been constructed.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -378,7 +377,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>hasBeenCompleted</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.76">hasBeenCompleted</a>(byte&nbsp;state)</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.77">hasBeenCompleted</a>(byte&nbsp;state)</pre>
 <div class="block">Return true if the component has been completed.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -394,7 +393,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>isActive</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.88">isActive</a>(byte&nbsp;state)</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.89">isActive</a>(byte&nbsp;state)</pre>
 <div class="block">Return true if the component is active and can be interacted with.
  This means that the component has been constructed and has not started to be disposed.</div>
 <dl>
@@ -411,7 +410,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposingOrDisposed</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.99">isDisposingOrDisposed</a>(byte&nbsp;state)</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.100">isDisposingOrDisposed</a>(byte&nbsp;state)</pre>
 <div class="block">Return true if the component is disposing or disposed.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -428,7 +427,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>describe</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.111">describe</a>(byte&nbsp;state)</pre>
+public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/component/ComponentState.html#line.112">describe</a>(byte&nbsp;state)</pre>
 <div class="block">Describe specified state. This is usually used to provide error messages.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

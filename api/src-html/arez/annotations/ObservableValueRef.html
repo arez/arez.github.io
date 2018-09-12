@@ -20,7 +20,7 @@
 <span class="sourceLineNo">012</span> * by an {@link ObservableValue} instance and some frameworks make use of this value to implement<a name="line.12"></a>
 <span class="sourceLineNo">013</span> * advanced functionality.<a name="line.13"></a>
 <span class="sourceLineNo">014</span> *<a name="line.14"></a>
-<span class="sourceLineNo">015</span> * &lt;p&gt;The method that is annotated with @ObservableRef must also comply with the following constraints:&lt;/p&gt;<a name="line.15"></a>
+<span class="sourceLineNo">015</span> * &lt;p&gt;The method that is annotated with this annotation must also comply with the following constraints:&lt;/p&gt;<a name="line.15"></a>
 <span class="sourceLineNo">016</span> * &lt;ul&gt;<a name="line.16"></a>
 <span class="sourceLineNo">017</span> * &lt;li&gt;Must not be annotated with any other arez annotation&lt;/li&gt;<a name="line.17"></a>
 <span class="sourceLineNo">018</span> * &lt;li&gt;Must not be private&lt;/li&gt;<a name="line.18"></a>
@@ -33,11 +33,11 @@
 <span class="sourceLineNo">025</span> */<a name="line.25"></a>
 <span class="sourceLineNo">026</span>@Documented<a name="line.26"></a>
 <span class="sourceLineNo">027</span>@Target( ElementType.METHOD )<a name="line.27"></a>
-<span class="sourceLineNo">028</span>public @interface ObservableRef<a name="line.28"></a>
+<span class="sourceLineNo">028</span>public @interface ObservableValueRef<a name="line.28"></a>
 <span class="sourceLineNo">029</span>{<a name="line.29"></a>
 <span class="sourceLineNo">030</span>  /**<a name="line.30"></a>
 <span class="sourceLineNo">031</span>   * Return the name of the associated ObservableValue property that this ref relates to.<a name="line.31"></a>
-<span class="sourceLineNo">032</span>   * This value will be derived if the method name matches the pattern "get[Name]Observable",<a name="line.32"></a>
+<span class="sourceLineNo">032</span>   * This value will be derived if the method name matches the pattern "get[Name]ObservableValue",<a name="line.32"></a>
 <span class="sourceLineNo">033</span>   * otherwise it must be specified.<a name="line.33"></a>
 <span class="sourceLineNo">034</span>   *<a name="line.34"></a>
 <span class="sourceLineNo">035</span>   * @return the name of the associated ObservableValue.<a name="line.35"></a>

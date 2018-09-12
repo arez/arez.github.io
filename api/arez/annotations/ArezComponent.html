@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../arez/annotations/Autorun.html" title="annotation in arez.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/annotations/CascadeDispose.html" title="annotation in arez.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/annotations/ArezComponent.html" target="_top">Frames</a></li>
@@ -93,11 +93,10 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>)
-public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#line.46">ArezComponent</a></pre>
+public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#line.45">ArezComponent</a></pre>
 <div class="block">Annotation that marks classes to be processed by Arez annotation processor.
  Classes with this annotation can contain <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> properties,
- <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> properties, <a href="../../arez/annotations/Autorun.html" title="annotation in arez.annotations"><code>Autorun</code></a> methods, <a href="../../arez/annotations/Track.html" title="annotation in arez.annotations"><code>Track</code></a> methods
- and <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a> methods.
+ <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> properties, <a href="../../arez/annotations/Observed.html" title="annotation in arez.annotations"><code>Observed</code></a> methods and <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a> methods.
 
  <p>The annotation controls the way that contained actions and observables are
  named (if names are enabled in the system.</p>
@@ -120,7 +119,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
  <li>Must be concrete, not abstract</li>
  <li>Must not be final</li>
  <li>Must not be a non-static nested class</li>
- <li>Must have at least one method annotated with <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>, <a href="../../arez/annotations/Autorun.html" title="annotation in arez.annotations"><code>Autorun</code></a>, <a href="../../arez/annotations/Track.html" title="annotation in arez.annotations"><code>Track</code></a>, <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> or <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a></li>
+ <li>Must have at least one method annotated with <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>, <a href="../../arez/annotations/Observed.html" title="annotation in arez.annotations"><code>Observed</code></a>, <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> or <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a></li>
  </ul>
 
  <p>The annotation processor that handles this annotation will analyze all super classes and super
@@ -166,8 +165,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#deferSchedule--">deferSchedule</a></span></code>
-<div class="block">Return true if an the generated component should NOT schedule autorun actions at the end of the
- constructor.</div>
+<div class="block">Return true if an the generated component should NOT trigger scheduler at the end of the constructor.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -248,7 +246,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.55">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.54">name</a></pre>
 <div class="block">Return the name of the type.
  The value must conform to the requirements of a java identifier.</div>
 <dl>
@@ -270,7 +268,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>nameIncludesId</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.64">nameIncludesId</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.63">nameIncludesId</a></pre>
 <div class="block">Return true if the name derived for component should include the id, false otherwise.
  If the user does not specify a value for this parameter but does specify the <tt>javax.inject.Singleton</tt>
  on the same type then the default value of this parameter is false, otherwise it is true.</div>
@@ -293,9 +291,9 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>allowEmpty</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.73">allowEmpty</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.72">allowEmpty</a></pre>
 <div class="block">Return true if the component does not need to explicitly declare elements.
- Otherwise if no elements (i.e. <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a>s, <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>s, <a href="../../arez/annotations/Autorun.html" title="annotation in arez.annotations"><code>Autorun</code></a>s etc) are defined
+ Otherwise if no elements (i.e. <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a>s, <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>s, <a href="../../arez/annotations/Observed.html" title="annotation in arez.annotations"><code>Observed</code></a>s etc) are defined
  on a component it will generate an error.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -316,7 +314,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>allowConcrete</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.81">allowConcrete</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.80">allowConcrete</a></pre>
 <div class="block">Return true if the component type does not need to be abstract.
  Otherwise an error will be generated if this annotation is added to a concrete type.</div>
 <dl>
@@ -338,7 +336,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>observable</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.94">observable</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.93">observable</a></pre>
 <div class="block">Return the enum to control whether the component should support being "observed" by
  <a href="../../arez/component/ComponentObservable.html#observe-java.lang.Object-"><code>ComponentObservable.observe(Object)</code></a>.
  <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the implementation of the ComponentObservable interface,
@@ -365,7 +363,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>disposeTrackable</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.108">disposeTrackable</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.107">disposeTrackable</a></pre>
 <div class="block">Return enum to control whether the component should support implement <a href="../../arez/component/DisposeTrackable.html" title="interface in arez.component"><code>DisposeTrackable</code></a>.
  This will result in the component invoking dispose listener callbacks during dispose operation
  within the scope of the disposing transaction.
@@ -393,7 +391,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>disposeOnDeactivate</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.117">disposeOnDeactivate</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.116">disposeOnDeactivate</a></pre>
 <div class="block">Return true if the component should dispose itself once it is no longer "observed".
  By "observed" it means that the component will have <a href="../../arez/component/ComponentObservable.html#observe-java.lang.Object-"><code>ComponentObservable.observe(Object)</code></a>
  called on it. This parameter MUST be false if <a href="../../arez/annotations/ArezComponent.html#observable--"><code>observable()</code></a> has the value <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>.</div>
@@ -416,7 +414,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>inject</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.128">inject</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.127">inject</a></pre>
 <div class="block">Indicate whether an @Inject annotation should be added to constructor of the generated class.
  <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the addition of an @Inject annotation, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
  will result in no @Inject annotation and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add an @Inject
@@ -441,7 +439,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>dagger</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.139">dagger</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.138">dagger</a></pre>
 <div class="block">Indicate whether a dagger module should be generated for enhanced component class.
  <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the generation of the module, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
  will result in no dagger module and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add a dagger
@@ -466,13 +464,13 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>deferSchedule</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.148">deferSchedule</a></pre>
-<div class="block">Return true if an the generated component should NOT schedule autorun actions at the end of the
- constructor. This is useful if the component creator will trigger schedules manually at a later time.
- This MUST be false if there is no autorun methods annotated on the component.</div>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.147">deferSchedule</a></pre>
+<div class="block">Return true if an the generated component should NOT trigger scheduler at the end of the constructor.
+ This is useful if the component creator will trigger schedules manually at a later time.
+ This MUST be false if there is no observed methods annotated on the component.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Return true if an the generated component should NOT schedule autorun actions at the end of the constructor.</dd>
+<dd>return true if an the generated component should NOT trigger scheduler at the end of the constructor.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>
@@ -489,7 +487,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>requireEquals</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.159">requireEquals</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.158">requireEquals</a></pre>
 <div class="block">Indicate whether a component requires that the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang"><code>Object.equals(Object)</code></a>
  methods are implemented. These methods MUST be implemented if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present
  but may be implemented in other scenarios. <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the generation of the methods,
@@ -514,7 +512,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>requireId</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.174">requireId</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.173">requireId</a></pre>
 <div class="block">Indicates whether the component should support access of the id via <a href="../../arez/component/Identifiable.html#getArezId-java.lang.Object-"><code>Identifiable.getArezId(Object)</code></a>.
  This must be supported if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present but may be supported in other scenarios.
  This feature is present on all components if <a href="../../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> is true,
@@ -543,7 +541,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>verify</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.183">verify</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.182">verify</a></pre>
 <div class="block">Indicates whether the component should implement the interface <a href="../../arez/component/Verifiable.html" title="interface in arez.component"><code>Verifiable</code></a>.
  This feature is ignored unless <a href="../../arez/Arez.html#isVerifyEnabled--"><code>Arez.isVerifyEnabled()</code></a> is true. The <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a>
  value will enable this feature if the component has any <a href="../../arez/annotations/Reference.html" title="annotation in arez.annotations"><code>Reference</code></a> methods or any <a href="../../arez/annotations/Inverse.html" title="annotation in arez.annotations"><code>Inverse</code></a> methods.</div>
@@ -585,7 +583,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../arez/annotations/Autorun.html" title="annotation in arez.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/annotations/CascadeDispose.html" title="annotation in arez.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/annotations/ArezComponent.html" target="_top">Frames</a></li>

@@ -294,10 +294,6 @@
 <dd>
 <div class="block">Attach specified entity to the set of entities managed by the container.</div>
 </dd>
-<dt><a href="arez/annotations/Autorun.html" title="annotation in arez.annotations"><span class="typeNameLink">Autorun</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
-<dd>
-<div class="block">Methods marked with this annotation are converted to autoruns.</div>
-</dd>
 </dl>
 <a name="I:C">
 <!--   -->
@@ -388,8 +384,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#COMPONENT_READY">COMPONENT_READY</a></span> - Static variable in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
 <dd>
-<div class="block">The scheduler has been triggered and any <a href="arez/annotations/Autorun.html" title="annotation in arez.annotations"><code>Autorun</code></a> methods have been invoked
- or scheduled.</div>
+<div class="block">The scheduler has been triggered and any <a href="arez/annotations/Observed.html" title="annotation in arez.annotations"><code>Observed</code></a> methods have been invoked if runtime managed.</div>
 </dd>
 <dt><a href="arez/spy/ComponentCreateCompletedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComponentCreateCompletedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
@@ -564,11 +559,6 @@
 </a>
 <h2 class="title">D</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#DEACTIVATE_ON_UNOBSERVE">DEACTIVATE_ON_UNOBSERVE</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
-<dd>
-<div class="block">The flag is valid on observers associated with computed values and will deactivate the observer if the
- computed value has no observers.</div>
-</dd>
 <dt><a href="arez/annotations/Dependency.html" title="annotation in arez.annotations"><span class="typeNameLink">Dependency</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Methods marked with this annotation are dependencies of the component.</div>
@@ -723,6 +713,10 @@
 <dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#entities--">entities()</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
 <dd>
 <div class="block">Return a stream of all entities in the container.</div>
+</dd>
+<dt><a href="arez/annotations/Executor.html" title="enum in arez.annotations"><span class="typeNameLink">Executor</span></a> - Enum in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
+<dd>
+<div class="block">Enum describing the agent responsible for executing the <a href="arez/Observer.html" title="class in arez"><code>Observer</code></a>'s observed method.</div>
 </dd>
 </dl>
 <a name="I:F">
@@ -896,7 +890,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/TransactionCompletedEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/TransactionCompletedEvent.html" title="class in arez.spy">TransactionCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#getEntitiesObservable--">getEntitiesObservable()</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#getEntitiesObservableValue--">getEntitiesObservableValue()</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
 <dd>
 <div class="block">Return the observable associated with entities.</div>
 </dd>
@@ -1297,11 +1291,11 @@
 <dl>
 <dt><span class="memberNameLink"><a href="arez/Flags.html#NESTED_ACTIONS_ALLOWED">NESTED_ACTIONS_ALLOWED</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
-<div class="block">Indicates that the an action can be created from within the Observers tracked function.</div>
+<div class="block">Indicates that the an action can be created from within the Observers observed function.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Flags.html#NESTED_ACTIONS_DISALLOWED">NESTED_ACTIONS_DISALLOWED</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
-<div class="block">Indicates that the an action must not be created from within the Observers tracked function.</div>
+<div class="block">Indicates that the an action must not be created from within the Observers observed function.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#noCheckApiInvariants--">noCheckApiInvariants()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
@@ -1389,11 +1383,6 @@
 <dd>
 <div class="block">Create an ObservableValue.</div>
 </dd>
-<dt><a href="arez/annotations/ObservableRef.html" title="annotation in arez.annotations"><span class="typeNameLink">ObservableRef</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
-<dd>
-<div class="block">Marks a template method that returns the <a href="arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> instance for
- the <a href="arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> annotated property.</div>
-</dd>
 <dt><a href="arez/ObservableValue.html" title="class in arez"><span class="typeNameLink">ObservableValue</span></a>&lt;<a href="arez/ObservableValue.html" title="type parameter in ObservableValue">T</a>&gt; - Class in <a href="arez/package-summary.html">arez</a></dt>
 <dd>
 <div class="block">The observable represents state that can be observed within the system.</div>
@@ -1420,6 +1409,19 @@
 <dd>
 <div class="block">A representation of an ObservableValue instance exposed to spy framework.</div>
 </dd>
+<dt><a href="arez/annotations/ObservableValueRef.html" title="annotation in arez.annotations"><span class="typeNameLink">ObservableValueRef</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
+<dd>
+<div class="block">Marks a template method that returns the <a href="arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> instance for
+ the <a href="arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> annotated property.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#observe-arez.Observer-arez.Function-java.lang.Object...-">observe(Observer, Function&lt;T&gt;, Object...)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Execute the observed function with the specified Observer.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#observe-arez.Observer-arez.Procedure-java.lang.Object...-">observe(Observer, Procedure, Object...)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Execute the observed function with the specified Observer.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/component/ComponentObservable.html#observe--">observe()</a></span> - Method in interface arez.component.<a href="arez/component/ComponentObservable.html" title="interface in arez.component">ComponentObservable</a></dt>
 <dd>
 <div class="block">Return true if the component is "alive" a.k.a.</div>
@@ -1432,29 +1434,33 @@
 <dd>
 <div class="block">Flag indicating that the Observer is allowed to observe <a href="arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a> instances with a lower priority.</div>
 </dd>
+<dt><a href="arez/annotations/Observed.html" title="annotation in arez.annotations"><span class="typeNameLink">Observed</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
+<dd>
+<div class="block">Annotation that marks a method as observed.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observer-arez.Procedure-">observer(Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an "autorun" observer that reschedules tracked procedure when dependency updates occur.</div>
+<div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observer-arez.Procedure-int-">observer(Procedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an "autorun" observer that reschedules tracked procedure when dependency updates occur.</div>
+<div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observer-java.lang.String-arez.Procedure-">observer(String, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an "autorun" observer that reschedules tracked procedure when dependency updates occur.</div>
+<div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observer-java.lang.String-arez.Procedure-int-">observer(String, Procedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an "autorun" observer that reschedules tracked procedure when dependency updates occur.</div>
+<div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observer-arez.Component-java.lang.String-arez.Procedure-">observer(Component, String, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an "autorun" observer that reschedules tracked procedure when dependency updates occur.</div>
+<div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observer-arez.Component-java.lang.String-arez.Procedure-int-">observer(Component, String, Procedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create an "autorun" observer that reschedules tracked procedure when dependency updates occur.</div>
+<div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observer-arez.Component-java.lang.String-arez.Procedure-arez.Procedure-">observer(Component, String, Procedure, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
@@ -1517,7 +1523,7 @@
 <dt><a href="arez/annotations/ObserverRef.html" title="annotation in arez.annotations"><span class="typeNameLink">ObserverRef</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Marks a template method that returns the <a href="arez/Observer.html" title="class in arez"><code>Observer</code></a> instance for
- the associated <a href="arez/annotations/Track.html" title="annotation in arez.annotations"><code>Track</code></a> or <a href="arez/annotations/Autorun.html" title="annotation in arez.annotations"><code>Autorun</code></a> annotated method.</div>
+ the associated <a href="arez/annotations/Observed.html" title="annotation in arez.annotations"><code>Observed</code></a> annotated method.</div>
 </dd>
 <dt><a href="arez/annotations/OnActivate.html" title="annotation in arez.annotations"><span class="typeNameLink">OnActivate</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -1573,7 +1579,11 @@
 <dd>
 <div class="block">Check that pre-conditions are satisfied before changing observable value.</div>
 </dd>
-<dt><a href="arez/Priority.html" title="enum in arez"><span class="typeNameLink">Priority</span></a> - Enum in <a href="arez/package-summary.html">arez</a></dt>
+<dt><a href="arez/annotations/Priority.html" title="enum in arez.annotations"><span class="typeNameLink">Priority</span></a> - Enum in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
+<dd>
+<div class="block">Enum to control scheduling priority of observers/reactions.</div>
+</dd>
+<dt><a href="arez/spy/Priority.html" title="enum in arez.spy"><span class="typeNameLink">Priority</span></a> - Enum in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Enum to control scheduling priority of observers/reactions.</div>
 </dd>
@@ -1744,7 +1754,7 @@
 <dt><span class="memberNameLink"><a href="arez/Flags.html#RUN_NOW">RUN_NOW</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
 <div class="block">The scheduler will be triggered when the observer is created to immediately invoke the
- <a href="arez/Observer.html#Z:Z_tracked"><code>Observer._tracked</code></a> function.</div>
+ <a href="arez/Observer.html#Z:Z_observed"><code>Observer._observed</code></a> function.</div>
 </dd>
 </dl>
 <a name="I:S">
@@ -1812,6 +1822,14 @@
 <dd>
 <div class="block">Execute the specified action outside of a transaction.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#safeObserve-arez.Observer-arez.SafeFunction-java.lang.Object...-">safeObserve(Observer, SafeFunction&lt;T&gt;, Object...)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Execute the observed function with the specified Observer.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#safeObserve-arez.Observer-arez.SafeProcedure-java.lang.Object...-">safeObserve(Observer, SafeProcedure, Object...)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Execute the observed function with the specified Observer.</div>
+</dd>
 <dt><a href="arez/SafeProcedure.html" title="interface in arez"><span class="typeNameLink">SafeProcedure</span></a> - Interface in <a href="arez/package-summary.html">arez</a></dt>
 <dd>
 <div class="block">Interface for performing an action that does not return a value.</div>
@@ -1824,22 +1842,9 @@
 <dd>
 <div class="block">Run the specified procedure in the zone.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#safeTrack-arez.Observer-arez.SafeFunction-java.lang.Object...-">safeTrack(Observer, SafeFunction&lt;T&gt;, Object...)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Execute the supplied executable with the specified Observer as the tracker.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#safeTrack-arez.Observer-arez.SafeProcedure-java.lang.Object...-">safeTrack(Observer, SafeProcedure, Object...)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Execute the supplied executable with the specified Observer as the tracker.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/Observer.html#schedule--">schedule()</a></span> - Method in class arez.<a href="arez/Observer.html" title="class in arez">Observer</a></dt>
 <dd>
 <div class="block">Schedule this observer if it does not already have a reaction pending.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#SCHEDULED_EXTERNALLY">SCHEDULED_EXTERNALLY</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
-<dd>
-<div class="block">The flag is valid on observers associated with computed values and will deactivate the observer if the
- computed value has no observers.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#scheduleDispose-arez.Disposable-">scheduleDispose(Disposable)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
@@ -1995,18 +2000,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/Component.html#toString--">toString()</a></span> - Method in class arez.<a href="arez/Component.html" title="class in arez">Component</a></dt>
 <dt><span class="memberNameLink"><a href="arez/Node.html#toString--">toString()</a></span> - Method in class arez.<a href="arez/Node.html" title="class in arez">Node</a></dt>
-<dt><a href="arez/annotations/Track.html" title="annotation in arez.annotations"><span class="typeNameLink">Track</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
-<dd>
-<div class="block">Methods marked with this annotation are run in tracking transactions.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#track-arez.Observer-arez.Function-java.lang.Object...-">track(Observer, Function&lt;T&gt;, Object...)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Execute the supplied executable with the specified Observer as the tracker.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#track-arez.Observer-arez.Procedure-java.lang.Object...-">track(Observer, Procedure, Object...)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Execute the supplied executable with the specified Observer as the tracker.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#tracker-arez.Procedure-">tracker(Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Create a tracking observer.</div>
@@ -2067,6 +2060,10 @@
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/annotations/Executor.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Executor.html" title="enum in arez.annotations">Executor</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this type with the specified name.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/annotations/Feature.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
@@ -2076,6 +2073,10 @@
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/annotations/Multiplicity.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Multiplicity.html" title="enum in arez.annotations">Multiplicity</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this type with the specified name.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/annotations/Priority.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
@@ -2091,11 +2092,16 @@
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Priority.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum arez.<a href="arez/Priority.html" title="enum in arez">Priority</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/Priority.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum arez.spy.<a href="arez/spy/Priority.html" title="enum in arez.spy">Priority</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/annotations/Dependency.Action.html#values--">values()</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Dependency.Action.html" title="enum in arez.annotations">Dependency.Action</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum type, in
+the order they are declared.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/annotations/Executor.html#values--">values()</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Executor.html" title="enum in arez.annotations">Executor</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
@@ -2115,6 +2121,11 @@ the order they are declared.</div>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/annotations/Priority.html#values--">values()</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum type, in
+the order they are declared.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/annotations/Repository.AttachType.html#values--">values()</a></span> - Static method in enum arez.annotations.<a href="arez/annotations/Repository.AttachType.html" title="enum in arez.annotations">Repository.AttachType</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
@@ -2130,7 +2141,7 @@ the order they are declared.</div>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Priority.html#values--">values()</a></span> - Static method in enum arez.<a href="arez/Priority.html" title="enum in arez">Priority</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/Priority.html#values--">values()</a></span> - Static method in enum arez.spy.<a href="arez/spy/Priority.html" title="enum in arez.spy">Priority</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
