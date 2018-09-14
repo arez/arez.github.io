@@ -184,10 +184,10 @@
 <span class="sourceLineNo">176</span>    if ( !_disposed )<a name="line.176"></a>
 <span class="sourceLineNo">177</span>    {<a name="line.177"></a>
 <span class="sourceLineNo">178</span>      _disposed = true;<a name="line.178"></a>
-<span class="sourceLineNo">179</span>      getContext().safeAction( Arez.areNamesEnabled() ? _name : null, true, false, () -&gt; {<a name="line.179"></a>
+<span class="sourceLineNo">179</span>      getContext().safeAction( Arez.areNamesEnabled() ? _name : null, () -&gt; {<a name="line.179"></a>
 <span class="sourceLineNo">180</span>        disposeMap( _cache, _argCount );<a name="line.180"></a>
 <span class="sourceLineNo">181</span>        _cache.clear();<a name="line.181"></a>
-<span class="sourceLineNo">182</span>      } );<a name="line.182"></a>
+<span class="sourceLineNo">182</span>      }, Flags.NO_VERIFY_ACTION_REQUIRED );<a name="line.182"></a>
 <span class="sourceLineNo">183</span>    }<a name="line.183"></a>
 <span class="sourceLineNo">184</span>  }<a name="line.184"></a>
 <span class="sourceLineNo">185</span><a name="line.185"></a>

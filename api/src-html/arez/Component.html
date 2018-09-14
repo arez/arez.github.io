@@ -154,7 +154,7 @@
 <span class="sourceLineNo">146</span>        final ComponentInfo info = getContext().getSpy().asComponentInfo( this );<a name="line.146"></a>
 <span class="sourceLineNo">147</span>        getContext().getSpy().reportSpyEvent( new ComponentDisposeStartedEvent( info ) );<a name="line.147"></a>
 <span class="sourceLineNo">148</span>      }<a name="line.148"></a>
-<span class="sourceLineNo">149</span>      getContext().safeAction( Arez.areNamesEnabled() ? getName() + ".dispose" : null, true, false, () -&gt; {<a name="line.149"></a>
+<span class="sourceLineNo">149</span>      getContext().safeAction( Arez.areNamesEnabled() ? getName() + ".dispose" : null, () -&gt; {<a name="line.149"></a>
 <span class="sourceLineNo">150</span>        if ( null != _preDispose )<a name="line.150"></a>
 <span class="sourceLineNo">151</span>        {<a name="line.151"></a>
 <span class="sourceLineNo">152</span>          _preDispose.call();<a name="line.152"></a>
@@ -173,7 +173,7 @@
 <span class="sourceLineNo">165</span>        {<a name="line.165"></a>
 <span class="sourceLineNo">166</span>          _postDispose.call();<a name="line.166"></a>
 <span class="sourceLineNo">167</span>        }<a name="line.167"></a>
-<span class="sourceLineNo">168</span>      } );<a name="line.168"></a>
+<span class="sourceLineNo">168</span>      }, Flags.NO_VERIFY_ACTION_REQUIRED );<a name="line.168"></a>
 <span class="sourceLineNo">169</span>      if ( Arez.areSpiesEnabled() &amp;&amp; getContext().getSpy().willPropagateSpyEvents() )<a name="line.169"></a>
 <span class="sourceLineNo">170</span>      {<a name="line.170"></a>
 <span class="sourceLineNo">171</span>        final ComponentInfo info = getContext().getSpy().asComponentInfo( this );<a name="line.171"></a>
