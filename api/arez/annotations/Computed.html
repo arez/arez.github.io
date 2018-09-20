@@ -131,9 +131,9 @@ public @interface <a href="../../src-html/arez/annotations/Computed.html#line.31
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#arezOnlyDependencies--">arezOnlyDependencies</a></span></code>
-<div class="block">Flag indicating whether the value of the computed is solely dependent on arez elements.</div>
+<td class="colFirst"><code><a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#depType--">depType</a></span></code>
+<div class="block">Enum indicating whether the value of the computed is derived from arez elements and/or external dependencies.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -271,25 +271,27 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="arezOnlyDependencies--">
+<li class="blockList"><a name="depType--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>arezOnlyDependencies</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.82">arezOnlyDependencies</a></pre>
-<div class="block">Flag indicating whether the value of the computed is solely dependent on arez elements.
- If set to true then Arez will verify that the function annotated by this accesses arez elements
- (i.e. instances of <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> or instances of <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>). If set
- to false then the component must define a <a href="../../arez/annotations/ComputedValueRef.html" title="annotation in arez.annotations"><code>ComputedValueRef</code></a> method and should invoke
+<h4>depType</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a>&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.84">depType</a></pre>
+<div class="block">Enum indicating whether the value of the computed is derived from arez elements and/or external dependencies.
+ If set to <a href="../../arez/annotations/DepType.html#AREZ"><code>DepType.AREZ</code></a> then Arez will verify that the method annotated by this annotation accesses arez
+ elements (i.e. instances of <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> or instances of <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>). If set to
+ <a href="../../arez/annotations/DepType.html#AREZ_OR_NONE"><code>DepType.AREZ_OR_NONE</code></a> then the runtime will allow computed to exist with no dependencies. If set
+ to <a href="../../arez/annotations/DepType.html#AREZ_OR_EXTERNAL"><code>DepType.AREZ_OR_EXTERNAL</code></a> then the component must define a <a href="../../arez/annotations/ComputedValueRef.html" title="annotation in arez.annotations"><code>ComputedValueRef</code></a> method and should invoke
  <a href="../../arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> when the non-arez dependencies are changed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the computed is solely dependent on arez elements.</dd>
+<dd>the types of dependencies allowed on the computed.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>true</dd>
+<dd>arez.annotations.DepType.AREZ</dd>
 </dl>
 </li>
 </ul>

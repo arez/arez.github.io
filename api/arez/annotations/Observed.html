@@ -137,9 +137,9 @@ public @interface <a href="../../src-html/arez/annotations/Observed.html#line.37
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observed.html#arezOnlyDependencies--">arezOnlyDependencies</a></span></code>
-<div class="block">Flag indicating whether the Observer is solely dependent on arez elements.</div>
+<td class="colFirst"><code><a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observed.html#depType--">depType</a></span></code>
+<div class="block">Enum indicating whether the Observer is derived from arez elements and/or external dependencies.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -366,26 +366,28 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="arezOnlyDependencies--">
+<li class="blockList"><a name="depType--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>arezOnlyDependencies</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observed.html#line.118">arezOnlyDependencies</a></pre>
-<div class="block">Flag indicating whether the Observer is solely dependent on arez elements.
- If set to true and <a href="../../arez/annotations/Observed.html#executor--"><code>executor()</code></a> is <a href="../../arez/annotations/Executor.html#AREZ"><code>Executor.AREZ</code></a> then Arez will verify that the
- function annotated by this accesses arez elements (i.e. instances of <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a>
- or instances of <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>). If set to false then the component must define a
- <a href="../../arez/annotations/ObserverRef.html" title="annotation in arez.annotations"><code>ObserverRef</code></a> method and should invoke <a href="../../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> when the non-arez
- dependencies are changed.</div>
+<h4>depType</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a>&nbsp;<a href="../../src-html/arez/annotations/Observed.html#line.120">depType</a></pre>
+<div class="block">Enum indicating whether the Observer is derived from arez elements and/or external dependencies.
+ If set to <a href="../../arez/annotations/DepType.html#AREZ"><code>DepType.AREZ</code></a> then the arez runtime will verify that the method annotated by this
+ annotation accesses arez elements (i.e. instances of <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> or instances of
+ <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>). If set to <a href="../../arez/annotations/DepType.html#AREZ_OR_NONE"><code>DepType.AREZ_OR_NONE</code></a> then the runtime will allow
+ observed to exist with no dependencies. If set to <a href="../../arez/annotations/DepType.html#AREZ_OR_EXTERNAL"><code>DepType.AREZ_OR_EXTERNAL</code></a> then the component
+ must define a <a href="../../arez/annotations/ObserverRef.html" title="annotation in arez.annotations"><code>ObserverRef</code></a> method and should invoke <a href="../../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> when the
+ non-arez dependencies are changed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the observer is solely dependent on arez elements.</dd>
+<dd>the type of dependencies allowed in the observed method.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>true</dd>
+<dd>arez.annotations.DepType.AREZ</dd>
 </dl>
 </li>
 </ul>

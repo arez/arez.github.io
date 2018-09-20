@@ -114,17 +114,19 @@
 <span class="sourceLineNo">106</span>  boolean reportParameters() default true;<a name="line.106"></a>
 <span class="sourceLineNo">107</span><a name="line.107"></a>
 <span class="sourceLineNo">108</span>  /**<a name="line.108"></a>
-<span class="sourceLineNo">109</span>   * Flag indicating whether the Observer is solely dependent on arez elements.<a name="line.109"></a>
-<span class="sourceLineNo">110</span>   * If set to true and {@link #executor()} is {@link Executor#AREZ} then Arez will verify that the<a name="line.110"></a>
-<span class="sourceLineNo">111</span>   * function annotated by this accesses arez elements (i.e. instances of {@link arez.ObservableValue}<a name="line.111"></a>
-<span class="sourceLineNo">112</span>   * or instances of {@link arez.ComputedValue}). If set to false then the component must define a<a name="line.112"></a>
-<span class="sourceLineNo">113</span>   * {@link ObserverRef} method and should invoke {@link Observer#reportStale()} when the non-arez<a name="line.113"></a>
-<span class="sourceLineNo">114</span>   * dependencies are changed.<a name="line.114"></a>
-<span class="sourceLineNo">115</span>   *<a name="line.115"></a>
-<span class="sourceLineNo">116</span>   * @return true if the observer is solely dependent on arez elements.<a name="line.116"></a>
-<span class="sourceLineNo">117</span>   */<a name="line.117"></a>
-<span class="sourceLineNo">118</span>  boolean arezOnlyDependencies() default true;<a name="line.118"></a>
-<span class="sourceLineNo">119</span>}<a name="line.119"></a>
+<span class="sourceLineNo">109</span>   * Enum indicating whether the Observer is derived from arez elements and/or external dependencies.<a name="line.109"></a>
+<span class="sourceLineNo">110</span>   * If set to {@link DepType#AREZ} then the arez runtime will verify that the method annotated by this<a name="line.110"></a>
+<span class="sourceLineNo">111</span>   * annotation accesses arez elements (i.e. instances of {@link arez.ObservableValue} or instances of<a name="line.111"></a>
+<span class="sourceLineNo">112</span>   * {@link arez.ComputedValue}). If set to {@link DepType#AREZ_OR_NONE} then the runtime will allow<a name="line.112"></a>
+<span class="sourceLineNo">113</span>   * observed to exist with no dependencies. If set to {@link DepType#AREZ_OR_EXTERNAL} then the component<a name="line.113"></a>
+<span class="sourceLineNo">114</span>   * must define a {@link ObserverRef} method and should invoke {@link Observer#reportStale()} when the<a name="line.114"></a>
+<span class="sourceLineNo">115</span>   * non-arez dependencies are changed.<a name="line.115"></a>
+<span class="sourceLineNo">116</span>   *<a name="line.116"></a>
+<span class="sourceLineNo">117</span>   * @return the type of dependencies allowed in the observed method.<a name="line.117"></a>
+<span class="sourceLineNo">118</span>   */<a name="line.118"></a>
+<span class="sourceLineNo">119</span>  @Nonnull<a name="line.119"></a>
+<span class="sourceLineNo">120</span>  DepType depType() default DepType.AREZ;<a name="line.120"></a>
+<span class="sourceLineNo">121</span>}<a name="line.121"></a>
 
 
 

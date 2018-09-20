@@ -204,7 +204,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.273">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.281">dispose</a>()</pre>
 <div class="block">Make the Observer INACTIVE and release any resources associated with observer.
  The applications should NOT interact with the Observer after it has been disposed.</div>
 </li>
@@ -215,7 +215,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Observer.html#line.319">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Observer.html#line.327">isDisposed</a>()</pre>
 <div class="block">Return true if dispose() has been called on object.
  This is very useful when the Disposable is a @Computed value representing
  the selected item in a UI component but the item can be disposed by other
@@ -232,7 +232,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportStale</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.398">reportStale</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.406">reportStale</a>()</pre>
 <div class="block">This method should be invoked if the observer has non-arez dependencies and one of
  these dependencies has been updated. This will mark the observer as stale and reschedule
  the reaction if necessary. The method must be invoked from within a read-write transaction.
@@ -245,7 +245,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>schedule</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.561">schedule</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.569">schedule</a>()</pre>
 <div class="block">Schedule this observer if it does not already have a reaction pending.
  The observer will not actually react if it is not already marked as STALE.</div>
 </li>

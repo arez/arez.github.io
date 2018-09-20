@@ -79,16 +79,18 @@
 <span class="sourceLineNo">071</span>  boolean observeLowerPriorityDependencies() default false;<a name="line.71"></a>
 <span class="sourceLineNo">072</span><a name="line.72"></a>
 <span class="sourceLineNo">073</span>  /**<a name="line.73"></a>
-<span class="sourceLineNo">074</span>   * Flag indicating whether the value of the computed is solely dependent on arez elements.<a name="line.74"></a>
-<span class="sourceLineNo">075</span>   * If set to true then Arez will verify that the function annotated by this accesses arez elements<a name="line.75"></a>
-<span class="sourceLineNo">076</span>   * (i.e. instances of {@link arez.ObservableValue} or instances of {@link arez.ComputedValue}). If set<a name="line.76"></a>
-<span class="sourceLineNo">077</span>   * to false then the component must define a {@link ComputedValueRef} method and should invoke<a name="line.77"></a>
-<span class="sourceLineNo">078</span>   * {@link ComputedValue#reportPossiblyChanged()} when the non-arez dependencies are changed.<a name="line.78"></a>
-<span class="sourceLineNo">079</span>   *<a name="line.79"></a>
-<span class="sourceLineNo">080</span>   * @return true if the computed is solely dependent on arez elements.<a name="line.80"></a>
-<span class="sourceLineNo">081</span>   */<a name="line.81"></a>
-<span class="sourceLineNo">082</span>  boolean arezOnlyDependencies() default true;<a name="line.82"></a>
-<span class="sourceLineNo">083</span>}<a name="line.83"></a>
+<span class="sourceLineNo">074</span>   * Enum indicating whether the value of the computed is derived from arez elements and/or external dependencies.<a name="line.74"></a>
+<span class="sourceLineNo">075</span>   * If set to {@link DepType#AREZ} then Arez will verify that the method annotated by this annotation accesses arez<a name="line.75"></a>
+<span class="sourceLineNo">076</span>   * elements (i.e. instances of {@link arez.ObservableValue} or instances of {@link arez.ComputedValue}). If set to<a name="line.76"></a>
+<span class="sourceLineNo">077</span>   * {@link DepType#AREZ_OR_NONE} then the runtime will allow computed to exist with no dependencies. If set<a name="line.77"></a>
+<span class="sourceLineNo">078</span>   * to {@link DepType#AREZ_OR_EXTERNAL} then the component must define a {@link ComputedValueRef} method and should invoke<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * {@link ComputedValue#reportPossiblyChanged()} when the non-arez dependencies are changed.<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   *<a name="line.80"></a>
+<span class="sourceLineNo">081</span>   * @return the types of dependencies allowed on the computed.<a name="line.81"></a>
+<span class="sourceLineNo">082</span>   */<a name="line.82"></a>
+<span class="sourceLineNo">083</span>  @Nonnull<a name="line.83"></a>
+<span class="sourceLineNo">084</span>  DepType depType() default DepType.AREZ;<a name="line.84"></a>
+<span class="sourceLineNo">085</span>}<a name="line.85"></a>
 
 
 
