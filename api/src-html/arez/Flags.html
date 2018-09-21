@@ -34,542 +34,541 @@
 <span class="sourceLineNo">026</span>  private static final int NESTED_ACTIONS_MASK = NESTED_ACTIONS_ALLOWED | NESTED_ACTIONS_DISALLOWED;<a name="line.26"></a>
 <span class="sourceLineNo">027</span>  /**<a name="line.27"></a>
 <span class="sourceLineNo">028</span>   * Flag set set if the application code can not invoke {@link Observer#reportStale()} or {@link ComputedValue#reportPossiblyChanged()} to<a name="line.28"></a>
-<span class="sourceLineNo">029</span>   * indicate dependency has changed and the observer. If {@link #APPLICATION_EXECUTOR} is not set then the observer is expected<a name="line.29"></a>
-<span class="sourceLineNo">030</span>   * to invoke {@link ObservableValue#reportObserved()} on at least one dependency.<a name="line.30"></a>
-<span class="sourceLineNo">031</span>   *<a name="line.31"></a>
-<span class="sourceLineNo">032</span>   * @see arez.annotations.DepType#AREZ<a name="line.32"></a>
-<span class="sourceLineNo">033</span>   */<a name="line.33"></a>
-<span class="sourceLineNo">034</span>  public static final int AREZ_DEPENDENCIES = 1 &lt;&lt; 27;<a name="line.34"></a>
-<span class="sourceLineNo">035</span>  /**<a name="line.35"></a>
-<span class="sourceLineNo">036</span>   * Flag set set if the application code can not invoke {@link Observer#reportStale()} or {@link ComputedValue#reportPossiblyChanged()} to<a name="line.36"></a>
-<span class="sourceLineNo">037</span>   * indicate dependency has changed. It is not necessary for the observer to invoke  {@link ObservableValue#reportObserved()} on any dependency.<a name="line.37"></a>
-<span class="sourceLineNo">038</span>   *<a name="line.38"></a>
-<span class="sourceLineNo">039</span>   * @see arez.annotations.DepType#AREZ_OR_NONE<a name="line.39"></a>
-<span class="sourceLineNo">040</span>   */<a name="line.40"></a>
-<span class="sourceLineNo">041</span>  public static final int AREZ_OR_NO_DEPENDENCIES = 1 &lt;&lt; 26;<a name="line.41"></a>
-<span class="sourceLineNo">042</span>  /**<a name="line.42"></a>
-<span class="sourceLineNo">043</span>   * Flag set if the application code can invoke {@link Observer#reportStale()} or {@link ComputedValue#reportPossiblyChanged()} to indicate non-arez dependency has changed.<a name="line.43"></a>
-<span class="sourceLineNo">044</span>   *<a name="line.44"></a>
-<span class="sourceLineNo">045</span>   * @see arez.annotations.DepType#AREZ_OR_EXTERNAL<a name="line.45"></a>
-<span class="sourceLineNo">046</span>   */<a name="line.46"></a>
-<span class="sourceLineNo">047</span>  public static final int AREZ_OR_EXTERNAL_DEPENDENCIES = 1 &lt;&lt; 25;<a name="line.47"></a>
-<span class="sourceLineNo">048</span>  /**<a name="line.48"></a>
-<span class="sourceLineNo">049</span>   * Mask used to extract dependency type bits.<a name="line.49"></a>
-<span class="sourceLineNo">050</span>   */<a name="line.50"></a>
-<span class="sourceLineNo">051</span>  private static final int DEPENDENCIES_TYPE_MASK =<a name="line.51"></a>
-<span class="sourceLineNo">052</span>    AREZ_DEPENDENCIES | AREZ_OR_NO_DEPENDENCIES | AREZ_OR_EXTERNAL_DEPENDENCIES;<a name="line.52"></a>
-<span class="sourceLineNo">053</span>  /**<a name="line.53"></a>
-<span class="sourceLineNo">054</span>   * The observer can only read arez state.<a name="line.54"></a>
-<span class="sourceLineNo">055</span>   */<a name="line.55"></a>
-<span class="sourceLineNo">056</span>  public static final int READ_ONLY = 1 &lt;&lt; 24;<a name="line.56"></a>
-<span class="sourceLineNo">057</span>  /**<a name="line.57"></a>
-<span class="sourceLineNo">058</span>   * The observer can read or write arez state.<a name="line.58"></a>
-<span class="sourceLineNo">059</span>   */<a name="line.59"></a>
-<span class="sourceLineNo">060</span>  public static final int READ_WRITE = 1 &lt;&lt; 23;<a name="line.60"></a>
-<span class="sourceLineNo">061</span>  /**<a name="line.61"></a>
-<span class="sourceLineNo">062</span>   * Mask used to extract transaction mode bits.<a name="line.62"></a>
-<span class="sourceLineNo">063</span>   */<a name="line.63"></a>
-<span class="sourceLineNo">064</span>  private static final int TRANSACTION_MASK = READ_ONLY | READ_WRITE;<a name="line.64"></a>
-<span class="sourceLineNo">065</span>  /**<a name="line.65"></a>
-<span class="sourceLineNo">066</span>   * The scheduler will be triggered when the observer is created to immediately invoke the<a name="line.66"></a>
-<span class="sourceLineNo">067</span>   * {@link Observer#_observed} function. This configuration should not be specified if there<a name="line.67"></a>
-<span class="sourceLineNo">068</span>   * is no {@link Observer#_observed} function supplied. This should not be<a name="line.68"></a>
-<span class="sourceLineNo">069</span>   * specified if {@link #RUN_LATER} is specified.<a name="line.69"></a>
-<span class="sourceLineNo">070</span>   */<a name="line.70"></a>
-<span class="sourceLineNo">071</span>  public static final int RUN_NOW = 1 &lt;&lt; 22;<a name="line.71"></a>
-<span class="sourceLineNo">072</span>  /**<a name="line.72"></a>
-<span class="sourceLineNo">073</span>   * The scheduler will not be triggered when the observer is created. The observer either<a name="line.73"></a>
-<span class="sourceLineNo">074</span>   * has no {@link Observer#_observed} function or is responsible for ensuring that<a name="line.74"></a>
-<span class="sourceLineNo">075</span>   * {@link ArezContext#triggerScheduler()} is invoked at a later time. This should not be<a name="line.75"></a>
-<span class="sourceLineNo">076</span>   * specified if {@link #RUN_NOW} is specified.<a name="line.76"></a>
-<span class="sourceLineNo">077</span>   */<a name="line.77"></a>
-<span class="sourceLineNo">078</span>  public static final int RUN_LATER = 1 &lt;&lt; 21;<a name="line.78"></a>
-<span class="sourceLineNo">079</span>  /**<a name="line.79"></a>
-<span class="sourceLineNo">080</span>   * Mask used to extract run type bits.<a name="line.80"></a>
-<span class="sourceLineNo">081</span>   */<a name="line.81"></a>
-<span class="sourceLineNo">082</span>  private static final int RUN_TYPE_MASK = RUN_NOW | RUN_LATER;<a name="line.82"></a>
-<span class="sourceLineNo">083</span>  /**<a name="line.83"></a>
-<span class="sourceLineNo">084</span>   * The runtime will keep the observer reacting to dependencies until disposed. This is the default value for<a name="line.84"></a>
-<span class="sourceLineNo">085</span>   * observers that supply a observed function but may be explicitly supplied when creating {@link ComputedValue}<a name="line.85"></a>
-<span class="sourceLineNo">086</span>   * instances.<a name="line.86"></a>
-<span class="sourceLineNo">087</span>   */<a name="line.87"></a>
-<span class="sourceLineNo">088</span>  public static final int KEEPALIVE = 1 &lt;&lt; 20;<a name="line.88"></a>
-<span class="sourceLineNo">089</span>  /**<a name="line.89"></a>
-<span class="sourceLineNo">090</span>   * The flag is valid on observers associated with computed values and will deactivate the observer if the<a name="line.90"></a>
-<span class="sourceLineNo">091</span>   * computed value has no observers.<a name="line.91"></a>
-<span class="sourceLineNo">092</span>   */<a name="line.92"></a>
-<span class="sourceLineNo">093</span>  static final int DEACTIVATE_ON_UNOBSERVE = 1 &lt;&lt; 19;<a name="line.93"></a>
-<span class="sourceLineNo">094</span>  /**<a name="line.94"></a>
-<span class="sourceLineNo">095</span>   * The flag is valid on observers where the observed function is invoked by the application.<a name="line.95"></a>
-<span class="sourceLineNo">096</span>   */<a name="line.96"></a>
-<span class="sourceLineNo">097</span>  static final int APPLICATION_EXECUTOR = 1 &lt;&lt; 18;<a name="line.97"></a>
-<span class="sourceLineNo">098</span>  /**<a name="line.98"></a>
-<span class="sourceLineNo">099</span>   * Mask used to extract react type bits.<a name="line.99"></a>
-<span class="sourceLineNo">100</span>   */<a name="line.100"></a>
-<span class="sourceLineNo">101</span>  private static final int SCHEDULE_TYPE_MASK = KEEPALIVE | DEACTIVATE_ON_UNOBSERVE | APPLICATION_EXECUTOR;<a name="line.101"></a>
-<span class="sourceLineNo">102</span>  /**<a name="line.102"></a>
-<span class="sourceLineNo">103</span>   * Highest priority.<a name="line.103"></a>
-<span class="sourceLineNo">104</span>   * This priority should be used when the observer will dispose or release other reactive elements<a name="line.104"></a>
-<span class="sourceLineNo">105</span>   * (and thus remove elements from being scheduled).<a name="line.105"></a>
-<span class="sourceLineNo">106</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.106"></a>
-<span class="sourceLineNo">107</span>   *<a name="line.107"></a>
-<span class="sourceLineNo">108</span>   * @see arez.annotations.Priority#HIGHEST<a name="line.108"></a>
-<span class="sourceLineNo">109</span>   * @see arez.spy.Priority#HIGHEST<a name="line.109"></a>
-<span class="sourceLineNo">110</span>   */<a name="line.110"></a>
-<span class="sourceLineNo">111</span>  public static final int PRIORITY_HIGHEST = 0b001 &lt;&lt; 15;<a name="line.111"></a>
-<span class="sourceLineNo">112</span>  /**<a name="line.112"></a>
-<span class="sourceLineNo">113</span>   * High priority.<a name="line.113"></a>
-<span class="sourceLineNo">114</span>   * To reduce the chance that downstream elements will react multiple times within a single<a name="line.114"></a>
-<span class="sourceLineNo">115</span>   * reaction round, this priority should be used when the observer may trigger many downstream<a name="line.115"></a>
-<span class="sourceLineNo">116</span>   * reactions.<a name="line.116"></a>
-<span class="sourceLineNo">117</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.117"></a>
-<span class="sourceLineNo">118</span>   *<a name="line.118"></a>
-<span class="sourceLineNo">119</span>   * @see arez.annotations.Priority#HIGH<a name="line.119"></a>
-<span class="sourceLineNo">120</span>   * @see arez.spy.Priority#HIGH<a name="line.120"></a>
-<span class="sourceLineNo">121</span>   */<a name="line.121"></a>
-<span class="sourceLineNo">122</span>  public static final int PRIORITY_HIGH = 0b010 &lt;&lt; 15;<a name="line.122"></a>
-<span class="sourceLineNo">123</span>  /**<a name="line.123"></a>
-<span class="sourceLineNo">124</span>   * Normal priority if no other priority otherwise specified.<a name="line.124"></a>
-<span class="sourceLineNo">125</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.125"></a>
-<span class="sourceLineNo">126</span>   *<a name="line.126"></a>
-<span class="sourceLineNo">127</span>   * @see arez.annotations.Priority#NORMAL<a name="line.127"></a>
-<span class="sourceLineNo">128</span>   * @see arez.spy.Priority#NORMAL<a name="line.128"></a>
-<span class="sourceLineNo">129</span>   */<a name="line.129"></a>
-<span class="sourceLineNo">130</span>  public static final int PRIORITY_NORMAL = 0b011 &lt;&lt; 15;<a name="line.130"></a>
-<span class="sourceLineNo">131</span>  /**<a name="line.131"></a>
-<span class="sourceLineNo">132</span>   * Low priority.<a name="line.132"></a>
-<span class="sourceLineNo">133</span>   * Usually used to schedule observers that reflect state onto non-reactive<a name="line.133"></a>
-<span class="sourceLineNo">134</span>   * application components. i.e. Observers that are used to build html views,<a name="line.134"></a>
-<span class="sourceLineNo">135</span>   * perform network operations etc. These reactions are often at low priority<a name="line.135"></a>
-<span class="sourceLineNo">136</span>   * to avoid recalculation of dependencies (i.e. {@link ComputedValue}s) triggering<a name="line.136"></a>
-<span class="sourceLineNo">137</span>   * this reaction multiple times within a single reaction round.<a name="line.137"></a>
-<span class="sourceLineNo">138</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.138"></a>
-<span class="sourceLineNo">139</span>   *<a name="line.139"></a>
-<span class="sourceLineNo">140</span>   * @see arez.annotations.Priority#LOW<a name="line.140"></a>
-<span class="sourceLineNo">141</span>   * @see arez.spy.Priority#LOW<a name="line.141"></a>
-<span class="sourceLineNo">142</span>   */<a name="line.142"></a>
-<span class="sourceLineNo">143</span>  public static final int PRIORITY_LOW = 0b100 &lt;&lt; 15;<a name="line.143"></a>
-<span class="sourceLineNo">144</span>  /**<a name="line.144"></a>
-<span class="sourceLineNo">145</span>   * Lowest priority. Use this priority if the observer is a {@link ComputedValue} that<a name="line.145"></a>
-<span class="sourceLineNo">146</span>   * may be unobserved when a {@link #PRIORITY_LOW} observer reacts. This is used to avoid<a name="line.146"></a>
-<span class="sourceLineNo">147</span>   * recomputing state that is likely to either be unobserved or recomputed as part of<a name="line.147"></a>
-<span class="sourceLineNo">148</span>   * another observers reaction.<a name="line.148"></a>
-<span class="sourceLineNo">149</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.149"></a>
-<span class="sourceLineNo">150</span>   *<a name="line.150"></a>
-<span class="sourceLineNo">151</span>   * @see arez.annotations.Priority#LOWEST<a name="line.151"></a>
-<span class="sourceLineNo">152</span>   * @see arez.spy.Priority#LOWEST<a name="line.152"></a>
-<span class="sourceLineNo">153</span>   */<a name="line.153"></a>
-<span class="sourceLineNo">154</span>  public static final int PRIORITY_LOWEST = 0b101 &lt;&lt; 15;<a name="line.154"></a>
-<span class="sourceLineNo">155</span>  /**<a name="line.155"></a>
-<span class="sourceLineNo">156</span>   * Mask used to extract priority bits.<a name="line.156"></a>
-<span class="sourceLineNo">157</span>   */<a name="line.157"></a>
-<span class="sourceLineNo">158</span>  private static final int PRIORITY_MASK = 0b111 &lt;&lt; 15;<a name="line.158"></a>
-<span class="sourceLineNo">159</span>  /**<a name="line.159"></a>
-<span class="sourceLineNo">160</span>   * Shift used to extract priority after applying mask.<a name="line.160"></a>
-<span class="sourceLineNo">161</span>   */<a name="line.161"></a>
-<span class="sourceLineNo">162</span>  private static final int PRIORITY_SHIFT = 15;<a name="line.162"></a>
-<span class="sourceLineNo">163</span>  /**<a name="line.163"></a>
-<span class="sourceLineNo">164</span>   * Mask that identifies the bits associated with static configuration.<a name="line.164"></a>
-<span class="sourceLineNo">165</span>   */<a name="line.165"></a>
-<span class="sourceLineNo">166</span>  static final int CONFIG_FLAGS_MASK =<a name="line.166"></a>
-<span class="sourceLineNo">167</span>    OBSERVE_LOWER_PRIORITY_DEPENDENCIES |<a name="line.167"></a>
-<span class="sourceLineNo">168</span>    NESTED_ACTIONS_MASK |<a name="line.168"></a>
-<span class="sourceLineNo">169</span>    DEPENDENCIES_TYPE_MASK |<a name="line.169"></a>
-<span class="sourceLineNo">170</span>    TRANSACTION_MASK |<a name="line.170"></a>
-<span class="sourceLineNo">171</span>    RUN_TYPE_MASK |<a name="line.171"></a>
-<span class="sourceLineNo">172</span>    SCHEDULE_TYPE_MASK |<a name="line.172"></a>
-<span class="sourceLineNo">173</span>    PRIORITY_MASK;<a name="line.173"></a>
-<span class="sourceLineNo">174</span>  /**<a name="line.174"></a>
-<span class="sourceLineNo">175</span>   * Flag is currently unused.<a name="line.175"></a>
-<span class="sourceLineNo">176</span>   */<a name="line.176"></a>
-<span class="sourceLineNo">177</span>  @SuppressWarnings( "unused" )<a name="line.177"></a>
-<span class="sourceLineNo">178</span>  public static final int UNUSED1 = 1 &lt;&lt; 14;<a name="line.178"></a>
-<span class="sourceLineNo">179</span>  /**<a name="line.179"></a>
-<span class="sourceLineNo">180</span>   * Flag is currently unused.<a name="line.180"></a>
-<span class="sourceLineNo">181</span>   */<a name="line.181"></a>
-<span class="sourceLineNo">182</span>  @SuppressWarnings( "unused" )<a name="line.182"></a>
-<span class="sourceLineNo">183</span>  public static final int UNUSED2 = 1 &lt;&lt; 13;<a name="line.183"></a>
-<span class="sourceLineNo">184</span>  /**<a name="line.184"></a>
-<span class="sourceLineNo">185</span>   * Flag is currently unused.<a name="line.185"></a>
-<span class="sourceLineNo">186</span>   */<a name="line.186"></a>
-<span class="sourceLineNo">187</span>  @SuppressWarnings( "unused" )<a name="line.187"></a>
-<span class="sourceLineNo">188</span>  public static final int UNUSED3 = 1 &lt;&lt; 12;<a name="line.188"></a>
-<span class="sourceLineNo">189</span>  /**<a name="line.189"></a>
-<span class="sourceLineNo">190</span>   * The flag can be passed to actions to force the action to create a new transaction.<a name="line.190"></a>
-<span class="sourceLineNo">191</span>   */<a name="line.191"></a>
-<span class="sourceLineNo">192</span>  public static final int REQUIRE_NEW_TRANSACTION = 1 &lt;&lt; 11;<a name="line.192"></a>
-<span class="sourceLineNo">193</span>  /**<a name="line.193"></a>
-<span class="sourceLineNo">194</span>   * The flag can be passed to actions to force the action to verify that an action performed an activity<a name="line.194"></a>
-<span class="sourceLineNo">195</span>   * that required an action. These activities include:<a name="line.195"></a>
-<span class="sourceLineNo">196</span>   * &lt;ul&gt;<a name="line.196"></a>
-<span class="sourceLineNo">197</span>   * &lt;li&gt;read or write an observable property.&lt;/li&gt;<a name="line.197"></a>
-<span class="sourceLineNo">198</span>   * &lt;li&gt;read a computed property.&lt;/li&gt;<a name="line.198"></a>
-<span class="sourceLineNo">199</span>   * &lt;li&gt;schedule an observer.&lt;/li&gt;<a name="line.199"></a>
-<span class="sourceLineNo">200</span>   * &lt;li&gt;mark an observer as stale.&lt;/li&gt;<a name="line.200"></a>
-<span class="sourceLineNo">201</span>   * &lt;li&gt;report possible change in computed property.&lt;/li&gt;<a name="line.201"></a>
-<span class="sourceLineNo">202</span>   * &lt;/ul&gt;<a name="line.202"></a>
-<span class="sourceLineNo">203</span>   * &lt;p&gt;This flag must not be present if {@link #NO_VERIFY_ACTION_REQUIRED} is present. If neither<a name="line.203"></a>
-<span class="sourceLineNo">204</span>   * VERIFY_ACTION_REQUIRED nor {@link #NO_VERIFY_ACTION_REQUIRED} is specified then VERIFY_ACTION_REQUIRED<a name="line.204"></a>
-<span class="sourceLineNo">205</span>   * is assumed.&lt;/p&gt;<a name="line.205"></a>
-<span class="sourceLineNo">206</span>   */<a name="line.206"></a>
-<span class="sourceLineNo">207</span>  public static final int VERIFY_ACTION_REQUIRED = AREZ_DEPENDENCIES;<a name="line.207"></a>
-<span class="sourceLineNo">208</span>  /**<a name="line.208"></a>
-<span class="sourceLineNo">209</span>   * This flag can be passed to skip verification that action was required.<a name="line.209"></a>
-<span class="sourceLineNo">210</span>   * This flag must not be present if {@link #VERIFY_ACTION_REQUIRED} is present.<a name="line.210"></a>
-<span class="sourceLineNo">211</span>   */<a name="line.211"></a>
-<span class="sourceLineNo">212</span>  public static final int NO_VERIFY_ACTION_REQUIRED = AREZ_OR_NO_DEPENDENCIES;<a name="line.212"></a>
-<span class="sourceLineNo">213</span>  /**<a name="line.213"></a>
-<span class="sourceLineNo">214</span>   * Mask used to extract verify action bits.<a name="line.214"></a>
-<span class="sourceLineNo">215</span>   */<a name="line.215"></a>
-<span class="sourceLineNo">216</span>  private static final int VERIFY_ACTION_MASK = VERIFY_ACTION_REQUIRED | NO_VERIFY_ACTION_REQUIRED;<a name="line.216"></a>
-<span class="sourceLineNo">217</span>  /**<a name="line.217"></a>
-<span class="sourceLineNo">218</span>   * Mask containing flags that can be applied to an action.<a name="line.218"></a>
-<span class="sourceLineNo">219</span>   */<a name="line.219"></a>
-<span class="sourceLineNo">220</span>  static final int ACTION_FLAGS_MASK = TRANSACTION_MASK | REQUIRE_NEW_TRANSACTION | VERIFY_ACTION_MASK;<a name="line.220"></a>
-<span class="sourceLineNo">221</span>  /**<a name="line.221"></a>
-<span class="sourceLineNo">222</span>   * Flag indicating whether next scheduled invocation of {@link Observer} should invoke {@link Observer#_observed} or {@link Observer#_onDepsChanged}.<a name="line.222"></a>
-<span class="sourceLineNo">223</span>   */<a name="line.223"></a>
-<span class="sourceLineNo">224</span>  static final int EXECUTE_OBSERVED_NEXT = 1 &lt;&lt; 10;<a name="line.224"></a>
-<span class="sourceLineNo">225</span>  /**<a name="line.225"></a>
-<span class="sourceLineNo">226</span>   * The observer has been scheduled.<a name="line.226"></a>
-<span class="sourceLineNo">227</span>   */<a name="line.227"></a>
-<span class="sourceLineNo">228</span>  static final int SCHEDULED = 1 &lt;&lt; 9;<a name="line.228"></a>
-<span class="sourceLineNo">229</span>  /**<a name="line.229"></a>
-<span class="sourceLineNo">230</span>   * Mask used to extract state bits.<a name="line.230"></a>
-<span class="sourceLineNo">231</span>   * State is the lowest bits as it is the most frequently accessed numeric fields<a name="line.231"></a>
-<span class="sourceLineNo">232</span>   * and placing values at lower part of integer avoids a shift.<a name="line.232"></a>
-<span class="sourceLineNo">233</span>   */<a name="line.233"></a>
-<span class="sourceLineNo">234</span>  private static final int STATE_MASK = 0b111;<a name="line.234"></a>
-<span class="sourceLineNo">235</span>  /**<a name="line.235"></a>
-<span class="sourceLineNo">236</span>   * The observer has been disposed.<a name="line.236"></a>
-<span class="sourceLineNo">237</span>   */<a name="line.237"></a>
-<span class="sourceLineNo">238</span>  static final int STATE_DISPOSED = 0b001;<a name="line.238"></a>
-<span class="sourceLineNo">239</span>  /**<a name="line.239"></a>
-<span class="sourceLineNo">240</span>   * The observer is in the process of being disposed.<a name="line.240"></a>
-<span class="sourceLineNo">241</span>   */<a name="line.241"></a>
-<span class="sourceLineNo">242</span>  static final int STATE_DISPOSING = 0b010;<a name="line.242"></a>
-<span class="sourceLineNo">243</span>  /**<a name="line.243"></a>
-<span class="sourceLineNo">244</span>   * The observer is not active and is not holding any data about it's dependencies.<a name="line.244"></a>
-<span class="sourceLineNo">245</span>   * Typically mean this tracker observer has not been run or if it is a ComputedValue that<a name="line.245"></a>
-<span class="sourceLineNo">246</span>   * there is no observer observing the associated ObservableValue.<a name="line.246"></a>
-<span class="sourceLineNo">247</span>   */<a name="line.247"></a>
-<span class="sourceLineNo">248</span>  static final int STATE_INACTIVE = 0b011;<a name="line.248"></a>
-<span class="sourceLineNo">249</span>  /**<a name="line.249"></a>
-<span class="sourceLineNo">250</span>   * No change since last time observer was notified.<a name="line.250"></a>
-<span class="sourceLineNo">251</span>   */<a name="line.251"></a>
-<span class="sourceLineNo">252</span>  static final int STATE_UP_TO_DATE = 0b100;<a name="line.252"></a>
-<span class="sourceLineNo">253</span>  /**<a name="line.253"></a>
-<span class="sourceLineNo">254</span>   * A transitive dependency has changed but it has not been determined if a shallow<a name="line.254"></a>
-<span class="sourceLineNo">255</span>   * dependency has changed. The observer will need to check if shallow dependencies<a name="line.255"></a>
-<span class="sourceLineNo">256</span>   * have changed. Only Derived observables will propagate POSSIBLY_STALE state.<a name="line.256"></a>
-<span class="sourceLineNo">257</span>   */<a name="line.257"></a>
-<span class="sourceLineNo">258</span>  static final int STATE_POSSIBLY_STALE = 0b101;<a name="line.258"></a>
-<span class="sourceLineNo">259</span>  /**<a name="line.259"></a>
-<span class="sourceLineNo">260</span>   * A dependency has changed so the observer will need to recompute.<a name="line.260"></a>
-<span class="sourceLineNo">261</span>   */<a name="line.261"></a>
-<span class="sourceLineNo">262</span>  static final int STATE_STALE = 0b110;<a name="line.262"></a>
-<span class="sourceLineNo">263</span>  /**<a name="line.263"></a>
-<span class="sourceLineNo">264</span>   * Mask that identifies the bits associated with runtime configuration.<a name="line.264"></a>
-<span class="sourceLineNo">265</span>   */<a name="line.265"></a>
-<span class="sourceLineNo">266</span>  static final int RUNTIME_FLAGS_MASK = EXECUTE_OBSERVED_NEXT | SCHEDULED | STATE_MASK;<a name="line.266"></a>
-<span class="sourceLineNo">267</span><a name="line.267"></a>
-<span class="sourceLineNo">268</span>  /**<a name="line.268"></a>
-<span class="sourceLineNo">269</span>   * Return true if flags contains priority.<a name="line.269"></a>
-<span class="sourceLineNo">270</span>   *<a name="line.270"></a>
-<span class="sourceLineNo">271</span>   * @param flags the flags.<a name="line.271"></a>
-<span class="sourceLineNo">272</span>   * @return true if flags contains priority.<a name="line.272"></a>
-<span class="sourceLineNo">273</span>   */<a name="line.273"></a>
-<span class="sourceLineNo">274</span>  static boolean isPrioritySpecified( final int flags )<a name="line.274"></a>
-<span class="sourceLineNo">275</span>  {<a name="line.275"></a>
-<span class="sourceLineNo">276</span>    return 0 != ( flags &amp; PRIORITY_MASK );<a name="line.276"></a>
-<span class="sourceLineNo">277</span>  }<a name="line.277"></a>
-<span class="sourceLineNo">278</span><a name="line.278"></a>
-<span class="sourceLineNo">279</span>  /**<a name="line.279"></a>
-<span class="sourceLineNo">280</span>   * Return true if flags contains valid priority.<a name="line.280"></a>
-<span class="sourceLineNo">281</span>   *<a name="line.281"></a>
-<span class="sourceLineNo">282</span>   * @param flags the flags.<a name="line.282"></a>
-<span class="sourceLineNo">283</span>   * @return true if flags contains priority.<a name="line.283"></a>
-<span class="sourceLineNo">284</span>   */<a name="line.284"></a>
-<span class="sourceLineNo">285</span>  static boolean isPriorityValid( final int flags )<a name="line.285"></a>
-<span class="sourceLineNo">286</span>  {<a name="line.286"></a>
-<span class="sourceLineNo">287</span>    final int priorityIndex = getPriorityIndex( flags );<a name="line.287"></a>
-<span class="sourceLineNo">288</span>    return priorityIndex &lt;= 4 &amp;&amp; priorityIndex &gt;= 0;<a name="line.288"></a>
-<span class="sourceLineNo">289</span>  }<a name="line.289"></a>
-<span class="sourceLineNo">290</span><a name="line.290"></a>
-<span class="sourceLineNo">291</span>  /**<a name="line.291"></a>
-<span class="sourceLineNo">292</span>   * Extract and return the priority value ranging from the highest priority 0 and lowest priority 4.<a name="line.292"></a>
-<span class="sourceLineNo">293</span>   * This method assumes that flags has valid priority and will not attempt to re-check.<a name="line.293"></a>
-<span class="sourceLineNo">294</span>   *<a name="line.294"></a>
-<span class="sourceLineNo">295</span>   * @param flags the flags.<a name="line.295"></a>
-<span class="sourceLineNo">296</span>   * @return the priority.<a name="line.296"></a>
-<span class="sourceLineNo">297</span>   */<a name="line.297"></a>
-<span class="sourceLineNo">298</span>  static int getPriority( final int flags )<a name="line.298"></a>
-<span class="sourceLineNo">299</span>  {<a name="line.299"></a>
-<span class="sourceLineNo">300</span>    return flags &amp; PRIORITY_MASK;<a name="line.300"></a>
-<span class="sourceLineNo">301</span>  }<a name="line.301"></a>
-<span class="sourceLineNo">302</span><a name="line.302"></a>
-<span class="sourceLineNo">303</span>  /**<a name="line.303"></a>
-<span class="sourceLineNo">304</span>   * Extract and return the priority value ranging from the highest priority 0 and lowest priority 4.<a name="line.304"></a>
-<span class="sourceLineNo">305</span>   * This method assumes that flags has valid priority and will not attempt to re-check.<a name="line.305"></a>
-<span class="sourceLineNo">306</span>   *<a name="line.306"></a>
-<span class="sourceLineNo">307</span>   * @param flags the flags.<a name="line.307"></a>
-<span class="sourceLineNo">308</span>   * @return the priority.<a name="line.308"></a>
-<span class="sourceLineNo">309</span>   */<a name="line.309"></a>
-<span class="sourceLineNo">310</span>  static int getPriorityIndex( final int flags )<a name="line.310"></a>
-<span class="sourceLineNo">311</span>  {<a name="line.311"></a>
-<span class="sourceLineNo">312</span>    return ( getPriority( flags ) &gt;&gt; PRIORITY_SHIFT ) - 1;<a name="line.312"></a>
-<span class="sourceLineNo">313</span>  }<a name="line.313"></a>
-<span class="sourceLineNo">314</span><a name="line.314"></a>
-<span class="sourceLineNo">315</span>  static int priority( final int flags )<a name="line.315"></a>
-<span class="sourceLineNo">316</span>  {<a name="line.316"></a>
-<span class="sourceLineNo">317</span>    return defaultFlagUnlessSpecified( flags, PRIORITY_MASK, PRIORITY_NORMAL );<a name="line.317"></a>
-<span class="sourceLineNo">318</span>  }<a name="line.318"></a>
-<span class="sourceLineNo">319</span><a name="line.319"></a>
-<span class="sourceLineNo">320</span>  static int nestedActionRule( final int flags )<a name="line.320"></a>
-<span class="sourceLineNo">321</span>  {<a name="line.321"></a>
-<span class="sourceLineNo">322</span>    return Arez.shouldCheckInvariants() ?<a name="line.322"></a>
-<span class="sourceLineNo">323</span>           defaultFlagUnlessSpecified( flags, NESTED_ACTIONS_MASK, NESTED_ACTIONS_DISALLOWED ) :<a name="line.323"></a>
-<span class="sourceLineNo">324</span>           0;<a name="line.324"></a>
-<span class="sourceLineNo">325</span>  }<a name="line.325"></a>
-<span class="sourceLineNo">326</span><a name="line.326"></a>
-<span class="sourceLineNo">327</span>  static int verifyActionRule( final int flags )<a name="line.327"></a>
-<span class="sourceLineNo">328</span>  {<a name="line.328"></a>
-<span class="sourceLineNo">329</span>    return Arez.shouldCheckInvariants() ?<a name="line.329"></a>
-<span class="sourceLineNo">330</span>           defaultFlagUnlessSpecified( flags, VERIFY_ACTION_MASK, VERIFY_ACTION_REQUIRED ) :<a name="line.330"></a>
-<span class="sourceLineNo">331</span>           0;<a name="line.331"></a>
-<span class="sourceLineNo">332</span>  }<a name="line.332"></a>
-<span class="sourceLineNo">333</span><a name="line.333"></a>
-<span class="sourceLineNo">334</span>  /**<a name="line.334"></a>
-<span class="sourceLineNo">335</span>   * Return true if flags contains a valid nested action mode.<a name="line.335"></a>
-<span class="sourceLineNo">336</span>   *<a name="line.336"></a>
-<span class="sourceLineNo">337</span>   * @param flags the flags.<a name="line.337"></a>
-<span class="sourceLineNo">338</span>   * @return true if flags contains valid nested action mode.<a name="line.338"></a>
-<span class="sourceLineNo">339</span>   */<a name="line.339"></a>
-<span class="sourceLineNo">340</span>  static boolean isNestedActionsModeValid( final int flags )<a name="line.340"></a>
-<span class="sourceLineNo">341</span>  {<a name="line.341"></a>
-<span class="sourceLineNo">342</span>    return NESTED_ACTIONS_ALLOWED == ( flags &amp; NESTED_ACTIONS_ALLOWED ) ^<a name="line.342"></a>
-<span class="sourceLineNo">343</span>           NESTED_ACTIONS_DISALLOWED == ( flags &amp; NESTED_ACTIONS_DISALLOWED );<a name="line.343"></a>
-<span class="sourceLineNo">344</span>  }<a name="line.344"></a>
-<span class="sourceLineNo">345</span><a name="line.345"></a>
-<span class="sourceLineNo">346</span>  /**<a name="line.346"></a>
-<span class="sourceLineNo">347</span>   * Return true if flags contains transaction mode.<a name="line.347"></a>
-<span class="sourceLineNo">348</span>   *<a name="line.348"></a>
-<span class="sourceLineNo">349</span>   * @param flags the flags.<a name="line.349"></a>
-<span class="sourceLineNo">350</span>   * @return true if flags contains transaction mode.<a name="line.350"></a>
-<span class="sourceLineNo">351</span>   */<a name="line.351"></a>
-<span class="sourceLineNo">352</span>  static boolean isTransactionModeSpecified( final int flags )<a name="line.352"></a>
-<span class="sourceLineNo">353</span>  {<a name="line.353"></a>
-<span class="sourceLineNo">354</span>    return 0 != ( flags &amp; TRANSACTION_MASK );<a name="line.354"></a>
-<span class="sourceLineNo">355</span>  }<a name="line.355"></a>
-<span class="sourceLineNo">356</span><a name="line.356"></a>
-<span class="sourceLineNo">357</span>  static int transactionMode( final int flags )<a name="line.357"></a>
-<span class="sourceLineNo">358</span>  {<a name="line.358"></a>
-<span class="sourceLineNo">359</span>    return Arez.shouldEnforceTransactionType() ?<a name="line.359"></a>
-<span class="sourceLineNo">360</span>           defaultFlagUnlessSpecified( flags, TRANSACTION_MASK, READ_ONLY ) :<a name="line.360"></a>
-<span class="sourceLineNo">361</span>           0;<a name="line.361"></a>
-<span class="sourceLineNo">362</span>  }<a name="line.362"></a>
-<span class="sourceLineNo">363</span><a name="line.363"></a>
-<span class="sourceLineNo">364</span>  /**<a name="line.364"></a>
-<span class="sourceLineNo">365</span>   * Return true if flags contains a valid transaction mode.<a name="line.365"></a>
-<span class="sourceLineNo">366</span>   *<a name="line.366"></a>
-<span class="sourceLineNo">367</span>   * @param flags the flags.<a name="line.367"></a>
-<span class="sourceLineNo">368</span>   * @return true if flags contains transaction mode.<a name="line.368"></a>
-<span class="sourceLineNo">369</span>   */<a name="line.369"></a>
-<span class="sourceLineNo">370</span>  static boolean isTransactionModeValid( final int flags )<a name="line.370"></a>
-<span class="sourceLineNo">371</span>  {<a name="line.371"></a>
-<span class="sourceLineNo">372</span>    return 0 != ( flags &amp; READ_ONLY ) ^ 0 != ( flags &amp; READ_WRITE );<a name="line.372"></a>
-<span class="sourceLineNo">373</span>  }<a name="line.373"></a>
-<span class="sourceLineNo">374</span><a name="line.374"></a>
-<span class="sourceLineNo">375</span>  /**<a name="line.375"></a>
-<span class="sourceLineNo">376</span>   * Return the default dependency type flag if dependency type not specified.<a name="line.376"></a>
-<span class="sourceLineNo">377</span>   *<a name="line.377"></a>
-<span class="sourceLineNo">378</span>   * @param flags the flags.<a name="line.378"></a>
-<span class="sourceLineNo">379</span>   * @return the default dependency type if dependency type unspecified else 0.<a name="line.379"></a>
-<span class="sourceLineNo">380</span>   */<a name="line.380"></a>
-<span class="sourceLineNo">381</span>  static int dependencyType( final int flags )<a name="line.381"></a>
-<span class="sourceLineNo">382</span>  {<a name="line.382"></a>
-<span class="sourceLineNo">383</span>    return Arez.shouldCheckInvariants() ?<a name="line.383"></a>
-<span class="sourceLineNo">384</span>           defaultFlagUnlessSpecified( flags, DEPENDENCIES_TYPE_MASK, AREZ_DEPENDENCIES ) :<a name="line.384"></a>
-<span class="sourceLineNo">385</span>           0;<a name="line.385"></a>
-<span class="sourceLineNo">386</span>  }<a name="line.386"></a>
-<span class="sourceLineNo">387</span><a name="line.387"></a>
-<span class="sourceLineNo">388</span>  /**<a name="line.388"></a>
-<span class="sourceLineNo">389</span>   * Return true if flags contains a valid react type.<a name="line.389"></a>
-<span class="sourceLineNo">390</span>   *<a name="line.390"></a>
-<span class="sourceLineNo">391</span>   * @param flags the flags.<a name="line.391"></a>
-<span class="sourceLineNo">392</span>   * @return true if flags contains react type.<a name="line.392"></a>
-<span class="sourceLineNo">393</span>   */<a name="line.393"></a>
-<span class="sourceLineNo">394</span>  static boolean isRunTypeValid( final int flags )<a name="line.394"></a>
-<span class="sourceLineNo">395</span>  {<a name="line.395"></a>
-<span class="sourceLineNo">396</span>    return RUN_NOW == ( flags &amp; RUN_NOW ) ^ RUN_LATER == ( flags &amp; RUN_LATER );<a name="line.396"></a>
-<span class="sourceLineNo">397</span>  }<a name="line.397"></a>
-<span class="sourceLineNo">398</span><a name="line.398"></a>
-<span class="sourceLineNo">399</span>  /**<a name="line.399"></a>
-<span class="sourceLineNo">400</span>   * Return the default run type flag if run type not specified.<a name="line.400"></a>
-<span class="sourceLineNo">401</span>   *<a name="line.401"></a>
-<span class="sourceLineNo">402</span>   * @param flags       the flags.<a name="line.402"></a>
-<span class="sourceLineNo">403</span>   * @param defaultFlag the default flag to apply<a name="line.403"></a>
-<span class="sourceLineNo">404</span>   * @return the default run type if run type unspecified else 0.<a name="line.404"></a>
-<span class="sourceLineNo">405</span>   */<a name="line.405"></a>
-<span class="sourceLineNo">406</span>  static int runType( final int flags, final int defaultFlag )<a name="line.406"></a>
-<span class="sourceLineNo">407</span>  {<a name="line.407"></a>
-<span class="sourceLineNo">408</span>    return defaultFlagUnlessSpecified( flags, RUN_TYPE_MASK, defaultFlag );<a name="line.408"></a>
-<span class="sourceLineNo">409</span>  }<a name="line.409"></a>
-<span class="sourceLineNo">410</span><a name="line.410"></a>
-<span class="sourceLineNo">411</span>  /**<a name="line.411"></a>
-<span class="sourceLineNo">412</span>   * Return name of transaction mode.<a name="line.412"></a>
-<span class="sourceLineNo">413</span>   *<a name="line.413"></a>
-<span class="sourceLineNo">414</span>   * @param flags the flags.<a name="line.414"></a>
-<span class="sourceLineNo">415</span>   * @return true if flags contains transaction mode.<a name="line.415"></a>
-<span class="sourceLineNo">416</span>   */<a name="line.416"></a>
-<span class="sourceLineNo">417</span>  @Nonnull<a name="line.417"></a>
-<span class="sourceLineNo">418</span>  static String getTransactionModeName( final int flags )<a name="line.418"></a>
-<span class="sourceLineNo">419</span>  {<a name="line.419"></a>
-<span class="sourceLineNo">420</span>    assert Arez.shouldCheckInvariants() || Arez.shouldCheckApiInvariants();<a name="line.420"></a>
-<span class="sourceLineNo">421</span>    if ( 0 != ( flags &amp; READ_ONLY ) )<a name="line.421"></a>
-<span class="sourceLineNo">422</span>    {<a name="line.422"></a>
-<span class="sourceLineNo">423</span>      return "READ_ONLY";<a name="line.423"></a>
-<span class="sourceLineNo">424</span>    }<a name="line.424"></a>
-<span class="sourceLineNo">425</span>    else if ( 0 != ( flags &amp; READ_WRITE ) )<a name="line.425"></a>
-<span class="sourceLineNo">426</span>    {<a name="line.426"></a>
-<span class="sourceLineNo">427</span>      return "READ_WRITE";<a name="line.427"></a>
-<span class="sourceLineNo">428</span>    }<a name="line.428"></a>
-<span class="sourceLineNo">429</span>    else<a name="line.429"></a>
-<span class="sourceLineNo">430</span>    {<a name="line.430"></a>
-<span class="sourceLineNo">431</span>      return "UNKNOWN(" + flags + ")";<a name="line.431"></a>
-<span class="sourceLineNo">432</span>    }<a name="line.432"></a>
-<span class="sourceLineNo">433</span>  }<a name="line.433"></a>
-<span class="sourceLineNo">434</span><a name="line.434"></a>
-<span class="sourceLineNo">435</span>  /**<a name="line.435"></a>
-<span class="sourceLineNo">436</span>   * Extract and return the schedule type.<a name="line.436"></a>
-<span class="sourceLineNo">437</span>   *<a name="line.437"></a>
-<span class="sourceLineNo">438</span>   * @param flags the flags.<a name="line.438"></a>
-<span class="sourceLineNo">439</span>   * @return the schedule type.<a name="line.439"></a>
-<span class="sourceLineNo">440</span>   */<a name="line.440"></a>
-<span class="sourceLineNo">441</span>  static int getScheduleType( final int flags )<a name="line.441"></a>
-<span class="sourceLineNo">442</span>  {<a name="line.442"></a>
-<span class="sourceLineNo">443</span>    return flags &amp; SCHEDULE_TYPE_MASK;<a name="line.443"></a>
-<span class="sourceLineNo">444</span>  }<a name="line.444"></a>
-<span class="sourceLineNo">445</span><a name="line.445"></a>
-<span class="sourceLineNo">446</span>  /**<a name="line.446"></a>
-<span class="sourceLineNo">447</span>   * Return true if flags contains a valid ScheduleType.<a name="line.447"></a>
-<span class="sourceLineNo">448</span>   *<a name="line.448"></a>
-<span class="sourceLineNo">449</span>   * @param flags the flags.<a name="line.449"></a>
-<span class="sourceLineNo">450</span>   * @return true if flags contains a valid ScheduleType.<a name="line.450"></a>
-<span class="sourceLineNo">451</span>   */<a name="line.451"></a>
-<span class="sourceLineNo">452</span>  static boolean isScheduleTypeValid( final int flags )<a name="line.452"></a>
-<span class="sourceLineNo">453</span>  {<a name="line.453"></a>
-<span class="sourceLineNo">454</span>    return KEEPALIVE == ( flags &amp; KEEPALIVE ) ^<a name="line.454"></a>
-<span class="sourceLineNo">455</span>           DEACTIVATE_ON_UNOBSERVE == ( flags &amp; DEACTIVATE_ON_UNOBSERVE ) ^<a name="line.455"></a>
-<span class="sourceLineNo">456</span>           APPLICATION_EXECUTOR == ( flags &amp; APPLICATION_EXECUTOR );<a name="line.456"></a>
-<span class="sourceLineNo">457</span>  }<a name="line.457"></a>
-<span class="sourceLineNo">458</span><a name="line.458"></a>
-<span class="sourceLineNo">459</span>  /**<a name="line.459"></a>
-<span class="sourceLineNo">460</span>   * Extract and return the observer's state.<a name="line.460"></a>
-<span class="sourceLineNo">461</span>   *<a name="line.461"></a>
-<span class="sourceLineNo">462</span>   * @param flags the flags.<a name="line.462"></a>
-<span class="sourceLineNo">463</span>   * @return the state.<a name="line.463"></a>
-<span class="sourceLineNo">464</span>   */<a name="line.464"></a>
-<span class="sourceLineNo">465</span>  static int getState( final int flags )<a name="line.465"></a>
-<span class="sourceLineNo">466</span>  {<a name="line.466"></a>
-<span class="sourceLineNo">467</span>    return flags &amp; STATE_MASK;<a name="line.467"></a>
-<span class="sourceLineNo">468</span>  }<a name="line.468"></a>
-<span class="sourceLineNo">469</span><a name="line.469"></a>
-<span class="sourceLineNo">470</span>  /**<a name="line.470"></a>
-<span class="sourceLineNo">471</span>   * Return the new value of flags when supplied with specified state.<a name="line.471"></a>
-<span class="sourceLineNo">472</span>   *<a name="line.472"></a>
-<span class="sourceLineNo">473</span>   * @param flags the flags.<a name="line.473"></a>
-<span class="sourceLineNo">474</span>   * @param state the new state.<a name="line.474"></a>
-<span class="sourceLineNo">475</span>   * @return the new flags.<a name="line.475"></a>
-<span class="sourceLineNo">476</span>   */<a name="line.476"></a>
-<span class="sourceLineNo">477</span>  static int setState( final int flags, final int state )<a name="line.477"></a>
-<span class="sourceLineNo">478</span>  {<a name="line.478"></a>
-<span class="sourceLineNo">479</span>    return ( flags &amp; ~STATE_MASK ) | state;<a name="line.479"></a>
-<span class="sourceLineNo">480</span>  }<a name="line.480"></a>
-<span class="sourceLineNo">481</span><a name="line.481"></a>
-<span class="sourceLineNo">482</span>  /**<a name="line.482"></a>
-<span class="sourceLineNo">483</span>   * Return true if the state is UP_TO_DATE, POSSIBLY_STALE or STALE.<a name="line.483"></a>
-<span class="sourceLineNo">484</span>   * The inverse of {@link #isNotActive(int)}<a name="line.484"></a>
-<span class="sourceLineNo">485</span>   *<a name="line.485"></a>
-<span class="sourceLineNo">486</span>   * @param flags the flags to check.<a name="line.486"></a>
-<span class="sourceLineNo">487</span>   * @return true if the state is UP_TO_DATE, POSSIBLY_STALE or STALE.<a name="line.487"></a>
-<span class="sourceLineNo">488</span>   */<a name="line.488"></a>
-<span class="sourceLineNo">489</span>  static boolean isActive( final int flags )<a name="line.489"></a>
-<span class="sourceLineNo">490</span>  {<a name="line.490"></a>
-<span class="sourceLineNo">491</span>    return getState( flags ) &gt; STATE_INACTIVE;<a name="line.491"></a>
-<span class="sourceLineNo">492</span>  }<a name="line.492"></a>
-<span class="sourceLineNo">493</span><a name="line.493"></a>
-<span class="sourceLineNo">494</span>  /**<a name="line.494"></a>
-<span class="sourceLineNo">495</span>   * Return true if the state is INACTIVE, DISPOSING or DISPOSED.<a name="line.495"></a>
-<span class="sourceLineNo">496</span>   * The inverse of {@link #isActive(int)}<a name="line.496"></a>
-<span class="sourceLineNo">497</span>   *<a name="line.497"></a>
-<span class="sourceLineNo">498</span>   * @param flags the flags to check.<a name="line.498"></a>
-<span class="sourceLineNo">499</span>   * @return true if the state is INACTIVE, DISPOSING or DISPOSED.<a name="line.499"></a>
-<span class="sourceLineNo">500</span>   */<a name="line.500"></a>
-<span class="sourceLineNo">501</span>  static boolean isNotActive( final int flags )<a name="line.501"></a>
-<span class="sourceLineNo">502</span>  {<a name="line.502"></a>
-<span class="sourceLineNo">503</span>    return !isActive( flags );<a name="line.503"></a>
-<span class="sourceLineNo">504</span>  }<a name="line.504"></a>
-<span class="sourceLineNo">505</span><a name="line.505"></a>
-<span class="sourceLineNo">506</span>  /**<a name="line.506"></a>
-<span class="sourceLineNo">507</span>   * Return the least stale observer state. if the state is not active<a name="line.507"></a>
-<span class="sourceLineNo">508</span>   * then the {@link #STATE_UP_TO_DATE} will be returned.<a name="line.508"></a>
-<span class="sourceLineNo">509</span>   *<a name="line.509"></a>
-<span class="sourceLineNo">510</span>   * @param flags the flags to check.<a name="line.510"></a>
-<span class="sourceLineNo">511</span>   * @return the least stale observer state.<a name="line.511"></a>
-<span class="sourceLineNo">512</span>   */<a name="line.512"></a>
-<span class="sourceLineNo">513</span>  static int getLeastStaleObserverState( final int flags )<a name="line.513"></a>
-<span class="sourceLineNo">514</span>  {<a name="line.514"></a>
-<span class="sourceLineNo">515</span>    final int state = getState( flags );<a name="line.515"></a>
-<span class="sourceLineNo">516</span>    return state &gt; STATE_INACTIVE ? state : STATE_UP_TO_DATE;<a name="line.516"></a>
-<span class="sourceLineNo">517</span>  }<a name="line.517"></a>
-<span class="sourceLineNo">518</span><a name="line.518"></a>
-<span class="sourceLineNo">519</span>  /**<a name="line.519"></a>
-<span class="sourceLineNo">520</span>   * Return the state as a string.<a name="line.520"></a>
-<span class="sourceLineNo">521</span>   *<a name="line.521"></a>
-<span class="sourceLineNo">522</span>   * @param state the state value. One of the STATE_* constants<a name="line.522"></a>
-<span class="sourceLineNo">523</span>   * @return the string describing state.<a name="line.523"></a>
-<span class="sourceLineNo">524</span>   */<a name="line.524"></a>
-<span class="sourceLineNo">525</span>  @Nonnull<a name="line.525"></a>
-<span class="sourceLineNo">526</span>  static String getStateName( final int state )<a name="line.526"></a>
-<span class="sourceLineNo">527</span>  {<a name="line.527"></a>
-<span class="sourceLineNo">528</span>    assert Arez.shouldCheckInvariants() || Arez.shouldCheckApiInvariants();<a name="line.528"></a>
-<span class="sourceLineNo">529</span>    switch ( state )<a name="line.529"></a>
-<span class="sourceLineNo">530</span>    {<a name="line.530"></a>
-<span class="sourceLineNo">531</span>      case STATE_DISPOSED:<a name="line.531"></a>
-<span class="sourceLineNo">532</span>        return "DISPOSED";<a name="line.532"></a>
-<span class="sourceLineNo">533</span>      case STATE_DISPOSING:<a name="line.533"></a>
-<span class="sourceLineNo">534</span>        return "DISPOSING";<a name="line.534"></a>
-<span class="sourceLineNo">535</span>      case STATE_INACTIVE:<a name="line.535"></a>
-<span class="sourceLineNo">536</span>        return "INACTIVE";<a name="line.536"></a>
-<span class="sourceLineNo">537</span>      case STATE_POSSIBLY_STALE:<a name="line.537"></a>
-<span class="sourceLineNo">538</span>        return "POSSIBLY_STALE";<a name="line.538"></a>
-<span class="sourceLineNo">539</span>      case STATE_STALE:<a name="line.539"></a>
-<span class="sourceLineNo">540</span>        return "STALE";<a name="line.540"></a>
-<span class="sourceLineNo">541</span>      case STATE_UP_TO_DATE:<a name="line.541"></a>
-<span class="sourceLineNo">542</span>        return "UP_TO_DATE";<a name="line.542"></a>
-<span class="sourceLineNo">543</span>      default:<a name="line.543"></a>
-<span class="sourceLineNo">544</span>        return "UNKNOWN(" + state + ")";<a name="line.544"></a>
-<span class="sourceLineNo">545</span>    }<a name="line.545"></a>
-<span class="sourceLineNo">546</span>  }<a name="line.546"></a>
-<span class="sourceLineNo">547</span><a name="line.547"></a>
-<span class="sourceLineNo">548</span>  private Flags()<a name="line.548"></a>
-<span class="sourceLineNo">549</span>  {<a name="line.549"></a>
-<span class="sourceLineNo">550</span>  }<a name="line.550"></a>
-<span class="sourceLineNo">551</span><a name="line.551"></a>
-<span class="sourceLineNo">552</span>  /**<a name="line.552"></a>
-<span class="sourceLineNo">553</span>   * Return the default flag unless a value in mask is specified.<a name="line.553"></a>
-<span class="sourceLineNo">554</span>   *<a name="line.554"></a>
-<span class="sourceLineNo">555</span>   * @param flags       the flags.<a name="line.555"></a>
-<span class="sourceLineNo">556</span>   * @param mask        the mask.<a name="line.556"></a>
-<span class="sourceLineNo">557</span>   * @param defaultFlag the default flag to apply<a name="line.557"></a>
-<span class="sourceLineNo">558</span>   * @return the default flag unless flag has value.<a name="line.558"></a>
-<span class="sourceLineNo">559</span>   */<a name="line.559"></a>
-<span class="sourceLineNo">560</span>  private static int defaultFlagUnlessSpecified( final int flags, final int mask, final int defaultFlag )<a name="line.560"></a>
-<span class="sourceLineNo">561</span>  {<a name="line.561"></a>
-<span class="sourceLineNo">562</span>    return 0 != ( flags &amp; mask ) ? 0 : defaultFlag;<a name="line.562"></a>
-<span class="sourceLineNo">563</span>  }<a name="line.563"></a>
-<span class="sourceLineNo">564</span>}<a name="line.564"></a>
+<span class="sourceLineNo">029</span>   * indicate dependency has changed and the observer.<a name="line.29"></a>
+<span class="sourceLineNo">030</span>   *<a name="line.30"></a>
+<span class="sourceLineNo">031</span>   * @see arez.annotations.DepType#AREZ<a name="line.31"></a>
+<span class="sourceLineNo">032</span>   */<a name="line.32"></a>
+<span class="sourceLineNo">033</span>  public static final int AREZ_DEPENDENCIES = 1 &lt;&lt; 27;<a name="line.33"></a>
+<span class="sourceLineNo">034</span>  /**<a name="line.34"></a>
+<span class="sourceLineNo">035</span>   * Flag set set if the application code can not invoke {@link Observer#reportStale()} or {@link ComputedValue#reportPossiblyChanged()} to<a name="line.35"></a>
+<span class="sourceLineNo">036</span>   * indicate dependency has changed. It is not necessary for the observer to invoke  {@link ObservableValue#reportObserved()} on any dependency.<a name="line.36"></a>
+<span class="sourceLineNo">037</span>   *<a name="line.37"></a>
+<span class="sourceLineNo">038</span>   * @see arez.annotations.DepType#AREZ_OR_NONE<a name="line.38"></a>
+<span class="sourceLineNo">039</span>   */<a name="line.39"></a>
+<span class="sourceLineNo">040</span>  public static final int AREZ_OR_NO_DEPENDENCIES = 1 &lt;&lt; 26;<a name="line.40"></a>
+<span class="sourceLineNo">041</span>  /**<a name="line.41"></a>
+<span class="sourceLineNo">042</span>   * Flag set if the application code can invoke {@link Observer#reportStale()} or {@link ComputedValue#reportPossiblyChanged()} to indicate non-arez dependency has changed.<a name="line.42"></a>
+<span class="sourceLineNo">043</span>   *<a name="line.43"></a>
+<span class="sourceLineNo">044</span>   * @see arez.annotations.DepType#AREZ_OR_EXTERNAL<a name="line.44"></a>
+<span class="sourceLineNo">045</span>   */<a name="line.45"></a>
+<span class="sourceLineNo">046</span>  public static final int AREZ_OR_EXTERNAL_DEPENDENCIES = 1 &lt;&lt; 25;<a name="line.46"></a>
+<span class="sourceLineNo">047</span>  /**<a name="line.47"></a>
+<span class="sourceLineNo">048</span>   * Mask used to extract dependency type bits.<a name="line.48"></a>
+<span class="sourceLineNo">049</span>   */<a name="line.49"></a>
+<span class="sourceLineNo">050</span>  private static final int DEPENDENCIES_TYPE_MASK =<a name="line.50"></a>
+<span class="sourceLineNo">051</span>    AREZ_DEPENDENCIES | AREZ_OR_NO_DEPENDENCIES | AREZ_OR_EXTERNAL_DEPENDENCIES;<a name="line.51"></a>
+<span class="sourceLineNo">052</span>  /**<a name="line.52"></a>
+<span class="sourceLineNo">053</span>   * The observer can only read arez state.<a name="line.53"></a>
+<span class="sourceLineNo">054</span>   */<a name="line.54"></a>
+<span class="sourceLineNo">055</span>  public static final int READ_ONLY = 1 &lt;&lt; 24;<a name="line.55"></a>
+<span class="sourceLineNo">056</span>  /**<a name="line.56"></a>
+<span class="sourceLineNo">057</span>   * The observer can read or write arez state.<a name="line.57"></a>
+<span class="sourceLineNo">058</span>   */<a name="line.58"></a>
+<span class="sourceLineNo">059</span>  public static final int READ_WRITE = 1 &lt;&lt; 23;<a name="line.59"></a>
+<span class="sourceLineNo">060</span>  /**<a name="line.60"></a>
+<span class="sourceLineNo">061</span>   * Mask used to extract transaction mode bits.<a name="line.61"></a>
+<span class="sourceLineNo">062</span>   */<a name="line.62"></a>
+<span class="sourceLineNo">063</span>  private static final int TRANSACTION_MASK = READ_ONLY | READ_WRITE;<a name="line.63"></a>
+<span class="sourceLineNo">064</span>  /**<a name="line.64"></a>
+<span class="sourceLineNo">065</span>   * The scheduler will be triggered when the observer is created to immediately invoke the<a name="line.65"></a>
+<span class="sourceLineNo">066</span>   * {@link Observer#_observed} function. This configuration should not be specified if there<a name="line.66"></a>
+<span class="sourceLineNo">067</span>   * is no {@link Observer#_observed} function supplied. This should not be<a name="line.67"></a>
+<span class="sourceLineNo">068</span>   * specified if {@link #RUN_LATER} is specified.<a name="line.68"></a>
+<span class="sourceLineNo">069</span>   */<a name="line.69"></a>
+<span class="sourceLineNo">070</span>  public static final int RUN_NOW = 1 &lt;&lt; 22;<a name="line.70"></a>
+<span class="sourceLineNo">071</span>  /**<a name="line.71"></a>
+<span class="sourceLineNo">072</span>   * The scheduler will not be triggered when the observer is created. The observer either<a name="line.72"></a>
+<span class="sourceLineNo">073</span>   * has no {@link Observer#_observed} function or is responsible for ensuring that<a name="line.73"></a>
+<span class="sourceLineNo">074</span>   * {@link ArezContext#triggerScheduler()} is invoked at a later time. This should not be<a name="line.74"></a>
+<span class="sourceLineNo">075</span>   * specified if {@link #RUN_NOW} is specified.<a name="line.75"></a>
+<span class="sourceLineNo">076</span>   */<a name="line.76"></a>
+<span class="sourceLineNo">077</span>  public static final int RUN_LATER = 1 &lt;&lt; 21;<a name="line.77"></a>
+<span class="sourceLineNo">078</span>  /**<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * Mask used to extract run type bits.<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   */<a name="line.80"></a>
+<span class="sourceLineNo">081</span>  private static final int RUN_TYPE_MASK = RUN_NOW | RUN_LATER;<a name="line.81"></a>
+<span class="sourceLineNo">082</span>  /**<a name="line.82"></a>
+<span class="sourceLineNo">083</span>   * The runtime will keep the observer reacting to dependencies until disposed. This is the default value for<a name="line.83"></a>
+<span class="sourceLineNo">084</span>   * observers that supply a observed function but may be explicitly supplied when creating {@link ComputedValue}<a name="line.84"></a>
+<span class="sourceLineNo">085</span>   * instances.<a name="line.85"></a>
+<span class="sourceLineNo">086</span>   */<a name="line.86"></a>
+<span class="sourceLineNo">087</span>  public static final int KEEPALIVE = 1 &lt;&lt; 20;<a name="line.87"></a>
+<span class="sourceLineNo">088</span>  /**<a name="line.88"></a>
+<span class="sourceLineNo">089</span>   * The flag is valid on observers associated with computed values and will deactivate the observer if the<a name="line.89"></a>
+<span class="sourceLineNo">090</span>   * computed value has no observers.<a name="line.90"></a>
+<span class="sourceLineNo">091</span>   */<a name="line.91"></a>
+<span class="sourceLineNo">092</span>  static final int DEACTIVATE_ON_UNOBSERVE = 1 &lt;&lt; 19;<a name="line.92"></a>
+<span class="sourceLineNo">093</span>  /**<a name="line.93"></a>
+<span class="sourceLineNo">094</span>   * The flag is valid on observers where the observed function is invoked by the application.<a name="line.94"></a>
+<span class="sourceLineNo">095</span>   */<a name="line.95"></a>
+<span class="sourceLineNo">096</span>  static final int APPLICATION_EXECUTOR = 1 &lt;&lt; 18;<a name="line.96"></a>
+<span class="sourceLineNo">097</span>  /**<a name="line.97"></a>
+<span class="sourceLineNo">098</span>   * Mask used to extract react type bits.<a name="line.98"></a>
+<span class="sourceLineNo">099</span>   */<a name="line.99"></a>
+<span class="sourceLineNo">100</span>  private static final int SCHEDULE_TYPE_MASK = KEEPALIVE | DEACTIVATE_ON_UNOBSERVE | APPLICATION_EXECUTOR;<a name="line.100"></a>
+<span class="sourceLineNo">101</span>  /**<a name="line.101"></a>
+<span class="sourceLineNo">102</span>   * Highest priority.<a name="line.102"></a>
+<span class="sourceLineNo">103</span>   * This priority should be used when the observer will dispose or release other reactive elements<a name="line.103"></a>
+<span class="sourceLineNo">104</span>   * (and thus remove elements from being scheduled).<a name="line.104"></a>
+<span class="sourceLineNo">105</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.105"></a>
+<span class="sourceLineNo">106</span>   *<a name="line.106"></a>
+<span class="sourceLineNo">107</span>   * @see arez.annotations.Priority#HIGHEST<a name="line.107"></a>
+<span class="sourceLineNo">108</span>   * @see arez.spy.Priority#HIGHEST<a name="line.108"></a>
+<span class="sourceLineNo">109</span>   */<a name="line.109"></a>
+<span class="sourceLineNo">110</span>  public static final int PRIORITY_HIGHEST = 0b001 &lt;&lt; 15;<a name="line.110"></a>
+<span class="sourceLineNo">111</span>  /**<a name="line.111"></a>
+<span class="sourceLineNo">112</span>   * High priority.<a name="line.112"></a>
+<span class="sourceLineNo">113</span>   * To reduce the chance that downstream elements will react multiple times within a single<a name="line.113"></a>
+<span class="sourceLineNo">114</span>   * reaction round, this priority should be used when the observer may trigger many downstream<a name="line.114"></a>
+<span class="sourceLineNo">115</span>   * reactions.<a name="line.115"></a>
+<span class="sourceLineNo">116</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.116"></a>
+<span class="sourceLineNo">117</span>   *<a name="line.117"></a>
+<span class="sourceLineNo">118</span>   * @see arez.annotations.Priority#HIGH<a name="line.118"></a>
+<span class="sourceLineNo">119</span>   * @see arez.spy.Priority#HIGH<a name="line.119"></a>
+<span class="sourceLineNo">120</span>   */<a name="line.120"></a>
+<span class="sourceLineNo">121</span>  public static final int PRIORITY_HIGH = 0b010 &lt;&lt; 15;<a name="line.121"></a>
+<span class="sourceLineNo">122</span>  /**<a name="line.122"></a>
+<span class="sourceLineNo">123</span>   * Normal priority if no other priority otherwise specified.<a name="line.123"></a>
+<span class="sourceLineNo">124</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.124"></a>
+<span class="sourceLineNo">125</span>   *<a name="line.125"></a>
+<span class="sourceLineNo">126</span>   * @see arez.annotations.Priority#NORMAL<a name="line.126"></a>
+<span class="sourceLineNo">127</span>   * @see arez.spy.Priority#NORMAL<a name="line.127"></a>
+<span class="sourceLineNo">128</span>   */<a name="line.128"></a>
+<span class="sourceLineNo">129</span>  public static final int PRIORITY_NORMAL = 0b011 &lt;&lt; 15;<a name="line.129"></a>
+<span class="sourceLineNo">130</span>  /**<a name="line.130"></a>
+<span class="sourceLineNo">131</span>   * Low priority.<a name="line.131"></a>
+<span class="sourceLineNo">132</span>   * Usually used to schedule observers that reflect state onto non-reactive<a name="line.132"></a>
+<span class="sourceLineNo">133</span>   * application components. i.e. Observers that are used to build html views,<a name="line.133"></a>
+<span class="sourceLineNo">134</span>   * perform network operations etc. These reactions are often at low priority<a name="line.134"></a>
+<span class="sourceLineNo">135</span>   * to avoid recalculation of dependencies (i.e. {@link ComputedValue}s) triggering<a name="line.135"></a>
+<span class="sourceLineNo">136</span>   * this reaction multiple times within a single reaction round.<a name="line.136"></a>
+<span class="sourceLineNo">137</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.137"></a>
+<span class="sourceLineNo">138</span>   *<a name="line.138"></a>
+<span class="sourceLineNo">139</span>   * @see arez.annotations.Priority#LOW<a name="line.139"></a>
+<span class="sourceLineNo">140</span>   * @see arez.spy.Priority#LOW<a name="line.140"></a>
+<span class="sourceLineNo">141</span>   */<a name="line.141"></a>
+<span class="sourceLineNo">142</span>  public static final int PRIORITY_LOW = 0b100 &lt;&lt; 15;<a name="line.142"></a>
+<span class="sourceLineNo">143</span>  /**<a name="line.143"></a>
+<span class="sourceLineNo">144</span>   * Lowest priority. Use this priority if the observer is a {@link ComputedValue} that<a name="line.144"></a>
+<span class="sourceLineNo">145</span>   * may be unobserved when a {@link #PRIORITY_LOW} observer reacts. This is used to avoid<a name="line.145"></a>
+<span class="sourceLineNo">146</span>   * recomputing state that is likely to either be unobserved or recomputed as part of<a name="line.146"></a>
+<span class="sourceLineNo">147</span>   * another observers reaction.<a name="line.147"></a>
+<span class="sourceLineNo">148</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.148"></a>
+<span class="sourceLineNo">149</span>   *<a name="line.149"></a>
+<span class="sourceLineNo">150</span>   * @see arez.annotations.Priority#LOWEST<a name="line.150"></a>
+<span class="sourceLineNo">151</span>   * @see arez.spy.Priority#LOWEST<a name="line.151"></a>
+<span class="sourceLineNo">152</span>   */<a name="line.152"></a>
+<span class="sourceLineNo">153</span>  public static final int PRIORITY_LOWEST = 0b101 &lt;&lt; 15;<a name="line.153"></a>
+<span class="sourceLineNo">154</span>  /**<a name="line.154"></a>
+<span class="sourceLineNo">155</span>   * Mask used to extract priority bits.<a name="line.155"></a>
+<span class="sourceLineNo">156</span>   */<a name="line.156"></a>
+<span class="sourceLineNo">157</span>  private static final int PRIORITY_MASK = 0b111 &lt;&lt; 15;<a name="line.157"></a>
+<span class="sourceLineNo">158</span>  /**<a name="line.158"></a>
+<span class="sourceLineNo">159</span>   * Shift used to extract priority after applying mask.<a name="line.159"></a>
+<span class="sourceLineNo">160</span>   */<a name="line.160"></a>
+<span class="sourceLineNo">161</span>  private static final int PRIORITY_SHIFT = 15;<a name="line.161"></a>
+<span class="sourceLineNo">162</span>  /**<a name="line.162"></a>
+<span class="sourceLineNo">163</span>   * Mask that identifies the bits associated with static configuration.<a name="line.163"></a>
+<span class="sourceLineNo">164</span>   */<a name="line.164"></a>
+<span class="sourceLineNo">165</span>  static final int CONFIG_FLAGS_MASK =<a name="line.165"></a>
+<span class="sourceLineNo">166</span>    OBSERVE_LOWER_PRIORITY_DEPENDENCIES |<a name="line.166"></a>
+<span class="sourceLineNo">167</span>    NESTED_ACTIONS_MASK |<a name="line.167"></a>
+<span class="sourceLineNo">168</span>    DEPENDENCIES_TYPE_MASK |<a name="line.168"></a>
+<span class="sourceLineNo">169</span>    TRANSACTION_MASK |<a name="line.169"></a>
+<span class="sourceLineNo">170</span>    RUN_TYPE_MASK |<a name="line.170"></a>
+<span class="sourceLineNo">171</span>    SCHEDULE_TYPE_MASK |<a name="line.171"></a>
+<span class="sourceLineNo">172</span>    PRIORITY_MASK;<a name="line.172"></a>
+<span class="sourceLineNo">173</span>  /**<a name="line.173"></a>
+<span class="sourceLineNo">174</span>   * Flag is currently unused.<a name="line.174"></a>
+<span class="sourceLineNo">175</span>   */<a name="line.175"></a>
+<span class="sourceLineNo">176</span>  @SuppressWarnings( "unused" )<a name="line.176"></a>
+<span class="sourceLineNo">177</span>  public static final int UNUSED1 = 1 &lt;&lt; 14;<a name="line.177"></a>
+<span class="sourceLineNo">178</span>  /**<a name="line.178"></a>
+<span class="sourceLineNo">179</span>   * Flag is currently unused.<a name="line.179"></a>
+<span class="sourceLineNo">180</span>   */<a name="line.180"></a>
+<span class="sourceLineNo">181</span>  @SuppressWarnings( "unused" )<a name="line.181"></a>
+<span class="sourceLineNo">182</span>  public static final int UNUSED2 = 1 &lt;&lt; 13;<a name="line.182"></a>
+<span class="sourceLineNo">183</span>  /**<a name="line.183"></a>
+<span class="sourceLineNo">184</span>   * Flag is currently unused.<a name="line.184"></a>
+<span class="sourceLineNo">185</span>   */<a name="line.185"></a>
+<span class="sourceLineNo">186</span>  @SuppressWarnings( "unused" )<a name="line.186"></a>
+<span class="sourceLineNo">187</span>  public static final int UNUSED3 = 1 &lt;&lt; 12;<a name="line.187"></a>
+<span class="sourceLineNo">188</span>  /**<a name="line.188"></a>
+<span class="sourceLineNo">189</span>   * The flag can be passed to actions to force the action to create a new transaction.<a name="line.189"></a>
+<span class="sourceLineNo">190</span>   */<a name="line.190"></a>
+<span class="sourceLineNo">191</span>  public static final int REQUIRE_NEW_TRANSACTION = 1 &lt;&lt; 11;<a name="line.191"></a>
+<span class="sourceLineNo">192</span>  /**<a name="line.192"></a>
+<span class="sourceLineNo">193</span>   * The flag can be passed to actions to force the action to verify that an action performed an activity<a name="line.193"></a>
+<span class="sourceLineNo">194</span>   * that required an action. These activities include:<a name="line.194"></a>
+<span class="sourceLineNo">195</span>   * &lt;ul&gt;<a name="line.195"></a>
+<span class="sourceLineNo">196</span>   * &lt;li&gt;read or write an observable property.&lt;/li&gt;<a name="line.196"></a>
+<span class="sourceLineNo">197</span>   * &lt;li&gt;read a computed property.&lt;/li&gt;<a name="line.197"></a>
+<span class="sourceLineNo">198</span>   * &lt;li&gt;schedule an observer.&lt;/li&gt;<a name="line.198"></a>
+<span class="sourceLineNo">199</span>   * &lt;li&gt;mark an observer as stale.&lt;/li&gt;<a name="line.199"></a>
+<span class="sourceLineNo">200</span>   * &lt;li&gt;report possible change in computed property.&lt;/li&gt;<a name="line.200"></a>
+<span class="sourceLineNo">201</span>   * &lt;/ul&gt;<a name="line.201"></a>
+<span class="sourceLineNo">202</span>   * &lt;p&gt;This flag must not be present if {@link #NO_VERIFY_ACTION_REQUIRED} is present. If neither<a name="line.202"></a>
+<span class="sourceLineNo">203</span>   * VERIFY_ACTION_REQUIRED nor {@link #NO_VERIFY_ACTION_REQUIRED} is specified then VERIFY_ACTION_REQUIRED<a name="line.203"></a>
+<span class="sourceLineNo">204</span>   * is assumed.&lt;/p&gt;<a name="line.204"></a>
+<span class="sourceLineNo">205</span>   */<a name="line.205"></a>
+<span class="sourceLineNo">206</span>  public static final int VERIFY_ACTION_REQUIRED = AREZ_DEPENDENCIES;<a name="line.206"></a>
+<span class="sourceLineNo">207</span>  /**<a name="line.207"></a>
+<span class="sourceLineNo">208</span>   * This flag can be passed to skip verification that action was required.<a name="line.208"></a>
+<span class="sourceLineNo">209</span>   * This flag must not be present if {@link #VERIFY_ACTION_REQUIRED} is present.<a name="line.209"></a>
+<span class="sourceLineNo">210</span>   */<a name="line.210"></a>
+<span class="sourceLineNo">211</span>  public static final int NO_VERIFY_ACTION_REQUIRED = AREZ_OR_NO_DEPENDENCIES;<a name="line.211"></a>
+<span class="sourceLineNo">212</span>  /**<a name="line.212"></a>
+<span class="sourceLineNo">213</span>   * Mask used to extract verify action bits.<a name="line.213"></a>
+<span class="sourceLineNo">214</span>   */<a name="line.214"></a>
+<span class="sourceLineNo">215</span>  private static final int VERIFY_ACTION_MASK = VERIFY_ACTION_REQUIRED | NO_VERIFY_ACTION_REQUIRED;<a name="line.215"></a>
+<span class="sourceLineNo">216</span>  /**<a name="line.216"></a>
+<span class="sourceLineNo">217</span>   * Mask containing flags that can be applied to an action.<a name="line.217"></a>
+<span class="sourceLineNo">218</span>   */<a name="line.218"></a>
+<span class="sourceLineNo">219</span>  static final int ACTION_FLAGS_MASK = TRANSACTION_MASK | REQUIRE_NEW_TRANSACTION | VERIFY_ACTION_MASK;<a name="line.219"></a>
+<span class="sourceLineNo">220</span>  /**<a name="line.220"></a>
+<span class="sourceLineNo">221</span>   * Flag indicating whether next scheduled invocation of {@link Observer} should invoke {@link Observer#_observed} or {@link Observer#_onDepsChanged}.<a name="line.221"></a>
+<span class="sourceLineNo">222</span>   */<a name="line.222"></a>
+<span class="sourceLineNo">223</span>  static final int EXECUTE_OBSERVED_NEXT = 1 &lt;&lt; 10;<a name="line.223"></a>
+<span class="sourceLineNo">224</span>  /**<a name="line.224"></a>
+<span class="sourceLineNo">225</span>   * The observer has been scheduled.<a name="line.225"></a>
+<span class="sourceLineNo">226</span>   */<a name="line.226"></a>
+<span class="sourceLineNo">227</span>  static final int SCHEDULED = 1 &lt;&lt; 9;<a name="line.227"></a>
+<span class="sourceLineNo">228</span>  /**<a name="line.228"></a>
+<span class="sourceLineNo">229</span>   * Mask used to extract state bits.<a name="line.229"></a>
+<span class="sourceLineNo">230</span>   * State is the lowest bits as it is the most frequently accessed numeric fields<a name="line.230"></a>
+<span class="sourceLineNo">231</span>   * and placing values at lower part of integer avoids a shift.<a name="line.231"></a>
+<span class="sourceLineNo">232</span>   */<a name="line.232"></a>
+<span class="sourceLineNo">233</span>  private static final int STATE_MASK = 0b111;<a name="line.233"></a>
+<span class="sourceLineNo">234</span>  /**<a name="line.234"></a>
+<span class="sourceLineNo">235</span>   * The observer has been disposed.<a name="line.235"></a>
+<span class="sourceLineNo">236</span>   */<a name="line.236"></a>
+<span class="sourceLineNo">237</span>  static final int STATE_DISPOSED = 0b001;<a name="line.237"></a>
+<span class="sourceLineNo">238</span>  /**<a name="line.238"></a>
+<span class="sourceLineNo">239</span>   * The observer is in the process of being disposed.<a name="line.239"></a>
+<span class="sourceLineNo">240</span>   */<a name="line.240"></a>
+<span class="sourceLineNo">241</span>  static final int STATE_DISPOSING = 0b010;<a name="line.241"></a>
+<span class="sourceLineNo">242</span>  /**<a name="line.242"></a>
+<span class="sourceLineNo">243</span>   * The observer is not active and is not holding any data about it's dependencies.<a name="line.243"></a>
+<span class="sourceLineNo">244</span>   * Typically mean this tracker observer has not been run or if it is a ComputedValue that<a name="line.244"></a>
+<span class="sourceLineNo">245</span>   * there is no observer observing the associated ObservableValue.<a name="line.245"></a>
+<span class="sourceLineNo">246</span>   */<a name="line.246"></a>
+<span class="sourceLineNo">247</span>  static final int STATE_INACTIVE = 0b011;<a name="line.247"></a>
+<span class="sourceLineNo">248</span>  /**<a name="line.248"></a>
+<span class="sourceLineNo">249</span>   * No change since last time observer was notified.<a name="line.249"></a>
+<span class="sourceLineNo">250</span>   */<a name="line.250"></a>
+<span class="sourceLineNo">251</span>  static final int STATE_UP_TO_DATE = 0b100;<a name="line.251"></a>
+<span class="sourceLineNo">252</span>  /**<a name="line.252"></a>
+<span class="sourceLineNo">253</span>   * A transitive dependency has changed but it has not been determined if a shallow<a name="line.253"></a>
+<span class="sourceLineNo">254</span>   * dependency has changed. The observer will need to check if shallow dependencies<a name="line.254"></a>
+<span class="sourceLineNo">255</span>   * have changed. Only Derived observables will propagate POSSIBLY_STALE state.<a name="line.255"></a>
+<span class="sourceLineNo">256</span>   */<a name="line.256"></a>
+<span class="sourceLineNo">257</span>  static final int STATE_POSSIBLY_STALE = 0b101;<a name="line.257"></a>
+<span class="sourceLineNo">258</span>  /**<a name="line.258"></a>
+<span class="sourceLineNo">259</span>   * A dependency has changed so the observer will need to recompute.<a name="line.259"></a>
+<span class="sourceLineNo">260</span>   */<a name="line.260"></a>
+<span class="sourceLineNo">261</span>  static final int STATE_STALE = 0b110;<a name="line.261"></a>
+<span class="sourceLineNo">262</span>  /**<a name="line.262"></a>
+<span class="sourceLineNo">263</span>   * Mask that identifies the bits associated with runtime configuration.<a name="line.263"></a>
+<span class="sourceLineNo">264</span>   */<a name="line.264"></a>
+<span class="sourceLineNo">265</span>  static final int RUNTIME_FLAGS_MASK = EXECUTE_OBSERVED_NEXT | SCHEDULED | STATE_MASK;<a name="line.265"></a>
+<span class="sourceLineNo">266</span><a name="line.266"></a>
+<span class="sourceLineNo">267</span>  /**<a name="line.267"></a>
+<span class="sourceLineNo">268</span>   * Return true if flags contains priority.<a name="line.268"></a>
+<span class="sourceLineNo">269</span>   *<a name="line.269"></a>
+<span class="sourceLineNo">270</span>   * @param flags the flags.<a name="line.270"></a>
+<span class="sourceLineNo">271</span>   * @return true if flags contains priority.<a name="line.271"></a>
+<span class="sourceLineNo">272</span>   */<a name="line.272"></a>
+<span class="sourceLineNo">273</span>  static boolean isPrioritySpecified( final int flags )<a name="line.273"></a>
+<span class="sourceLineNo">274</span>  {<a name="line.274"></a>
+<span class="sourceLineNo">275</span>    return 0 != ( flags &amp; PRIORITY_MASK );<a name="line.275"></a>
+<span class="sourceLineNo">276</span>  }<a name="line.276"></a>
+<span class="sourceLineNo">277</span><a name="line.277"></a>
+<span class="sourceLineNo">278</span>  /**<a name="line.278"></a>
+<span class="sourceLineNo">279</span>   * Return true if flags contains valid priority.<a name="line.279"></a>
+<span class="sourceLineNo">280</span>   *<a name="line.280"></a>
+<span class="sourceLineNo">281</span>   * @param flags the flags.<a name="line.281"></a>
+<span class="sourceLineNo">282</span>   * @return true if flags contains priority.<a name="line.282"></a>
+<span class="sourceLineNo">283</span>   */<a name="line.283"></a>
+<span class="sourceLineNo">284</span>  static boolean isPriorityValid( final int flags )<a name="line.284"></a>
+<span class="sourceLineNo">285</span>  {<a name="line.285"></a>
+<span class="sourceLineNo">286</span>    final int priorityIndex = getPriorityIndex( flags );<a name="line.286"></a>
+<span class="sourceLineNo">287</span>    return priorityIndex &lt;= 4 &amp;&amp; priorityIndex &gt;= 0;<a name="line.287"></a>
+<span class="sourceLineNo">288</span>  }<a name="line.288"></a>
+<span class="sourceLineNo">289</span><a name="line.289"></a>
+<span class="sourceLineNo">290</span>  /**<a name="line.290"></a>
+<span class="sourceLineNo">291</span>   * Extract and return the priority value ranging from the highest priority 0 and lowest priority 4.<a name="line.291"></a>
+<span class="sourceLineNo">292</span>   * This method assumes that flags has valid priority and will not attempt to re-check.<a name="line.292"></a>
+<span class="sourceLineNo">293</span>   *<a name="line.293"></a>
+<span class="sourceLineNo">294</span>   * @param flags the flags.<a name="line.294"></a>
+<span class="sourceLineNo">295</span>   * @return the priority.<a name="line.295"></a>
+<span class="sourceLineNo">296</span>   */<a name="line.296"></a>
+<span class="sourceLineNo">297</span>  static int getPriority( final int flags )<a name="line.297"></a>
+<span class="sourceLineNo">298</span>  {<a name="line.298"></a>
+<span class="sourceLineNo">299</span>    return flags &amp; PRIORITY_MASK;<a name="line.299"></a>
+<span class="sourceLineNo">300</span>  }<a name="line.300"></a>
+<span class="sourceLineNo">301</span><a name="line.301"></a>
+<span class="sourceLineNo">302</span>  /**<a name="line.302"></a>
+<span class="sourceLineNo">303</span>   * Extract and return the priority value ranging from the highest priority 0 and lowest priority 4.<a name="line.303"></a>
+<span class="sourceLineNo">304</span>   * This method assumes that flags has valid priority and will not attempt to re-check.<a name="line.304"></a>
+<span class="sourceLineNo">305</span>   *<a name="line.305"></a>
+<span class="sourceLineNo">306</span>   * @param flags the flags.<a name="line.306"></a>
+<span class="sourceLineNo">307</span>   * @return the priority.<a name="line.307"></a>
+<span class="sourceLineNo">308</span>   */<a name="line.308"></a>
+<span class="sourceLineNo">309</span>  static int getPriorityIndex( final int flags )<a name="line.309"></a>
+<span class="sourceLineNo">310</span>  {<a name="line.310"></a>
+<span class="sourceLineNo">311</span>    return ( getPriority( flags ) &gt;&gt; PRIORITY_SHIFT ) - 1;<a name="line.311"></a>
+<span class="sourceLineNo">312</span>  }<a name="line.312"></a>
+<span class="sourceLineNo">313</span><a name="line.313"></a>
+<span class="sourceLineNo">314</span>  static int priority( final int flags )<a name="line.314"></a>
+<span class="sourceLineNo">315</span>  {<a name="line.315"></a>
+<span class="sourceLineNo">316</span>    return defaultFlagUnlessSpecified( flags, PRIORITY_MASK, PRIORITY_NORMAL );<a name="line.316"></a>
+<span class="sourceLineNo">317</span>  }<a name="line.317"></a>
+<span class="sourceLineNo">318</span><a name="line.318"></a>
+<span class="sourceLineNo">319</span>  static int nestedActionRule( final int flags )<a name="line.319"></a>
+<span class="sourceLineNo">320</span>  {<a name="line.320"></a>
+<span class="sourceLineNo">321</span>    return Arez.shouldCheckInvariants() ?<a name="line.321"></a>
+<span class="sourceLineNo">322</span>           defaultFlagUnlessSpecified( flags, NESTED_ACTIONS_MASK, NESTED_ACTIONS_DISALLOWED ) :<a name="line.322"></a>
+<span class="sourceLineNo">323</span>           0;<a name="line.323"></a>
+<span class="sourceLineNo">324</span>  }<a name="line.324"></a>
+<span class="sourceLineNo">325</span><a name="line.325"></a>
+<span class="sourceLineNo">326</span>  static int verifyActionRule( final int flags )<a name="line.326"></a>
+<span class="sourceLineNo">327</span>  {<a name="line.327"></a>
+<span class="sourceLineNo">328</span>    return Arez.shouldCheckInvariants() ?<a name="line.328"></a>
+<span class="sourceLineNo">329</span>           defaultFlagUnlessSpecified( flags, VERIFY_ACTION_MASK, VERIFY_ACTION_REQUIRED ) :<a name="line.329"></a>
+<span class="sourceLineNo">330</span>           0;<a name="line.330"></a>
+<span class="sourceLineNo">331</span>  }<a name="line.331"></a>
+<span class="sourceLineNo">332</span><a name="line.332"></a>
+<span class="sourceLineNo">333</span>  /**<a name="line.333"></a>
+<span class="sourceLineNo">334</span>   * Return true if flags contains a valid nested action mode.<a name="line.334"></a>
+<span class="sourceLineNo">335</span>   *<a name="line.335"></a>
+<span class="sourceLineNo">336</span>   * @param flags the flags.<a name="line.336"></a>
+<span class="sourceLineNo">337</span>   * @return true if flags contains valid nested action mode.<a name="line.337"></a>
+<span class="sourceLineNo">338</span>   */<a name="line.338"></a>
+<span class="sourceLineNo">339</span>  static boolean isNestedActionsModeValid( final int flags )<a name="line.339"></a>
+<span class="sourceLineNo">340</span>  {<a name="line.340"></a>
+<span class="sourceLineNo">341</span>    return NESTED_ACTIONS_ALLOWED == ( flags &amp; NESTED_ACTIONS_ALLOWED ) ^<a name="line.341"></a>
+<span class="sourceLineNo">342</span>           NESTED_ACTIONS_DISALLOWED == ( flags &amp; NESTED_ACTIONS_DISALLOWED );<a name="line.342"></a>
+<span class="sourceLineNo">343</span>  }<a name="line.343"></a>
+<span class="sourceLineNo">344</span><a name="line.344"></a>
+<span class="sourceLineNo">345</span>  /**<a name="line.345"></a>
+<span class="sourceLineNo">346</span>   * Return true if flags contains transaction mode.<a name="line.346"></a>
+<span class="sourceLineNo">347</span>   *<a name="line.347"></a>
+<span class="sourceLineNo">348</span>   * @param flags the flags.<a name="line.348"></a>
+<span class="sourceLineNo">349</span>   * @return true if flags contains transaction mode.<a name="line.349"></a>
+<span class="sourceLineNo">350</span>   */<a name="line.350"></a>
+<span class="sourceLineNo">351</span>  static boolean isTransactionModeSpecified( final int flags )<a name="line.351"></a>
+<span class="sourceLineNo">352</span>  {<a name="line.352"></a>
+<span class="sourceLineNo">353</span>    return 0 != ( flags &amp; TRANSACTION_MASK );<a name="line.353"></a>
+<span class="sourceLineNo">354</span>  }<a name="line.354"></a>
+<span class="sourceLineNo">355</span><a name="line.355"></a>
+<span class="sourceLineNo">356</span>  static int transactionMode( final int flags )<a name="line.356"></a>
+<span class="sourceLineNo">357</span>  {<a name="line.357"></a>
+<span class="sourceLineNo">358</span>    return Arez.shouldEnforceTransactionType() ?<a name="line.358"></a>
+<span class="sourceLineNo">359</span>           defaultFlagUnlessSpecified( flags, TRANSACTION_MASK, READ_ONLY ) :<a name="line.359"></a>
+<span class="sourceLineNo">360</span>           0;<a name="line.360"></a>
+<span class="sourceLineNo">361</span>  }<a name="line.361"></a>
+<span class="sourceLineNo">362</span><a name="line.362"></a>
+<span class="sourceLineNo">363</span>  /**<a name="line.363"></a>
+<span class="sourceLineNo">364</span>   * Return true if flags contains a valid transaction mode.<a name="line.364"></a>
+<span class="sourceLineNo">365</span>   *<a name="line.365"></a>
+<span class="sourceLineNo">366</span>   * @param flags the flags.<a name="line.366"></a>
+<span class="sourceLineNo">367</span>   * @return true if flags contains transaction mode.<a name="line.367"></a>
+<span class="sourceLineNo">368</span>   */<a name="line.368"></a>
+<span class="sourceLineNo">369</span>  static boolean isTransactionModeValid( final int flags )<a name="line.369"></a>
+<span class="sourceLineNo">370</span>  {<a name="line.370"></a>
+<span class="sourceLineNo">371</span>    return 0 != ( flags &amp; READ_ONLY ) ^ 0 != ( flags &amp; READ_WRITE );<a name="line.371"></a>
+<span class="sourceLineNo">372</span>  }<a name="line.372"></a>
+<span class="sourceLineNo">373</span><a name="line.373"></a>
+<span class="sourceLineNo">374</span>  /**<a name="line.374"></a>
+<span class="sourceLineNo">375</span>   * Return the default dependency type flag if dependency type not specified.<a name="line.375"></a>
+<span class="sourceLineNo">376</span>   *<a name="line.376"></a>
+<span class="sourceLineNo">377</span>   * @param flags the flags.<a name="line.377"></a>
+<span class="sourceLineNo">378</span>   * @return the default dependency type if dependency type unspecified else 0.<a name="line.378"></a>
+<span class="sourceLineNo">379</span>   */<a name="line.379"></a>
+<span class="sourceLineNo">380</span>  static int dependencyType( final int flags )<a name="line.380"></a>
+<span class="sourceLineNo">381</span>  {<a name="line.381"></a>
+<span class="sourceLineNo">382</span>    return Arez.shouldCheckInvariants() ?<a name="line.382"></a>
+<span class="sourceLineNo">383</span>           defaultFlagUnlessSpecified( flags, DEPENDENCIES_TYPE_MASK, AREZ_DEPENDENCIES ) :<a name="line.383"></a>
+<span class="sourceLineNo">384</span>           0;<a name="line.384"></a>
+<span class="sourceLineNo">385</span>  }<a name="line.385"></a>
+<span class="sourceLineNo">386</span><a name="line.386"></a>
+<span class="sourceLineNo">387</span>  /**<a name="line.387"></a>
+<span class="sourceLineNo">388</span>   * Return true if flags contains a valid react type.<a name="line.388"></a>
+<span class="sourceLineNo">389</span>   *<a name="line.389"></a>
+<span class="sourceLineNo">390</span>   * @param flags the flags.<a name="line.390"></a>
+<span class="sourceLineNo">391</span>   * @return true if flags contains react type.<a name="line.391"></a>
+<span class="sourceLineNo">392</span>   */<a name="line.392"></a>
+<span class="sourceLineNo">393</span>  static boolean isRunTypeValid( final int flags )<a name="line.393"></a>
+<span class="sourceLineNo">394</span>  {<a name="line.394"></a>
+<span class="sourceLineNo">395</span>    return RUN_NOW == ( flags &amp; RUN_NOW ) ^ RUN_LATER == ( flags &amp; RUN_LATER );<a name="line.395"></a>
+<span class="sourceLineNo">396</span>  }<a name="line.396"></a>
+<span class="sourceLineNo">397</span><a name="line.397"></a>
+<span class="sourceLineNo">398</span>  /**<a name="line.398"></a>
+<span class="sourceLineNo">399</span>   * Return the default run type flag if run type not specified.<a name="line.399"></a>
+<span class="sourceLineNo">400</span>   *<a name="line.400"></a>
+<span class="sourceLineNo">401</span>   * @param flags       the flags.<a name="line.401"></a>
+<span class="sourceLineNo">402</span>   * @param defaultFlag the default flag to apply<a name="line.402"></a>
+<span class="sourceLineNo">403</span>   * @return the default run type if run type unspecified else 0.<a name="line.403"></a>
+<span class="sourceLineNo">404</span>   */<a name="line.404"></a>
+<span class="sourceLineNo">405</span>  static int runType( final int flags, final int defaultFlag )<a name="line.405"></a>
+<span class="sourceLineNo">406</span>  {<a name="line.406"></a>
+<span class="sourceLineNo">407</span>    return defaultFlagUnlessSpecified( flags, RUN_TYPE_MASK, defaultFlag );<a name="line.407"></a>
+<span class="sourceLineNo">408</span>  }<a name="line.408"></a>
+<span class="sourceLineNo">409</span><a name="line.409"></a>
+<span class="sourceLineNo">410</span>  /**<a name="line.410"></a>
+<span class="sourceLineNo">411</span>   * Return name of transaction mode.<a name="line.411"></a>
+<span class="sourceLineNo">412</span>   *<a name="line.412"></a>
+<span class="sourceLineNo">413</span>   * @param flags the flags.<a name="line.413"></a>
+<span class="sourceLineNo">414</span>   * @return true if flags contains transaction mode.<a name="line.414"></a>
+<span class="sourceLineNo">415</span>   */<a name="line.415"></a>
+<span class="sourceLineNo">416</span>  @Nonnull<a name="line.416"></a>
+<span class="sourceLineNo">417</span>  static String getTransactionModeName( final int flags )<a name="line.417"></a>
+<span class="sourceLineNo">418</span>  {<a name="line.418"></a>
+<span class="sourceLineNo">419</span>    assert Arez.shouldCheckInvariants() || Arez.shouldCheckApiInvariants();<a name="line.419"></a>
+<span class="sourceLineNo">420</span>    if ( 0 != ( flags &amp; READ_ONLY ) )<a name="line.420"></a>
+<span class="sourceLineNo">421</span>    {<a name="line.421"></a>
+<span class="sourceLineNo">422</span>      return "READ_ONLY";<a name="line.422"></a>
+<span class="sourceLineNo">423</span>    }<a name="line.423"></a>
+<span class="sourceLineNo">424</span>    else if ( 0 != ( flags &amp; READ_WRITE ) )<a name="line.424"></a>
+<span class="sourceLineNo">425</span>    {<a name="line.425"></a>
+<span class="sourceLineNo">426</span>      return "READ_WRITE";<a name="line.426"></a>
+<span class="sourceLineNo">427</span>    }<a name="line.427"></a>
+<span class="sourceLineNo">428</span>    else<a name="line.428"></a>
+<span class="sourceLineNo">429</span>    {<a name="line.429"></a>
+<span class="sourceLineNo">430</span>      return "UNKNOWN(" + flags + ")";<a name="line.430"></a>
+<span class="sourceLineNo">431</span>    }<a name="line.431"></a>
+<span class="sourceLineNo">432</span>  }<a name="line.432"></a>
+<span class="sourceLineNo">433</span><a name="line.433"></a>
+<span class="sourceLineNo">434</span>  /**<a name="line.434"></a>
+<span class="sourceLineNo">435</span>   * Extract and return the schedule type.<a name="line.435"></a>
+<span class="sourceLineNo">436</span>   *<a name="line.436"></a>
+<span class="sourceLineNo">437</span>   * @param flags the flags.<a name="line.437"></a>
+<span class="sourceLineNo">438</span>   * @return the schedule type.<a name="line.438"></a>
+<span class="sourceLineNo">439</span>   */<a name="line.439"></a>
+<span class="sourceLineNo">440</span>  static int getScheduleType( final int flags )<a name="line.440"></a>
+<span class="sourceLineNo">441</span>  {<a name="line.441"></a>
+<span class="sourceLineNo">442</span>    return flags &amp; SCHEDULE_TYPE_MASK;<a name="line.442"></a>
+<span class="sourceLineNo">443</span>  }<a name="line.443"></a>
+<span class="sourceLineNo">444</span><a name="line.444"></a>
+<span class="sourceLineNo">445</span>  /**<a name="line.445"></a>
+<span class="sourceLineNo">446</span>   * Return true if flags contains a valid ScheduleType.<a name="line.446"></a>
+<span class="sourceLineNo">447</span>   *<a name="line.447"></a>
+<span class="sourceLineNo">448</span>   * @param flags the flags.<a name="line.448"></a>
+<span class="sourceLineNo">449</span>   * @return true if flags contains a valid ScheduleType.<a name="line.449"></a>
+<span class="sourceLineNo">450</span>   */<a name="line.450"></a>
+<span class="sourceLineNo">451</span>  static boolean isScheduleTypeValid( final int flags )<a name="line.451"></a>
+<span class="sourceLineNo">452</span>  {<a name="line.452"></a>
+<span class="sourceLineNo">453</span>    return KEEPALIVE == ( flags &amp; KEEPALIVE ) ^<a name="line.453"></a>
+<span class="sourceLineNo">454</span>           DEACTIVATE_ON_UNOBSERVE == ( flags &amp; DEACTIVATE_ON_UNOBSERVE ) ^<a name="line.454"></a>
+<span class="sourceLineNo">455</span>           APPLICATION_EXECUTOR == ( flags &amp; APPLICATION_EXECUTOR );<a name="line.455"></a>
+<span class="sourceLineNo">456</span>  }<a name="line.456"></a>
+<span class="sourceLineNo">457</span><a name="line.457"></a>
+<span class="sourceLineNo">458</span>  /**<a name="line.458"></a>
+<span class="sourceLineNo">459</span>   * Extract and return the observer's state.<a name="line.459"></a>
+<span class="sourceLineNo">460</span>   *<a name="line.460"></a>
+<span class="sourceLineNo">461</span>   * @param flags the flags.<a name="line.461"></a>
+<span class="sourceLineNo">462</span>   * @return the state.<a name="line.462"></a>
+<span class="sourceLineNo">463</span>   */<a name="line.463"></a>
+<span class="sourceLineNo">464</span>  static int getState( final int flags )<a name="line.464"></a>
+<span class="sourceLineNo">465</span>  {<a name="line.465"></a>
+<span class="sourceLineNo">466</span>    return flags &amp; STATE_MASK;<a name="line.466"></a>
+<span class="sourceLineNo">467</span>  }<a name="line.467"></a>
+<span class="sourceLineNo">468</span><a name="line.468"></a>
+<span class="sourceLineNo">469</span>  /**<a name="line.469"></a>
+<span class="sourceLineNo">470</span>   * Return the new value of flags when supplied with specified state.<a name="line.470"></a>
+<span class="sourceLineNo">471</span>   *<a name="line.471"></a>
+<span class="sourceLineNo">472</span>   * @param flags the flags.<a name="line.472"></a>
+<span class="sourceLineNo">473</span>   * @param state the new state.<a name="line.473"></a>
+<span class="sourceLineNo">474</span>   * @return the new flags.<a name="line.474"></a>
+<span class="sourceLineNo">475</span>   */<a name="line.475"></a>
+<span class="sourceLineNo">476</span>  static int setState( final int flags, final int state )<a name="line.476"></a>
+<span class="sourceLineNo">477</span>  {<a name="line.477"></a>
+<span class="sourceLineNo">478</span>    return ( flags &amp; ~STATE_MASK ) | state;<a name="line.478"></a>
+<span class="sourceLineNo">479</span>  }<a name="line.479"></a>
+<span class="sourceLineNo">480</span><a name="line.480"></a>
+<span class="sourceLineNo">481</span>  /**<a name="line.481"></a>
+<span class="sourceLineNo">482</span>   * Return true if the state is UP_TO_DATE, POSSIBLY_STALE or STALE.<a name="line.482"></a>
+<span class="sourceLineNo">483</span>   * The inverse of {@link #isNotActive(int)}<a name="line.483"></a>
+<span class="sourceLineNo">484</span>   *<a name="line.484"></a>
+<span class="sourceLineNo">485</span>   * @param flags the flags to check.<a name="line.485"></a>
+<span class="sourceLineNo">486</span>   * @return true if the state is UP_TO_DATE, POSSIBLY_STALE or STALE.<a name="line.486"></a>
+<span class="sourceLineNo">487</span>   */<a name="line.487"></a>
+<span class="sourceLineNo">488</span>  static boolean isActive( final int flags )<a name="line.488"></a>
+<span class="sourceLineNo">489</span>  {<a name="line.489"></a>
+<span class="sourceLineNo">490</span>    return getState( flags ) &gt; STATE_INACTIVE;<a name="line.490"></a>
+<span class="sourceLineNo">491</span>  }<a name="line.491"></a>
+<span class="sourceLineNo">492</span><a name="line.492"></a>
+<span class="sourceLineNo">493</span>  /**<a name="line.493"></a>
+<span class="sourceLineNo">494</span>   * Return true if the state is INACTIVE, DISPOSING or DISPOSED.<a name="line.494"></a>
+<span class="sourceLineNo">495</span>   * The inverse of {@link #isActive(int)}<a name="line.495"></a>
+<span class="sourceLineNo">496</span>   *<a name="line.496"></a>
+<span class="sourceLineNo">497</span>   * @param flags the flags to check.<a name="line.497"></a>
+<span class="sourceLineNo">498</span>   * @return true if the state is INACTIVE, DISPOSING or DISPOSED.<a name="line.498"></a>
+<span class="sourceLineNo">499</span>   */<a name="line.499"></a>
+<span class="sourceLineNo">500</span>  static boolean isNotActive( final int flags )<a name="line.500"></a>
+<span class="sourceLineNo">501</span>  {<a name="line.501"></a>
+<span class="sourceLineNo">502</span>    return !isActive( flags );<a name="line.502"></a>
+<span class="sourceLineNo">503</span>  }<a name="line.503"></a>
+<span class="sourceLineNo">504</span><a name="line.504"></a>
+<span class="sourceLineNo">505</span>  /**<a name="line.505"></a>
+<span class="sourceLineNo">506</span>   * Return the least stale observer state. if the state is not active<a name="line.506"></a>
+<span class="sourceLineNo">507</span>   * then the {@link #STATE_UP_TO_DATE} will be returned.<a name="line.507"></a>
+<span class="sourceLineNo">508</span>   *<a name="line.508"></a>
+<span class="sourceLineNo">509</span>   * @param flags the flags to check.<a name="line.509"></a>
+<span class="sourceLineNo">510</span>   * @return the least stale observer state.<a name="line.510"></a>
+<span class="sourceLineNo">511</span>   */<a name="line.511"></a>
+<span class="sourceLineNo">512</span>  static int getLeastStaleObserverState( final int flags )<a name="line.512"></a>
+<span class="sourceLineNo">513</span>  {<a name="line.513"></a>
+<span class="sourceLineNo">514</span>    final int state = getState( flags );<a name="line.514"></a>
+<span class="sourceLineNo">515</span>    return state &gt; STATE_INACTIVE ? state : STATE_UP_TO_DATE;<a name="line.515"></a>
+<span class="sourceLineNo">516</span>  }<a name="line.516"></a>
+<span class="sourceLineNo">517</span><a name="line.517"></a>
+<span class="sourceLineNo">518</span>  /**<a name="line.518"></a>
+<span class="sourceLineNo">519</span>   * Return the state as a string.<a name="line.519"></a>
+<span class="sourceLineNo">520</span>   *<a name="line.520"></a>
+<span class="sourceLineNo">521</span>   * @param state the state value. One of the STATE_* constants<a name="line.521"></a>
+<span class="sourceLineNo">522</span>   * @return the string describing state.<a name="line.522"></a>
+<span class="sourceLineNo">523</span>   */<a name="line.523"></a>
+<span class="sourceLineNo">524</span>  @Nonnull<a name="line.524"></a>
+<span class="sourceLineNo">525</span>  static String getStateName( final int state )<a name="line.525"></a>
+<span class="sourceLineNo">526</span>  {<a name="line.526"></a>
+<span class="sourceLineNo">527</span>    assert Arez.shouldCheckInvariants() || Arez.shouldCheckApiInvariants();<a name="line.527"></a>
+<span class="sourceLineNo">528</span>    switch ( state )<a name="line.528"></a>
+<span class="sourceLineNo">529</span>    {<a name="line.529"></a>
+<span class="sourceLineNo">530</span>      case STATE_DISPOSED:<a name="line.530"></a>
+<span class="sourceLineNo">531</span>        return "DISPOSED";<a name="line.531"></a>
+<span class="sourceLineNo">532</span>      case STATE_DISPOSING:<a name="line.532"></a>
+<span class="sourceLineNo">533</span>        return "DISPOSING";<a name="line.533"></a>
+<span class="sourceLineNo">534</span>      case STATE_INACTIVE:<a name="line.534"></a>
+<span class="sourceLineNo">535</span>        return "INACTIVE";<a name="line.535"></a>
+<span class="sourceLineNo">536</span>      case STATE_POSSIBLY_STALE:<a name="line.536"></a>
+<span class="sourceLineNo">537</span>        return "POSSIBLY_STALE";<a name="line.537"></a>
+<span class="sourceLineNo">538</span>      case STATE_STALE:<a name="line.538"></a>
+<span class="sourceLineNo">539</span>        return "STALE";<a name="line.539"></a>
+<span class="sourceLineNo">540</span>      case STATE_UP_TO_DATE:<a name="line.540"></a>
+<span class="sourceLineNo">541</span>        return "UP_TO_DATE";<a name="line.541"></a>
+<span class="sourceLineNo">542</span>      default:<a name="line.542"></a>
+<span class="sourceLineNo">543</span>        return "UNKNOWN(" + state + ")";<a name="line.543"></a>
+<span class="sourceLineNo">544</span>    }<a name="line.544"></a>
+<span class="sourceLineNo">545</span>  }<a name="line.545"></a>
+<span class="sourceLineNo">546</span><a name="line.546"></a>
+<span class="sourceLineNo">547</span>  private Flags()<a name="line.547"></a>
+<span class="sourceLineNo">548</span>  {<a name="line.548"></a>
+<span class="sourceLineNo">549</span>  }<a name="line.549"></a>
+<span class="sourceLineNo">550</span><a name="line.550"></a>
+<span class="sourceLineNo">551</span>  /**<a name="line.551"></a>
+<span class="sourceLineNo">552</span>   * Return the default flag unless a value in mask is specified.<a name="line.552"></a>
+<span class="sourceLineNo">553</span>   *<a name="line.553"></a>
+<span class="sourceLineNo">554</span>   * @param flags       the flags.<a name="line.554"></a>
+<span class="sourceLineNo">555</span>   * @param mask        the mask.<a name="line.555"></a>
+<span class="sourceLineNo">556</span>   * @param defaultFlag the default flag to apply<a name="line.556"></a>
+<span class="sourceLineNo">557</span>   * @return the default flag unless flag has value.<a name="line.557"></a>
+<span class="sourceLineNo">558</span>   */<a name="line.558"></a>
+<span class="sourceLineNo">559</span>  private static int defaultFlagUnlessSpecified( final int flags, final int mask, final int defaultFlag )<a name="line.559"></a>
+<span class="sourceLineNo">560</span>  {<a name="line.560"></a>
+<span class="sourceLineNo">561</span>    return 0 != ( flags &amp; mask ) ? 0 : defaultFlag;<a name="line.561"></a>
+<span class="sourceLineNo">562</span>  }<a name="line.562"></a>
+<span class="sourceLineNo">563</span>}<a name="line.563"></a>
 
 
 
