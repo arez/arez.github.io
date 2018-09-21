@@ -137,25 +137,25 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="https://arez.github.io/api/arez/Observer.html?is-external=true" title="class or interface in arez">Observer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/when/When.html#when-arez.Component-java.lang.String-boolean-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-">when</a></span>(<a href="https://arez.github.io/api/arez/Component.html?is-external=true" title="class or interface in arez">Component</a>&nbsp;component,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/when/When.html#when-arez.Component-java.lang.String-boolean-boolean-arez.SafeFunction-arez.SafeProcedure-int-boolean-">when</a></span>(<a href="https://arez.github.io/api/arez/Component.html?is-external=true" title="class or interface in arez">Component</a>&nbsp;component,
     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
     boolean&nbsp;mutation,
     boolean&nbsp;verifyActionRequired,
     <a href="https://arez.github.io/api/arez/SafeFunction.html?is-external=true" title="class or interface in arez">SafeFunction</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;condition,
     <a href="https://arez.github.io/api/arez/SafeProcedure.html?is-external=true" title="class or interface in arez">SafeProcedure</a>&nbsp;effect,
-    <a href="https://arez.github.io/api/arez/Priority.html?is-external=true" title="class or interface in arez">Priority</a>&nbsp;priority,
+    int&nbsp;priority,
     boolean&nbsp;runImmediately)</code>
 <div class="block">Wait until a condition is true, then run effect.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="https://arez.github.io/api/arez/Observer.html?is-external=true" title="class or interface in arez">Observer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/when/When.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-">when</a></span>(<a href="https://arez.github.io/api/arez/Component.html?is-external=true" title="class or interface in arez">Component</a>&nbsp;component,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/when/When.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-int-boolean-">when</a></span>(<a href="https://arez.github.io/api/arez/Component.html?is-external=true" title="class or interface in arez">Component</a>&nbsp;component,
     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
     boolean&nbsp;mutation,
     <a href="https://arez.github.io/api/arez/SafeFunction.html?is-external=true" title="class or interface in arez">SafeFunction</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;condition,
     <a href="https://arez.github.io/api/arez/SafeProcedure.html?is-external=true" title="class or interface in arez">SafeProcedure</a>&nbsp;effect,
-    <a href="https://arez.github.io/api/arez/Priority.html?is-external=true" title="class or interface in arez">Priority</a>&nbsp;priority,
+    int&nbsp;priority,
     boolean&nbsp;runImmediately)</code>
 <div class="block">Wait until a condition is true, then run effect.</div>
 </td>
@@ -188,11 +188,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>static <a href="https://arez.github.io/api/arez/Observer.html?is-external=true" title="class or interface in arez">Observer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/when/When.html#when-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-">when</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/when/When.html#when-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-int-boolean-">when</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
     boolean&nbsp;mutation,
     <a href="https://arez.github.io/api/arez/SafeFunction.html?is-external=true" title="class or interface in arez">SafeFunction</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;condition,
     <a href="https://arez.github.io/api/arez/SafeProcedure.html?is-external=true" title="class or interface in arez">SafeProcedure</a>&nbsp;effect,
-    <a href="https://arez.github.io/api/arez/Priority.html?is-external=true" title="class or interface in arez">Priority</a>&nbsp;priority,
+    int&nbsp;priority,
     boolean&nbsp;runImmediately)</code>
 <div class="block">Wait until a condition is true, then run effect.</div>
 </td>
@@ -277,7 +277,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                             <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                             <a href="https://arez.github.io/api/arez/SafeProcedure.html?is-external=true" title="class or interface in arez">SafeProcedure</a>&nbsp;effect)</pre>
 <div class="block">Wait until a condition is true, then run effect.
- See <a href="../../arez/when/When.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, Priority, boolean)</code></a> for further details.</div>
+ See <a href="../../arez/when/When.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-int-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, int, boolean)</code></a> for further details.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the debug name (if any) used when naming the underlying Arez resources.</dd>
@@ -304,7 +304,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                             <a href="https://arez.github.io/api/arez/SafeProcedure.html?is-external=true" title="class or interface in arez">SafeProcedure</a>&nbsp;effect,
                             boolean&nbsp;runImmediately)</pre>
 <div class="block">Wait until a condition is true, then run effect.
- See <a href="../../arez/when/When.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, Priority, boolean)</code></a> for further details.</div>
+ See <a href="../../arez/when/When.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-int-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, int, boolean)</code></a> for further details.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the debug name (if any) used when naming the underlying Arez resources.</dd>
@@ -317,7 +317,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </dl>
 </li>
 </ul>
-<a name="when-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-">
+<a name="when-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-int-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -330,25 +330,24 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                             <a href="https://arez.github.io/api/arez/SafeFunction.html?is-external=true" title="class or interface in arez">SafeFunction</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;condition,
                             <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                             <a href="https://arez.github.io/api/arez/SafeProcedure.html?is-external=true" title="class or interface in arez">SafeProcedure</a>&nbsp;effect,
-                            <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                            <a href="https://arez.github.io/api/arez/Priority.html?is-external=true" title="class or interface in arez">Priority</a>&nbsp;priority,
+                            int&nbsp;priority,
                             boolean&nbsp;runImmediately)</pre>
 <div class="block">Wait until a condition is true, then run effect.
- See <a href="../../arez/when/When.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, Priority, boolean)</code></a> for further details.</div>
+ See <a href="../../arez/when/When.html#when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-int-boolean-"><code>when(Component, String, boolean, SafeFunction, SafeProcedure, int, boolean)</code></a> for further details.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the debug name (if any) used when naming the underlying Arez resources.</dd>
 <dd><code>mutation</code> - true if the effect can mutate state, false otherwise.</dd>
 <dd><code>condition</code> - The function that determines when the effect is run.</dd>
 <dd><code>effect</code> - The procedure that is executed when the condition is true.</dd>
-<dd><code>priority</code> - the priority of the observer.</dd>
+<dd><code>priority</code> - the priority of the observer. Must be one of the PRIORITY_* flags in <a href="https://arez.github.io/api/arez/Flags.html?is-external=true" title="class or interface in arez"><code>Flags</code></a>.</dd>
 <dd><code>runImmediately</code> - true to invoke condition immediately, false to schedule reaction for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Observer representing the reactive component. The user can dispose the node if it is no longer required.</dd>
 </dl>
 </li>
 </ul>
-<a name="when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-">
+<a name="when-arez.Component-java.lang.String-boolean-arez.SafeFunction-arez.SafeProcedure-int-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -363,8 +362,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                             <a href="https://arez.github.io/api/arez/SafeFunction.html?is-external=true" title="class or interface in arez">SafeFunction</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;condition,
                             <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                             <a href="https://arez.github.io/api/arez/SafeProcedure.html?is-external=true" title="class or interface in arez">SafeProcedure</a>&nbsp;effect,
-                            <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                            <a href="https://arez.github.io/api/arez/Priority.html?is-external=true" title="class or interface in arez">Priority</a>&nbsp;priority,
+                            int&nbsp;priority,
                             boolean&nbsp;runImmediately)</pre>
 <div class="block">Wait until a condition is true, then run effect.
  The condition function is run in a read-only, tracking transaction and will be re-evaluated
@@ -377,14 +375,14 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <dd><code>mutation</code> - true if the effect can mutate state, false otherwise.</dd>
 <dd><code>condition</code> - The function that determines when the effect is run.</dd>
 <dd><code>effect</code> - The procedure that is executed when the condition is true.</dd>
-<dd><code>priority</code> - the priority of the observer.</dd>
+<dd><code>priority</code> - the priority of the observer. Must be one of the PRIORITY_* flags in <a href="https://arez.github.io/api/arez/Flags.html?is-external=true" title="class or interface in arez"><code>Flags</code></a>.</dd>
 <dd><code>runImmediately</code> - true to invoke condition immediately, false to schedule reaction for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Observer representing the reactive component. The user can dispose the node if it is no longer required.</dd>
 </dl>
 </li>
 </ul>
-<a name="when-arez.Component-java.lang.String-boolean-boolean-arez.SafeFunction-arez.SafeProcedure-arez.Priority-boolean-">
+<a name="when-arez.Component-java.lang.String-boolean-boolean-arez.SafeFunction-arez.SafeProcedure-int-boolean-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -400,8 +398,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                             <a href="https://arez.github.io/api/arez/SafeFunction.html?is-external=true" title="class or interface in arez">SafeFunction</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;condition,
                             <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                             <a href="https://arez.github.io/api/arez/SafeProcedure.html?is-external=true" title="class or interface in arez">SafeProcedure</a>&nbsp;effect,
-                            <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                            <a href="https://arez.github.io/api/arez/Priority.html?is-external=true" title="class or interface in arez">Priority</a>&nbsp;priority,
+                            int&nbsp;priority,
                             boolean&nbsp;runImmediately)</pre>
 <div class="block">Wait until a condition is true, then run effect.
  The condition function is run in a read-only, tracking transaction and will be re-evaluated
@@ -416,7 +413,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                              the scope of the effect.</dd>
 <dd><code>condition</code> - The function that determines when the effect is run.</dd>
 <dd><code>effect</code> - The procedure that is executed when the condition is true.</dd>
-<dd><code>priority</code> - the priority of the observer.</dd>
+<dd><code>priority</code> - the priority of the observer. Must be one of the PRIORITY_* flags in <a href="https://arez.github.io/api/arez/Flags.html?is-external=true" title="class or interface in arez"><code>Flags</code></a>.</dd>
 <dd><code>runImmediately</code> - true to invoke condition immediately, false to schedule reaction for next reaction cycle.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Observer representing the reactive component. The user can dispose the node if it is no longer required.</dd>
