@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Fri, 31 Aug 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 21 Sep 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.107 released]]></title>
+            <link>https://arez.github.io/blog/2018/09/21/version-0.107-release.html</link>
+            <guid>https://arez.github.io/blog/2018/09/21/version-0.107-release.html</guid>
+            <pubDate>Fri, 21 Sep 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.106...v0.107)
+
+Changes in this release:
+
+* **\[processor\]** The invariant check generated to link references was being generated outside of the
+  associated guard. This could result in dead-co]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.106 released]]></title>
             <link>https://arez.github.io/blog/2018/08/31/version-0.106-release.html</link>
