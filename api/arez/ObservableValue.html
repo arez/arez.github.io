@@ -239,9 +239,8 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportObserved</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.490">reportObserved</a>()</pre>
-<div class="block">Notify Arez that this observable has been "observed" in the current transaction.
- Before invoking this method, a transaction <b>MUST</b> be active but it may be read-only or read-write.</div>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.489">reportObserved</a>()</pre>
+<div class="block">Notify Arez that this observable has been "observed" in the current transaction.</div>
 </li>
 </ul>
 <a name="reportObservedIfTrackingTransactionActive--">
@@ -250,7 +249,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportObservedIfTrackingTransactionActive</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.498">reportObservedIfTrackingTransactionActive</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.497">reportObservedIfTrackingTransactionActive</a>()</pre>
 <div class="block">Notify Arez that this observable has been "observed" if a tracking transaction is active.</div>
 </li>
 </ul>
@@ -260,10 +259,10 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>preReportChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.511">preReportChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.510">preReportChanged</a>()</pre>
 <div class="block">Check that pre-conditions are satisfied before changing observable value.
  In production mode this will typically be a no-op. This method should be invoked
- before state is modified. Before invoking this method, a read-write transaction <b>MUST</b> be active.</div>
+ before state is modified.</div>
 </li>
 </ul>
 <a name="reportChanged--">
@@ -272,10 +271,9 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>reportChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.524">reportChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.522">reportChanged</a>()</pre>
 <div class="block">Notify Arez that this observable has changed.
- This is called when the observable has definitely changed.
- Before invoking this method, a read-write transaction <b>MUST</b> be active.</div>
+ This is called when the observable has definitely changed.</div>
 </li>
 </ul>
 </li>
