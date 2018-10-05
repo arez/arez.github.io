@@ -156,6 +156,10 @@
 <dd>
 <div class="block">Return true if observable properties, computed properties or query results that are of type collection are wrapped in unmodifiable variant prior to returning.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/Arez.html#areEnvironmentsEnabled--">areEnvironmentsEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
+<dd>
+<div class="block">Return true if environments are enabled.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#areNamesEnabled--">areNamesEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
 <div class="block">Return true if user should pass names into API methods, false if should pass null.</div>
@@ -589,6 +593,10 @@
 <dd>
 <div class="block">Detach entity from container without disposing entity.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#disableEnvironments--">disableEnvironments()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
+<dd>
+<div class="block">Set `arez.enable_environments` setting to false.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#disableNames--">disableNames()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
 <div class="block">Set `arez.enable_names` setting to false.</div>
@@ -680,6 +688,10 @@
 <dd>
 <div class="block">A representation of an element exposed to spy framework.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#enableEnvironments--">enableEnvironments()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
+<dd>
+<div class="block">Set `arez.enable_environments` setting to true.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#enableNames--">enableNames()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
 <div class="block">Set `arez.enable_names` setting to true.</div>
@@ -723,6 +735,19 @@
 <dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#entities--">entities()</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
 <dd>
 <div class="block">Return a stream of all entities in the container.</div>
+</dd>
+<dt><a href="arez/Environment.html" title="interface in arez"><span class="typeNameLink">Environment</span></a> - Interface in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">Interface that used to intercept executions so that the environment can be setup when running.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Flags.html#ENVIRONMENT_NOT_REQUIRED">ENVIRONMENT_NOT_REQUIRED</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dd>
+<div class="block">The action or observer need not be wrapped by the <a href="arez/Environment.html" title="interface in arez"><code>Environment</code></a> if the environment is supplied to the <a href="arez/ArezContext.html" title="class in arez"><code>ArezContext</code></a>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Flags.html#ENVIRONMENT_REQUIRED">ENVIRONMENT_REQUIRED</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dd>
+<div class="block">The action or observer must be wrapped by the <a href="arez/Environment.html" title="interface in arez"><code>Environment</code></a> if the environment is
+ supplied to the <a href="arez/ArezContext.html" title="class in arez"><code>ArezContext</code></a>.</div>
 </dd>
 <dt><a href="arez/annotations/Executor.html" title="enum in arez.annotations"><span class="typeNameLink">Executor</span></a> - Enum in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -1217,7 +1242,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#isVerifyEnabled--">isVerifyEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
-<div class="block">Return true if <a href="arez/component/Verifiable.html" title="interface in arez.component"><code>Verifiable</code></a> will veriyf components be used, false if not.</div>
+<div class="block">Return true if <a href="arez/component/Verifiable.html" title="interface in arez.component"><code>Verifiable</code></a> will verify components be used, false if not.</div>
 </dd>
 </dl>
 <a name="I:K">
@@ -1650,10 +1675,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ReactionCompletedEvent.html#ReactionCompletedEvent-arez.spy.ObserverInfo-long-">ReactionCompletedEvent(ObserverInfo, long)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ReactionCompletedEvent.html" title="class in arez.spy">ReactionCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="arez/ReactionEnvironment.html" title="interface in arez"><span class="typeNameLink">ReactionEnvironment</span></a> - Interface in <a href="arez/package-summary.html">arez</a></dt>
-<dd>
-<div class="block">Interface that used to setup environment in which to run reactions.</div>
-</dd>
 <dt><a href="arez/spy/ReactionScheduledEvent.html" title="class in arez.spy"><span class="typeNameLink">ReactionScheduledEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification when reaction scheduled.</div>
@@ -1753,9 +1774,13 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ActionCompletedEvent.html#returnsResult--">returnsResult()</a></span> - Method in class arez.spy.<a href="arez/spy/ActionCompletedEvent.html" title="class in arez.spy">ActionCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/ReactionEnvironment.html#run-arez.SafeProcedure-">run(SafeProcedure)</a></span> - Method in interface arez.<a href="arez/ReactionEnvironment.html" title="interface in arez">ReactionEnvironment</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Environment.html#run-arez.SafeFunction-">run(SafeFunction&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Environment.html" title="interface in arez">Environment</a></dt>
 <dd>
-<div class="block">Run the specified action.</div>
+<div class="block">Run the specified function.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Environment.html#run-arez.Function-">run(Function&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Environment.html" title="interface in arez">Environment</a></dt>
+<dd>
+<div class="block">Run the specified function.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Zone.html#run-arez.Function-">run(Function&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/Zone.html" title="class in arez">Zone</a></dt>
 <dd>
@@ -1872,7 +1897,7 @@
 <dd>
 <div class="block">Change the value of an ObservableValue to specified value.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#setEnvironment-arez.ReactionEnvironment-">setEnvironment(ReactionEnvironment)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#setEnvironment-arez.Environment-">setEnvironment(Environment)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Specify the environment in which reactions are invoked.</div>
 </dd>
@@ -2067,14 +2092,6 @@
 <h2 class="title">U</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="arez/Flags.html#UNUSED1">UNUSED1</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
-<dd>
-<div class="block">Flag is currently unused.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#UNUSED2">UNUSED2</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
-<dd>
-<div class="block">Flag is currently unused.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#UNUSED3">UNUSED3</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
 <div class="block">Flag is currently unused.</div>
 </dd>
