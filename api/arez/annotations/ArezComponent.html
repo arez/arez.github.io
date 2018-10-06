@@ -96,7 +96,7 @@
 public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#line.45">ArezComponent</a></pre>
 <div class="block">Annotation that marks classes to be processed by Arez annotation processor.
  Classes with this annotation can contain <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> properties,
- <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> properties, <a href="../../arez/annotations/Observed.html" title="annotation in arez.annotations"><code>Observed</code></a> methods and <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a> methods.
+ <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> properties, <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> methods and <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a> methods.
 
  <p>The annotation controls the way that contained actions and observables are
  named (if names are enabled in the system.</p>
@@ -119,7 +119,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
  <li>Must be concrete, not abstract</li>
  <li>Must not be final</li>
  <li>Must not be a non-static nested class</li>
- <li>Must have at least one method annotated with <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>, <a href="../../arez/annotations/Observed.html" title="annotation in arez.annotations"><code>Observed</code></a>, <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> or <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a></li>
+ <li>Must have at least one method annotated with <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>, <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a>, <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> or <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a></li>
  </ul>
 
  <p>The annotation processor that handles this annotation will analyze all super classes and super
@@ -293,7 +293,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <h4>allowEmpty</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.72">allowEmpty</a></pre>
 <div class="block">Return true if the component does not need to explicitly declare elements.
- Otherwise if no elements (i.e. <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a>s, <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>s, <a href="../../arez/annotations/Observed.html" title="annotation in arez.annotations"><code>Observed</code></a>s etc) are defined
+ Otherwise if no elements (i.e. <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a>s, <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>s, <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a>s etc) are defined
  on a component it will generate an error.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
