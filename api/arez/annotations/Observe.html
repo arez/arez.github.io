@@ -184,6 +184,12 @@ public @interface <a href="../../src-html/arez/annotations/Observe.html#line.37"
 <div class="block">Return true if the parameters should be reported to the core Arez runtime.</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observe.html#requireEnvironment--">requireEnvironment</a></span></code>
+<div class="block">True if invocations of the observed method must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>.</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -369,7 +375,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="depType--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>depType</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -388,6 +394,31 @@ public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum i
 <dl>
 <dt>Default:</dt>
 <dd>arez.annotations.DepType.AREZ</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="requireEnvironment--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>requireEnvironment</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observe.html#line.131">requireEnvironment</a></pre>
+<div class="block">True if invocations of the observed method must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>.
+ If the <a href="../../arez/annotations/Observe.html#executor--"><code>executor()</code></a> is set to <a href="../../arez/annotations/Executor.html#AREZ"><code>Executor.AREZ</code></a> then this setting is effectively ignored as all
+ reaction executed by the arez runtime will run inside an environment (if environments are enabled and configured).
+ If the <a href="../../arez/annotations/Observe.html#executor--"><code>executor()</code></a> is set to <a href="../../arez/annotations/Executor.html#APPLICATION"><code>Executor.APPLICATION</code></a> then this setting determine whether
+ the execution of the observed method will be wrapped in an environment.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if invocations of the observed method must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>, false otherwise.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
 </dl>
 </li>
 </ul>

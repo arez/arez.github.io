@@ -126,7 +126,18 @@
 <span class="sourceLineNo">118</span>   */<a name="line.118"></a>
 <span class="sourceLineNo">119</span>  @Nonnull<a name="line.119"></a>
 <span class="sourceLineNo">120</span>  DepType depType() default DepType.AREZ;<a name="line.120"></a>
-<span class="sourceLineNo">121</span>}<a name="line.121"></a>
+<span class="sourceLineNo">121</span><a name="line.121"></a>
+<span class="sourceLineNo">122</span>  /**<a name="line.122"></a>
+<span class="sourceLineNo">123</span>   * True if invocations of the observed method must be executed in an {@link arez.Environment}.<a name="line.123"></a>
+<span class="sourceLineNo">124</span>   * If the {@link #executor()} is set to {@link Executor#AREZ} then this setting is effectively ignored as all<a name="line.124"></a>
+<span class="sourceLineNo">125</span>   * reaction executed by the arez runtime will run inside an environment (if environments are enabled and configured).<a name="line.125"></a>
+<span class="sourceLineNo">126</span>   * If the {@link #executor()} is set to {@link Executor#APPLICATION} then this setting determine whether<a name="line.126"></a>
+<span class="sourceLineNo">127</span>   * the execution of the observed method will be wrapped in an environment.<a name="line.127"></a>
+<span class="sourceLineNo">128</span>   *<a name="line.128"></a>
+<span class="sourceLineNo">129</span>   * @return true if invocations of the observed method must be executed in an {@link arez.Environment}, false otherwise.<a name="line.129"></a>
+<span class="sourceLineNo">130</span>   */<a name="line.130"></a>
+<span class="sourceLineNo">131</span>  boolean requireEnvironment() default false;<a name="line.131"></a>
+<span class="sourceLineNo">132</span>}<a name="line.132"></a>
 
 
 

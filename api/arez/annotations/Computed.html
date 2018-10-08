@@ -160,6 +160,12 @@ public @interface <a href="../../src-html/arez/annotations/Computed.html#line.31
 <div class="block">The priority of the underlying ComputedValue observer</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#requireEnvironment--">requireEnvironment</a></span></code>
+<div class="block">True if invocations of the computable must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>.</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -274,7 +280,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="depType--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>depType</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -292,6 +298,27 @@ public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum i
 <dl>
 <dt>Default:</dt>
 <dd>arez.annotations.DepType.AREZ</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="requireEnvironment--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>requireEnvironment</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.91">requireEnvironment</a></pre>
+<div class="block">True if invocations of the computable must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if invocations of the computable must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>, false otherwise.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
 </dl>
 </li>
 </ul>

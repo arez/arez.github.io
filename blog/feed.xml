@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Thu, 27 Sep 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 08 Oct 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.109 released]]></title>
+            <link>https://arez.github.io/blog/2018/10/08/version-0.109-release.html</link>
+            <guid>https://arez.github.io/blog/2018/10/08/version-0.109-release.html</guid>
+            <pubDate>Mon, 08 Oct 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.108...v0.109)
+
+Changes in this release:
+
+* **\[core\]** Document the requirement for transactions on the methods: `ObservableValue.reportObserved()`,
+  `ObservableValue.preReportChanged()`, `Ob]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.108 released]]></title>
             <link>https://arez.github.io/blog/2018/09/27/version-0.108-release.html</link>
