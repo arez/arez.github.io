@@ -1,0 +1,124 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>@Reference · Arez</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="@Reference · Arez"/><meta property="og:type" content="website"/><meta property="og:url" content="https://arez.github.io/index.html"/><meta property="og:description" content="A reference allows one arez component instance to refer to another arez component by id. The component author"/><link rel="shortcut icon" href="/img/favicon-32x32.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><link rel="alternate" type="application/atom+xml" href="https://arez.github.io/blog/atom.xml" title="Arez Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://arez.github.io/blog/feed.xml" title="Arez Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">Arez</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="/blog" target="_self">Blog</a></li><li><a href="https://github.com/arez/arez/releases" target="_blank">Releases</a></li><li><a href="https://github.com/arez/arez" target="_blank">GitHub</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Components</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>About</h3><ul><li class="navListItem"><a class="navItem" href="/docs/overview.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/motivation.html">Motivation</a></li><li class="navListItem"><a class="navItem" href="/docs/project_setup.html">Project Setup</a></li><li class="navListItem"><a class="navItem" href="/docs/getting_started.html">Getting Started</a></li></ul></div><div class="navGroup navGroupActive"><h3>Concepts</h3><ul><li class="navListItem"><a class="navItem" href="/docs/concepts.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/transactions.html">Transactions</a></li><li class="navListItem"><a class="navItem" href="/docs/observable_values.html">Observable Values</a></li><li class="navListItem"><a class="navItem" href="/docs/computed_values.html">Computed Values</a></li><li class="navListItem"><a class="navItem" href="/docs/observers.html">Observers</a></li><li class="navListItem"><a class="navItem" href="/docs/actions.html">Actions</a></li><li class="navListItem"><a class="navItem" href="/docs/scheduler.html">Scheduler</a></li><li class="navListItem"><a class="navItem" href="/docs/native_components.html">Native Components</a></li><li class="navListItem"><a class="navItem" href="/docs/zones.html">Zones</a></li></ul></div><div class="navGroup navGroupActive"><h3>Components</h3><ul><li class="navListItem"><a class="navItem" href="/docs/components.html">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/component_example.html">Example</a></li><li class="navListItem"><a class="navItem" href="/docs/at_arez_component.html">@ArezComponent</a></li><li class="navListItem"><a class="navItem" href="/docs/at_component_id.html">@ComponentId</a></li><li class="navListItem"><a class="navItem" href="/docs/lifecycle_callbacks.html">Lifecycle Callbacks</a></li><li class="navListItem"><a class="navItem" href="/docs/at_observable.html">@Observable</a></li><li class="navListItem"><a class="navItem" href="/docs/at_computed.html">@Computed</a></li><li class="navListItem"><a class="navItem" href="/docs/at_memoize.html">@Memoize</a></li><li class="navListItem"><a class="navItem" href="/docs/at_action.html">@Action</a></li><li class="navListItem"><a class="navItem" href="/docs/at_observe.html">@Observe</a></li><li class="navListItem"><a class="navItem" href="/docs/at_component_dependency.html">@ComponentDependency</a></li><li class="navListItem"><a class="navItem" href="/docs/at_cascade_dispose.html">@CascadeDispose</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/at_reference.html">@Reference</a></li><li class="navListItem"><a class="navItem" href="/docs/repositories.html">Repositories</a></li><li class="navListItem"><a class="navItem" href="/docs/generated_classes.html">Generated Classes</a></li><li class="navListItem"><a class="navItem" href="/docs/accessing_primitives.html">Accessing primitives</a></li><li class="navListItem"><a class="navItem" href="/docs/dependency_injection.html">Dependency Injection</a></li></ul></div><div class="navGroup navGroupActive"><h3>Project Documentation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq.html">Frequently Asked Questions</a></li><li class="navListItem"><a class="navItem" href="/docs/related_projects.html">Related projects</a></li><li class="navListItem"><a class="navItem" href="/docs/development_process.html">Development Process</a></li><li class="navListItem"><a class="navItem" href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/arez/arez/tree/master/docs/at_reference.md" target="_blank">Edit</a><h1>@Reference</h1></header><article><div><span><p>A reference allows one arez component instance to refer to another arez component by id. The component author
+adds the <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotation to an abstract method that returns a referenced object along
+with a method annotated with <a href="/api/arez/annotations/ReferenceId.html"><code>@ReferenceId</code></a> that provides the id of the references object.
+The method annotated by <a href="/api/arez/annotations/ReferenceId.html"><code>@ReferenceId</code></a> is expected to return a constant value unless it is
+also annotated by <a href="/api/arez/annotations/Observable.html"><code>@Observable</code></a>. The arez runtime is responsible for generating the code to
+locate the referenced object by id and will return the referenced object when the object annotated with the
+<a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotation is invoked.</p>
+<p>References are primarily used:</p>
+<ul>
+<li>when the links between components are bi-directional or can form cycles.</li>
+<li>when the data comes from database systems that model links using foreign keys.</li>
+<li>when the lookup of the referenced object should be cached but the referenced object may not be available
+when the component is constructed.</li>
+</ul>
+<p>The arez runtime looks up the referenced object using a <a href="/api/arez/Locator.html"><code>Locator</code></a> instance that is registered with the
+<a href="/api/arez/ArezContext.html"><code>ArezContext</code></a> using the <a href="/api/arez/ArezContext.html#registerLocator-arez.Locator-"><code>ArezContext.registerLocator(arez.Locator)</code></a> method. The
+<a href="/api/arez/Locator.html"><code>Locator</code></a> instance can be used to lookup any arbitrary object and this makes it possible for arez objects
+to lookup non-arez objects using a <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotated method.</p>
+<p>The most common scenario involves the application application developer creating a
+<a href="/api/arez/component/TypeBasedLocator.html"><code>TypeBasedLocator</code></a>, registering repositories created by the arez runtime when the
+<a href="/docs/repositories.html"><code>@Repository</code></a> annotation is present and then registering the <a href="/api/arez/component/TypeBasedLocator.html"><code>TypeBasedLocator</code></a>
+instance in the <a href="/api/arez/ArezContext.html"><code>ArezContext</code></a>. This would allow <code>@Reference</code> annotated methods to refer to any of the arez
+components that are present in the registered repositories.</p>
+<p>Consider the scenario where the application is modelling users, their memberships in groups and the permissions
+associated with a group. The reference between a <code>Permission</code> and the containing <code>Group</code> could be modelled by a
+reference such as:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
+<span class="hljs-meta">@Repository</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Permission</span>
+</span>{
+...
+  <span class="hljs-meta">@Reference</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> Group <span class="hljs-title">getGroup</span><span class="hljs-params">()</span></span>;
+
+  <span class="hljs-meta">@ReferenceId</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getGroupId</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _groupId;
+  }
+}</code></pre></p>
+<p>And the code to setup the locator to support this scenario:</p>
+<p><pre><code class="hljs"><span class="hljs-keyword">final</span> GroupRepository groupRepository = GroupRepository.newRepository();
+<span class="hljs-keyword">final</span> PermissionRepository permissionRepository = PermissionRepository.newRepository();
+<span class="hljs-keyword">final</span> UserRepository userRepository = UserRepository.newRepository();
+
+<span class="hljs-keyword">final</span> TypeBasedLocator locator = <span class="hljs-keyword">new</span> TypeBasedLocator();
+locator.registerLookup( Group.class, id -&gt; groupRepository.findById( (Integer) id ) );
+locator.registerLookup( Permission.class, id -&gt; permissionRepository.findById( (Integer) id ) );
+locator.registerLookup( User.class, id -&gt; userRepository.findById( (Integer) id ) );
+
+Arez.context().registerLocator( locator );</code></pre></p>
+<p>The point at which a reference will be resolved or looked up in the <a href="/api/arez/Locator.html"><code>Locator</code></a> depends upon the value
+of the <a href="/api/arez/annotations/Reference.html#load--"><code>Reference.load</code></a> parameter. The default value is
+<a href="/api/arez/annotations/LinkType.html#EAGER"><code>EAGER</code></a> which means the reference is resolved when the arez component
+is constructed or eagerly when the value of the reference id is changed.</p>
+<p>The <code>load</code> parameter can also be set to <a href="/api/arez/annotations/LinkType.html#LAZY"><code>LAZY</code></a> which means that the
+reference will be resolved when the reference is accessed and cached until the value returned by the method
+annotated by <a href="/api/arez/annotations/ReferenceId.html"><code>@ReferenceId</code></a> changes.</p>
+<p>The other value that the <code>load</code> parameter can be set to is <a href="/api/arez/annotations/LinkType.html#EXPLICIT"><code>EXPLICIT</code></a>.
+This means that the references are resolved explicitly by the application. The application must invoke the method
+<a href="/api/arez/component/Linkable.html#link--"><code>Linkable.link()</code></a> before an attempt is made to access the reference. The
+<code>EXPLICIT</code> value is usually used when changes are applied in batches, across a network in non-deterministic order.</p>
+<h2><a class="anchor" aria-hidden="true" name="inverse"></a><a href="#inverse" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>@Inverse</code></h2>
+<p>The <a href="/api/arez/annotations/Inverse.html"><code>@Inverse</code></a> annotation is used to create a link back from the target component to the
+component the declared the method annotated with the <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotation. If a
+<a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> is paired with an <a href="/api/arez/annotations/Inverse.html"><code>@Inverse</code></a> then it must explicitly declare
+that it has an inverse either by setting the <code>inverse=ENABLED</code> parameter or one of the <code>inverseName</code> or
+<code>inverseMultiplicity</code> parameters on the <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotation.</p>
+<p>It should be noted that Arez deliberately requires that the inverse be annotated on both sides of the relationship
+so that during incremental compiles, the annotation processor is able to inspect and validate both sides of the
+relationship even if only one side has code changes. If a invalid change is made to either side then either the
+annotation processor or the javac compiler will detect the problem.</p>
+<p>The multiplicity of a relationship is defined by the type returned by the method annotated by the
+<a href="/api/arez/annotations/Inverse.html"><code>@Inverse</code></a> annotation and by the value of the <code>multiplicity</code> parameter on the
+<a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotation. Possible values and their implications include:</p>
+<ul>
+<li><a href="/api/arez/annotations/Multiplicity.html#MANY"><code>MANY</code></a>: The inverse is related to many references. The type of the
+inverse must be one of <code>java.util.Collection</code>, <code>java.util.List</code> or <code>java.util.Set</code> with a type parameter
+compatible with the class containing the method annotated with the <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotation.</li>
+<li><a href="/api/arez/annotations/Multiplicity.html#ONE"><code>ONE</code></a>: The inverse is related to exactly one reference. The type of
+the inverse must be compatible with the class containing the method annotated with the <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a>
+annotation. The inverse MUST be annotated with <code>javax.annotation.Nonnull</code></li>
+<li><a href="/api/arez/annotations/Multiplicity.html#ZERO_OR_ONE"><code>ZERO_OR_ONE</code></a>: The inverse is related to one or no reference.
+The type of the inverse must be compatible with the class containing the method annotated with the
+<a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotation. The inverse MUST be annotated with <code>javax.annotation.Nullable</code>.</li>
+</ul>
+<p>So if we were to add an inverse relationship between the <code>Group</code> and <code>Permission</code> class illustrated earlier
+we would need to modify both sides of the relationship. The <code>Permission</code> class would look like:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
+<span class="hljs-meta">@Repository</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Permission</span>
+</span>{
+...
+  <span class="hljs-meta">@Reference</span>( inverse = Feature.ENABLE )
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> Group <span class="hljs-title">getGroup</span><span class="hljs-params">()</span></span>;
+
+  <span class="hljs-meta">@ReferenceId</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getGroupId</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _groupId;
+  }
+}</code></pre></p>
+<p>While the <code>Group</code> class would look like</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
+<span class="hljs-meta">@Repository</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Group</span>
+</span>{
+...
+  <span class="hljs-meta">@Inverse</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> Collection&lt;Permission&gt; <span class="hljs-title">getPermissions</span><span class="hljs-params">()</span></span>;
+}</code></pre></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="at_cascade_dispose.html">← @CascadeDispose</a><a class="docs-next button" href="repositories.html">Repositories →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="Arez" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/docs/concepts.html">Concepts</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/arez/arez" data-icon="octicon-star" data-count-href="/arez/arez/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the Arez Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                apiKey: 'b8c49751e0914443436822868f0c5000',
+                indexName: 'arez',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
