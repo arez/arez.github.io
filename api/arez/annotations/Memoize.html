@@ -135,24 +135,31 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.34"
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#depType--">depType</a></span></code>
+<div class="block">Enum indicating whether the value of the underlying computed is derived from arez elements and/or
+ external dependencies.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#name--">name</a></span></code>
 <div class="block">Return the root name of the Memoized value relative to the component.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#observeLowerPriorityDependencies--">observeLowerPriorityDependencies</a></span></code>
 <div class="block">Flag controlling whether the underlying observer can observe ComputedValue instances with lower priorities.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#priority--">priority</a></span></code>
 <div class="block">The priority of the underlying ComputedValue observer</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#requireEnvironment--">requireEnvironment</a></span></code>
 <div class="block">True if invocations of the underlying computable must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>.</div>
@@ -250,7 +257,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="requireEnvironment--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>requireEnvironment</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.73">requireEnvironment</a></pre>
@@ -262,6 +269,31 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>false</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="depType--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>depType</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a>&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.83">depType</a></pre>
+<div class="block">Enum indicating whether the value of the underlying computed is derived from arez elements and/or
+ external dependencies. The current implementation does not support setting this to <a href="../../arez/annotations/DepType.html#AREZ_OR_EXTERNAL"><code>DepType.AREZ_OR_EXTERNAL</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the types of dependencies allowed on the underlying computed.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../arez/annotations/Computed.html#depType--"><code>Computed.depType()</code></a></dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>arez.annotations.DepType.AREZ</dd>
 </dl>
 </li>
 </ul>
