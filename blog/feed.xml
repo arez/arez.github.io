@@ -14,6 +14,18 @@
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
         <item>
+            <title><![CDATA[Arez 0.111 released]]></title>
+            <link>https://arez.github.io/blog/2018/10/19/version-0.111-release.html</link>
+            <guid>https://arez.github.io/blog/2018/10/19/version-0.111-release.html</guid>
+            <pubDate>Fri, 19 Oct 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.110...v0.111)
+
+Changes in this release:
+
+* **\[processor\]** Remove the synthetic setter created for `@Observable` methods introduced in `0.110`
+  as it is easier for the optimizing compilers t]]></description>
+        </item>
+        <item>
             <title><![CDATA[Arez 0.110 released]]></title>
             <link>https://arez.github.io/blog/2018/10/19/version-0.110-release.html</link>
             <guid>https://arez.github.io/blog/2018/10/19/version-0.110-release.html</guid>
