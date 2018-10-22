@@ -35,7 +35,7 @@
 <span class="sourceLineNo">027</span>  private final Object _result;<a name="line.27"></a>
 <span class="sourceLineNo">028</span>  @Nullable<a name="line.28"></a>
 <span class="sourceLineNo">029</span>  private final Throwable _throwable;<a name="line.29"></a>
-<span class="sourceLineNo">030</span>  private final long _duration;<a name="line.30"></a>
+<span class="sourceLineNo">030</span>  private final int _duration;<a name="line.30"></a>
 <span class="sourceLineNo">031</span><a name="line.31"></a>
 <span class="sourceLineNo">032</span>  public ActionCompletedEvent( @Nonnull final String name,<a name="line.32"></a>
 <span class="sourceLineNo">033</span>                               final boolean tracked,<a name="line.33"></a>
@@ -43,7 +43,7 @@
 <span class="sourceLineNo">035</span>                               final boolean returnsResult,<a name="line.35"></a>
 <span class="sourceLineNo">036</span>                               @Nullable final Object result,<a name="line.36"></a>
 <span class="sourceLineNo">037</span>                               @Nullable final Throwable throwable,<a name="line.37"></a>
-<span class="sourceLineNo">038</span>                               final long duration )<a name="line.38"></a>
+<span class="sourceLineNo">038</span>                               final int duration )<a name="line.38"></a>
 <span class="sourceLineNo">039</span>  {<a name="line.39"></a>
 <span class="sourceLineNo">040</span>    assert duration &gt;= 0;<a name="line.40"></a>
 <span class="sourceLineNo">041</span>    assert null == throwable || null == result;<a name="line.41"></a>
@@ -90,7 +90,7 @@
 <span class="sourceLineNo">082</span>    return _throwable;<a name="line.82"></a>
 <span class="sourceLineNo">083</span>  }<a name="line.83"></a>
 <span class="sourceLineNo">084</span><a name="line.84"></a>
-<span class="sourceLineNo">085</span>  public long getDuration()<a name="line.85"></a>
+<span class="sourceLineNo">085</span>  public int getDuration()<a name="line.85"></a>
 <span class="sourceLineNo">086</span>  {<a name="line.86"></a>
 <span class="sourceLineNo">087</span>    return _duration;<a name="line.87"></a>
 <span class="sourceLineNo">088</span>  }<a name="line.88"></a>

@@ -1959,436 +1959,443 @@
 <span class="sourceLineNo">1951</span>      apiInvariant( () -&gt; Flags.isEnvironmentValid( flags | Flags.environmentFlag( flags ) ),<a name="line.1951"></a>
 <span class="sourceLineNo">1952</span>                    () -&gt; "Arez-0125: Flags passed to action '" + name + "' include both ENVIRONMENT_REQUIRED " +<a name="line.1952"></a>
 <span class="sourceLineNo">1953</span>                          "and ENVIRONMENT_NOT_REQUIRED." );<a name="line.1953"></a>
-<span class="sourceLineNo">1954</span>      apiInvariant( () -&gt; !Arez.shouldEnforceTransactionType() || Flags.isTransactionModeValid( flags | Flags.transactionMode( flags ) ),<a name="line.1954"></a>
-<span class="sourceLineNo">1955</span>                    () -&gt; "Arez-0126: Flags passed to action '" + name + "' include both READ_ONLY and READ_WRITE." );<a name="line.1955"></a>
-<span class="sourceLineNo">1956</span>      apiInvariant( () -&gt; Flags.isVerifyActionRuleValid( flags | Flags.verifyActionRule( flags ) ),<a name="line.1956"></a>
-<span class="sourceLineNo">1957</span>                    () -&gt; "Arez-0127: Flags passed to action '" + name + "' include both VERIFY_ACTION_REQUIRED " +<a name="line.1957"></a>
-<span class="sourceLineNo">1958</span>                          "and NO_VERIFY_ACTION_REQUIRED." );<a name="line.1958"></a>
-<span class="sourceLineNo">1959</span>    }<a name="line.1959"></a>
-<span class="sourceLineNo">1960</span>  }<a name="line.1960"></a>
-<span class="sourceLineNo">1961</span><a name="line.1961"></a>
-<span class="sourceLineNo">1962</span>  private void verifyActionDependencies( final String name,<a name="line.1962"></a>
-<span class="sourceLineNo">1963</span>                                         final @Nullable Observer observer,<a name="line.1963"></a>
-<span class="sourceLineNo">1964</span>                                         final int flags,<a name="line.1964"></a>
-<span class="sourceLineNo">1965</span>                                         final Transaction transaction )<a name="line.1965"></a>
-<span class="sourceLineNo">1966</span>  {<a name="line.1966"></a>
-<span class="sourceLineNo">1967</span>    if ( Arez.shouldCheckInvariants() )<a name="line.1967"></a>
-<span class="sourceLineNo">1968</span>    {<a name="line.1968"></a>
-<span class="sourceLineNo">1969</span>      if ( null == observer )<a name="line.1969"></a>
-<span class="sourceLineNo">1970</span>      {<a name="line.1970"></a>
-<span class="sourceLineNo">1971</span>        verifyActionRequired( transaction, flags );<a name="line.1971"></a>
-<span class="sourceLineNo">1972</span>      }<a name="line.1972"></a>
-<span class="sourceLineNo">1973</span>      else if ( Flags.AREZ_DEPENDENCIES == ( flags &amp; Flags.AREZ_DEPENDENCIES ) )<a name="line.1973"></a>
-<span class="sourceLineNo">1974</span>      {<a name="line.1974"></a>
-<span class="sourceLineNo">1975</span>        final Transaction current = Transaction.current();<a name="line.1975"></a>
-<span class="sourceLineNo">1976</span><a name="line.1976"></a>
-<span class="sourceLineNo">1977</span>        final ArrayList&lt;ObservableValue&lt;?&gt;&gt; observableValues = current.getObservableValues();<a name="line.1977"></a>
-<span class="sourceLineNo">1978</span>        invariant( () -&gt; Objects.requireNonNull( current.getTracker() ).isDisposing() ||<a name="line.1978"></a>
-<span class="sourceLineNo">1979</span>                         ( null != observableValues &amp;&amp; !observableValues.isEmpty() ),<a name="line.1979"></a>
-<span class="sourceLineNo">1980</span>                   () -&gt; "Arez-0118: Observer named '" + name + "' completed observed function (executed by " +<a name="line.1980"></a>
-<span class="sourceLineNo">1981</span>                         "application) but is not observing any properties." );<a name="line.1981"></a>
-<span class="sourceLineNo">1982</span>      }<a name="line.1982"></a>
-<span class="sourceLineNo">1983</span>    }<a name="line.1983"></a>
-<span class="sourceLineNo">1984</span>  }<a name="line.1984"></a>
-<span class="sourceLineNo">1985</span><a name="line.1985"></a>
-<span class="sourceLineNo">1986</span>  private void verifyActionRequired( @Nonnull final Transaction transaction, final int flags )<a name="line.1986"></a>
-<span class="sourceLineNo">1987</span>  {<a name="line.1987"></a>
-<span class="sourceLineNo">1988</span>    if ( Arez.shouldCheckInvariants() &amp;&amp;<a name="line.1988"></a>
-<span class="sourceLineNo">1989</span>         Flags.NO_VERIFY_ACTION_REQUIRED != ( flags &amp; Flags.NO_VERIFY_ACTION_REQUIRED ) )<a name="line.1989"></a>
-<span class="sourceLineNo">1990</span>    {<a name="line.1990"></a>
-<span class="sourceLineNo">1991</span>      invariant( transaction::hasTransactionUseOccured,<a name="line.1991"></a>
-<span class="sourceLineNo">1992</span>                 () -&gt; "Arez-0185: Action named '" + transaction.getName() + "' completed but no reads, writes, " +<a name="line.1992"></a>
-<span class="sourceLineNo">1993</span>                       "schedules, reportStales or reportPossiblyChanged occurred within the scope of the action." );<a name="line.1993"></a>
-<span class="sourceLineNo">1994</span>    }<a name="line.1994"></a>
-<span class="sourceLineNo">1995</span>  }<a name="line.1995"></a>
-<span class="sourceLineNo">1996</span><a name="line.1996"></a>
-<span class="sourceLineNo">1997</span>  @Nonnull<a name="line.1997"></a>
-<span class="sourceLineNo">1998</span>  private Transaction newTransaction( @Nullable final String name, final int flags, @Nullable final Observer observer )<a name="line.1998"></a>
-<span class="sourceLineNo">1999</span>  {<a name="line.1999"></a>
-<span class="sourceLineNo">2000</span>    final boolean mutation = Arez.shouldEnforceTransactionType() &amp;&amp; 0 == ( flags &amp; Flags.READ_ONLY );<a name="line.2000"></a>
-<span class="sourceLineNo">2001</span>    return Transaction.begin( this, generateName( "Transaction", name ), mutation, observer );<a name="line.2001"></a>
-<span class="sourceLineNo">2002</span>  }<a name="line.2002"></a>
-<span class="sourceLineNo">2003</span><a name="line.2003"></a>
-<span class="sourceLineNo">2004</span>  /**<a name="line.2004"></a>
-<span class="sourceLineNo">2005</span>   * Return true if action can immediately invoked, false if a transaction needs to be created.<a name="line.2005"></a>
-<span class="sourceLineNo">2006</span>   */<a name="line.2006"></a>
-<span class="sourceLineNo">2007</span>  private boolean canImmediatelyInvokeAction( final int flags )<a name="line.2007"></a>
-<span class="sourceLineNo">2008</span>  {<a name="line.2008"></a>
-<span class="sourceLineNo">2009</span>    return 0 == ( flags &amp; Flags.REQUIRE_NEW_TRANSACTION ) &amp;&amp;<a name="line.2009"></a>
-<span class="sourceLineNo">2010</span>           ( Arez.shouldEnforceTransactionType() &amp;&amp;<a name="line.2010"></a>
-<span class="sourceLineNo">2011</span>             ( Flags.READ_ONLY == ( flags &amp; Flags.READ_ONLY ) ) ?<a name="line.2011"></a>
-<span class="sourceLineNo">2012</span>             isReadOnlyTransactionActive() :<a name="line.2012"></a>
-<span class="sourceLineNo">2013</span>             isReadWriteTransactionActive() );<a name="line.2013"></a>
-<span class="sourceLineNo">2014</span>  }<a name="line.2014"></a>
-<span class="sourceLineNo">2015</span><a name="line.2015"></a>
-<span class="sourceLineNo">2016</span>  private void verifyActionNestingAllowed( @Nullable final String name, @Nullable final Observer observer )<a name="line.2016"></a>
-<span class="sourceLineNo">2017</span>  {<a name="line.2017"></a>
-<span class="sourceLineNo">2018</span>    if ( Arez.shouldEnforceTransactionType() )<a name="line.2018"></a>
-<span class="sourceLineNo">2019</span>    {<a name="line.2019"></a>
-<span class="sourceLineNo">2020</span>      final Transaction parentTransaction = Transaction.isTransactionActive( this ) ? Transaction.current() : null;<a name="line.2020"></a>
-<span class="sourceLineNo">2021</span>      if ( null != parentTransaction )<a name="line.2021"></a>
-<span class="sourceLineNo">2022</span>      {<a name="line.2022"></a>
-<span class="sourceLineNo">2023</span>        final Observer parent = parentTransaction.getTracker();<a name="line.2023"></a>
-<span class="sourceLineNo">2024</span>        apiInvariant( () -&gt; null == parent ||<a name="line.2024"></a>
-<span class="sourceLineNo">2025</span>                            parent.nestedActionsAllowed() ||<a name="line.2025"></a>
-<span class="sourceLineNo">2026</span>                            ( null != observer &amp;&amp; observer.isComputedValue() ),<a name="line.2026"></a>
-<span class="sourceLineNo">2027</span>                      () -&gt; "Arez-0187: Attempting to nest action named '" + name + "' " +<a name="line.2027"></a>
-<span class="sourceLineNo">2028</span>                            "inside transaction named '" + parentTransaction.getName() + "' created by an " +<a name="line.2028"></a>
-<span class="sourceLineNo">2029</span>                            "observer that does not allow nested actions." );<a name="line.2029"></a>
-<span class="sourceLineNo">2030</span>      }<a name="line.2030"></a>
-<span class="sourceLineNo">2031</span>    }<a name="line.2031"></a>
-<span class="sourceLineNo">2032</span>  }<a name="line.2032"></a>
-<span class="sourceLineNo">2033</span><a name="line.2033"></a>
-<span class="sourceLineNo">2034</span>  /**<a name="line.2034"></a>
-<span class="sourceLineNo">2035</span>   * Return next transaction id and increment internal counter.<a name="line.2035"></a>
-<span class="sourceLineNo">2036</span>   * The id is a monotonically increasing number starting at 1.<a name="line.2036"></a>
-<span class="sourceLineNo">2037</span>   *<a name="line.2037"></a>
-<span class="sourceLineNo">2038</span>   * @return the next transaction id.<a name="line.2038"></a>
-<span class="sourceLineNo">2039</span>   */<a name="line.2039"></a>
-<span class="sourceLineNo">2040</span>  int nextTransactionId()<a name="line.2040"></a>
-<span class="sourceLineNo">2041</span>  {<a name="line.2041"></a>
-<span class="sourceLineNo">2042</span>    return _nextTransactionId++;<a name="line.2042"></a>
-<span class="sourceLineNo">2043</span>  }<a name="line.2043"></a>
-<span class="sourceLineNo">2044</span><a name="line.2044"></a>
-<span class="sourceLineNo">2045</span>  /**<a name="line.2045"></a>
-<span class="sourceLineNo">2046</span>   * Register an entity locator to use to resolve references.<a name="line.2046"></a>
-<span class="sourceLineNo">2047</span>   * The Locator must not already be registered.<a name="line.2047"></a>
-<span class="sourceLineNo">2048</span>   * This should not be invoked unless Arez.areReferencesEnabled() returns true.<a name="line.2048"></a>
-<span class="sourceLineNo">2049</span>   *<a name="line.2049"></a>
-<span class="sourceLineNo">2050</span>   * @param locator the Locator to register.<a name="line.2050"></a>
-<span class="sourceLineNo">2051</span>   * @return the disposable to dispose to deregister locator.<a name="line.2051"></a>
-<span class="sourceLineNo">2052</span>   */<a name="line.2052"></a>
-<span class="sourceLineNo">2053</span>  @Nonnull<a name="line.2053"></a>
-<span class="sourceLineNo">2054</span>  public Disposable registerLocator( @Nonnull final Locator locator )<a name="line.2054"></a>
-<span class="sourceLineNo">2055</span>  {<a name="line.2055"></a>
-<span class="sourceLineNo">2056</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.2056"></a>
-<span class="sourceLineNo">2057</span>    {<a name="line.2057"></a>
-<span class="sourceLineNo">2058</span>      apiInvariant( Arez::areReferencesEnabled,<a name="line.2058"></a>
-<span class="sourceLineNo">2059</span>                    () -&gt; "Arez-0191: ArezContext.registerLocator invoked but Arez.areReferencesEnabled() returned false." );<a name="line.2059"></a>
-<span class="sourceLineNo">2060</span>    }<a name="line.2060"></a>
-<span class="sourceLineNo">2061</span>    assert null != _locator;<a name="line.2061"></a>
-<span class="sourceLineNo">2062</span>    return _locator.registerLocator( Objects.requireNonNull( locator ) );<a name="line.2062"></a>
-<span class="sourceLineNo">2063</span>  }<a name="line.2063"></a>
-<span class="sourceLineNo">2064</span><a name="line.2064"></a>
-<span class="sourceLineNo">2065</span>  /**<a name="line.2065"></a>
-<span class="sourceLineNo">2066</span>   * Return the locator that can be used to resolve references.<a name="line.2066"></a>
-<span class="sourceLineNo">2067</span>   * This should not be invoked unless Arez.areReferencesEnabled() returns true.<a name="line.2067"></a>
-<span class="sourceLineNo">2068</span>   *<a name="line.2068"></a>
-<span class="sourceLineNo">2069</span>   * @return the Locator.<a name="line.2069"></a>
-<span class="sourceLineNo">2070</span>   */<a name="line.2070"></a>
-<span class="sourceLineNo">2071</span>  @Nonnull<a name="line.2071"></a>
-<span class="sourceLineNo">2072</span>  public Locator locator()<a name="line.2072"></a>
-<span class="sourceLineNo">2073</span>  {<a name="line.2073"></a>
-<span class="sourceLineNo">2074</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.2074"></a>
-<span class="sourceLineNo">2075</span>    {<a name="line.2075"></a>
-<span class="sourceLineNo">2076</span>      apiInvariant( Arez::areReferencesEnabled,<a name="line.2076"></a>
-<span class="sourceLineNo">2077</span>                    () -&gt; "Arez-0192: ArezContext.locator() invoked but Arez.areReferencesEnabled() returned false." );<a name="line.2077"></a>
-<span class="sourceLineNo">2078</span>    }<a name="line.2078"></a>
-<span class="sourceLineNo">2079</span>    assert null != _locator;<a name="line.2079"></a>
-<span class="sourceLineNo">2080</span>    return _locator;<a name="line.2080"></a>
-<span class="sourceLineNo">2081</span>  }<a name="line.2081"></a>
-<span class="sourceLineNo">2082</span><a name="line.2082"></a>
-<span class="sourceLineNo">2083</span>  /**<a name="line.2083"></a>
-<span class="sourceLineNo">2084</span>   * Add error handler to the list of error handlers called.<a name="line.2084"></a>
-<span class="sourceLineNo">2085</span>   * The handler should not already be in the list. This method should NOT be called if<a name="line.2085"></a>
-<span class="sourceLineNo">2086</span>   * {@link Arez#areObserverErrorHandlersEnabled()} returns false.<a name="line.2086"></a>
-<span class="sourceLineNo">2087</span>   *<a name="line.2087"></a>
-<span class="sourceLineNo">2088</span>   * @param handler the error handler.<a name="line.2088"></a>
-<span class="sourceLineNo">2089</span>   */<a name="line.2089"></a>
-<span class="sourceLineNo">2090</span>  public void addObserverErrorHandler( @Nonnull final ObserverErrorHandler handler )<a name="line.2090"></a>
-<span class="sourceLineNo">2091</span>  {<a name="line.2091"></a>
-<span class="sourceLineNo">2092</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2092"></a>
-<span class="sourceLineNo">2093</span>    {<a name="line.2093"></a>
-<span class="sourceLineNo">2094</span>      invariant( Arez::areObserverErrorHandlersEnabled,<a name="line.2094"></a>
-<span class="sourceLineNo">2095</span>                 () -&gt; "Arez-0182: ArezContext.addObserverErrorHandler() invoked when Arez.areObserverErrorHandlersEnabled() returns false." );<a name="line.2095"></a>
-<span class="sourceLineNo">2096</span>    }<a name="line.2096"></a>
-<span class="sourceLineNo">2097</span>    assert null != _observerErrorHandlerSupport;<a name="line.2097"></a>
-<span class="sourceLineNo">2098</span>    _observerErrorHandlerSupport.addObserverErrorHandler( handler );<a name="line.2098"></a>
-<span class="sourceLineNo">2099</span>  }<a name="line.2099"></a>
-<span class="sourceLineNo">2100</span><a name="line.2100"></a>
-<span class="sourceLineNo">2101</span>  /**<a name="line.2101"></a>
-<span class="sourceLineNo">2102</span>   * Remove error handler from list of existing error handlers.<a name="line.2102"></a>
-<span class="sourceLineNo">2103</span>   * The handler should already be in the list. This method should NOT be called if<a name="line.2103"></a>
-<span class="sourceLineNo">2104</span>   * {@link Arez#areObserverErrorHandlersEnabled()} returns false.<a name="line.2104"></a>
-<span class="sourceLineNo">2105</span>   *<a name="line.2105"></a>
-<span class="sourceLineNo">2106</span>   * @param handler the error handler.<a name="line.2106"></a>
-<span class="sourceLineNo">2107</span>   */<a name="line.2107"></a>
-<span class="sourceLineNo">2108</span>  public void removeObserverErrorHandler( @Nonnull final ObserverErrorHandler handler )<a name="line.2108"></a>
-<span class="sourceLineNo">2109</span>  {<a name="line.2109"></a>
-<span class="sourceLineNo">2110</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2110"></a>
-<span class="sourceLineNo">2111</span>    {<a name="line.2111"></a>
-<span class="sourceLineNo">2112</span>      invariant( Arez::areObserverErrorHandlersEnabled,<a name="line.2112"></a>
-<span class="sourceLineNo">2113</span>                 () -&gt; "Arez-0181: ArezContext.removeObserverErrorHandler() invoked when Arez.areObserverErrorHandlersEnabled() returns false." );<a name="line.2113"></a>
-<span class="sourceLineNo">2114</span>    }<a name="line.2114"></a>
-<span class="sourceLineNo">2115</span>    assert null != _observerErrorHandlerSupport;<a name="line.2115"></a>
-<span class="sourceLineNo">2116</span>    _observerErrorHandlerSupport.removeObserverErrorHandler( handler );<a name="line.2116"></a>
-<span class="sourceLineNo">2117</span>  }<a name="line.2117"></a>
-<span class="sourceLineNo">2118</span><a name="line.2118"></a>
-<span class="sourceLineNo">2119</span>  /**<a name="line.2119"></a>
-<span class="sourceLineNo">2120</span>   * Report an error in observer.<a name="line.2120"></a>
-<span class="sourceLineNo">2121</span>   *<a name="line.2121"></a>
-<span class="sourceLineNo">2122</span>   * @param observer  the observer that generated error.<a name="line.2122"></a>
-<span class="sourceLineNo">2123</span>   * @param error     the type of the error.<a name="line.2123"></a>
-<span class="sourceLineNo">2124</span>   * @param throwable the exception that caused error if any.<a name="line.2124"></a>
-<span class="sourceLineNo">2125</span>   */<a name="line.2125"></a>
-<span class="sourceLineNo">2126</span>  void reportObserverError( @Nonnull final Observer observer,<a name="line.2126"></a>
-<span class="sourceLineNo">2127</span>                            @Nonnull final ObserverError error,<a name="line.2127"></a>
-<span class="sourceLineNo">2128</span>                            @Nullable final Throwable throwable )<a name="line.2128"></a>
-<span class="sourceLineNo">2129</span>  {<a name="line.2129"></a>
-<span class="sourceLineNo">2130</span>    if ( willPropagateSpyEvents() )<a name="line.2130"></a>
-<span class="sourceLineNo">2131</span>    {<a name="line.2131"></a>
-<span class="sourceLineNo">2132</span>      getSpy().reportSpyEvent( new ObserverErrorEvent( observer.asInfo(), error, throwable ) );<a name="line.2132"></a>
-<span class="sourceLineNo">2133</span>    }<a name="line.2133"></a>
-<span class="sourceLineNo">2134</span>    if ( Arez.areObserverErrorHandlersEnabled() )<a name="line.2134"></a>
-<span class="sourceLineNo">2135</span>    {<a name="line.2135"></a>
-<span class="sourceLineNo">2136</span>      assert null != _observerErrorHandlerSupport;<a name="line.2136"></a>
-<span class="sourceLineNo">2137</span>      _observerErrorHandlerSupport.onObserverError( observer, error, throwable );<a name="line.2137"></a>
-<span class="sourceLineNo">2138</span>    }<a name="line.2138"></a>
-<span class="sourceLineNo">2139</span>  }<a name="line.2139"></a>
-<span class="sourceLineNo">2140</span><a name="line.2140"></a>
-<span class="sourceLineNo">2141</span>  /**<a name="line.2141"></a>
-<span class="sourceLineNo">2142</span>   * Return true if spy events will be propagated.<a name="line.2142"></a>
-<span class="sourceLineNo">2143</span>   * This means spies are enabled and there is at least one spy event handler present.<a name="line.2143"></a>
-<span class="sourceLineNo">2144</span>   *<a name="line.2144"></a>
-<span class="sourceLineNo">2145</span>   * @return true if spy events will be propagated, false otherwise.<a name="line.2145"></a>
-<span class="sourceLineNo">2146</span>   */<a name="line.2146"></a>
-<span class="sourceLineNo">2147</span>  boolean willPropagateSpyEvents()<a name="line.2147"></a>
-<span class="sourceLineNo">2148</span>  {<a name="line.2148"></a>
-<span class="sourceLineNo">2149</span>    return Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents();<a name="line.2149"></a>
-<span class="sourceLineNo">2150</span>  }<a name="line.2150"></a>
-<span class="sourceLineNo">2151</span><a name="line.2151"></a>
-<span class="sourceLineNo">2152</span>  /**<a name="line.2152"></a>
-<span class="sourceLineNo">2153</span>   * Return the spy associated with context.<a name="line.2153"></a>
-<span class="sourceLineNo">2154</span>   * This method should not be invoked unless {@link Arez#areSpiesEnabled()} returns true.<a name="line.2154"></a>
-<span class="sourceLineNo">2155</span>   *<a name="line.2155"></a>
-<span class="sourceLineNo">2156</span>   * @return the spy associated with context.<a name="line.2156"></a>
-<span class="sourceLineNo">2157</span>   */<a name="line.2157"></a>
-<span class="sourceLineNo">2158</span>  @Nonnull<a name="line.2158"></a>
-<span class="sourceLineNo">2159</span>  public Spy getSpy()<a name="line.2159"></a>
-<span class="sourceLineNo">2160</span>  {<a name="line.2160"></a>
-<span class="sourceLineNo">2161</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.2161"></a>
-<span class="sourceLineNo">2162</span>    {<a name="line.2162"></a>
-<span class="sourceLineNo">2163</span>      apiInvariant( Arez::areSpiesEnabled, () -&gt; "Arez-0021: Attempting to get Spy but spies are not enabled." );<a name="line.2163"></a>
-<span class="sourceLineNo">2164</span>    }<a name="line.2164"></a>
-<span class="sourceLineNo">2165</span>    assert null != _spy;<a name="line.2165"></a>
-<span class="sourceLineNo">2166</span>    return _spy;<a name="line.2166"></a>
-<span class="sourceLineNo">2167</span>  }<a name="line.2167"></a>
-<span class="sourceLineNo">2168</span><a name="line.2168"></a>
-<span class="sourceLineNo">2169</span>  void registerObservableValue( @Nonnull final ObservableValue observableValue )<a name="line.2169"></a>
-<span class="sourceLineNo">2170</span>  {<a name="line.2170"></a>
-<span class="sourceLineNo">2171</span>    final String name = observableValue.getName();<a name="line.2171"></a>
-<span class="sourceLineNo">2172</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2172"></a>
-<span class="sourceLineNo">2173</span>    {<a name="line.2173"></a>
-<span class="sourceLineNo">2174</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2174"></a>
-<span class="sourceLineNo">2175</span>                 () -&gt; "Arez-0022: ArezContext.registerObservableValue invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2175"></a>
-<span class="sourceLineNo">2176</span>      assert null != _observables;<a name="line.2176"></a>
-<span class="sourceLineNo">2177</span>      invariant( () -&gt; !_observables.containsKey( name ),<a name="line.2177"></a>
-<span class="sourceLineNo">2178</span>                 () -&gt; "Arez-0023: ArezContext.registerObservableValue invoked with observableValue named '" + name +<a name="line.2178"></a>
-<span class="sourceLineNo">2179</span>                       "' but an existing observableValue with that name is already registered." );<a name="line.2179"></a>
-<span class="sourceLineNo">2180</span>    }<a name="line.2180"></a>
-<span class="sourceLineNo">2181</span>    assert null != _observables;<a name="line.2181"></a>
-<span class="sourceLineNo">2182</span>    _observables.put( name, observableValue );<a name="line.2182"></a>
-<span class="sourceLineNo">2183</span>  }<a name="line.2183"></a>
-<span class="sourceLineNo">2184</span><a name="line.2184"></a>
-<span class="sourceLineNo">2185</span>  void deregisterObservableValue( @Nonnull final ObservableValue observableValue )<a name="line.2185"></a>
-<span class="sourceLineNo">2186</span>  {<a name="line.2186"></a>
-<span class="sourceLineNo">2187</span>    final String name = observableValue.getName();<a name="line.2187"></a>
-<span class="sourceLineNo">2188</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2188"></a>
-<span class="sourceLineNo">2189</span>    {<a name="line.2189"></a>
-<span class="sourceLineNo">2190</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2190"></a>
-<span class="sourceLineNo">2191</span>                 () -&gt; "Arez-0024: ArezContext.deregisterObservableValue invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2191"></a>
-<span class="sourceLineNo">2192</span>      assert null != _observables;<a name="line.2192"></a>
-<span class="sourceLineNo">2193</span>      invariant( () -&gt; _observables.containsKey( name ),<a name="line.2193"></a>
-<span class="sourceLineNo">2194</span>                 () -&gt; "Arez-0025: ArezContext.deregisterObservableValue invoked with observableValue named '" + name +<a name="line.2194"></a>
-<span class="sourceLineNo">2195</span>                       "' but no observableValue with that name is registered." );<a name="line.2195"></a>
-<span class="sourceLineNo">2196</span>    }<a name="line.2196"></a>
-<span class="sourceLineNo">2197</span>    assert null != _observables;<a name="line.2197"></a>
-<span class="sourceLineNo">2198</span>    _observables.remove( name );<a name="line.2198"></a>
-<span class="sourceLineNo">2199</span>  }<a name="line.2199"></a>
-<span class="sourceLineNo">2200</span><a name="line.2200"></a>
-<span class="sourceLineNo">2201</span>  @Nonnull<a name="line.2201"></a>
-<span class="sourceLineNo">2202</span>  HashMap&lt;String, ObservableValue&lt;?&gt;&gt; getTopLevelObservables()<a name="line.2202"></a>
-<span class="sourceLineNo">2203</span>  {<a name="line.2203"></a>
-<span class="sourceLineNo">2204</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2204"></a>
-<span class="sourceLineNo">2205</span>    {<a name="line.2205"></a>
-<span class="sourceLineNo">2206</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2206"></a>
-<span class="sourceLineNo">2207</span>                 () -&gt; "Arez-0026: ArezContext.getTopLevelObservables() invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2207"></a>
-<span class="sourceLineNo">2208</span>    }<a name="line.2208"></a>
-<span class="sourceLineNo">2209</span>    assert null != _observables;<a name="line.2209"></a>
-<span class="sourceLineNo">2210</span>    return _observables;<a name="line.2210"></a>
-<span class="sourceLineNo">2211</span>  }<a name="line.2211"></a>
-<span class="sourceLineNo">2212</span><a name="line.2212"></a>
-<span class="sourceLineNo">2213</span>  void registerObserver( @Nonnull final Observer observer )<a name="line.2213"></a>
-<span class="sourceLineNo">2214</span>  {<a name="line.2214"></a>
-<span class="sourceLineNo">2215</span>    final String name = observer.getName();<a name="line.2215"></a>
-<span class="sourceLineNo">2216</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2216"></a>
-<span class="sourceLineNo">2217</span>    {<a name="line.2217"></a>
-<span class="sourceLineNo">2218</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2218"></a>
-<span class="sourceLineNo">2219</span>                 () -&gt; "Arez-0027: ArezContext.registerObserver invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2219"></a>
-<span class="sourceLineNo">2220</span>      assert null != _observers;<a name="line.2220"></a>
-<span class="sourceLineNo">2221</span>      invariant( () -&gt; !_observers.containsKey( name ),<a name="line.2221"></a>
-<span class="sourceLineNo">2222</span>                 () -&gt; "Arez-0028: ArezContext.registerObserver invoked with observer named '" + name +<a name="line.2222"></a>
-<span class="sourceLineNo">2223</span>                       "' but an existing observer with that name is already registered." );<a name="line.2223"></a>
-<span class="sourceLineNo">2224</span>    }<a name="line.2224"></a>
-<span class="sourceLineNo">2225</span>    assert null != _observers;<a name="line.2225"></a>
-<span class="sourceLineNo">2226</span>    _observers.put( name, observer );<a name="line.2226"></a>
-<span class="sourceLineNo">2227</span>  }<a name="line.2227"></a>
-<span class="sourceLineNo">2228</span><a name="line.2228"></a>
-<span class="sourceLineNo">2229</span>  void deregisterObserver( @Nonnull final Observer observer )<a name="line.2229"></a>
-<span class="sourceLineNo">2230</span>  {<a name="line.2230"></a>
-<span class="sourceLineNo">2231</span>    final String name = observer.getName();<a name="line.2231"></a>
-<span class="sourceLineNo">2232</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2232"></a>
-<span class="sourceLineNo">2233</span>    {<a name="line.2233"></a>
-<span class="sourceLineNo">2234</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2234"></a>
-<span class="sourceLineNo">2235</span>                 () -&gt; "Arez-0029: ArezContext.deregisterObserver invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2235"></a>
-<span class="sourceLineNo">2236</span>      assert null != _observers;<a name="line.2236"></a>
-<span class="sourceLineNo">2237</span>      invariant( () -&gt; _observers.containsKey( name ),<a name="line.2237"></a>
-<span class="sourceLineNo">2238</span>                 () -&gt; "Arez-0030: ArezContext.deregisterObserver invoked with observer named '" + name +<a name="line.2238"></a>
-<span class="sourceLineNo">2239</span>                       "' but no observer with that name is registered." );<a name="line.2239"></a>
-<span class="sourceLineNo">2240</span>    }<a name="line.2240"></a>
-<span class="sourceLineNo">2241</span>    assert null != _observers;<a name="line.2241"></a>
-<span class="sourceLineNo">2242</span>    _observers.remove( name );<a name="line.2242"></a>
-<span class="sourceLineNo">2243</span>  }<a name="line.2243"></a>
-<span class="sourceLineNo">2244</span><a name="line.2244"></a>
-<span class="sourceLineNo">2245</span>  @Nonnull<a name="line.2245"></a>
-<span class="sourceLineNo">2246</span>  HashMap&lt;String, Observer&gt; getTopLevelObservers()<a name="line.2246"></a>
-<span class="sourceLineNo">2247</span>  {<a name="line.2247"></a>
-<span class="sourceLineNo">2248</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2248"></a>
-<span class="sourceLineNo">2249</span>    {<a name="line.2249"></a>
-<span class="sourceLineNo">2250</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2250"></a>
-<span class="sourceLineNo">2251</span>                 () -&gt; "Arez-0031: ArezContext.getTopLevelObservers() invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2251"></a>
-<span class="sourceLineNo">2252</span>    }<a name="line.2252"></a>
-<span class="sourceLineNo">2253</span>    assert null != _observers;<a name="line.2253"></a>
-<span class="sourceLineNo">2254</span>    return _observers;<a name="line.2254"></a>
-<span class="sourceLineNo">2255</span>  }<a name="line.2255"></a>
-<span class="sourceLineNo">2256</span><a name="line.2256"></a>
-<span class="sourceLineNo">2257</span>  void registerComputedValue( @Nonnull final ComputedValue computedValue )<a name="line.2257"></a>
-<span class="sourceLineNo">2258</span>  {<a name="line.2258"></a>
-<span class="sourceLineNo">2259</span>    final String name = computedValue.getName();<a name="line.2259"></a>
-<span class="sourceLineNo">2260</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2260"></a>
-<span class="sourceLineNo">2261</span>    {<a name="line.2261"></a>
-<span class="sourceLineNo">2262</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2262"></a>
-<span class="sourceLineNo">2263</span>                 () -&gt; "Arez-0032: ArezContext.registerComputedValue invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2263"></a>
-<span class="sourceLineNo">2264</span>      assert null != _computedValues;<a name="line.2264"></a>
-<span class="sourceLineNo">2265</span>      invariant( () -&gt; !_computedValues.containsKey( name ),<a name="line.2265"></a>
-<span class="sourceLineNo">2266</span>                 () -&gt; "Arez-0033: ArezContext.registerComputedValue invoked with computed value named '" + name +<a name="line.2266"></a>
-<span class="sourceLineNo">2267</span>                       "' but an existing computed value with that name is already registered." );<a name="line.2267"></a>
-<span class="sourceLineNo">2268</span>    }<a name="line.2268"></a>
-<span class="sourceLineNo">2269</span>    assert null != _computedValues;<a name="line.2269"></a>
-<span class="sourceLineNo">2270</span>    _computedValues.put( name, computedValue );<a name="line.2270"></a>
-<span class="sourceLineNo">2271</span>  }<a name="line.2271"></a>
-<span class="sourceLineNo">2272</span><a name="line.2272"></a>
-<span class="sourceLineNo">2273</span>  void deregisterComputedValue( @Nonnull final ComputedValue computedValue )<a name="line.2273"></a>
-<span class="sourceLineNo">2274</span>  {<a name="line.2274"></a>
-<span class="sourceLineNo">2275</span>    final String name = computedValue.getName();<a name="line.2275"></a>
-<span class="sourceLineNo">2276</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2276"></a>
-<span class="sourceLineNo">2277</span>    {<a name="line.2277"></a>
-<span class="sourceLineNo">2278</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2278"></a>
-<span class="sourceLineNo">2279</span>                 () -&gt; "Arez-0034: ArezContext.deregisterComputedValue invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2279"></a>
-<span class="sourceLineNo">2280</span>      assert null != _computedValues;<a name="line.2280"></a>
-<span class="sourceLineNo">2281</span>      invariant( () -&gt; _computedValues.containsKey( name ),<a name="line.2281"></a>
-<span class="sourceLineNo">2282</span>                 () -&gt; "Arez-0035: ArezContext.deregisterComputedValue invoked with computed value named '" + name +<a name="line.2282"></a>
-<span class="sourceLineNo">2283</span>                       "' but no computed value with that name is registered." );<a name="line.2283"></a>
-<span class="sourceLineNo">2284</span>    }<a name="line.2284"></a>
-<span class="sourceLineNo">2285</span>    assert null != _computedValues;<a name="line.2285"></a>
-<span class="sourceLineNo">2286</span>    _computedValues.remove( name );<a name="line.2286"></a>
-<span class="sourceLineNo">2287</span>  }<a name="line.2287"></a>
-<span class="sourceLineNo">2288</span><a name="line.2288"></a>
-<span class="sourceLineNo">2289</span>  @Nonnull<a name="line.2289"></a>
-<span class="sourceLineNo">2290</span>  HashMap&lt;String, ComputedValue&lt;?&gt;&gt; getTopLevelComputedValues()<a name="line.2290"></a>
-<span class="sourceLineNo">2291</span>  {<a name="line.2291"></a>
-<span class="sourceLineNo">2292</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2292"></a>
-<span class="sourceLineNo">2293</span>    {<a name="line.2293"></a>
-<span class="sourceLineNo">2294</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2294"></a>
-<span class="sourceLineNo">2295</span>                 () -&gt; "Arez-0036: ArezContext.getTopLevelComputedValues() invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2295"></a>
-<span class="sourceLineNo">2296</span>    }<a name="line.2296"></a>
-<span class="sourceLineNo">2297</span>    assert null != _computedValues;<a name="line.2297"></a>
-<span class="sourceLineNo">2298</span>    return _computedValues;<a name="line.2298"></a>
-<span class="sourceLineNo">2299</span>  }<a name="line.2299"></a>
-<span class="sourceLineNo">2300</span><a name="line.2300"></a>
-<span class="sourceLineNo">2301</span>  @Nonnull<a name="line.2301"></a>
-<span class="sourceLineNo">2302</span>  ObserverErrorHandlerSupport getObserverErrorHandlerSupport()<a name="line.2302"></a>
-<span class="sourceLineNo">2303</span>  {<a name="line.2303"></a>
-<span class="sourceLineNo">2304</span>    assert null != _observerErrorHandlerSupport;<a name="line.2304"></a>
-<span class="sourceLineNo">2305</span>    return _observerErrorHandlerSupport;<a name="line.2305"></a>
-<span class="sourceLineNo">2306</span>  }<a name="line.2306"></a>
-<span class="sourceLineNo">2307</span><a name="line.2307"></a>
-<span class="sourceLineNo">2308</span>  @Nullable<a name="line.2308"></a>
-<span class="sourceLineNo">2309</span>  private String observerToName( @Nonnull final Observer observer )<a name="line.2309"></a>
-<span class="sourceLineNo">2310</span>  {<a name="line.2310"></a>
-<span class="sourceLineNo">2311</span>    return Arez.areNamesEnabled() ? observer.getName() : null;<a name="line.2311"></a>
-<span class="sourceLineNo">2312</span>  }<a name="line.2312"></a>
-<span class="sourceLineNo">2313</span><a name="line.2313"></a>
-<span class="sourceLineNo">2314</span>  private int trackerObservedFlags( @Nonnull final Observer observer )<a name="line.2314"></a>
-<span class="sourceLineNo">2315</span>  {<a name="line.2315"></a>
-<span class="sourceLineNo">2316</span>    return Flags.REQUIRE_NEW_TRANSACTION |<a name="line.2316"></a>
-<span class="sourceLineNo">2317</span>           ( Arez.shouldCheckInvariants() ?<a name="line.2317"></a>
-<span class="sourceLineNo">2318</span>             observer.areArezDependenciesRequired() ? Flags.AREZ_DEPENDENCIES : Flags.AREZ_OR_NO_DEPENDENCIES :<a name="line.2318"></a>
-<span class="sourceLineNo">2319</span>             0 ) |<a name="line.2319"></a>
-<span class="sourceLineNo">2320</span>           ( observer.isEnvironmentRequired() ? Flags.ENVIRONMENT_REQUIRED : Flags.ENVIRONMENT_NOT_REQUIRED ) |<a name="line.2320"></a>
-<span class="sourceLineNo">2321</span>           ( Arez.shouldEnforceTransactionType() ? ( observer.isMutation() ? Flags.READ_WRITE : Flags.READ_ONLY ) : 0 );<a name="line.2321"></a>
-<span class="sourceLineNo">2322</span>  }<a name="line.2322"></a>
-<span class="sourceLineNo">2323</span><a name="line.2323"></a>
-<span class="sourceLineNo">2324</span>  private void reportActionStarted( @Nullable final String name,<a name="line.2324"></a>
-<span class="sourceLineNo">2325</span>                                    @Nullable final Object[] parameters,<a name="line.2325"></a>
-<span class="sourceLineNo">2326</span>                                    final boolean observed )<a name="line.2326"></a>
-<span class="sourceLineNo">2327</span>  {<a name="line.2327"></a>
-<span class="sourceLineNo">2328</span>    assert null != name;<a name="line.2328"></a>
-<span class="sourceLineNo">2329</span>    final Object[] params = null == parameters ? new Object[ 0 ] : parameters;<a name="line.2329"></a>
-<span class="sourceLineNo">2330</span>    getSpy().reportSpyEvent( new ActionStartedEvent( name, observed, params ) );<a name="line.2330"></a>
-<span class="sourceLineNo">2331</span>  }<a name="line.2331"></a>
-<span class="sourceLineNo">2332</span><a name="line.2332"></a>
-<span class="sourceLineNo">2333</span>  private void reportActionCompleted( @Nullable final String name,<a name="line.2333"></a>
-<span class="sourceLineNo">2334</span>                                      @Nullable final Object[] parameters,<a name="line.2334"></a>
-<span class="sourceLineNo">2335</span>                                      final boolean observed,<a name="line.2335"></a>
-<span class="sourceLineNo">2336</span>                                      final Throwable t,<a name="line.2336"></a>
-<span class="sourceLineNo">2337</span>                                      final long startedAt,<a name="line.2337"></a>
-<span class="sourceLineNo">2338</span>                                      final boolean returnsResult,<a name="line.2338"></a>
-<span class="sourceLineNo">2339</span>                                      final Object result )<a name="line.2339"></a>
-<span class="sourceLineNo">2340</span>  {<a name="line.2340"></a>
-<span class="sourceLineNo">2341</span>    final long duration = System.currentTimeMillis() - startedAt;<a name="line.2341"></a>
-<span class="sourceLineNo">2342</span>    assert null != name;<a name="line.2342"></a>
-<span class="sourceLineNo">2343</span>    final Object[] params = null == parameters ? new Object[ 0 ] : parameters;<a name="line.2343"></a>
-<span class="sourceLineNo">2344</span>    getSpy().reportSpyEvent( new ActionCompletedEvent( name, observed, params, returnsResult, result, t, duration ) );<a name="line.2344"></a>
-<span class="sourceLineNo">2345</span>  }<a name="line.2345"></a>
-<span class="sourceLineNo">2346</span><a name="line.2346"></a>
-<span class="sourceLineNo">2347</span>  int currentNextTransactionId()<a name="line.2347"></a>
-<span class="sourceLineNo">2348</span>  {<a name="line.2348"></a>
-<span class="sourceLineNo">2349</span>    return _nextTransactionId;<a name="line.2349"></a>
-<span class="sourceLineNo">2350</span>  }<a name="line.2350"></a>
-<span class="sourceLineNo">2351</span><a name="line.2351"></a>
-<span class="sourceLineNo">2352</span>  @Nonnull<a name="line.2352"></a>
-<span class="sourceLineNo">2353</span>  ReactionScheduler getScheduler()<a name="line.2353"></a>
-<span class="sourceLineNo">2354</span>  {<a name="line.2354"></a>
-<span class="sourceLineNo">2355</span>    return _scheduler;<a name="line.2355"></a>
-<span class="sourceLineNo">2356</span>  }<a name="line.2356"></a>
-<span class="sourceLineNo">2357</span><a name="line.2357"></a>
-<span class="sourceLineNo">2358</span>  void setNextNodeId( final int nextNodeId )<a name="line.2358"></a>
-<span class="sourceLineNo">2359</span>  {<a name="line.2359"></a>
-<span class="sourceLineNo">2360</span>    _nextNodeId = nextNodeId;<a name="line.2360"></a>
-<span class="sourceLineNo">2361</span>  }<a name="line.2361"></a>
-<span class="sourceLineNo">2362</span><a name="line.2362"></a>
-<span class="sourceLineNo">2363</span>  int getNextNodeId()<a name="line.2363"></a>
-<span class="sourceLineNo">2364</span>  {<a name="line.2364"></a>
-<span class="sourceLineNo">2365</span>    return _nextNodeId;<a name="line.2365"></a>
-<span class="sourceLineNo">2366</span>  }<a name="line.2366"></a>
-<span class="sourceLineNo">2367</span><a name="line.2367"></a>
-<span class="sourceLineNo">2368</span>  int getSchedulerLockCount()<a name="line.2368"></a>
-<span class="sourceLineNo">2369</span>  {<a name="line.2369"></a>
-<span class="sourceLineNo">2370</span>    return _schedulerLockCount;<a name="line.2370"></a>
-<span class="sourceLineNo">2371</span>  }<a name="line.2371"></a>
-<span class="sourceLineNo">2372</span><a name="line.2372"></a>
-<span class="sourceLineNo">2373</span>  @SuppressWarnings( "SameParameterValue" )<a name="line.2373"></a>
-<span class="sourceLineNo">2374</span>  void setSchedulerLockCount( final int schedulerLockCount )<a name="line.2374"></a>
-<span class="sourceLineNo">2375</span>  {<a name="line.2375"></a>
-<span class="sourceLineNo">2376</span>    _schedulerLockCount = schedulerLockCount;<a name="line.2376"></a>
-<span class="sourceLineNo">2377</span>  }<a name="line.2377"></a>
-<span class="sourceLineNo">2378</span><a name="line.2378"></a>
-<span class="sourceLineNo">2379</span>  void markSchedulerAsActive()<a name="line.2379"></a>
-<span class="sourceLineNo">2380</span>  {<a name="line.2380"></a>
-<span class="sourceLineNo">2381</span>    _schedulerActive = true;<a name="line.2381"></a>
-<span class="sourceLineNo">2382</span>  }<a name="line.2382"></a>
-<span class="sourceLineNo">2383</span>}<a name="line.2383"></a>
+<span class="sourceLineNo">1954</span>      apiInvariant( () -&gt; !Arez.shouldEnforceTransactionType() ||<a name="line.1954"></a>
+<span class="sourceLineNo">1955</span>                          Flags.isTransactionModeValid( flags | Flags.transactionMode( flags ) ),<a name="line.1955"></a>
+<span class="sourceLineNo">1956</span>                    () -&gt; "Arez-0126: Flags passed to action '" + name + "' include both READ_ONLY and READ_WRITE." );<a name="line.1956"></a>
+<span class="sourceLineNo">1957</span>      apiInvariant( () -&gt; Flags.isVerifyActionRuleValid( flags | Flags.verifyActionRule( flags ) ),<a name="line.1957"></a>
+<span class="sourceLineNo">1958</span>                    () -&gt; "Arez-0127: Flags passed to action '" + name + "' include both VERIFY_ACTION_REQUIRED " +<a name="line.1958"></a>
+<span class="sourceLineNo">1959</span>                          "and NO_VERIFY_ACTION_REQUIRED." );<a name="line.1959"></a>
+<span class="sourceLineNo">1960</span>    }<a name="line.1960"></a>
+<span class="sourceLineNo">1961</span>  }<a name="line.1961"></a>
+<span class="sourceLineNo">1962</span><a name="line.1962"></a>
+<span class="sourceLineNo">1963</span>  private void verifyActionDependencies( final String name,<a name="line.1963"></a>
+<span class="sourceLineNo">1964</span>                                         final @Nullable Observer observer,<a name="line.1964"></a>
+<span class="sourceLineNo">1965</span>                                         final int flags,<a name="line.1965"></a>
+<span class="sourceLineNo">1966</span>                                         final Transaction transaction )<a name="line.1966"></a>
+<span class="sourceLineNo">1967</span>  {<a name="line.1967"></a>
+<span class="sourceLineNo">1968</span>    if ( Arez.shouldCheckInvariants() )<a name="line.1968"></a>
+<span class="sourceLineNo">1969</span>    {<a name="line.1969"></a>
+<span class="sourceLineNo">1970</span>      if ( null == observer )<a name="line.1970"></a>
+<span class="sourceLineNo">1971</span>      {<a name="line.1971"></a>
+<span class="sourceLineNo">1972</span>        verifyActionRequired( transaction, flags );<a name="line.1972"></a>
+<span class="sourceLineNo">1973</span>      }<a name="line.1973"></a>
+<span class="sourceLineNo">1974</span>      else if ( Flags.AREZ_DEPENDENCIES == ( flags &amp; Flags.AREZ_DEPENDENCIES ) )<a name="line.1974"></a>
+<span class="sourceLineNo">1975</span>      {<a name="line.1975"></a>
+<span class="sourceLineNo">1976</span>        final Transaction current = Transaction.current();<a name="line.1976"></a>
+<span class="sourceLineNo">1977</span><a name="line.1977"></a>
+<span class="sourceLineNo">1978</span>        final ArrayList&lt;ObservableValue&lt;?&gt;&gt; observableValues = current.getObservableValues();<a name="line.1978"></a>
+<span class="sourceLineNo">1979</span>        invariant( () -&gt; Objects.requireNonNull( current.getTracker() ).isDisposing() ||<a name="line.1979"></a>
+<span class="sourceLineNo">1980</span>                         ( null != observableValues &amp;&amp; !observableValues.isEmpty() ),<a name="line.1980"></a>
+<span class="sourceLineNo">1981</span>                   () -&gt; "Arez-0118: Observer named '" + name + "' completed observed function (executed by " +<a name="line.1981"></a>
+<span class="sourceLineNo">1982</span>                         "application) but is not observing any properties." );<a name="line.1982"></a>
+<span class="sourceLineNo">1983</span>      }<a name="line.1983"></a>
+<span class="sourceLineNo">1984</span>    }<a name="line.1984"></a>
+<span class="sourceLineNo">1985</span>  }<a name="line.1985"></a>
+<span class="sourceLineNo">1986</span><a name="line.1986"></a>
+<span class="sourceLineNo">1987</span>  private void verifyActionRequired( @Nonnull final Transaction transaction, final int flags )<a name="line.1987"></a>
+<span class="sourceLineNo">1988</span>  {<a name="line.1988"></a>
+<span class="sourceLineNo">1989</span>    if ( Arez.shouldCheckInvariants() &amp;&amp;<a name="line.1989"></a>
+<span class="sourceLineNo">1990</span>         Flags.NO_VERIFY_ACTION_REQUIRED != ( flags &amp; Flags.NO_VERIFY_ACTION_REQUIRED ) )<a name="line.1990"></a>
+<span class="sourceLineNo">1991</span>    {<a name="line.1991"></a>
+<span class="sourceLineNo">1992</span>      invariant( transaction::hasTransactionUseOccured,<a name="line.1992"></a>
+<span class="sourceLineNo">1993</span>                 () -&gt; "Arez-0185: Action named '" + transaction.getName() + "' completed but no reads, writes, " +<a name="line.1993"></a>
+<span class="sourceLineNo">1994</span>                       "schedules, reportStales or reportPossiblyChanged occurred within the scope of the action." );<a name="line.1994"></a>
+<span class="sourceLineNo">1995</span>    }<a name="line.1995"></a>
+<span class="sourceLineNo">1996</span>  }<a name="line.1996"></a>
+<span class="sourceLineNo">1997</span><a name="line.1997"></a>
+<span class="sourceLineNo">1998</span>  @Nonnull<a name="line.1998"></a>
+<span class="sourceLineNo">1999</span>  private Transaction newTransaction( @Nullable final String name, final int flags, @Nullable final Observer observer )<a name="line.1999"></a>
+<span class="sourceLineNo">2000</span>  {<a name="line.2000"></a>
+<span class="sourceLineNo">2001</span>    final boolean mutation = Arez.shouldEnforceTransactionType() &amp;&amp; 0 == ( flags &amp; Flags.READ_ONLY );<a name="line.2001"></a>
+<span class="sourceLineNo">2002</span>    return Transaction.begin( this, generateName( "Transaction", name ), mutation, observer );<a name="line.2002"></a>
+<span class="sourceLineNo">2003</span>  }<a name="line.2003"></a>
+<span class="sourceLineNo">2004</span><a name="line.2004"></a>
+<span class="sourceLineNo">2005</span>  /**<a name="line.2005"></a>
+<span class="sourceLineNo">2006</span>   * Return true if action can immediately invoked, false if a transaction needs to be created.<a name="line.2006"></a>
+<span class="sourceLineNo">2007</span>   */<a name="line.2007"></a>
+<span class="sourceLineNo">2008</span>  private boolean canImmediatelyInvokeAction( final int flags )<a name="line.2008"></a>
+<span class="sourceLineNo">2009</span>  {<a name="line.2009"></a>
+<span class="sourceLineNo">2010</span>    return 0 == ( flags &amp; Flags.REQUIRE_NEW_TRANSACTION ) &amp;&amp;<a name="line.2010"></a>
+<span class="sourceLineNo">2011</span>           ( Arez.shouldEnforceTransactionType() &amp;&amp;<a name="line.2011"></a>
+<span class="sourceLineNo">2012</span>             ( Flags.READ_ONLY == ( flags &amp; Flags.READ_ONLY ) ) ?<a name="line.2012"></a>
+<span class="sourceLineNo">2013</span>             isReadOnlyTransactionActive() :<a name="line.2013"></a>
+<span class="sourceLineNo">2014</span>             isReadWriteTransactionActive() );<a name="line.2014"></a>
+<span class="sourceLineNo">2015</span>  }<a name="line.2015"></a>
+<span class="sourceLineNo">2016</span><a name="line.2016"></a>
+<span class="sourceLineNo">2017</span>  private void verifyActionNestingAllowed( @Nullable final String name, @Nullable final Observer observer )<a name="line.2017"></a>
+<span class="sourceLineNo">2018</span>  {<a name="line.2018"></a>
+<span class="sourceLineNo">2019</span>    if ( Arez.shouldEnforceTransactionType() )<a name="line.2019"></a>
+<span class="sourceLineNo">2020</span>    {<a name="line.2020"></a>
+<span class="sourceLineNo">2021</span>      final Transaction parentTransaction = Transaction.isTransactionActive( this ) ? Transaction.current() : null;<a name="line.2021"></a>
+<span class="sourceLineNo">2022</span>      if ( null != parentTransaction )<a name="line.2022"></a>
+<span class="sourceLineNo">2023</span>      {<a name="line.2023"></a>
+<span class="sourceLineNo">2024</span>        final Observer parent = parentTransaction.getTracker();<a name="line.2024"></a>
+<span class="sourceLineNo">2025</span>        apiInvariant( () -&gt; null == parent ||<a name="line.2025"></a>
+<span class="sourceLineNo">2026</span>                            parent.nestedActionsAllowed() ||<a name="line.2026"></a>
+<span class="sourceLineNo">2027</span>                            ( null != observer &amp;&amp; observer.isComputedValue() ),<a name="line.2027"></a>
+<span class="sourceLineNo">2028</span>                      () -&gt; "Arez-0187: Attempting to nest action named '" + name + "' " +<a name="line.2028"></a>
+<span class="sourceLineNo">2029</span>                            "inside transaction named '" + parentTransaction.getName() + "' created by an " +<a name="line.2029"></a>
+<span class="sourceLineNo">2030</span>                            "observer that does not allow nested actions." );<a name="line.2030"></a>
+<span class="sourceLineNo">2031</span>      }<a name="line.2031"></a>
+<span class="sourceLineNo">2032</span>    }<a name="line.2032"></a>
+<span class="sourceLineNo">2033</span>  }<a name="line.2033"></a>
+<span class="sourceLineNo">2034</span><a name="line.2034"></a>
+<span class="sourceLineNo">2035</span>  /**<a name="line.2035"></a>
+<span class="sourceLineNo">2036</span>   * Return next transaction id and increment internal counter.<a name="line.2036"></a>
+<span class="sourceLineNo">2037</span>   * The id is a monotonically increasing number starting at 1.<a name="line.2037"></a>
+<span class="sourceLineNo">2038</span>   *<a name="line.2038"></a>
+<span class="sourceLineNo">2039</span>   * @return the next transaction id.<a name="line.2039"></a>
+<span class="sourceLineNo">2040</span>   */<a name="line.2040"></a>
+<span class="sourceLineNo">2041</span>  int nextTransactionId()<a name="line.2041"></a>
+<span class="sourceLineNo">2042</span>  {<a name="line.2042"></a>
+<span class="sourceLineNo">2043</span>    return _nextTransactionId++;<a name="line.2043"></a>
+<span class="sourceLineNo">2044</span>  }<a name="line.2044"></a>
+<span class="sourceLineNo">2045</span><a name="line.2045"></a>
+<span class="sourceLineNo">2046</span>  /**<a name="line.2046"></a>
+<span class="sourceLineNo">2047</span>   * Register an entity locator to use to resolve references.<a name="line.2047"></a>
+<span class="sourceLineNo">2048</span>   * The Locator must not already be registered.<a name="line.2048"></a>
+<span class="sourceLineNo">2049</span>   * This should not be invoked unless Arez.areReferencesEnabled() returns true.<a name="line.2049"></a>
+<span class="sourceLineNo">2050</span>   *<a name="line.2050"></a>
+<span class="sourceLineNo">2051</span>   * @param locator the Locator to register.<a name="line.2051"></a>
+<span class="sourceLineNo">2052</span>   * @return the disposable to dispose to deregister locator.<a name="line.2052"></a>
+<span class="sourceLineNo">2053</span>   */<a name="line.2053"></a>
+<span class="sourceLineNo">2054</span>  @Nonnull<a name="line.2054"></a>
+<span class="sourceLineNo">2055</span>  public Disposable registerLocator( @Nonnull final Locator locator )<a name="line.2055"></a>
+<span class="sourceLineNo">2056</span>  {<a name="line.2056"></a>
+<span class="sourceLineNo">2057</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.2057"></a>
+<span class="sourceLineNo">2058</span>    {<a name="line.2058"></a>
+<span class="sourceLineNo">2059</span>      apiInvariant( Arez::areReferencesEnabled,<a name="line.2059"></a>
+<span class="sourceLineNo">2060</span>                    () -&gt; "Arez-0191: ArezContext.registerLocator invoked but Arez.areReferencesEnabled() returned false." );<a name="line.2060"></a>
+<span class="sourceLineNo">2061</span>    }<a name="line.2061"></a>
+<span class="sourceLineNo">2062</span>    assert null != _locator;<a name="line.2062"></a>
+<span class="sourceLineNo">2063</span>    return _locator.registerLocator( Objects.requireNonNull( locator ) );<a name="line.2063"></a>
+<span class="sourceLineNo">2064</span>  }<a name="line.2064"></a>
+<span class="sourceLineNo">2065</span><a name="line.2065"></a>
+<span class="sourceLineNo">2066</span>  /**<a name="line.2066"></a>
+<span class="sourceLineNo">2067</span>   * Return the locator that can be used to resolve references.<a name="line.2067"></a>
+<span class="sourceLineNo">2068</span>   * This should not be invoked unless Arez.areReferencesEnabled() returns true.<a name="line.2068"></a>
+<span class="sourceLineNo">2069</span>   *<a name="line.2069"></a>
+<span class="sourceLineNo">2070</span>   * @return the Locator.<a name="line.2070"></a>
+<span class="sourceLineNo">2071</span>   */<a name="line.2071"></a>
+<span class="sourceLineNo">2072</span>  @Nonnull<a name="line.2072"></a>
+<span class="sourceLineNo">2073</span>  public Locator locator()<a name="line.2073"></a>
+<span class="sourceLineNo">2074</span>  {<a name="line.2074"></a>
+<span class="sourceLineNo">2075</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.2075"></a>
+<span class="sourceLineNo">2076</span>    {<a name="line.2076"></a>
+<span class="sourceLineNo">2077</span>      apiInvariant( Arez::areReferencesEnabled,<a name="line.2077"></a>
+<span class="sourceLineNo">2078</span>                    () -&gt; "Arez-0192: ArezContext.locator() invoked but Arez.areReferencesEnabled() returned false." );<a name="line.2078"></a>
+<span class="sourceLineNo">2079</span>    }<a name="line.2079"></a>
+<span class="sourceLineNo">2080</span>    assert null != _locator;<a name="line.2080"></a>
+<span class="sourceLineNo">2081</span>    return _locator;<a name="line.2081"></a>
+<span class="sourceLineNo">2082</span>  }<a name="line.2082"></a>
+<span class="sourceLineNo">2083</span><a name="line.2083"></a>
+<span class="sourceLineNo">2084</span>  /**<a name="line.2084"></a>
+<span class="sourceLineNo">2085</span>   * Add error handler to the list of error handlers called.<a name="line.2085"></a>
+<span class="sourceLineNo">2086</span>   * The handler should not already be in the list. This method should NOT be called if<a name="line.2086"></a>
+<span class="sourceLineNo">2087</span>   * {@link Arez#areObserverErrorHandlersEnabled()} returns false.<a name="line.2087"></a>
+<span class="sourceLineNo">2088</span>   *<a name="line.2088"></a>
+<span class="sourceLineNo">2089</span>   * @param handler the error handler.<a name="line.2089"></a>
+<span class="sourceLineNo">2090</span>   */<a name="line.2090"></a>
+<span class="sourceLineNo">2091</span>  public void addObserverErrorHandler( @Nonnull final ObserverErrorHandler handler )<a name="line.2091"></a>
+<span class="sourceLineNo">2092</span>  {<a name="line.2092"></a>
+<span class="sourceLineNo">2093</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2093"></a>
+<span class="sourceLineNo">2094</span>    {<a name="line.2094"></a>
+<span class="sourceLineNo">2095</span>      invariant( Arez::areObserverErrorHandlersEnabled,<a name="line.2095"></a>
+<span class="sourceLineNo">2096</span>                 () -&gt; "Arez-0182: ArezContext.addObserverErrorHandler() invoked when Arez.areObserverErrorHandlersEnabled() returns false." );<a name="line.2096"></a>
+<span class="sourceLineNo">2097</span>    }<a name="line.2097"></a>
+<span class="sourceLineNo">2098</span>    assert null != _observerErrorHandlerSupport;<a name="line.2098"></a>
+<span class="sourceLineNo">2099</span>    _observerErrorHandlerSupport.addObserverErrorHandler( handler );<a name="line.2099"></a>
+<span class="sourceLineNo">2100</span>  }<a name="line.2100"></a>
+<span class="sourceLineNo">2101</span><a name="line.2101"></a>
+<span class="sourceLineNo">2102</span>  /**<a name="line.2102"></a>
+<span class="sourceLineNo">2103</span>   * Remove error handler from list of existing error handlers.<a name="line.2103"></a>
+<span class="sourceLineNo">2104</span>   * The handler should already be in the list. This method should NOT be called if<a name="line.2104"></a>
+<span class="sourceLineNo">2105</span>   * {@link Arez#areObserverErrorHandlersEnabled()} returns false.<a name="line.2105"></a>
+<span class="sourceLineNo">2106</span>   *<a name="line.2106"></a>
+<span class="sourceLineNo">2107</span>   * @param handler the error handler.<a name="line.2107"></a>
+<span class="sourceLineNo">2108</span>   */<a name="line.2108"></a>
+<span class="sourceLineNo">2109</span>  public void removeObserverErrorHandler( @Nonnull final ObserverErrorHandler handler )<a name="line.2109"></a>
+<span class="sourceLineNo">2110</span>  {<a name="line.2110"></a>
+<span class="sourceLineNo">2111</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2111"></a>
+<span class="sourceLineNo">2112</span>    {<a name="line.2112"></a>
+<span class="sourceLineNo">2113</span>      invariant( Arez::areObserverErrorHandlersEnabled,<a name="line.2113"></a>
+<span class="sourceLineNo">2114</span>                 () -&gt; "Arez-0181: ArezContext.removeObserverErrorHandler() invoked when Arez.areObserverErrorHandlersEnabled() returns false." );<a name="line.2114"></a>
+<span class="sourceLineNo">2115</span>    }<a name="line.2115"></a>
+<span class="sourceLineNo">2116</span>    assert null != _observerErrorHandlerSupport;<a name="line.2116"></a>
+<span class="sourceLineNo">2117</span>    _observerErrorHandlerSupport.removeObserverErrorHandler( handler );<a name="line.2117"></a>
+<span class="sourceLineNo">2118</span>  }<a name="line.2118"></a>
+<span class="sourceLineNo">2119</span><a name="line.2119"></a>
+<span class="sourceLineNo">2120</span>  /**<a name="line.2120"></a>
+<span class="sourceLineNo">2121</span>   * Report an error in observer.<a name="line.2121"></a>
+<span class="sourceLineNo">2122</span>   *<a name="line.2122"></a>
+<span class="sourceLineNo">2123</span>   * @param observer  the observer that generated error.<a name="line.2123"></a>
+<span class="sourceLineNo">2124</span>   * @param error     the type of the error.<a name="line.2124"></a>
+<span class="sourceLineNo">2125</span>   * @param throwable the exception that caused error if any.<a name="line.2125"></a>
+<span class="sourceLineNo">2126</span>   */<a name="line.2126"></a>
+<span class="sourceLineNo">2127</span>  void reportObserverError( @Nonnull final Observer observer,<a name="line.2127"></a>
+<span class="sourceLineNo">2128</span>                            @Nonnull final ObserverError error,<a name="line.2128"></a>
+<span class="sourceLineNo">2129</span>                            @Nullable final Throwable throwable )<a name="line.2129"></a>
+<span class="sourceLineNo">2130</span>  {<a name="line.2130"></a>
+<span class="sourceLineNo">2131</span>    if ( willPropagateSpyEvents() )<a name="line.2131"></a>
+<span class="sourceLineNo">2132</span>    {<a name="line.2132"></a>
+<span class="sourceLineNo">2133</span>      getSpy().reportSpyEvent( new ObserverErrorEvent( observer.asInfo(), error, throwable ) );<a name="line.2133"></a>
+<span class="sourceLineNo">2134</span>    }<a name="line.2134"></a>
+<span class="sourceLineNo">2135</span>    if ( Arez.areObserverErrorHandlersEnabled() )<a name="line.2135"></a>
+<span class="sourceLineNo">2136</span>    {<a name="line.2136"></a>
+<span class="sourceLineNo">2137</span>      assert null != _observerErrorHandlerSupport;<a name="line.2137"></a>
+<span class="sourceLineNo">2138</span>      _observerErrorHandlerSupport.onObserverError( observer, error, throwable );<a name="line.2138"></a>
+<span class="sourceLineNo">2139</span>    }<a name="line.2139"></a>
+<span class="sourceLineNo">2140</span>  }<a name="line.2140"></a>
+<span class="sourceLineNo">2141</span><a name="line.2141"></a>
+<span class="sourceLineNo">2142</span>  /**<a name="line.2142"></a>
+<span class="sourceLineNo">2143</span>   * Return true if spy events will be propagated.<a name="line.2143"></a>
+<span class="sourceLineNo">2144</span>   * This means spies are enabled and there is at least one spy event handler present.<a name="line.2144"></a>
+<span class="sourceLineNo">2145</span>   *<a name="line.2145"></a>
+<span class="sourceLineNo">2146</span>   * @return true if spy events will be propagated, false otherwise.<a name="line.2146"></a>
+<span class="sourceLineNo">2147</span>   */<a name="line.2147"></a>
+<span class="sourceLineNo">2148</span>  boolean willPropagateSpyEvents()<a name="line.2148"></a>
+<span class="sourceLineNo">2149</span>  {<a name="line.2149"></a>
+<span class="sourceLineNo">2150</span>    return Arez.areSpiesEnabled() &amp;&amp; getSpy().willPropagateSpyEvents();<a name="line.2150"></a>
+<span class="sourceLineNo">2151</span>  }<a name="line.2151"></a>
+<span class="sourceLineNo">2152</span><a name="line.2152"></a>
+<span class="sourceLineNo">2153</span>  /**<a name="line.2153"></a>
+<span class="sourceLineNo">2154</span>   * Return the spy associated with context.<a name="line.2154"></a>
+<span class="sourceLineNo">2155</span>   * This method should not be invoked unless {@link Arez#areSpiesEnabled()} returns true.<a name="line.2155"></a>
+<span class="sourceLineNo">2156</span>   *<a name="line.2156"></a>
+<span class="sourceLineNo">2157</span>   * @return the spy associated with context.<a name="line.2157"></a>
+<span class="sourceLineNo">2158</span>   */<a name="line.2158"></a>
+<span class="sourceLineNo">2159</span>  @Nonnull<a name="line.2159"></a>
+<span class="sourceLineNo">2160</span>  public Spy getSpy()<a name="line.2160"></a>
+<span class="sourceLineNo">2161</span>  {<a name="line.2161"></a>
+<span class="sourceLineNo">2162</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.2162"></a>
+<span class="sourceLineNo">2163</span>    {<a name="line.2163"></a>
+<span class="sourceLineNo">2164</span>      apiInvariant( Arez::areSpiesEnabled, () -&gt; "Arez-0021: Attempting to get Spy but spies are not enabled." );<a name="line.2164"></a>
+<span class="sourceLineNo">2165</span>    }<a name="line.2165"></a>
+<span class="sourceLineNo">2166</span>    assert null != _spy;<a name="line.2166"></a>
+<span class="sourceLineNo">2167</span>    return _spy;<a name="line.2167"></a>
+<span class="sourceLineNo">2168</span>  }<a name="line.2168"></a>
+<span class="sourceLineNo">2169</span><a name="line.2169"></a>
+<span class="sourceLineNo">2170</span>  void registerObservableValue( @Nonnull final ObservableValue observableValue )<a name="line.2170"></a>
+<span class="sourceLineNo">2171</span>  {<a name="line.2171"></a>
+<span class="sourceLineNo">2172</span>    final String name = observableValue.getName();<a name="line.2172"></a>
+<span class="sourceLineNo">2173</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2173"></a>
+<span class="sourceLineNo">2174</span>    {<a name="line.2174"></a>
+<span class="sourceLineNo">2175</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2175"></a>
+<span class="sourceLineNo">2176</span>                 () -&gt; "Arez-0022: ArezContext.registerObservableValue invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2176"></a>
+<span class="sourceLineNo">2177</span>      assert null != _observables;<a name="line.2177"></a>
+<span class="sourceLineNo">2178</span>      invariant( () -&gt; !_observables.containsKey( name ),<a name="line.2178"></a>
+<span class="sourceLineNo">2179</span>                 () -&gt; "Arez-0023: ArezContext.registerObservableValue invoked with observableValue named '" + name +<a name="line.2179"></a>
+<span class="sourceLineNo">2180</span>                       "' but an existing observableValue with that name is already registered." );<a name="line.2180"></a>
+<span class="sourceLineNo">2181</span>    }<a name="line.2181"></a>
+<span class="sourceLineNo">2182</span>    assert null != _observables;<a name="line.2182"></a>
+<span class="sourceLineNo">2183</span>    _observables.put( name, observableValue );<a name="line.2183"></a>
+<span class="sourceLineNo">2184</span>  }<a name="line.2184"></a>
+<span class="sourceLineNo">2185</span><a name="line.2185"></a>
+<span class="sourceLineNo">2186</span>  void deregisterObservableValue( @Nonnull final ObservableValue observableValue )<a name="line.2186"></a>
+<span class="sourceLineNo">2187</span>  {<a name="line.2187"></a>
+<span class="sourceLineNo">2188</span>    final String name = observableValue.getName();<a name="line.2188"></a>
+<span class="sourceLineNo">2189</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2189"></a>
+<span class="sourceLineNo">2190</span>    {<a name="line.2190"></a>
+<span class="sourceLineNo">2191</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2191"></a>
+<span class="sourceLineNo">2192</span>                 () -&gt; "Arez-0024: ArezContext.deregisterObservableValue invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2192"></a>
+<span class="sourceLineNo">2193</span>      assert null != _observables;<a name="line.2193"></a>
+<span class="sourceLineNo">2194</span>      invariant( () -&gt; _observables.containsKey( name ),<a name="line.2194"></a>
+<span class="sourceLineNo">2195</span>                 () -&gt; "Arez-0025: ArezContext.deregisterObservableValue invoked with observableValue named '" + name +<a name="line.2195"></a>
+<span class="sourceLineNo">2196</span>                       "' but no observableValue with that name is registered." );<a name="line.2196"></a>
+<span class="sourceLineNo">2197</span>    }<a name="line.2197"></a>
+<span class="sourceLineNo">2198</span>    assert null != _observables;<a name="line.2198"></a>
+<span class="sourceLineNo">2199</span>    _observables.remove( name );<a name="line.2199"></a>
+<span class="sourceLineNo">2200</span>  }<a name="line.2200"></a>
+<span class="sourceLineNo">2201</span><a name="line.2201"></a>
+<span class="sourceLineNo">2202</span>  @Nonnull<a name="line.2202"></a>
+<span class="sourceLineNo">2203</span>  HashMap&lt;String, ObservableValue&lt;?&gt;&gt; getTopLevelObservables()<a name="line.2203"></a>
+<span class="sourceLineNo">2204</span>  {<a name="line.2204"></a>
+<span class="sourceLineNo">2205</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2205"></a>
+<span class="sourceLineNo">2206</span>    {<a name="line.2206"></a>
+<span class="sourceLineNo">2207</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2207"></a>
+<span class="sourceLineNo">2208</span>                 () -&gt; "Arez-0026: ArezContext.getTopLevelObservables() invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2208"></a>
+<span class="sourceLineNo">2209</span>    }<a name="line.2209"></a>
+<span class="sourceLineNo">2210</span>    assert null != _observables;<a name="line.2210"></a>
+<span class="sourceLineNo">2211</span>    return _observables;<a name="line.2211"></a>
+<span class="sourceLineNo">2212</span>  }<a name="line.2212"></a>
+<span class="sourceLineNo">2213</span><a name="line.2213"></a>
+<span class="sourceLineNo">2214</span>  void registerObserver( @Nonnull final Observer observer )<a name="line.2214"></a>
+<span class="sourceLineNo">2215</span>  {<a name="line.2215"></a>
+<span class="sourceLineNo">2216</span>    final String name = observer.getName();<a name="line.2216"></a>
+<span class="sourceLineNo">2217</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2217"></a>
+<span class="sourceLineNo">2218</span>    {<a name="line.2218"></a>
+<span class="sourceLineNo">2219</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2219"></a>
+<span class="sourceLineNo">2220</span>                 () -&gt; "Arez-0027: ArezContext.registerObserver invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2220"></a>
+<span class="sourceLineNo">2221</span>      assert null != _observers;<a name="line.2221"></a>
+<span class="sourceLineNo">2222</span>      invariant( () -&gt; !_observers.containsKey( name ),<a name="line.2222"></a>
+<span class="sourceLineNo">2223</span>                 () -&gt; "Arez-0028: ArezContext.registerObserver invoked with observer named '" + name +<a name="line.2223"></a>
+<span class="sourceLineNo">2224</span>                       "' but an existing observer with that name is already registered." );<a name="line.2224"></a>
+<span class="sourceLineNo">2225</span>    }<a name="line.2225"></a>
+<span class="sourceLineNo">2226</span>    assert null != _observers;<a name="line.2226"></a>
+<span class="sourceLineNo">2227</span>    _observers.put( name, observer );<a name="line.2227"></a>
+<span class="sourceLineNo">2228</span>  }<a name="line.2228"></a>
+<span class="sourceLineNo">2229</span><a name="line.2229"></a>
+<span class="sourceLineNo">2230</span>  void deregisterObserver( @Nonnull final Observer observer )<a name="line.2230"></a>
+<span class="sourceLineNo">2231</span>  {<a name="line.2231"></a>
+<span class="sourceLineNo">2232</span>    final String name = observer.getName();<a name="line.2232"></a>
+<span class="sourceLineNo">2233</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2233"></a>
+<span class="sourceLineNo">2234</span>    {<a name="line.2234"></a>
+<span class="sourceLineNo">2235</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2235"></a>
+<span class="sourceLineNo">2236</span>                 () -&gt; "Arez-0029: ArezContext.deregisterObserver invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2236"></a>
+<span class="sourceLineNo">2237</span>      assert null != _observers;<a name="line.2237"></a>
+<span class="sourceLineNo">2238</span>      invariant( () -&gt; _observers.containsKey( name ),<a name="line.2238"></a>
+<span class="sourceLineNo">2239</span>                 () -&gt; "Arez-0030: ArezContext.deregisterObserver invoked with observer named '" + name +<a name="line.2239"></a>
+<span class="sourceLineNo">2240</span>                       "' but no observer with that name is registered." );<a name="line.2240"></a>
+<span class="sourceLineNo">2241</span>    }<a name="line.2241"></a>
+<span class="sourceLineNo">2242</span>    assert null != _observers;<a name="line.2242"></a>
+<span class="sourceLineNo">2243</span>    _observers.remove( name );<a name="line.2243"></a>
+<span class="sourceLineNo">2244</span>  }<a name="line.2244"></a>
+<span class="sourceLineNo">2245</span><a name="line.2245"></a>
+<span class="sourceLineNo">2246</span>  @Nonnull<a name="line.2246"></a>
+<span class="sourceLineNo">2247</span>  HashMap&lt;String, Observer&gt; getTopLevelObservers()<a name="line.2247"></a>
+<span class="sourceLineNo">2248</span>  {<a name="line.2248"></a>
+<span class="sourceLineNo">2249</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2249"></a>
+<span class="sourceLineNo">2250</span>    {<a name="line.2250"></a>
+<span class="sourceLineNo">2251</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2251"></a>
+<span class="sourceLineNo">2252</span>                 () -&gt; "Arez-0031: ArezContext.getTopLevelObservers() invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2252"></a>
+<span class="sourceLineNo">2253</span>    }<a name="line.2253"></a>
+<span class="sourceLineNo">2254</span>    assert null != _observers;<a name="line.2254"></a>
+<span class="sourceLineNo">2255</span>    return _observers;<a name="line.2255"></a>
+<span class="sourceLineNo">2256</span>  }<a name="line.2256"></a>
+<span class="sourceLineNo">2257</span><a name="line.2257"></a>
+<span class="sourceLineNo">2258</span>  void registerComputedValue( @Nonnull final ComputedValue computedValue )<a name="line.2258"></a>
+<span class="sourceLineNo">2259</span>  {<a name="line.2259"></a>
+<span class="sourceLineNo">2260</span>    final String name = computedValue.getName();<a name="line.2260"></a>
+<span class="sourceLineNo">2261</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2261"></a>
+<span class="sourceLineNo">2262</span>    {<a name="line.2262"></a>
+<span class="sourceLineNo">2263</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2263"></a>
+<span class="sourceLineNo">2264</span>                 () -&gt; "Arez-0032: ArezContext.registerComputedValue invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2264"></a>
+<span class="sourceLineNo">2265</span>      assert null != _computedValues;<a name="line.2265"></a>
+<span class="sourceLineNo">2266</span>      invariant( () -&gt; !_computedValues.containsKey( name ),<a name="line.2266"></a>
+<span class="sourceLineNo">2267</span>                 () -&gt; "Arez-0033: ArezContext.registerComputedValue invoked with computed value named '" + name +<a name="line.2267"></a>
+<span class="sourceLineNo">2268</span>                       "' but an existing computed value with that name is already registered." );<a name="line.2268"></a>
+<span class="sourceLineNo">2269</span>    }<a name="line.2269"></a>
+<span class="sourceLineNo">2270</span>    assert null != _computedValues;<a name="line.2270"></a>
+<span class="sourceLineNo">2271</span>    _computedValues.put( name, computedValue );<a name="line.2271"></a>
+<span class="sourceLineNo">2272</span>  }<a name="line.2272"></a>
+<span class="sourceLineNo">2273</span><a name="line.2273"></a>
+<span class="sourceLineNo">2274</span>  void deregisterComputedValue( @Nonnull final ComputedValue computedValue )<a name="line.2274"></a>
+<span class="sourceLineNo">2275</span>  {<a name="line.2275"></a>
+<span class="sourceLineNo">2276</span>    final String name = computedValue.getName();<a name="line.2276"></a>
+<span class="sourceLineNo">2277</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2277"></a>
+<span class="sourceLineNo">2278</span>    {<a name="line.2278"></a>
+<span class="sourceLineNo">2279</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2279"></a>
+<span class="sourceLineNo">2280</span>                 () -&gt; "Arez-0034: ArezContext.deregisterComputedValue invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2280"></a>
+<span class="sourceLineNo">2281</span>      assert null != _computedValues;<a name="line.2281"></a>
+<span class="sourceLineNo">2282</span>      invariant( () -&gt; _computedValues.containsKey( name ),<a name="line.2282"></a>
+<span class="sourceLineNo">2283</span>                 () -&gt; "Arez-0035: ArezContext.deregisterComputedValue invoked with computed value named '" + name +<a name="line.2283"></a>
+<span class="sourceLineNo">2284</span>                       "' but no computed value with that name is registered." );<a name="line.2284"></a>
+<span class="sourceLineNo">2285</span>    }<a name="line.2285"></a>
+<span class="sourceLineNo">2286</span>    assert null != _computedValues;<a name="line.2286"></a>
+<span class="sourceLineNo">2287</span>    _computedValues.remove( name );<a name="line.2287"></a>
+<span class="sourceLineNo">2288</span>  }<a name="line.2288"></a>
+<span class="sourceLineNo">2289</span><a name="line.2289"></a>
+<span class="sourceLineNo">2290</span>  @Nonnull<a name="line.2290"></a>
+<span class="sourceLineNo">2291</span>  HashMap&lt;String, ComputedValue&lt;?&gt;&gt; getTopLevelComputedValues()<a name="line.2291"></a>
+<span class="sourceLineNo">2292</span>  {<a name="line.2292"></a>
+<span class="sourceLineNo">2293</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2293"></a>
+<span class="sourceLineNo">2294</span>    {<a name="line.2294"></a>
+<span class="sourceLineNo">2295</span>      invariant( Arez::areRegistriesEnabled,<a name="line.2295"></a>
+<span class="sourceLineNo">2296</span>                 () -&gt; "Arez-0036: ArezContext.getTopLevelComputedValues() invoked when Arez.areRegistriesEnabled() returns false." );<a name="line.2296"></a>
+<span class="sourceLineNo">2297</span>    }<a name="line.2297"></a>
+<span class="sourceLineNo">2298</span>    assert null != _computedValues;<a name="line.2298"></a>
+<span class="sourceLineNo">2299</span>    return _computedValues;<a name="line.2299"></a>
+<span class="sourceLineNo">2300</span>  }<a name="line.2300"></a>
+<span class="sourceLineNo">2301</span><a name="line.2301"></a>
+<span class="sourceLineNo">2302</span>  @Nonnull<a name="line.2302"></a>
+<span class="sourceLineNo">2303</span>  ObserverErrorHandlerSupport getObserverErrorHandlerSupport()<a name="line.2303"></a>
+<span class="sourceLineNo">2304</span>  {<a name="line.2304"></a>
+<span class="sourceLineNo">2305</span>    assert null != _observerErrorHandlerSupport;<a name="line.2305"></a>
+<span class="sourceLineNo">2306</span>    return _observerErrorHandlerSupport;<a name="line.2306"></a>
+<span class="sourceLineNo">2307</span>  }<a name="line.2307"></a>
+<span class="sourceLineNo">2308</span><a name="line.2308"></a>
+<span class="sourceLineNo">2309</span>  @Nullable<a name="line.2309"></a>
+<span class="sourceLineNo">2310</span>  private String observerToName( @Nonnull final Observer observer )<a name="line.2310"></a>
+<span class="sourceLineNo">2311</span>  {<a name="line.2311"></a>
+<span class="sourceLineNo">2312</span>    return Arez.areNamesEnabled() ? observer.getName() : null;<a name="line.2312"></a>
+<span class="sourceLineNo">2313</span>  }<a name="line.2313"></a>
+<span class="sourceLineNo">2314</span><a name="line.2314"></a>
+<span class="sourceLineNo">2315</span>  private int trackerObservedFlags( @Nonnull final Observer observer )<a name="line.2315"></a>
+<span class="sourceLineNo">2316</span>  {<a name="line.2316"></a>
+<span class="sourceLineNo">2317</span>    return Flags.REQUIRE_NEW_TRANSACTION |<a name="line.2317"></a>
+<span class="sourceLineNo">2318</span>           ( Arez.shouldCheckInvariants() ?<a name="line.2318"></a>
+<span class="sourceLineNo">2319</span>             observer.areArezDependenciesRequired() ? Flags.AREZ_DEPENDENCIES : Flags.AREZ_OR_NO_DEPENDENCIES :<a name="line.2319"></a>
+<span class="sourceLineNo">2320</span>             0 ) |<a name="line.2320"></a>
+<span class="sourceLineNo">2321</span>           ( observer.isEnvironmentRequired() ? Flags.ENVIRONMENT_REQUIRED : Flags.ENVIRONMENT_NOT_REQUIRED ) |<a name="line.2321"></a>
+<span class="sourceLineNo">2322</span>           ( Arez.shouldEnforceTransactionType() ? ( observer.isMutation() ? Flags.READ_WRITE : Flags.READ_ONLY ) : 0 );<a name="line.2322"></a>
+<span class="sourceLineNo">2323</span>  }<a name="line.2323"></a>
+<span class="sourceLineNo">2324</span><a name="line.2324"></a>
+<span class="sourceLineNo">2325</span>  private void reportActionStarted( @Nullable final String name,<a name="line.2325"></a>
+<span class="sourceLineNo">2326</span>                                    @Nullable final Object[] parameters,<a name="line.2326"></a>
+<span class="sourceLineNo">2327</span>                                    final boolean observed )<a name="line.2327"></a>
+<span class="sourceLineNo">2328</span>  {<a name="line.2328"></a>
+<span class="sourceLineNo">2329</span>    assert null != name;<a name="line.2329"></a>
+<span class="sourceLineNo">2330</span>    final Object[] params = null == parameters ? new Object[ 0 ] : parameters;<a name="line.2330"></a>
+<span class="sourceLineNo">2331</span>    getSpy().reportSpyEvent( new ActionStartedEvent( name, observed, params ) );<a name="line.2331"></a>
+<span class="sourceLineNo">2332</span>  }<a name="line.2332"></a>
+<span class="sourceLineNo">2333</span><a name="line.2333"></a>
+<span class="sourceLineNo">2334</span>  private void reportActionCompleted( @Nullable final String name,<a name="line.2334"></a>
+<span class="sourceLineNo">2335</span>                                      @Nullable final Object[] parameters,<a name="line.2335"></a>
+<span class="sourceLineNo">2336</span>                                      final boolean observed,<a name="line.2336"></a>
+<span class="sourceLineNo">2337</span>                                      final Throwable t,<a name="line.2337"></a>
+<span class="sourceLineNo">2338</span>                                      final long startedAt,<a name="line.2338"></a>
+<span class="sourceLineNo">2339</span>                                      final boolean returnsResult,<a name="line.2339"></a>
+<span class="sourceLineNo">2340</span>                                      final Object result )<a name="line.2340"></a>
+<span class="sourceLineNo">2341</span>  {<a name="line.2341"></a>
+<span class="sourceLineNo">2342</span>    final long duration = System.currentTimeMillis() - startedAt;<a name="line.2342"></a>
+<span class="sourceLineNo">2343</span>    assert null != name;<a name="line.2343"></a>
+<span class="sourceLineNo">2344</span>    final Object[] params = null == parameters ? new Object[ 0 ] : parameters;<a name="line.2344"></a>
+<span class="sourceLineNo">2345</span>    getSpy().reportSpyEvent( new ActionCompletedEvent( name,<a name="line.2345"></a>
+<span class="sourceLineNo">2346</span>                                                       observed,<a name="line.2346"></a>
+<span class="sourceLineNo">2347</span>                                                       params,<a name="line.2347"></a>
+<span class="sourceLineNo">2348</span>                                                       returnsResult,<a name="line.2348"></a>
+<span class="sourceLineNo">2349</span>                                                       result,<a name="line.2349"></a>
+<span class="sourceLineNo">2350</span>                                                       t,<a name="line.2350"></a>
+<span class="sourceLineNo">2351</span>                                                       (int) duration ) );<a name="line.2351"></a>
+<span class="sourceLineNo">2352</span>  }<a name="line.2352"></a>
+<span class="sourceLineNo">2353</span><a name="line.2353"></a>
+<span class="sourceLineNo">2354</span>  int currentNextTransactionId()<a name="line.2354"></a>
+<span class="sourceLineNo">2355</span>  {<a name="line.2355"></a>
+<span class="sourceLineNo">2356</span>    return _nextTransactionId;<a name="line.2356"></a>
+<span class="sourceLineNo">2357</span>  }<a name="line.2357"></a>
+<span class="sourceLineNo">2358</span><a name="line.2358"></a>
+<span class="sourceLineNo">2359</span>  @Nonnull<a name="line.2359"></a>
+<span class="sourceLineNo">2360</span>  ReactionScheduler getScheduler()<a name="line.2360"></a>
+<span class="sourceLineNo">2361</span>  {<a name="line.2361"></a>
+<span class="sourceLineNo">2362</span>    return _scheduler;<a name="line.2362"></a>
+<span class="sourceLineNo">2363</span>  }<a name="line.2363"></a>
+<span class="sourceLineNo">2364</span><a name="line.2364"></a>
+<span class="sourceLineNo">2365</span>  void setNextNodeId( final int nextNodeId )<a name="line.2365"></a>
+<span class="sourceLineNo">2366</span>  {<a name="line.2366"></a>
+<span class="sourceLineNo">2367</span>    _nextNodeId = nextNodeId;<a name="line.2367"></a>
+<span class="sourceLineNo">2368</span>  }<a name="line.2368"></a>
+<span class="sourceLineNo">2369</span><a name="line.2369"></a>
+<span class="sourceLineNo">2370</span>  int getNextNodeId()<a name="line.2370"></a>
+<span class="sourceLineNo">2371</span>  {<a name="line.2371"></a>
+<span class="sourceLineNo">2372</span>    return _nextNodeId;<a name="line.2372"></a>
+<span class="sourceLineNo">2373</span>  }<a name="line.2373"></a>
+<span class="sourceLineNo">2374</span><a name="line.2374"></a>
+<span class="sourceLineNo">2375</span>  int getSchedulerLockCount()<a name="line.2375"></a>
+<span class="sourceLineNo">2376</span>  {<a name="line.2376"></a>
+<span class="sourceLineNo">2377</span>    return _schedulerLockCount;<a name="line.2377"></a>
+<span class="sourceLineNo">2378</span>  }<a name="line.2378"></a>
+<span class="sourceLineNo">2379</span><a name="line.2379"></a>
+<span class="sourceLineNo">2380</span>  @SuppressWarnings( "SameParameterValue" )<a name="line.2380"></a>
+<span class="sourceLineNo">2381</span>  void setSchedulerLockCount( final int schedulerLockCount )<a name="line.2381"></a>
+<span class="sourceLineNo">2382</span>  {<a name="line.2382"></a>
+<span class="sourceLineNo">2383</span>    _schedulerLockCount = schedulerLockCount;<a name="line.2383"></a>
+<span class="sourceLineNo">2384</span>  }<a name="line.2384"></a>
+<span class="sourceLineNo">2385</span><a name="line.2385"></a>
+<span class="sourceLineNo">2386</span>  void markSchedulerAsActive()<a name="line.2386"></a>
+<span class="sourceLineNo">2387</span>  {<a name="line.2387"></a>
+<span class="sourceLineNo">2388</span>    _schedulerActive = true;<a name="line.2388"></a>
+<span class="sourceLineNo">2389</span>  }<a name="line.2389"></a>
+<span class="sourceLineNo">2390</span>}<a name="line.2390"></a>
 
 
 

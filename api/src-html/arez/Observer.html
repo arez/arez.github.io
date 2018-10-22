@@ -685,11 +685,11 @@
 <span class="sourceLineNo">677</span>        final long duration = System.currentTimeMillis() - start;<a name="line.677"></a>
 <span class="sourceLineNo">678</span>        if ( isComputedValue() )<a name="line.678"></a>
 <span class="sourceLineNo">679</span>        {<a name="line.679"></a>
-<span class="sourceLineNo">680</span>          reportSpyEvent( new ComputeCompletedEvent( getComputedValue().asInfo(), duration ) );<a name="line.680"></a>
+<span class="sourceLineNo">680</span>          reportSpyEvent( new ComputeCompletedEvent( getComputedValue().asInfo(), (int) duration ) );<a name="line.680"></a>
 <span class="sourceLineNo">681</span>        }<a name="line.681"></a>
 <span class="sourceLineNo">682</span>        else<a name="line.682"></a>
 <span class="sourceLineNo">683</span>        {<a name="line.683"></a>
-<span class="sourceLineNo">684</span>          reportSpyEvent( new ReactionCompletedEvent( asInfo(), duration ) );<a name="line.684"></a>
+<span class="sourceLineNo">684</span>          reportSpyEvent( new ReactionCompletedEvent( asInfo(), (int) duration ) );<a name="line.684"></a>
 <span class="sourceLineNo">685</span>        }<a name="line.685"></a>
 <span class="sourceLineNo">686</span>      }<a name="line.686"></a>
 <span class="sourceLineNo">687</span>    }<a name="line.687"></a>

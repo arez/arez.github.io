@@ -20,9 +20,9 @@
 <span class="sourceLineNo">012</span>{<a name="line.12"></a>
 <span class="sourceLineNo">013</span>  @Nonnull<a name="line.13"></a>
 <span class="sourceLineNo">014</span>  private final ObserverInfo _observer;<a name="line.14"></a>
-<span class="sourceLineNo">015</span>  private final long _duration;<a name="line.15"></a>
+<span class="sourceLineNo">015</span>  private final int _duration;<a name="line.15"></a>
 <span class="sourceLineNo">016</span><a name="line.16"></a>
-<span class="sourceLineNo">017</span>  public ReactionCompletedEvent( @Nonnull final ObserverInfo observer, final long duration )<a name="line.17"></a>
+<span class="sourceLineNo">017</span>  public ReactionCompletedEvent( @Nonnull final ObserverInfo observer, final int duration )<a name="line.17"></a>
 <span class="sourceLineNo">018</span>  {<a name="line.18"></a>
 <span class="sourceLineNo">019</span>    assert duration &gt;= 0;<a name="line.19"></a>
 <span class="sourceLineNo">020</span>    _observer = Objects.requireNonNull( observer );<a name="line.20"></a>
@@ -35,7 +35,7 @@
 <span class="sourceLineNo">027</span>    return _observer;<a name="line.27"></a>
 <span class="sourceLineNo">028</span>  }<a name="line.28"></a>
 <span class="sourceLineNo">029</span><a name="line.29"></a>
-<span class="sourceLineNo">030</span>  public long getDuration()<a name="line.30"></a>
+<span class="sourceLineNo">030</span>  public int getDuration()<a name="line.30"></a>
 <span class="sourceLineNo">031</span>  {<a name="line.31"></a>
 <span class="sourceLineNo">032</span>    return _duration;<a name="line.32"></a>
 <span class="sourceLineNo">033</span>  }<a name="line.33"></a>
