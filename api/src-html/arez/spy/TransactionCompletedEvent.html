@@ -67,7 +67,7 @@
 <span class="sourceLineNo">059</span>  public void toMap( @Nonnull final Map&lt;String, Object&gt; map )<a name="line.59"></a>
 <span class="sourceLineNo">060</span>  {<a name="line.60"></a>
 <span class="sourceLineNo">061</span>    map.put( "type", "TransactionCompleted" );<a name="line.61"></a>
-<span class="sourceLineNo">062</span>    map.put( "transaction", getName() );<a name="line.62"></a>
+<span class="sourceLineNo">062</span>    map.put( "name", getName() );<a name="line.62"></a>
 <span class="sourceLineNo">063</span>    map.put( "mutation", isMutation() );<a name="line.63"></a>
 <span class="sourceLineNo">064</span>    final ObserverInfo tracker = getTracker();<a name="line.64"></a>
 <span class="sourceLineNo">065</span>    map.put( "tracker", null == tracker ? null : tracker.getName() );<a name="line.65"></a>
