@@ -286,722 +286,728 @@
 <span class="sourceLineNo">278</span>    return 0 != ( _flags &amp; Flags.ENVIRONMENT_REQUIRED );<a name="line.278"></a>
 <span class="sourceLineNo">279</span>  }<a name="line.279"></a>
 <span class="sourceLineNo">280</span><a name="line.280"></a>
-<span class="sourceLineNo">281</span>  boolean isComputedValue()<a name="line.281"></a>
+<span class="sourceLineNo">281</span>  boolean noReportResults()<a name="line.281"></a>
 <span class="sourceLineNo">282</span>  {<a name="line.282"></a>
-<span class="sourceLineNo">283</span>    return null != _computedValue;<a name="line.283"></a>
-<span class="sourceLineNo">284</span>  }<a name="line.284"></a>
-<span class="sourceLineNo">285</span><a name="line.285"></a>
-<span class="sourceLineNo">286</span>  /**<a name="line.286"></a>
-<span class="sourceLineNo">287</span>   * Make the Observer INACTIVE and release any resources associated with observer.<a name="line.287"></a>
-<span class="sourceLineNo">288</span>   * The applications should NOT interact with the Observer after it has been disposed.<a name="line.288"></a>
-<span class="sourceLineNo">289</span>   */<a name="line.289"></a>
-<span class="sourceLineNo">290</span>  @Override<a name="line.290"></a>
-<span class="sourceLineNo">291</span>  public void dispose()<a name="line.291"></a>
-<span class="sourceLineNo">292</span>  {<a name="line.292"></a>
-<span class="sourceLineNo">293</span>    if ( !isDisposedOrDisposing() )<a name="line.293"></a>
-<span class="sourceLineNo">294</span>    {<a name="line.294"></a>
-<span class="sourceLineNo">295</span>      getContext().safeAction( Arez.areNamesEnabled() ? getName() + ".dispose" : null,<a name="line.295"></a>
-<span class="sourceLineNo">296</span>                               this::performDispose,<a name="line.296"></a>
-<span class="sourceLineNo">297</span>                               Flags.NO_VERIFY_ACTION_REQUIRED );<a name="line.297"></a>
-<span class="sourceLineNo">298</span>      if ( !isComputedValue() )<a name="line.298"></a>
-<span class="sourceLineNo">299</span>      {<a name="line.299"></a>
-<span class="sourceLineNo">300</span>        if ( willPropagateSpyEvents() )<a name="line.300"></a>
-<span class="sourceLineNo">301</span>        {<a name="line.301"></a>
-<span class="sourceLineNo">302</span>          reportSpyEvent( new ObserverDisposedEvent( asInfo() ) );<a name="line.302"></a>
-<span class="sourceLineNo">303</span>        }<a name="line.303"></a>
-<span class="sourceLineNo">304</span>        if ( null != _component )<a name="line.304"></a>
-<span class="sourceLineNo">305</span>        {<a name="line.305"></a>
-<span class="sourceLineNo">306</span>          _component.removeObserver( this );<a name="line.306"></a>
-<span class="sourceLineNo">307</span>        }<a name="line.307"></a>
-<span class="sourceLineNo">308</span>        else if ( Arez.areRegistriesEnabled() )<a name="line.308"></a>
-<span class="sourceLineNo">309</span>        {<a name="line.309"></a>
-<span class="sourceLineNo">310</span>          getContext().deregisterObserver( this );<a name="line.310"></a>
-<span class="sourceLineNo">311</span>        }<a name="line.311"></a>
-<span class="sourceLineNo">312</span>      }<a name="line.312"></a>
-<span class="sourceLineNo">313</span>      if ( null != _computedValue )<a name="line.313"></a>
-<span class="sourceLineNo">314</span>      {<a name="line.314"></a>
-<span class="sourceLineNo">315</span>        _computedValue.dispose();<a name="line.315"></a>
-<span class="sourceLineNo">316</span>      }<a name="line.316"></a>
-<span class="sourceLineNo">317</span>      markAsDisposed();<a name="line.317"></a>
-<span class="sourceLineNo">318</span>    }<a name="line.318"></a>
-<span class="sourceLineNo">319</span>  }<a name="line.319"></a>
-<span class="sourceLineNo">320</span><a name="line.320"></a>
-<span class="sourceLineNo">321</span>  private void performDispose()<a name="line.321"></a>
-<span class="sourceLineNo">322</span>  {<a name="line.322"></a>
-<span class="sourceLineNo">323</span>    getContext().getTransaction().reportDispose( this );<a name="line.323"></a>
-<span class="sourceLineNo">324</span>    markDependenciesLeastStaleObserverAsUpToDate();<a name="line.324"></a>
-<span class="sourceLineNo">325</span>    setState( Flags.STATE_DISPOSING );<a name="line.325"></a>
-<span class="sourceLineNo">326</span>  }<a name="line.326"></a>
-<span class="sourceLineNo">327</span><a name="line.327"></a>
-<span class="sourceLineNo">328</span>  void markAsDisposed()<a name="line.328"></a>
-<span class="sourceLineNo">329</span>  {<a name="line.329"></a>
-<span class="sourceLineNo">330</span>    _flags = Flags.setState( _flags, Flags.STATE_DISPOSED );<a name="line.330"></a>
-<span class="sourceLineNo">331</span>  }<a name="line.331"></a>
-<span class="sourceLineNo">332</span><a name="line.332"></a>
-<span class="sourceLineNo">333</span>  /**<a name="line.333"></a>
-<span class="sourceLineNo">334</span>   * {@inheritDoc}<a name="line.334"></a>
-<span class="sourceLineNo">335</span>   */<a name="line.335"></a>
-<span class="sourceLineNo">336</span>  @Override<a name="line.336"></a>
-<span class="sourceLineNo">337</span>  public boolean isDisposed()<a name="line.337"></a>
-<span class="sourceLineNo">338</span>  {<a name="line.338"></a>
-<span class="sourceLineNo">339</span>    return Flags.STATE_DISPOSED == getState();<a name="line.339"></a>
-<span class="sourceLineNo">340</span>  }<a name="line.340"></a>
-<span class="sourceLineNo">341</span><a name="line.341"></a>
-<span class="sourceLineNo">342</span>  boolean isDisposedOrDisposing()<a name="line.342"></a>
-<span class="sourceLineNo">343</span>  {<a name="line.343"></a>
-<span class="sourceLineNo">344</span>    return Flags.STATE_DISPOSING &gt;= getState();<a name="line.344"></a>
-<span class="sourceLineNo">345</span>  }<a name="line.345"></a>
-<span class="sourceLineNo">346</span><a name="line.346"></a>
-<span class="sourceLineNo">347</span>  /**<a name="line.347"></a>
-<span class="sourceLineNo">348</span>   * Return true during invocation of dispose, false otherwise.<a name="line.348"></a>
-<span class="sourceLineNo">349</span>   *<a name="line.349"></a>
-<span class="sourceLineNo">350</span>   * @return true during invocation of dispose, false otherwise.<a name="line.350"></a>
-<span class="sourceLineNo">351</span>   */<a name="line.351"></a>
-<span class="sourceLineNo">352</span>  boolean isDisposing()<a name="line.352"></a>
-<span class="sourceLineNo">353</span>  {<a name="line.353"></a>
-<span class="sourceLineNo">354</span>    return Flags.STATE_DISPOSING == getState();<a name="line.354"></a>
-<span class="sourceLineNo">355</span>  }<a name="line.355"></a>
-<span class="sourceLineNo">356</span><a name="line.356"></a>
-<span class="sourceLineNo">357</span>  /**<a name="line.357"></a>
-<span class="sourceLineNo">358</span>   * Return the state of the observer relative to the observers dependencies.<a name="line.358"></a>
-<span class="sourceLineNo">359</span>   *<a name="line.359"></a>
-<span class="sourceLineNo">360</span>   * @return the state of the observer relative to the observers dependencies.<a name="line.360"></a>
-<span class="sourceLineNo">361</span>   */<a name="line.361"></a>
-<span class="sourceLineNo">362</span>  int getState()<a name="line.362"></a>
-<span class="sourceLineNo">363</span>  {<a name="line.363"></a>
-<span class="sourceLineNo">364</span>    return Flags.getState( _flags );<a name="line.364"></a>
-<span class="sourceLineNo">365</span>  }<a name="line.365"></a>
-<span class="sourceLineNo">366</span><a name="line.366"></a>
-<span class="sourceLineNo">367</span>  int getLeastStaleObserverState()<a name="line.367"></a>
-<span class="sourceLineNo">368</span>  {<a name="line.368"></a>
-<span class="sourceLineNo">369</span>    return Flags.getLeastStaleObserverState( _flags );<a name="line.369"></a>
-<span class="sourceLineNo">370</span>  }<a name="line.370"></a>
-<span class="sourceLineNo">371</span><a name="line.371"></a>
-<span class="sourceLineNo">372</span>  /**<a name="line.372"></a>
-<span class="sourceLineNo">373</span>   * Return true if observer creates a READ_WRITE transaction.<a name="line.373"></a>
-<span class="sourceLineNo">374</span>   *<a name="line.374"></a>
-<span class="sourceLineNo">375</span>   * @return true if observer creates a READ_WRITE transaction.<a name="line.375"></a>
-<span class="sourceLineNo">376</span>   */<a name="line.376"></a>
-<span class="sourceLineNo">377</span>  boolean isMutation()<a name="line.377"></a>
-<span class="sourceLineNo">378</span>  {<a name="line.378"></a>
-<span class="sourceLineNo">379</span>    assert Arez.shouldEnforceTransactionType();<a name="line.379"></a>
-<span class="sourceLineNo">380</span>    return 0 != ( _flags &amp; Flags.READ_WRITE );<a name="line.380"></a>
-<span class="sourceLineNo">381</span>  }<a name="line.381"></a>
-<span class="sourceLineNo">382</span><a name="line.382"></a>
-<span class="sourceLineNo">383</span>  /**<a name="line.383"></a>
-<span class="sourceLineNo">384</span>   * Return true if the observer is active.<a name="line.384"></a>
-<span class="sourceLineNo">385</span>   * Being "active" means that the state of the observer is not {@link Flags#STATE_INACTIVE},<a name="line.385"></a>
-<span class="sourceLineNo">386</span>   * {@link Flags#STATE_DISPOSING} or {@link Flags#STATE_DISPOSED}.<a name="line.386"></a>
-<span class="sourceLineNo">387</span>   *<a name="line.387"></a>
-<span class="sourceLineNo">388</span>   * &lt;p&gt;An inactive observer has no dependencies and depending on the type of observer may<a name="line.388"></a>
-<span class="sourceLineNo">389</span>   * have other consequences. i.e. An inactive observer will never be scheduled even if it has a<a name="line.389"></a>
-<span class="sourceLineNo">390</span>   * reaction.&lt;/p&gt;<a name="line.390"></a>
-<span class="sourceLineNo">391</span>   *<a name="line.391"></a>
-<span class="sourceLineNo">392</span>   * @return true if the Observer is active.<a name="line.392"></a>
-<span class="sourceLineNo">393</span>   */<a name="line.393"></a>
-<span class="sourceLineNo">394</span>  boolean isActive()<a name="line.394"></a>
-<span class="sourceLineNo">395</span>  {<a name="line.395"></a>
-<span class="sourceLineNo">396</span>    return Flags.isActive( _flags );<a name="line.396"></a>
-<span class="sourceLineNo">397</span>  }<a name="line.397"></a>
-<span class="sourceLineNo">398</span><a name="line.398"></a>
-<span class="sourceLineNo">399</span>  /**<a name="line.399"></a>
-<span class="sourceLineNo">400</span>   * Return true if the observer is not active.<a name="line.400"></a>
-<span class="sourceLineNo">401</span>   * The inverse of {@link #isActive()}<a name="line.401"></a>
-<span class="sourceLineNo">402</span>   *<a name="line.402"></a>
-<span class="sourceLineNo">403</span>   * @return true if the Observer is inactive.<a name="line.403"></a>
-<span class="sourceLineNo">404</span>   */<a name="line.404"></a>
-<span class="sourceLineNo">405</span>  boolean isInactive()<a name="line.405"></a>
-<span class="sourceLineNo">406</span>  {<a name="line.406"></a>
-<span class="sourceLineNo">407</span>    return !isActive();<a name="line.407"></a>
-<span class="sourceLineNo">408</span>  }<a name="line.408"></a>
-<span class="sourceLineNo">409</span><a name="line.409"></a>
-<span class="sourceLineNo">410</span>  /**<a name="line.410"></a>
-<span class="sourceLineNo">411</span>   * This method should be invoked if the observer has non-arez dependencies and one of<a name="line.411"></a>
-<span class="sourceLineNo">412</span>   * these dependencies has been updated. This will mark the observer as stale and reschedule<a name="line.412"></a>
-<span class="sourceLineNo">413</span>   * the reaction if necessary. The method must be invoked from within a read-write transaction.<a name="line.413"></a>
-<span class="sourceLineNo">414</span>   * the reaction if necessary. The method must be invoked from within a read-write transaction.<a name="line.414"></a>
-<span class="sourceLineNo">415</span>   */<a name="line.415"></a>
-<span class="sourceLineNo">416</span>  public void reportStale()<a name="line.416"></a>
-<span class="sourceLineNo">417</span>  {<a name="line.417"></a>
-<span class="sourceLineNo">418</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.418"></a>
-<span class="sourceLineNo">419</span>    {<a name="line.419"></a>
-<span class="sourceLineNo">420</span>      apiInvariant( this::areExternalDependenciesAllowed,<a name="line.420"></a>
-<span class="sourceLineNo">421</span>                    () -&gt; "Arez-0199: Observer.reportStale() invoked on observer named '" + getName() +<a name="line.421"></a>
-<span class="sourceLineNo">422</span>                          "' but the observer has not specified AREZ_OR_EXTERNAL_DEPENDENCIES flag." );<a name="line.422"></a>
-<span class="sourceLineNo">423</span>      apiInvariant( () -&gt; getContext().isTransactionActive(),<a name="line.423"></a>
-<span class="sourceLineNo">424</span>                    () -&gt; "Arez-0200: Observer.reportStale() invoked on observer named '" + getName() +<a name="line.424"></a>
-<span class="sourceLineNo">425</span>                          "' when there is no active transaction." );<a name="line.425"></a>
-<span class="sourceLineNo">426</span>      apiInvariant( () -&gt; getContext().getTransaction().isMutation(),<a name="line.426"></a>
-<span class="sourceLineNo">427</span>                    () -&gt; "Arez-0201: Observer.reportStale() invoked on observer named '" + getName() +<a name="line.427"></a>
-<span class="sourceLineNo">428</span>                          "' when the active transaction '" + getContext().getTransaction().getName() +<a name="line.428"></a>
-<span class="sourceLineNo">429</span>                          "' is READ_ONLY rather than READ_WRITE." );<a name="line.429"></a>
-<span class="sourceLineNo">430</span>      getContext().getTransaction().markTransactionAsUsed();<a name="line.430"></a>
-<span class="sourceLineNo">431</span>    }<a name="line.431"></a>
-<span class="sourceLineNo">432</span>    setState( Flags.STATE_STALE );<a name="line.432"></a>
-<span class="sourceLineNo">433</span>  }<a name="line.433"></a>
-<span class="sourceLineNo">434</span><a name="line.434"></a>
-<span class="sourceLineNo">435</span>  /**<a name="line.435"></a>
-<span class="sourceLineNo">436</span>   * Set the state of the observer.<a name="line.436"></a>
-<span class="sourceLineNo">437</span>   * Call the hook actions for relevant state change.<a name="line.437"></a>
-<span class="sourceLineNo">438</span>   * This is equivalent to passing true in &lt;code&gt;schedule&lt;/code&gt; parameter to {@link #setState(int, boolean)}<a name="line.438"></a>
-<span class="sourceLineNo">439</span>   *<a name="line.439"></a>
-<span class="sourceLineNo">440</span>   * @param state the new state of the observer.<a name="line.440"></a>
-<span class="sourceLineNo">441</span>   */<a name="line.441"></a>
-<span class="sourceLineNo">442</span>  void setState( final int state )<a name="line.442"></a>
-<span class="sourceLineNo">443</span>  {<a name="line.443"></a>
-<span class="sourceLineNo">444</span>    setState( state, true );<a name="line.444"></a>
-<span class="sourceLineNo">445</span>  }<a name="line.445"></a>
-<span class="sourceLineNo">446</span><a name="line.446"></a>
-<span class="sourceLineNo">447</span>  /**<a name="line.447"></a>
-<span class="sourceLineNo">448</span>   * Set the state of the observer.<a name="line.448"></a>
-<span class="sourceLineNo">449</span>   * Call the hook actions for relevant state change.<a name="line.449"></a>
-<span class="sourceLineNo">450</span>   *<a name="line.450"></a>
-<span class="sourceLineNo">451</span>   * @param state    the new state of the observer.<a name="line.451"></a>
-<span class="sourceLineNo">452</span>   * @param schedule true if a state transition can cause observer to reschedule, false otherwise.<a name="line.452"></a>
-<span class="sourceLineNo">453</span>   */<a name="line.453"></a>
-<span class="sourceLineNo">454</span>  void setState( final int state, final boolean schedule )<a name="line.454"></a>
-<span class="sourceLineNo">455</span>  {<a name="line.455"></a>
-<span class="sourceLineNo">456</span>    if ( Arez.shouldCheckInvariants() )<a name="line.456"></a>
-<span class="sourceLineNo">457</span>    {<a name="line.457"></a>
-<span class="sourceLineNo">458</span>      invariant( () -&gt; getContext().isTransactionActive(),<a name="line.458"></a>
-<span class="sourceLineNo">459</span>                 () -&gt; "Arez-0086: Attempt to invoke setState on observer named '" + getName() + "' when there is " +<a name="line.459"></a>
-<span class="sourceLineNo">460</span>                       "no active transaction." );<a name="line.460"></a>
-<span class="sourceLineNo">461</span>      invariantState();<a name="line.461"></a>
-<span class="sourceLineNo">462</span>    }<a name="line.462"></a>
-<span class="sourceLineNo">463</span>    final int originalState = getState();<a name="line.463"></a>
-<span class="sourceLineNo">464</span>    if ( state != originalState )<a name="line.464"></a>
-<span class="sourceLineNo">465</span>    {<a name="line.465"></a>
-<span class="sourceLineNo">466</span>      _flags = Flags.setState( _flags, state );<a name="line.466"></a>
-<span class="sourceLineNo">467</span>      if ( Arez.shouldCheckInvariants() &amp;&amp; Flags.STATE_DISPOSED == originalState )<a name="line.467"></a>
-<span class="sourceLineNo">468</span>      {<a name="line.468"></a>
-<span class="sourceLineNo">469</span>        fail( () -&gt; "Arez-0087: Attempted to activate disposed observer named '" + getName() + "'." );<a name="line.469"></a>
-<span class="sourceLineNo">470</span>      }<a name="line.470"></a>
-<span class="sourceLineNo">471</span>      else if ( null == _computedValue &amp;&amp; Flags.STATE_STALE == state )<a name="line.471"></a>
-<span class="sourceLineNo">472</span>      {<a name="line.472"></a>
-<span class="sourceLineNo">473</span>        if ( schedule )<a name="line.473"></a>
-<span class="sourceLineNo">474</span>        {<a name="line.474"></a>
-<span class="sourceLineNo">475</span>          scheduleReaction();<a name="line.475"></a>
-<span class="sourceLineNo">476</span>        }<a name="line.476"></a>
-<span class="sourceLineNo">477</span>      }<a name="line.477"></a>
-<span class="sourceLineNo">478</span>      else if ( null != _computedValue &amp;&amp;<a name="line.478"></a>
-<span class="sourceLineNo">479</span>                Flags.STATE_UP_TO_DATE == originalState &amp;&amp;<a name="line.479"></a>
-<span class="sourceLineNo">480</span>                ( Flags.STATE_STALE == state || Flags.STATE_POSSIBLY_STALE == state ) )<a name="line.480"></a>
-<span class="sourceLineNo">481</span>      {<a name="line.481"></a>
-<span class="sourceLineNo">482</span>        _computedValue.getObservableValue().reportPossiblyChanged();<a name="line.482"></a>
-<span class="sourceLineNo">483</span>        runHook( _computedValue.getOnStale(), ObserverError.ON_STALE_ERROR );<a name="line.483"></a>
-<span class="sourceLineNo">484</span>        if ( schedule )<a name="line.484"></a>
-<span class="sourceLineNo">485</span>        {<a name="line.485"></a>
-<span class="sourceLineNo">486</span>          scheduleReaction();<a name="line.486"></a>
-<span class="sourceLineNo">487</span>        }<a name="line.487"></a>
-<span class="sourceLineNo">488</span>      }<a name="line.488"></a>
-<span class="sourceLineNo">489</span>      else if ( Flags.STATE_INACTIVE == state ||<a name="line.489"></a>
-<span class="sourceLineNo">490</span>                ( Flags.STATE_INACTIVE != originalState &amp;&amp; Flags.STATE_DISPOSING == state ) )<a name="line.490"></a>
-<span class="sourceLineNo">491</span>      {<a name="line.491"></a>
-<span class="sourceLineNo">492</span>        if ( isComputedValue() )<a name="line.492"></a>
-<span class="sourceLineNo">493</span>        {<a name="line.493"></a>
-<span class="sourceLineNo">494</span>          final ComputedValue&lt;?&gt; computedValue = getComputedValue();<a name="line.494"></a>
-<span class="sourceLineNo">495</span>          runHook( computedValue.getOnDeactivate(), ObserverError.ON_DEACTIVATE_ERROR );<a name="line.495"></a>
-<span class="sourceLineNo">496</span>          computedValue.setValue( null );<a name="line.496"></a>
-<span class="sourceLineNo">497</span>        }<a name="line.497"></a>
-<span class="sourceLineNo">498</span>        clearDependencies();<a name="line.498"></a>
-<span class="sourceLineNo">499</span>      }<a name="line.499"></a>
-<span class="sourceLineNo">500</span>      else if ( Flags.STATE_INACTIVE == originalState )<a name="line.500"></a>
-<span class="sourceLineNo">501</span>      {<a name="line.501"></a>
-<span class="sourceLineNo">502</span>        if ( isComputedValue() )<a name="line.502"></a>
-<span class="sourceLineNo">503</span>        {<a name="line.503"></a>
-<span class="sourceLineNo">504</span>          runHook( getComputedValue().getOnActivate(), ObserverError.ON_ACTIVATE_ERROR );<a name="line.504"></a>
-<span class="sourceLineNo">505</span>        }<a name="line.505"></a>
-<span class="sourceLineNo">506</span>      }<a name="line.506"></a>
-<span class="sourceLineNo">507</span>      if ( Arez.shouldCheckInvariants() )<a name="line.507"></a>
-<span class="sourceLineNo">508</span>      {<a name="line.508"></a>
-<span class="sourceLineNo">509</span>        invariantState();<a name="line.509"></a>
-<span class="sourceLineNo">510</span>      }<a name="line.510"></a>
-<span class="sourceLineNo">511</span>    }<a name="line.511"></a>
-<span class="sourceLineNo">512</span>  }<a name="line.512"></a>
-<span class="sourceLineNo">513</span><a name="line.513"></a>
-<span class="sourceLineNo">514</span>  /**<a name="line.514"></a>
-<span class="sourceLineNo">515</span>   * Run the supplied hook if non null.<a name="line.515"></a>
-<span class="sourceLineNo">516</span>   *<a name="line.516"></a>
-<span class="sourceLineNo">517</span>   * @param hook the hook to run.<a name="line.517"></a>
-<span class="sourceLineNo">518</span>   */<a name="line.518"></a>
-<span class="sourceLineNo">519</span>  void runHook( @Nullable final Procedure hook, @Nonnull final ObserverError error )<a name="line.519"></a>
-<span class="sourceLineNo">520</span>  {<a name="line.520"></a>
-<span class="sourceLineNo">521</span>    if ( null != hook )<a name="line.521"></a>
-<span class="sourceLineNo">522</span>    {<a name="line.522"></a>
-<span class="sourceLineNo">523</span>      try<a name="line.523"></a>
-<span class="sourceLineNo">524</span>      {<a name="line.524"></a>
-<span class="sourceLineNo">525</span>        hook.call();<a name="line.525"></a>
-<span class="sourceLineNo">526</span>      }<a name="line.526"></a>
-<span class="sourceLineNo">527</span>      catch ( final Throwable t )<a name="line.527"></a>
-<span class="sourceLineNo">528</span>      {<a name="line.528"></a>
-<span class="sourceLineNo">529</span>        getContext().reportObserverError( this, error, t );<a name="line.529"></a>
-<span class="sourceLineNo">530</span>      }<a name="line.530"></a>
-<span class="sourceLineNo">531</span>    }<a name="line.531"></a>
-<span class="sourceLineNo">532</span>  }<a name="line.532"></a>
-<span class="sourceLineNo">533</span><a name="line.533"></a>
-<span class="sourceLineNo">534</span>  /**<a name="line.534"></a>
-<span class="sourceLineNo">535</span>   * Remove all dependencies, removing this observer from all dependencies in the process.<a name="line.535"></a>
-<span class="sourceLineNo">536</span>   */<a name="line.536"></a>
-<span class="sourceLineNo">537</span>  void clearDependencies()<a name="line.537"></a>
-<span class="sourceLineNo">538</span>  {<a name="line.538"></a>
-<span class="sourceLineNo">539</span>    getDependencies().forEach( dependency -&gt; {<a name="line.539"></a>
-<span class="sourceLineNo">540</span>      dependency.removeObserver( this );<a name="line.540"></a>
-<span class="sourceLineNo">541</span>      if ( !dependency.hasObservers() )<a name="line.541"></a>
-<span class="sourceLineNo">542</span>      {<a name="line.542"></a>
-<span class="sourceLineNo">543</span>        dependency.setLeastStaleObserverState( Flags.STATE_UP_TO_DATE );<a name="line.543"></a>
-<span class="sourceLineNo">544</span>      }<a name="line.544"></a>
-<span class="sourceLineNo">545</span>    } );<a name="line.545"></a>
-<span class="sourceLineNo">546</span>    getDependencies().clear();<a name="line.546"></a>
-<span class="sourceLineNo">547</span>  }<a name="line.547"></a>
-<span class="sourceLineNo">548</span><a name="line.548"></a>
-<span class="sourceLineNo">549</span>  /**<a name="line.549"></a>
-<span class="sourceLineNo">550</span>   * Return true if this observer has a pending reaction.<a name="line.550"></a>
-<span class="sourceLineNo">551</span>   *<a name="line.551"></a>
-<span class="sourceLineNo">552</span>   * @return true if this observer has a pending reaction.<a name="line.552"></a>
-<span class="sourceLineNo">553</span>   */<a name="line.553"></a>
-<span class="sourceLineNo">554</span>  boolean isScheduled()<a name="line.554"></a>
-<span class="sourceLineNo">555</span>  {<a name="line.555"></a>
-<span class="sourceLineNo">556</span>    return 0 != ( _flags &amp; Flags.SCHEDULED );<a name="line.556"></a>
-<span class="sourceLineNo">557</span>  }<a name="line.557"></a>
-<span class="sourceLineNo">558</span><a name="line.558"></a>
-<span class="sourceLineNo">559</span>  /**<a name="line.559"></a>
-<span class="sourceLineNo">560</span>   * Clear the scheduled flag. This is called when the observer's reaction is executed so it can be scheduled again.<a name="line.560"></a>
-<span class="sourceLineNo">561</span>   */<a name="line.561"></a>
-<span class="sourceLineNo">562</span>  void clearScheduledFlag()<a name="line.562"></a>
-<span class="sourceLineNo">563</span>  {<a name="line.563"></a>
-<span class="sourceLineNo">564</span>    _flags &amp;= ~Flags.SCHEDULED;<a name="line.564"></a>
-<span class="sourceLineNo">565</span>  }<a name="line.565"></a>
-<span class="sourceLineNo">566</span><a name="line.566"></a>
-<span class="sourceLineNo">567</span>  /**<a name="line.567"></a>
-<span class="sourceLineNo">568</span>   * Set the scheduled flag. This is called when the observer is schedule so it can not be scheduled again until it has run.<a name="line.568"></a>
-<span class="sourceLineNo">569</span>   */<a name="line.569"></a>
-<span class="sourceLineNo">570</span>  void setScheduledFlag()<a name="line.570"></a>
-<span class="sourceLineNo">571</span>  {<a name="line.571"></a>
-<span class="sourceLineNo">572</span>    _flags |= Flags.SCHEDULED;<a name="line.572"></a>
-<span class="sourceLineNo">573</span>  }<a name="line.573"></a>
-<span class="sourceLineNo">574</span><a name="line.574"></a>
-<span class="sourceLineNo">575</span>  /**<a name="line.575"></a>
-<span class="sourceLineNo">576</span>   * Schedule this observer if it does not already have a reaction pending.<a name="line.576"></a>
-<span class="sourceLineNo">577</span>   * The observer will not actually react if it is not already marked as STALE.<a name="line.577"></a>
-<span class="sourceLineNo">578</span>   */<a name="line.578"></a>
-<span class="sourceLineNo">579</span>  public void schedule()<a name="line.579"></a>
-<span class="sourceLineNo">580</span>  {<a name="line.580"></a>
-<span class="sourceLineNo">581</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.581"></a>
-<span class="sourceLineNo">582</span>    {<a name="line.582"></a>
-<span class="sourceLineNo">583</span>      apiInvariant( this::supportsManualSchedule,<a name="line.583"></a>
-<span class="sourceLineNo">584</span>                    () -&gt; "Arez-0202: Observer.schedule() invoked on observer named '" + getName() +<a name="line.584"></a>
-<span class="sourceLineNo">585</span>                          "' but supportsManualSchedule() returns false." );<a name="line.585"></a>
-<span class="sourceLineNo">586</span>    }<a name="line.586"></a>
-<span class="sourceLineNo">587</span>    if ( Arez.shouldEnforceTransactionType() &amp;&amp; getContext().isTransactionActive() &amp;&amp; Arez.shouldCheckInvariants() )<a name="line.587"></a>
+<span class="sourceLineNo">283</span>    assert Arez.areSpiesEnabled();<a name="line.283"></a>
+<span class="sourceLineNo">284</span>    return 0 != ( _flags &amp; Flags.NO_REPORT_RESULT );<a name="line.284"></a>
+<span class="sourceLineNo">285</span>  }<a name="line.285"></a>
+<span class="sourceLineNo">286</span><a name="line.286"></a>
+<span class="sourceLineNo">287</span>  boolean isComputedValue()<a name="line.287"></a>
+<span class="sourceLineNo">288</span>  {<a name="line.288"></a>
+<span class="sourceLineNo">289</span>    return null != _computedValue;<a name="line.289"></a>
+<span class="sourceLineNo">290</span>  }<a name="line.290"></a>
+<span class="sourceLineNo">291</span><a name="line.291"></a>
+<span class="sourceLineNo">292</span>  /**<a name="line.292"></a>
+<span class="sourceLineNo">293</span>   * Make the Observer INACTIVE and release any resources associated with observer.<a name="line.293"></a>
+<span class="sourceLineNo">294</span>   * The applications should NOT interact with the Observer after it has been disposed.<a name="line.294"></a>
+<span class="sourceLineNo">295</span>   */<a name="line.295"></a>
+<span class="sourceLineNo">296</span>  @Override<a name="line.296"></a>
+<span class="sourceLineNo">297</span>  public void dispose()<a name="line.297"></a>
+<span class="sourceLineNo">298</span>  {<a name="line.298"></a>
+<span class="sourceLineNo">299</span>    if ( !isDisposedOrDisposing() )<a name="line.299"></a>
+<span class="sourceLineNo">300</span>    {<a name="line.300"></a>
+<span class="sourceLineNo">301</span>      getContext().safeAction( Arez.areNamesEnabled() ? getName() + ".dispose" : null,<a name="line.301"></a>
+<span class="sourceLineNo">302</span>                               this::performDispose,<a name="line.302"></a>
+<span class="sourceLineNo">303</span>                               Flags.NO_VERIFY_ACTION_REQUIRED );<a name="line.303"></a>
+<span class="sourceLineNo">304</span>      if ( !isComputedValue() )<a name="line.304"></a>
+<span class="sourceLineNo">305</span>      {<a name="line.305"></a>
+<span class="sourceLineNo">306</span>        if ( willPropagateSpyEvents() )<a name="line.306"></a>
+<span class="sourceLineNo">307</span>        {<a name="line.307"></a>
+<span class="sourceLineNo">308</span>          reportSpyEvent( new ObserverDisposedEvent( asInfo() ) );<a name="line.308"></a>
+<span class="sourceLineNo">309</span>        }<a name="line.309"></a>
+<span class="sourceLineNo">310</span>        if ( null != _component )<a name="line.310"></a>
+<span class="sourceLineNo">311</span>        {<a name="line.311"></a>
+<span class="sourceLineNo">312</span>          _component.removeObserver( this );<a name="line.312"></a>
+<span class="sourceLineNo">313</span>        }<a name="line.313"></a>
+<span class="sourceLineNo">314</span>        else if ( Arez.areRegistriesEnabled() )<a name="line.314"></a>
+<span class="sourceLineNo">315</span>        {<a name="line.315"></a>
+<span class="sourceLineNo">316</span>          getContext().deregisterObserver( this );<a name="line.316"></a>
+<span class="sourceLineNo">317</span>        }<a name="line.317"></a>
+<span class="sourceLineNo">318</span>      }<a name="line.318"></a>
+<span class="sourceLineNo">319</span>      if ( null != _computedValue )<a name="line.319"></a>
+<span class="sourceLineNo">320</span>      {<a name="line.320"></a>
+<span class="sourceLineNo">321</span>        _computedValue.dispose();<a name="line.321"></a>
+<span class="sourceLineNo">322</span>      }<a name="line.322"></a>
+<span class="sourceLineNo">323</span>      markAsDisposed();<a name="line.323"></a>
+<span class="sourceLineNo">324</span>    }<a name="line.324"></a>
+<span class="sourceLineNo">325</span>  }<a name="line.325"></a>
+<span class="sourceLineNo">326</span><a name="line.326"></a>
+<span class="sourceLineNo">327</span>  private void performDispose()<a name="line.327"></a>
+<span class="sourceLineNo">328</span>  {<a name="line.328"></a>
+<span class="sourceLineNo">329</span>    getContext().getTransaction().reportDispose( this );<a name="line.329"></a>
+<span class="sourceLineNo">330</span>    markDependenciesLeastStaleObserverAsUpToDate();<a name="line.330"></a>
+<span class="sourceLineNo">331</span>    setState( Flags.STATE_DISPOSING );<a name="line.331"></a>
+<span class="sourceLineNo">332</span>  }<a name="line.332"></a>
+<span class="sourceLineNo">333</span><a name="line.333"></a>
+<span class="sourceLineNo">334</span>  void markAsDisposed()<a name="line.334"></a>
+<span class="sourceLineNo">335</span>  {<a name="line.335"></a>
+<span class="sourceLineNo">336</span>    _flags = Flags.setState( _flags, Flags.STATE_DISPOSED );<a name="line.336"></a>
+<span class="sourceLineNo">337</span>  }<a name="line.337"></a>
+<span class="sourceLineNo">338</span><a name="line.338"></a>
+<span class="sourceLineNo">339</span>  /**<a name="line.339"></a>
+<span class="sourceLineNo">340</span>   * {@inheritDoc}<a name="line.340"></a>
+<span class="sourceLineNo">341</span>   */<a name="line.341"></a>
+<span class="sourceLineNo">342</span>  @Override<a name="line.342"></a>
+<span class="sourceLineNo">343</span>  public boolean isDisposed()<a name="line.343"></a>
+<span class="sourceLineNo">344</span>  {<a name="line.344"></a>
+<span class="sourceLineNo">345</span>    return Flags.STATE_DISPOSED == getState();<a name="line.345"></a>
+<span class="sourceLineNo">346</span>  }<a name="line.346"></a>
+<span class="sourceLineNo">347</span><a name="line.347"></a>
+<span class="sourceLineNo">348</span>  boolean isDisposedOrDisposing()<a name="line.348"></a>
+<span class="sourceLineNo">349</span>  {<a name="line.349"></a>
+<span class="sourceLineNo">350</span>    return Flags.STATE_DISPOSING &gt;= getState();<a name="line.350"></a>
+<span class="sourceLineNo">351</span>  }<a name="line.351"></a>
+<span class="sourceLineNo">352</span><a name="line.352"></a>
+<span class="sourceLineNo">353</span>  /**<a name="line.353"></a>
+<span class="sourceLineNo">354</span>   * Return true during invocation of dispose, false otherwise.<a name="line.354"></a>
+<span class="sourceLineNo">355</span>   *<a name="line.355"></a>
+<span class="sourceLineNo">356</span>   * @return true during invocation of dispose, false otherwise.<a name="line.356"></a>
+<span class="sourceLineNo">357</span>   */<a name="line.357"></a>
+<span class="sourceLineNo">358</span>  boolean isDisposing()<a name="line.358"></a>
+<span class="sourceLineNo">359</span>  {<a name="line.359"></a>
+<span class="sourceLineNo">360</span>    return Flags.STATE_DISPOSING == getState();<a name="line.360"></a>
+<span class="sourceLineNo">361</span>  }<a name="line.361"></a>
+<span class="sourceLineNo">362</span><a name="line.362"></a>
+<span class="sourceLineNo">363</span>  /**<a name="line.363"></a>
+<span class="sourceLineNo">364</span>   * Return the state of the observer relative to the observers dependencies.<a name="line.364"></a>
+<span class="sourceLineNo">365</span>   *<a name="line.365"></a>
+<span class="sourceLineNo">366</span>   * @return the state of the observer relative to the observers dependencies.<a name="line.366"></a>
+<span class="sourceLineNo">367</span>   */<a name="line.367"></a>
+<span class="sourceLineNo">368</span>  int getState()<a name="line.368"></a>
+<span class="sourceLineNo">369</span>  {<a name="line.369"></a>
+<span class="sourceLineNo">370</span>    return Flags.getState( _flags );<a name="line.370"></a>
+<span class="sourceLineNo">371</span>  }<a name="line.371"></a>
+<span class="sourceLineNo">372</span><a name="line.372"></a>
+<span class="sourceLineNo">373</span>  int getLeastStaleObserverState()<a name="line.373"></a>
+<span class="sourceLineNo">374</span>  {<a name="line.374"></a>
+<span class="sourceLineNo">375</span>    return Flags.getLeastStaleObserverState( _flags );<a name="line.375"></a>
+<span class="sourceLineNo">376</span>  }<a name="line.376"></a>
+<span class="sourceLineNo">377</span><a name="line.377"></a>
+<span class="sourceLineNo">378</span>  /**<a name="line.378"></a>
+<span class="sourceLineNo">379</span>   * Return true if observer creates a READ_WRITE transaction.<a name="line.379"></a>
+<span class="sourceLineNo">380</span>   *<a name="line.380"></a>
+<span class="sourceLineNo">381</span>   * @return true if observer creates a READ_WRITE transaction.<a name="line.381"></a>
+<span class="sourceLineNo">382</span>   */<a name="line.382"></a>
+<span class="sourceLineNo">383</span>  boolean isMutation()<a name="line.383"></a>
+<span class="sourceLineNo">384</span>  {<a name="line.384"></a>
+<span class="sourceLineNo">385</span>    assert Arez.shouldEnforceTransactionType();<a name="line.385"></a>
+<span class="sourceLineNo">386</span>    return 0 != ( _flags &amp; Flags.READ_WRITE );<a name="line.386"></a>
+<span class="sourceLineNo">387</span>  }<a name="line.387"></a>
+<span class="sourceLineNo">388</span><a name="line.388"></a>
+<span class="sourceLineNo">389</span>  /**<a name="line.389"></a>
+<span class="sourceLineNo">390</span>   * Return true if the observer is active.<a name="line.390"></a>
+<span class="sourceLineNo">391</span>   * Being "active" means that the state of the observer is not {@link Flags#STATE_INACTIVE},<a name="line.391"></a>
+<span class="sourceLineNo">392</span>   * {@link Flags#STATE_DISPOSING} or {@link Flags#STATE_DISPOSED}.<a name="line.392"></a>
+<span class="sourceLineNo">393</span>   *<a name="line.393"></a>
+<span class="sourceLineNo">394</span>   * &lt;p&gt;An inactive observer has no dependencies and depending on the type of observer may<a name="line.394"></a>
+<span class="sourceLineNo">395</span>   * have other consequences. i.e. An inactive observer will never be scheduled even if it has a<a name="line.395"></a>
+<span class="sourceLineNo">396</span>   * reaction.&lt;/p&gt;<a name="line.396"></a>
+<span class="sourceLineNo">397</span>   *<a name="line.397"></a>
+<span class="sourceLineNo">398</span>   * @return true if the Observer is active.<a name="line.398"></a>
+<span class="sourceLineNo">399</span>   */<a name="line.399"></a>
+<span class="sourceLineNo">400</span>  boolean isActive()<a name="line.400"></a>
+<span class="sourceLineNo">401</span>  {<a name="line.401"></a>
+<span class="sourceLineNo">402</span>    return Flags.isActive( _flags );<a name="line.402"></a>
+<span class="sourceLineNo">403</span>  }<a name="line.403"></a>
+<span class="sourceLineNo">404</span><a name="line.404"></a>
+<span class="sourceLineNo">405</span>  /**<a name="line.405"></a>
+<span class="sourceLineNo">406</span>   * Return true if the observer is not active.<a name="line.406"></a>
+<span class="sourceLineNo">407</span>   * The inverse of {@link #isActive()}<a name="line.407"></a>
+<span class="sourceLineNo">408</span>   *<a name="line.408"></a>
+<span class="sourceLineNo">409</span>   * @return true if the Observer is inactive.<a name="line.409"></a>
+<span class="sourceLineNo">410</span>   */<a name="line.410"></a>
+<span class="sourceLineNo">411</span>  boolean isInactive()<a name="line.411"></a>
+<span class="sourceLineNo">412</span>  {<a name="line.412"></a>
+<span class="sourceLineNo">413</span>    return !isActive();<a name="line.413"></a>
+<span class="sourceLineNo">414</span>  }<a name="line.414"></a>
+<span class="sourceLineNo">415</span><a name="line.415"></a>
+<span class="sourceLineNo">416</span>  /**<a name="line.416"></a>
+<span class="sourceLineNo">417</span>   * This method should be invoked if the observer has non-arez dependencies and one of<a name="line.417"></a>
+<span class="sourceLineNo">418</span>   * these dependencies has been updated. This will mark the observer as stale and reschedule<a name="line.418"></a>
+<span class="sourceLineNo">419</span>   * the reaction if necessary. The method must be invoked from within a read-write transaction.<a name="line.419"></a>
+<span class="sourceLineNo">420</span>   * the reaction if necessary. The method must be invoked from within a read-write transaction.<a name="line.420"></a>
+<span class="sourceLineNo">421</span>   */<a name="line.421"></a>
+<span class="sourceLineNo">422</span>  public void reportStale()<a name="line.422"></a>
+<span class="sourceLineNo">423</span>  {<a name="line.423"></a>
+<span class="sourceLineNo">424</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.424"></a>
+<span class="sourceLineNo">425</span>    {<a name="line.425"></a>
+<span class="sourceLineNo">426</span>      apiInvariant( this::areExternalDependenciesAllowed,<a name="line.426"></a>
+<span class="sourceLineNo">427</span>                    () -&gt; "Arez-0199: Observer.reportStale() invoked on observer named '" + getName() +<a name="line.427"></a>
+<span class="sourceLineNo">428</span>                          "' but the observer has not specified AREZ_OR_EXTERNAL_DEPENDENCIES flag." );<a name="line.428"></a>
+<span class="sourceLineNo">429</span>      apiInvariant( () -&gt; getContext().isTransactionActive(),<a name="line.429"></a>
+<span class="sourceLineNo">430</span>                    () -&gt; "Arez-0200: Observer.reportStale() invoked on observer named '" + getName() +<a name="line.430"></a>
+<span class="sourceLineNo">431</span>                          "' when there is no active transaction." );<a name="line.431"></a>
+<span class="sourceLineNo">432</span>      apiInvariant( () -&gt; getContext().getTransaction().isMutation(),<a name="line.432"></a>
+<span class="sourceLineNo">433</span>                    () -&gt; "Arez-0201: Observer.reportStale() invoked on observer named '" + getName() +<a name="line.433"></a>
+<span class="sourceLineNo">434</span>                          "' when the active transaction '" + getContext().getTransaction().getName() +<a name="line.434"></a>
+<span class="sourceLineNo">435</span>                          "' is READ_ONLY rather than READ_WRITE." );<a name="line.435"></a>
+<span class="sourceLineNo">436</span>      getContext().getTransaction().markTransactionAsUsed();<a name="line.436"></a>
+<span class="sourceLineNo">437</span>    }<a name="line.437"></a>
+<span class="sourceLineNo">438</span>    setState( Flags.STATE_STALE );<a name="line.438"></a>
+<span class="sourceLineNo">439</span>  }<a name="line.439"></a>
+<span class="sourceLineNo">440</span><a name="line.440"></a>
+<span class="sourceLineNo">441</span>  /**<a name="line.441"></a>
+<span class="sourceLineNo">442</span>   * Set the state of the observer.<a name="line.442"></a>
+<span class="sourceLineNo">443</span>   * Call the hook actions for relevant state change.<a name="line.443"></a>
+<span class="sourceLineNo">444</span>   * This is equivalent to passing true in &lt;code&gt;schedule&lt;/code&gt; parameter to {@link #setState(int, boolean)}<a name="line.444"></a>
+<span class="sourceLineNo">445</span>   *<a name="line.445"></a>
+<span class="sourceLineNo">446</span>   * @param state the new state of the observer.<a name="line.446"></a>
+<span class="sourceLineNo">447</span>   */<a name="line.447"></a>
+<span class="sourceLineNo">448</span>  void setState( final int state )<a name="line.448"></a>
+<span class="sourceLineNo">449</span>  {<a name="line.449"></a>
+<span class="sourceLineNo">450</span>    setState( state, true );<a name="line.450"></a>
+<span class="sourceLineNo">451</span>  }<a name="line.451"></a>
+<span class="sourceLineNo">452</span><a name="line.452"></a>
+<span class="sourceLineNo">453</span>  /**<a name="line.453"></a>
+<span class="sourceLineNo">454</span>   * Set the state of the observer.<a name="line.454"></a>
+<span class="sourceLineNo">455</span>   * Call the hook actions for relevant state change.<a name="line.455"></a>
+<span class="sourceLineNo">456</span>   *<a name="line.456"></a>
+<span class="sourceLineNo">457</span>   * @param state    the new state of the observer.<a name="line.457"></a>
+<span class="sourceLineNo">458</span>   * @param schedule true if a state transition can cause observer to reschedule, false otherwise.<a name="line.458"></a>
+<span class="sourceLineNo">459</span>   */<a name="line.459"></a>
+<span class="sourceLineNo">460</span>  void setState( final int state, final boolean schedule )<a name="line.460"></a>
+<span class="sourceLineNo">461</span>  {<a name="line.461"></a>
+<span class="sourceLineNo">462</span>    if ( Arez.shouldCheckInvariants() )<a name="line.462"></a>
+<span class="sourceLineNo">463</span>    {<a name="line.463"></a>
+<span class="sourceLineNo">464</span>      invariant( () -&gt; getContext().isTransactionActive(),<a name="line.464"></a>
+<span class="sourceLineNo">465</span>                 () -&gt; "Arez-0086: Attempt to invoke setState on observer named '" + getName() + "' when there is " +<a name="line.465"></a>
+<span class="sourceLineNo">466</span>                       "no active transaction." );<a name="line.466"></a>
+<span class="sourceLineNo">467</span>      invariantState();<a name="line.467"></a>
+<span class="sourceLineNo">468</span>    }<a name="line.468"></a>
+<span class="sourceLineNo">469</span>    final int originalState = getState();<a name="line.469"></a>
+<span class="sourceLineNo">470</span>    if ( state != originalState )<a name="line.470"></a>
+<span class="sourceLineNo">471</span>    {<a name="line.471"></a>
+<span class="sourceLineNo">472</span>      _flags = Flags.setState( _flags, state );<a name="line.472"></a>
+<span class="sourceLineNo">473</span>      if ( Arez.shouldCheckInvariants() &amp;&amp; Flags.STATE_DISPOSED == originalState )<a name="line.473"></a>
+<span class="sourceLineNo">474</span>      {<a name="line.474"></a>
+<span class="sourceLineNo">475</span>        fail( () -&gt; "Arez-0087: Attempted to activate disposed observer named '" + getName() + "'." );<a name="line.475"></a>
+<span class="sourceLineNo">476</span>      }<a name="line.476"></a>
+<span class="sourceLineNo">477</span>      else if ( null == _computedValue &amp;&amp; Flags.STATE_STALE == state )<a name="line.477"></a>
+<span class="sourceLineNo">478</span>      {<a name="line.478"></a>
+<span class="sourceLineNo">479</span>        if ( schedule )<a name="line.479"></a>
+<span class="sourceLineNo">480</span>        {<a name="line.480"></a>
+<span class="sourceLineNo">481</span>          scheduleReaction();<a name="line.481"></a>
+<span class="sourceLineNo">482</span>        }<a name="line.482"></a>
+<span class="sourceLineNo">483</span>      }<a name="line.483"></a>
+<span class="sourceLineNo">484</span>      else if ( null != _computedValue &amp;&amp;<a name="line.484"></a>
+<span class="sourceLineNo">485</span>                Flags.STATE_UP_TO_DATE == originalState &amp;&amp;<a name="line.485"></a>
+<span class="sourceLineNo">486</span>                ( Flags.STATE_STALE == state || Flags.STATE_POSSIBLY_STALE == state ) )<a name="line.486"></a>
+<span class="sourceLineNo">487</span>      {<a name="line.487"></a>
+<span class="sourceLineNo">488</span>        _computedValue.getObservableValue().reportPossiblyChanged();<a name="line.488"></a>
+<span class="sourceLineNo">489</span>        runHook( _computedValue.getOnStale(), ObserverError.ON_STALE_ERROR );<a name="line.489"></a>
+<span class="sourceLineNo">490</span>        if ( schedule )<a name="line.490"></a>
+<span class="sourceLineNo">491</span>        {<a name="line.491"></a>
+<span class="sourceLineNo">492</span>          scheduleReaction();<a name="line.492"></a>
+<span class="sourceLineNo">493</span>        }<a name="line.493"></a>
+<span class="sourceLineNo">494</span>      }<a name="line.494"></a>
+<span class="sourceLineNo">495</span>      else if ( Flags.STATE_INACTIVE == state ||<a name="line.495"></a>
+<span class="sourceLineNo">496</span>                ( Flags.STATE_INACTIVE != originalState &amp;&amp; Flags.STATE_DISPOSING == state ) )<a name="line.496"></a>
+<span class="sourceLineNo">497</span>      {<a name="line.497"></a>
+<span class="sourceLineNo">498</span>        if ( isComputedValue() )<a name="line.498"></a>
+<span class="sourceLineNo">499</span>        {<a name="line.499"></a>
+<span class="sourceLineNo">500</span>          final ComputedValue&lt;?&gt; computedValue = getComputedValue();<a name="line.500"></a>
+<span class="sourceLineNo">501</span>          runHook( computedValue.getOnDeactivate(), ObserverError.ON_DEACTIVATE_ERROR );<a name="line.501"></a>
+<span class="sourceLineNo">502</span>          computedValue.setValue( null );<a name="line.502"></a>
+<span class="sourceLineNo">503</span>        }<a name="line.503"></a>
+<span class="sourceLineNo">504</span>        clearDependencies();<a name="line.504"></a>
+<span class="sourceLineNo">505</span>      }<a name="line.505"></a>
+<span class="sourceLineNo">506</span>      else if ( Flags.STATE_INACTIVE == originalState )<a name="line.506"></a>
+<span class="sourceLineNo">507</span>      {<a name="line.507"></a>
+<span class="sourceLineNo">508</span>        if ( isComputedValue() )<a name="line.508"></a>
+<span class="sourceLineNo">509</span>        {<a name="line.509"></a>
+<span class="sourceLineNo">510</span>          runHook( getComputedValue().getOnActivate(), ObserverError.ON_ACTIVATE_ERROR );<a name="line.510"></a>
+<span class="sourceLineNo">511</span>        }<a name="line.511"></a>
+<span class="sourceLineNo">512</span>      }<a name="line.512"></a>
+<span class="sourceLineNo">513</span>      if ( Arez.shouldCheckInvariants() )<a name="line.513"></a>
+<span class="sourceLineNo">514</span>      {<a name="line.514"></a>
+<span class="sourceLineNo">515</span>        invariantState();<a name="line.515"></a>
+<span class="sourceLineNo">516</span>      }<a name="line.516"></a>
+<span class="sourceLineNo">517</span>    }<a name="line.517"></a>
+<span class="sourceLineNo">518</span>  }<a name="line.518"></a>
+<span class="sourceLineNo">519</span><a name="line.519"></a>
+<span class="sourceLineNo">520</span>  /**<a name="line.520"></a>
+<span class="sourceLineNo">521</span>   * Run the supplied hook if non null.<a name="line.521"></a>
+<span class="sourceLineNo">522</span>   *<a name="line.522"></a>
+<span class="sourceLineNo">523</span>   * @param hook the hook to run.<a name="line.523"></a>
+<span class="sourceLineNo">524</span>   */<a name="line.524"></a>
+<span class="sourceLineNo">525</span>  void runHook( @Nullable final Procedure hook, @Nonnull final ObserverError error )<a name="line.525"></a>
+<span class="sourceLineNo">526</span>  {<a name="line.526"></a>
+<span class="sourceLineNo">527</span>    if ( null != hook )<a name="line.527"></a>
+<span class="sourceLineNo">528</span>    {<a name="line.528"></a>
+<span class="sourceLineNo">529</span>      try<a name="line.529"></a>
+<span class="sourceLineNo">530</span>      {<a name="line.530"></a>
+<span class="sourceLineNo">531</span>        hook.call();<a name="line.531"></a>
+<span class="sourceLineNo">532</span>      }<a name="line.532"></a>
+<span class="sourceLineNo">533</span>      catch ( final Throwable t )<a name="line.533"></a>
+<span class="sourceLineNo">534</span>      {<a name="line.534"></a>
+<span class="sourceLineNo">535</span>        getContext().reportObserverError( this, error, t );<a name="line.535"></a>
+<span class="sourceLineNo">536</span>      }<a name="line.536"></a>
+<span class="sourceLineNo">537</span>    }<a name="line.537"></a>
+<span class="sourceLineNo">538</span>  }<a name="line.538"></a>
+<span class="sourceLineNo">539</span><a name="line.539"></a>
+<span class="sourceLineNo">540</span>  /**<a name="line.540"></a>
+<span class="sourceLineNo">541</span>   * Remove all dependencies, removing this observer from all dependencies in the process.<a name="line.541"></a>
+<span class="sourceLineNo">542</span>   */<a name="line.542"></a>
+<span class="sourceLineNo">543</span>  void clearDependencies()<a name="line.543"></a>
+<span class="sourceLineNo">544</span>  {<a name="line.544"></a>
+<span class="sourceLineNo">545</span>    getDependencies().forEach( dependency -&gt; {<a name="line.545"></a>
+<span class="sourceLineNo">546</span>      dependency.removeObserver( this );<a name="line.546"></a>
+<span class="sourceLineNo">547</span>      if ( !dependency.hasObservers() )<a name="line.547"></a>
+<span class="sourceLineNo">548</span>      {<a name="line.548"></a>
+<span class="sourceLineNo">549</span>        dependency.setLeastStaleObserverState( Flags.STATE_UP_TO_DATE );<a name="line.549"></a>
+<span class="sourceLineNo">550</span>      }<a name="line.550"></a>
+<span class="sourceLineNo">551</span>    } );<a name="line.551"></a>
+<span class="sourceLineNo">552</span>    getDependencies().clear();<a name="line.552"></a>
+<span class="sourceLineNo">553</span>  }<a name="line.553"></a>
+<span class="sourceLineNo">554</span><a name="line.554"></a>
+<span class="sourceLineNo">555</span>  /**<a name="line.555"></a>
+<span class="sourceLineNo">556</span>   * Return true if this observer has a pending reaction.<a name="line.556"></a>
+<span class="sourceLineNo">557</span>   *<a name="line.557"></a>
+<span class="sourceLineNo">558</span>   * @return true if this observer has a pending reaction.<a name="line.558"></a>
+<span class="sourceLineNo">559</span>   */<a name="line.559"></a>
+<span class="sourceLineNo">560</span>  boolean isScheduled()<a name="line.560"></a>
+<span class="sourceLineNo">561</span>  {<a name="line.561"></a>
+<span class="sourceLineNo">562</span>    return 0 != ( _flags &amp; Flags.SCHEDULED );<a name="line.562"></a>
+<span class="sourceLineNo">563</span>  }<a name="line.563"></a>
+<span class="sourceLineNo">564</span><a name="line.564"></a>
+<span class="sourceLineNo">565</span>  /**<a name="line.565"></a>
+<span class="sourceLineNo">566</span>   * Clear the scheduled flag. This is called when the observer's reaction is executed so it can be scheduled again.<a name="line.566"></a>
+<span class="sourceLineNo">567</span>   */<a name="line.567"></a>
+<span class="sourceLineNo">568</span>  void clearScheduledFlag()<a name="line.568"></a>
+<span class="sourceLineNo">569</span>  {<a name="line.569"></a>
+<span class="sourceLineNo">570</span>    _flags &amp;= ~Flags.SCHEDULED;<a name="line.570"></a>
+<span class="sourceLineNo">571</span>  }<a name="line.571"></a>
+<span class="sourceLineNo">572</span><a name="line.572"></a>
+<span class="sourceLineNo">573</span>  /**<a name="line.573"></a>
+<span class="sourceLineNo">574</span>   * Set the scheduled flag. This is called when the observer is schedule so it can not be scheduled again until it has run.<a name="line.574"></a>
+<span class="sourceLineNo">575</span>   */<a name="line.575"></a>
+<span class="sourceLineNo">576</span>  void setScheduledFlag()<a name="line.576"></a>
+<span class="sourceLineNo">577</span>  {<a name="line.577"></a>
+<span class="sourceLineNo">578</span>    _flags |= Flags.SCHEDULED;<a name="line.578"></a>
+<span class="sourceLineNo">579</span>  }<a name="line.579"></a>
+<span class="sourceLineNo">580</span><a name="line.580"></a>
+<span class="sourceLineNo">581</span>  /**<a name="line.581"></a>
+<span class="sourceLineNo">582</span>   * Schedule this observer if it does not already have a reaction pending.<a name="line.582"></a>
+<span class="sourceLineNo">583</span>   * The observer will not actually react if it is not already marked as STALE.<a name="line.583"></a>
+<span class="sourceLineNo">584</span>   */<a name="line.584"></a>
+<span class="sourceLineNo">585</span>  public void schedule()<a name="line.585"></a>
+<span class="sourceLineNo">586</span>  {<a name="line.586"></a>
+<span class="sourceLineNo">587</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.587"></a>
 <span class="sourceLineNo">588</span>    {<a name="line.588"></a>
-<span class="sourceLineNo">589</span>      getContext().getTransaction().markTransactionAsUsed();<a name="line.589"></a>
-<span class="sourceLineNo">590</span>    }<a name="line.590"></a>
-<span class="sourceLineNo">591</span>    executeObservedNextIfPresent();<a name="line.591"></a>
-<span class="sourceLineNo">592</span>    scheduleReaction();<a name="line.592"></a>
-<span class="sourceLineNo">593</span>    getContext().triggerScheduler();<a name="line.593"></a>
-<span class="sourceLineNo">594</span>  }<a name="line.594"></a>
-<span class="sourceLineNo">595</span><a name="line.595"></a>
-<span class="sourceLineNo">596</span>  /**<a name="line.596"></a>
-<span class="sourceLineNo">597</span>   * Schedule this observer if it does not already have a reaction pending.<a name="line.597"></a>
-<span class="sourceLineNo">598</span>   */<a name="line.598"></a>
-<span class="sourceLineNo">599</span>  void scheduleReaction()<a name="line.599"></a>
-<span class="sourceLineNo">600</span>  {<a name="line.600"></a>
-<span class="sourceLineNo">601</span>    if ( isNotDisposed() )<a name="line.601"></a>
-<span class="sourceLineNo">602</span>    {<a name="line.602"></a>
-<span class="sourceLineNo">603</span>      if ( Arez.shouldCheckInvariants() )<a name="line.603"></a>
-<span class="sourceLineNo">604</span>      {<a name="line.604"></a>
-<span class="sourceLineNo">605</span>        invariant( this::isActive,<a name="line.605"></a>
-<span class="sourceLineNo">606</span>                   () -&gt; "Arez-0088: Observer named '" + getName() + "' is not active but an attempt has been made " +<a name="line.606"></a>
-<span class="sourceLineNo">607</span>                         "to schedule observer." );<a name="line.607"></a>
-<span class="sourceLineNo">608</span>      }<a name="line.608"></a>
-<span class="sourceLineNo">609</span>      if ( !isScheduled() )<a name="line.609"></a>
+<span class="sourceLineNo">589</span>      apiInvariant( this::supportsManualSchedule,<a name="line.589"></a>
+<span class="sourceLineNo">590</span>                    () -&gt; "Arez-0202: Observer.schedule() invoked on observer named '" + getName() +<a name="line.590"></a>
+<span class="sourceLineNo">591</span>                          "' but supportsManualSchedule() returns false." );<a name="line.591"></a>
+<span class="sourceLineNo">592</span>    }<a name="line.592"></a>
+<span class="sourceLineNo">593</span>    if ( Arez.shouldEnforceTransactionType() &amp;&amp; getContext().isTransactionActive() &amp;&amp; Arez.shouldCheckInvariants() )<a name="line.593"></a>
+<span class="sourceLineNo">594</span>    {<a name="line.594"></a>
+<span class="sourceLineNo">595</span>      getContext().getTransaction().markTransactionAsUsed();<a name="line.595"></a>
+<span class="sourceLineNo">596</span>    }<a name="line.596"></a>
+<span class="sourceLineNo">597</span>    executeObservedNextIfPresent();<a name="line.597"></a>
+<span class="sourceLineNo">598</span>    scheduleReaction();<a name="line.598"></a>
+<span class="sourceLineNo">599</span>    getContext().triggerScheduler();<a name="line.599"></a>
+<span class="sourceLineNo">600</span>  }<a name="line.600"></a>
+<span class="sourceLineNo">601</span><a name="line.601"></a>
+<span class="sourceLineNo">602</span>  /**<a name="line.602"></a>
+<span class="sourceLineNo">603</span>   * Schedule this observer if it does not already have a reaction pending.<a name="line.603"></a>
+<span class="sourceLineNo">604</span>   */<a name="line.604"></a>
+<span class="sourceLineNo">605</span>  void scheduleReaction()<a name="line.605"></a>
+<span class="sourceLineNo">606</span>  {<a name="line.606"></a>
+<span class="sourceLineNo">607</span>    if ( isNotDisposed() )<a name="line.607"></a>
+<span class="sourceLineNo">608</span>    {<a name="line.608"></a>
+<span class="sourceLineNo">609</span>      if ( Arez.shouldCheckInvariants() )<a name="line.609"></a>
 <span class="sourceLineNo">610</span>      {<a name="line.610"></a>
-<span class="sourceLineNo">611</span>        getContext().scheduleReaction( this );<a name="line.611"></a>
-<span class="sourceLineNo">612</span>      }<a name="line.612"></a>
-<span class="sourceLineNo">613</span>    }<a name="line.613"></a>
-<span class="sourceLineNo">614</span>  }<a name="line.614"></a>
-<span class="sourceLineNo">615</span><a name="line.615"></a>
-<span class="sourceLineNo">616</span>  /**<a name="line.616"></a>
-<span class="sourceLineNo">617</span>   * Run the reaction in a transaction with the name and mode defined<a name="line.617"></a>
-<span class="sourceLineNo">618</span>   * by the observer. If the reaction throws an exception, the exception is reported<a name="line.618"></a>
-<span class="sourceLineNo">619</span>   * to the context global ObserverErrorHandlers<a name="line.619"></a>
-<span class="sourceLineNo">620</span>   */<a name="line.620"></a>
-<span class="sourceLineNo">621</span>  void invokeReaction()<a name="line.621"></a>
-<span class="sourceLineNo">622</span>  {<a name="line.622"></a>
-<span class="sourceLineNo">623</span>    if ( isNotDisposed() )<a name="line.623"></a>
-<span class="sourceLineNo">624</span>    {<a name="line.624"></a>
-<span class="sourceLineNo">625</span>      final long start;<a name="line.625"></a>
-<span class="sourceLineNo">626</span>      if ( willPropagateSpyEvents() )<a name="line.626"></a>
-<span class="sourceLineNo">627</span>      {<a name="line.627"></a>
-<span class="sourceLineNo">628</span>        start = System.currentTimeMillis();<a name="line.628"></a>
-<span class="sourceLineNo">629</span>        if ( isComputedValue() )<a name="line.629"></a>
-<span class="sourceLineNo">630</span>        {<a name="line.630"></a>
-<span class="sourceLineNo">631</span>          reportSpyEvent( new ComputeStartedEvent( getComputedValue().asInfo() ) );<a name="line.631"></a>
-<span class="sourceLineNo">632</span>        }<a name="line.632"></a>
-<span class="sourceLineNo">633</span>        else<a name="line.633"></a>
-<span class="sourceLineNo">634</span>        {<a name="line.634"></a>
-<span class="sourceLineNo">635</span>          reportSpyEvent( new ReactionStartedEvent( asInfo() ) );<a name="line.635"></a>
-<span class="sourceLineNo">636</span>        }<a name="line.636"></a>
-<span class="sourceLineNo">637</span>      }<a name="line.637"></a>
-<span class="sourceLineNo">638</span>      else<a name="line.638"></a>
-<span class="sourceLineNo">639</span>      {<a name="line.639"></a>
-<span class="sourceLineNo">640</span>        start = 0;<a name="line.640"></a>
-<span class="sourceLineNo">641</span>      }<a name="line.641"></a>
-<span class="sourceLineNo">642</span>      try<a name="line.642"></a>
-<span class="sourceLineNo">643</span>      {<a name="line.643"></a>
-<span class="sourceLineNo">644</span>        // ComputedValues may have calculated their values and thus be up to date so no need to recalculate.<a name="line.644"></a>
-<span class="sourceLineNo">645</span>        if ( Flags.STATE_UP_TO_DATE != getState() )<a name="line.645"></a>
-<span class="sourceLineNo">646</span>        {<a name="line.646"></a>
-<span class="sourceLineNo">647</span>          if ( shouldExecuteObservedNext() )<a name="line.647"></a>
-<span class="sourceLineNo">648</span>          {<a name="line.648"></a>
-<span class="sourceLineNo">649</span>            executeOnDepsChangedNextIfPresent();<a name="line.649"></a>
-<span class="sourceLineNo">650</span>            runObservedFunction();<a name="line.650"></a>
-<span class="sourceLineNo">651</span>          }<a name="line.651"></a>
-<span class="sourceLineNo">652</span>          else<a name="line.652"></a>
-<span class="sourceLineNo">653</span>          {<a name="line.653"></a>
-<span class="sourceLineNo">654</span>            assert null != _onDepsChanged;<a name="line.654"></a>
-<span class="sourceLineNo">655</span>            _onDepsChanged.call();<a name="line.655"></a>
-<span class="sourceLineNo">656</span>          }<a name="line.656"></a>
-<span class="sourceLineNo">657</span>        }<a name="line.657"></a>
-<span class="sourceLineNo">658</span>        else if ( shouldExecuteObservedNext() )<a name="line.658"></a>
-<span class="sourceLineNo">659</span>        {<a name="line.659"></a>
-<span class="sourceLineNo">660</span>          /*<a name="line.660"></a>
-<span class="sourceLineNo">661</span>           * The observer should invoke onDepsChanged next if the following conditions hold.<a name="line.661"></a>
-<span class="sourceLineNo">662</span>           *  - a manual schedule() invocation<a name="line.662"></a>
-<span class="sourceLineNo">663</span>           *  - the observer is not stale, and<a name="line.663"></a>
-<span class="sourceLineNo">664</span>           *  - there is an onDepsChanged hook present<a name="line.664"></a>
-<span class="sourceLineNo">665</span>           *<a name="line.665"></a>
-<span class="sourceLineNo">666</span>           *  This block ensures this is the case.<a name="line.666"></a>
-<span class="sourceLineNo">667</span>           */<a name="line.667"></a>
-<span class="sourceLineNo">668</span>          executeOnDepsChangedNextIfPresent();<a name="line.668"></a>
-<span class="sourceLineNo">669</span>        }<a name="line.669"></a>
-<span class="sourceLineNo">670</span>      }<a name="line.670"></a>
-<span class="sourceLineNo">671</span>      catch ( final Throwable t )<a name="line.671"></a>
-<span class="sourceLineNo">672</span>      {<a name="line.672"></a>
-<span class="sourceLineNo">673</span>        getContext().reportObserverError( this, ObserverError.REACTION_ERROR, t );<a name="line.673"></a>
-<span class="sourceLineNo">674</span>      }<a name="line.674"></a>
-<span class="sourceLineNo">675</span>      if ( willPropagateSpyEvents() )<a name="line.675"></a>
-<span class="sourceLineNo">676</span>      {<a name="line.676"></a>
-<span class="sourceLineNo">677</span>        final long duration = System.currentTimeMillis() - start;<a name="line.677"></a>
-<span class="sourceLineNo">678</span>        if ( isComputedValue() )<a name="line.678"></a>
-<span class="sourceLineNo">679</span>        {<a name="line.679"></a>
-<span class="sourceLineNo">680</span>          reportSpyEvent( new ComputeCompletedEvent( getComputedValue().asInfo(), (int) duration ) );<a name="line.680"></a>
-<span class="sourceLineNo">681</span>        }<a name="line.681"></a>
-<span class="sourceLineNo">682</span>        else<a name="line.682"></a>
-<span class="sourceLineNo">683</span>        {<a name="line.683"></a>
-<span class="sourceLineNo">684</span>          reportSpyEvent( new ReactionCompletedEvent( asInfo(), (int) duration ) );<a name="line.684"></a>
-<span class="sourceLineNo">685</span>        }<a name="line.685"></a>
-<span class="sourceLineNo">686</span>      }<a name="line.686"></a>
-<span class="sourceLineNo">687</span>    }<a name="line.687"></a>
-<span class="sourceLineNo">688</span>  }<a name="line.688"></a>
-<span class="sourceLineNo">689</span><a name="line.689"></a>
-<span class="sourceLineNo">690</span>  private void runObservedFunction()<a name="line.690"></a>
-<span class="sourceLineNo">691</span>    throws Throwable<a name="line.691"></a>
-<span class="sourceLineNo">692</span>  {<a name="line.692"></a>
-<span class="sourceLineNo">693</span>    assert null != _observed;<a name="line.693"></a>
-<span class="sourceLineNo">694</span>    final Procedure action;<a name="line.694"></a>
-<span class="sourceLineNo">695</span>    if ( Arez.shouldCheckInvariants() &amp;&amp; areArezDependenciesRequired() )<a name="line.695"></a>
-<span class="sourceLineNo">696</span>    {<a name="line.696"></a>
-<span class="sourceLineNo">697</span>      action = () -&gt; {<a name="line.697"></a>
-<span class="sourceLineNo">698</span>        _observed.call();<a name="line.698"></a>
-<span class="sourceLineNo">699</span>        final Transaction current = Transaction.current();<a name="line.699"></a>
-<span class="sourceLineNo">700</span><a name="line.700"></a>
-<span class="sourceLineNo">701</span>        final ArrayList&lt;ObservableValue&lt;?&gt;&gt; observableValues = current.getObservableValues();<a name="line.701"></a>
-<span class="sourceLineNo">702</span>        invariant( () -&gt; Objects.requireNonNull( current.getTracker() ).isDisposing() ||<a name="line.702"></a>
-<span class="sourceLineNo">703</span>                         ( null != observableValues &amp;&amp; !observableValues.isEmpty() ),<a name="line.703"></a>
-<span class="sourceLineNo">704</span>                   () -&gt; "Arez-0172: Observer named '" + getName() + "' that does not use an external executor " +<a name="line.704"></a>
-<span class="sourceLineNo">705</span>                         "completed observed function but is not observing any properties. As a result the observer " +<a name="line.705"></a>
-<span class="sourceLineNo">706</span>                         "will never be rescheduled." );<a name="line.706"></a>
-<span class="sourceLineNo">707</span>      };<a name="line.707"></a>
-<span class="sourceLineNo">708</span>    }<a name="line.708"></a>
-<span class="sourceLineNo">709</span>    else<a name="line.709"></a>
-<span class="sourceLineNo">710</span>    {<a name="line.710"></a>
-<span class="sourceLineNo">711</span>      action = _observed;<a name="line.711"></a>
-<span class="sourceLineNo">712</span>    }<a name="line.712"></a>
-<span class="sourceLineNo">713</span>    getContext().rawObserve( this, action, null );<a name="line.713"></a>
-<span class="sourceLineNo">714</span>  }<a name="line.714"></a>
-<span class="sourceLineNo">715</span><a name="line.715"></a>
-<span class="sourceLineNo">716</span>  /**<a name="line.716"></a>
-<span class="sourceLineNo">717</span>   * Utility to mark all dependencies least stale observer as up to date.<a name="line.717"></a>
-<span class="sourceLineNo">718</span>   * Used when the Observer is determined to be up todate.<a name="line.718"></a>
-<span class="sourceLineNo">719</span>   */<a name="line.719"></a>
-<span class="sourceLineNo">720</span>  void markDependenciesLeastStaleObserverAsUpToDate()<a name="line.720"></a>
-<span class="sourceLineNo">721</span>  {<a name="line.721"></a>
-<span class="sourceLineNo">722</span>    for ( final ObservableValue dependency : getDependencies() )<a name="line.722"></a>
-<span class="sourceLineNo">723</span>    {<a name="line.723"></a>
-<span class="sourceLineNo">724</span>      dependency.setLeastStaleObserverState( Flags.STATE_UP_TO_DATE );<a name="line.724"></a>
-<span class="sourceLineNo">725</span>    }<a name="line.725"></a>
-<span class="sourceLineNo">726</span>  }<a name="line.726"></a>
-<span class="sourceLineNo">727</span><a name="line.727"></a>
-<span class="sourceLineNo">728</span>  /**<a name="line.728"></a>
-<span class="sourceLineNo">729</span>   * Determine if any dependency of the Observer has actually changed.<a name="line.729"></a>
-<span class="sourceLineNo">730</span>   * If the state is POSSIBLY_STALE then recalculate any ComputedValue dependencies.<a name="line.730"></a>
-<span class="sourceLineNo">731</span>   * If any ComputedValue dependencies actually changed then the STALE state will<a name="line.731"></a>
-<span class="sourceLineNo">732</span>   * be propagated.<a name="line.732"></a>
-<span class="sourceLineNo">733</span>   *<a name="line.733"></a>
-<span class="sourceLineNo">734</span>   * &lt;p&gt;By iterating over the dependencies in the same order that they were reported and<a name="line.734"></a>
-<span class="sourceLineNo">735</span>   * stopping on the first change, all the recalculations are only called for ComputedValues<a name="line.735"></a>
-<span class="sourceLineNo">736</span>   * that will be tracked by derivation. That is because we assume that if the first N<a name="line.736"></a>
-<span class="sourceLineNo">737</span>   * dependencies of the derivation doesn't change then the derivation should run the same way<a name="line.737"></a>
-<span class="sourceLineNo">738</span>   * up until accessing N-th dependency.&lt;/p&gt;<a name="line.738"></a>
+<span class="sourceLineNo">611</span>        invariant( this::isActive,<a name="line.611"></a>
+<span class="sourceLineNo">612</span>                   () -&gt; "Arez-0088: Observer named '" + getName() + "' is not active but an attempt has been made " +<a name="line.612"></a>
+<span class="sourceLineNo">613</span>                         "to schedule observer." );<a name="line.613"></a>
+<span class="sourceLineNo">614</span>      }<a name="line.614"></a>
+<span class="sourceLineNo">615</span>      if ( !isScheduled() )<a name="line.615"></a>
+<span class="sourceLineNo">616</span>      {<a name="line.616"></a>
+<span class="sourceLineNo">617</span>        getContext().scheduleReaction( this );<a name="line.617"></a>
+<span class="sourceLineNo">618</span>      }<a name="line.618"></a>
+<span class="sourceLineNo">619</span>    }<a name="line.619"></a>
+<span class="sourceLineNo">620</span>  }<a name="line.620"></a>
+<span class="sourceLineNo">621</span><a name="line.621"></a>
+<span class="sourceLineNo">622</span>  /**<a name="line.622"></a>
+<span class="sourceLineNo">623</span>   * Run the reaction in a transaction with the name and mode defined<a name="line.623"></a>
+<span class="sourceLineNo">624</span>   * by the observer. If the reaction throws an exception, the exception is reported<a name="line.624"></a>
+<span class="sourceLineNo">625</span>   * to the context global ObserverErrorHandlers<a name="line.625"></a>
+<span class="sourceLineNo">626</span>   */<a name="line.626"></a>
+<span class="sourceLineNo">627</span>  void invokeReaction()<a name="line.627"></a>
+<span class="sourceLineNo">628</span>  {<a name="line.628"></a>
+<span class="sourceLineNo">629</span>    if ( isNotDisposed() )<a name="line.629"></a>
+<span class="sourceLineNo">630</span>    {<a name="line.630"></a>
+<span class="sourceLineNo">631</span>      final long start;<a name="line.631"></a>
+<span class="sourceLineNo">632</span>      if ( willPropagateSpyEvents() )<a name="line.632"></a>
+<span class="sourceLineNo">633</span>      {<a name="line.633"></a>
+<span class="sourceLineNo">634</span>        start = System.currentTimeMillis();<a name="line.634"></a>
+<span class="sourceLineNo">635</span>        if ( isComputedValue() )<a name="line.635"></a>
+<span class="sourceLineNo">636</span>        {<a name="line.636"></a>
+<span class="sourceLineNo">637</span>          reportSpyEvent( new ComputeStartedEvent( getComputedValue().asInfo() ) );<a name="line.637"></a>
+<span class="sourceLineNo">638</span>        }<a name="line.638"></a>
+<span class="sourceLineNo">639</span>        else<a name="line.639"></a>
+<span class="sourceLineNo">640</span>        {<a name="line.640"></a>
+<span class="sourceLineNo">641</span>          reportSpyEvent( new ReactionStartedEvent( asInfo() ) );<a name="line.641"></a>
+<span class="sourceLineNo">642</span>        }<a name="line.642"></a>
+<span class="sourceLineNo">643</span>      }<a name="line.643"></a>
+<span class="sourceLineNo">644</span>      else<a name="line.644"></a>
+<span class="sourceLineNo">645</span>      {<a name="line.645"></a>
+<span class="sourceLineNo">646</span>        start = 0;<a name="line.646"></a>
+<span class="sourceLineNo">647</span>      }<a name="line.647"></a>
+<span class="sourceLineNo">648</span>      try<a name="line.648"></a>
+<span class="sourceLineNo">649</span>      {<a name="line.649"></a>
+<span class="sourceLineNo">650</span>        // ComputedValues may have calculated their values and thus be up to date so no need to recalculate.<a name="line.650"></a>
+<span class="sourceLineNo">651</span>        if ( Flags.STATE_UP_TO_DATE != getState() )<a name="line.651"></a>
+<span class="sourceLineNo">652</span>        {<a name="line.652"></a>
+<span class="sourceLineNo">653</span>          if ( shouldExecuteObservedNext() )<a name="line.653"></a>
+<span class="sourceLineNo">654</span>          {<a name="line.654"></a>
+<span class="sourceLineNo">655</span>            executeOnDepsChangedNextIfPresent();<a name="line.655"></a>
+<span class="sourceLineNo">656</span>            runObservedFunction();<a name="line.656"></a>
+<span class="sourceLineNo">657</span>          }<a name="line.657"></a>
+<span class="sourceLineNo">658</span>          else<a name="line.658"></a>
+<span class="sourceLineNo">659</span>          {<a name="line.659"></a>
+<span class="sourceLineNo">660</span>            assert null != _onDepsChanged;<a name="line.660"></a>
+<span class="sourceLineNo">661</span>            _onDepsChanged.call();<a name="line.661"></a>
+<span class="sourceLineNo">662</span>          }<a name="line.662"></a>
+<span class="sourceLineNo">663</span>        }<a name="line.663"></a>
+<span class="sourceLineNo">664</span>        else if ( shouldExecuteObservedNext() )<a name="line.664"></a>
+<span class="sourceLineNo">665</span>        {<a name="line.665"></a>
+<span class="sourceLineNo">666</span>          /*<a name="line.666"></a>
+<span class="sourceLineNo">667</span>           * The observer should invoke onDepsChanged next if the following conditions hold.<a name="line.667"></a>
+<span class="sourceLineNo">668</span>           *  - a manual schedule() invocation<a name="line.668"></a>
+<span class="sourceLineNo">669</span>           *  - the observer is not stale, and<a name="line.669"></a>
+<span class="sourceLineNo">670</span>           *  - there is an onDepsChanged hook present<a name="line.670"></a>
+<span class="sourceLineNo">671</span>           *<a name="line.671"></a>
+<span class="sourceLineNo">672</span>           *  This block ensures this is the case.<a name="line.672"></a>
+<span class="sourceLineNo">673</span>           */<a name="line.673"></a>
+<span class="sourceLineNo">674</span>          executeOnDepsChangedNextIfPresent();<a name="line.674"></a>
+<span class="sourceLineNo">675</span>        }<a name="line.675"></a>
+<span class="sourceLineNo">676</span>      }<a name="line.676"></a>
+<span class="sourceLineNo">677</span>      catch ( final Throwable t )<a name="line.677"></a>
+<span class="sourceLineNo">678</span>      {<a name="line.678"></a>
+<span class="sourceLineNo">679</span>        getContext().reportObserverError( this, ObserverError.REACTION_ERROR, t );<a name="line.679"></a>
+<span class="sourceLineNo">680</span>      }<a name="line.680"></a>
+<span class="sourceLineNo">681</span>      if ( willPropagateSpyEvents() )<a name="line.681"></a>
+<span class="sourceLineNo">682</span>      {<a name="line.682"></a>
+<span class="sourceLineNo">683</span>        final long duration = System.currentTimeMillis() - start;<a name="line.683"></a>
+<span class="sourceLineNo">684</span>        if ( isComputedValue() )<a name="line.684"></a>
+<span class="sourceLineNo">685</span>        {<a name="line.685"></a>
+<span class="sourceLineNo">686</span>          reportSpyEvent( new ComputeCompletedEvent( getComputedValue().asInfo(), (int) duration ) );<a name="line.686"></a>
+<span class="sourceLineNo">687</span>        }<a name="line.687"></a>
+<span class="sourceLineNo">688</span>        else<a name="line.688"></a>
+<span class="sourceLineNo">689</span>        {<a name="line.689"></a>
+<span class="sourceLineNo">690</span>          reportSpyEvent( new ReactionCompletedEvent( asInfo(), (int) duration ) );<a name="line.690"></a>
+<span class="sourceLineNo">691</span>        }<a name="line.691"></a>
+<span class="sourceLineNo">692</span>      }<a name="line.692"></a>
+<span class="sourceLineNo">693</span>    }<a name="line.693"></a>
+<span class="sourceLineNo">694</span>  }<a name="line.694"></a>
+<span class="sourceLineNo">695</span><a name="line.695"></a>
+<span class="sourceLineNo">696</span>  private void runObservedFunction()<a name="line.696"></a>
+<span class="sourceLineNo">697</span>    throws Throwable<a name="line.697"></a>
+<span class="sourceLineNo">698</span>  {<a name="line.698"></a>
+<span class="sourceLineNo">699</span>    assert null != _observed;<a name="line.699"></a>
+<span class="sourceLineNo">700</span>    final Procedure action;<a name="line.700"></a>
+<span class="sourceLineNo">701</span>    if ( Arez.shouldCheckInvariants() &amp;&amp; areArezDependenciesRequired() )<a name="line.701"></a>
+<span class="sourceLineNo">702</span>    {<a name="line.702"></a>
+<span class="sourceLineNo">703</span>      action = () -&gt; {<a name="line.703"></a>
+<span class="sourceLineNo">704</span>        _observed.call();<a name="line.704"></a>
+<span class="sourceLineNo">705</span>        final Transaction current = Transaction.current();<a name="line.705"></a>
+<span class="sourceLineNo">706</span><a name="line.706"></a>
+<span class="sourceLineNo">707</span>        final ArrayList&lt;ObservableValue&lt;?&gt;&gt; observableValues = current.getObservableValues();<a name="line.707"></a>
+<span class="sourceLineNo">708</span>        invariant( () -&gt; Objects.requireNonNull( current.getTracker() ).isDisposing() ||<a name="line.708"></a>
+<span class="sourceLineNo">709</span>                         ( null != observableValues &amp;&amp; !observableValues.isEmpty() ),<a name="line.709"></a>
+<span class="sourceLineNo">710</span>                   () -&gt; "Arez-0172: Observer named '" + getName() + "' that does not use an external executor " +<a name="line.710"></a>
+<span class="sourceLineNo">711</span>                         "completed observed function but is not observing any properties. As a result the observer " +<a name="line.711"></a>
+<span class="sourceLineNo">712</span>                         "will never be rescheduled." );<a name="line.712"></a>
+<span class="sourceLineNo">713</span>      };<a name="line.713"></a>
+<span class="sourceLineNo">714</span>    }<a name="line.714"></a>
+<span class="sourceLineNo">715</span>    else<a name="line.715"></a>
+<span class="sourceLineNo">716</span>    {<a name="line.716"></a>
+<span class="sourceLineNo">717</span>      action = _observed;<a name="line.717"></a>
+<span class="sourceLineNo">718</span>    }<a name="line.718"></a>
+<span class="sourceLineNo">719</span>    getContext().rawObserve( this, action, null );<a name="line.719"></a>
+<span class="sourceLineNo">720</span>  }<a name="line.720"></a>
+<span class="sourceLineNo">721</span><a name="line.721"></a>
+<span class="sourceLineNo">722</span>  /**<a name="line.722"></a>
+<span class="sourceLineNo">723</span>   * Utility to mark all dependencies least stale observer as up to date.<a name="line.723"></a>
+<span class="sourceLineNo">724</span>   * Used when the Observer is determined to be up todate.<a name="line.724"></a>
+<span class="sourceLineNo">725</span>   */<a name="line.725"></a>
+<span class="sourceLineNo">726</span>  void markDependenciesLeastStaleObserverAsUpToDate()<a name="line.726"></a>
+<span class="sourceLineNo">727</span>  {<a name="line.727"></a>
+<span class="sourceLineNo">728</span>    for ( final ObservableValue dependency : getDependencies() )<a name="line.728"></a>
+<span class="sourceLineNo">729</span>    {<a name="line.729"></a>
+<span class="sourceLineNo">730</span>      dependency.setLeastStaleObserverState( Flags.STATE_UP_TO_DATE );<a name="line.730"></a>
+<span class="sourceLineNo">731</span>    }<a name="line.731"></a>
+<span class="sourceLineNo">732</span>  }<a name="line.732"></a>
+<span class="sourceLineNo">733</span><a name="line.733"></a>
+<span class="sourceLineNo">734</span>  /**<a name="line.734"></a>
+<span class="sourceLineNo">735</span>   * Determine if any dependency of the Observer has actually changed.<a name="line.735"></a>
+<span class="sourceLineNo">736</span>   * If the state is POSSIBLY_STALE then recalculate any ComputedValue dependencies.<a name="line.736"></a>
+<span class="sourceLineNo">737</span>   * If any ComputedValue dependencies actually changed then the STALE state will<a name="line.737"></a>
+<span class="sourceLineNo">738</span>   * be propagated.<a name="line.738"></a>
 <span class="sourceLineNo">739</span>   *<a name="line.739"></a>
-<span class="sourceLineNo">740</span>   * @return true if the Observer should be recomputed.<a name="line.740"></a>
-<span class="sourceLineNo">741</span>   */<a name="line.741"></a>
-<span class="sourceLineNo">742</span>  boolean shouldCompute()<a name="line.742"></a>
-<span class="sourceLineNo">743</span>  {<a name="line.743"></a>
-<span class="sourceLineNo">744</span>    final int state = getState();<a name="line.744"></a>
-<span class="sourceLineNo">745</span>    switch ( state )<a name="line.745"></a>
-<span class="sourceLineNo">746</span>    {<a name="line.746"></a>
-<span class="sourceLineNo">747</span>      case Flags.STATE_UP_TO_DATE:<a name="line.747"></a>
-<span class="sourceLineNo">748</span>        return false;<a name="line.748"></a>
-<span class="sourceLineNo">749</span>      case Flags.STATE_INACTIVE:<a name="line.749"></a>
-<span class="sourceLineNo">750</span>      case Flags.STATE_STALE:<a name="line.750"></a>
-<span class="sourceLineNo">751</span>        return true;<a name="line.751"></a>
-<span class="sourceLineNo">752</span>      case Flags.STATE_POSSIBLY_STALE:<a name="line.752"></a>
-<span class="sourceLineNo">753</span>      {<a name="line.753"></a>
-<span class="sourceLineNo">754</span>        for ( final ObservableValue observableValue : getDependencies() )<a name="line.754"></a>
-<span class="sourceLineNo">755</span>        {<a name="line.755"></a>
-<span class="sourceLineNo">756</span>          if ( observableValue.isComputedValue() )<a name="line.756"></a>
-<span class="sourceLineNo">757</span>          {<a name="line.757"></a>
-<span class="sourceLineNo">758</span>            final Observer owner = observableValue.getObserver();<a name="line.758"></a>
-<span class="sourceLineNo">759</span>            final ComputedValue computedValue = owner.getComputedValue();<a name="line.759"></a>
-<span class="sourceLineNo">760</span>            try<a name="line.760"></a>
-<span class="sourceLineNo">761</span>            {<a name="line.761"></a>
-<span class="sourceLineNo">762</span>              computedValue.get();<a name="line.762"></a>
-<span class="sourceLineNo">763</span>            }<a name="line.763"></a>
-<span class="sourceLineNo">764</span>            catch ( final Throwable ignored )<a name="line.764"></a>
-<span class="sourceLineNo">765</span>            {<a name="line.765"></a>
-<span class="sourceLineNo">766</span>            }<a name="line.766"></a>
-<span class="sourceLineNo">767</span>            // Call to get() will update this state if ComputedValue changed<a name="line.767"></a>
-<span class="sourceLineNo">768</span>            if ( Flags.STATE_STALE == getState() )<a name="line.768"></a>
-<span class="sourceLineNo">769</span>            {<a name="line.769"></a>
-<span class="sourceLineNo">770</span>              return true;<a name="line.770"></a>
-<span class="sourceLineNo">771</span>            }<a name="line.771"></a>
-<span class="sourceLineNo">772</span>          }<a name="line.772"></a>
-<span class="sourceLineNo">773</span>        }<a name="line.773"></a>
-<span class="sourceLineNo">774</span>      }<a name="line.774"></a>
-<span class="sourceLineNo">775</span>      break;<a name="line.775"></a>
-<span class="sourceLineNo">776</span>      default:<a name="line.776"></a>
-<span class="sourceLineNo">777</span>        if ( Arez.shouldCheckInvariants() )<a name="line.777"></a>
-<span class="sourceLineNo">778</span>        {<a name="line.778"></a>
-<span class="sourceLineNo">779</span>          fail( () -&gt; "Arez-0205: Observer.shouldCompute() invoked on observer named '" + getName() +<a name="line.779"></a>
-<span class="sourceLineNo">780</span>                      "' but observer is in state " + Flags.getStateName( getState() ) );<a name="line.780"></a>
-<span class="sourceLineNo">781</span>        }<a name="line.781"></a>
-<span class="sourceLineNo">782</span>    }<a name="line.782"></a>
-<span class="sourceLineNo">783</span>    /*<a name="line.783"></a>
-<span class="sourceLineNo">784</span>     * This results in POSSIBLY_STALE returning to UP_TO_DATE<a name="line.784"></a>
-<span class="sourceLineNo">785</span>     */<a name="line.785"></a>
-<span class="sourceLineNo">786</span>    markDependenciesLeastStaleObserverAsUpToDate();<a name="line.786"></a>
-<span class="sourceLineNo">787</span>    return false;<a name="line.787"></a>
-<span class="sourceLineNo">788</span>  }<a name="line.788"></a>
-<span class="sourceLineNo">789</span><a name="line.789"></a>
-<span class="sourceLineNo">790</span>  /**<a name="line.790"></a>
-<span class="sourceLineNo">791</span>   * Return the dependencies.<a name="line.791"></a>
-<span class="sourceLineNo">792</span>   *<a name="line.792"></a>
-<span class="sourceLineNo">793</span>   * @return the dependencies.<a name="line.793"></a>
-<span class="sourceLineNo">794</span>   */<a name="line.794"></a>
-<span class="sourceLineNo">795</span>  @Nonnull<a name="line.795"></a>
-<span class="sourceLineNo">796</span>  ArrayList&lt;ObservableValue&lt;?&gt;&gt; getDependencies()<a name="line.796"></a>
-<span class="sourceLineNo">797</span>  {<a name="line.797"></a>
-<span class="sourceLineNo">798</span>    return _dependencies;<a name="line.798"></a>
-<span class="sourceLineNo">799</span>  }<a name="line.799"></a>
-<span class="sourceLineNo">800</span><a name="line.800"></a>
-<span class="sourceLineNo">801</span>  /**<a name="line.801"></a>
-<span class="sourceLineNo">802</span>   * Replace the current set of dependencies with supplied dependencies.<a name="line.802"></a>
-<span class="sourceLineNo">803</span>   * This should be the only mechanism via which the dependencies are updated.<a name="line.803"></a>
-<span class="sourceLineNo">804</span>   *<a name="line.804"></a>
-<span class="sourceLineNo">805</span>   * @param dependencies the new set of dependencies.<a name="line.805"></a>
-<span class="sourceLineNo">806</span>   */<a name="line.806"></a>
-<span class="sourceLineNo">807</span>  void replaceDependencies( @Nonnull final ArrayList&lt;ObservableValue&lt;?&gt;&gt; dependencies )<a name="line.807"></a>
-<span class="sourceLineNo">808</span>  {<a name="line.808"></a>
-<span class="sourceLineNo">809</span>    if ( Arez.shouldCheckInvariants() )<a name="line.809"></a>
-<span class="sourceLineNo">810</span>    {<a name="line.810"></a>
-<span class="sourceLineNo">811</span>      invariantDependenciesUnique( "Pre replaceDependencies" );<a name="line.811"></a>
-<span class="sourceLineNo">812</span>    }<a name="line.812"></a>
-<span class="sourceLineNo">813</span>    _dependencies = Objects.requireNonNull( dependencies );<a name="line.813"></a>
-<span class="sourceLineNo">814</span>    if ( Arez.shouldCheckInvariants() )<a name="line.814"></a>
-<span class="sourceLineNo">815</span>    {<a name="line.815"></a>
-<span class="sourceLineNo">816</span>      invariantDependenciesUnique( "Post replaceDependencies" );<a name="line.816"></a>
-<span class="sourceLineNo">817</span>      invariantDependenciesBackLink( "Post replaceDependencies" );<a name="line.817"></a>
-<span class="sourceLineNo">818</span>      invariantDependenciesNotDisposed();<a name="line.818"></a>
-<span class="sourceLineNo">819</span>    }<a name="line.819"></a>
-<span class="sourceLineNo">820</span>  }<a name="line.820"></a>
-<span class="sourceLineNo">821</span><a name="line.821"></a>
-<span class="sourceLineNo">822</span>  /**<a name="line.822"></a>
-<span class="sourceLineNo">823</span>   * Ensure the dependencies list contain no duplicates.<a name="line.823"></a>
-<span class="sourceLineNo">824</span>   * Should be optimized away if invariant checking is disabled.<a name="line.824"></a>
-<span class="sourceLineNo">825</span>   *<a name="line.825"></a>
-<span class="sourceLineNo">826</span>   * @param context some useful debugging context used in invariant checks.<a name="line.826"></a>
-<span class="sourceLineNo">827</span>   */<a name="line.827"></a>
-<span class="sourceLineNo">828</span>  void invariantDependenciesUnique( @Nonnull final String context )<a name="line.828"></a>
-<span class="sourceLineNo">829</span>  {<a name="line.829"></a>
-<span class="sourceLineNo">830</span>    if ( Arez.shouldCheckInvariants() )<a name="line.830"></a>
-<span class="sourceLineNo">831</span>    {<a name="line.831"></a>
-<span class="sourceLineNo">832</span>      invariant( () -&gt; getDependencies().size() == new HashSet&lt;&gt;( getDependencies() ).size(),<a name="line.832"></a>
-<span class="sourceLineNo">833</span>                 () -&gt; "Arez-0089: " + context + ": The set of dependencies in observer named '" +<a name="line.833"></a>
-<span class="sourceLineNo">834</span>                       getName() + "' is not unique. Current list: '" +<a name="line.834"></a>
-<span class="sourceLineNo">835</span>                       getDependencies().stream().map( Node::getName ).collect( Collectors.toList() ) + "'." );<a name="line.835"></a>
-<span class="sourceLineNo">836</span>    }<a name="line.836"></a>
-<span class="sourceLineNo">837</span>  }<a name="line.837"></a>
-<span class="sourceLineNo">838</span><a name="line.838"></a>
-<span class="sourceLineNo">839</span>  /**<a name="line.839"></a>
-<span class="sourceLineNo">840</span>   * Ensure all dependencies contain this observer in the list of observers.<a name="line.840"></a>
-<span class="sourceLineNo">841</span>   * Should be optimized away if invariant checking is disabled.<a name="line.841"></a>
-<span class="sourceLineNo">842</span>   *<a name="line.842"></a>
-<span class="sourceLineNo">843</span>   * @param context some useful debugging context used in invariant checks.<a name="line.843"></a>
-<span class="sourceLineNo">844</span>   */<a name="line.844"></a>
-<span class="sourceLineNo">845</span>  void invariantDependenciesBackLink( @Nonnull final String context )<a name="line.845"></a>
-<span class="sourceLineNo">846</span>  {<a name="line.846"></a>
-<span class="sourceLineNo">847</span>    if ( Arez.shouldCheckInvariants() )<a name="line.847"></a>
-<span class="sourceLineNo">848</span>    {<a name="line.848"></a>
-<span class="sourceLineNo">849</span>      getDependencies().forEach( observable -&gt;<a name="line.849"></a>
-<span class="sourceLineNo">850</span>                                   invariant( () -&gt; observable.getObservers().contains( this ),<a name="line.850"></a>
-<span class="sourceLineNo">851</span>                                              () -&gt; "Arez-0090: " + context + ": Observer named '" + getName() +<a name="line.851"></a>
-<span class="sourceLineNo">852</span>                                                    "' has ObservableValue dependency named '" + observable.getName() +<a name="line.852"></a>
-<span class="sourceLineNo">853</span>                                                    "' which does not contain the observer in the list of " +<a name="line.853"></a>
-<span class="sourceLineNo">854</span>                                                    "observers." ) );<a name="line.854"></a>
-<span class="sourceLineNo">855</span>      invariantComputedValueObserverState();<a name="line.855"></a>
-<span class="sourceLineNo">856</span>    }<a name="line.856"></a>
-<span class="sourceLineNo">857</span>  }<a name="line.857"></a>
-<span class="sourceLineNo">858</span><a name="line.858"></a>
-<span class="sourceLineNo">859</span>  /**<a name="line.859"></a>
-<span class="sourceLineNo">860</span>   * Ensure all dependencies are not disposed.<a name="line.860"></a>
-<span class="sourceLineNo">861</span>   */<a name="line.861"></a>
-<span class="sourceLineNo">862</span>  void invariantDependenciesNotDisposed()<a name="line.862"></a>
-<span class="sourceLineNo">863</span>  {<a name="line.863"></a>
-<span class="sourceLineNo">864</span>    if ( Arez.shouldCheckInvariants() )<a name="line.864"></a>
-<span class="sourceLineNo">865</span>    {<a name="line.865"></a>
-<span class="sourceLineNo">866</span>      getDependencies().forEach( observable -&gt;<a name="line.866"></a>
-<span class="sourceLineNo">867</span>                                   invariant( observable::isNotDisposed,<a name="line.867"></a>
-<span class="sourceLineNo">868</span>                                              () -&gt; "Arez-0091: Observer named '" + getName() + "' has " +<a name="line.868"></a>
-<span class="sourceLineNo">869</span>                                                    "ObservableValue dependency named '" + observable.getName() +<a name="line.869"></a>
-<span class="sourceLineNo">870</span>                                                    "' which is disposed." ) );<a name="line.870"></a>
-<span class="sourceLineNo">871</span>      invariantComputedValueObserverState();<a name="line.871"></a>
-<span class="sourceLineNo">872</span>    }<a name="line.872"></a>
-<span class="sourceLineNo">873</span>  }<a name="line.873"></a>
-<span class="sourceLineNo">874</span><a name="line.874"></a>
-<span class="sourceLineNo">875</span>  /**<a name="line.875"></a>
-<span class="sourceLineNo">876</span>   * Ensure that state field and other fields of the Observer are consistent.<a name="line.876"></a>
-<span class="sourceLineNo">877</span>   */<a name="line.877"></a>
-<span class="sourceLineNo">878</span>  void invariantState()<a name="line.878"></a>
-<span class="sourceLineNo">879</span>  {<a name="line.879"></a>
-<span class="sourceLineNo">880</span>    if ( Arez.shouldCheckInvariants() )<a name="line.880"></a>
-<span class="sourceLineNo">881</span>    {<a name="line.881"></a>
-<span class="sourceLineNo">882</span>      if ( isInactive() &amp;&amp; !isDisposing() )<a name="line.882"></a>
-<span class="sourceLineNo">883</span>      {<a name="line.883"></a>
-<span class="sourceLineNo">884</span>        invariant( () -&gt; getDependencies().isEmpty(),<a name="line.884"></a>
-<span class="sourceLineNo">885</span>                   () -&gt; "Arez-0092: Observer named '" + getName() + "' is inactive but still has dependencies: " +<a name="line.885"></a>
-<span class="sourceLineNo">886</span>                         getDependencies().stream().map( Node::getName ).collect( Collectors.toList() ) + "." );<a name="line.886"></a>
-<span class="sourceLineNo">887</span>      }<a name="line.887"></a>
-<span class="sourceLineNo">888</span>      if ( null != _computedValue &amp;&amp; _computedValue.isNotDisposed() )<a name="line.888"></a>
+<span class="sourceLineNo">740</span>   * &lt;p&gt;By iterating over the dependencies in the same order that they were reported and<a name="line.740"></a>
+<span class="sourceLineNo">741</span>   * stopping on the first change, all the recalculations are only called for ComputedValues<a name="line.741"></a>
+<span class="sourceLineNo">742</span>   * that will be tracked by derivation. That is because we assume that if the first N<a name="line.742"></a>
+<span class="sourceLineNo">743</span>   * dependencies of the derivation doesn't change then the derivation should run the same way<a name="line.743"></a>
+<span class="sourceLineNo">744</span>   * up until accessing N-th dependency.&lt;/p&gt;<a name="line.744"></a>
+<span class="sourceLineNo">745</span>   *<a name="line.745"></a>
+<span class="sourceLineNo">746</span>   * @return true if the Observer should be recomputed.<a name="line.746"></a>
+<span class="sourceLineNo">747</span>   */<a name="line.747"></a>
+<span class="sourceLineNo">748</span>  boolean shouldCompute()<a name="line.748"></a>
+<span class="sourceLineNo">749</span>  {<a name="line.749"></a>
+<span class="sourceLineNo">750</span>    final int state = getState();<a name="line.750"></a>
+<span class="sourceLineNo">751</span>    switch ( state )<a name="line.751"></a>
+<span class="sourceLineNo">752</span>    {<a name="line.752"></a>
+<span class="sourceLineNo">753</span>      case Flags.STATE_UP_TO_DATE:<a name="line.753"></a>
+<span class="sourceLineNo">754</span>        return false;<a name="line.754"></a>
+<span class="sourceLineNo">755</span>      case Flags.STATE_INACTIVE:<a name="line.755"></a>
+<span class="sourceLineNo">756</span>      case Flags.STATE_STALE:<a name="line.756"></a>
+<span class="sourceLineNo">757</span>        return true;<a name="line.757"></a>
+<span class="sourceLineNo">758</span>      case Flags.STATE_POSSIBLY_STALE:<a name="line.758"></a>
+<span class="sourceLineNo">759</span>      {<a name="line.759"></a>
+<span class="sourceLineNo">760</span>        for ( final ObservableValue observableValue : getDependencies() )<a name="line.760"></a>
+<span class="sourceLineNo">761</span>        {<a name="line.761"></a>
+<span class="sourceLineNo">762</span>          if ( observableValue.isComputedValue() )<a name="line.762"></a>
+<span class="sourceLineNo">763</span>          {<a name="line.763"></a>
+<span class="sourceLineNo">764</span>            final Observer owner = observableValue.getObserver();<a name="line.764"></a>
+<span class="sourceLineNo">765</span>            final ComputedValue computedValue = owner.getComputedValue();<a name="line.765"></a>
+<span class="sourceLineNo">766</span>            try<a name="line.766"></a>
+<span class="sourceLineNo">767</span>            {<a name="line.767"></a>
+<span class="sourceLineNo">768</span>              computedValue.get();<a name="line.768"></a>
+<span class="sourceLineNo">769</span>            }<a name="line.769"></a>
+<span class="sourceLineNo">770</span>            catch ( final Throwable ignored )<a name="line.770"></a>
+<span class="sourceLineNo">771</span>            {<a name="line.771"></a>
+<span class="sourceLineNo">772</span>            }<a name="line.772"></a>
+<span class="sourceLineNo">773</span>            // Call to get() will update this state if ComputedValue changed<a name="line.773"></a>
+<span class="sourceLineNo">774</span>            if ( Flags.STATE_STALE == getState() )<a name="line.774"></a>
+<span class="sourceLineNo">775</span>            {<a name="line.775"></a>
+<span class="sourceLineNo">776</span>              return true;<a name="line.776"></a>
+<span class="sourceLineNo">777</span>            }<a name="line.777"></a>
+<span class="sourceLineNo">778</span>          }<a name="line.778"></a>
+<span class="sourceLineNo">779</span>        }<a name="line.779"></a>
+<span class="sourceLineNo">780</span>      }<a name="line.780"></a>
+<span class="sourceLineNo">781</span>      break;<a name="line.781"></a>
+<span class="sourceLineNo">782</span>      default:<a name="line.782"></a>
+<span class="sourceLineNo">783</span>        if ( Arez.shouldCheckInvariants() )<a name="line.783"></a>
+<span class="sourceLineNo">784</span>        {<a name="line.784"></a>
+<span class="sourceLineNo">785</span>          fail( () -&gt; "Arez-0205: Observer.shouldCompute() invoked on observer named '" + getName() +<a name="line.785"></a>
+<span class="sourceLineNo">786</span>                      "' but observer is in state " + Flags.getStateName( getState() ) );<a name="line.786"></a>
+<span class="sourceLineNo">787</span>        }<a name="line.787"></a>
+<span class="sourceLineNo">788</span>    }<a name="line.788"></a>
+<span class="sourceLineNo">789</span>    /*<a name="line.789"></a>
+<span class="sourceLineNo">790</span>     * This results in POSSIBLY_STALE returning to UP_TO_DATE<a name="line.790"></a>
+<span class="sourceLineNo">791</span>     */<a name="line.791"></a>
+<span class="sourceLineNo">792</span>    markDependenciesLeastStaleObserverAsUpToDate();<a name="line.792"></a>
+<span class="sourceLineNo">793</span>    return false;<a name="line.793"></a>
+<span class="sourceLineNo">794</span>  }<a name="line.794"></a>
+<span class="sourceLineNo">795</span><a name="line.795"></a>
+<span class="sourceLineNo">796</span>  /**<a name="line.796"></a>
+<span class="sourceLineNo">797</span>   * Return the dependencies.<a name="line.797"></a>
+<span class="sourceLineNo">798</span>   *<a name="line.798"></a>
+<span class="sourceLineNo">799</span>   * @return the dependencies.<a name="line.799"></a>
+<span class="sourceLineNo">800</span>   */<a name="line.800"></a>
+<span class="sourceLineNo">801</span>  @Nonnull<a name="line.801"></a>
+<span class="sourceLineNo">802</span>  ArrayList&lt;ObservableValue&lt;?&gt;&gt; getDependencies()<a name="line.802"></a>
+<span class="sourceLineNo">803</span>  {<a name="line.803"></a>
+<span class="sourceLineNo">804</span>    return _dependencies;<a name="line.804"></a>
+<span class="sourceLineNo">805</span>  }<a name="line.805"></a>
+<span class="sourceLineNo">806</span><a name="line.806"></a>
+<span class="sourceLineNo">807</span>  /**<a name="line.807"></a>
+<span class="sourceLineNo">808</span>   * Replace the current set of dependencies with supplied dependencies.<a name="line.808"></a>
+<span class="sourceLineNo">809</span>   * This should be the only mechanism via which the dependencies are updated.<a name="line.809"></a>
+<span class="sourceLineNo">810</span>   *<a name="line.810"></a>
+<span class="sourceLineNo">811</span>   * @param dependencies the new set of dependencies.<a name="line.811"></a>
+<span class="sourceLineNo">812</span>   */<a name="line.812"></a>
+<span class="sourceLineNo">813</span>  void replaceDependencies( @Nonnull final ArrayList&lt;ObservableValue&lt;?&gt;&gt; dependencies )<a name="line.813"></a>
+<span class="sourceLineNo">814</span>  {<a name="line.814"></a>
+<span class="sourceLineNo">815</span>    if ( Arez.shouldCheckInvariants() )<a name="line.815"></a>
+<span class="sourceLineNo">816</span>    {<a name="line.816"></a>
+<span class="sourceLineNo">817</span>      invariantDependenciesUnique( "Pre replaceDependencies" );<a name="line.817"></a>
+<span class="sourceLineNo">818</span>    }<a name="line.818"></a>
+<span class="sourceLineNo">819</span>    _dependencies = Objects.requireNonNull( dependencies );<a name="line.819"></a>
+<span class="sourceLineNo">820</span>    if ( Arez.shouldCheckInvariants() )<a name="line.820"></a>
+<span class="sourceLineNo">821</span>    {<a name="line.821"></a>
+<span class="sourceLineNo">822</span>      invariantDependenciesUnique( "Post replaceDependencies" );<a name="line.822"></a>
+<span class="sourceLineNo">823</span>      invariantDependenciesBackLink( "Post replaceDependencies" );<a name="line.823"></a>
+<span class="sourceLineNo">824</span>      invariantDependenciesNotDisposed();<a name="line.824"></a>
+<span class="sourceLineNo">825</span>    }<a name="line.825"></a>
+<span class="sourceLineNo">826</span>  }<a name="line.826"></a>
+<span class="sourceLineNo">827</span><a name="line.827"></a>
+<span class="sourceLineNo">828</span>  /**<a name="line.828"></a>
+<span class="sourceLineNo">829</span>   * Ensure the dependencies list contain no duplicates.<a name="line.829"></a>
+<span class="sourceLineNo">830</span>   * Should be optimized away if invariant checking is disabled.<a name="line.830"></a>
+<span class="sourceLineNo">831</span>   *<a name="line.831"></a>
+<span class="sourceLineNo">832</span>   * @param context some useful debugging context used in invariant checks.<a name="line.832"></a>
+<span class="sourceLineNo">833</span>   */<a name="line.833"></a>
+<span class="sourceLineNo">834</span>  void invariantDependenciesUnique( @Nonnull final String context )<a name="line.834"></a>
+<span class="sourceLineNo">835</span>  {<a name="line.835"></a>
+<span class="sourceLineNo">836</span>    if ( Arez.shouldCheckInvariants() )<a name="line.836"></a>
+<span class="sourceLineNo">837</span>    {<a name="line.837"></a>
+<span class="sourceLineNo">838</span>      invariant( () -&gt; getDependencies().size() == new HashSet&lt;&gt;( getDependencies() ).size(),<a name="line.838"></a>
+<span class="sourceLineNo">839</span>                 () -&gt; "Arez-0089: " + context + ": The set of dependencies in observer named '" +<a name="line.839"></a>
+<span class="sourceLineNo">840</span>                       getName() + "' is not unique. Current list: '" +<a name="line.840"></a>
+<span class="sourceLineNo">841</span>                       getDependencies().stream().map( Node::getName ).collect( Collectors.toList() ) + "'." );<a name="line.841"></a>
+<span class="sourceLineNo">842</span>    }<a name="line.842"></a>
+<span class="sourceLineNo">843</span>  }<a name="line.843"></a>
+<span class="sourceLineNo">844</span><a name="line.844"></a>
+<span class="sourceLineNo">845</span>  /**<a name="line.845"></a>
+<span class="sourceLineNo">846</span>   * Ensure all dependencies contain this observer in the list of observers.<a name="line.846"></a>
+<span class="sourceLineNo">847</span>   * Should be optimized away if invariant checking is disabled.<a name="line.847"></a>
+<span class="sourceLineNo">848</span>   *<a name="line.848"></a>
+<span class="sourceLineNo">849</span>   * @param context some useful debugging context used in invariant checks.<a name="line.849"></a>
+<span class="sourceLineNo">850</span>   */<a name="line.850"></a>
+<span class="sourceLineNo">851</span>  void invariantDependenciesBackLink( @Nonnull final String context )<a name="line.851"></a>
+<span class="sourceLineNo">852</span>  {<a name="line.852"></a>
+<span class="sourceLineNo">853</span>    if ( Arez.shouldCheckInvariants() )<a name="line.853"></a>
+<span class="sourceLineNo">854</span>    {<a name="line.854"></a>
+<span class="sourceLineNo">855</span>      getDependencies().forEach( observable -&gt;<a name="line.855"></a>
+<span class="sourceLineNo">856</span>                                   invariant( () -&gt; observable.getObservers().contains( this ),<a name="line.856"></a>
+<span class="sourceLineNo">857</span>                                              () -&gt; "Arez-0090: " + context + ": Observer named '" + getName() +<a name="line.857"></a>
+<span class="sourceLineNo">858</span>                                                    "' has ObservableValue dependency named '" + observable.getName() +<a name="line.858"></a>
+<span class="sourceLineNo">859</span>                                                    "' which does not contain the observer in the list of " +<a name="line.859"></a>
+<span class="sourceLineNo">860</span>                                                    "observers." ) );<a name="line.860"></a>
+<span class="sourceLineNo">861</span>      invariantComputedValueObserverState();<a name="line.861"></a>
+<span class="sourceLineNo">862</span>    }<a name="line.862"></a>
+<span class="sourceLineNo">863</span>  }<a name="line.863"></a>
+<span class="sourceLineNo">864</span><a name="line.864"></a>
+<span class="sourceLineNo">865</span>  /**<a name="line.865"></a>
+<span class="sourceLineNo">866</span>   * Ensure all dependencies are not disposed.<a name="line.866"></a>
+<span class="sourceLineNo">867</span>   */<a name="line.867"></a>
+<span class="sourceLineNo">868</span>  void invariantDependenciesNotDisposed()<a name="line.868"></a>
+<span class="sourceLineNo">869</span>  {<a name="line.869"></a>
+<span class="sourceLineNo">870</span>    if ( Arez.shouldCheckInvariants() )<a name="line.870"></a>
+<span class="sourceLineNo">871</span>    {<a name="line.871"></a>
+<span class="sourceLineNo">872</span>      getDependencies().forEach( observable -&gt;<a name="line.872"></a>
+<span class="sourceLineNo">873</span>                                   invariant( observable::isNotDisposed,<a name="line.873"></a>
+<span class="sourceLineNo">874</span>                                              () -&gt; "Arez-0091: Observer named '" + getName() + "' has " +<a name="line.874"></a>
+<span class="sourceLineNo">875</span>                                                    "ObservableValue dependency named '" + observable.getName() +<a name="line.875"></a>
+<span class="sourceLineNo">876</span>                                                    "' which is disposed." ) );<a name="line.876"></a>
+<span class="sourceLineNo">877</span>      invariantComputedValueObserverState();<a name="line.877"></a>
+<span class="sourceLineNo">878</span>    }<a name="line.878"></a>
+<span class="sourceLineNo">879</span>  }<a name="line.879"></a>
+<span class="sourceLineNo">880</span><a name="line.880"></a>
+<span class="sourceLineNo">881</span>  /**<a name="line.881"></a>
+<span class="sourceLineNo">882</span>   * Ensure that state field and other fields of the Observer are consistent.<a name="line.882"></a>
+<span class="sourceLineNo">883</span>   */<a name="line.883"></a>
+<span class="sourceLineNo">884</span>  void invariantState()<a name="line.884"></a>
+<span class="sourceLineNo">885</span>  {<a name="line.885"></a>
+<span class="sourceLineNo">886</span>    if ( Arez.shouldCheckInvariants() )<a name="line.886"></a>
+<span class="sourceLineNo">887</span>    {<a name="line.887"></a>
+<span class="sourceLineNo">888</span>      if ( isInactive() &amp;&amp; !isDisposing() )<a name="line.888"></a>
 <span class="sourceLineNo">889</span>      {<a name="line.889"></a>
-<span class="sourceLineNo">890</span>        final ObservableValue&lt;?&gt; observable = _computedValue.getObservableValue();<a name="line.890"></a>
-<span class="sourceLineNo">891</span>        invariant( () -&gt; Objects.equals( observable.isComputedValue() ? observable.getObserver() : null, this ),<a name="line.891"></a>
-<span class="sourceLineNo">892</span>                   () -&gt; "Arez-0093: Observer named '" + getName() + "' is associated with an ObservableValue that " +<a name="line.892"></a>
-<span class="sourceLineNo">893</span>                         "does not link back to observer." );<a name="line.893"></a>
-<span class="sourceLineNo">894</span>      }<a name="line.894"></a>
-<span class="sourceLineNo">895</span>    }<a name="line.895"></a>
-<span class="sourceLineNo">896</span>  }<a name="line.896"></a>
-<span class="sourceLineNo">897</span><a name="line.897"></a>
-<span class="sourceLineNo">898</span>  void invariantComputedValueObserverState()<a name="line.898"></a>
-<span class="sourceLineNo">899</span>  {<a name="line.899"></a>
-<span class="sourceLineNo">900</span>    if ( Arez.shouldCheckInvariants() )<a name="line.900"></a>
-<span class="sourceLineNo">901</span>    {<a name="line.901"></a>
-<span class="sourceLineNo">902</span>      if ( isComputedValue() &amp;&amp; isActive() &amp;&amp; isNotDisposed() )<a name="line.902"></a>
-<span class="sourceLineNo">903</span>      {<a name="line.903"></a>
-<span class="sourceLineNo">904</span>        invariant( () -&gt; !getComputedValue().getObservableValue().getObservers().isEmpty() ||<a name="line.904"></a>
-<span class="sourceLineNo">905</span>                         Objects.equals( getContext().getTransaction().getTracker(), this ),<a name="line.905"></a>
-<span class="sourceLineNo">906</span>                   () -&gt; "Arez-0094: Observer named '" + getName() + "' is a ComputedValue and active but the " +<a name="line.906"></a>
-<span class="sourceLineNo">907</span>                         "associated ObservableValue has no observers." );<a name="line.907"></a>
-<span class="sourceLineNo">908</span>      }<a name="line.908"></a>
-<span class="sourceLineNo">909</span>    }<a name="line.909"></a>
-<span class="sourceLineNo">910</span>  }<a name="line.910"></a>
-<span class="sourceLineNo">911</span><a name="line.911"></a>
-<span class="sourceLineNo">912</span>  /**<a name="line.912"></a>
-<span class="sourceLineNo">913</span>   * Return the ComputedValue for Observer.<a name="line.913"></a>
-<span class="sourceLineNo">914</span>   * This should not be called if observer is not a derivation and will generate an invariant failure<a name="line.914"></a>
-<span class="sourceLineNo">915</span>   * if invariants are enabled.<a name="line.915"></a>
-<span class="sourceLineNo">916</span>   *<a name="line.916"></a>
-<span class="sourceLineNo">917</span>   * @return the associated ComputedValue.<a name="line.917"></a>
-<span class="sourceLineNo">918</span>   */<a name="line.918"></a>
-<span class="sourceLineNo">919</span>  @Nonnull<a name="line.919"></a>
-<span class="sourceLineNo">920</span>  ComputedValue&lt;?&gt; getComputedValue()<a name="line.920"></a>
-<span class="sourceLineNo">921</span>  {<a name="line.921"></a>
-<span class="sourceLineNo">922</span>    if ( Arez.shouldCheckInvariants() )<a name="line.922"></a>
-<span class="sourceLineNo">923</span>    {<a name="line.923"></a>
-<span class="sourceLineNo">924</span>      invariant( this::isComputedValue,<a name="line.924"></a>
-<span class="sourceLineNo">925</span>                 () -&gt; "Arez-0095: Attempted to invoke getComputedValue on observer named '" + getName() + "' when " +<a name="line.925"></a>
-<span class="sourceLineNo">926</span>                       "is not a computed observer." );<a name="line.926"></a>
-<span class="sourceLineNo">927</span>    }<a name="line.927"></a>
-<span class="sourceLineNo">928</span>    assert null != _computedValue;<a name="line.928"></a>
-<span class="sourceLineNo">929</span>    return _computedValue;<a name="line.929"></a>
-<span class="sourceLineNo">930</span>  }<a name="line.930"></a>
-<span class="sourceLineNo">931</span><a name="line.931"></a>
-<span class="sourceLineNo">932</span>  @Nullable<a name="line.932"></a>
-<span class="sourceLineNo">933</span>  Component getComponent()<a name="line.933"></a>
-<span class="sourceLineNo">934</span>  {<a name="line.934"></a>
-<span class="sourceLineNo">935</span>    return _component;<a name="line.935"></a>
+<span class="sourceLineNo">890</span>        invariant( () -&gt; getDependencies().isEmpty(),<a name="line.890"></a>
+<span class="sourceLineNo">891</span>                   () -&gt; "Arez-0092: Observer named '" + getName() + "' is inactive but still has dependencies: " +<a name="line.891"></a>
+<span class="sourceLineNo">892</span>                         getDependencies().stream().map( Node::getName ).collect( Collectors.toList() ) + "." );<a name="line.892"></a>
+<span class="sourceLineNo">893</span>      }<a name="line.893"></a>
+<span class="sourceLineNo">894</span>      if ( null != _computedValue &amp;&amp; _computedValue.isNotDisposed() )<a name="line.894"></a>
+<span class="sourceLineNo">895</span>      {<a name="line.895"></a>
+<span class="sourceLineNo">896</span>        final ObservableValue&lt;?&gt; observable = _computedValue.getObservableValue();<a name="line.896"></a>
+<span class="sourceLineNo">897</span>        invariant( () -&gt; Objects.equals( observable.isComputedValue() ? observable.getObserver() : null, this ),<a name="line.897"></a>
+<span class="sourceLineNo">898</span>                   () -&gt; "Arez-0093: Observer named '" + getName() + "' is associated with an ObservableValue that " +<a name="line.898"></a>
+<span class="sourceLineNo">899</span>                         "does not link back to observer." );<a name="line.899"></a>
+<span class="sourceLineNo">900</span>      }<a name="line.900"></a>
+<span class="sourceLineNo">901</span>    }<a name="line.901"></a>
+<span class="sourceLineNo">902</span>  }<a name="line.902"></a>
+<span class="sourceLineNo">903</span><a name="line.903"></a>
+<span class="sourceLineNo">904</span>  void invariantComputedValueObserverState()<a name="line.904"></a>
+<span class="sourceLineNo">905</span>  {<a name="line.905"></a>
+<span class="sourceLineNo">906</span>    if ( Arez.shouldCheckInvariants() )<a name="line.906"></a>
+<span class="sourceLineNo">907</span>    {<a name="line.907"></a>
+<span class="sourceLineNo">908</span>      if ( isComputedValue() &amp;&amp; isActive() &amp;&amp; isNotDisposed() )<a name="line.908"></a>
+<span class="sourceLineNo">909</span>      {<a name="line.909"></a>
+<span class="sourceLineNo">910</span>        invariant( () -&gt; !getComputedValue().getObservableValue().getObservers().isEmpty() ||<a name="line.910"></a>
+<span class="sourceLineNo">911</span>                         Objects.equals( getContext().getTransaction().getTracker(), this ),<a name="line.911"></a>
+<span class="sourceLineNo">912</span>                   () -&gt; "Arez-0094: Observer named '" + getName() + "' is a ComputedValue and active but the " +<a name="line.912"></a>
+<span class="sourceLineNo">913</span>                         "associated ObservableValue has no observers." );<a name="line.913"></a>
+<span class="sourceLineNo">914</span>      }<a name="line.914"></a>
+<span class="sourceLineNo">915</span>    }<a name="line.915"></a>
+<span class="sourceLineNo">916</span>  }<a name="line.916"></a>
+<span class="sourceLineNo">917</span><a name="line.917"></a>
+<span class="sourceLineNo">918</span>  /**<a name="line.918"></a>
+<span class="sourceLineNo">919</span>   * Return the ComputedValue for Observer.<a name="line.919"></a>
+<span class="sourceLineNo">920</span>   * This should not be called if observer is not a derivation and will generate an invariant failure<a name="line.920"></a>
+<span class="sourceLineNo">921</span>   * if invariants are enabled.<a name="line.921"></a>
+<span class="sourceLineNo">922</span>   *<a name="line.922"></a>
+<span class="sourceLineNo">923</span>   * @return the associated ComputedValue.<a name="line.923"></a>
+<span class="sourceLineNo">924</span>   */<a name="line.924"></a>
+<span class="sourceLineNo">925</span>  @Nonnull<a name="line.925"></a>
+<span class="sourceLineNo">926</span>  ComputedValue&lt;?&gt; getComputedValue()<a name="line.926"></a>
+<span class="sourceLineNo">927</span>  {<a name="line.927"></a>
+<span class="sourceLineNo">928</span>    if ( Arez.shouldCheckInvariants() )<a name="line.928"></a>
+<span class="sourceLineNo">929</span>    {<a name="line.929"></a>
+<span class="sourceLineNo">930</span>      invariant( this::isComputedValue,<a name="line.930"></a>
+<span class="sourceLineNo">931</span>                 () -&gt; "Arez-0095: Attempted to invoke getComputedValue on observer named '" + getName() + "' when " +<a name="line.931"></a>
+<span class="sourceLineNo">932</span>                       "is not a computed observer." );<a name="line.932"></a>
+<span class="sourceLineNo">933</span>    }<a name="line.933"></a>
+<span class="sourceLineNo">934</span>    assert null != _computedValue;<a name="line.934"></a>
+<span class="sourceLineNo">935</span>    return _computedValue;<a name="line.935"></a>
 <span class="sourceLineNo">936</span>  }<a name="line.936"></a>
 <span class="sourceLineNo">937</span><a name="line.937"></a>
-<span class="sourceLineNo">938</span>  /**<a name="line.938"></a>
-<span class="sourceLineNo">939</span>   * Return the info associated with this class.<a name="line.939"></a>
-<span class="sourceLineNo">940</span>   *<a name="line.940"></a>
-<span class="sourceLineNo">941</span>   * @return the info associated with this class.<a name="line.941"></a>
-<span class="sourceLineNo">942</span>   */<a name="line.942"></a>
-<span class="sourceLineNo">943</span>  @SuppressWarnings( "ConstantConditions" )<a name="line.943"></a>
-<span class="sourceLineNo">944</span>  @Nonnull<a name="line.944"></a>
-<span class="sourceLineNo">945</span>  ObserverInfo asInfo()<a name="line.945"></a>
-<span class="sourceLineNo">946</span>  {<a name="line.946"></a>
-<span class="sourceLineNo">947</span>    if ( Arez.shouldCheckInvariants() )<a name="line.947"></a>
-<span class="sourceLineNo">948</span>    {<a name="line.948"></a>
-<span class="sourceLineNo">949</span>      invariant( Arez::areSpiesEnabled,<a name="line.949"></a>
-<span class="sourceLineNo">950</span>                 () -&gt; "Arez-0197: Observer.asInfo() invoked but Arez.areSpiesEnabled() returned false." );<a name="line.950"></a>
-<span class="sourceLineNo">951</span>    }<a name="line.951"></a>
-<span class="sourceLineNo">952</span>    if ( Arez.areSpiesEnabled() &amp;&amp; null == _info )<a name="line.952"></a>
-<span class="sourceLineNo">953</span>    {<a name="line.953"></a>
-<span class="sourceLineNo">954</span>      _info = new ObserverInfoImpl( getContext().getSpy(), this );<a name="line.954"></a>
-<span class="sourceLineNo">955</span>    }<a name="line.955"></a>
-<span class="sourceLineNo">956</span>    return Arez.areSpiesEnabled() ? _info : null;<a name="line.956"></a>
-<span class="sourceLineNo">957</span>  }<a name="line.957"></a>
-<span class="sourceLineNo">958</span><a name="line.958"></a>
-<span class="sourceLineNo">959</span>  @Nullable<a name="line.959"></a>
-<span class="sourceLineNo">960</span>  Procedure getObserved()<a name="line.960"></a>
-<span class="sourceLineNo">961</span>  {<a name="line.961"></a>
-<span class="sourceLineNo">962</span>    return _observed;<a name="line.962"></a>
+<span class="sourceLineNo">938</span>  @Nullable<a name="line.938"></a>
+<span class="sourceLineNo">939</span>  Component getComponent()<a name="line.939"></a>
+<span class="sourceLineNo">940</span>  {<a name="line.940"></a>
+<span class="sourceLineNo">941</span>    return _component;<a name="line.941"></a>
+<span class="sourceLineNo">942</span>  }<a name="line.942"></a>
+<span class="sourceLineNo">943</span><a name="line.943"></a>
+<span class="sourceLineNo">944</span>  /**<a name="line.944"></a>
+<span class="sourceLineNo">945</span>   * Return the info associated with this class.<a name="line.945"></a>
+<span class="sourceLineNo">946</span>   *<a name="line.946"></a>
+<span class="sourceLineNo">947</span>   * @return the info associated with this class.<a name="line.947"></a>
+<span class="sourceLineNo">948</span>   */<a name="line.948"></a>
+<span class="sourceLineNo">949</span>  @SuppressWarnings( "ConstantConditions" )<a name="line.949"></a>
+<span class="sourceLineNo">950</span>  @Nonnull<a name="line.950"></a>
+<span class="sourceLineNo">951</span>  ObserverInfo asInfo()<a name="line.951"></a>
+<span class="sourceLineNo">952</span>  {<a name="line.952"></a>
+<span class="sourceLineNo">953</span>    if ( Arez.shouldCheckInvariants() )<a name="line.953"></a>
+<span class="sourceLineNo">954</span>    {<a name="line.954"></a>
+<span class="sourceLineNo">955</span>      invariant( Arez::areSpiesEnabled,<a name="line.955"></a>
+<span class="sourceLineNo">956</span>                 () -&gt; "Arez-0197: Observer.asInfo() invoked but Arez.areSpiesEnabled() returned false." );<a name="line.956"></a>
+<span class="sourceLineNo">957</span>    }<a name="line.957"></a>
+<span class="sourceLineNo">958</span>    if ( Arez.areSpiesEnabled() &amp;&amp; null == _info )<a name="line.958"></a>
+<span class="sourceLineNo">959</span>    {<a name="line.959"></a>
+<span class="sourceLineNo">960</span>      _info = new ObserverInfoImpl( getContext().getSpy(), this );<a name="line.960"></a>
+<span class="sourceLineNo">961</span>    }<a name="line.961"></a>
+<span class="sourceLineNo">962</span>    return Arez.areSpiesEnabled() ? _info : null;<a name="line.962"></a>
 <span class="sourceLineNo">963</span>  }<a name="line.963"></a>
 <span class="sourceLineNo">964</span><a name="line.964"></a>
 <span class="sourceLineNo">965</span>  @Nullable<a name="line.965"></a>
-<span class="sourceLineNo">966</span>  Procedure getOnDepsChanged()<a name="line.966"></a>
+<span class="sourceLineNo">966</span>  Procedure getObserved()<a name="line.966"></a>
 <span class="sourceLineNo">967</span>  {<a name="line.967"></a>
-<span class="sourceLineNo">968</span>    return _onDepsChanged;<a name="line.968"></a>
+<span class="sourceLineNo">968</span>    return _observed;<a name="line.968"></a>
 <span class="sourceLineNo">969</span>  }<a name="line.969"></a>
 <span class="sourceLineNo">970</span><a name="line.970"></a>
-<span class="sourceLineNo">971</span>  boolean isKeepAlive()<a name="line.971"></a>
-<span class="sourceLineNo">972</span>  {<a name="line.972"></a>
-<span class="sourceLineNo">973</span>    return Flags.KEEPALIVE == Flags.getScheduleType( _flags );<a name="line.973"></a>
-<span class="sourceLineNo">974</span>  }<a name="line.974"></a>
-<span class="sourceLineNo">975</span><a name="line.975"></a>
-<span class="sourceLineNo">976</span>  boolean shouldExecuteObservedNext()<a name="line.976"></a>
-<span class="sourceLineNo">977</span>  {<a name="line.977"></a>
-<span class="sourceLineNo">978</span>    return 0 != ( _flags &amp; Flags.EXECUTE_OBSERVED_NEXT );<a name="line.978"></a>
-<span class="sourceLineNo">979</span>  }<a name="line.979"></a>
-<span class="sourceLineNo">980</span><a name="line.980"></a>
-<span class="sourceLineNo">981</span>  void executeObservedNextIfPresent()<a name="line.981"></a>
-<span class="sourceLineNo">982</span>  {<a name="line.982"></a>
-<span class="sourceLineNo">983</span>    if ( null != _observed )<a name="line.983"></a>
-<span class="sourceLineNo">984</span>    {<a name="line.984"></a>
-<span class="sourceLineNo">985</span>      _flags |= Flags.EXECUTE_OBSERVED_NEXT;<a name="line.985"></a>
-<span class="sourceLineNo">986</span>    }<a name="line.986"></a>
-<span class="sourceLineNo">987</span>  }<a name="line.987"></a>
-<span class="sourceLineNo">988</span><a name="line.988"></a>
-<span class="sourceLineNo">989</span>  private void executeOnDepsChangedNextIfPresent()<a name="line.989"></a>
-<span class="sourceLineNo">990</span>  {<a name="line.990"></a>
-<span class="sourceLineNo">991</span>    if ( null != _onDepsChanged )<a name="line.991"></a>
-<span class="sourceLineNo">992</span>    {<a name="line.992"></a>
-<span class="sourceLineNo">993</span>      _flags &amp;= ~Flags.EXECUTE_OBSERVED_NEXT;<a name="line.993"></a>
-<span class="sourceLineNo">994</span>    }<a name="line.994"></a>
-<span class="sourceLineNo">995</span>  }<a name="line.995"></a>
-<span class="sourceLineNo">996</span>}<a name="line.996"></a>
+<span class="sourceLineNo">971</span>  @Nullable<a name="line.971"></a>
+<span class="sourceLineNo">972</span>  Procedure getOnDepsChanged()<a name="line.972"></a>
+<span class="sourceLineNo">973</span>  {<a name="line.973"></a>
+<span class="sourceLineNo">974</span>    return _onDepsChanged;<a name="line.974"></a>
+<span class="sourceLineNo">975</span>  }<a name="line.975"></a>
+<span class="sourceLineNo">976</span><a name="line.976"></a>
+<span class="sourceLineNo">977</span>  boolean isKeepAlive()<a name="line.977"></a>
+<span class="sourceLineNo">978</span>  {<a name="line.978"></a>
+<span class="sourceLineNo">979</span>    return Flags.KEEPALIVE == Flags.getScheduleType( _flags );<a name="line.979"></a>
+<span class="sourceLineNo">980</span>  }<a name="line.980"></a>
+<span class="sourceLineNo">981</span><a name="line.981"></a>
+<span class="sourceLineNo">982</span>  boolean shouldExecuteObservedNext()<a name="line.982"></a>
+<span class="sourceLineNo">983</span>  {<a name="line.983"></a>
+<span class="sourceLineNo">984</span>    return 0 != ( _flags &amp; Flags.EXECUTE_OBSERVED_NEXT );<a name="line.984"></a>
+<span class="sourceLineNo">985</span>  }<a name="line.985"></a>
+<span class="sourceLineNo">986</span><a name="line.986"></a>
+<span class="sourceLineNo">987</span>  void executeObservedNextIfPresent()<a name="line.987"></a>
+<span class="sourceLineNo">988</span>  {<a name="line.988"></a>
+<span class="sourceLineNo">989</span>    if ( null != _observed )<a name="line.989"></a>
+<span class="sourceLineNo">990</span>    {<a name="line.990"></a>
+<span class="sourceLineNo">991</span>      _flags |= Flags.EXECUTE_OBSERVED_NEXT;<a name="line.991"></a>
+<span class="sourceLineNo">992</span>    }<a name="line.992"></a>
+<span class="sourceLineNo">993</span>  }<a name="line.993"></a>
+<span class="sourceLineNo">994</span><a name="line.994"></a>
+<span class="sourceLineNo">995</span>  private void executeOnDepsChangedNextIfPresent()<a name="line.995"></a>
+<span class="sourceLineNo">996</span>  {<a name="line.996"></a>
+<span class="sourceLineNo">997</span>    if ( null != _onDepsChanged )<a name="line.997"></a>
+<span class="sourceLineNo">998</span>    {<a name="line.998"></a>
+<span class="sourceLineNo">999</span>      _flags &amp;= ~Flags.EXECUTE_OBSERVED_NEXT;<a name="line.999"></a>
+<span class="sourceLineNo">1000</span>    }<a name="line.1000"></a>
+<span class="sourceLineNo">1001</span>  }<a name="line.1001"></a>
+<span class="sourceLineNo">1002</span>}<a name="line.1002"></a>
 
 
 

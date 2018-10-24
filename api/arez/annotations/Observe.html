@@ -186,6 +186,12 @@ public @interface <a href="../../src-html/arez/annotations/Observe.html#line.37"
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observe.html#reportResult--">reportResult</a></span></code>
+<div class="block">Return true if the return value of the observed function (if any) should be reported to the Arez spy subsystem.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observe.html#requireEnvironment--">requireEnvironment</a></span></code>
 <div class="block">True if invocations of the observed method must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>.</div>
 </td>
@@ -372,6 +378,30 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </li>
 </ul>
 <ul class="blockList">
+<li class="blockList"><a name="reportResult--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>reportResult</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observe.html#line.116">reportResult</a></pre>
+<div class="block">Return true if the return value of the observed function (if any) should be reported to the Arez spy subsystem.
+ It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.
+ This is only useful if the value of <a href="../../arez/annotations/Observe.html#executor--"><code>executor()</code></a> is set to <a href="../../arez/annotations/Executor.html#APPLICATION"><code>Executor.APPLICATION</code></a> as otherwise the
+ result is not reported anyway.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true to report the parameters, false otherwise.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>true</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a name="depType--">
 <!--   -->
 </a>
@@ -379,7 +409,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList">
 <h4>depType</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a>&nbsp;<a href="../../src-html/arez/annotations/Observe.html#line.120">depType</a></pre>
+public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a>&nbsp;<a href="../../src-html/arez/annotations/Observe.html#line.130">depType</a></pre>
 <div class="block">Enum indicating whether the Observer is derived from arez elements and/or external dependencies.
  If set to <a href="../../arez/annotations/DepType.html#AREZ"><code>DepType.AREZ</code></a> then the arez runtime will verify that the method annotated by this
  annotation accesses arez elements (i.e. instances of <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> or instances of
@@ -406,7 +436,7 @@ public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum i
 <ul class="blockListLast">
 <li class="blockList">
 <h4>requireEnvironment</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observe.html#line.131">requireEnvironment</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observe.html#line.141">requireEnvironment</a></pre>
 <div class="block">True if invocations of the observed method must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>.
  If the <a href="../../arez/annotations/Observe.html#executor--"><code>executor()</code></a> is set to <a href="../../arez/annotations/Executor.html#AREZ"><code>Executor.AREZ</code></a> then this setting is effectively ignored as all
  reaction executed by the arez runtime will run inside an environment (if environments are enabled and configured).
