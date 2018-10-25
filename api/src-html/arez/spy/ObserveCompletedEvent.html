@@ -13,16 +13,16 @@
 <span class="sourceLineNo">005</span>import javax.annotation.Nonnull;<a name="line.5"></a>
 <span class="sourceLineNo">006</span><a name="line.6"></a>
 <span class="sourceLineNo">007</span>/**<a name="line.7"></a>
-<span class="sourceLineNo">008</span> * Notification when Observer completes reaction.<a name="line.8"></a>
+<span class="sourceLineNo">008</span> * Notification when Observer completes method being observed.<a name="line.8"></a>
 <span class="sourceLineNo">009</span> */<a name="line.9"></a>
-<span class="sourceLineNo">010</span>public final class ReactionCompletedEvent<a name="line.10"></a>
+<span class="sourceLineNo">010</span>public final class ObserveCompletedEvent<a name="line.10"></a>
 <span class="sourceLineNo">011</span>  implements SerializableEvent<a name="line.11"></a>
 <span class="sourceLineNo">012</span>{<a name="line.12"></a>
 <span class="sourceLineNo">013</span>  @Nonnull<a name="line.13"></a>
 <span class="sourceLineNo">014</span>  private final ObserverInfo _observer;<a name="line.14"></a>
 <span class="sourceLineNo">015</span>  private final int _duration;<a name="line.15"></a>
 <span class="sourceLineNo">016</span><a name="line.16"></a>
-<span class="sourceLineNo">017</span>  public ReactionCompletedEvent( @Nonnull final ObserverInfo observer, final int duration )<a name="line.17"></a>
+<span class="sourceLineNo">017</span>  public ObserveCompletedEvent( @Nonnull final ObserverInfo observer, final int duration )<a name="line.17"></a>
 <span class="sourceLineNo">018</span>  {<a name="line.18"></a>
 <span class="sourceLineNo">019</span>    assert duration &gt;= 0;<a name="line.19"></a>
 <span class="sourceLineNo">020</span>    _observer = Objects.requireNonNull( observer );<a name="line.20"></a>
@@ -46,7 +46,7 @@
 <span class="sourceLineNo">038</span>  @Override<a name="line.38"></a>
 <span class="sourceLineNo">039</span>  public void toMap( @Nonnull final Map&lt;String, Object&gt; map )<a name="line.39"></a>
 <span class="sourceLineNo">040</span>  {<a name="line.40"></a>
-<span class="sourceLineNo">041</span>    map.put( "type", "ReactionCompleted" );<a name="line.41"></a>
+<span class="sourceLineNo">041</span>    map.put( "type", "ObserveCompleted" );<a name="line.41"></a>
 <span class="sourceLineNo">042</span>    map.put( "name", getObserver().getName() );<a name="line.42"></a>
 <span class="sourceLineNo">043</span>    map.put( "duration", getDuration() );<a name="line.43"></a>
 <span class="sourceLineNo">044</span>  }<a name="line.44"></a>

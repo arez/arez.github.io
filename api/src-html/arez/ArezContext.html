@@ -12,10 +12,10 @@
 <span class="sourceLineNo">004</span>import arez.spy.ActionStartedEvent;<a name="line.4"></a>
 <span class="sourceLineNo">005</span>import arez.spy.ComponentCreateStartedEvent;<a name="line.5"></a>
 <span class="sourceLineNo">006</span>import arez.spy.ObservableValueCreatedEvent;<a name="line.6"></a>
-<span class="sourceLineNo">007</span>import arez.spy.ObserverErrorEvent;<a name="line.7"></a>
-<span class="sourceLineNo">008</span>import arez.spy.PropertyAccessor;<a name="line.8"></a>
-<span class="sourceLineNo">009</span>import arez.spy.PropertyMutator;<a name="line.9"></a>
-<span class="sourceLineNo">010</span>import arez.spy.ReactionScheduledEvent;<a name="line.10"></a>
+<span class="sourceLineNo">007</span>import arez.spy.ObserveScheduledEvent;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import arez.spy.ObserverErrorEvent;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import arez.spy.PropertyAccessor;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import arez.spy.PropertyMutator;<a name="line.10"></a>
 <span class="sourceLineNo">011</span>import arez.spy.Spy;<a name="line.11"></a>
 <span class="sourceLineNo">012</span>import java.util.ArrayList;<a name="line.12"></a>
 <span class="sourceLineNo">013</span>import java.util.Collection;<a name="line.13"></a>
@@ -968,7 +968,7 @@
 <span class="sourceLineNo">960</span>  {<a name="line.960"></a>
 <span class="sourceLineNo">961</span>    if ( willPropagateSpyEvents() )<a name="line.961"></a>
 <span class="sourceLineNo">962</span>    {<a name="line.962"></a>
-<span class="sourceLineNo">963</span>      getSpy().reportSpyEvent( new ReactionScheduledEvent( observer.asInfo() ) );<a name="line.963"></a>
+<span class="sourceLineNo">963</span>      getSpy().reportSpyEvent( new ObserveScheduledEvent( observer.asInfo() ) );<a name="line.963"></a>
 <span class="sourceLineNo">964</span>    }<a name="line.964"></a>
 <span class="sourceLineNo">965</span>    if ( Arez.shouldEnforceTransactionType() &amp;&amp; isTransactionActive() &amp;&amp; Arez.shouldCheckInvariants() )<a name="line.965"></a>
 <span class="sourceLineNo">966</span>    {<a name="line.966"></a>

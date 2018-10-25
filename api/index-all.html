@@ -921,7 +921,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeCompletedEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeCompletedEvent.html" title="class in arez.spy">ComputeCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionCompletedEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/ReactionCompletedEvent.html" title="class in arez.spy">ReactionCompletedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserveCompletedEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserveCompletedEvent.html" title="class in arez.spy">ObserveCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/TransactionCompletedEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/TransactionCompletedEvent.html" title="class in arez.spy">TransactionCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
@@ -985,17 +985,17 @@
 <dd>
 <div class="block">Return the Observables associated with the component.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserveCompletedEvent.html#getObserver--">getObserver()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserveCompletedEvent.html" title="class in arez.spy">ObserveCompletedEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverCreatedEvent.html#getObserver--">getObserver()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserverCreatedEvent.html" title="class in arez.spy">ObserverCreatedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverDisposedEvent.html#getObserver--">getObserver()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserverDisposedEvent.html" title="class in arez.spy">ObserverDisposedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverErrorEvent.html#getObserver--">getObserver()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserverErrorEvent.html" title="class in arez.spy">ObserverErrorEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionCompletedEvent.html#getObserver--">getObserver()</a></span> - Method in class arez.spy.<a href="arez/spy/ReactionCompletedEvent.html" title="class in arez.spy">ReactionCompletedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserveScheduledEvent.html#getObserver--">getObserver()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserveScheduledEvent.html" title="class in arez.spy">ObserveScheduledEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionScheduledEvent.html#getObserver--">getObserver()</a></span> - Method in class arez.spy.<a href="arez/spy/ReactionScheduledEvent.html" title="class in arez.spy">ReactionScheduledEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionStartedEvent.html#getObserver--">getObserver()</a></span> - Method in class arez.spy.<a href="arez/spy/ReactionStartedEvent.html" title="class in arez.spy">ReactionStartedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserveStartedEvent.html#getObserver--">getObserver()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserveStartedEvent.html" title="class in arez.spy">ObserveStartedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComponentInfo.html#getObservers--">getObservers()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a></dt>
 <dd>
@@ -1481,6 +1481,12 @@
 <dd>
 <div class="block">Flag indicating that the Observer is allowed to observe <a href="arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a> instances with a lower priority.</div>
 </dd>
+<dt><a href="arez/spy/ObserveCompletedEvent.html" title="class in arez.spy"><span class="typeNameLink">ObserveCompletedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">Notification when Observer completes method being observed.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserveCompletedEvent.html#ObserveCompletedEvent-arez.spy.ObserverInfo-int-">ObserveCompletedEvent(ObserverInfo, int)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ObserveCompletedEvent.html" title="class in arez.spy">ObserveCompletedEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#observer-arez.Procedure-">observer(Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
@@ -1568,6 +1574,18 @@
 <div class="block">Marks a template method that returns the <a href="arez/Observer.html" title="class in arez"><code>Observer</code></a> instance for
  the associated <a href="arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> annotated method.</div>
 </dd>
+<dt><a href="arez/spy/ObserveScheduledEvent.html" title="class in arez.spy"><span class="typeNameLink">ObserveScheduledEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">Notification when on observe is scheduled.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserveScheduledEvent.html#ObserveScheduledEvent-arez.spy.ObserverInfo-">ObserveScheduledEvent(ObserverInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ObserveScheduledEvent.html" title="class in arez.spy">ObserveScheduledEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ObserveStartedEvent.html" title="class in arez.spy"><span class="typeNameLink">ObserveStartedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">Notification when Observer is about to call method being observed.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserveStartedEvent.html#ObserveStartedEvent-arez.spy.ObserverInfo-">ObserveStartedEvent(ObserverInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ObserveStartedEvent.html" title="class in arez.spy">ObserveStartedEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="arez/annotations/OnActivate.html" title="annotation in arez.annotations"><span class="typeNameLink">OnActivate</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Identifies method that is called when the ComputedValue changes from the INACTIVE state to any other state.</div>
@@ -1673,24 +1691,6 @@
 </a>
 <h2 class="title">R</h2>
 <dl>
-<dt><a href="arez/spy/ReactionCompletedEvent.html" title="class in arez.spy"><span class="typeNameLink">ReactionCompletedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">Notification when Observer completes reaction.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionCompletedEvent.html#ReactionCompletedEvent-arez.spy.ObserverInfo-int-">ReactionCompletedEvent(ObserverInfo, int)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ReactionCompletedEvent.html" title="class in arez.spy">ReactionCompletedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="arez/spy/ReactionScheduledEvent.html" title="class in arez.spy"><span class="typeNameLink">ReactionScheduledEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">Notification when reaction scheduled.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionScheduledEvent.html#ReactionScheduledEvent-arez.spy.ObserverInfo-">ReactionScheduledEvent(ObserverInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ReactionScheduledEvent.html" title="class in arez.spy">ReactionScheduledEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="arez/spy/ReactionStartedEvent.html" title="class in arez.spy"><span class="typeNameLink">ReactionStartedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">Notification when Observer starts reaction to some changes.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionStartedEvent.html#ReactionStartedEvent-arez.spy.ObserverInfo-">ReactionStartedEvent(ObserverInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ReactionStartedEvent.html" title="class in arez.spy">ReactionStartedEvent</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/Flags.html#READ_ONLY">READ_ONLY</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
 <div class="block">The observer can only read arez state.</div>
@@ -1999,6 +1999,10 @@
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserveCompletedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ObserveCompletedEvent.html" title="class in arez.spy">ObserveCompletedEvent</a></dt>
+<dd>
+<div class="block">Convert event attributes to json compatible values in map.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverCreatedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ObserverCreatedEvent.html" title="class in arez.spy">ObserverCreatedEvent</a></dt>
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
@@ -2011,15 +2015,11 @@
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionCompletedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ReactionCompletedEvent.html" title="class in arez.spy">ReactionCompletedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserveScheduledEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ObserveScheduledEvent.html" title="class in arez.spy">ObserveScheduledEvent</a></dt>
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionScheduledEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ReactionScheduledEvent.html" title="class in arez.spy">ReactionScheduledEvent</a></dt>
-<dd>
-<div class="block">Convert event attributes to json compatible values in map.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ReactionStartedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ReactionStartedEvent.html" title="class in arez.spy">ReactionStartedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserveStartedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ObserveStartedEvent.html" title="class in arez.spy">ObserveStartedEvent</a></dt>
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>

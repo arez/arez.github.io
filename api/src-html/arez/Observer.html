@@ -10,12 +10,12 @@
 <span class="sourceLineNo">002</span><a name="line.2"></a>
 <span class="sourceLineNo">003</span>import arez.spy.ComputeCompletedEvent;<a name="line.3"></a>
 <span class="sourceLineNo">004</span>import arez.spy.ComputeStartedEvent;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import arez.spy.ObserverCreatedEvent;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import arez.spy.ObserverDisposedEvent;<a name="line.6"></a>
-<span class="sourceLineNo">007</span>import arez.spy.ObserverInfo;<a name="line.7"></a>
-<span class="sourceLineNo">008</span>import arez.spy.Priority;<a name="line.8"></a>
-<span class="sourceLineNo">009</span>import arez.spy.ReactionCompletedEvent;<a name="line.9"></a>
-<span class="sourceLineNo">010</span>import arez.spy.ReactionStartedEvent;<a name="line.10"></a>
+<span class="sourceLineNo">005</span>import arez.spy.ObserveCompletedEvent;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import arez.spy.ObserveStartedEvent;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import arez.spy.ObserverCreatedEvent;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import arez.spy.ObserverDisposedEvent;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import arez.spy.ObserverInfo;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import arez.spy.Priority;<a name="line.10"></a>
 <span class="sourceLineNo">011</span>import java.util.ArrayList;<a name="line.11"></a>
 <span class="sourceLineNo">012</span>import java.util.HashSet;<a name="line.12"></a>
 <span class="sourceLineNo">013</span>import java.util.Objects;<a name="line.13"></a>
@@ -646,7 +646,7 @@
 <span class="sourceLineNo">638</span>        }<a name="line.638"></a>
 <span class="sourceLineNo">639</span>        else<a name="line.639"></a>
 <span class="sourceLineNo">640</span>        {<a name="line.640"></a>
-<span class="sourceLineNo">641</span>          reportSpyEvent( new ReactionStartedEvent( asInfo() ) );<a name="line.641"></a>
+<span class="sourceLineNo">641</span>          reportSpyEvent( new ObserveStartedEvent( asInfo() ) );<a name="line.641"></a>
 <span class="sourceLineNo">642</span>        }<a name="line.642"></a>
 <span class="sourceLineNo">643</span>      }<a name="line.643"></a>
 <span class="sourceLineNo">644</span>      else<a name="line.644"></a>
@@ -695,7 +695,7 @@
 <span class="sourceLineNo">687</span>        }<a name="line.687"></a>
 <span class="sourceLineNo">688</span>        else<a name="line.688"></a>
 <span class="sourceLineNo">689</span>        {<a name="line.689"></a>
-<span class="sourceLineNo">690</span>          reportSpyEvent( new ReactionCompletedEvent( asInfo(), (int) duration ) );<a name="line.690"></a>
+<span class="sourceLineNo">690</span>          reportSpyEvent( new ObserveCompletedEvent( asInfo(), (int) duration ) );<a name="line.690"></a>
 <span class="sourceLineNo">691</span>        }<a name="line.691"></a>
 <span class="sourceLineNo">692</span>      }<a name="line.692"></a>
 <span class="sourceLineNo">693</span>    }<a name="line.693"></a>
