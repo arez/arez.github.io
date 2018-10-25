@@ -106,15 +106,14 @@
 <span class="sourceLineNo">098</span>    map.put( "tracked", isTracked() );<a name="line.98"></a>
 <span class="sourceLineNo">099</span>    map.put( "duration", getDuration() );<a name="line.99"></a>
 <span class="sourceLineNo">100</span>    final Throwable throwable = getThrowable();<a name="line.100"></a>
-<span class="sourceLineNo">101</span>    map.put( "normalCompletion", null == throwable );<a name="line.101"></a>
-<span class="sourceLineNo">102</span>    final String message =<a name="line.102"></a>
-<span class="sourceLineNo">103</span>      null == throwable ? null : null == throwable.getMessage() ? throwable.toString() : throwable.getMessage();<a name="line.103"></a>
-<span class="sourceLineNo">104</span>    map.put( "errorMessage", message );<a name="line.104"></a>
-<span class="sourceLineNo">105</span>    map.put( "parameters", getParameters() );<a name="line.105"></a>
-<span class="sourceLineNo">106</span>    map.put( "returnsResult", returnsResult() );<a name="line.106"></a>
-<span class="sourceLineNo">107</span>    map.put( "result", getResult() );<a name="line.107"></a>
-<span class="sourceLineNo">108</span>  }<a name="line.108"></a>
-<span class="sourceLineNo">109</span>}<a name="line.109"></a>
+<span class="sourceLineNo">101</span>    final String message =<a name="line.101"></a>
+<span class="sourceLineNo">102</span>      null == throwable ? null : null == throwable.getMessage() ? throwable.toString() : throwable.getMessage();<a name="line.102"></a>
+<span class="sourceLineNo">103</span>    map.put( "errorMessage", message );<a name="line.103"></a>
+<span class="sourceLineNo">104</span>    map.put( "parameters", getParameters() );<a name="line.104"></a>
+<span class="sourceLineNo">105</span>    map.put( "returnsResult", returnsResult() );<a name="line.105"></a>
+<span class="sourceLineNo">106</span>    map.put( "result", getResult() );<a name="line.106"></a>
+<span class="sourceLineNo">107</span>  }<a name="line.107"></a>
+<span class="sourceLineNo">108</span>}<a name="line.108"></a>
 
 
 
