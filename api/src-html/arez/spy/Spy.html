@@ -10,7 +10,7 @@
 <span class="sourceLineNo">002</span><a name="line.2"></a>
 <span class="sourceLineNo">003</span>import arez.Arez;<a name="line.3"></a>
 <span class="sourceLineNo">004</span>import arez.Component;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import arez.ComputedValue;<a name="line.5"></a>
+<span class="sourceLineNo">005</span>import arez.ComputableValue;<a name="line.5"></a>
 <span class="sourceLineNo">006</span>import arez.ObservableValue;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import arez.Observer;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import java.util.Collection;<a name="line.8"></a>
@@ -127,7 +127,7 @@
 <span class="sourceLineNo">119</span>   * @return the collection of computed values not contained by a native component.<a name="line.119"></a>
 <span class="sourceLineNo">120</span>   */<a name="line.120"></a>
 <span class="sourceLineNo">121</span>  @Nonnull<a name="line.121"></a>
-<span class="sourceLineNo">122</span>  Collection&lt;ComputedValueInfo&gt; findAllTopLevelComputedValues();<a name="line.122"></a>
+<span class="sourceLineNo">122</span>  Collection&lt;ComputableValueInfo&gt; findAllTopLevelComputableValues();<a name="line.122"></a>
 <span class="sourceLineNo">123</span><a name="line.123"></a>
 <span class="sourceLineNo">124</span>  /**<a name="line.124"></a>
 <span class="sourceLineNo">125</span>   * Convert the specified component into an ComponentInfo.<a name="line.125"></a>
@@ -158,14 +158,14 @@
 <span class="sourceLineNo">150</span>  &lt;T&gt; ObservableValueInfo asObservableValueInfo( @Nonnull ObservableValue&lt;T&gt; observableValue );<a name="line.150"></a>
 <span class="sourceLineNo">151</span><a name="line.151"></a>
 <span class="sourceLineNo">152</span>  /**<a name="line.152"></a>
-<span class="sourceLineNo">153</span>   * Convert the specified computedValue into an ComputedValueInfo.<a name="line.153"></a>
+<span class="sourceLineNo">153</span>   * Convert the specified ComputableValue into an ComputableValueInfo.<a name="line.153"></a>
 <span class="sourceLineNo">154</span>   *<a name="line.154"></a>
-<span class="sourceLineNo">155</span>   * @param &lt;T&gt;           The type of the value that is computed.<a name="line.155"></a>
-<span class="sourceLineNo">156</span>   * @param computedValue the ComputedValue.<a name="line.156"></a>
-<span class="sourceLineNo">157</span>   * @return the ComputedValueInfo wrapping the computedValue.<a name="line.157"></a>
+<span class="sourceLineNo">155</span>   * @param &lt;T&gt;             The type of the value that is computed.<a name="line.155"></a>
+<span class="sourceLineNo">156</span>   * @param computableValue the ComputableValue.<a name="line.156"></a>
+<span class="sourceLineNo">157</span>   * @return the ComputableValueInfo wrapping the ComputableValue.<a name="line.157"></a>
 <span class="sourceLineNo">158</span>   */<a name="line.158"></a>
 <span class="sourceLineNo">159</span>  @Nonnull<a name="line.159"></a>
-<span class="sourceLineNo">160</span>  &lt;T&gt; ComputedValueInfo asComputedValueInfo( @Nonnull ComputedValue&lt;T&gt; computedValue );<a name="line.160"></a>
+<span class="sourceLineNo">160</span>  &lt;T&gt; ComputableValueInfo asComputableValueInfo( @Nonnull ComputableValue&lt;T&gt; computableValue );<a name="line.160"></a>
 <span class="sourceLineNo">161</span>}<a name="line.161"></a>
 
 

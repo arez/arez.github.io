@@ -21,7 +21,7 @@
 <span class="sourceLineNo">013</span>/**<a name="line.13"></a>
 <span class="sourceLineNo">014</span> * The component is an abstraction representation of a reactive component within Arez.<a name="line.14"></a>
 <span class="sourceLineNo">015</span> * Each component is made up of one or more of the core Arez reactive elements: {@link ObservableValue}s,<a name="line.15"></a>
-<span class="sourceLineNo">016</span> * {@link Observer}s or {@link ComputedValue}s.<a name="line.16"></a>
+<span class="sourceLineNo">016</span> * {@link Observer}s or {@link ComputableValue}s.<a name="line.16"></a>
 <span class="sourceLineNo">017</span> */<a name="line.17"></a>
 <span class="sourceLineNo">018</span>public final class Component<a name="line.18"></a>
 <span class="sourceLineNo">019</span>  implements Disposable<a name="line.19"></a>
@@ -50,7 +50,7 @@
 <span class="sourceLineNo">042</span>  private final String _name;<a name="line.42"></a>
 <span class="sourceLineNo">043</span>  private final ArrayList&lt;ObservableValue&lt;?&gt;&gt; _observableValues = new ArrayList&lt;&gt;();<a name="line.43"></a>
 <span class="sourceLineNo">044</span>  private final ArrayList&lt;Observer&gt; _observers = new ArrayList&lt;&gt;();<a name="line.44"></a>
-<span class="sourceLineNo">045</span>  private final ArrayList&lt;ComputedValue&lt;?&gt;&gt; _computedValues = new ArrayList&lt;&gt;();<a name="line.45"></a>
+<span class="sourceLineNo">045</span>  private final ArrayList&lt;ComputableValue&lt;?&gt;&gt; _computableValues = new ArrayList&lt;&gt;();<a name="line.45"></a>
 <span class="sourceLineNo">046</span>  /**<a name="line.46"></a>
 <span class="sourceLineNo">047</span>   * Hook action called just before the Component is disposed.<a name="line.47"></a>
 <span class="sourceLineNo">048</span>   * Occurs inside the dispose transaction.<a name="line.48"></a>
@@ -167,7 +167,7 @@
 <span class="sourceLineNo">159</span>         * the next steps.<a name="line.159"></a>
 <span class="sourceLineNo">160</span>         */<a name="line.160"></a>
 <span class="sourceLineNo">161</span>        new ArrayList&lt;&gt;( _observers ).forEach( o -&gt; Disposable.dispose( o ) );<a name="line.161"></a>
-<span class="sourceLineNo">162</span>        new ArrayList&lt;&gt;( _computedValues ).forEach( v -&gt; Disposable.dispose( v ) );<a name="line.162"></a>
+<span class="sourceLineNo">162</span>        new ArrayList&lt;&gt;( _computableValues ).forEach( v -&gt; Disposable.dispose( v ) );<a name="line.162"></a>
 <span class="sourceLineNo">163</span>        new ArrayList&lt;&gt;( _observableValues ).forEach( o -&gt; Disposable.dispose( o ) );<a name="line.163"></a>
 <span class="sourceLineNo">164</span>        if ( null != _postDispose )<a name="line.164"></a>
 <span class="sourceLineNo">165</span>        {<a name="line.165"></a>
@@ -221,7 +221,7 @@
 <span class="sourceLineNo">213</span>  /**<a name="line.213"></a>
 <span class="sourceLineNo">214</span>   * The toolkit user should call this method when the component is complete.<a name="line.214"></a>
 <span class="sourceLineNo">215</span>   * After this method has been invoked the user should not attempt to define any more {@link ObservableValue}s,<a name="line.215"></a>
-<span class="sourceLineNo">216</span>   * {@link Observer}s or {@link ComputedValue}s on the component.<a name="line.216"></a>
+<span class="sourceLineNo">216</span>   * {@link Observer}s or {@link ComputableValue}s on the component.<a name="line.216"></a>
 <span class="sourceLineNo">217</span>   */<a name="line.217"></a>
 <span class="sourceLineNo">218</span>  public void complete()<a name="line.218"></a>
 <span class="sourceLineNo">219</span>  {<a name="line.219"></a>
@@ -366,50 +366,50 @@
 <span class="sourceLineNo">358</span>  }<a name="line.358"></a>
 <span class="sourceLineNo">359</span><a name="line.359"></a>
 <span class="sourceLineNo">360</span>  /**<a name="line.360"></a>
-<span class="sourceLineNo">361</span>   * Return the computedValues associated with the component.<a name="line.361"></a>
+<span class="sourceLineNo">361</span>   * Return the {@link ComputableValue} instances associated with the component.<a name="line.361"></a>
 <span class="sourceLineNo">362</span>   *<a name="line.362"></a>
-<span class="sourceLineNo">363</span>   * @return the computedValues associated with the component.<a name="line.363"></a>
+<span class="sourceLineNo">363</span>   * @return the {@link ComputableValue} instances associated with the component.<a name="line.363"></a>
 <span class="sourceLineNo">364</span>   */<a name="line.364"></a>
 <span class="sourceLineNo">365</span>  @Nonnull<a name="line.365"></a>
-<span class="sourceLineNo">366</span>  ArrayList&lt;ComputedValue&lt;?&gt;&gt; getComputedValues()<a name="line.366"></a>
+<span class="sourceLineNo">366</span>  ArrayList&lt;ComputableValue&lt;?&gt;&gt; getComputableValues()<a name="line.366"></a>
 <span class="sourceLineNo">367</span>  {<a name="line.367"></a>
-<span class="sourceLineNo">368</span>    return _computedValues;<a name="line.368"></a>
+<span class="sourceLineNo">368</span>    return _computableValues;<a name="line.368"></a>
 <span class="sourceLineNo">369</span>  }<a name="line.369"></a>
 <span class="sourceLineNo">370</span><a name="line.370"></a>
 <span class="sourceLineNo">371</span>  /**<a name="line.371"></a>
-<span class="sourceLineNo">372</span>   * Add computedValue to component.<a name="line.372"></a>
-<span class="sourceLineNo">373</span>   * ComputedValue should not be part of component.<a name="line.373"></a>
+<span class="sourceLineNo">372</span>   * Add computableValue to component.<a name="line.372"></a>
+<span class="sourceLineNo">373</span>   * ComputableValue should not be part of component.<a name="line.373"></a>
 <span class="sourceLineNo">374</span>   *<a name="line.374"></a>
-<span class="sourceLineNo">375</span>   * @param computedValue the computedValue.<a name="line.375"></a>
+<span class="sourceLineNo">375</span>   * @param computableValue the computableValue.<a name="line.375"></a>
 <span class="sourceLineNo">376</span>   */<a name="line.376"></a>
-<span class="sourceLineNo">377</span>  void addComputedValue( @Nonnull final ComputedValue computedValue )<a name="line.377"></a>
+<span class="sourceLineNo">377</span>  void addComputableValue( @Nonnull final ComputableValue computableValue )<a name="line.377"></a>
 <span class="sourceLineNo">378</span>  {<a name="line.378"></a>
 <span class="sourceLineNo">379</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.379"></a>
 <span class="sourceLineNo">380</span>    {<a name="line.380"></a>
-<span class="sourceLineNo">381</span>      apiInvariant( () -&gt; !_computedValues.contains( computedValue ),<a name="line.381"></a>
-<span class="sourceLineNo">382</span>                    () -&gt; "Arez-0046: Component.addComputedValue invoked on component '" + getName() + "' " +<a name="line.382"></a>
-<span class="sourceLineNo">383</span>                          "specifying computedValue named '" + computedValue.getName() + "' when computedValue " +<a name="line.383"></a>
-<span class="sourceLineNo">384</span>                          "already exists for component." );<a name="line.384"></a>
+<span class="sourceLineNo">381</span>      apiInvariant( () -&gt; !_computableValues.contains( computableValue ),<a name="line.381"></a>
+<span class="sourceLineNo">382</span>                    () -&gt; "Arez-0046: Component.addComputableValue invoked on component '" + getName() + "' " +<a name="line.382"></a>
+<span class="sourceLineNo">383</span>                          "specifying ComputableValue named '" + computableValue.getName() + "' when " +<a name="line.383"></a>
+<span class="sourceLineNo">384</span>                          "ComputableValue already exists for component." );<a name="line.384"></a>
 <span class="sourceLineNo">385</span>    }<a name="line.385"></a>
-<span class="sourceLineNo">386</span>    _computedValues.add( computedValue );<a name="line.386"></a>
+<span class="sourceLineNo">386</span>    _computableValues.add( computableValue );<a name="line.386"></a>
 <span class="sourceLineNo">387</span>  }<a name="line.387"></a>
 <span class="sourceLineNo">388</span><a name="line.388"></a>
 <span class="sourceLineNo">389</span>  /**<a name="line.389"></a>
-<span class="sourceLineNo">390</span>   * Remove computedValue from the component.<a name="line.390"></a>
-<span class="sourceLineNo">391</span>   * ComputedValue should be part of component.<a name="line.391"></a>
+<span class="sourceLineNo">390</span>   * Remove computableValue from the component.<a name="line.390"></a>
+<span class="sourceLineNo">391</span>   * ComputableValue should be part of component.<a name="line.391"></a>
 <span class="sourceLineNo">392</span>   *<a name="line.392"></a>
-<span class="sourceLineNo">393</span>   * @param computedValue the computedValue.<a name="line.393"></a>
+<span class="sourceLineNo">393</span>   * @param computableValue the computableValue.<a name="line.393"></a>
 <span class="sourceLineNo">394</span>   */<a name="line.394"></a>
-<span class="sourceLineNo">395</span>  void removeComputedValue( @Nonnull final ComputedValue computedValue )<a name="line.395"></a>
+<span class="sourceLineNo">395</span>  void removeComputableValue( @Nonnull final ComputableValue computableValue )<a name="line.395"></a>
 <span class="sourceLineNo">396</span>  {<a name="line.396"></a>
 <span class="sourceLineNo">397</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.397"></a>
 <span class="sourceLineNo">398</span>    {<a name="line.398"></a>
-<span class="sourceLineNo">399</span>      apiInvariant( () -&gt; _computedValues.contains( computedValue ),<a name="line.399"></a>
-<span class="sourceLineNo">400</span>                    () -&gt; "Arez-0047: Component.removeComputedValue invoked on component '" + getName() + "' " +<a name="line.400"></a>
-<span class="sourceLineNo">401</span>                          "specifying computedValue named '" + computedValue.getName() + "' when computedValue " +<a name="line.401"></a>
-<span class="sourceLineNo">402</span>                          "does not exist for component." );<a name="line.402"></a>
+<span class="sourceLineNo">399</span>      apiInvariant( () -&gt; _computableValues.contains( computableValue ),<a name="line.399"></a>
+<span class="sourceLineNo">400</span>                    () -&gt; "Arez-0047: Component.removeComputableValue invoked on component '" + getName() + "' " +<a name="line.400"></a>
+<span class="sourceLineNo">401</span>                          "specifying ComputableValue named '" + computableValue.getName() + "' when " +<a name="line.401"></a>
+<span class="sourceLineNo">402</span>                          "ComputableValue does not exist for component." );<a name="line.402"></a>
 <span class="sourceLineNo">403</span>    }<a name="line.403"></a>
-<span class="sourceLineNo">404</span>    _computedValues.remove( computedValue );<a name="line.404"></a>
+<span class="sourceLineNo">404</span>    _computableValues.remove( computableValue );<a name="line.404"></a>
 <span class="sourceLineNo">405</span>  }<a name="line.405"></a>
 <span class="sourceLineNo">406</span><a name="line.406"></a>
 <span class="sourceLineNo">407</span>  @Nullable<a name="line.407"></a>

@@ -132,9 +132,9 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>&lt;T&gt;&nbsp;<a href="../../arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/Spy.html#asComputedValueInfo-arez.ComputedValue-">asComputedValueInfo</a></span>(<a href="../../arez/ComputedValue.html" title="class in arez">ComputedValue</a>&lt;T&gt;&nbsp;computedValue)</code>
-<div class="block">Convert the specified computedValue into an ComputedValueInfo.</div>
+<td class="colFirst"><code>&lt;T&gt;&nbsp;<a href="../../arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/Spy.html#asComputableValueInfo-arez.ComputableValue-">asComputableValueInfo</a></span>(<a href="../../arez/ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;&nbsp;computableValue)</code>
+<div class="block">Convert the specified ComputableValue into an ComputableValueInfo.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -162,8 +162,8 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/Spy.html#findAllTopLevelComputedValues--">findAllTopLevelComputedValues</a></span>()</code>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/Spy.html#findAllTopLevelComputableValues--">findAllTopLevelComputableValues</a></span>()</code>
 <div class="block">Find all the collection of computed values not contained by a native component.</div>
 </td>
 </tr>
@@ -414,14 +414,14 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
-<a name="findAllTopLevelComputedValues--">
+<a name="findAllTopLevelComputableValues--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>findAllTopLevelComputedValues</h4>
+<h4>findAllTopLevelComputableValues</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/Spy.html#line.122">findAllTopLevelComputedValues</a>()</pre>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/Spy.html#line.122">findAllTopLevelComputableValues</a>()</pre>
 <div class="block">Find all the collection of computed values not contained by a native component.
  This method should not be invoked unless <a href="../../arez/Arez.html#areRegistriesEnabled--"><code>Arez.areRegistriesEnabled()</code></a> returns true.
  This collection returned is unmodifiable.</div>
@@ -487,23 +487,23 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
-<a name="asComputedValueInfo-arez.ComputedValue-">
+<a name="asComputableValueInfo-arez.ComputableValue-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>asComputedValueInfo</h4>
+<h4>asComputableValueInfo</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-&lt;T&gt;&nbsp;<a href="../../arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a>&nbsp;<a href="../../src-html/arez/spy/Spy.html#line.160">asComputedValueInfo</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                   <a href="../../arez/ComputedValue.html" title="class in arez">ComputedValue</a>&lt;T&gt;&nbsp;computedValue)</pre>
-<div class="block">Convert the specified computedValue into an ComputedValueInfo.</div>
+&lt;T&gt;&nbsp;<a href="../../arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a>&nbsp;<a href="../../src-html/arez/spy/Spy.html#line.160">asComputableValueInfo</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                       <a href="../../arez/ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;&nbsp;computableValue)</pre>
+<div class="block">Convert the specified ComputableValue into an ComputableValueInfo.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>T</code> - The type of the value that is computed.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>computedValue</code> - the ComputedValue.</dd>
+<dd><code>computableValue</code> - the ComputableValue.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the ComputedValueInfo wrapping the computedValue.</dd>
+<dd>the ComputableValueInfo wrapping the ComputableValue.</dd>
 </dl>
 </li>
 </ul>

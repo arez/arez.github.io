@@ -126,20 +126,20 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Flags.html#AREZ_DEPENDENCIES">AREZ_DEPENDENCIES</a></span></code>
-<div class="block">Flag set set if the application code can not invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to
+<div class="block">Flag set set if the application code can not invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate dependency has changed and the observer.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Flags.html#AREZ_OR_EXTERNAL_DEPENDENCIES">AREZ_OR_EXTERNAL_DEPENDENCIES</a></span></code>
-<div class="block">Flag set if the application code can invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to indicate non-arez dependency has changed.</div>
+<div class="block">Flag set if the application code can invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to indicate non-arez dependency has changed.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Flags.html#AREZ_OR_NO_DEPENDENCIES">AREZ_OR_NO_DEPENDENCIES</a></span></code>
-<div class="block">Flag set set if the application code can not invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to
+<div class="block">Flag set set if the application code can not invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate dependency has changed.</div>
 </td>
 </tr>
@@ -189,7 +189,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/Flags.html#OBSERVE_LOWER_PRIORITY_DEPENDENCIES">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></span></code>
-<div class="block">Flag indicating that the Observer is allowed to observe <a href="../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a> instances with a lower priority.</div>
+<div class="block">Flag indicating that the Observer is allowed to observe <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -297,7 +297,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>OBSERVE_LOWER_PRIORITY_DEPENDENCIES</h4>
 <pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.14">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></pre>
-<div class="block">Flag indicating that the Observer is allowed to observe <a href="../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a> instances with a lower priority.</div>
+<div class="block">Flag indicating that the Observer is allowed to observe <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../constant-values.html#arez.Flags.OBSERVE_LOWER_PRIORITY_DEPENDENCIES">Constant Field Values</a></dd>
@@ -339,7 +339,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>AREZ_DEPENDENCIES</h4>
 <pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.33">AREZ_DEPENDENCIES</a></pre>
-<div class="block">Flag set set if the application code can not invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to
+<div class="block">Flag set set if the application code can not invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate dependency has changed and the observer.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -355,7 +355,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>AREZ_OR_NO_DEPENDENCIES</h4>
 <pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.40">AREZ_OR_NO_DEPENDENCIES</a></pre>
-<div class="block">Flag set set if the application code can not invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to
+<div class="block">Flag set set if the application code can not invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate dependency has changed. It is not necessary for the observer to invoke  <a href="../arez/ObservableValue.html#reportObserved--"><code>ObservableValue.reportObserved()</code></a> on any dependency.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -371,7 +371,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>AREZ_OR_EXTERNAL_DEPENDENCIES</h4>
 <pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.46">AREZ_OR_EXTERNAL_DEPENDENCIES</a></pre>
-<div class="block">Flag set if the application code can invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to indicate non-arez dependency has changed.</div>
+<div class="block">Flag set if the application code can invoke <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to indicate non-arez dependency has changed.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../arez/annotations/DepType.html#AREZ_OR_EXTERNAL"><code>DepType.AREZ_OR_EXTERNAL</code></a>, 
@@ -449,7 +449,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>KEEPALIVE</h4>
 <pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.88">KEEPALIVE</a></pre>
 <div class="block">The runtime will keep the observer reacting to dependencies until disposed. This is the default value for
- observers that supply a observed function but may be explicitly supplied when creating <a href="../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>
+ observers that supply a observed function but may be explicitly supplied when creating <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>
  instances.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -524,7 +524,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  Usually used to schedule observers that reflect state onto non-reactive
  application components. i.e. Observers that are used to build html views,
  perform network operations etc. These reactions are often at low priority
- to avoid recalculation of dependencies (i.e. <a href="../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>s) triggering
+ to avoid recalculation of dependencies (i.e. <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>s) triggering
  this reaction multiple times within a single reaction round.
  <p>Only one of the PRIORITY_* flags should be applied to observer.</p></div>
 <dl>
@@ -542,7 +542,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>PRIORITY_LOWEST</h4>
 <pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.154">PRIORITY_LOWEST</a></pre>
-<div class="block">Lowest priority. Use this priority if the observer is a <a href="../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a> that
+<div class="block">Lowest priority. Use this priority if the observer is a <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> that
  may be unobserved when a <a href="../arez/Flags.html#PRIORITY_LOW"><code>PRIORITY_LOW</code></a> observer reacts. This is used to avoid
  recomputing state that is likely to either be unobserved or recomputed as part of
  another observers reaction.

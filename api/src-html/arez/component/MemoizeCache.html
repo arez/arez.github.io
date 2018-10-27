@@ -11,7 +11,7 @@
 <span class="sourceLineNo">003</span>import arez.Arez;<a name="line.3"></a>
 <span class="sourceLineNo">004</span>import arez.ArezContext;<a name="line.4"></a>
 <span class="sourceLineNo">005</span>import arez.Component;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import arez.ComputedValue;<a name="line.6"></a>
+<span class="sourceLineNo">006</span>import arez.ComputableValue;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import arez.Disposable;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import arez.Flags;<a name="line.8"></a>
 <span class="sourceLineNo">009</span>import arez.Procedure;<a name="line.9"></a>
@@ -71,7 +71,7 @@
 <span class="sourceLineNo">063</span>  @Nonnull<a name="line.63"></a>
 <span class="sourceLineNo">064</span>  private final Function&lt;T&gt; _function;<a name="line.64"></a>
 <span class="sourceLineNo">065</span>  /**<a name="line.65"></a>
-<span class="sourceLineNo">066</span>   * The cache of all the ComputedValues created for each unique combination of parameters.<a name="line.66"></a>
+<span class="sourceLineNo">066</span>   * The cache of all the ComputableValue created for each unique combination of parameters.<a name="line.66"></a>
 <span class="sourceLineNo">067</span>   */<a name="line.67"></a>
 <span class="sourceLineNo">068</span>  private final Map&lt;Object, Object&gt; _cache = new HashMap&lt;&gt;();<a name="line.68"></a>
 <span class="sourceLineNo">069</span>  /**<a name="line.69"></a>
@@ -79,12 +79,12 @@
 <span class="sourceLineNo">071</span>   */<a name="line.71"></a>
 <span class="sourceLineNo">072</span>  private final int _argCount;<a name="line.72"></a>
 <span class="sourceLineNo">073</span>  /**<a name="line.73"></a>
-<span class="sourceLineNo">074</span>   * The flags passed to the created ComputedValues.<a name="line.74"></a>
+<span class="sourceLineNo">074</span>   * The flags passed to the created ComputableValues.<a name="line.74"></a>
 <span class="sourceLineNo">075</span>   */<a name="line.75"></a>
 <span class="sourceLineNo">076</span>  private final int _flags;<a name="line.76"></a>
 <span class="sourceLineNo">077</span>  /**<a name="line.77"></a>
-<span class="sourceLineNo">078</span>   * The index of the next ComputedValue created.<a name="line.78"></a>
-<span class="sourceLineNo">079</span>   * This is only used when creating unique names for ComputedValues.<a name="line.79"></a>
+<span class="sourceLineNo">078</span>   * The index of the next ComputableValue created.<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * This is only used when creating unique names for ComputableValues.<a name="line.79"></a>
 <span class="sourceLineNo">080</span>   */<a name="line.80"></a>
 <span class="sourceLineNo">081</span>  private int _nextIndex;<a name="line.81"></a>
 <span class="sourceLineNo">082</span>  /**<a name="line.82"></a>
@@ -95,7 +95,7 @@
 <span class="sourceLineNo">087</span>  /**<a name="line.87"></a>
 <span class="sourceLineNo">088</span>   * Create the Memoize method cache.<a name="line.88"></a>
 <span class="sourceLineNo">089</span>   *<a name="line.89"></a>
-<span class="sourceLineNo">090</span>   * @param context   the context in which to create ComputedValue instances.<a name="line.90"></a>
+<span class="sourceLineNo">090</span>   * @param context   the context in which to create ComputableValue instances.<a name="line.90"></a>
 <span class="sourceLineNo">091</span>   * @param component the associated native component if any. This should only be set if {@link Arez#areNativeComponentsEnabled()} returns true.<a name="line.91"></a>
 <span class="sourceLineNo">092</span>   * @param name      a human consumable prefix for computed values.<a name="line.92"></a>
 <span class="sourceLineNo">093</span>   * @param function  the memoized function.<a name="line.93"></a>
@@ -113,12 +113,12 @@
 <span class="sourceLineNo">105</span>  /**<a name="line.105"></a>
 <span class="sourceLineNo">106</span>   * Create the Memoize method cache.<a name="line.106"></a>
 <span class="sourceLineNo">107</span>   *<a name="line.107"></a>
-<span class="sourceLineNo">108</span>   * @param context   the context in which to create ComputedValue instances.<a name="line.108"></a>
+<span class="sourceLineNo">108</span>   * @param context   the context in which to create ComputableValue instances.<a name="line.108"></a>
 <span class="sourceLineNo">109</span>   * @param component the associated native component if any. This should only be set if {@link Arez#areNativeComponentsEnabled()} returns true.<a name="line.109"></a>
 <span class="sourceLineNo">110</span>   * @param name      a human consumable prefix for computed values.<a name="line.110"></a>
 <span class="sourceLineNo">111</span>   * @param function  the memoized function.<a name="line.111"></a>
 <span class="sourceLineNo">112</span>   * @param argCount  the number of arguments expected to be passed to memoized function.<a name="line.112"></a>
-<span class="sourceLineNo">113</span>   * @param flags     the flags that are used when creating ComputedValue instances. The only flags supported are the PRIORITY_* flags and {@link Flags#OBSERVE_LOWER_PRIORITY_DEPENDENCIES}.<a name="line.113"></a>
+<span class="sourceLineNo">113</span>   * @param flags     the flags that are used when creating ComputableValue instances. The only flags supported are the PRIORITY_* flags and {@link Flags#OBSERVE_LOWER_PRIORITY_DEPENDENCIES}.<a name="line.113"></a>
 <span class="sourceLineNo">114</span>   */<a name="line.114"></a>
 <span class="sourceLineNo">115</span>  public MemoizeCache( @Nullable final ArezContext context,<a name="line.115"></a>
 <span class="sourceLineNo">116</span>                       @Nullable final Component component,<a name="line.116"></a>
@@ -171,7 +171,7 @@
 <span class="sourceLineNo">163</span>      apiInvariant( this::isNotDisposed,<a name="line.163"></a>
 <span class="sourceLineNo">164</span>                    () -&gt; "Arez-0161: MemoizeCache named '" + _name + "' had get() invoked when disposed." );<a name="line.164"></a>
 <span class="sourceLineNo">165</span>    }<a name="line.165"></a>
-<span class="sourceLineNo">166</span>    return getComputedValue( args ).get();<a name="line.166"></a>
+<span class="sourceLineNo">166</span>    return getComputableValue( args ).get();<a name="line.166"></a>
 <span class="sourceLineNo">167</span>  }<a name="line.167"></a>
 <span class="sourceLineNo">168</span><a name="line.168"></a>
 <span class="sourceLineNo">169</span>  /**<a name="line.169"></a>
@@ -203,7 +203,7 @@
 <span class="sourceLineNo">195</span>  }<a name="line.195"></a>
 <span class="sourceLineNo">196</span><a name="line.196"></a>
 <span class="sourceLineNo">197</span>  /**<a name="line.197"></a>
-<span class="sourceLineNo">198</span>   * Traverse to leaf map elements and dispose all contained ComputedValue instances.<a name="line.198"></a>
+<span class="sourceLineNo">198</span>   * Traverse to leaf map elements and dispose all contained ComputableValue instances.<a name="line.198"></a>
 <span class="sourceLineNo">199</span>   */<a name="line.199"></a>
 <span class="sourceLineNo">200</span>  @SuppressWarnings( "unchecked" )<a name="line.200"></a>
 <span class="sourceLineNo">201</span>  private void disposeMap( @Nonnull final Map&lt;Object, Object&gt; map, final int depth )<a name="line.201"></a>
@@ -212,8 +212,8 @@
 <span class="sourceLineNo">204</span>    {<a name="line.204"></a>
 <span class="sourceLineNo">205</span>      for ( final Map.Entry&lt;Object, Object&gt; entry : map.entrySet() )<a name="line.205"></a>
 <span class="sourceLineNo">206</span>      {<a name="line.206"></a>
-<span class="sourceLineNo">207</span>        final ComputedValue&lt;?&gt; computedValue = (ComputedValue&lt;?&gt;) entry.getValue();<a name="line.207"></a>
-<span class="sourceLineNo">208</span>        computedValue.dispose();<a name="line.208"></a>
+<span class="sourceLineNo">207</span>        final ComputableValue&lt;?&gt; computableValue = (ComputableValue&lt;?&gt;) entry.getValue();<a name="line.207"></a>
+<span class="sourceLineNo">208</span>        computableValue.dispose();<a name="line.208"></a>
 <span class="sourceLineNo">209</span>      }<a name="line.209"></a>
 <span class="sourceLineNo">210</span>    }<a name="line.210"></a>
 <span class="sourceLineNo">211</span>    else<a name="line.211"></a>
@@ -231,12 +231,12 @@
 <span class="sourceLineNo">223</span>   * @param args the arguments passed to the memoized function.<a name="line.223"></a>
 <span class="sourceLineNo">224</span>   */<a name="line.224"></a>
 <span class="sourceLineNo">225</span>  @SuppressWarnings( "unchecked" )<a name="line.225"></a>
-<span class="sourceLineNo">226</span>  ComputedValue&lt;T&gt; getComputedValue( @Nonnull final Object... args )<a name="line.226"></a>
+<span class="sourceLineNo">226</span>  ComputableValue&lt;T&gt; getComputableValue( @Nonnull final Object... args )<a name="line.226"></a>
 <span class="sourceLineNo">227</span>  {<a name="line.227"></a>
 <span class="sourceLineNo">228</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.228"></a>
 <span class="sourceLineNo">229</span>    {<a name="line.229"></a>
 <span class="sourceLineNo">230</span>      apiInvariant( () -&gt; args.length == _argCount,<a name="line.230"></a>
-<span class="sourceLineNo">231</span>                    () -&gt; "Arez-0162: MemoizeCache.getComputedValue called with " + args.length +<a name="line.231"></a>
+<span class="sourceLineNo">231</span>                    () -&gt; "Arez-0162: MemoizeCache.getComputableValue called with " + args.length +<a name="line.231"></a>
 <span class="sourceLineNo">232</span>                          " arguments but expected " + _argCount + " arguments." );<a name="line.232"></a>
 <span class="sourceLineNo">233</span>    }<a name="line.233"></a>
 <span class="sourceLineNo">234</span>    Map&lt;Object, Object&gt; map = _cache;<a name="line.234"></a>
@@ -245,14 +245,14 @@
 <span class="sourceLineNo">237</span>    {<a name="line.237"></a>
 <span class="sourceLineNo">238</span>      map = (Map&lt;Object, Object&gt;) map.computeIfAbsent( args[ i ], v -&gt; new HashMap&lt;&gt;() );<a name="line.238"></a>
 <span class="sourceLineNo">239</span>    }<a name="line.239"></a>
-<span class="sourceLineNo">240</span>    ComputedValue&lt;T&gt; computedValue =<a name="line.240"></a>
-<span class="sourceLineNo">241</span>      (ComputedValue&lt;T&gt;) map.computeIfAbsent( args[ size ], v -&gt; createComputedValue( args ) );<a name="line.241"></a>
-<span class="sourceLineNo">242</span>    if ( Disposable.isDisposed( computedValue ) )<a name="line.242"></a>
+<span class="sourceLineNo">240</span>    ComputableValue&lt;T&gt; computableValue =<a name="line.240"></a>
+<span class="sourceLineNo">241</span>      (ComputableValue&lt;T&gt;) map.computeIfAbsent( args[ size ], v -&gt; createComputableValue( args ) );<a name="line.241"></a>
+<span class="sourceLineNo">242</span>    if ( Disposable.isDisposed( computableValue ) )<a name="line.242"></a>
 <span class="sourceLineNo">243</span>    {<a name="line.243"></a>
-<span class="sourceLineNo">244</span>      computedValue = createComputedValue( args );<a name="line.244"></a>
-<span class="sourceLineNo">245</span>      map.put( args[ size ], computedValue );<a name="line.245"></a>
+<span class="sourceLineNo">244</span>      computableValue = createComputableValue( args );<a name="line.244"></a>
+<span class="sourceLineNo">245</span>      map.put( args[ size ], computableValue );<a name="line.245"></a>
 <span class="sourceLineNo">246</span>    }<a name="line.246"></a>
-<span class="sourceLineNo">247</span>    return computedValue;<a name="line.247"></a>
+<span class="sourceLineNo">247</span>    return computableValue;<a name="line.247"></a>
 <span class="sourceLineNo">248</span>  }<a name="line.248"></a>
 <span class="sourceLineNo">249</span><a name="line.249"></a>
 <span class="sourceLineNo">250</span>  /**<a name="line.250"></a>
@@ -260,11 +260,11 @@
 <span class="sourceLineNo">252</span>   *<a name="line.252"></a>
 <span class="sourceLineNo">253</span>   * @param args the arguments passed to the memoized function.<a name="line.253"></a>
 <span class="sourceLineNo">254</span>   */<a name="line.254"></a>
-<span class="sourceLineNo">255</span>  private ComputedValue&lt;T&gt; createComputedValue( @Nonnull final Object... args )<a name="line.255"></a>
+<span class="sourceLineNo">255</span>  private ComputableValue&lt;T&gt; createComputableValue( @Nonnull final Object... args )<a name="line.255"></a>
 <span class="sourceLineNo">256</span>  {<a name="line.256"></a>
 <span class="sourceLineNo">257</span>    final Component component = Arez.areNativeComponentsEnabled() ? _component : null;<a name="line.257"></a>
 <span class="sourceLineNo">258</span>    final String name = Arez.areNamesEnabled() ? _name + "." + _nextIndex++ : null;<a name="line.258"></a>
-<span class="sourceLineNo">259</span>    final Procedure onDeactivate = () -&gt; disposeComputedValue( args );<a name="line.259"></a>
+<span class="sourceLineNo">259</span>    final Procedure onDeactivate = () -&gt; disposeComputableValue( args );<a name="line.259"></a>
 <span class="sourceLineNo">260</span>    final SafeFunction&lt;T&gt; function = () -&gt; _function.call( args );<a name="line.260"></a>
 <span class="sourceLineNo">261</span>    return getContext().computed( component, name, function, null, onDeactivate, null, _flags );<a name="line.261"></a>
 <span class="sourceLineNo">262</span>  }<a name="line.262"></a>
@@ -277,12 +277,12 @@
 <span class="sourceLineNo">269</span>   * @param args the arguments originally passed to the memoized function.<a name="line.269"></a>
 <span class="sourceLineNo">270</span>   */<a name="line.270"></a>
 <span class="sourceLineNo">271</span>  @SuppressWarnings( "unchecked" )<a name="line.271"></a>
-<span class="sourceLineNo">272</span>  void disposeComputedValue( @Nonnull final Object... args )<a name="line.272"></a>
+<span class="sourceLineNo">272</span>  void disposeComputableValue( @Nonnull final Object... args )<a name="line.272"></a>
 <span class="sourceLineNo">273</span>  {<a name="line.273"></a>
 <span class="sourceLineNo">274</span>    if ( Arez.shouldCheckInvariants() )<a name="line.274"></a>
 <span class="sourceLineNo">275</span>    {<a name="line.275"></a>
 <span class="sourceLineNo">276</span>      invariant( () -&gt; args.length == _argCount,<a name="line.276"></a>
-<span class="sourceLineNo">277</span>                 () -&gt; "Arez-0163: MemoizeCache.disposeComputedValue called with " + args.length +<a name="line.277"></a>
+<span class="sourceLineNo">277</span>                 () -&gt; "Arez-0163: MemoizeCache.disposeComputableValue called with " + args.length +<a name="line.277"></a>
 <span class="sourceLineNo">278</span>                       " argument(s) but expected " + _argCount + " argument(s)." );<a name="line.278"></a>
 <span class="sourceLineNo">279</span>    }<a name="line.279"></a>
 <span class="sourceLineNo">280</span>    if ( _disposed )<a name="line.280"></a>
@@ -296,15 +296,15 @@
 <span class="sourceLineNo">288</span>    {<a name="line.288"></a>
 <span class="sourceLineNo">289</span>      stack.push( (Map) stack.peek().get( args[ i ] ) );<a name="line.289"></a>
 <span class="sourceLineNo">290</span>    }<a name="line.290"></a>
-<span class="sourceLineNo">291</span>    final ComputedValue&lt;T&gt; computedValue = (ComputedValue&lt;T&gt;) stack.peek().remove( args[ size ] );<a name="line.291"></a>
+<span class="sourceLineNo">291</span>    final ComputableValue&lt;T&gt; computableValue = (ComputableValue&lt;T&gt;) stack.peek().remove( args[ size ] );<a name="line.291"></a>
 <span class="sourceLineNo">292</span>    if ( Arez.shouldCheckInvariants() )<a name="line.292"></a>
 <span class="sourceLineNo">293</span>    {<a name="line.293"></a>
-<span class="sourceLineNo">294</span>      invariant( () -&gt; null != computedValue,<a name="line.294"></a>
-<span class="sourceLineNo">295</span>                 () -&gt; "Arez-0193: MemoizeCache.disposeComputedValue called with args " + Arrays.asList( args ) +<a name="line.295"></a>
-<span class="sourceLineNo">296</span>                       " but unable to locate corresponding ComputedValue." );<a name="line.296"></a>
+<span class="sourceLineNo">294</span>      invariant( () -&gt; null != computableValue,<a name="line.294"></a>
+<span class="sourceLineNo">295</span>                 () -&gt; "Arez-0193: MemoizeCache.disposeComputableValue called with args " + Arrays.asList( args ) +<a name="line.295"></a>
+<span class="sourceLineNo">296</span>                       " but unable to locate corresponding ComputableValue." );<a name="line.296"></a>
 <span class="sourceLineNo">297</span>    }<a name="line.297"></a>
-<span class="sourceLineNo">298</span>    assert null != computedValue;<a name="line.298"></a>
-<span class="sourceLineNo">299</span>    getContext().scheduleDispose( computedValue );<a name="line.299"></a>
+<span class="sourceLineNo">298</span>    assert null != computableValue;<a name="line.298"></a>
+<span class="sourceLineNo">299</span>    getContext().scheduleDispose( computableValue );<a name="line.299"></a>
 <span class="sourceLineNo">300</span>    while ( stack.size() &gt; 1 )<a name="line.300"></a>
 <span class="sourceLineNo">301</span>    {<a name="line.301"></a>
 <span class="sourceLineNo">302</span>      final Map map = stack.pop();<a name="line.302"></a>

@@ -8,8 +8,8 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package arez;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import arez.spy.ComputedValueActivatedEvent;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import arez.spy.ComputedValueDeactivatedEvent;<a name="line.4"></a>
+<span class="sourceLineNo">003</span>import arez.spy.ComputableValueActivatedEvent;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import arez.spy.ComputableValueDeactivatedEvent;<a name="line.4"></a>
 <span class="sourceLineNo">005</span>import arez.spy.ObservableValueChangedEvent;<a name="line.5"></a>
 <span class="sourceLineNo">006</span>import arez.spy.ObservableValueDisposedEvent;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import arez.spy.ObservableValueInfo;<a name="line.7"></a>
@@ -134,13 +134,13 @@
 <span class="sourceLineNo">126</span>      // check in this scenario.<a name="line.126"></a>
 <span class="sourceLineNo">127</span>      if ( Arez.shouldCheckInvariants() )<a name="line.127"></a>
 <span class="sourceLineNo">128</span>      {<a name="line.128"></a>
-<span class="sourceLineNo">129</span>        invariant( () -&gt; !Arez.shouldEnforceTransactionType() || _observer.isComputedValue(),<a name="line.129"></a>
+<span class="sourceLineNo">129</span>        invariant( () -&gt; !Arez.shouldEnforceTransactionType() || _observer.isComputableValue(),<a name="line.129"></a>
 <span class="sourceLineNo">130</span>                   () -&gt; "Arez-0057: ObservableValue named '" + getName() + "' has observer specified but " +<a name="line.130"></a>
-<span class="sourceLineNo">131</span>                         "observer is not part of a ComputedValue." );<a name="line.131"></a>
+<span class="sourceLineNo">131</span>                         "observer is not part of a ComputableValue." );<a name="line.131"></a>
 <span class="sourceLineNo">132</span>      }<a name="line.132"></a>
 <span class="sourceLineNo">133</span>      assert !Arez.areNamesEnabled() || _observer.getName().equals( name );<a name="line.133"></a>
 <span class="sourceLineNo">134</span>    }<a name="line.134"></a>
-<span class="sourceLineNo">135</span>    if ( !isComputedValue() )<a name="line.135"></a>
+<span class="sourceLineNo">135</span>    if ( !isComputableValue() )<a name="line.135"></a>
 <span class="sourceLineNo">136</span>    {<a name="line.136"></a>
 <span class="sourceLineNo">137</span>      if ( null != _component )<a name="line.137"></a>
 <span class="sourceLineNo">138</span>      {<a name="line.138"></a>
@@ -166,9 +166,9 @@
 <span class="sourceLineNo">158</span>      // The ObservableValue has been marked as changed, forcing all observers to re-evaluate and<a name="line.158"></a>
 <span class="sourceLineNo">159</span>      // ultimately this will result in their removal of this ObservableValue as a dependency as<a name="line.159"></a>
 <span class="sourceLineNo">160</span>      // it is an error to invoke reportObserved(). Once all dependencies are removed then<a name="line.160"></a>
-<span class="sourceLineNo">161</span>      // this ObservableValue will be deactivated if it is a ComputedValue. Thus no need to call<a name="line.161"></a>
+<span class="sourceLineNo">161</span>      // this ObservableValue will be deactivated if it is a ComputableValue. Thus no need to call<a name="line.161"></a>
 <span class="sourceLineNo">162</span>      // queueForDeactivation() here.<a name="line.162"></a>
-<span class="sourceLineNo">163</span>      if ( isComputedValue() )<a name="line.163"></a>
+<span class="sourceLineNo">163</span>      if ( isComputableValue() )<a name="line.163"></a>
 <span class="sourceLineNo">164</span>      {<a name="line.164"></a>
 <span class="sourceLineNo">165</span>        /*<a name="line.165"></a>
 <span class="sourceLineNo">166</span>         * Dispose the owner first so that it is removed as a dependency and thus will not have a reaction<a name="line.166"></a>
@@ -291,13 +291,13 @@
 <span class="sourceLineNo">283</span>   */<a name="line.283"></a>
 <span class="sourceLineNo">284</span>  boolean canDeactivate()<a name="line.284"></a>
 <span class="sourceLineNo">285</span>  {<a name="line.285"></a>
-<span class="sourceLineNo">286</span>    return isComputedValue() &amp;&amp; !getObserver().isKeepAlive();<a name="line.286"></a>
+<span class="sourceLineNo">286</span>    return isComputableValue() &amp;&amp; !getObserver().isKeepAlive();<a name="line.286"></a>
 <span class="sourceLineNo">287</span>  }<a name="line.287"></a>
 <span class="sourceLineNo">288</span><a name="line.288"></a>
 <span class="sourceLineNo">289</span>  /**<a name="line.289"></a>
 <span class="sourceLineNo">290</span>   * Return true if this observable is derived from an observer.<a name="line.290"></a>
 <span class="sourceLineNo">291</span>   */<a name="line.291"></a>
-<span class="sourceLineNo">292</span>  boolean isComputedValue()<a name="line.292"></a>
+<span class="sourceLineNo">292</span>  boolean isComputableValue()<a name="line.292"></a>
 <span class="sourceLineNo">293</span>  {<a name="line.293"></a>
 <span class="sourceLineNo">294</span>    return null != _observer;<a name="line.294"></a>
 <span class="sourceLineNo">295</span>  }<a name="line.295"></a>
@@ -326,7 +326,7 @@
 <span class="sourceLineNo">318</span>      invariant( this::canDeactivate,<a name="line.318"></a>
 <span class="sourceLineNo">319</span>                 () -&gt; "Arez-0061: Invoked deactivate on ObservableValue named '" + getName() + "' but " +<a name="line.319"></a>
 <span class="sourceLineNo">320</span>                       "ObservableValue can not be deactivated. Either owner is null or the associated " +<a name="line.320"></a>
-<span class="sourceLineNo">321</span>                       "ComputedValue has keepAlive enabled." );<a name="line.321"></a>
+<span class="sourceLineNo">321</span>                       "ComputableValue has keepAlive enabled." );<a name="line.321"></a>
 <span class="sourceLineNo">322</span>    }<a name="line.322"></a>
 <span class="sourceLineNo">323</span>    assert null != _observer;<a name="line.323"></a>
 <span class="sourceLineNo">324</span>    if ( _observer.isActive() )<a name="line.324"></a>
@@ -338,7 +338,7 @@
 <span class="sourceLineNo">330</span>      _observer.setState( Flags.STATE_INACTIVE );<a name="line.330"></a>
 <span class="sourceLineNo">331</span>      if ( willPropagateSpyEvents() )<a name="line.331"></a>
 <span class="sourceLineNo">332</span>      {<a name="line.332"></a>
-<span class="sourceLineNo">333</span>        reportSpyEvent( new ComputedValueDeactivatedEvent( _observer.getComputedValue().asInfo() ) );<a name="line.333"></a>
+<span class="sourceLineNo">333</span>        reportSpyEvent( new ComputableValueDeactivatedEvent( _observer.getComputableValue().asInfo() ) );<a name="line.333"></a>
 <span class="sourceLineNo">334</span>      }<a name="line.334"></a>
 <span class="sourceLineNo">335</span>    }<a name="line.335"></a>
 <span class="sourceLineNo">336</span>  }<a name="line.336"></a>
@@ -365,7 +365,7 @@
 <span class="sourceLineNo">357</span>    _observer.setState( Flags.STATE_UP_TO_DATE );<a name="line.357"></a>
 <span class="sourceLineNo">358</span>    if ( willPropagateSpyEvents() )<a name="line.358"></a>
 <span class="sourceLineNo">359</span>    {<a name="line.359"></a>
-<span class="sourceLineNo">360</span>      reportSpyEvent( new ComputedValueActivatedEvent( _observer.getComputedValue().asInfo() ) );<a name="line.360"></a>
+<span class="sourceLineNo">360</span>      reportSpyEvent( new ComputableValueActivatedEvent( _observer.getComputableValue().asInfo() ) );<a name="line.360"></a>
 <span class="sourceLineNo">361</span>    }<a name="line.361"></a>
 <span class="sourceLineNo">362</span>  }<a name="line.362"></a>
 <span class="sourceLineNo">363</span><a name="line.363"></a>
@@ -402,7 +402,7 @@
 <span class="sourceLineNo">394</span>      invariant( observer::isNotDisposed,<a name="line.394"></a>
 <span class="sourceLineNo">395</span>                 () -&gt; "Arez-0068: Attempting to add observer named '" + observer.getName() + "' to ObservableValue " +<a name="line.395"></a>
 <span class="sourceLineNo">396</span>                       "named '" + getName() + "' when observer is disposed." );<a name="line.396"></a>
-<span class="sourceLineNo">397</span>      invariant( () -&gt; !isComputedValue() ||<a name="line.397"></a>
+<span class="sourceLineNo">397</span>      invariant( () -&gt; !isComputableValue() ||<a name="line.397"></a>
 <span class="sourceLineNo">398</span>                       observer.canObserveLowerPriorityDependencies() ||<a name="line.398"></a>
 <span class="sourceLineNo">399</span>                       observer.getPriority().ordinal() &gt;= getObserver().getPriority().ordinal(),<a name="line.399"></a>
 <span class="sourceLineNo">400</span>                 () -&gt; "Arez-0183: Attempting to add observer named '" + observer.getName() + "' to ObservableValue " +<a name="line.400"></a>
@@ -596,7 +596,7 @@
 <span class="sourceLineNo">588</span>  {<a name="line.588"></a>
 <span class="sourceLineNo">589</span>    if ( Arez.shouldCheckInvariants() &amp;&amp; null != _observer )<a name="line.589"></a>
 <span class="sourceLineNo">590</span>    {<a name="line.590"></a>
-<span class="sourceLineNo">591</span>      invariant( () -&gt; Objects.equals( _observer.getComputedValue().getObservableValue(), this ),<a name="line.591"></a>
+<span class="sourceLineNo">591</span>      invariant( () -&gt; Objects.equals( _observer.getComputableValue().getObservableValue(), this ),<a name="line.591"></a>
 <span class="sourceLineNo">592</span>                 () -&gt; "Arez-0076: ObservableValue named '" + getName() + "' has owner specified but owner does " +<a name="line.592"></a>
 <span class="sourceLineNo">593</span>                       "not link to ObservableValue as derived value." );<a name="line.593"></a>
 <span class="sourceLineNo">594</span>    }<a name="line.594"></a>

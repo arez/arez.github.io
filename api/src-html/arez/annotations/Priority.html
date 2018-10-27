@@ -8,13 +8,13 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package arez.annotations;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import arez.ComputedValue;<a name="line.3"></a>
+<span class="sourceLineNo">003</span>import arez.ComputableValue;<a name="line.3"></a>
 <span class="sourceLineNo">004</span>import arez.Disposable;<a name="line.4"></a>
 <span class="sourceLineNo">005</span><a name="line.5"></a>
 <span class="sourceLineNo">006</span>/**<a name="line.6"></a>
 <span class="sourceLineNo">007</span> * Enum to control scheduling priority of observers/reactions.<a name="line.7"></a>
 <span class="sourceLineNo">008</span> * Observers with higher priorities will react first. If observers have equal priorities then observers<a name="line.8"></a>
-<span class="sourceLineNo">009</span> * scheduled first will react first. Observers must not depend upon ComputedValue instances with<a name="line.9"></a>
+<span class="sourceLineNo">009</span> * scheduled first will react first. Observers must not depend upon ComputableValue instances with<a name="line.9"></a>
 <span class="sourceLineNo">010</span> * a lower priority otherwise priority is ignored.<a name="line.10"></a>
 <span class="sourceLineNo">011</span> *<a name="line.11"></a>
 <span class="sourceLineNo">012</span> * &lt;p&gt;A user should be very careful when specifying a {@link #HIGH} priority as it is possible that<a name="line.12"></a>
@@ -45,14 +45,14 @@
 <span class="sourceLineNo">037</span>   * Usually used to schedule observers that reflect state onto non-reactive<a name="line.37"></a>
 <span class="sourceLineNo">038</span>   * application components. i.e. Observers that are used to build html views,<a name="line.38"></a>
 <span class="sourceLineNo">039</span>   * perform network operations etc. These reactions are often at low priority<a name="line.39"></a>
-<span class="sourceLineNo">040</span>   * to avoid recalculation of dependencies (i.e. {@link ComputedValue}s) triggering<a name="line.40"></a>
+<span class="sourceLineNo">040</span>   * to avoid recalculation of dependencies (i.e. {@link ComputableValue}s) triggering<a name="line.40"></a>
 <span class="sourceLineNo">041</span>   * this reaction multiple times within a single reaction round.<a name="line.41"></a>
 <span class="sourceLineNo">042</span>   */<a name="line.42"></a>
 <span class="sourceLineNo">043</span>  LOW,<a name="line.43"></a>
 <span class="sourceLineNo">044</span>  /**<a name="line.44"></a>
 <span class="sourceLineNo">045</span>   * Lowest priority.<a name="line.45"></a>
 <span class="sourceLineNo">046</span>   * This is low-priority reactions that reflect onto non-reactive applications. It is<a name="line.46"></a>
-<span class="sourceLineNo">047</span>   * also used for (i.e. {@link ComputedValue}s) that may be unobserved when a {@link #LOW}<a name="line.47"></a>
+<span class="sourceLineNo">047</span>   * also used for (i.e. {@link ComputableValue}s) that may be unobserved when a {@link #LOW}<a name="line.47"></a>
 <span class="sourceLineNo">048</span>   * priority reaction runs.<a name="line.48"></a>
 <span class="sourceLineNo">049</span>   */<a name="line.49"></a>
 <span class="sourceLineNo">050</span>  LOWEST<a name="line.50"></a>

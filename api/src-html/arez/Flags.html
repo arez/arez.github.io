@@ -17,7 +17,7 @@
 <span class="sourceLineNo">009</span>public final class Flags<a name="line.9"></a>
 <span class="sourceLineNo">010</span>{<a name="line.10"></a>
 <span class="sourceLineNo">011</span>  /**<a name="line.11"></a>
-<span class="sourceLineNo">012</span>   * Flag indicating that the Observer is allowed to observe {@link ComputedValue} instances with a lower priority.<a name="line.12"></a>
+<span class="sourceLineNo">012</span>   * Flag indicating that the Observer is allowed to observe {@link ComputableValue} instances with a lower priority.<a name="line.12"></a>
 <span class="sourceLineNo">013</span>   */<a name="line.13"></a>
 <span class="sourceLineNo">014</span>  public static final int OBSERVE_LOWER_PRIORITY_DEPENDENCIES = 1 &lt;&lt; 30;<a name="line.14"></a>
 <span class="sourceLineNo">015</span>  /**<a name="line.15"></a>
@@ -33,21 +33,21 @@
 <span class="sourceLineNo">025</span>   */<a name="line.25"></a>
 <span class="sourceLineNo">026</span>  private static final int NESTED_ACTIONS_MASK = NESTED_ACTIONS_ALLOWED | NESTED_ACTIONS_DISALLOWED;<a name="line.26"></a>
 <span class="sourceLineNo">027</span>  /**<a name="line.27"></a>
-<span class="sourceLineNo">028</span>   * Flag set set if the application code can not invoke {@link Observer#reportStale()} or {@link ComputedValue#reportPossiblyChanged()} to<a name="line.28"></a>
+<span class="sourceLineNo">028</span>   * Flag set set if the application code can not invoke {@link Observer#reportStale()} or {@link ComputableValue#reportPossiblyChanged()} to<a name="line.28"></a>
 <span class="sourceLineNo">029</span>   * indicate dependency has changed and the observer.<a name="line.29"></a>
 <span class="sourceLineNo">030</span>   *<a name="line.30"></a>
 <span class="sourceLineNo">031</span>   * @see arez.annotations.DepType#AREZ<a name="line.31"></a>
 <span class="sourceLineNo">032</span>   */<a name="line.32"></a>
 <span class="sourceLineNo">033</span>  public static final int AREZ_DEPENDENCIES = 1 &lt;&lt; 27;<a name="line.33"></a>
 <span class="sourceLineNo">034</span>  /**<a name="line.34"></a>
-<span class="sourceLineNo">035</span>   * Flag set set if the application code can not invoke {@link Observer#reportStale()} or {@link ComputedValue#reportPossiblyChanged()} to<a name="line.35"></a>
+<span class="sourceLineNo">035</span>   * Flag set set if the application code can not invoke {@link Observer#reportStale()} or {@link ComputableValue#reportPossiblyChanged()} to<a name="line.35"></a>
 <span class="sourceLineNo">036</span>   * indicate dependency has changed. It is not necessary for the observer to invoke  {@link ObservableValue#reportObserved()} on any dependency.<a name="line.36"></a>
 <span class="sourceLineNo">037</span>   *<a name="line.37"></a>
 <span class="sourceLineNo">038</span>   * @see arez.annotations.DepType#AREZ_OR_NONE<a name="line.38"></a>
 <span class="sourceLineNo">039</span>   */<a name="line.39"></a>
 <span class="sourceLineNo">040</span>  public static final int AREZ_OR_NO_DEPENDENCIES = 1 &lt;&lt; 26;<a name="line.40"></a>
 <span class="sourceLineNo">041</span>  /**<a name="line.41"></a>
-<span class="sourceLineNo">042</span>   * Flag set if the application code can invoke {@link Observer#reportStale()} or {@link ComputedValue#reportPossiblyChanged()} to indicate non-arez dependency has changed.<a name="line.42"></a>
+<span class="sourceLineNo">042</span>   * Flag set if the application code can invoke {@link Observer#reportStale()} or {@link ComputableValue#reportPossiblyChanged()} to indicate non-arez dependency has changed.<a name="line.42"></a>
 <span class="sourceLineNo">043</span>   *<a name="line.43"></a>
 <span class="sourceLineNo">044</span>   * @see arez.annotations.DepType#AREZ_OR_EXTERNAL<a name="line.44"></a>
 <span class="sourceLineNo">045</span>   */<a name="line.45"></a>
@@ -90,7 +90,7 @@
 <span class="sourceLineNo">082</span>  private static final int RUN_TYPE_MASK = RUN_NOW | RUN_LATER;<a name="line.82"></a>
 <span class="sourceLineNo">083</span>  /**<a name="line.83"></a>
 <span class="sourceLineNo">084</span>   * The runtime will keep the observer reacting to dependencies until disposed. This is the default value for<a name="line.84"></a>
-<span class="sourceLineNo">085</span>   * observers that supply a observed function but may be explicitly supplied when creating {@link ComputedValue}<a name="line.85"></a>
+<span class="sourceLineNo">085</span>   * observers that supply a observed function but may be explicitly supplied when creating {@link ComputableValue}<a name="line.85"></a>
 <span class="sourceLineNo">086</span>   * instances.<a name="line.86"></a>
 <span class="sourceLineNo">087</span>   */<a name="line.87"></a>
 <span class="sourceLineNo">088</span>  public static final int KEEPALIVE = 1 &lt;&lt; 20;<a name="line.88"></a>
@@ -141,7 +141,7 @@
 <span class="sourceLineNo">133</span>   * Usually used to schedule observers that reflect state onto non-reactive<a name="line.133"></a>
 <span class="sourceLineNo">134</span>   * application components. i.e. Observers that are used to build html views,<a name="line.134"></a>
 <span class="sourceLineNo">135</span>   * perform network operations etc. These reactions are often at low priority<a name="line.135"></a>
-<span class="sourceLineNo">136</span>   * to avoid recalculation of dependencies (i.e. {@link ComputedValue}s) triggering<a name="line.136"></a>
+<span class="sourceLineNo">136</span>   * to avoid recalculation of dependencies (i.e. {@link ComputableValue}s) triggering<a name="line.136"></a>
 <span class="sourceLineNo">137</span>   * this reaction multiple times within a single reaction round.<a name="line.137"></a>
 <span class="sourceLineNo">138</span>   * &lt;p&gt;Only one of the PRIORITY_* flags should be applied to observer.&lt;/p&gt;<a name="line.138"></a>
 <span class="sourceLineNo">139</span>   *<a name="line.139"></a>
@@ -150,7 +150,7 @@
 <span class="sourceLineNo">142</span>   */<a name="line.142"></a>
 <span class="sourceLineNo">143</span>  public static final int PRIORITY_LOW = 0b100 &lt;&lt; 15;<a name="line.143"></a>
 <span class="sourceLineNo">144</span>  /**<a name="line.144"></a>
-<span class="sourceLineNo">145</span>   * Lowest priority. Use this priority if the observer is a {@link ComputedValue} that<a name="line.145"></a>
+<span class="sourceLineNo">145</span>   * Lowest priority. Use this priority if the observer is a {@link ComputableValue} that<a name="line.145"></a>
 <span class="sourceLineNo">146</span>   * may be unobserved when a {@link #PRIORITY_LOW} observer reacts. This is used to avoid<a name="line.146"></a>
 <span class="sourceLineNo">147</span>   * recomputing state that is likely to either be unobserved or recomputed as part of<a name="line.147"></a>
 <span class="sourceLineNo">148</span>   * another observers reaction.<a name="line.148"></a>
@@ -260,7 +260,7 @@
 <span class="sourceLineNo">252</span>  static final int STATE_DISPOSING = 0b010;<a name="line.252"></a>
 <span class="sourceLineNo">253</span>  /**<a name="line.253"></a>
 <span class="sourceLineNo">254</span>   * The observer is not active and is not holding any data about it's dependencies.<a name="line.254"></a>
-<span class="sourceLineNo">255</span>   * Typically mean this tracker observer has not been run or if it is a ComputedValue that<a name="line.255"></a>
+<span class="sourceLineNo">255</span>   * Typically mean this tracker observer has not been run or if it is a ComputableValue that<a name="line.255"></a>
 <span class="sourceLineNo">256</span>   * there is no observer observing the associated ObservableValue.<a name="line.256"></a>
 <span class="sourceLineNo">257</span>   */<a name="line.257"></a>
 <span class="sourceLineNo">258</span>  static final int STATE_INACTIVE = 0b011;<a name="line.258"></a>

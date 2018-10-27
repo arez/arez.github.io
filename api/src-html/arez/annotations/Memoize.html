@@ -16,13 +16,13 @@
 <span class="sourceLineNo">008</span>/**<a name="line.8"></a>
 <span class="sourceLineNo">009</span> * Methods marked with this annotation are &lt;a href="https://en.wikipedia.org/wiki/Memoization"&gt;memoized&lt;/a&gt; while there is an observer.<a name="line.9"></a>
 <span class="sourceLineNo">010</span> *<a name="line.10"></a>
-<span class="sourceLineNo">011</span> * &lt;p&gt;The return value should be derived from the parameters and any other Observables or ComputedValues<a name="line.11"></a>
+<span class="sourceLineNo">011</span> * &lt;p&gt;The return value should be derived from the parameters and any other Observables or {@link arez.ComputableValue}s<a name="line.11"></a>
 <span class="sourceLineNo">012</span> * within the Arez system. The value returned by the method should not change unless the parameters or the<a name="line.12"></a>
 <span class="sourceLineNo">013</span> * state of the other {@link Observable}s change. The method is wrapped in a READ_ONLY transaction and<a name="line.13"></a>
 <span class="sourceLineNo">014</span> * thus can not modify other state in the system.&lt;/p&gt;<a name="line.14"></a>
 <span class="sourceLineNo">015</span> *<a name="line.15"></a>
-<span class="sourceLineNo">016</span> * &lt;p&gt;This is implemented by creating a separate ComputedValue instance for each unique combination of<a name="line.16"></a>
-<span class="sourceLineNo">017</span> * parameters. When the ComputedValue is deactivated, a hook triggers that removes the ComputedValue<a name="line.17"></a>
+<span class="sourceLineNo">016</span> * &lt;p&gt;This is implemented by creating a separate ComputableValue instance for each unique combination of<a name="line.16"></a>
+<span class="sourceLineNo">017</span> * parameters. When the ComputableValue is deactivated, a hook triggers that removes the ComputableValue<a name="line.17"></a>
 <span class="sourceLineNo">018</span> * from the local cache.&lt;/p&gt;<a name="line.18"></a>
 <span class="sourceLineNo">019</span> *<a name="line.19"></a>
 <span class="sourceLineNo">020</span> * &lt;p&gt;The method that is annotated with @Memoize must comply with the additional constraints:&lt;/p&gt;<a name="line.20"></a>
@@ -44,7 +44,7 @@
 <span class="sourceLineNo">036</span>  /**<a name="line.36"></a>
 <span class="sourceLineNo">037</span>   * Return the root name of the Memoized value relative to the component. This<a name="line.37"></a>
 <span class="sourceLineNo">038</span>   * will be used in combination with a sequence when naming the synthesized<a name="line.38"></a>
-<span class="sourceLineNo">039</span>   * ComputedValue instances. The value must conform to the requirements of a<a name="line.39"></a>
+<span class="sourceLineNo">039</span>   * ComputableValue instances. The value must conform to the requirements of a<a name="line.39"></a>
 <span class="sourceLineNo">040</span>   * java identifier. The name must also be unique across {@link Observable}s,<a name="line.40"></a>
 <span class="sourceLineNo">041</span>   * {@link Computed}s and {@link Action}s within the scope of the<a name="line.41"></a>
 <span class="sourceLineNo">042</span>   * {@link ArezComponent} annotated element.<a name="line.42"></a>
@@ -55,14 +55,14 @@
 <span class="sourceLineNo">047</span>  String name() default "&lt;default&gt;";<a name="line.47"></a>
 <span class="sourceLineNo">048</span><a name="line.48"></a>
 <span class="sourceLineNo">049</span>  /**<a name="line.49"></a>
-<span class="sourceLineNo">050</span>   * The priority of the underlying ComputedValue observer<a name="line.50"></a>
+<span class="sourceLineNo">050</span>   * The priority of the underlying ComputableValue observer<a name="line.50"></a>
 <span class="sourceLineNo">051</span>   *<a name="line.51"></a>
-<span class="sourceLineNo">052</span>   * @return the priority of the ComputedValue observer.<a name="line.52"></a>
+<span class="sourceLineNo">052</span>   * @return the priority of the ComputableValue observer.<a name="line.52"></a>
 <span class="sourceLineNo">053</span>   */<a name="line.53"></a>
 <span class="sourceLineNo">054</span>  Priority priority() default Priority.NORMAL;<a name="line.54"></a>
 <span class="sourceLineNo">055</span><a name="line.55"></a>
 <span class="sourceLineNo">056</span>  /**<a name="line.56"></a>
-<span class="sourceLineNo">057</span>   * Flag controlling whether the underlying observer can observe ComputedValue instances with lower priorities.<a name="line.57"></a>
+<span class="sourceLineNo">057</span>   * Flag controlling whether the underlying observer can observe ComputableValue instances with lower priorities.<a name="line.57"></a>
 <span class="sourceLineNo">058</span>   * The default value of false will result in an invariant failure (in development mode) if a lower priority<a name="line.58"></a>
 <span class="sourceLineNo">059</span>   * dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher<a name="line.59"></a>
 <span class="sourceLineNo">060</span>   * priority observer is dependent upon a lower priority computed value. If the value is true then the no<a name="line.60"></a>

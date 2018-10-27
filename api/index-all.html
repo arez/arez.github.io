@@ -214,16 +214,16 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Flags.html#AREZ_DEPENDENCIES">AREZ_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
-<div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to
+<div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate dependency has changed and the observer.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Flags.html#AREZ_OR_EXTERNAL_DEPENDENCIES">AREZ_OR_EXTERNAL_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
-<div class="block">Flag set if the application code can invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to indicate non-arez dependency has changed.</div>
+<div class="block">Flag set if the application code can invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to indicate non-arez dependency has changed.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Flags.html#AREZ_OR_NO_DEPENDENCIES">AREZ_OR_NO_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
-<div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> to
+<div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate dependency has changed.</div>
 </dd>
 <dt><a href="arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><span class="typeNameLink">ArezComponent</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
@@ -256,17 +256,17 @@
 <dd>
 <div class="block">Cast specified object to an instance of ComponentObservable.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#asComputedValue--">asComputedValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#asComputableValue--">asComputableValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
-<div class="block">Convert the Observable to a ComputedValue.</div>
+<div class="block">Convert the Observable to a ComputableValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObserverInfo.html#asComputedValue--">asComputedValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserverInfo.html#asComputableValue--">asComputableValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a></dt>
 <dd>
-<div class="block">Convert the Observer to a ComputedValue.</div>
+<div class="block">Convert the Observer to a ComputableValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/Spy.html#asComputedValueInfo-arez.ComputedValue-">asComputedValueInfo(ComputedValue&lt;T&gt;)</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/Spy.html#asComputableValueInfo-arez.ComputableValue-">asComputableValueInfo(ComputableValue&lt;T&gt;)</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
 <dd>
-<div class="block">Convert the specified computedValue into an ComputedValueInfo.</div>
+<div class="block">Convert the specified ComputableValue into an ComputableValueInfo.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Disposable.html#asDisposable-java.lang.Object-">asDisposable(Object)</a></span> - Static method in interface arez.<a href="arez/Disposable.html" title="interface in arez">Disposable</a></dt>
 <dd>
@@ -457,99 +457,99 @@
 <dd>
 <div class="block">Annotate the method that will be overridden to return the value of ArezComponent.name().</div>
 </dd>
+<dt><a href="arez/ComputableValue.html" title="class in arez"><span class="typeNameLink">ComputableValue</span></a>&lt;<a href="arez/ComputableValue.html" title="type parameter in ComputableValue">T</a>&gt; - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">The ComputableValue represents an ObservableValue derived from other ObservableValues within
+ the Arez system.</div>
+</dd>
+<dt><a href="arez/spy/ComputableValueActivatedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputableValueActivatedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">ComputableValue has activated.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueActivatedEvent.html#ComputableValueActivatedEvent-arez.spy.ComputableValueInfo-">ComputableValueActivatedEvent(ComputableValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputableValueActivatedEvent.html" title="class in arez.spy">ComputableValueActivatedEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ComputableValueCreatedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputableValueCreatedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">ComputableValue has been created.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueCreatedEvent.html#ComputableValueCreatedEvent-arez.spy.ComputableValueInfo-">ComputableValueCreatedEvent(ComputableValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputableValueCreatedEvent.html" title="class in arez.spy">ComputableValueCreatedEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ComputableValueDeactivatedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputableValueDeactivatedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">ComputableValue has de-activated.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueDeactivatedEvent.html#ComputableValueDeactivatedEvent-arez.spy.ComputableValueInfo-">ComputableValueDeactivatedEvent(ComputableValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputableValueDeactivatedEvent.html" title="class in arez.spy">ComputableValueDeactivatedEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ComputableValueDisposedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputableValueDisposedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">ComputableValue has been disposed.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueDisposedEvent.html#ComputableValueDisposedEvent-arez.spy.ComputableValueInfo-">ComputableValueDisposedEvent(ComputableValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputableValueDisposedEvent.html" title="class in arez.spy">ComputableValueDisposedEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ComputableValueInfo.html" title="interface in arez.spy"><span class="typeNameLink">ComputableValueInfo</span></a> - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">A representation of a ComputableValue instance exposed to spy framework.</div>
+</dd>
 <dt><a href="arez/spy/ComputeCompletedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputeCompletedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification when Computation completes.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputeCompletedEvent.html#ComputeCompletedEvent-arez.spy.ComputedValueInfo-java.lang.Object-java.lang.Throwable-int-">ComputeCompletedEvent(ComputedValueInfo, Object, Throwable, int)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputeCompletedEvent.html" title="class in arez.spy">ComputeCompletedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputeCompletedEvent.html#ComputeCompletedEvent-arez.spy.ComputableValueInfo-java.lang.Object-java.lang.Throwable-int-">ComputeCompletedEvent(ComputableValueInfo, Object, Throwable, int)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputeCompletedEvent.html" title="class in arez.spy">ComputeCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/annotations/Computed.html" title="annotation in arez.annotations"><span class="typeNameLink">Computed</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Methods marked with this annotation are ComputedValues within Arez.</div>
+<div class="block">Methods marked with this annotation are <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances within Arez.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.SafeFunction-">computed(SafeFunction&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create a ComputedValue with specified parameters.</div>
+<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.SafeFunction-int-">computed(SafeFunction&lt;T&gt;, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create a ComputedValue with specified parameters.</div>
+<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-java.lang.String-arez.SafeFunction-">computed(String, SafeFunction&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create a ComputedValue with specified parameters.</div>
+<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-java.lang.String-arez.SafeFunction-int-">computed(String, SafeFunction&lt;T&gt;, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create a ComputedValue with specified parameters.</div>
+<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.Component-java.lang.String-arez.SafeFunction-">computed(Component, String, SafeFunction&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create a ComputedValue with specified parameters.</div>
+<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.Component-java.lang.String-arez.SafeFunction-int-">computed(Component, String, SafeFunction&lt;T&gt;, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create a ComputedValue with specified parameters.</div>
+<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.Component-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-">computed(Component, String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create a ComputedValue with specified parameters.</div>
+<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-">computed(String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create a ComputedValue with specified parameters.</div>
+<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-int-">computed(String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create a ComputedValue with specified parameters.</div>
+<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.Component-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-int-">computed(Component, String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
-<div class="block">Create a ComputedValue with specified parameters.</div>
-</dd>
-<dt><a href="arez/ComputedValue.html" title="class in arez"><span class="typeNameLink">ComputedValue</span></a>&lt;<a href="arez/ComputedValue.html" title="type parameter in ComputedValue">T</a>&gt; - Class in <a href="arez/package-summary.html">arez</a></dt>
-<dd>
-<div class="block">The ComputedValue represents an ObservableValue derived from other ObservableValues within
- the Arez system.</div>
-</dd>
-<dt><a href="arez/spy/ComputedValueActivatedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputedValueActivatedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">ComputedValue has activated.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueActivatedEvent.html#ComputedValueActivatedEvent-arez.spy.ComputedValueInfo-">ComputedValueActivatedEvent(ComputedValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputedValueActivatedEvent.html" title="class in arez.spy">ComputedValueActivatedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="arez/spy/ComputedValueCreatedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputedValueCreatedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">ComputedValue has been created.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueCreatedEvent.html#ComputedValueCreatedEvent-arez.spy.ComputedValueInfo-">ComputedValueCreatedEvent(ComputedValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputedValueCreatedEvent.html" title="class in arez.spy">ComputedValueCreatedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="arez/spy/ComputedValueDeactivatedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputedValueDeactivatedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">ComputedValue has de-activated.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueDeactivatedEvent.html#ComputedValueDeactivatedEvent-arez.spy.ComputedValueInfo-">ComputedValueDeactivatedEvent(ComputedValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputedValueDeactivatedEvent.html" title="class in arez.spy">ComputedValueDeactivatedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="arez/spy/ComputedValueDisposedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputedValueDisposedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">ComputedValue has been disposed.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueDisposedEvent.html#ComputedValueDisposedEvent-arez.spy.ComputedValueInfo-">ComputedValueDisposedEvent(ComputedValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputedValueDisposedEvent.html" title="class in arez.spy">ComputedValueDisposedEvent</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="arez/spy/ComputedValueInfo.html" title="interface in arez.spy"><span class="typeNameLink">ComputedValueInfo</span></a> - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
-<dd>
-<div class="block">A representation of a ComputedValue instance exposed to spy framework.</div>
+<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><a href="arez/annotations/ComputedValueRef.html" title="annotation in arez.annotations"><span class="typeNameLink">ComputedValueRef</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Marks a template method that returns the <a href="arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a> instance for
+<div class="block">Marks a template method that returns the <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instance for
  the <a href="arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> annotated property.</div>
 </dd>
 <dt><a href="arez/spy/ComputeStartedEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputeStartedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification when Computation starts.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputeStartedEvent.html#ComputeStartedEvent-arez.spy.ComputedValueInfo-">ComputeStartedEvent(ComputedValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputeStartedEvent.html" title="class in arez.spy">ComputeStartedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputeStartedEvent.html#ComputeStartedEvent-arez.spy.ComputableValueInfo-">ComputeStartedEvent(ComputableValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputeStartedEvent.html" title="class in arez.spy">ComputeStartedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#contains-T-">contains(T)</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
 <dd>
@@ -579,7 +579,7 @@
 <dl>
 <dt><a href="arez/annotations/DepType.html" title="enum in arez.annotations"><span class="typeNameLink">DepType</span></a> - Enum in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Enumeration that describes the types of dependencies supported by an <a href="arez/Observer.html" title="class in arez"><code>Observer</code></a> or a <a href="arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>.</div>
+<div class="block">Enumeration that describes the types of dependencies supported by an <a href="arez/Observer.html" title="class in arez"><code>Observer</code></a> or a <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#describe-byte-">describe(byte)</a></span> - Static method in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
 <dd>
@@ -647,9 +647,9 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/MemoizeCache.html#dispose--">dispose()</a></span> - Method in class arez.component.<a href="arez/component/MemoizeCache.html" title="class in arez.component">MemoizeCache</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/ComputedValue.html#dispose--">dispose()</a></span> - Method in class arez.<a href="arez/ComputedValue.html" title="class in arez">ComputedValue</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.html#dispose--">dispose()</a></span> - Method in class arez.<a href="arez/ComputableValue.html" title="class in arez">ComputableValue</a></dt>
 <dd>
-<div class="block">Dispose the ComputedValue so that it can no longer be used.</div>
+<div class="block">Dispose the ComputableValue so that it can no longer be used.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Disposable.html#dispose--">dispose()</a></span> - Method in interface arez.<a href="arez/Disposable.html" title="interface in arez">Disposable</a></dt>
 <dd>
@@ -787,7 +787,7 @@
 <dd>
 <div class="block">Find all the component types in the system.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/Spy.html#findAllTopLevelComputedValues--">findAllTopLevelComputedValues()</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/Spy.html#findAllTopLevelComputableValues--">findAllTopLevelComputableValues()</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
 <dd>
 <div class="block">Find all the collection of computed values not contained by a native component.</div>
 </dd>
@@ -841,7 +841,7 @@
 <dd>
 <div class="block">Return the result of the memoized function, calculating if necessary.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ComputedValue.html#get--">get()</a></span> - Method in class arez.<a href="arez/ComputedValue.html" title="class in arez">ComputedValue</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.html#get--">get()</a></span> - Method in class arez.<a href="arez/ComputableValue.html" title="class in arez">ComputableValue</a></dt>
 <dd>
 <div class="block">Return the computed value, calculating the value if it is not up to date.</div>
 </dd>
@@ -869,9 +869,9 @@
 <dd>
 <div class="block">Return the entity that matches query else throw an exception.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueInfo.html#getComponent--">getComponent()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueInfo.html#getComponent--">getComponent()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a></dt>
 <dd>
-<div class="block">Return the component for the ComputedValue.</div>
+<div class="block">Return the component for the ComputableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#getComponent--">getComponent()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
@@ -889,29 +889,29 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeStartedEvent.html#getComponentInfo--">getComponentInfo()</a></span> - Method in class arez.spy.<a href="arez/spy/ComponentDisposeStartedEvent.html" title="class in arez.spy">ComponentDisposeStartedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputeCompletedEvent.html#getComputedValue--">getComputedValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeCompletedEvent.html" title="class in arez.spy">ComputeCompletedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueActivatedEvent.html#getComputableValue--">getComputableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputableValueActivatedEvent.html" title="class in arez.spy">ComputableValueActivatedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueActivatedEvent.html#getComputedValue--">getComputedValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputedValueActivatedEvent.html" title="class in arez.spy">ComputedValueActivatedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueCreatedEvent.html#getComputableValue--">getComputableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputableValueCreatedEvent.html" title="class in arez.spy">ComputableValueCreatedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueCreatedEvent.html#getComputedValue--">getComputedValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputedValueCreatedEvent.html" title="class in arez.spy">ComputedValueCreatedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueDeactivatedEvent.html#getComputableValue--">getComputableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputableValueDeactivatedEvent.html" title="class in arez.spy">ComputableValueDeactivatedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueDeactivatedEvent.html#getComputedValue--">getComputedValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputedValueDeactivatedEvent.html" title="class in arez.spy">ComputedValueDeactivatedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueDisposedEvent.html#getComputableValue--">getComputableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputableValueDisposedEvent.html" title="class in arez.spy">ComputableValueDisposedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueDisposedEvent.html#getComputedValue--">getComputedValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputedValueDisposedEvent.html" title="class in arez.spy">ComputedValueDisposedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputeCompletedEvent.html#getComputableValue--">getComputableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeCompletedEvent.html" title="class in arez.spy">ComputeCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputeStartedEvent.html#getComputedValue--">getComputedValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeStartedEvent.html" title="class in arez.spy">ComputeStartedEvent</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputeStartedEvent.html#getComputableValue--">getComputableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeStartedEvent.html" title="class in arez.spy">ComputeStartedEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComponentInfo.html#getComputedValues--">getComputedValues()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComponentInfo.html#getComputableValues--">getComputableValues()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a></dt>
 <dd>
-<div class="block">Return the ComputedValues associated with the component.</div>
+<div class="block">Return the ComputableValues associated with the component.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Zone.html#getContext--">getContext()</a></span> - Method in class arez.<a href="arez/Zone.html" title="class in arez">Zone</a></dt>
 <dd>
 <div class="block">Return the context for the zone.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueInfo.html#getDependencies--">getDependencies()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueInfo.html#getDependencies--">getDependencies()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a></dt>
 <dd>
-<div class="block">Return the list of dependencies of the ComputedValue.</div>
+<div class="block">Return the list of dependencies of the ComputableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverInfo.html#getDependencies--">getDependencies()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a></dt>
 <dd>
@@ -1001,9 +1001,9 @@
 <dd>
 <div class="block">Return the Observers associated with the component.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueInfo.html#getObservers--">getObservers()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueInfo.html#getObservers--">getObservers()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a></dt>
 <dd>
-<div class="block">Return the list of observers for ComputedValue.</div>
+<div class="block">Return the list of observers for ComputableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#getObservers--">getObservers()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
@@ -1017,9 +1017,9 @@
 <dd>
 <div class="block">Return the parent transaction if any.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueInfo.html#getPriority--">getPriority()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueInfo.html#getPriority--">getPriority()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a></dt>
 <dd>
-<div class="block">Return the priority of the ComputedValue.</div>
+<div class="block">Return the priority of the ComputableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverInfo.html#getPriority--">getPriority()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a></dt>
 <dd>
@@ -1059,9 +1059,9 @@
 <dd>
 <div class="block">Return the component type.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueInfo.html#getValue--">getValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueInfo.html#getValue--">getValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a></dt>
 <dd>
-<div class="block">Return the value of the ComputedValue.</div>
+<div class="block">Return the value of the ComputableValue.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObservableValueChangedEvent.html#getValue--">getValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableValueChangedEvent.html" title="class in arez.spy">ObservableValueChangedEvent</a></dt>
 <dd>&nbsp;</dd>
@@ -1114,9 +1114,9 @@
 <dd>
 <div class="block">Return true if the component is active and can be interacted with.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueInfo.html#isActive--">isActive()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueInfo.html#isActive--">isActive()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a></dt>
 <dd>
-<div class="block">Return true if the ComputedValue is active.</div>
+<div class="block">Return true if the ComputableValue is active.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverInfo.html#isActive--">isActive()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a></dt>
 <dd>
@@ -1132,17 +1132,17 @@
 <dd>
 <div class="block">Return true if the component identified by type and id has been defined in context.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#isComputedValue--">isComputedValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#isComputableValue--">isComputableValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>
-<div class="block">Return true if the Observable is a ComputedValue.</div>
+<div class="block">Return true if the Observable is a ComputableValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ObserverInfo.html#isComputedValue--">isComputedValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ObserverInfo.html#isComputableValue--">isComputableValue()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a></dt>
 <dd>
-<div class="block">Return true if the Observer is a ComputedValue.</div>
+<div class="block">Return true if the Observer is a ComputableValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueInfo.html#isComputing--">isComputing()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a></dt>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueInfo.html#isComputing--">isComputing()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a></dt>
 <dd>
-<div class="block">Return true if the ComputedValue is "computing".</div>
+<div class="block">Return true if the ComputableValue is "computing".</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/DisposeNotifier.html#isDisposed--">isDisposed()</a></span> - Method in class arez.component.<a href="arez/component/DisposeNotifier.html" title="class in arez.component">DisposeNotifier</a></dt>
 <dd>
@@ -1156,7 +1156,7 @@
 <dd>
 <div class="block">Return true if dispose() has been called on object.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ComputedValue.html#isDisposed--">isDisposed()</a></span> - Method in class arez.<a href="arez/ComputedValue.html" title="class in arez">ComputedValue</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.html#isDisposed--">isDisposed()</a></span> - Method in class arez.<a href="arez/ComputableValue.html" title="class in arez">ComputableValue</a></dt>
 <dd>
 <div class="block">Return true if dispose() has been called on object.</div>
 </dd>
@@ -1483,7 +1483,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Flags.html#OBSERVE_LOWER_PRIORITY_DEPENDENCIES">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
-<div class="block">Flag indicating that the Observer is allowed to observe <a href="arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a> instances with a lower priority.</div>
+<div class="block">Flag indicating that the Observer is allowed to observe <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
 </dd>
 <dt><a href="arez/spy/ObserveCompletedEvent.html" title="class in arez.spy"><span class="typeNameLink">ObserveCompletedEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
@@ -1592,11 +1592,11 @@
 <dd>&nbsp;</dd>
 <dt><a href="arez/annotations/OnActivate.html" title="annotation in arez.annotations"><span class="typeNameLink">OnActivate</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Identifies method that is called when the ComputedValue changes from the INACTIVE state to any other state.</div>
+<div class="block">Identifies method that is called when the ComputableValue changes from the INACTIVE state to any other state.</div>
 </dd>
 <dt><a href="arez/annotations/OnDeactivate.html" title="annotation in arez.annotations"><span class="typeNameLink">OnDeactivate</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Identifies method that is called when the ComputedValue changes to the INACTIVE state from any other state.</div>
+<div class="block">Identifies method that is called when the ComputableValue changes to the INACTIVE state from any other state.</div>
 </dd>
 <dt><a href="arez/annotations/OnDepsChanged.html" title="annotation in arez.annotations"><span class="typeNameLink">OnDepsChanged</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -1612,7 +1612,7 @@
 </dd>
 <dt><a href="arez/annotations/OnStale.html" title="annotation in arez.annotations"><span class="typeNameLink">OnStale</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Identifies method that is called when the ComputedValue changes from the UP_TO_DATE state to STALE or POSSIBLY_STALE.</div>
+<div class="block">Identifies method that is called when the ComputableValue changes from the UP_TO_DATE state to STALE or POSSIBLY_STALE.</div>
 </dd>
 </dl>
 <a name="I:P">
@@ -1743,9 +1743,9 @@
 <dd>
 <div class="block">Notify Arez that this observable has been "observed" if a tracking transaction is active.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ComputedValue.html#reportPossiblyChanged--">reportPossiblyChanged()</a></span> - Method in class arez.<a href="arez/ComputedValue.html" title="class in arez">ComputedValue</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.html#reportPossiblyChanged--">reportPossiblyChanged()</a></span> - Method in class arez.<a href="arez/ComputableValue.html" title="class in arez">ComputableValue</a></dt>
 <dd>
-<div class="block">Invoked when a non-arez dependency of the ComputedValue has changed.</div>
+<div class="block">Invoked when a non-arez dependency of the ComputableValue has changed.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/Spy.html#reportSpyEvent-java.lang.Object-">reportSpyEvent(Object)</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
 <dd>
@@ -1967,23 +1967,23 @@
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueActivatedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ComputableValueActivatedEvent.html" title="class in arez.spy">ComputableValueActivatedEvent</a></dt>
+<dd>
+<div class="block">Convert event attributes to json compatible values in map.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueCreatedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ComputableValueCreatedEvent.html" title="class in arez.spy">ComputableValueCreatedEvent</a></dt>
+<dd>
+<div class="block">Convert event attributes to json compatible values in map.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueDeactivatedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ComputableValueDeactivatedEvent.html" title="class in arez.spy">ComputableValueDeactivatedEvent</a></dt>
+<dd>
+<div class="block">Convert event attributes to json compatible values in map.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/ComputableValueDisposedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ComputableValueDisposedEvent.html" title="class in arez.spy">ComputableValueDisposedEvent</a></dt>
+<dd>
+<div class="block">Convert event attributes to json compatible values in map.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeCompletedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeCompletedEvent.html" title="class in arez.spy">ComputeCompletedEvent</a></dt>
-<dd>
-<div class="block">Convert event attributes to json compatible values in map.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueActivatedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ComputedValueActivatedEvent.html" title="class in arez.spy">ComputedValueActivatedEvent</a></dt>
-<dd>
-<div class="block">Convert event attributes to json compatible values in map.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueCreatedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ComputedValueCreatedEvent.html" title="class in arez.spy">ComputedValueCreatedEvent</a></dt>
-<dd>
-<div class="block">Convert event attributes to json compatible values in map.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueDeactivatedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ComputedValueDeactivatedEvent.html" title="class in arez.spy">ComputedValueDeactivatedEvent</a></dt>
-<dd>
-<div class="block">Convert event attributes to json compatible values in map.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/spy/ComputedValueDisposedEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ComputedValueDisposedEvent.html" title="class in arez.spy">ComputedValueDisposedEvent</a></dt>
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>

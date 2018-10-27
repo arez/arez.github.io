@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../arez/spy/ComponentDisposeStartedEvent.html" title="class in arez.spy"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../arez/spy/ComputeCompletedEvent.html" title="class in arez.spy"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/spy/ComputableValueActivatedEvent.html" title="class in arez.spy"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/spy/ComponentInfo.html" target="_top">Frames</a></li>
@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public interface <a href="../../src-html/arez/spy/ComponentInfo.html#line.9">ComponentInfo</a>
+<pre>public interface <a href="../../src-html/arez/spy/ComponentInfo.html#line.10">ComponentInfo</a>
 extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">ElementInfo</a></pre>
 <div class="block">A representation of a component instance exposed to spy framework.</div>
 </li>
@@ -125,9 +125,9 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/ComponentInfo.html#getComputedValues--">getComputedValues</a></span>()</code>
-<div class="block">Return the ComputedValues associated with the component.</div>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/ComponentInfo.html#getComputableValues--">getComputableValues</a></span>()</code>
+<div class="block">Return the ComputableValues associated with the component.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -183,7 +183,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <li class="blockList">
 <h4>getType</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/spy/ComponentInfo.html#line.19">getType</a>()</pre>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/spy/ComponentInfo.html#line.20">getType</a>()</pre>
 <div class="block">Return the component type.
  This is an opaque string specified by the user.</div>
 <dl>
@@ -199,7 +199,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <li class="blockList">
 <h4>getId</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/arez/spy/ComponentInfo.html#line.28">getId</a>()</pre>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/arez/spy/ComponentInfo.html#line.29">getId</a>()</pre>
 <div class="block">Return the unique id of the component.
  This will return null for singletons.</div>
 <dl>
@@ -214,9 +214,9 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>getObservableValues</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ComponentInfo.html#line.37">getObservableValues</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ComponentInfo.html#line.38">getObservableValues</a>()</pre>
 <div class="block">Return the Observables associated with the component.
- This does NOT include observables that are associated with a <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>.
+ This does NOT include observables that are associated with a <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>.
  This collection returned is unmodifiable.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -230,9 +230,9 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>getObservers</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ComponentInfo.html#line.47">getObservers</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ComponentInfo.html#line.48">getObservers</a>()</pre>
 <div class="block">Return the Observers associated with the component.
- This does NOT include observers that are associated with a <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>.
+ This does NOT include observers that are associated with a <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>.
  This collection returned is unmodifiable. This operation recreates the list and is
  a relatively expensive operation.</div>
 <dl>
@@ -241,14 +241,14 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 </dl>
 </li>
 </ul>
-<a name="getComputedValues--">
+<a name="getComputableValues--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getComputedValues</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ComputedValueInfo.html" title="interface in arez.spy">ComputedValueInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ComponentInfo.html#line.55">getComputedValues</a>()</pre>
-<div class="block">Return the ComputedValues associated with the component.
+<h4>getComputableValues</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ComponentInfo.html#line.56">getComputableValues</a>()</pre>
+<div class="block">Return the ComputableValues associated with the component.
  This collection returned is unmodifiable.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -284,7 +284,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../arez/spy/ComponentDisposeStartedEvent.html" title="class in arez.spy"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../arez/spy/ComputeCompletedEvent.html" title="class in arez.spy"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/spy/ComputableValueActivatedEvent.html" title="class in arez.spy"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/spy/ComponentInfo.html" target="_top">Frames</a></li>

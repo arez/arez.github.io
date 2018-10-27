@@ -8,33 +8,35 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package arez.annotations;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>/**<a name="line.3"></a>
-<span class="sourceLineNo">004</span> * Enumeration that describes the types of dependencies supported by an {@link arez.Observer} or a {@link arez.ComputedValue}.<a name="line.4"></a>
-<span class="sourceLineNo">005</span> */<a name="line.5"></a>
-<span class="sourceLineNo">006</span>public enum DepType<a name="line.6"></a>
-<span class="sourceLineNo">007</span>{<a name="line.7"></a>
-<span class="sourceLineNo">008</span>  /**<a name="line.8"></a>
-<span class="sourceLineNo">009</span>   * The reactive element MUST have at least one dependency on an {@link arez.ObservableValue}.<a name="line.9"></a>
-<span class="sourceLineNo">010</span>   * This means that the &lt;code&gt;computed&lt;/code&gt; or &lt;code&gt;observed&lt;/code&gt; method must invoke<a name="line.10"></a>
-<span class="sourceLineNo">011</span>   * {@link arez.ObservableValue#reportObserved()} at least once within the scope of the method.<a name="line.11"></a>
-<span class="sourceLineNo">012</span>   */<a name="line.12"></a>
-<span class="sourceLineNo">013</span>  AREZ,<a name="line.13"></a>
-<span class="sourceLineNo">014</span>  /**<a name="line.14"></a>
-<span class="sourceLineNo">015</span>   * The reactive element may have dependencies on zero or more {@link arez.ObservableValue} instances.<a name="line.15"></a>
-<span class="sourceLineNo">016</span>   * Using this dependency type also allows for the scenario where the &lt;code&gt;computed&lt;/code&gt; or<a name="line.16"></a>
-<span class="sourceLineNo">017</span>   * &lt;code&gt;observed&lt;/code&gt; does not invoke {@link arez.ObservableValue#reportObserved()} within the scope<a name="line.17"></a>
-<span class="sourceLineNo">018</span>   * of the method. The &lt;code&gt;computed&lt;/code&gt; or &lt;code&gt;observed&lt;/code&gt; will not be re-scheduled by the<a name="line.18"></a>
-<span class="sourceLineNo">019</span>   * runtime when there are no dependencies. (This is sometimes acceptable, particularly during when a<a name="line.19"></a>
-<span class="sourceLineNo">020</span>   * collection of components are being disposed over multiple scheduling rounds).<a name="line.20"></a>
-<span class="sourceLineNo">021</span>   */<a name="line.21"></a>
-<span class="sourceLineNo">022</span>  AREZ_OR_NONE,<a name="line.22"></a>
-<span class="sourceLineNo">023</span>  /**<a name="line.23"></a>
-<span class="sourceLineNo">024</span>   * The reactive element may have zero or more dependencies on {@link arez.ObservableValue} instances and/or<a name="line.24"></a>
-<span class="sourceLineNo">025</span>   * may have dependencies on non-arez elements. The application can invoke {@link arez.Observer#reportStale()}<a name="line.25"></a>
-<span class="sourceLineNo">026</span>   * or {@link arez.ComputedValue#reportPossiblyChanged()} to indicate non-arez dependency has changed.<a name="line.26"></a>
-<span class="sourceLineNo">027</span>   */<a name="line.27"></a>
-<span class="sourceLineNo">028</span>  AREZ_OR_EXTERNAL<a name="line.28"></a>
-<span class="sourceLineNo">029</span>}<a name="line.29"></a>
+<span class="sourceLineNo">003</span>import arez.ComputableValue;<a name="line.3"></a>
+<span class="sourceLineNo">004</span><a name="line.4"></a>
+<span class="sourceLineNo">005</span>/**<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * Enumeration that describes the types of dependencies supported by an {@link arez.Observer} or a {@link ComputableValue}.<a name="line.6"></a>
+<span class="sourceLineNo">007</span> */<a name="line.7"></a>
+<span class="sourceLineNo">008</span>public enum DepType<a name="line.8"></a>
+<span class="sourceLineNo">009</span>{<a name="line.9"></a>
+<span class="sourceLineNo">010</span>  /**<a name="line.10"></a>
+<span class="sourceLineNo">011</span>   * The reactive element MUST have at least one dependency on an {@link arez.ObservableValue}.<a name="line.11"></a>
+<span class="sourceLineNo">012</span>   * This means that the &lt;code&gt;computed&lt;/code&gt; or &lt;code&gt;observed&lt;/code&gt; method must invoke<a name="line.12"></a>
+<span class="sourceLineNo">013</span>   * {@link arez.ObservableValue#reportObserved()} at least once within the scope of the method.<a name="line.13"></a>
+<span class="sourceLineNo">014</span>   */<a name="line.14"></a>
+<span class="sourceLineNo">015</span>  AREZ,<a name="line.15"></a>
+<span class="sourceLineNo">016</span>  /**<a name="line.16"></a>
+<span class="sourceLineNo">017</span>   * The reactive element may have dependencies on zero or more {@link arez.ObservableValue} instances.<a name="line.17"></a>
+<span class="sourceLineNo">018</span>   * Using this dependency type also allows for the scenario where the &lt;code&gt;computed&lt;/code&gt; or<a name="line.18"></a>
+<span class="sourceLineNo">019</span>   * &lt;code&gt;observed&lt;/code&gt; does not invoke {@link arez.ObservableValue#reportObserved()} within the scope<a name="line.19"></a>
+<span class="sourceLineNo">020</span>   * of the method. The &lt;code&gt;computed&lt;/code&gt; or &lt;code&gt;observed&lt;/code&gt; will not be re-scheduled by the<a name="line.20"></a>
+<span class="sourceLineNo">021</span>   * runtime when there are no dependencies. (This is sometimes acceptable, particularly during when a<a name="line.21"></a>
+<span class="sourceLineNo">022</span>   * collection of components are being disposed over multiple scheduling rounds).<a name="line.22"></a>
+<span class="sourceLineNo">023</span>   */<a name="line.23"></a>
+<span class="sourceLineNo">024</span>  AREZ_OR_NONE,<a name="line.24"></a>
+<span class="sourceLineNo">025</span>  /**<a name="line.25"></a>
+<span class="sourceLineNo">026</span>   * The reactive element may have zero or more dependencies on {@link arez.ObservableValue} instances and/or<a name="line.26"></a>
+<span class="sourceLineNo">027</span>   * may have dependencies on non-arez elements. The application can invoke {@link arez.Observer#reportStale()}<a name="line.27"></a>
+<span class="sourceLineNo">028</span>   * or {@link ComputableValue#reportPossiblyChanged()} to indicate non-arez dependency has changed.<a name="line.28"></a>
+<span class="sourceLineNo">029</span>   */<a name="line.29"></a>
+<span class="sourceLineNo">030</span>  AREZ_OR_EXTERNAL<a name="line.30"></a>
+<span class="sourceLineNo">031</span>}<a name="line.31"></a>
 
 
 

@@ -8,9 +8,9 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package arez;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import arez.spy.ComputedValueCreatedEvent;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import arez.spy.ComputedValueDisposedEvent;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import arez.spy.ComputedValueInfo;<a name="line.5"></a>
+<span class="sourceLineNo">003</span>import arez.spy.ComputableValueCreatedEvent;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import arez.spy.ComputableValueDisposedEvent;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import arez.spy.ComputableValueInfo;<a name="line.5"></a>
 <span class="sourceLineNo">006</span>import java.util.ArrayList;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import java.util.Objects;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import javax.annotation.Nonnull;<a name="line.8"></a>
@@ -18,21 +18,21 @@
 <span class="sourceLineNo">010</span>import static org.realityforge.braincheck.Guards.*;<a name="line.10"></a>
 <span class="sourceLineNo">011</span><a name="line.11"></a>
 <span class="sourceLineNo">012</span>/**<a name="line.12"></a>
-<span class="sourceLineNo">013</span> * The ComputedValue represents an ObservableValue derived from other ObservableValues within<a name="line.13"></a>
-<span class="sourceLineNo">014</span> * the Arez system. The value is calculated lazily. i.e. The ComputedValue will only<a name="line.14"></a>
-<span class="sourceLineNo">015</span> * be calculated if there is current observers on the calculated value.<a name="line.15"></a>
+<span class="sourceLineNo">013</span> * The ComputableValue represents an ObservableValue derived from other ObservableValues within<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * the Arez system. The value is calculated lazily. i.e. The ComputableValue will only<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * be calculated if the ComputableValue has observers.<a name="line.15"></a>
 <span class="sourceLineNo">016</span> *<a name="line.16"></a>
-<span class="sourceLineNo">017</span> * &lt;p&gt;It should be noted that the ComputedValue is backed by both an ObservableValue and<a name="line.17"></a>
+<span class="sourceLineNo">017</span> * &lt;p&gt;It should be noted that the ComputableValue is backed by both an ObservableValue and<a name="line.17"></a>
 <span class="sourceLineNo">018</span> * an Observer. The id's of each of these nodes differ but they share the name and<a name="line.18"></a>
 <span class="sourceLineNo">019</span> * thus while debugging appear to be a single element.&lt;/p&gt;<a name="line.19"></a>
 <span class="sourceLineNo">020</span> */<a name="line.20"></a>
-<span class="sourceLineNo">021</span>public final class ComputedValue&lt;T&gt;<a name="line.21"></a>
+<span class="sourceLineNo">021</span>public final class ComputableValue&lt;T&gt;<a name="line.21"></a>
 <span class="sourceLineNo">022</span>  extends Node<a name="line.22"></a>
 <span class="sourceLineNo">023</span>{<a name="line.23"></a>
 <span class="sourceLineNo">024</span>  /**<a name="line.24"></a>
-<span class="sourceLineNo">025</span>   * The component that this ComputedValue is contained within.<a name="line.25"></a>
+<span class="sourceLineNo">025</span>   * The component that this ComputableValue is contained within.<a name="line.25"></a>
 <span class="sourceLineNo">026</span>   * This should only be set if {@link Arez#areNativeComponentsEnabled()} is true but may also be null if<a name="line.26"></a>
-<span class="sourceLineNo">027</span>   * the ComputedValue is a "top-level" ComputedValue.<a name="line.27"></a>
+<span class="sourceLineNo">027</span>   * the ComputableValue is a "top-level" ComputableValue.<a name="line.27"></a>
 <span class="sourceLineNo">028</span>   */<a name="line.28"></a>
 <span class="sourceLineNo">029</span>  @Nullable<a name="line.29"></a>
 <span class="sourceLineNo">030</span>  private final Component _component;<a name="line.30"></a>
@@ -54,7 +54,7 @@
 <span class="sourceLineNo">046</span>   */<a name="line.46"></a>
 <span class="sourceLineNo">047</span>  private T _value;<a name="line.47"></a>
 <span class="sourceLineNo">048</span>  /**<a name="line.48"></a>
-<span class="sourceLineNo">049</span>   * The error that was thrown the last time that this ComputedValue was derived.<a name="line.49"></a>
+<span class="sourceLineNo">049</span>   * The error that was thrown the last time that this ComputableValue was derived.<a name="line.49"></a>
 <span class="sourceLineNo">050</span>   * If this value is non-null then {@link #_value} should be null. This exception<a name="line.50"></a>
 <span class="sourceLineNo">051</span>   * is rethrown every time {@link #get()} is called until the computed value is<a name="line.51"></a>
 <span class="sourceLineNo">052</span>   * recalculated.<a name="line.52"></a>
@@ -62,8 +62,8 @@
 <span class="sourceLineNo">054</span>  private Throwable _error;<a name="line.54"></a>
 <span class="sourceLineNo">055</span>  /**<a name="line.55"></a>
 <span class="sourceLineNo">056</span>   * A flag indicating whether computation is active. Used when checking<a name="line.56"></a>
-<span class="sourceLineNo">057</span>   * invariants to detect when the derivation of the ComputedValue ultimately<a name="line.57"></a>
-<span class="sourceLineNo">058</span>   * causes a recalculation of the ComputedValue.<a name="line.58"></a>
+<span class="sourceLineNo">057</span>   * invariants to detect when the derivation of the ComputableValue ultimately<a name="line.57"></a>
+<span class="sourceLineNo">058</span>   * causes a recalculation of the ComputableValue.<a name="line.58"></a>
 <span class="sourceLineNo">059</span>   */<a name="line.59"></a>
 <span class="sourceLineNo">060</span>  private boolean _computing;<a name="line.60"></a>
 <span class="sourceLineNo">061</span>  /**<a name="line.61"></a>
@@ -71,17 +71,17 @@
 <span class="sourceLineNo">063</span>   */<a name="line.63"></a>
 <span class="sourceLineNo">064</span>  private boolean _disposed;<a name="line.64"></a>
 <span class="sourceLineNo">065</span>  /**<a name="line.65"></a>
-<span class="sourceLineNo">066</span>   * Hook action called when the ComputedValue moves to observed state.<a name="line.66"></a>
+<span class="sourceLineNo">066</span>   * Hook action called when the ComputableValue moves to observed state.<a name="line.66"></a>
 <span class="sourceLineNo">067</span>   */<a name="line.67"></a>
 <span class="sourceLineNo">068</span>  @Nullable<a name="line.68"></a>
 <span class="sourceLineNo">069</span>  private final Procedure _onActivate;<a name="line.69"></a>
 <span class="sourceLineNo">070</span>  /**<a name="line.70"></a>
-<span class="sourceLineNo">071</span>   * Hook action called when the ComputedValue moves to un-observed state from any other state.<a name="line.71"></a>
+<span class="sourceLineNo">071</span>   * Hook action called when the ComputableValue moves to un-observed state from any other state.<a name="line.71"></a>
 <span class="sourceLineNo">072</span>   */<a name="line.72"></a>
 <span class="sourceLineNo">073</span>  @Nullable<a name="line.73"></a>
 <span class="sourceLineNo">074</span>  private final Procedure _onDeactivate;<a name="line.74"></a>
 <span class="sourceLineNo">075</span>  /**<a name="line.75"></a>
-<span class="sourceLineNo">076</span>   * Hook action called when the ComputedValue moves from the UP_TO_DATE state to STALE or POSSIBLY_STALE.<a name="line.76"></a>
+<span class="sourceLineNo">076</span>   * Hook action called when the ComputableValue moves from the UP_TO_DATE state to STALE or POSSIBLY_STALE.<a name="line.76"></a>
 <span class="sourceLineNo">077</span>   */<a name="line.77"></a>
 <span class="sourceLineNo">078</span>  @Nullable<a name="line.78"></a>
 <span class="sourceLineNo">079</span>  private final Procedure _onStale;<a name="line.79"></a>
@@ -90,22 +90,22 @@
 <span class="sourceLineNo">082</span>   * This should be null if {@link Arez#areSpiesEnabled()} is false;<a name="line.82"></a>
 <span class="sourceLineNo">083</span>   */<a name="line.83"></a>
 <span class="sourceLineNo">084</span>  @Nullable<a name="line.84"></a>
-<span class="sourceLineNo">085</span>  private ComputedValueInfo _info;<a name="line.85"></a>
+<span class="sourceLineNo">085</span>  private ComputableValueInfo _info;<a name="line.85"></a>
 <span class="sourceLineNo">086</span><a name="line.86"></a>
-<span class="sourceLineNo">087</span>  ComputedValue( @Nullable final ArezContext context,<a name="line.87"></a>
-<span class="sourceLineNo">088</span>                 @Nullable final Component component,<a name="line.88"></a>
-<span class="sourceLineNo">089</span>                 @Nullable final String name,<a name="line.89"></a>
-<span class="sourceLineNo">090</span>                 @Nonnull final SafeFunction&lt;T&gt; function,<a name="line.90"></a>
-<span class="sourceLineNo">091</span>                 @Nullable final Procedure onActivate,<a name="line.91"></a>
-<span class="sourceLineNo">092</span>                 @Nullable final Procedure onDeactivate,<a name="line.92"></a>
-<span class="sourceLineNo">093</span>                 @Nullable final Procedure onStale,<a name="line.93"></a>
-<span class="sourceLineNo">094</span>                 final int flags )<a name="line.94"></a>
+<span class="sourceLineNo">087</span>  ComputableValue( @Nullable final ArezContext context,<a name="line.87"></a>
+<span class="sourceLineNo">088</span>                   @Nullable final Component component,<a name="line.88"></a>
+<span class="sourceLineNo">089</span>                   @Nullable final String name,<a name="line.89"></a>
+<span class="sourceLineNo">090</span>                   @Nonnull final SafeFunction&lt;T&gt; function,<a name="line.90"></a>
+<span class="sourceLineNo">091</span>                   @Nullable final Procedure onActivate,<a name="line.91"></a>
+<span class="sourceLineNo">092</span>                   @Nullable final Procedure onDeactivate,<a name="line.92"></a>
+<span class="sourceLineNo">093</span>                   @Nullable final Procedure onStale,<a name="line.93"></a>
+<span class="sourceLineNo">094</span>                   final int flags )<a name="line.94"></a>
 <span class="sourceLineNo">095</span>  {<a name="line.95"></a>
 <span class="sourceLineNo">096</span>    super( context, name );<a name="line.96"></a>
 <span class="sourceLineNo">097</span>    if ( Arez.shouldCheckInvariants() )<a name="line.97"></a>
 <span class="sourceLineNo">098</span>    {<a name="line.98"></a>
 <span class="sourceLineNo">099</span>      invariant( () -&gt; Arez.areNativeComponentsEnabled() || null == component,<a name="line.99"></a>
-<span class="sourceLineNo">100</span>                 () -&gt; "Arez-0048: ComputedValue named '" + getName() + "' has component specified but " +<a name="line.100"></a>
+<span class="sourceLineNo">100</span>                 () -&gt; "Arez-0048: ComputableValue named '" + getName() + "' has component specified but " +<a name="line.100"></a>
 <span class="sourceLineNo">101</span>                       "Arez.areNativeComponentsEnabled() is false." );<a name="line.101"></a>
 <span class="sourceLineNo">102</span>    }<a name="line.102"></a>
 <span class="sourceLineNo">103</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.103"></a>
@@ -132,15 +132,15 @@
 <span class="sourceLineNo">124</span>                             null );<a name="line.124"></a>
 <span class="sourceLineNo">125</span>    if ( null != _component )<a name="line.125"></a>
 <span class="sourceLineNo">126</span>    {<a name="line.126"></a>
-<span class="sourceLineNo">127</span>      _component.addComputedValue( this );<a name="line.127"></a>
+<span class="sourceLineNo">127</span>      _component.addComputableValue( this );<a name="line.127"></a>
 <span class="sourceLineNo">128</span>    }<a name="line.128"></a>
 <span class="sourceLineNo">129</span>    else if ( Arez.areRegistriesEnabled() )<a name="line.129"></a>
 <span class="sourceLineNo">130</span>    {<a name="line.130"></a>
-<span class="sourceLineNo">131</span>      getContext().registerComputedValue( this );<a name="line.131"></a>
+<span class="sourceLineNo">131</span>      getContext().registerComputableValue( this );<a name="line.131"></a>
 <span class="sourceLineNo">132</span>    }<a name="line.132"></a>
 <span class="sourceLineNo">133</span>    if ( willPropagateSpyEvents() )<a name="line.133"></a>
 <span class="sourceLineNo">134</span>    {<a name="line.134"></a>
-<span class="sourceLineNo">135</span>      getSpy().reportSpyEvent( new ComputedValueCreatedEvent( asInfo() ) );<a name="line.135"></a>
+<span class="sourceLineNo">135</span>      getSpy().reportSpyEvent( new ComputableValueCreatedEvent( asInfo() ) );<a name="line.135"></a>
 <span class="sourceLineNo">136</span>    }<a name="line.136"></a>
 <span class="sourceLineNo">137</span>    if ( Flags.KEEPALIVE == Flags.getScheduleType( flags ) )<a name="line.137"></a>
 <span class="sourceLineNo">138</span>    {<a name="line.138"></a>
@@ -159,9 +159,9 @@
 <span class="sourceLineNo">151</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.151"></a>
 <span class="sourceLineNo">152</span>    {<a name="line.152"></a>
 <span class="sourceLineNo">153</span>      apiInvariant( () -&gt; !_computing,<a name="line.153"></a>
-<span class="sourceLineNo">154</span>                    () -&gt; "Arez-0049: Detected a cycle deriving ComputedValue named '" + getName() + "'." );<a name="line.154"></a>
+<span class="sourceLineNo">154</span>                    () -&gt; "Arez-0049: Detected a cycle deriving ComputableValue named '" + getName() + "'." );<a name="line.154"></a>
 <span class="sourceLineNo">155</span>      apiInvariant( _observer::isNotDisposed,<a name="line.155"></a>
-<span class="sourceLineNo">156</span>                    () -&gt; "Arez-0050: ComputedValue named '" + getName() + "' accessed after it has been disposed." );<a name="line.156"></a>
+<span class="sourceLineNo">156</span>                    () -&gt; "Arez-0050: ComputableValue named '" + getName() + "' accessed after it has been disposed." );<a name="line.156"></a>
 <span class="sourceLineNo">157</span>    }<a name="line.157"></a>
 <span class="sourceLineNo">158</span>    getObservableValue().reportObserved();<a name="line.158"></a>
 <span class="sourceLineNo">159</span>    if ( _observer.shouldCompute() )<a name="line.159"></a>
@@ -173,7 +173,7 @@
 <span class="sourceLineNo">165</span>      if ( Arez.shouldCheckInvariants() )<a name="line.165"></a>
 <span class="sourceLineNo">166</span>      {<a name="line.166"></a>
 <span class="sourceLineNo">167</span>        invariant( () -&gt; null == _value,<a name="line.167"></a>
-<span class="sourceLineNo">168</span>                   () -&gt; "Arez-0051: ComputedValue generated a value during computation for ComputedValue named '" +<a name="line.168"></a>
+<span class="sourceLineNo">168</span>                   () -&gt; "Arez-0051: ComputableValue generated a value during computation for ComputableValue named '" +<a name="line.168"></a>
 <span class="sourceLineNo">169</span>                         getName() + "' but still has a non-null value." );<a name="line.169"></a>
 <span class="sourceLineNo">170</span>      }<a name="line.170"></a>
 <span class="sourceLineNo">171</span>      if ( _error instanceof RuntimeException )<a name="line.171"></a>
@@ -189,11 +189,11 @@
 <span class="sourceLineNo">181</span>  }<a name="line.181"></a>
 <span class="sourceLineNo">182</span><a name="line.182"></a>
 <span class="sourceLineNo">183</span>  /**<a name="line.183"></a>
-<span class="sourceLineNo">184</span>   * Invoked when a non-arez dependency of the ComputedValue has changed. The ComputedValue<a name="line.184"></a>
+<span class="sourceLineNo">184</span>   * Invoked when a non-arez dependency of the ComputableValue has changed. The ComputableValue<a name="line.184"></a>
 <span class="sourceLineNo">185</span>   * may or may not change as a result of the dependency change but Arez will recalculate<a name="line.185"></a>
-<span class="sourceLineNo">186</span>   * the ComputedValue during the normal reaction cycle or when next accessed and will propagate<a name="line.186"></a>
+<span class="sourceLineNo">186</span>   * the ComputableValue during the normal reaction cycle or when next accessed and will propagate<a name="line.186"></a>
 <span class="sourceLineNo">187</span>   * the change at that time if required. This method must be explicitly invoked by the<a name="line.187"></a>
-<span class="sourceLineNo">188</span>   * developer if the ComputedValue is derived from non-arez data and that data changes.<a name="line.188"></a>
+<span class="sourceLineNo">188</span>   * developer if the ComputableValue is derived from non-arez data and that data changes.<a name="line.188"></a>
 <span class="sourceLineNo">189</span>   * Before invoking this method, a read-write transaction &lt;b&gt;MUST&lt;/b&gt; be active.<a name="line.189"></a>
 <span class="sourceLineNo">190</span>   */<a name="line.190"></a>
 <span class="sourceLineNo">191</span>  public void reportPossiblyChanged()<a name="line.191"></a>
@@ -201,7 +201,7 @@
 <span class="sourceLineNo">193</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.193"></a>
 <span class="sourceLineNo">194</span>    {<a name="line.194"></a>
 <span class="sourceLineNo">195</span>      apiInvariant( () -&gt; getObserver().areExternalDependenciesAllowed(),<a name="line.195"></a>
-<span class="sourceLineNo">196</span>                    () -&gt; "Arez-0085: The method reportPossiblyChanged() was invoked on ComputedValue named '" +<a name="line.196"></a>
+<span class="sourceLineNo">196</span>                    () -&gt; "Arez-0085: The method reportPossiblyChanged() was invoked on ComputableValue named '" +<a name="line.196"></a>
 <span class="sourceLineNo">197</span>                          getName() + "' but the computed value has not specified the " +<a name="line.197"></a>
 <span class="sourceLineNo">198</span>                          "AREZ_OR_EXTERNAL_DEPENDENCIES flag." );<a name="line.198"></a>
 <span class="sourceLineNo">199</span>    }<a name="line.199"></a>
@@ -213,7 +213,7 @@
 <span class="sourceLineNo">205</span>  }<a name="line.205"></a>
 <span class="sourceLineNo">206</span><a name="line.206"></a>
 <span class="sourceLineNo">207</span>  /**<a name="line.207"></a>
-<span class="sourceLineNo">208</span>   * Dispose the ComputedValue so that it can no longer be used.<a name="line.208"></a>
+<span class="sourceLineNo">208</span>   * Dispose the ComputableValue so that it can no longer be used.<a name="line.208"></a>
 <span class="sourceLineNo">209</span>   */<a name="line.209"></a>
 <span class="sourceLineNo">210</span>  @Override<a name="line.210"></a>
 <span class="sourceLineNo">211</span>  public void dispose()<a name="line.211"></a>
@@ -233,15 +233,15 @@
 <span class="sourceLineNo">225</span>      _error = null;<a name="line.225"></a>
 <span class="sourceLineNo">226</span>      if ( willPropagateSpyEvents() )<a name="line.226"></a>
 <span class="sourceLineNo">227</span>      {<a name="line.227"></a>
-<span class="sourceLineNo">228</span>        reportSpyEvent( new ComputedValueDisposedEvent( asInfo() ) );<a name="line.228"></a>
+<span class="sourceLineNo">228</span>        reportSpyEvent( new ComputableValueDisposedEvent( asInfo() ) );<a name="line.228"></a>
 <span class="sourceLineNo">229</span>      }<a name="line.229"></a>
 <span class="sourceLineNo">230</span>      if ( null != _component )<a name="line.230"></a>
 <span class="sourceLineNo">231</span>      {<a name="line.231"></a>
-<span class="sourceLineNo">232</span>        _component.removeComputedValue( this );<a name="line.232"></a>
+<span class="sourceLineNo">232</span>        _component.removeComputableValue( this );<a name="line.232"></a>
 <span class="sourceLineNo">233</span>      }<a name="line.233"></a>
 <span class="sourceLineNo">234</span>      else if ( Arez.areRegistriesEnabled() )<a name="line.234"></a>
 <span class="sourceLineNo">235</span>      {<a name="line.235"></a>
-<span class="sourceLineNo">236</span>        getContext().deregisterComputedValue( this );<a name="line.236"></a>
+<span class="sourceLineNo">236</span>        getContext().deregisterComputableValue( this );<a name="line.236"></a>
 <span class="sourceLineNo">237</span>      }<a name="line.237"></a>
 <span class="sourceLineNo">238</span>      _observableValue.dispose();<a name="line.238"></a>
 <span class="sourceLineNo">239</span>      if ( !_observer.isDisposing() )<a name="line.239"></a>
@@ -261,9 +261,9 @@
 <span class="sourceLineNo">253</span>  }<a name="line.253"></a>
 <span class="sourceLineNo">254</span><a name="line.254"></a>
 <span class="sourceLineNo">255</span>  /**<a name="line.255"></a>
-<span class="sourceLineNo">256</span>   * Return true if the ComputedValue is currently being computed.<a name="line.256"></a>
+<span class="sourceLineNo">256</span>   * Return true if the ComputableValue is currently being computed.<a name="line.256"></a>
 <span class="sourceLineNo">257</span>   *<a name="line.257"></a>
-<span class="sourceLineNo">258</span>   * @return true if the ComputedValue is currently being computed.<a name="line.258"></a>
+<span class="sourceLineNo">258</span>   * @return true if the ComputableValue is currently being computed.<a name="line.258"></a>
 <span class="sourceLineNo">259</span>   */<a name="line.259"></a>
 <span class="sourceLineNo">260</span>  boolean isComputing()<a name="line.260"></a>
 <span class="sourceLineNo">261</span>  {<a name="line.261"></a>
@@ -271,9 +271,9 @@
 <span class="sourceLineNo">263</span>  }<a name="line.263"></a>
 <span class="sourceLineNo">264</span><a name="line.264"></a>
 <span class="sourceLineNo">265</span>  /**<a name="line.265"></a>
-<span class="sourceLineNo">266</span>   * Return the Observer created to represent the ComputedValue.<a name="line.266"></a>
+<span class="sourceLineNo">266</span>   * Return the Observer created to represent the ComputableValue.<a name="line.266"></a>
 <span class="sourceLineNo">267</span>   *<a name="line.267"></a>
-<span class="sourceLineNo">268</span>   * @return the Observer created to represent the ComputedValue.<a name="line.268"></a>
+<span class="sourceLineNo">268</span>   * @return the Observer created to represent the ComputableValue.<a name="line.268"></a>
 <span class="sourceLineNo">269</span>   */<a name="line.269"></a>
 <span class="sourceLineNo">270</span>  @Nonnull<a name="line.270"></a>
 <span class="sourceLineNo">271</span>  Observer getObserver()<a name="line.271"></a>
@@ -293,7 +293,7 @@
 <span class="sourceLineNo">285</span>    if ( Arez.shouldCheckInvariants() )<a name="line.285"></a>
 <span class="sourceLineNo">286</span>    {<a name="line.286"></a>
 <span class="sourceLineNo">287</span>      invariant( this::isNotDisposed,<a name="line.287"></a>
-<span class="sourceLineNo">288</span>                 () -&gt; "Arez-0084: Attempted to invoke getObservableValue on disposed ComputedValue " +<a name="line.288"></a>
+<span class="sourceLineNo">288</span>                 () -&gt; "Arez-0084: Attempted to invoke getObservableValue on disposed ComputableValue " +<a name="line.288"></a>
 <span class="sourceLineNo">289</span>                       "named '" + getName() + "'." );<a name="line.289"></a>
 <span class="sourceLineNo">290</span>    }<a name="line.290"></a>
 <span class="sourceLineNo">291</span>    return _observableValue;<a name="line.291"></a>
@@ -354,9 +354,9 @@
 <span class="sourceLineNo">346</span>        {<a name="line.346"></a>
 <span class="sourceLineNo">347</span>          final ArrayList&lt;ObservableValue&lt;?&gt;&gt; observableValues = Transaction.current().getObservableValues();<a name="line.347"></a>
 <span class="sourceLineNo">348</span>          apiInvariant( () -&gt; null != observableValues &amp;&amp; !observableValues.isEmpty(),<a name="line.348"></a>
-<span class="sourceLineNo">349</span>                        () -&gt; "Arez-0173: ComputedValue named '" + getName() + "' completed compute but is not " +<a name="line.349"></a>
+<span class="sourceLineNo">349</span>                        () -&gt; "Arez-0173: ComputableValue named '" + getName() + "' completed compute but is not " +<a name="line.349"></a>
 <span class="sourceLineNo">350</span>                              "observing any properties. As a result compute will never be rescheduled. " +<a name="line.350"></a>
-<span class="sourceLineNo">351</span>                              "This is not a ComputedValue candidate." );<a name="line.351"></a>
+<span class="sourceLineNo">351</span>                              "This is not a ComputableValue candidate." );<a name="line.351"></a>
 <span class="sourceLineNo">352</span>        }<a name="line.352"></a>
 <span class="sourceLineNo">353</span>      }<a name="line.353"></a>
 <span class="sourceLineNo">354</span>    }<a name="line.354"></a>
@@ -407,16 +407,16 @@
 <span class="sourceLineNo">399</span>   */<a name="line.399"></a>
 <span class="sourceLineNo">400</span>  @SuppressWarnings( "ConstantConditions" )<a name="line.400"></a>
 <span class="sourceLineNo">401</span>  @Nonnull<a name="line.401"></a>
-<span class="sourceLineNo">402</span>  ComputedValueInfo asInfo()<a name="line.402"></a>
+<span class="sourceLineNo">402</span>  ComputableValueInfo asInfo()<a name="line.402"></a>
 <span class="sourceLineNo">403</span>  {<a name="line.403"></a>
 <span class="sourceLineNo">404</span>    if ( Arez.shouldCheckInvariants() )<a name="line.404"></a>
 <span class="sourceLineNo">405</span>    {<a name="line.405"></a>
 <span class="sourceLineNo">406</span>      invariant( Arez::areSpiesEnabled,<a name="line.406"></a>
-<span class="sourceLineNo">407</span>                 () -&gt; "Arez-0195: ComputedValue.asInfo() invoked but Arez.areSpiesEnabled() returned false." );<a name="line.407"></a>
+<span class="sourceLineNo">407</span>                 () -&gt; "Arez-0195: ComputableValue.asInfo() invoked but Arez.areSpiesEnabled() returned false." );<a name="line.407"></a>
 <span class="sourceLineNo">408</span>    }<a name="line.408"></a>
 <span class="sourceLineNo">409</span>    if ( Arez.areSpiesEnabled() &amp;&amp; null == _info )<a name="line.409"></a>
 <span class="sourceLineNo">410</span>    {<a name="line.410"></a>
-<span class="sourceLineNo">411</span>      _info = new ComputedValueInfoImpl( this );<a name="line.411"></a>
+<span class="sourceLineNo">411</span>      _info = new ComputableValueInfoImpl( this );<a name="line.411"></a>
 <span class="sourceLineNo">412</span>    }<a name="line.412"></a>
 <span class="sourceLineNo">413</span>    return Arez.areSpiesEnabled() ? _info : null;<a name="line.413"></a>
 <span class="sourceLineNo">414</span>  }<a name="line.414"></a>

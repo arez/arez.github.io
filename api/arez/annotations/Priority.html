@@ -120,7 +120,7 @@ var activeTableTab = "activeTableTab";
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang">Enum</a>&lt;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a>&gt;</pre>
 <div class="block">Enum to control scheduling priority of observers/reactions.
  Observers with higher priorities will react first. If observers have equal priorities then observers
- scheduled first will react first. Observers must not depend upon ComputedValue instances with
+ scheduled first will react first. Observers must not depend upon ComputableValue instances with
  a lower priority otherwise priority is ignored.
 
  <p>A user should be very careful when specifying a <a href="../../arez/annotations/Priority.html#HIGH"><code>HIGH</code></a> priority as it is possible that
@@ -271,7 +271,7 @@ the order they are declared.</div>
  Usually used to schedule observers that reflect state onto non-reactive
  application components. i.e. Observers that are used to build html views,
  perform network operations etc. These reactions are often at low priority
- to avoid recalculation of dependencies (i.e. <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>s) triggering
+ to avoid recalculation of dependencies (i.e. <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>s) triggering
  this reaction multiple times within a single reaction round.</div>
 </li>
 </ul>
@@ -284,7 +284,7 @@ the order they are declared.</div>
 <pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.50">LOWEST</a></pre>
 <div class="block">Lowest priority.
  This is low-priority reactions that reflect onto non-reactive applications. It is
- also used for (i.e. <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>s) that may be unobserved when a <a href="../../arez/annotations/Priority.html#LOW"><code>LOW</code></a>
+ also used for (i.e. <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>s) that may be unobserved when a <a href="../../arez/annotations/Priority.html#LOW"><code>LOW</code></a>
  priority reaction runs.</div>
 </li>
 </ul>

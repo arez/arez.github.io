@@ -94,7 +94,7 @@
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
 public @interface <a href="../../src-html/arez/annotations/Computed.html#line.31">Computed</a></pre>
-<div class="block">Methods marked with this annotation are ComputedValues within Arez.
+<div class="block">Methods marked with this annotation are <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances within Arez.
 
  <p>The return value should be derived from other Observables within the Arez system
  and the value returned by the method should not change unless the state of the other
@@ -145,19 +145,19 @@ public @interface <a href="../../src-html/arez/annotations/Computed.html#line.31
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#name--">name</a></span></code>
-<div class="block">Return the name of the ComputedValue relative to the component.</div>
+<div class="block">Return the name of the ComputableValue relative to the component.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#observeLowerPriorityDependencies--">observeLowerPriorityDependencies</a></span></code>
-<div class="block">Flag controlling whether the underlying observer can observe ComputedValue instances with lower priorities.</div>
+<div class="block">Flag controlling whether the underlying observer can observe ComputableValue instances with lower priorities.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#priority--">priority</a></span></code>
-<div class="block">The priority of the underlying ComputedValue observer</div>
+<div class="block">The priority of the underlying ComputableValue observer</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -189,14 +189,14 @@ public @interface <a href="../../src-html/arez/annotations/Computed.html#line.31
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
 public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.43">name</a></pre>
-<div class="block">Return the name of the ComputedValue relative to the component.
+<div class="block">Return the name of the ComputableValue relative to the component.
  The value must conform to the requirements of a java identifier.
  The name must also be unique across <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a>s,
  <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a>s and <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>s within the scope of the
  <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotated element.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the name of the ComputedValue relative to the component.</dd>
+<dd>the name of the ComputableValue relative to the component.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>
@@ -237,10 +237,10 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList">
 <h4>priority</h4>
 <pre>public abstract&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a>&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.59">priority</a></pre>
-<div class="block">The priority of the underlying ComputedValue observer</div>
+<div class="block">The priority of the underlying ComputableValue observer</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the priority of the ComputedValue observer.</dd>
+<dd>the priority of the ComputableValue observer.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>
@@ -258,7 +258,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList">
 <h4>observeLowerPriorityDependencies</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.71">observeLowerPriorityDependencies</a></pre>
-<div class="block">Flag controlling whether the underlying observer can observe ComputedValue instances with lower priorities.
+<div class="block">Flag controlling whether the underlying observer can observe ComputableValue instances with lower priorities.
  The default value of false will result in an invariant failure (in development mode) if a lower priority
  dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher
  priority observer is dependent upon a lower priority computed value. If the value is true then the no
@@ -287,10 +287,10 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a>&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.84">depType</a></pre>
 <div class="block">Enum indicating whether the value of the computed is derived from arez elements and/or external dependencies.
  If set to <a href="../../arez/annotations/DepType.html#AREZ"><code>DepType.AREZ</code></a> then Arez will verify that the method annotated by this annotation accesses arez
- elements (i.e. instances of <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> or instances of <a href="../../arez/ComputedValue.html" title="class in arez"><code>ComputedValue</code></a>). If set to
+ elements (i.e. instances of <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> or instances of <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>). If set to
  <a href="../../arez/annotations/DepType.html#AREZ_OR_NONE"><code>DepType.AREZ_OR_NONE</code></a> then the runtime will allow computed to exist with no dependencies. If set
  to <a href="../../arez/annotations/DepType.html#AREZ_OR_EXTERNAL"><code>DepType.AREZ_OR_EXTERNAL</code></a> then the component must define a <a href="../../arez/annotations/ComputedValueRef.html" title="annotation in arez.annotations"><code>ComputedValueRef</code></a> method and should invoke
- <a href="../../arez/ComputedValue.html#reportPossiblyChanged--"><code>ComputedValue.reportPossiblyChanged()</code></a> when the non-arez dependencies are changed.</div>
+ <a href="../../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> when the non-arez dependencies are changed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the types of dependencies allowed on the computed.</dd>
