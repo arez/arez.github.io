@@ -83,7 +83,7 @@
 <span class="sourceLineNo">075</span>   * If set to {@link DepType#AREZ} then Arez will verify that the method annotated by this annotation accesses arez<a name="line.75"></a>
 <span class="sourceLineNo">076</span>   * elements (i.e. instances of {@link arez.ObservableValue} or instances of {@link ComputableValue}). If set to<a name="line.76"></a>
 <span class="sourceLineNo">077</span>   * {@link DepType#AREZ_OR_NONE} then the runtime will allow computable to exist with no dependencies. If set<a name="line.77"></a>
-<span class="sourceLineNo">078</span>   * to {@link DepType#AREZ_OR_EXTERNAL} then the component must define a {@link ComputedValueRef} method and should invoke<a name="line.78"></a>
+<span class="sourceLineNo">078</span>   * to {@link DepType#AREZ_OR_EXTERNAL} then the component must define a {@link ComputableValueRef} method and should invoke<a name="line.78"></a>
 <span class="sourceLineNo">079</span>   * {@link ComputableValue#reportPossiblyChanged()} when the non-arez dependencies are changed.<a name="line.79"></a>
 <span class="sourceLineNo">080</span>   *<a name="line.80"></a>
 <span class="sourceLineNo">081</span>   * @return the types of dependencies allowed on the computable.<a name="line.81"></a>
