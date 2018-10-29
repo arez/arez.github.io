@@ -25,24 +25,24 @@ exceptions are named <code>safeAction</code> while the methods that invoke actio
 <code>action</code>.</p>
 <p>An example of an action that can throw a checked exception:</p>
 <p><pre><code class="hljs">Arez.context().action( () -&gt; {
-  <span class="hljs-comment">// Interact with arez observable state (or computed values) here</span>
+  <span class="hljs-comment">// Interact with arez observable state (or computable values) here</span>
   ...
 } );</code></pre></p>
 <p>An example of an action that returns a value:</p>
 <p><pre><code class="hljs"><span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> result = Arez.context().action( () -&gt; {
-  <span class="hljs-comment">// Interact with arez observable state (or computed values) here</span>
+  <span class="hljs-comment">// Interact with arez observable state (or computable values) here</span>
   ...
   <span class="hljs-keyword">return</span> value;
 } );</code></pre></p>
 <p>An example of an action that does not throw a checked exception and returns a value:</p>
 <p><pre><code class="hljs"><span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> result = Arez.context().safeAction( () -&gt; {
-  <span class="hljs-comment">// Interact with arez observable state (or computed values) here</span>
+  <span class="hljs-comment">// Interact with arez observable state (or computable values) here</span>
   ...
   <span class="hljs-keyword">return</span> value;
 } );</code></pre></p>
 <p>An example of an action that is explicitly named, uses a read-only transaction and returns a value:</p>
 <p><pre><code class="hljs"><span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> result = Arez.context().action( <span class="hljs-string">"MyAction"</span>, () -&gt; {
-  <span class="hljs-comment">// Interact with arez observable state (or computed values) here</span>
+  <span class="hljs-comment">// Interact with arez observable state (or computable values) here</span>
   ...
   <span class="hljs-keyword">return</span> value;
 }, Flags.READ_ONLY );</code></pre></p>

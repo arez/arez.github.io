@@ -164,7 +164,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/spy/Spy.html#findAllTopLevelComputableValues--">findAllTopLevelComputableValues</a></span>()</code>
-<div class="block">Find all the collection of computed values not contained by a native component.</div>
+<div class="block">Find all the collection of computable values not contained by a native component.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -422,12 +422,12 @@ var activeTableTab = "activeTableTab";
 <h4>findAllTopLevelComputableValues</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/Spy.html#line.122">findAllTopLevelComputableValues</a>()</pre>
-<div class="block">Find all the collection of computed values not contained by a native component.
+<div class="block">Find all the collection of computable values not contained by a native component.
  This method should not be invoked unless <a href="../../arez/Arez.html#areRegistriesEnabled--"><code>Arez.areRegistriesEnabled()</code></a> returns true.
  This collection returned is unmodifiable.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the collection of computed values not contained by a native component.</dd>
+<dd>the collection of computable values not contained by a native component.</dd>
 </dl>
 </li>
 </ul>
@@ -499,7 +499,7 @@ var activeTableTab = "activeTableTab";
 <div class="block">Convert the specified ComputableValue into an ComputableValueInfo.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - The type of the value that is computed.</dd>
+<dd><code>T</code> - The type of the value that is computable.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>computableValue</code> - the ComputableValue.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>

@@ -137,7 +137,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.34"
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#depType--">depType</a></span></code>
-<div class="block">Enum indicating whether the value of the underlying computed is derived from arez elements and/or
+<div class="block">Enum indicating whether the value of the underlying computable is derived from arez elements and/or
  external dependencies.</div>
 </td>
 </tr>
@@ -238,7 +238,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <div class="block">Flag controlling whether the underlying observer can observe ComputableValue instances with lower priorities.
  The default value of false will result in an invariant failure (in development mode) if a lower priority
  dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher
- priority observer is dependent upon a lower priority computed value. If the value is true then the no
+ priority observer is dependent upon a lower priority computable value. If the value is true then the no
  invariant failure is triggered and the component relies on the component author to handle possible priority
  inversion.</div>
 <dl>
@@ -283,11 +283,11 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <h4>depType</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
 public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a>&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.83">depType</a></pre>
-<div class="block">Enum indicating whether the value of the underlying computed is derived from arez elements and/or
+<div class="block">Enum indicating whether the value of the underlying computable is derived from arez elements and/or
  external dependencies. The current implementation does not support setting this to <a href="../../arez/annotations/DepType.html#AREZ_OR_EXTERNAL"><code>DepType.AREZ_OR_EXTERNAL</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the types of dependencies allowed on the underlying computed.</dd>
+<dd>the types of dependencies allowed on the underlying computable.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../arez/annotations/Computed.html#depType--"><code>Computed.depType()</code></a></dd>
 </dl>

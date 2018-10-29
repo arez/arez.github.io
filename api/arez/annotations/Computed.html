@@ -133,13 +133,13 @@ public @interface <a href="../../src-html/arez/annotations/Computed.html#line.31
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#depType--">depType</a></span></code>
-<div class="block">Enum indicating whether the value of the computed is derived from arez elements and/or external dependencies.</div>
+<div class="block">Enum indicating whether the value of the computable is derived from arez elements and/or external dependencies.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#keepAlive--">keepAlive</a></span></code>
-<div class="block">A flag indicating whether the computed should be "kept alive".</div>
+<div class="block">A flag indicating whether the computable should be "kept alive".</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -214,12 +214,12 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList">
 <h4>keepAlive</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.52">keepAlive</a></pre>
-<div class="block">A flag indicating whether the computed should be "kept alive". A computed that is kept alive
- is activated on creation and never deactivates. This is useful if the computed property is only
+<div class="block">A flag indicating whether the computable should be "kept alive". A computable that is kept alive
+ is activated on creation and never deactivates. This is useful if the computable property is only
  accessed from within actions but should be kept up to date and not recomputed on each access.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true to keep computed alive.</dd>
+<dd>true to keep computable alive.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>
@@ -261,7 +261,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <div class="block">Flag controlling whether the underlying observer can observe ComputableValue instances with lower priorities.
  The default value of false will result in an invariant failure (in development mode) if a lower priority
  dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher
- priority observer is dependent upon a lower priority computed value. If the value is true then the no
+ priority observer is dependent upon a lower priority computable value. If the value is true then the no
  invariant failure is triggered and the component relies on the component author to handle possible priority
  inversion.</div>
 <dl>
@@ -285,15 +285,15 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <h4>depType</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
 public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a>&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.84">depType</a></pre>
-<div class="block">Enum indicating whether the value of the computed is derived from arez elements and/or external dependencies.
+<div class="block">Enum indicating whether the value of the computable is derived from arez elements and/or external dependencies.
  If set to <a href="../../arez/annotations/DepType.html#AREZ"><code>DepType.AREZ</code></a> then Arez will verify that the method annotated by this annotation accesses arez
  elements (i.e. instances of <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> or instances of <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>). If set to
- <a href="../../arez/annotations/DepType.html#AREZ_OR_NONE"><code>DepType.AREZ_OR_NONE</code></a> then the runtime will allow computed to exist with no dependencies. If set
+ <a href="../../arez/annotations/DepType.html#AREZ_OR_NONE"><code>DepType.AREZ_OR_NONE</code></a> then the runtime will allow computable to exist with no dependencies. If set
  to <a href="../../arez/annotations/DepType.html#AREZ_OR_EXTERNAL"><code>DepType.AREZ_OR_EXTERNAL</code></a> then the component must define a <a href="../../arez/annotations/ComputedValueRef.html" title="annotation in arez.annotations"><code>ComputedValueRef</code></a> method and should invoke
  <a href="../../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> when the non-arez dependencies are changed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the types of dependencies allowed on the computed.</dd>
+<dd>the types of dependencies allowed on the computable.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>

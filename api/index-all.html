@@ -154,7 +154,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--">areCollectionsPropertiesUnmodifiable()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
-<div class="block">Return true if observable properties, computed properties or query results that are of type collection are wrapped in unmodifiable variant prior to returning.</div>
+<div class="block">Return true if observable properties, computable properties or query results that are of type collection are wrapped in unmodifiable variant prior to returning.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#areEnvironmentsEnabled--">areEnvironmentsEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
@@ -457,6 +457,46 @@
 <dd>
 <div class="block">Annotate the method that will be overridden to return the value of ArezComponent.name().</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computable-arez.SafeFunction-">computable(SafeFunction&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computable-arez.SafeFunction-int-">computable(SafeFunction&lt;T&gt;, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computable-java.lang.String-arez.SafeFunction-">computable(String, SafeFunction&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computable-java.lang.String-arez.SafeFunction-int-">computable(String, SafeFunction&lt;T&gt;, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computable-arez.Component-java.lang.String-arez.SafeFunction-">computable(Component, String, SafeFunction&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computable-arez.Component-java.lang.String-arez.SafeFunction-int-">computable(Component, String, SafeFunction&lt;T&gt;, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computable-arez.Component-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-">computable(Component, String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computable-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-">computable(String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computable-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-int-">computable(String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computable-arez.Component-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-int-">computable(Component, String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
 <dt><a href="arez/ComputableValue.html" title="class in arez"><span class="typeNameLink">ComputableValue</span></a>&lt;<a href="arez/ComputableValue.html" title="type parameter in ComputableValue">T</a>&gt; - Class in <a href="arez/package-summary.html">arez</a></dt>
 <dd>
 <div class="block">The ComputableValue represents an ObservableValue derived from other ObservableValues within
@@ -499,46 +539,6 @@
 <dt><a href="arez/annotations/Computed.html" title="annotation in arez.annotations"><span class="typeNameLink">Computed</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Methods marked with this annotation are <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances within Arez.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.SafeFunction-">computed(SafeFunction&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.SafeFunction-int-">computed(SafeFunction&lt;T&gt;, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-java.lang.String-arez.SafeFunction-">computed(String, SafeFunction&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-java.lang.String-arez.SafeFunction-int-">computed(String, SafeFunction&lt;T&gt;, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.Component-java.lang.String-arez.SafeFunction-">computed(Component, String, SafeFunction&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.Component-java.lang.String-arez.SafeFunction-int-">computed(Component, String, SafeFunction&lt;T&gt;, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.Component-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-">computed(Component, String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-">computed(String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-int-">computed(String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#computed-arez.Component-java.lang.String-arez.SafeFunction-arez.Procedure-arez.Procedure-arez.Procedure-int-">computed(Component, String, SafeFunction&lt;T&gt;, Procedure, Procedure, Procedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><a href="arez/annotations/ComputedValueRef.html" title="annotation in arez.annotations"><span class="typeNameLink">ComputedValueRef</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -789,7 +789,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/Spy.html#findAllTopLevelComputableValues--">findAllTopLevelComputableValues()</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
 <dd>
-<div class="block">Find all the collection of computed values not contained by a native component.</div>
+<div class="block">Find all the collection of computable values not contained by a native component.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/Spy.html#findAllTopLevelObservableValues--">findAllTopLevelObservableValues()</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
 <dd>
@@ -843,7 +843,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ComputableValue.html#get--">get()</a></span> - Method in class arez.<a href="arez/ComputableValue.html" title="class in arez">ComputableValue</a></dt>
 <dd>
-<div class="block">Return the computed value, calculating the value if it is not up to date.</div>
+<div class="block">Return the computable value, calculating the value if it is not up to date.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/PropertyAccessor.html#get--">get()</a></span> - Method in interface arez.spy.<a href="arez/spy/PropertyAccessor.html" title="interface in arez.spy">PropertyAccessor</a></dt>
 <dd>

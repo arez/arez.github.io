@@ -17,15 +17,15 @@
 <span class="sourceLineNo">009</span>{<a name="line.9"></a>
 <span class="sourceLineNo">010</span>  /**<a name="line.10"></a>
 <span class="sourceLineNo">011</span>   * The reactive element MUST have at least one dependency on an {@link arez.ObservableValue}.<a name="line.11"></a>
-<span class="sourceLineNo">012</span>   * This means that the &lt;code&gt;computed&lt;/code&gt; or &lt;code&gt;observed&lt;/code&gt; method must invoke<a name="line.12"></a>
+<span class="sourceLineNo">012</span>   * This means that the &lt;code&gt;computable&lt;/code&gt; or &lt;code&gt;observed&lt;/code&gt; method must invoke<a name="line.12"></a>
 <span class="sourceLineNo">013</span>   * {@link arez.ObservableValue#reportObserved()} at least once within the scope of the method.<a name="line.13"></a>
 <span class="sourceLineNo">014</span>   */<a name="line.14"></a>
 <span class="sourceLineNo">015</span>  AREZ,<a name="line.15"></a>
 <span class="sourceLineNo">016</span>  /**<a name="line.16"></a>
 <span class="sourceLineNo">017</span>   * The reactive element may have dependencies on zero or more {@link arez.ObservableValue} instances.<a name="line.17"></a>
-<span class="sourceLineNo">018</span>   * Using this dependency type also allows for the scenario where the &lt;code&gt;computed&lt;/code&gt; or<a name="line.18"></a>
+<span class="sourceLineNo">018</span>   * Using this dependency type also allows for the scenario where the &lt;code&gt;computable&lt;/code&gt; or<a name="line.18"></a>
 <span class="sourceLineNo">019</span>   * &lt;code&gt;observed&lt;/code&gt; does not invoke {@link arez.ObservableValue#reportObserved()} within the scope<a name="line.19"></a>
-<span class="sourceLineNo">020</span>   * of the method. The &lt;code&gt;computed&lt;/code&gt; or &lt;code&gt;observed&lt;/code&gt; will not be re-scheduled by the<a name="line.20"></a>
+<span class="sourceLineNo">020</span>   * of the method. The &lt;code&gt;computable&lt;/code&gt; or &lt;code&gt;observed&lt;/code&gt; will not be re-scheduled by the<a name="line.20"></a>
 <span class="sourceLineNo">021</span>   * runtime when there are no dependencies. (This is sometimes acceptable, particularly during when a<a name="line.21"></a>
 <span class="sourceLineNo">022</span>   * collection of components are being disposed over multiple scheduling rounds).<a name="line.22"></a>
 <span class="sourceLineNo">023</span>   */<a name="line.23"></a>

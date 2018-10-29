@@ -34,13 +34,13 @@ methods that can be used to create observers, however most users will use more h
 the <a href="/docs/at_observe.html">@Observe</a> annotation.</p>
 <p>An example of a basic observer:</p>
 <p><pre><code class="hljs">Arez.context().observer( () -&gt; {
-  <span class="hljs-comment">// Interact with arez observable state (or computed values) here</span>
+  <span class="hljs-comment">// Interact with arez observable state (or computable values) here</span>
   <span class="hljs-comment">// and any time these changed this function will be re-run.</span>
   ...
 } );</code></pre></p>
 <p>An example of an observer that is explicitly named and uses a read-write transaction:</p>
 <p><pre><code class="hljs">Arez.context().observer( <span class="hljs-string">"MyObserver"</span>, () -&gt; {
-  <span class="hljs-comment">// Interact with arez observable state (or computed values) here</span>
+  <span class="hljs-comment">// Interact with arez observable state (or computable values) here</span>
   <span class="hljs-comment">// and any time these changed this function will be re-run.</span>
   ...
 }, Flags.READ_WRITE );</code></pre></p>
@@ -50,7 +50,7 @@ The developer must explicitly create the observer via <a href="/api/arez/ArezCon
 invocation and then explicitly observe the observed function via <a href="/api/arez/ArezContext.html#observe-arez.Observer-arez.Procedure-"><code>ArezContext.observe(*)</code></a>.</p>
 <p>A very simple example of a tracker observer:</p>
 <p><pre><code class="hljs"><span class="hljs-keyword">final</span> Procedure observedFunction = () -&gt; {
-  <span class="hljs-comment">// Interact with arez observable state (or computed values) here</span>
+  <span class="hljs-comment">// Interact with arez observable state (or computable values) here</span>
   <span class="hljs-comment">// and any time these changed the rescheduleRender function will</span>
   <span class="hljs-comment">// be run which will somehow reschedule this function.</span>
   ...

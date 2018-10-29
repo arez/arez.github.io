@@ -217,7 +217,7 @@ the order they are declared.</div>
 <h4>AREZ</h4>
 <pre>public static final&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a> <a href="../../src-html/arez/annotations/DepType.html#line.15">AREZ</a></pre>
 <div class="block">The reactive element MUST have at least one dependency on an <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a>.
- This means that the <code>computed</code> or <code>observed</code> method must invoke
+ This means that the <code>computable</code> or <code>observed</code> method must invoke
  <a href="../../arez/ObservableValue.html#reportObserved--"><code>ObservableValue.reportObserved()</code></a> at least once within the scope of the method.</div>
 </li>
 </ul>
@@ -229,9 +229,9 @@ the order they are declared.</div>
 <h4>AREZ_OR_NONE</h4>
 <pre>public static final&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a> <a href="../../src-html/arez/annotations/DepType.html#line.24">AREZ_OR_NONE</a></pre>
 <div class="block">The reactive element may have dependencies on zero or more <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> instances.
- Using this dependency type also allows for the scenario where the <code>computed</code> or
+ Using this dependency type also allows for the scenario where the <code>computable</code> or
  <code>observed</code> does not invoke <a href="../../arez/ObservableValue.html#reportObserved--"><code>ObservableValue.reportObserved()</code></a> within the scope
- of the method. The <code>computed</code> or <code>observed</code> will not be re-scheduled by the
+ of the method. The <code>computable</code> or <code>observed</code> will not be re-scheduled by the
  runtime when there are no dependencies. (This is sometimes acceptable, particularly during when a
  collection of components are being disposed over multiple scheduling rounds).</div>
 </li>
