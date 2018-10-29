@@ -162,6 +162,12 @@ public @interface <a href="../../src-html/arez/annotations/Computed.html#line.31
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#reportResult--">reportResult</a></span></code>
+<div class="block">Return true if the return value of the comptable value should be reported to the Arez spy subsystem.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Computed.html#requireEnvironment--">requireEnvironment</a></span></code>
 <div class="block">True if invocations of the computable must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>.</div>
 </td>
@@ -307,7 +313,7 @@ public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum i
 <li class="blockList"><a name="requireEnvironment--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>requireEnvironment</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.91">requireEnvironment</a></pre>
@@ -319,6 +325,28 @@ public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum i
 <dl>
 <dt>Default:</dt>
 <dd>false</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="reportResult--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>reportResult</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Computed.html#line.99">reportResult</a></pre>
+<div class="block">Return true if the return value of the comptable value should be reported to the Arez spy subsystem.
+ It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true to report the return value, false otherwise.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>true</dd>
 </dl>
 </li>
 </ul>
