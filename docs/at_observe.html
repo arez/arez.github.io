@@ -31,8 +31,8 @@ primitive.</p>
 <h2><a class="anchor" aria-hidden="true" name="decoupling-the-execution-and-scheduling-of-the-observer"></a><a href="#decoupling-the-execution-and-scheduling-of-the-observer" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decoupling the execution and scheduling of the Observer</h2>
 <p>Sometimes it is useful to decouple the execution of the <a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a> method and the
 rescheduling of the method when a dependency change is detected. In Arez, this is possible when you pair
-the <a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a> method with an <a href="/api/arez/annotations/OnDepsChanged.html"><code>@OnDepsChanged</code></a> method. The
-<a href="/api/arez/annotations/OnDepsChanged.html"><code>@OnDepsChanged</code></a> is invoked by the Arez runtime when it detects a change has occurred.
+the <a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a> method with an <a href="/api/arez/annotations/OnDepsChange.html"><code>@OnDepsChange</code></a> method. The
+<a href="/api/arez/annotations/OnDepsChange.html"><code>@OnDepsChange</code></a> is invoked by the Arez runtime when it detects a change has occurred.
 It is up to application to invoke <a href="/api/arez/Observer.html#schedule--"><code>Observer.schedule()</code></a> to schedule an
 update.</p>
 <p>One scenario where this is commonly used is to limit the rate at which an observer reacts. For example
@@ -51,8 +51,8 @@ could be achieved with code such as:</p>
     element.innerHTML = <span class="hljs-string">"1 BTC = $"</span> + bitcoin.getAmount() + <span class="hljs-string">"AUD"</span>;
   }
 
-  <span class="hljs-meta">@OnDepsChanged</span>
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChanged</span><span class="hljs-params">()</span>
+  <span class="hljs-meta">@OnDepsChange</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChange</span><span class="hljs-params">()</span>
   </span>{
     debounce( <span class="hljs-keyword">this</span>::scheduleRender, <span class="hljs-number">2000</span> );
   }
@@ -79,7 +79,7 @@ could be achieved with code such as:</p>
 is responsible for executing the observed method. This is useful when you need to integrate with other
 frameworks that already contain their own scheduler.</p>
 <p>This is modelled with a pair of methods; one annotated with <a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a> and one
-annotated with <a href="/api/arez/annotations/OnDepsChanged.html"><code>@OnDepsChanged</code></a>. In addition it is necessary that the
+annotated with <a href="/api/arez/annotations/OnDepsChange.html"><code>@OnDepsChange</code></a>. In addition it is necessary that the
 <a href="/api/arez/annotations/Observe.html#executor--"><code>executor</code></a> parameter on the <a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a>
 annotation is set to <a href="/api/arez/annotations/Executor.html#APPLICATION"><code>Executor.APPLICATION</code></a>.</p>
 <p>This approach is used in libraries such as <a href="https://react4j.github.io">React4j</a> that integrate Arez into
@@ -95,8 +95,8 @@ external schedulers. An example that demonstrates something similar is:</p>
     ...
   }
 
-  <span class="hljs-meta">@OnDepsChanged</span>
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChanged</span><span class="hljs-params">()</span>
+  <span class="hljs-meta">@OnDepsChange</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChange</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-comment">// Schedule this component</span>
     scheduleRender();

@@ -155,17 +155,17 @@ on the <code>ticketExpired</code> computed property property so <code>notifyUser
 <code>notifyUserWhenTicketExpires()</code> method would only be invoked <code>2</code> times. The <code>ticketExpired</code> computed property
 would be recalculated <code>10</code> times but it is assumed the that this is significantly less expensive than the <a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a>
 method.</p>
-<h2><a class="anchor" aria-hidden="true" name="observers-and-ondepschanged"></a><a href="#observers-and-ondepschanged" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Observers and OnDepsChanged</h2>
+<h2><a class="anchor" aria-hidden="true" name="observers-and-ondepschange"></a><a href="#observers-and-ondepschange" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Observers and OnDepsChange</h2>
 <p>There are times at which it is not possible for Arez to directly schedule and execute an observed method. Existing
 frameworks will have their own mechanisms for scheduling work and if you need to integrate Arez into these
 frameworks you need to decouple the scheduling and execution of reactions. Another scenario where more more
 explicit control over scheduling and execution is required is when you want to rate-limit or &quot;debounce&quot; the
 change notifications to limit the number of times an observed method executes.</p>
-<p>To achieve either of these goals, you need to combine the <a href="/api/arez/annotations/OnDepsChanged.html"><code>@OnDepsChanged</code></a> annotation with the
+<p>To achieve either of these goals, you need to combine the <a href="/api/arez/annotations/OnDepsChange.html"><code>@OnDepsChange</code></a> annotation with the
 <a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a> annotation. The <a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a> annotation wraps a method in a
 tracking transaction which allows the Arez framework to detect which observable and computed properties are accessed
 within the scope of the transaction. If any of these properties are modified then Arez will invoke the method annotated
-with <a href="/api/arez/annotations/OnDepsChanged.html"><code>@OnDepsChanged</code></a> to indicate that the observed method needs to be rescheduled.</p>
+with <a href="/api/arez/annotations/OnDepsChange.html"><code>@OnDepsChange</code></a> to indicate that the observed method needs to be rescheduled.</p>
 <p>An example is illustrated below:</p>
 <p><pre><code class="hljs">  <span class="hljs-meta">@Observe</span>( executor = Executor.APPLICATION )
   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">render</span><span class="hljs-params">()</span>
@@ -178,8 +178,8 @@ with <a href="/api/arez/annotations/OnDepsChanged.html"><code>@OnDepsChanged</co
            <span class="hljs-string">"&lt;/table&gt;"</span>;
   }
 
-  <span class="hljs-meta">@OnDepsChanged</span>
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChanged</span><span class="hljs-params">()</span>
+  <span class="hljs-meta">@OnDepsChange</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChange</span><span class="hljs-params">()</span>
   </span>{
     Renderer.scheduleRender( <span class="hljs-keyword">this</span> );
   }
@@ -219,8 +219,8 @@ this should give you enough of a taste to understand how Arez components are aut
            <span class="hljs-string">"&lt;/table&gt;"</span>;
   }
 
-  <span class="hljs-meta">@OnDepsChanged</span>
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChanged</span><span class="hljs-params">()</span>
+  <span class="hljs-meta">@OnDepsChange</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChange</span><span class="hljs-params">()</span>
   </span>{
     Renderer.scheduleRender( <span class="hljs-keyword">this</span> );
   }

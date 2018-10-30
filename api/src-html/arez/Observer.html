@@ -56,7 +56,7 @@
 <span class="sourceLineNo">048</span>   * Observed function to invoke if any.<a name="line.48"></a>
 <span class="sourceLineNo">049</span>   * This may be null if external executor is responsible for executing the observed function via<a name="line.49"></a>
 <span class="sourceLineNo">050</span>   * methods such as {@link ArezContext#observe(Observer, Function, Object...)}. If this is null then<a name="line.50"></a>
-<span class="sourceLineNo">051</span>   * {@link #_onDepsChanged} must not be null.<a name="line.51"></a>
+<span class="sourceLineNo">051</span>   * {@link #_onDepsChange} must not be null.<a name="line.51"></a>
 <span class="sourceLineNo">052</span>   */<a name="line.52"></a>
 <span class="sourceLineNo">053</span>  @Nullable<a name="line.53"></a>
 <span class="sourceLineNo">054</span>  private final Procedure _observed;<a name="line.54"></a>
@@ -66,7 +66,7 @@
 <span class="sourceLineNo">058</span>   * but in that case {@link #_observed} must not be null.<a name="line.58"></a>
 <span class="sourceLineNo">059</span>   */<a name="line.59"></a>
 <span class="sourceLineNo">060</span>  @Nullable<a name="line.60"></a>
-<span class="sourceLineNo">061</span>  private final Procedure _onDepsChanged;<a name="line.61"></a>
+<span class="sourceLineNo">061</span>  private final Procedure _onDepsChange;<a name="line.61"></a>
 <span class="sourceLineNo">062</span>  /**<a name="line.62"></a>
 <span class="sourceLineNo">063</span>   * Cached info object associated with element.<a name="line.63"></a>
 <span class="sourceLineNo">064</span>   * This should be null if {@link Arez#areSpiesEnabled()} is false;<a name="line.64"></a>
@@ -103,7 +103,7 @@
 <span class="sourceLineNo">095</span>            @Nullable final Component component,<a name="line.95"></a>
 <span class="sourceLineNo">096</span>            @Nullable final String name,<a name="line.96"></a>
 <span class="sourceLineNo">097</span>            @Nullable final Procedure observed,<a name="line.97"></a>
-<span class="sourceLineNo">098</span>            @Nullable final Procedure onDepsChanged,<a name="line.98"></a>
+<span class="sourceLineNo">098</span>            @Nullable final Procedure onDepsChange,<a name="line.98"></a>
 <span class="sourceLineNo">099</span>            final int flags )<a name="line.99"></a>
 <span class="sourceLineNo">100</span>  {<a name="line.100"></a>
 <span class="sourceLineNo">101</span>    this( context,<a name="line.101"></a>
@@ -111,7 +111,7 @@
 <span class="sourceLineNo">103</span>          name,<a name="line.103"></a>
 <span class="sourceLineNo">104</span>          null,<a name="line.104"></a>
 <span class="sourceLineNo">105</span>          observed,<a name="line.105"></a>
-<span class="sourceLineNo">106</span>          onDepsChanged,<a name="line.106"></a>
+<span class="sourceLineNo">106</span>          onDepsChange,<a name="line.106"></a>
 <span class="sourceLineNo">107</span>          flags |<a name="line.107"></a>
 <span class="sourceLineNo">108</span>          ( null == observed ? Flags.APPLICATION_EXECUTOR : Flags.KEEPALIVE ) |<a name="line.108"></a>
 <span class="sourceLineNo">109</span>          ( null != observed ? Flags.ENVIRONMENT_REQUIRED : Flags.environmentFlag( flags ) ) |<a name="line.109"></a>
@@ -127,7 +127,7 @@
 <span class="sourceLineNo">119</span>                    @Nullable final String name,<a name="line.119"></a>
 <span class="sourceLineNo">120</span>                    @Nullable final ComputableValue&lt;?&gt; computableValue,<a name="line.120"></a>
 <span class="sourceLineNo">121</span>                    @Nullable final Procedure observed,<a name="line.121"></a>
-<span class="sourceLineNo">122</span>                    @Nullable final Procedure onDepsChanged,<a name="line.122"></a>
+<span class="sourceLineNo">122</span>                    @Nullable final Procedure onDepsChange,<a name="line.122"></a>
 <span class="sourceLineNo">123</span>                    final int flags )<a name="line.123"></a>
 <span class="sourceLineNo">124</span>  {<a name="line.124"></a>
 <span class="sourceLineNo">125</span>    super( context, name );<a name="line.125"></a>
@@ -166,9 +166,9 @@
 <span class="sourceLineNo">158</span>                 () -&gt; "Arez-0184: Observer named '" + getName() + "' has LOWEST priority but has passed " +<a name="line.158"></a>
 <span class="sourceLineNo">159</span>                       "OBSERVE_LOWER_PRIORITY_DEPENDENCIES option which should not be present as the observer " +<a name="line.159"></a>
 <span class="sourceLineNo">160</span>                       "has no lower priority." );<a name="line.160"></a>
-<span class="sourceLineNo">161</span>      invariant( () -&gt; null != observed || null != onDepsChanged,<a name="line.161"></a>
+<span class="sourceLineNo">161</span>      invariant( () -&gt; null != observed || null != onDepsChange,<a name="line.161"></a>
 <span class="sourceLineNo">162</span>                 () -&gt; "Arez-0204: Observer named '" + getName() + "' has not supplied a value for either the " +<a name="line.162"></a>
-<span class="sourceLineNo">163</span>                       "observed parameter or the onDepsChanged parameter." );<a name="line.163"></a>
+<span class="sourceLineNo">163</span>                       "observed parameter or the onDepsChange parameter." );<a name="line.163"></a>
 <span class="sourceLineNo">164</span>      // Next lines are impossible situations to create from tests. Add asserts to verify this.<a name="line.164"></a>
 <span class="sourceLineNo">165</span>      assert Flags.KEEPALIVE != Flags.getScheduleType( flags ) || null != observed;<a name="line.165"></a>
 <span class="sourceLineNo">166</span>      assert Flags.APPLICATION_EXECUTOR != Flags.getScheduleType( flags ) || null == observed;<a name="line.166"></a>
@@ -191,7 +191,7 @@
 <span class="sourceLineNo">183</span>    _component = Arez.areNativeComponentsEnabled() ? component : null;<a name="line.183"></a>
 <span class="sourceLineNo">184</span>    _computableValue = computableValue;<a name="line.184"></a>
 <span class="sourceLineNo">185</span>    _observed = observed;<a name="line.185"></a>
-<span class="sourceLineNo">186</span>    _onDepsChanged = onDepsChanged;<a name="line.186"></a>
+<span class="sourceLineNo">186</span>    _onDepsChange = onDepsChange;<a name="line.186"></a>
 <span class="sourceLineNo">187</span><a name="line.187"></a>
 <span class="sourceLineNo">188</span>    executeObservedNextIfPresent();<a name="line.188"></a>
 <span class="sourceLineNo">189</span><a name="line.189"></a>
@@ -254,13 +254,13 @@
 <span class="sourceLineNo">246</span><a name="line.246"></a>
 <span class="sourceLineNo">247</span>  /**<a name="line.247"></a>
 <span class="sourceLineNo">248</span>   * Return true if the Observer supports invocations of {@link #schedule()} from non-arez code.<a name="line.248"></a>
-<span class="sourceLineNo">249</span>   * This is true if both a {@link #_observed} and {@link #_onDepsChanged} parameters<a name="line.249"></a>
+<span class="sourceLineNo">249</span>   * This is true if both a {@link #_observed} and {@link #_onDepsChange} parameters<a name="line.249"></a>
 <span class="sourceLineNo">250</span>   * are provided at construction.<a name="line.250"></a>
 <span class="sourceLineNo">251</span>   */<a name="line.251"></a>
 <span class="sourceLineNo">252</span>  boolean supportsManualSchedule()<a name="line.252"></a>
 <span class="sourceLineNo">253</span>  {<a name="line.253"></a>
 <span class="sourceLineNo">254</span>    assert Arez.shouldCheckApiInvariants();<a name="line.254"></a>
-<span class="sourceLineNo">255</span>    return null != _observed &amp;&amp; null != _onDepsChanged;<a name="line.255"></a>
+<span class="sourceLineNo">255</span>    return null != _observed &amp;&amp; null != _onDepsChange;<a name="line.255"></a>
 <span class="sourceLineNo">256</span>  }<a name="line.256"></a>
 <span class="sourceLineNo">257</span><a name="line.257"></a>
 <span class="sourceLineNo">258</span>  boolean isApplicationExecutor()<a name="line.258"></a>
@@ -660,26 +660,26 @@
 <span class="sourceLineNo">652</span>        {<a name="line.652"></a>
 <span class="sourceLineNo">653</span>          if ( shouldExecuteObservedNext() )<a name="line.653"></a>
 <span class="sourceLineNo">654</span>          {<a name="line.654"></a>
-<span class="sourceLineNo">655</span>            executeOnDepsChangedNextIfPresent();<a name="line.655"></a>
+<span class="sourceLineNo">655</span>            executeOnDepsChangeNextIfPresent();<a name="line.655"></a>
 <span class="sourceLineNo">656</span>            runObservedFunction();<a name="line.656"></a>
 <span class="sourceLineNo">657</span>          }<a name="line.657"></a>
 <span class="sourceLineNo">658</span>          else<a name="line.658"></a>
 <span class="sourceLineNo">659</span>          {<a name="line.659"></a>
-<span class="sourceLineNo">660</span>            assert null != _onDepsChanged;<a name="line.660"></a>
-<span class="sourceLineNo">661</span>            _onDepsChanged.call();<a name="line.661"></a>
+<span class="sourceLineNo">660</span>            assert null != _onDepsChange;<a name="line.660"></a>
+<span class="sourceLineNo">661</span>            _onDepsChange.call();<a name="line.661"></a>
 <span class="sourceLineNo">662</span>          }<a name="line.662"></a>
 <span class="sourceLineNo">663</span>        }<a name="line.663"></a>
 <span class="sourceLineNo">664</span>        else if ( shouldExecuteObservedNext() )<a name="line.664"></a>
 <span class="sourceLineNo">665</span>        {<a name="line.665"></a>
 <span class="sourceLineNo">666</span>          /*<a name="line.666"></a>
-<span class="sourceLineNo">667</span>           * The observer should invoke onDepsChanged next if the following conditions hold.<a name="line.667"></a>
+<span class="sourceLineNo">667</span>           * The observer should invoke onDepsChange next if the following conditions hold.<a name="line.667"></a>
 <span class="sourceLineNo">668</span>           *  - a manual schedule() invocation<a name="line.668"></a>
 <span class="sourceLineNo">669</span>           *  - the observer is not stale, and<a name="line.669"></a>
-<span class="sourceLineNo">670</span>           *  - there is an onDepsChanged hook present<a name="line.670"></a>
+<span class="sourceLineNo">670</span>           *  - there is an onDepsChange hook present<a name="line.670"></a>
 <span class="sourceLineNo">671</span>           *<a name="line.671"></a>
 <span class="sourceLineNo">672</span>           *  This block ensures this is the case.<a name="line.672"></a>
 <span class="sourceLineNo">673</span>           */<a name="line.673"></a>
-<span class="sourceLineNo">674</span>          executeOnDepsChangedNextIfPresent();<a name="line.674"></a>
+<span class="sourceLineNo">674</span>          executeOnDepsChangeNextIfPresent();<a name="line.674"></a>
 <span class="sourceLineNo">675</span>        }<a name="line.675"></a>
 <span class="sourceLineNo">676</span>      }<a name="line.676"></a>
 <span class="sourceLineNo">677</span>      catch ( final Throwable t )<a name="line.677"></a>
@@ -981,9 +981,9 @@
 <span class="sourceLineNo">973</span>  }<a name="line.973"></a>
 <span class="sourceLineNo">974</span><a name="line.974"></a>
 <span class="sourceLineNo">975</span>  @Nullable<a name="line.975"></a>
-<span class="sourceLineNo">976</span>  Procedure getOnDepsChanged()<a name="line.976"></a>
+<span class="sourceLineNo">976</span>  Procedure getOnDepsChange()<a name="line.976"></a>
 <span class="sourceLineNo">977</span>  {<a name="line.977"></a>
-<span class="sourceLineNo">978</span>    return _onDepsChanged;<a name="line.978"></a>
+<span class="sourceLineNo">978</span>    return _onDepsChange;<a name="line.978"></a>
 <span class="sourceLineNo">979</span>  }<a name="line.979"></a>
 <span class="sourceLineNo">980</span><a name="line.980"></a>
 <span class="sourceLineNo">981</span>  boolean isKeepAlive()<a name="line.981"></a>
@@ -1004,9 +1004,9 @@
 <span class="sourceLineNo">996</span>    }<a name="line.996"></a>
 <span class="sourceLineNo">997</span>  }<a name="line.997"></a>
 <span class="sourceLineNo">998</span><a name="line.998"></a>
-<span class="sourceLineNo">999</span>  private void executeOnDepsChangedNextIfPresent()<a name="line.999"></a>
+<span class="sourceLineNo">999</span>  private void executeOnDepsChangeNextIfPresent()<a name="line.999"></a>
 <span class="sourceLineNo">1000</span>  {<a name="line.1000"></a>
-<span class="sourceLineNo">1001</span>    if ( null != _onDepsChanged )<a name="line.1001"></a>
+<span class="sourceLineNo">1001</span>    if ( null != _onDepsChange )<a name="line.1001"></a>
 <span class="sourceLineNo">1002</span>    {<a name="line.1002"></a>
 <span class="sourceLineNo">1003</span>      _flags &amp;= ~Flags.EXECUTE_OBSERVED_NEXT;<a name="line.1003"></a>
 <span class="sourceLineNo">1004</span>    }<a name="line.1004"></a>

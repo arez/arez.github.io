@@ -19,9 +19,9 @@
 <span class="sourceLineNo">011</span> * Annotation that marks a method as observed.<a name="line.11"></a>
 <span class="sourceLineNo">012</span> * Any {@link arez.ObservableValue} instances or {@link ComputableValue} instances accessed within the<a name="line.12"></a>
 <span class="sourceLineNo">013</span> * scope of the method will be added as a dependency of the observer. If any of these dependencies are changed<a name="line.13"></a>
-<span class="sourceLineNo">014</span> * then the runtime will invoke the associated {@link OnDepsChanged} method if present or re-schedule the observed<a name="line.14"></a>
-<span class="sourceLineNo">015</span> * method for execution if there is no {@link OnDepsChanged} method present. Note that Arez will attempt to detect<a name="line.15"></a>
-<span class="sourceLineNo">016</span> * the {@link OnDepsChanged} method using naming conventions even if there is no method explicitly annotated.<a name="line.16"></a>
+<span class="sourceLineNo">014</span> * then the runtime will invoke the associated {@link OnDepsChange} method if present or re-schedule the observed<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * method for execution if there is no {@link OnDepsChange} method present. Note that Arez will attempt to detect<a name="line.15"></a>
+<span class="sourceLineNo">016</span> * the {@link OnDepsChange} method using naming conventions even if there is no method explicitly annotated.<a name="line.16"></a>
 <span class="sourceLineNo">017</span> *<a name="line.17"></a>
 <span class="sourceLineNo">018</span> * &lt;p&gt;The method that is annotated with this annotation must comply with the additional constraints:&lt;/p&gt;<a name="line.18"></a>
 <span class="sourceLineNo">019</span> * &lt;ul&gt;<a name="line.19"></a>

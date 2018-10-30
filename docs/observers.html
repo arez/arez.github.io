@@ -18,15 +18,15 @@ frameworks. In most cases that use an external executor, Arez pushes change noti
 and the external framework pulls change notifications during their own update phase. For example, the
 <a href="https://react4j.github.io">React4j</a> library uses an external executor so that Arez can be integrated into
 reacts scheduler.</p>
-<p>An application can provide an <code>onDepsChanged</code> hook function when creating the observer and Arez will invoke
+<p>An application can provide an <code>onDepsChange</code> hook function when creating the observer and Arez will invoke
 the hook method when Arez detects that a dependency has changed. If the observer needs to support application
 executor then the hook function <strong>must</strong> be provided. If the hook function is provided but the observed function
 is not expected to be invoked by the application, then the application code must invoke the
 <a href="/api/arez/Observer.html#schedule--"><code>Observer.schedule()</code></a> method either in the hook method or at some later time.
 This will schedule the <a href="/api/arez/Observer.html"><code>Observer</code></a> so that the observed function is invoked by the Arez runtime
 next time that the Arez scheduler is triggered.</p>
-<p>If an observer is created without a <code>onDepsChanged</code> hook function then Arez will automatically defines an
-<code>onDepsChanged</code> function that immediately reschedules the observer. Other reactive frameworks often refer
+<p>If an observer is created without a <code>onDepsChange</code> hook function then Arez will automatically defines an
+<code>onDepsChange</code> function that immediately reschedules the observer. Other reactive frameworks often refer
 to this type of an observer as an &quot;autorun&quot; observer.</p>
 <h2><a class="anchor" aria-hidden="true" name="api"></a><a href="#api" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API</h2>
 <p>There are several low-level <a href="/api/arez/ArezContext.html#observer-arez.Procedure-"><code>ArezContext.observer(*)</code></a>
@@ -44,7 +44,7 @@ the <a href="/docs/at_observe.html">@Observe</a> annotation.</p>
   <span class="hljs-comment">// and any time these changed this function will be re-run.</span>
   ...
 }, Flags.READ_WRITE );</code></pre></p>
-<p>A &quot;tracker&quot; observer is created with a <code>onDepsChanged</code> hook function but no <code>observed</code> function. i.e. A
+<p>A &quot;tracker&quot; observer is created with a <code>onDepsChange</code> hook function but no <code>observed</code> function. i.e. A
 tracker observer uses an application executor. Using a tracker observer is a little more complex within Arez.
 The developer must explicitly create the observer via <a href="/api/arez/ArezContext.html#tracker-arez.Procedure-"><code>ArezContext.tracker(*)</code></a>
 invocation and then explicitly observe the observed function via <a href="/api/arez/ArezContext.html#observe-arez.Observer-arez.Procedure-"><code>ArezContext.observe(*)</code></a>.</p>
@@ -65,7 +65,7 @@ Arez.context().observe( observer, observedFunction );</code></pre></p>
 <h2><a class="anchor" aria-hidden="true" name="error-handling"></a><a href="#error-handling" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Handling</h2>
 <p>If an observer's <code>observed</code> function is executed by the Arez runtime and throws an exception, then that exception
 is caught by the Arez scheduler and passed to an error handler. The same occurs if an exception is thrown invoking
-an observers <code>onDepsChanged</code> function. This is to make sure that an exception in one observer does not
+an observers <code>onDepsChange</code> function. This is to make sure that an exception in one observer does not
 prevent the scheduled execution of other observers. This also allows observers to recover from exceptions; throwing
 an exception does not break the tracking done by Arez, so a subsequent scheduling of an observer will complete
 normally again if the cause for the exception is removed.</p>

@@ -97,9 +97,9 @@ public @interface <a href="../../src-html/arez/annotations/Observe.html#line.38"
 <div class="block">Annotation that marks a method as observed.
  Any <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> instances or <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances accessed within the
  scope of the method will be added as a dependency of the observer. If any of these dependencies are changed
- then the runtime will invoke the associated <a href="../../arez/annotations/OnDepsChanged.html" title="annotation in arez.annotations"><code>OnDepsChanged</code></a> method if present or re-schedule the observed
- method for execution if there is no <a href="../../arez/annotations/OnDepsChanged.html" title="annotation in arez.annotations"><code>OnDepsChanged</code></a> method present. Note that Arez will attempt to detect
- the <a href="../../arez/annotations/OnDepsChanged.html" title="annotation in arez.annotations"><code>OnDepsChanged</code></a> method using naming conventions even if there is no method explicitly annotated.
+ then the runtime will invoke the associated <a href="../../arez/annotations/OnDepsChange.html" title="annotation in arez.annotations"><code>OnDepsChange</code></a> method if present or re-schedule the observed
+ method for execution if there is no <a href="../../arez/annotations/OnDepsChange.html" title="annotation in arez.annotations"><code>OnDepsChange</code></a> method present. Note that Arez will attempt to detect
+ the <a href="../../arez/annotations/OnDepsChange.html" title="annotation in arez.annotations"><code>OnDepsChange</code></a> method using naming conventions even if there is no method explicitly annotated.
 
  <p>The method that is annotated with this annotation must comply with the additional constraints:</p>
  <ul>
