@@ -71,15 +71,15 @@
 <span class="sourceLineNo">063</span>  private static final int TRANSACTION_MASK = READ_ONLY | READ_WRITE;<a name="line.63"></a>
 <span class="sourceLineNo">064</span>  /**<a name="line.64"></a>
 <span class="sourceLineNo">065</span>   * The scheduler will be triggered when the observer is created to immediately invoke the<a name="line.65"></a>
-<span class="sourceLineNo">066</span>   * {@link Observer#_observed} function. This configuration should not be specified if there<a name="line.66"></a>
-<span class="sourceLineNo">067</span>   * is no {@link Observer#_observed} function supplied. This should not be<a name="line.67"></a>
+<span class="sourceLineNo">066</span>   * {@link Observer#_observe} function. This configuration should not be specified if there<a name="line.66"></a>
+<span class="sourceLineNo">067</span>   * is no {@link Observer#_observe} function supplied. This should not be<a name="line.67"></a>
 <span class="sourceLineNo">068</span>   * specified if {@link #RUN_LATER} is specified.<a name="line.68"></a>
 <span class="sourceLineNo">069</span>   */<a name="line.69"></a>
 <span class="sourceLineNo">070</span>  @SuppressWarnings( "WeakerAccess" )<a name="line.70"></a>
 <span class="sourceLineNo">071</span>  public static final int RUN_NOW = 1 &lt;&lt; 22;<a name="line.71"></a>
 <span class="sourceLineNo">072</span>  /**<a name="line.72"></a>
 <span class="sourceLineNo">073</span>   * The scheduler will not be triggered when the observer is created. The observer either<a name="line.73"></a>
-<span class="sourceLineNo">074</span>   * has no {@link Observer#_observed} function or is responsible for ensuring that<a name="line.74"></a>
+<span class="sourceLineNo">074</span>   * has no {@link Observer#_observe} function or is responsible for ensuring that<a name="line.74"></a>
 <span class="sourceLineNo">075</span>   * {@link ArezContext#triggerScheduler()} is invoked at a later time. This should not be<a name="line.75"></a>
 <span class="sourceLineNo">076</span>   * specified if {@link #RUN_NOW} is specified.<a name="line.76"></a>
 <span class="sourceLineNo">077</span>   */<a name="line.77"></a>
@@ -237,9 +237,9 @@
 <span class="sourceLineNo">229</span>  static final int ACTION_FLAGS_MASK =<a name="line.229"></a>
 <span class="sourceLineNo">230</span>    TRANSACTION_MASK | REQUIRE_NEW_TRANSACTION | VERIFY_ACTION_MASK | ENVIRONMENT_MASK | NO_REPORT_RESULT;<a name="line.230"></a>
 <span class="sourceLineNo">231</span>  /**<a name="line.231"></a>
-<span class="sourceLineNo">232</span>   * Flag indicating whether next scheduled invocation of {@link Observer} should invoke {@link Observer#_observed} or {@link Observer#_onDepsChange}.<a name="line.232"></a>
+<span class="sourceLineNo">232</span>   * Flag indicating whether next scheduled invocation of {@link Observer} should invoke {@link Observer#_observe} or {@link Observer#_onDepsChange}.<a name="line.232"></a>
 <span class="sourceLineNo">233</span>   */<a name="line.233"></a>
-<span class="sourceLineNo">234</span>  static final int EXECUTE_OBSERVED_NEXT = 1 &lt;&lt; 10;<a name="line.234"></a>
+<span class="sourceLineNo">234</span>  static final int EXECUTE_OBSERVE_NEXT = 1 &lt;&lt; 10;<a name="line.234"></a>
 <span class="sourceLineNo">235</span>  /**<a name="line.235"></a>
 <span class="sourceLineNo">236</span>   * The observer has been scheduled.<a name="line.236"></a>
 <span class="sourceLineNo">237</span>   */<a name="line.237"></a>
@@ -281,7 +281,7 @@
 <span class="sourceLineNo">273</span>  /**<a name="line.273"></a>
 <span class="sourceLineNo">274</span>   * Mask that identifies the bits associated with runtime configuration.<a name="line.274"></a>
 <span class="sourceLineNo">275</span>   */<a name="line.275"></a>
-<span class="sourceLineNo">276</span>  static final int RUNTIME_FLAGS_MASK = EXECUTE_OBSERVED_NEXT | SCHEDULED | STATE_MASK;<a name="line.276"></a>
+<span class="sourceLineNo">276</span>  static final int RUNTIME_FLAGS_MASK = EXECUTE_OBSERVE_NEXT | SCHEDULED | STATE_MASK;<a name="line.276"></a>
 <span class="sourceLineNo">277</span><a name="line.277"></a>
 <span class="sourceLineNo">278</span>  /**<a name="line.278"></a>
 <span class="sourceLineNo">279</span>   * Return true if flags contains priority.<a name="line.279"></a>
