@@ -8,12 +8,12 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package arez;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import arez.spy.ComputeCompletedEvent;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import arez.spy.ComputeStartedEvent;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import arez.spy.ObserveCompletedEvent;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import arez.spy.ObserveStartedEvent;<a name="line.6"></a>
-<span class="sourceLineNo">007</span>import arez.spy.ObserverCreatedEvent;<a name="line.7"></a>
-<span class="sourceLineNo">008</span>import arez.spy.ObserverDisposedEvent;<a name="line.8"></a>
+<span class="sourceLineNo">003</span>import arez.spy.ComputeCompleteEvent;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import arez.spy.ComputeStartEvent;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import arez.spy.ObserveCompleteEvent;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import arez.spy.ObserveStartEvent;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import arez.spy.ObserverCreateEvent;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import arez.spy.ObserverDisposeEvent;<a name="line.8"></a>
 <span class="sourceLineNo">009</span>import arez.spy.ObserverInfo;<a name="line.9"></a>
 <span class="sourceLineNo">010</span>import arez.spy.Priority;<a name="line.10"></a>
 <span class="sourceLineNo">011</span>import java.util.ArrayList;<a name="line.11"></a>
@@ -210,7 +210,7 @@
 <span class="sourceLineNo">202</span>    {<a name="line.202"></a>
 <span class="sourceLineNo">203</span>      if ( willPropagateSpyEvents() )<a name="line.203"></a>
 <span class="sourceLineNo">204</span>      {<a name="line.204"></a>
-<span class="sourceLineNo">205</span>        getSpy().reportSpyEvent( new ObserverCreatedEvent( asInfo() ) );<a name="line.205"></a>
+<span class="sourceLineNo">205</span>        getSpy().reportSpyEvent( new ObserverCreateEvent( asInfo() ) );<a name="line.205"></a>
 <span class="sourceLineNo">206</span>      }<a name="line.206"></a>
 <span class="sourceLineNo">207</span>      if ( null != _observed )<a name="line.207"></a>
 <span class="sourceLineNo">208</span>      {<a name="line.208"></a>
@@ -313,7 +313,7 @@
 <span class="sourceLineNo">305</span>      {<a name="line.305"></a>
 <span class="sourceLineNo">306</span>        if ( willPropagateSpyEvents() )<a name="line.306"></a>
 <span class="sourceLineNo">307</span>        {<a name="line.307"></a>
-<span class="sourceLineNo">308</span>          reportSpyEvent( new ObserverDisposedEvent( asInfo() ) );<a name="line.308"></a>
+<span class="sourceLineNo">308</span>          reportSpyEvent( new ObserverDisposeEvent( asInfo() ) );<a name="line.308"></a>
 <span class="sourceLineNo">309</span>        }<a name="line.309"></a>
 <span class="sourceLineNo">310</span>        if ( null != _component )<a name="line.310"></a>
 <span class="sourceLineNo">311</span>        {<a name="line.311"></a>
@@ -642,11 +642,11 @@
 <span class="sourceLineNo">634</span>        start = System.currentTimeMillis();<a name="line.634"></a>
 <span class="sourceLineNo">635</span>        if ( isComputableValue() )<a name="line.635"></a>
 <span class="sourceLineNo">636</span>        {<a name="line.636"></a>
-<span class="sourceLineNo">637</span>          reportSpyEvent( new ComputeStartedEvent( getComputableValue().asInfo() ) );<a name="line.637"></a>
+<span class="sourceLineNo">637</span>          reportSpyEvent( new ComputeStartEvent( getComputableValue().asInfo() ) );<a name="line.637"></a>
 <span class="sourceLineNo">638</span>        }<a name="line.638"></a>
 <span class="sourceLineNo">639</span>        else<a name="line.639"></a>
 <span class="sourceLineNo">640</span>        {<a name="line.640"></a>
-<span class="sourceLineNo">641</span>          reportSpyEvent( new ObserveStartedEvent( asInfo() ) );<a name="line.641"></a>
+<span class="sourceLineNo">641</span>          reportSpyEvent( new ObserveStartEvent( asInfo() ) );<a name="line.641"></a>
 <span class="sourceLineNo">642</span>        }<a name="line.642"></a>
 <span class="sourceLineNo">643</span>      }<a name="line.643"></a>
 <span class="sourceLineNo">644</span>      else<a name="line.644"></a>
@@ -694,14 +694,14 @@
 <span class="sourceLineNo">686</span>        if ( isComputableValue() )<a name="line.686"></a>
 <span class="sourceLineNo">687</span>        {<a name="line.687"></a>
 <span class="sourceLineNo">688</span>          final ComputableValue&lt;?&gt; computableValue = getComputableValue();<a name="line.688"></a>
-<span class="sourceLineNo">689</span>          reportSpyEvent( new ComputeCompletedEvent( computableValue.asInfo(),<a name="line.689"></a>
+<span class="sourceLineNo">689</span>          reportSpyEvent( new ComputeCompleteEvent( computableValue.asInfo(),<a name="line.689"></a>
 <span class="sourceLineNo">690</span>                                                     noReportResults() ? null : computableValue.getValue(),<a name="line.690"></a>
-<span class="sourceLineNo">691</span>                                                     computableValue.getError(),<a name="line.691"></a>
-<span class="sourceLineNo">692</span>                                                     (int) duration ) );<a name="line.692"></a>
+<span class="sourceLineNo">691</span>                                                    computableValue.getError(),<a name="line.691"></a>
+<span class="sourceLineNo">692</span>                                                    (int) duration ) );<a name="line.692"></a>
 <span class="sourceLineNo">693</span>        }<a name="line.693"></a>
 <span class="sourceLineNo">694</span>        else<a name="line.694"></a>
 <span class="sourceLineNo">695</span>        {<a name="line.695"></a>
-<span class="sourceLineNo">696</span>          reportSpyEvent( new ObserveCompletedEvent( asInfo(), error, (int) duration ) );<a name="line.696"></a>
+<span class="sourceLineNo">696</span>          reportSpyEvent( new ObserveCompleteEvent( asInfo(), error, (int) duration ) );<a name="line.696"></a>
 <span class="sourceLineNo">697</span>        }<a name="line.697"></a>
 <span class="sourceLineNo">698</span>      }<a name="line.698"></a>
 <span class="sourceLineNo">699</span>    }<a name="line.699"></a>

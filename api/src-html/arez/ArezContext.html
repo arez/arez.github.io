@@ -8,11 +8,11 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package arez;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import arez.spy.ActionCompletedEvent;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import arez.spy.ActionStartedEvent;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import arez.spy.ComponentCreateStartedEvent;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import arez.spy.ObservableValueCreatedEvent;<a name="line.6"></a>
-<span class="sourceLineNo">007</span>import arez.spy.ObserveScheduledEvent;<a name="line.7"></a>
+<span class="sourceLineNo">003</span>import arez.spy.ActionCompleteEvent;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import arez.spy.ActionStartEvent;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import arez.spy.ComponentCreateStartEvent;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import arez.spy.ObservableValueCreateEvent;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import arez.spy.ObserveScheduleEvent;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import arez.spy.ObserverErrorEvent;<a name="line.8"></a>
 <span class="sourceLineNo">009</span>import arez.spy.PropertyAccessor;<a name="line.9"></a>
 <span class="sourceLineNo">010</span>import arez.spy.PropertyMutator;<a name="line.10"></a>
@@ -246,7 +246,7 @@
 <span class="sourceLineNo">238</span>    map.put( id, component );<a name="line.238"></a>
 <span class="sourceLineNo">239</span>    if ( willPropagateSpyEvents() )<a name="line.239"></a>
 <span class="sourceLineNo">240</span>    {<a name="line.240"></a>
-<span class="sourceLineNo">241</span>      getSpy().reportSpyEvent( new ComponentCreateStartedEvent( getSpy().asComponentInfo( component ) ) );<a name="line.241"></a>
+<span class="sourceLineNo">241</span>      getSpy().reportSpyEvent( new ComponentCreateStartEvent( getSpy().asComponentInfo( component ) ) );<a name="line.241"></a>
 <span class="sourceLineNo">242</span>    }<a name="line.242"></a>
 <span class="sourceLineNo">243</span>    return component;<a name="line.243"></a>
 <span class="sourceLineNo">244</span>  }<a name="line.244"></a>
@@ -954,7 +954,7 @@
 <span class="sourceLineNo">946</span>                             mutator );<a name="line.946"></a>
 <span class="sourceLineNo">947</span>    if ( willPropagateSpyEvents() )<a name="line.947"></a>
 <span class="sourceLineNo">948</span>    {<a name="line.948"></a>
-<span class="sourceLineNo">949</span>      getSpy().reportSpyEvent( new ObservableValueCreatedEvent( observableValue.asInfo() ) );<a name="line.949"></a>
+<span class="sourceLineNo">949</span>      getSpy().reportSpyEvent( new ObservableValueCreateEvent( observableValue.asInfo() ) );<a name="line.949"></a>
 <span class="sourceLineNo">950</span>    }<a name="line.950"></a>
 <span class="sourceLineNo">951</span>    return observableValue;<a name="line.951"></a>
 <span class="sourceLineNo">952</span>  }<a name="line.952"></a>
@@ -969,7 +969,7 @@
 <span class="sourceLineNo">961</span>  {<a name="line.961"></a>
 <span class="sourceLineNo">962</span>    if ( willPropagateSpyEvents() )<a name="line.962"></a>
 <span class="sourceLineNo">963</span>    {<a name="line.963"></a>
-<span class="sourceLineNo">964</span>      getSpy().reportSpyEvent( new ObserveScheduledEvent( observer.asInfo() ) );<a name="line.964"></a>
+<span class="sourceLineNo">964</span>      getSpy().reportSpyEvent( new ObserveScheduleEvent( observer.asInfo() ) );<a name="line.964"></a>
 <span class="sourceLineNo">965</span>    }<a name="line.965"></a>
 <span class="sourceLineNo">966</span>    if ( Arez.shouldEnforceTransactionType() &amp;&amp; isTransactionActive() &amp;&amp; Arez.shouldCheckInvariants() )<a name="line.966"></a>
 <span class="sourceLineNo">967</span>    {<a name="line.967"></a>
@@ -2352,7 +2352,7 @@
 <span class="sourceLineNo">2344</span>  {<a name="line.2344"></a>
 <span class="sourceLineNo">2345</span>    assert null != name;<a name="line.2345"></a>
 <span class="sourceLineNo">2346</span>    final Object[] params = null == parameters ? new Object[ 0 ] : parameters;<a name="line.2346"></a>
-<span class="sourceLineNo">2347</span>    getSpy().reportSpyEvent( new ActionStartedEvent( name, observed, params ) );<a name="line.2347"></a>
+<span class="sourceLineNo">2347</span>    getSpy().reportSpyEvent( new ActionStartEvent( name, observed, params ) );<a name="line.2347"></a>
 <span class="sourceLineNo">2348</span>  }<a name="line.2348"></a>
 <span class="sourceLineNo">2349</span><a name="line.2349"></a>
 <span class="sourceLineNo">2350</span>  private void reportActionCompleted( @Nullable final String name,<a name="line.2350"></a>
@@ -2366,13 +2366,13 @@
 <span class="sourceLineNo">2358</span>    final long duration = System.currentTimeMillis() - startedAt;<a name="line.2358"></a>
 <span class="sourceLineNo">2359</span>    assert null != name;<a name="line.2359"></a>
 <span class="sourceLineNo">2360</span>    final Object[] params = null == parameters ? new Object[ 0 ] : parameters;<a name="line.2360"></a>
-<span class="sourceLineNo">2361</span>    getSpy().reportSpyEvent( new ActionCompletedEvent( name,<a name="line.2361"></a>
-<span class="sourceLineNo">2362</span>                                                       observed,<a name="line.2362"></a>
-<span class="sourceLineNo">2363</span>                                                       params,<a name="line.2363"></a>
-<span class="sourceLineNo">2364</span>                                                       returnsResult,<a name="line.2364"></a>
-<span class="sourceLineNo">2365</span>                                                       result,<a name="line.2365"></a>
-<span class="sourceLineNo">2366</span>                                                       t,<a name="line.2366"></a>
-<span class="sourceLineNo">2367</span>                                                       (int) duration ) );<a name="line.2367"></a>
+<span class="sourceLineNo">2361</span>    getSpy().reportSpyEvent( new ActionCompleteEvent( name,<a name="line.2361"></a>
+<span class="sourceLineNo">2362</span>                                                      observed,<a name="line.2362"></a>
+<span class="sourceLineNo">2363</span>                                                      params,<a name="line.2363"></a>
+<span class="sourceLineNo">2364</span>                                                      returnsResult,<a name="line.2364"></a>
+<span class="sourceLineNo">2365</span>                                                      result,<a name="line.2365"></a>
+<span class="sourceLineNo">2366</span>                                                      t,<a name="line.2366"></a>
+<span class="sourceLineNo">2367</span>                                                      (int) duration ) );<a name="line.2367"></a>
 <span class="sourceLineNo">2368</span>  }<a name="line.2368"></a>
 <span class="sourceLineNo">2369</span><a name="line.2369"></a>
 <span class="sourceLineNo">2370</span>  int currentNextTransactionId()<a name="line.2370"></a>

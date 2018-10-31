@@ -8,8 +8,8 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package arez;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import arez.spy.ComputableValueCreatedEvent;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import arez.spy.ComputableValueDisposedEvent;<a name="line.4"></a>
+<span class="sourceLineNo">003</span>import arez.spy.ComputableValueCreateEvent;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import arez.spy.ComputableValueDisposeEvent;<a name="line.4"></a>
 <span class="sourceLineNo">005</span>import arez.spy.ComputableValueInfo;<a name="line.5"></a>
 <span class="sourceLineNo">006</span>import java.util.ArrayList;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import java.util.Objects;<a name="line.7"></a>
@@ -140,7 +140,7 @@
 <span class="sourceLineNo">132</span>    }<a name="line.132"></a>
 <span class="sourceLineNo">133</span>    if ( willPropagateSpyEvents() )<a name="line.133"></a>
 <span class="sourceLineNo">134</span>    {<a name="line.134"></a>
-<span class="sourceLineNo">135</span>      getSpy().reportSpyEvent( new ComputableValueCreatedEvent( asInfo() ) );<a name="line.135"></a>
+<span class="sourceLineNo">135</span>      getSpy().reportSpyEvent( new ComputableValueCreateEvent( asInfo() ) );<a name="line.135"></a>
 <span class="sourceLineNo">136</span>    }<a name="line.136"></a>
 <span class="sourceLineNo">137</span>    if ( Flags.KEEPALIVE == Flags.getScheduleType( flags ) )<a name="line.137"></a>
 <span class="sourceLineNo">138</span>    {<a name="line.138"></a>
@@ -233,7 +233,7 @@
 <span class="sourceLineNo">225</span>      _error = null;<a name="line.225"></a>
 <span class="sourceLineNo">226</span>      if ( willPropagateSpyEvents() )<a name="line.226"></a>
 <span class="sourceLineNo">227</span>      {<a name="line.227"></a>
-<span class="sourceLineNo">228</span>        reportSpyEvent( new ComputableValueDisposedEvent( asInfo() ) );<a name="line.228"></a>
+<span class="sourceLineNo">228</span>        reportSpyEvent( new ComputableValueDisposeEvent( asInfo() ) );<a name="line.228"></a>
 <span class="sourceLineNo">229</span>      }<a name="line.229"></a>
 <span class="sourceLineNo">230</span>      if ( null != _component )<a name="line.230"></a>
 <span class="sourceLineNo">231</span>      {<a name="line.231"></a>

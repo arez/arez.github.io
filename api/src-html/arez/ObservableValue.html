@@ -8,10 +8,10 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package arez;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import arez.spy.ComputableValueActivatedEvent;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import arez.spy.ComputableValueDeactivatedEvent;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import arez.spy.ObservableValueChangedEvent;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import arez.spy.ObservableValueDisposedEvent;<a name="line.6"></a>
+<span class="sourceLineNo">003</span>import arez.spy.ComputableValueActivateEvent;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import arez.spy.ComputableValueDeactivateEvent;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import arez.spy.ObservableValueChangeEvent;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import arez.spy.ObservableValueDisposeEvent;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import arez.spy.ObservableValueInfo;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import arez.spy.PropertyAccessor;<a name="line.8"></a>
 <span class="sourceLineNo">009</span>import arez.spy.PropertyMutator;<a name="line.9"></a>
@@ -180,7 +180,7 @@
 <span class="sourceLineNo">172</span>      {<a name="line.172"></a>
 <span class="sourceLineNo">173</span>        if ( willPropagateSpyEvents() )<a name="line.173"></a>
 <span class="sourceLineNo">174</span>        {<a name="line.174"></a>
-<span class="sourceLineNo">175</span>          reportSpyEvent( new ObservableValueDisposedEvent( asInfo() ) );<a name="line.175"></a>
+<span class="sourceLineNo">175</span>          reportSpyEvent( new ObservableValueDisposeEvent( asInfo() ) );<a name="line.175"></a>
 <span class="sourceLineNo">176</span>        }<a name="line.176"></a>
 <span class="sourceLineNo">177</span>        if ( null != _component )<a name="line.177"></a>
 <span class="sourceLineNo">178</span>        {<a name="line.178"></a>
@@ -343,7 +343,7 @@
 <span class="sourceLineNo">335</span>      _observer.setState( Flags.STATE_INACTIVE );<a name="line.335"></a>
 <span class="sourceLineNo">336</span>      if ( willPropagateSpyEvents() &amp;&amp; shouldPropagateDeactivateEvent )<a name="line.336"></a>
 <span class="sourceLineNo">337</span>      {<a name="line.337"></a>
-<span class="sourceLineNo">338</span>        reportSpyEvent( new ComputableValueDeactivatedEvent( _observer.getComputableValue().asInfo() ) );<a name="line.338"></a>
+<span class="sourceLineNo">338</span>        reportSpyEvent( new ComputableValueDeactivateEvent( _observer.getComputableValue().asInfo() ) );<a name="line.338"></a>
 <span class="sourceLineNo">339</span>      }<a name="line.339"></a>
 <span class="sourceLineNo">340</span>    }<a name="line.340"></a>
 <span class="sourceLineNo">341</span>  }<a name="line.341"></a>
@@ -370,7 +370,7 @@
 <span class="sourceLineNo">362</span>    _observer.setState( Flags.STATE_UP_TO_DATE );<a name="line.362"></a>
 <span class="sourceLineNo">363</span>    if ( willPropagateSpyEvents() )<a name="line.363"></a>
 <span class="sourceLineNo">364</span>    {<a name="line.364"></a>
-<span class="sourceLineNo">365</span>      reportSpyEvent( new ComputableValueActivatedEvent( _observer.getComputableValue().asInfo() ) );<a name="line.365"></a>
+<span class="sourceLineNo">365</span>      reportSpyEvent( new ComputableValueActivateEvent( _observer.getComputableValue().asInfo() ) );<a name="line.365"></a>
 <span class="sourceLineNo">366</span>    }<a name="line.366"></a>
 <span class="sourceLineNo">367</span>  }<a name="line.367"></a>
 <span class="sourceLineNo">368</span><a name="line.368"></a>
@@ -538,7 +538,7 @@
 <span class="sourceLineNo">530</span>  {<a name="line.530"></a>
 <span class="sourceLineNo">531</span>    if ( willPropagateSpyEvents() )<a name="line.531"></a>
 <span class="sourceLineNo">532</span>    {<a name="line.532"></a>
-<span class="sourceLineNo">533</span>      reportSpyEvent( new ObservableValueChangedEvent( asInfo(), getObservableValue() ) );<a name="line.533"></a>
+<span class="sourceLineNo">533</span>      reportSpyEvent( new ObservableValueChangeEvent( asInfo(), getObservableValue() ) );<a name="line.533"></a>
 <span class="sourceLineNo">534</span>    }<a name="line.534"></a>
 <span class="sourceLineNo">535</span>    getContext().getTransaction().reportChanged( this );<a name="line.535"></a>
 <span class="sourceLineNo">536</span>  }<a name="line.536"></a>
@@ -547,7 +547,7 @@
 <span class="sourceLineNo">539</span>  {<a name="line.539"></a>
 <span class="sourceLineNo">540</span>    if ( willPropagateSpyEvents() )<a name="line.540"></a>
 <span class="sourceLineNo">541</span>    {<a name="line.541"></a>
-<span class="sourceLineNo">542</span>      reportSpyEvent( new ObservableValueChangedEvent( asInfo(), getObservableValue() ) );<a name="line.542"></a>
+<span class="sourceLineNo">542</span>      reportSpyEvent( new ObservableValueChangeEvent( asInfo(), getObservableValue() ) );<a name="line.542"></a>
 <span class="sourceLineNo">543</span>    }<a name="line.543"></a>
 <span class="sourceLineNo">544</span>    getContext().getTransaction().reportChangeConfirmed( this );<a name="line.544"></a>
 <span class="sourceLineNo">545</span>  }<a name="line.545"></a>
