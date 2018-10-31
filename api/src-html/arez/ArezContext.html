@@ -562,53 +562,53 @@
 <span class="sourceLineNo">554</span>  /**<a name="line.554"></a>
 <span class="sourceLineNo">555</span>   * Create an "autorun" observer that reschedules observed procedure when dependency updates occur.<a name="line.555"></a>
 <span class="sourceLineNo">556</span>   *<a name="line.556"></a>
-<span class="sourceLineNo">557</span>   * @param observed the executable observed by the observer.<a name="line.557"></a>
+<span class="sourceLineNo">557</span>   * @param observe the executable observed by the observer.<a name="line.557"></a>
 <span class="sourceLineNo">558</span>   * @return the new Observer.<a name="line.558"></a>
 <span class="sourceLineNo">559</span>   */<a name="line.559"></a>
 <span class="sourceLineNo">560</span>  @Nonnull<a name="line.560"></a>
-<span class="sourceLineNo">561</span>  public Observer observer( @Nonnull final Procedure observed )<a name="line.561"></a>
+<span class="sourceLineNo">561</span>  public Observer observer( @Nonnull final Procedure observe )<a name="line.561"></a>
 <span class="sourceLineNo">562</span>  {<a name="line.562"></a>
-<span class="sourceLineNo">563</span>    return observer( observed, 0 );<a name="line.563"></a>
+<span class="sourceLineNo">563</span>    return observer( observe, 0 );<a name="line.563"></a>
 <span class="sourceLineNo">564</span>  }<a name="line.564"></a>
 <span class="sourceLineNo">565</span><a name="line.565"></a>
 <span class="sourceLineNo">566</span>  /**<a name="line.566"></a>
 <span class="sourceLineNo">567</span>   * Create an "autorun" observer that reschedules observed procedure when dependency updates occur.<a name="line.567"></a>
 <span class="sourceLineNo">568</span>   *<a name="line.568"></a>
-<span class="sourceLineNo">569</span>   * @param observed the executable observed by the observer.<a name="line.569"></a>
-<span class="sourceLineNo">570</span>   * @param flags    the flags used to create the observer. The acceptable flags are defined in {@link Flags}.<a name="line.570"></a>
+<span class="sourceLineNo">569</span>   * @param observe the executable observed by the observer.<a name="line.569"></a>
+<span class="sourceLineNo">570</span>   * @param flags   the flags used to create the observer. The acceptable flags are defined in {@link Flags}.<a name="line.570"></a>
 <span class="sourceLineNo">571</span>   * @return the new Observer.<a name="line.571"></a>
 <span class="sourceLineNo">572</span>   */<a name="line.572"></a>
 <span class="sourceLineNo">573</span>  @Nonnull<a name="line.573"></a>
-<span class="sourceLineNo">574</span>  public Observer observer( @Nonnull final Procedure observed, final int flags )<a name="line.574"></a>
+<span class="sourceLineNo">574</span>  public Observer observer( @Nonnull final Procedure observe, final int flags )<a name="line.574"></a>
 <span class="sourceLineNo">575</span>  {<a name="line.575"></a>
-<span class="sourceLineNo">576</span>    return observer( (String) null, observed, flags );<a name="line.576"></a>
+<span class="sourceLineNo">576</span>    return observer( (String) null, observe, flags );<a name="line.576"></a>
 <span class="sourceLineNo">577</span>  }<a name="line.577"></a>
 <span class="sourceLineNo">578</span><a name="line.578"></a>
 <span class="sourceLineNo">579</span>  /**<a name="line.579"></a>
 <span class="sourceLineNo">580</span>   * Create an "autorun" observer that reschedules observed procedure when dependency updates occur.<a name="line.580"></a>
 <span class="sourceLineNo">581</span>   *<a name="line.581"></a>
-<span class="sourceLineNo">582</span>   * @param name     the name of the observer.<a name="line.582"></a>
-<span class="sourceLineNo">583</span>   * @param observed the executable observed by the observer.<a name="line.583"></a>
+<span class="sourceLineNo">582</span>   * @param name    the name of the observer.<a name="line.582"></a>
+<span class="sourceLineNo">583</span>   * @param observe the executable observed by the observer.<a name="line.583"></a>
 <span class="sourceLineNo">584</span>   * @return the new Observer.<a name="line.584"></a>
 <span class="sourceLineNo">585</span>   */<a name="line.585"></a>
 <span class="sourceLineNo">586</span>  @Nonnull<a name="line.586"></a>
-<span class="sourceLineNo">587</span>  public Observer observer( @Nullable final String name, @Nonnull final Procedure observed )<a name="line.587"></a>
+<span class="sourceLineNo">587</span>  public Observer observer( @Nullable final String name, @Nonnull final Procedure observe )<a name="line.587"></a>
 <span class="sourceLineNo">588</span>  {<a name="line.588"></a>
-<span class="sourceLineNo">589</span>    return observer( name, observed, 0 );<a name="line.589"></a>
+<span class="sourceLineNo">589</span>    return observer( name, observe, 0 );<a name="line.589"></a>
 <span class="sourceLineNo">590</span>  }<a name="line.590"></a>
 <span class="sourceLineNo">591</span><a name="line.591"></a>
 <span class="sourceLineNo">592</span>  /**<a name="line.592"></a>
 <span class="sourceLineNo">593</span>   * Create an "autorun" observer that reschedules observed procedure when dependency updates occur.<a name="line.593"></a>
 <span class="sourceLineNo">594</span>   *<a name="line.594"></a>
-<span class="sourceLineNo">595</span>   * @param name     the name of the observer.<a name="line.595"></a>
-<span class="sourceLineNo">596</span>   * @param observed the executable observed by the observer.<a name="line.596"></a>
-<span class="sourceLineNo">597</span>   * @param flags    the flags used to create the observer. The acceptable flags are defined in {@link Flags}.<a name="line.597"></a>
+<span class="sourceLineNo">595</span>   * @param name    the name of the observer.<a name="line.595"></a>
+<span class="sourceLineNo">596</span>   * @param observe the executable observed by the observer.<a name="line.596"></a>
+<span class="sourceLineNo">597</span>   * @param flags   the flags used to create the observer. The acceptable flags are defined in {@link Flags}.<a name="line.597"></a>
 <span class="sourceLineNo">598</span>   * @return the new Observer.<a name="line.598"></a>
 <span class="sourceLineNo">599</span>   */<a name="line.599"></a>
 <span class="sourceLineNo">600</span>  @Nonnull<a name="line.600"></a>
-<span class="sourceLineNo">601</span>  public Observer observer( @Nullable final String name, @Nonnull final Procedure observed, final int flags )<a name="line.601"></a>
+<span class="sourceLineNo">601</span>  public Observer observer( @Nullable final String name, @Nonnull final Procedure observe, final int flags )<a name="line.601"></a>
 <span class="sourceLineNo">602</span>  {<a name="line.602"></a>
-<span class="sourceLineNo">603</span>    return observer( null, name, observed, flags );<a name="line.603"></a>
+<span class="sourceLineNo">603</span>    return observer( null, name, observe, flags );<a name="line.603"></a>
 <span class="sourceLineNo">604</span>  }<a name="line.604"></a>
 <span class="sourceLineNo">605</span><a name="line.605"></a>
 <span class="sourceLineNo">606</span>  /**<a name="line.606"></a>
@@ -616,15 +616,15 @@
 <span class="sourceLineNo">608</span>   *<a name="line.608"></a>
 <span class="sourceLineNo">609</span>   * @param component the component containing the observer if any. Should be null if {@link Arez#areNativeComponentsEnabled()} returns false.<a name="line.609"></a>
 <span class="sourceLineNo">610</span>   * @param name      the name of the observer.<a name="line.610"></a>
-<span class="sourceLineNo">611</span>   * @param observed  the executable observed by the observer.<a name="line.611"></a>
+<span class="sourceLineNo">611</span>   * @param observe   the executable observed by the observer.<a name="line.611"></a>
 <span class="sourceLineNo">612</span>   * @return the new Observer.<a name="line.612"></a>
 <span class="sourceLineNo">613</span>   */<a name="line.613"></a>
 <span class="sourceLineNo">614</span>  @Nonnull<a name="line.614"></a>
 <span class="sourceLineNo">615</span>  public Observer observer( @Nullable final Component component,<a name="line.615"></a>
 <span class="sourceLineNo">616</span>                            @Nullable final String name,<a name="line.616"></a>
-<span class="sourceLineNo">617</span>                            @Nonnull final Procedure observed )<a name="line.617"></a>
+<span class="sourceLineNo">617</span>                            @Nonnull final Procedure observe )<a name="line.617"></a>
 <span class="sourceLineNo">618</span>  {<a name="line.618"></a>
-<span class="sourceLineNo">619</span>    return observer( component, name, observed, 0 );<a name="line.619"></a>
+<span class="sourceLineNo">619</span>    return observer( component, name, observe, 0 );<a name="line.619"></a>
 <span class="sourceLineNo">620</span>  }<a name="line.620"></a>
 <span class="sourceLineNo">621</span><a name="line.621"></a>
 <span class="sourceLineNo">622</span>  /**<a name="line.622"></a>
@@ -632,112 +632,112 @@
 <span class="sourceLineNo">624</span>   *<a name="line.624"></a>
 <span class="sourceLineNo">625</span>   * @param component the component containing the observer if any. Should be null if {@link Arez#areNativeComponentsEnabled()} returns false.<a name="line.625"></a>
 <span class="sourceLineNo">626</span>   * @param name      the name of the observer.<a name="line.626"></a>
-<span class="sourceLineNo">627</span>   * @param observed  the executable observed by the observer.<a name="line.627"></a>
+<span class="sourceLineNo">627</span>   * @param observe   the executable observed by the observer.<a name="line.627"></a>
 <span class="sourceLineNo">628</span>   * @param flags     the flags used to create the observer. The acceptable flags are defined in {@link Flags}.<a name="line.628"></a>
 <span class="sourceLineNo">629</span>   * @return the new Observer.<a name="line.629"></a>
 <span class="sourceLineNo">630</span>   */<a name="line.630"></a>
 <span class="sourceLineNo">631</span>  @Nonnull<a name="line.631"></a>
 <span class="sourceLineNo">632</span>  public Observer observer( @Nullable final Component component,<a name="line.632"></a>
 <span class="sourceLineNo">633</span>                            @Nullable final String name,<a name="line.633"></a>
-<span class="sourceLineNo">634</span>                            @Nonnull final Procedure observed,<a name="line.634"></a>
+<span class="sourceLineNo">634</span>                            @Nonnull final Procedure observe,<a name="line.634"></a>
 <span class="sourceLineNo">635</span>                            final int flags )<a name="line.635"></a>
 <span class="sourceLineNo">636</span>  {<a name="line.636"></a>
-<span class="sourceLineNo">637</span>    return observer( component, name, Objects.requireNonNull( observed ), null, flags );<a name="line.637"></a>
+<span class="sourceLineNo">637</span>    return observer( component, name, Objects.requireNonNull( observe ), null, flags );<a name="line.637"></a>
 <span class="sourceLineNo">638</span>  }<a name="line.638"></a>
 <span class="sourceLineNo">639</span><a name="line.639"></a>
 <span class="sourceLineNo">640</span>  /**<a name="line.640"></a>
 <span class="sourceLineNo">641</span>   * Create an observer.<a name="line.641"></a>
-<span class="sourceLineNo">642</span>   * The user must pass either the &lt;code&gt;observed&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; parameter.<a name="line.642"></a>
+<span class="sourceLineNo">642</span>   * The user must pass either the &lt;code&gt;observe&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; parameter.<a name="line.642"></a>
 <span class="sourceLineNo">643</span>   *<a name="line.643"></a>
 <span class="sourceLineNo">644</span>   * @param component    the component containing the observer if any. Should be null if {@link Arez#areNativeComponentsEnabled()} returns false.<a name="line.644"></a>
 <span class="sourceLineNo">645</span>   * @param name         the name of the observer.<a name="line.645"></a>
-<span class="sourceLineNo">646</span>   * @param observed     the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.646"></a>
+<span class="sourceLineNo">646</span>   * @param observe      the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.646"></a>
 <span class="sourceLineNo">647</span>   * @param onDepsChange the hook invoked when dependencies changed. If this is non-null then it is expected that hook will manually schedule the observer by calling {@link Observer#schedule()} at some point.<a name="line.647"></a>
 <span class="sourceLineNo">648</span>   * @return the new Observer.<a name="line.648"></a>
 <span class="sourceLineNo">649</span>   */<a name="line.649"></a>
 <span class="sourceLineNo">650</span>  @Nonnull<a name="line.650"></a>
 <span class="sourceLineNo">651</span>  public Observer observer( @Nullable final Component component,<a name="line.651"></a>
 <span class="sourceLineNo">652</span>                            @Nullable final String name,<a name="line.652"></a>
-<span class="sourceLineNo">653</span>                            @Nullable final Procedure observed,<a name="line.653"></a>
+<span class="sourceLineNo">653</span>                            @Nullable final Procedure observe,<a name="line.653"></a>
 <span class="sourceLineNo">654</span>                            @Nullable final Procedure onDepsChange )<a name="line.654"></a>
 <span class="sourceLineNo">655</span>  {<a name="line.655"></a>
-<span class="sourceLineNo">656</span>    return observer( component, name, observed, onDepsChange, 0 );<a name="line.656"></a>
+<span class="sourceLineNo">656</span>    return observer( component, name, observe, onDepsChange, 0 );<a name="line.656"></a>
 <span class="sourceLineNo">657</span>  }<a name="line.657"></a>
 <span class="sourceLineNo">658</span><a name="line.658"></a>
 <span class="sourceLineNo">659</span>  /**<a name="line.659"></a>
 <span class="sourceLineNo">660</span>   * Create an observer.<a name="line.660"></a>
-<span class="sourceLineNo">661</span>   * The user must pass either the &lt;code&gt;observed&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; or both parameters.<a name="line.661"></a>
+<span class="sourceLineNo">661</span>   * The user must pass either the &lt;code&gt;observe&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; or both parameters.<a name="line.661"></a>
 <span class="sourceLineNo">662</span>   *<a name="line.662"></a>
-<span class="sourceLineNo">663</span>   * @param observed     the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.663"></a>
+<span class="sourceLineNo">663</span>   * @param observe      the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.663"></a>
 <span class="sourceLineNo">664</span>   * @param onDepsChange the hook invoked when dependencies changed. If this is non-null then it is expected that hook will manually schedule the observer by calling {@link Observer#schedule()} at some point.<a name="line.664"></a>
 <span class="sourceLineNo">665</span>   * @return the new Observer.<a name="line.665"></a>
 <span class="sourceLineNo">666</span>   */<a name="line.666"></a>
 <span class="sourceLineNo">667</span>  @Nonnull<a name="line.667"></a>
-<span class="sourceLineNo">668</span>  public Observer observer( @Nullable final Procedure observed, @Nullable final Procedure onDepsChange )<a name="line.668"></a>
+<span class="sourceLineNo">668</span>  public Observer observer( @Nullable final Procedure observe, @Nullable final Procedure onDepsChange )<a name="line.668"></a>
 <span class="sourceLineNo">669</span>  {<a name="line.669"></a>
-<span class="sourceLineNo">670</span>    return observer( observed, onDepsChange, 0 );<a name="line.670"></a>
+<span class="sourceLineNo">670</span>    return observer( observe, onDepsChange, 0 );<a name="line.670"></a>
 <span class="sourceLineNo">671</span>  }<a name="line.671"></a>
 <span class="sourceLineNo">672</span><a name="line.672"></a>
 <span class="sourceLineNo">673</span>  /**<a name="line.673"></a>
 <span class="sourceLineNo">674</span>   * Create an observer.<a name="line.674"></a>
-<span class="sourceLineNo">675</span>   * The user must pass either the &lt;code&gt;observed&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; or both parameters.<a name="line.675"></a>
+<span class="sourceLineNo">675</span>   * The user must pass either the &lt;code&gt;observe&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; or both parameters.<a name="line.675"></a>
 <span class="sourceLineNo">676</span>   *<a name="line.676"></a>
-<span class="sourceLineNo">677</span>   * @param observed     the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.677"></a>
+<span class="sourceLineNo">677</span>   * @param observe      the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.677"></a>
 <span class="sourceLineNo">678</span>   * @param onDepsChange the hook invoked when dependencies changed. If this is non-null then it is expected that hook will manually schedule the observer by calling {@link Observer#schedule()} at some point.<a name="line.678"></a>
 <span class="sourceLineNo">679</span>   * @param flags        the flags used to create the observer. The acceptable flags are defined in {@link Flags}.<a name="line.679"></a>
 <span class="sourceLineNo">680</span>   * @return the new Observer.<a name="line.680"></a>
 <span class="sourceLineNo">681</span>   */<a name="line.681"></a>
 <span class="sourceLineNo">682</span>  @Nonnull<a name="line.682"></a>
-<span class="sourceLineNo">683</span>  public Observer observer( @Nullable final Procedure observed,<a name="line.683"></a>
+<span class="sourceLineNo">683</span>  public Observer observer( @Nullable final Procedure observe,<a name="line.683"></a>
 <span class="sourceLineNo">684</span>                            @Nullable final Procedure onDepsChange,<a name="line.684"></a>
 <span class="sourceLineNo">685</span>                            final int flags )<a name="line.685"></a>
 <span class="sourceLineNo">686</span>  {<a name="line.686"></a>
-<span class="sourceLineNo">687</span>    return observer( null, observed, onDepsChange, flags );<a name="line.687"></a>
+<span class="sourceLineNo">687</span>    return observer( null, observe, onDepsChange, flags );<a name="line.687"></a>
 <span class="sourceLineNo">688</span>  }<a name="line.688"></a>
 <span class="sourceLineNo">689</span><a name="line.689"></a>
 <span class="sourceLineNo">690</span>  /**<a name="line.690"></a>
 <span class="sourceLineNo">691</span>   * Create an observer.<a name="line.691"></a>
-<span class="sourceLineNo">692</span>   * The user must pass either the &lt;code&gt;observed&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; or both parameters.<a name="line.692"></a>
+<span class="sourceLineNo">692</span>   * The user must pass either the &lt;code&gt;observe&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; or both parameters.<a name="line.692"></a>
 <span class="sourceLineNo">693</span>   *<a name="line.693"></a>
 <span class="sourceLineNo">694</span>   * @param name         the name of the observer.<a name="line.694"></a>
-<span class="sourceLineNo">695</span>   * @param observed     the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.695"></a>
+<span class="sourceLineNo">695</span>   * @param observe      the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.695"></a>
 <span class="sourceLineNo">696</span>   * @param onDepsChange the hook invoked when dependencies changed. If this is non-null then it is expected that hook will manually schedule the observer by calling {@link Observer#schedule()} at some point.<a name="line.696"></a>
 <span class="sourceLineNo">697</span>   * @return the new Observer.<a name="line.697"></a>
 <span class="sourceLineNo">698</span>   */<a name="line.698"></a>
 <span class="sourceLineNo">699</span>  @Nonnull<a name="line.699"></a>
 <span class="sourceLineNo">700</span>  public Observer observer( @Nullable final String name,<a name="line.700"></a>
-<span class="sourceLineNo">701</span>                            @Nullable final Procedure observed,<a name="line.701"></a>
+<span class="sourceLineNo">701</span>                            @Nullable final Procedure observe,<a name="line.701"></a>
 <span class="sourceLineNo">702</span>                            @Nullable final Procedure onDepsChange )<a name="line.702"></a>
 <span class="sourceLineNo">703</span>  {<a name="line.703"></a>
-<span class="sourceLineNo">704</span>    return observer( name, observed, onDepsChange, 0 );<a name="line.704"></a>
+<span class="sourceLineNo">704</span>    return observer( name, observe, onDepsChange, 0 );<a name="line.704"></a>
 <span class="sourceLineNo">705</span>  }<a name="line.705"></a>
 <span class="sourceLineNo">706</span><a name="line.706"></a>
 <span class="sourceLineNo">707</span>  /**<a name="line.707"></a>
 <span class="sourceLineNo">708</span>   * Create an observer.<a name="line.708"></a>
-<span class="sourceLineNo">709</span>   * The user must pass either the &lt;code&gt;observed&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; or both parameters.<a name="line.709"></a>
+<span class="sourceLineNo">709</span>   * The user must pass either the &lt;code&gt;observe&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; or both parameters.<a name="line.709"></a>
 <span class="sourceLineNo">710</span>   *<a name="line.710"></a>
 <span class="sourceLineNo">711</span>   * @param name         the name of the observer.<a name="line.711"></a>
-<span class="sourceLineNo">712</span>   * @param observed     the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.712"></a>
+<span class="sourceLineNo">712</span>   * @param observe      the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.712"></a>
 <span class="sourceLineNo">713</span>   * @param onDepsChange the hook invoked when dependencies changed. If this is non-null then it is expected that hook will manually schedule the observer by calling {@link Observer#schedule()} at some point.<a name="line.713"></a>
 <span class="sourceLineNo">714</span>   * @param flags        the flags used to create the observer. The acceptable flags are defined in {@link Flags}.<a name="line.714"></a>
 <span class="sourceLineNo">715</span>   * @return the new Observer.<a name="line.715"></a>
 <span class="sourceLineNo">716</span>   */<a name="line.716"></a>
 <span class="sourceLineNo">717</span>  @Nonnull<a name="line.717"></a>
 <span class="sourceLineNo">718</span>  public Observer observer( @Nullable final String name,<a name="line.718"></a>
-<span class="sourceLineNo">719</span>                            @Nullable final Procedure observed,<a name="line.719"></a>
+<span class="sourceLineNo">719</span>                            @Nullable final Procedure observe,<a name="line.719"></a>
 <span class="sourceLineNo">720</span>                            @Nullable final Procedure onDepsChange,<a name="line.720"></a>
 <span class="sourceLineNo">721</span>                            final int flags )<a name="line.721"></a>
 <span class="sourceLineNo">722</span>  {<a name="line.722"></a>
-<span class="sourceLineNo">723</span>    return observer( null, name, observed, onDepsChange, flags );<a name="line.723"></a>
+<span class="sourceLineNo">723</span>    return observer( null, name, observe, onDepsChange, flags );<a name="line.723"></a>
 <span class="sourceLineNo">724</span>  }<a name="line.724"></a>
 <span class="sourceLineNo">725</span><a name="line.725"></a>
 <span class="sourceLineNo">726</span>  /**<a name="line.726"></a>
 <span class="sourceLineNo">727</span>   * Create an observer.<a name="line.727"></a>
-<span class="sourceLineNo">728</span>   * The user must pass either the &lt;code&gt;observed&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; or both parameters.<a name="line.728"></a>
+<span class="sourceLineNo">728</span>   * The user must pass either the &lt;code&gt;observe&lt;/code&gt; or &lt;code&gt;onDepsChange&lt;/code&gt; or both parameters.<a name="line.728"></a>
 <span class="sourceLineNo">729</span>   *<a name="line.729"></a>
 <span class="sourceLineNo">730</span>   * @param component    the component containing the observer if any. Should be null if {@link Arez#areNativeComponentsEnabled()} returns false.<a name="line.730"></a>
 <span class="sourceLineNo">731</span>   * @param name         the name of the observer.<a name="line.731"></a>
-<span class="sourceLineNo">732</span>   * @param observed     the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.732"></a>
+<span class="sourceLineNo">732</span>   * @param observe      the executable observed by the observer. May be null if observer is externally scheduled.<a name="line.732"></a>
 <span class="sourceLineNo">733</span>   * @param onDepsChange the hook invoked when dependencies changed. If this is non-null then it is expected that hook will manually schedule the observer by calling {@link Observer#schedule()} at some point.<a name="line.733"></a>
 <span class="sourceLineNo">734</span>   * @param flags        the flags used to create the observer. The acceptable flags are defined in {@link Flags}.<a name="line.734"></a>
 <span class="sourceLineNo">735</span>   * @return the new Observer.<a name="line.735"></a>
@@ -745,22 +745,22 @@
 <span class="sourceLineNo">737</span>  @Nonnull<a name="line.737"></a>
 <span class="sourceLineNo">738</span>  public Observer observer( @Nullable final Component component,<a name="line.738"></a>
 <span class="sourceLineNo">739</span>                            @Nullable final String name,<a name="line.739"></a>
-<span class="sourceLineNo">740</span>                            @Nullable final Procedure observed,<a name="line.740"></a>
+<span class="sourceLineNo">740</span>                            @Nullable final Procedure observe,<a name="line.740"></a>
 <span class="sourceLineNo">741</span>                            @Nullable final Procedure onDepsChange,<a name="line.741"></a>
 <span class="sourceLineNo">742</span>                            final int flags )<a name="line.742"></a>
 <span class="sourceLineNo">743</span>  {<a name="line.743"></a>
 <span class="sourceLineNo">744</span>    return new Observer( Arez.areZonesEnabled() ? this : null,<a name="line.744"></a>
 <span class="sourceLineNo">745</span>                         component,<a name="line.745"></a>
 <span class="sourceLineNo">746</span>                         generateName( "Observer", name ),<a name="line.746"></a>
-<span class="sourceLineNo">747</span>                         observed,<a name="line.747"></a>
+<span class="sourceLineNo">747</span>                         observe,<a name="line.747"></a>
 <span class="sourceLineNo">748</span>                         onDepsChange,<a name="line.748"></a>
 <span class="sourceLineNo">749</span>                         flags );<a name="line.749"></a>
 <span class="sourceLineNo">750</span>  }<a name="line.750"></a>
 <span class="sourceLineNo">751</span><a name="line.751"></a>
 <span class="sourceLineNo">752</span>  /**<a name="line.752"></a>
 <span class="sourceLineNo">753</span>   * Create a tracking observer. The tracking observer triggers the onDepsChange hook function when<a name="line.753"></a>
-<span class="sourceLineNo">754</span>   * dependencies in the observed function are updated. Application code is responsible for executing the<a name="line.754"></a>
-<span class="sourceLineNo">755</span>   * observed function by invoking a observe method such as {@link #observe(Observer, Function)}.<a name="line.755"></a>
+<span class="sourceLineNo">754</span>   * dependencies in the observe function are updated. Application code is responsible for executing the<a name="line.754"></a>
+<span class="sourceLineNo">755</span>   * observe function by invoking a observe method such as {@link #observe(Observer, Function)}.<a name="line.755"></a>
 <span class="sourceLineNo">756</span>   *<a name="line.756"></a>
 <span class="sourceLineNo">757</span>   * @param onDepsChange the hook invoked when dependencies changed.<a name="line.757"></a>
 <span class="sourceLineNo">758</span>   * @return the new Observer.<a name="line.758"></a>
@@ -773,8 +773,8 @@
 <span class="sourceLineNo">765</span><a name="line.765"></a>
 <span class="sourceLineNo">766</span>  /**<a name="line.766"></a>
 <span class="sourceLineNo">767</span>   * Create a tracking observer. The tracking observer triggers the onDepsChange hook function when<a name="line.767"></a>
-<span class="sourceLineNo">768</span>   * dependencies in the observed function are updated. Application code is responsible for executing the<a name="line.768"></a>
-<span class="sourceLineNo">769</span>   * observed function by invoking a observe method such as {@link #observe(Observer, Function)}.<a name="line.769"></a>
+<span class="sourceLineNo">768</span>   * dependencies in the observe function are updated. Application code is responsible for executing the<a name="line.768"></a>
+<span class="sourceLineNo">769</span>   * observe function by invoking a observe method such as {@link #observe(Observer, Function)}.<a name="line.769"></a>
 <span class="sourceLineNo">770</span>   *<a name="line.770"></a>
 <span class="sourceLineNo">771</span>   * @param onDepsChange the hook invoked when dependencies changed.<a name="line.771"></a>
 <span class="sourceLineNo">772</span>   * @param flags        the flags used to create the observer. The acceptable flags are defined in {@link Flags}.<a name="line.772"></a>
@@ -788,8 +788,8 @@
 <span class="sourceLineNo">780</span><a name="line.780"></a>
 <span class="sourceLineNo">781</span>  /**<a name="line.781"></a>
 <span class="sourceLineNo">782</span>   * Create a tracking observer. The tracking observer triggers the onDepsChange hook function when<a name="line.782"></a>
-<span class="sourceLineNo">783</span>   * dependencies in the observed function are updated. Application code is responsible for executing the<a name="line.783"></a>
-<span class="sourceLineNo">784</span>   * observed function by invoking a observe method such as {@link #observe(Observer, Function)}.<a name="line.784"></a>
+<span class="sourceLineNo">783</span>   * dependencies in the observe function are updated. Application code is responsible for executing the<a name="line.783"></a>
+<span class="sourceLineNo">784</span>   * observe function by invoking a observe method such as {@link #observe(Observer, Function)}.<a name="line.784"></a>
 <span class="sourceLineNo">785</span>   *<a name="line.785"></a>
 <span class="sourceLineNo">786</span>   * @param name         the name of the observer.<a name="line.786"></a>
 <span class="sourceLineNo">787</span>   * @param onDepsChange the hook invoked when dependencies changed.<a name="line.787"></a>
@@ -803,8 +803,8 @@
 <span class="sourceLineNo">795</span><a name="line.795"></a>
 <span class="sourceLineNo">796</span>  /**<a name="line.796"></a>
 <span class="sourceLineNo">797</span>   * Create a tracking observer. The tracking observer triggers the onDepsChange hook function when<a name="line.797"></a>
-<span class="sourceLineNo">798</span>   * dependencies in the observed function are updated. Application code is responsible for executing the<a name="line.798"></a>
-<span class="sourceLineNo">799</span>   * observed function by invoking a observe method such as {@link #observe(Observer, Function)}.<a name="line.799"></a>
+<span class="sourceLineNo">798</span>   * dependencies in the observe function are updated. Application code is responsible for executing the<a name="line.798"></a>
+<span class="sourceLineNo">799</span>   * observe function by invoking a observe method such as {@link #observe(Observer, Function)}.<a name="line.799"></a>
 <span class="sourceLineNo">800</span>   *<a name="line.800"></a>
 <span class="sourceLineNo">801</span>   * @param name         the name of the observer.<a name="line.801"></a>
 <span class="sourceLineNo">802</span>   * @param onDepsChange the hook invoked when dependencies changed.<a name="line.802"></a>
@@ -819,8 +819,8 @@
 <span class="sourceLineNo">811</span><a name="line.811"></a>
 <span class="sourceLineNo">812</span>  /**<a name="line.812"></a>
 <span class="sourceLineNo">813</span>   * Create a tracking observer. The tracking observer triggers the onDepsChange hook function when<a name="line.813"></a>
-<span class="sourceLineNo">814</span>   * dependencies in the observed function are updated. Application code is responsible for executing the<a name="line.814"></a>
-<span class="sourceLineNo">815</span>   * observed function by invoking a observe method such as {@link #observe(Observer, Function)}.<a name="line.815"></a>
+<span class="sourceLineNo">814</span>   * dependencies in the observe function are updated. Application code is responsible for executing the<a name="line.814"></a>
+<span class="sourceLineNo">815</span>   * observe function by invoking a observe method such as {@link #observe(Observer, Function)}.<a name="line.815"></a>
 <span class="sourceLineNo">816</span>   *<a name="line.816"></a>
 <span class="sourceLineNo">817</span>   * @param component    the component containing the observer if any. Should be null if {@link Arez#areNativeComponentsEnabled()} returns false.<a name="line.817"></a>
 <span class="sourceLineNo">818</span>   * @param name         the name of the observer.<a name="line.818"></a>
@@ -837,8 +837,8 @@
 <span class="sourceLineNo">829</span><a name="line.829"></a>
 <span class="sourceLineNo">830</span>  /**<a name="line.830"></a>
 <span class="sourceLineNo">831</span>   * Create a tracking observer. The tracking observer triggers the onDepsChange hook function when<a name="line.831"></a>
-<span class="sourceLineNo">832</span>   * dependencies in the observed function are updated. Application code is responsible for executing the<a name="line.832"></a>
-<span class="sourceLineNo">833</span>   * observed function by invoking a observe method such as {@link #observe(Observer, Procedure)}.<a name="line.833"></a>
+<span class="sourceLineNo">832</span>   * dependencies in the observe function are updated. Application code is responsible for executing the<a name="line.832"></a>
+<span class="sourceLineNo">833</span>   * observe function by invoking a observe method such as {@link #observe(Observer, Procedure)}.<a name="line.833"></a>
 <span class="sourceLineNo">834</span>   *<a name="line.834"></a>
 <span class="sourceLineNo">835</span>   * @param component    the component containing the observer if any. Should be null if {@link Arez#areNativeComponentsEnabled()} returns false.<a name="line.835"></a>
 <span class="sourceLineNo">836</span>   * @param name         the name of the observer.<a name="line.836"></a>
@@ -1360,36 +1360,36 @@
 <span class="sourceLineNo">1352</span>  }<a name="line.1352"></a>
 <span class="sourceLineNo">1353</span><a name="line.1353"></a>
 <span class="sourceLineNo">1354</span>  /**<a name="line.1354"></a>
-<span class="sourceLineNo">1355</span>   * Execute the observed function with the specified Observer.<a name="line.1355"></a>
+<span class="sourceLineNo">1355</span>   * Execute the observe function with the specified Observer.<a name="line.1355"></a>
 <span class="sourceLineNo">1356</span>   * The Observer must be created by the {@link #tracker(Procedure)} methods.<a name="line.1356"></a>
-<span class="sourceLineNo">1357</span>   * The observed function may throw an exception.<a name="line.1357"></a>
+<span class="sourceLineNo">1357</span>   * The observe function may throw an exception.<a name="line.1357"></a>
 <span class="sourceLineNo">1358</span>   *<a name="line.1358"></a>
 <span class="sourceLineNo">1359</span>   * @param &lt;T&gt;      the type of return value.<a name="line.1359"></a>
 <span class="sourceLineNo">1360</span>   * @param observer the Observer.<a name="line.1360"></a>
-<span class="sourceLineNo">1361</span>   * @param observed the observed function.<a name="line.1361"></a>
-<span class="sourceLineNo">1362</span>   * @return the value returned from the observed function.<a name="line.1362"></a>
-<span class="sourceLineNo">1363</span>   * @throws Exception if the observed function throws an an exception.<a name="line.1363"></a>
+<span class="sourceLineNo">1361</span>   * @param observe  the observe function.<a name="line.1361"></a>
+<span class="sourceLineNo">1362</span>   * @return the value returned from the observe function.<a name="line.1362"></a>
+<span class="sourceLineNo">1363</span>   * @throws Exception if the observe function throws an an exception.<a name="line.1363"></a>
 <span class="sourceLineNo">1364</span>   */<a name="line.1364"></a>
-<span class="sourceLineNo">1365</span>  public &lt;T&gt; T observe( @Nonnull final Observer observer, @Nonnull final Function&lt;T&gt; observed )<a name="line.1365"></a>
+<span class="sourceLineNo">1365</span>  public &lt;T&gt; T observe( @Nonnull final Observer observer, @Nonnull final Function&lt;T&gt; observe )<a name="line.1365"></a>
 <span class="sourceLineNo">1366</span>    throws Throwable<a name="line.1366"></a>
 <span class="sourceLineNo">1367</span>  {<a name="line.1367"></a>
-<span class="sourceLineNo">1368</span>    return observe( observer, observed, null );<a name="line.1368"></a>
+<span class="sourceLineNo">1368</span>    return observe( observer, observe, null );<a name="line.1368"></a>
 <span class="sourceLineNo">1369</span>  }<a name="line.1369"></a>
 <span class="sourceLineNo">1370</span><a name="line.1370"></a>
 <span class="sourceLineNo">1371</span>  /**<a name="line.1371"></a>
-<span class="sourceLineNo">1372</span>   * Execute the observed function with the specified Observer.<a name="line.1372"></a>
+<span class="sourceLineNo">1372</span>   * Execute the observe function with the specified Observer.<a name="line.1372"></a>
 <span class="sourceLineNo">1373</span>   * The Observer must be created by the {@link #tracker(Procedure)} methods.<a name="line.1373"></a>
-<span class="sourceLineNo">1374</span>   * The observed function may throw an exception.<a name="line.1374"></a>
+<span class="sourceLineNo">1374</span>   * The observe function may throw an exception.<a name="line.1374"></a>
 <span class="sourceLineNo">1375</span>   *<a name="line.1375"></a>
 <span class="sourceLineNo">1376</span>   * @param &lt;T&gt;        the type of return value.<a name="line.1376"></a>
 <span class="sourceLineNo">1377</span>   * @param observer   the Observer.<a name="line.1377"></a>
-<span class="sourceLineNo">1378</span>   * @param observed   the observed function.<a name="line.1378"></a>
+<span class="sourceLineNo">1378</span>   * @param observe    the observe function.<a name="line.1378"></a>
 <span class="sourceLineNo">1379</span>   * @param parameters the parameters if any. The parameters are only used to generate a spy event.<a name="line.1379"></a>
-<span class="sourceLineNo">1380</span>   * @return the value returned from the observed function.<a name="line.1380"></a>
-<span class="sourceLineNo">1381</span>   * @throws Exception if the observed function throws an an exception.<a name="line.1381"></a>
+<span class="sourceLineNo">1380</span>   * @return the value returned from the observe function.<a name="line.1380"></a>
+<span class="sourceLineNo">1381</span>   * @throws Exception if the observe function throws an an exception.<a name="line.1381"></a>
 <span class="sourceLineNo">1382</span>   */<a name="line.1382"></a>
 <span class="sourceLineNo">1383</span>  public &lt;T&gt; T observe( @Nonnull final Observer observer,<a name="line.1383"></a>
-<span class="sourceLineNo">1384</span>                        @Nonnull final Function&lt;T&gt; observed,<a name="line.1384"></a>
+<span class="sourceLineNo">1384</span>                        @Nonnull final Function&lt;T&gt; observe,<a name="line.1384"></a>
 <span class="sourceLineNo">1385</span>                        @Nullable final Object[] parameters )<a name="line.1385"></a>
 <span class="sourceLineNo">1386</span>    throws Throwable<a name="line.1386"></a>
 <span class="sourceLineNo">1387</span>  {<a name="line.1387"></a>
@@ -1400,8 +1400,8 @@
 <span class="sourceLineNo">1392</span>                          "' but observer is not configured to use an application executor." );<a name="line.1392"></a>
 <span class="sourceLineNo">1393</span>    }<a name="line.1393"></a>
 <span class="sourceLineNo">1394</span>    return _action( observerToName( observer ),<a name="line.1394"></a>
-<span class="sourceLineNo">1395</span>                    observed,<a name="line.1395"></a>
-<span class="sourceLineNo">1396</span>                    trackerObservedFlags( observer ),<a name="line.1396"></a>
+<span class="sourceLineNo">1395</span>                    observe,<a name="line.1395"></a>
+<span class="sourceLineNo">1396</span>                    trackerObserveFlags( observer ),<a name="line.1396"></a>
 <span class="sourceLineNo">1397</span>                    observer,<a name="line.1397"></a>
 <span class="sourceLineNo">1398</span>                    parameters,<a name="line.1398"></a>
 <span class="sourceLineNo">1399</span>                    true );<a name="line.1399"></a>
@@ -1486,33 +1486,33 @@
 <span class="sourceLineNo">1478</span>  }<a name="line.1478"></a>
 <span class="sourceLineNo">1479</span><a name="line.1479"></a>
 <span class="sourceLineNo">1480</span>  /**<a name="line.1480"></a>
-<span class="sourceLineNo">1481</span>   * Execute the observed function with the specified Observer.<a name="line.1481"></a>
+<span class="sourceLineNo">1481</span>   * Execute the observe function with the specified Observer.<a name="line.1481"></a>
 <span class="sourceLineNo">1482</span>   * The Observer must be created by the {@link #tracker(Procedure)} methods.<a name="line.1482"></a>
-<span class="sourceLineNo">1483</span>   * The observed function should not throw an exception.<a name="line.1483"></a>
+<span class="sourceLineNo">1483</span>   * The observe function should not throw an exception.<a name="line.1483"></a>
 <span class="sourceLineNo">1484</span>   *<a name="line.1484"></a>
 <span class="sourceLineNo">1485</span>   * @param &lt;T&gt;      the type of return value.<a name="line.1485"></a>
 <span class="sourceLineNo">1486</span>   * @param observer the Observer.<a name="line.1486"></a>
-<span class="sourceLineNo">1487</span>   * @param observed the observed function.<a name="line.1487"></a>
-<span class="sourceLineNo">1488</span>   * @return the value returned from the observed function.<a name="line.1488"></a>
+<span class="sourceLineNo">1487</span>   * @param observe  the observe function.<a name="line.1487"></a>
+<span class="sourceLineNo">1488</span>   * @return the value returned from the observe function.<a name="line.1488"></a>
 <span class="sourceLineNo">1489</span>   */<a name="line.1489"></a>
-<span class="sourceLineNo">1490</span>  public &lt;T&gt; T safeObserve( @Nonnull final Observer observer, @Nonnull final SafeFunction&lt;T&gt; observed )<a name="line.1490"></a>
+<span class="sourceLineNo">1490</span>  public &lt;T&gt; T safeObserve( @Nonnull final Observer observer, @Nonnull final SafeFunction&lt;T&gt; observe )<a name="line.1490"></a>
 <span class="sourceLineNo">1491</span>  {<a name="line.1491"></a>
-<span class="sourceLineNo">1492</span>    return safeObserve( observer, observed, null );<a name="line.1492"></a>
+<span class="sourceLineNo">1492</span>    return safeObserve( observer, observe, null );<a name="line.1492"></a>
 <span class="sourceLineNo">1493</span>  }<a name="line.1493"></a>
 <span class="sourceLineNo">1494</span><a name="line.1494"></a>
 <span class="sourceLineNo">1495</span>  /**<a name="line.1495"></a>
-<span class="sourceLineNo">1496</span>   * Execute the observed function with the specified Observer.<a name="line.1496"></a>
+<span class="sourceLineNo">1496</span>   * Execute the observe function with the specified Observer.<a name="line.1496"></a>
 <span class="sourceLineNo">1497</span>   * The Observer must be created by the {@link #tracker(Procedure)} methods.<a name="line.1497"></a>
-<span class="sourceLineNo">1498</span>   * The observed function should not throw an exception.<a name="line.1498"></a>
+<span class="sourceLineNo">1498</span>   * The observe function should not throw an exception.<a name="line.1498"></a>
 <span class="sourceLineNo">1499</span>   *<a name="line.1499"></a>
 <span class="sourceLineNo">1500</span>   * @param &lt;T&gt;        the type of return value.<a name="line.1500"></a>
 <span class="sourceLineNo">1501</span>   * @param observer   the Observer.<a name="line.1501"></a>
-<span class="sourceLineNo">1502</span>   * @param observed   the observed function.<a name="line.1502"></a>
+<span class="sourceLineNo">1502</span>   * @param observe    the observe function.<a name="line.1502"></a>
 <span class="sourceLineNo">1503</span>   * @param parameters the parameters if any. The parameters are only used to generate a spy event.<a name="line.1503"></a>
-<span class="sourceLineNo">1504</span>   * @return the value returned from the observed function.<a name="line.1504"></a>
+<span class="sourceLineNo">1504</span>   * @return the value returned from the observe function.<a name="line.1504"></a>
 <span class="sourceLineNo">1505</span>   */<a name="line.1505"></a>
 <span class="sourceLineNo">1506</span>  public &lt;T&gt; T safeObserve( @Nonnull final Observer observer,<a name="line.1506"></a>
-<span class="sourceLineNo">1507</span>                            @Nonnull final SafeFunction&lt;T&gt; observed,<a name="line.1507"></a>
+<span class="sourceLineNo">1507</span>                            @Nonnull final SafeFunction&lt;T&gt; observe,<a name="line.1507"></a>
 <span class="sourceLineNo">1508</span>                            @Nullable final Object[] parameters )<a name="line.1508"></a>
 <span class="sourceLineNo">1509</span>  {<a name="line.1509"></a>
 <span class="sourceLineNo">1510</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.1510"></a>
@@ -1522,8 +1522,8 @@
 <span class="sourceLineNo">1514</span>                          "' but observer is not configured to use an application executor." );<a name="line.1514"></a>
 <span class="sourceLineNo">1515</span>    }<a name="line.1515"></a>
 <span class="sourceLineNo">1516</span>    return _safeAction( observerToName( observer ),<a name="line.1516"></a>
-<span class="sourceLineNo">1517</span>                        observed,<a name="line.1517"></a>
-<span class="sourceLineNo">1518</span>                        trackerObservedFlags( observer ),<a name="line.1518"></a>
+<span class="sourceLineNo">1517</span>                        observe,<a name="line.1517"></a>
+<span class="sourceLineNo">1518</span>                        trackerObserveFlags( observer ),<a name="line.1518"></a>
 <span class="sourceLineNo">1519</span>                        observer,<a name="line.1519"></a>
 <span class="sourceLineNo">1520</span>                        parameters,<a name="line.1520"></a>
 <span class="sourceLineNo">1521</span>                        true );<a name="line.1521"></a>
@@ -1608,32 +1608,32 @@
 <span class="sourceLineNo">1600</span>  }<a name="line.1600"></a>
 <span class="sourceLineNo">1601</span><a name="line.1601"></a>
 <span class="sourceLineNo">1602</span>  /**<a name="line.1602"></a>
-<span class="sourceLineNo">1603</span>   * Execute the observed function with the specified Observer.<a name="line.1603"></a>
+<span class="sourceLineNo">1603</span>   * Execute the observe function with the specified Observer.<a name="line.1603"></a>
 <span class="sourceLineNo">1604</span>   * The Observer must be created by the {@link #tracker(Procedure)} methods.<a name="line.1604"></a>
-<span class="sourceLineNo">1605</span>   * The observed function may throw an exception.<a name="line.1605"></a>
+<span class="sourceLineNo">1605</span>   * The observe function may throw an exception.<a name="line.1605"></a>
 <span class="sourceLineNo">1606</span>   *<a name="line.1606"></a>
 <span class="sourceLineNo">1607</span>   * @param observer the Observer.<a name="line.1607"></a>
-<span class="sourceLineNo">1608</span>   * @param observed the observed function.<a name="line.1608"></a>
-<span class="sourceLineNo">1609</span>   * @throws Exception if the observed function throws an an exception.<a name="line.1609"></a>
+<span class="sourceLineNo">1608</span>   * @param observe  the observe function.<a name="line.1608"></a>
+<span class="sourceLineNo">1609</span>   * @throws Exception if the observe function throws an an exception.<a name="line.1609"></a>
 <span class="sourceLineNo">1610</span>   */<a name="line.1610"></a>
-<span class="sourceLineNo">1611</span>  public void observe( @Nonnull final Observer observer, @Nonnull final Procedure observed )<a name="line.1611"></a>
+<span class="sourceLineNo">1611</span>  public void observe( @Nonnull final Observer observer, @Nonnull final Procedure observe )<a name="line.1611"></a>
 <span class="sourceLineNo">1612</span>    throws Throwable<a name="line.1612"></a>
 <span class="sourceLineNo">1613</span>  {<a name="line.1613"></a>
-<span class="sourceLineNo">1614</span>    observe( observer, observed, null );<a name="line.1614"></a>
+<span class="sourceLineNo">1614</span>    observe( observer, observe, null );<a name="line.1614"></a>
 <span class="sourceLineNo">1615</span>  }<a name="line.1615"></a>
 <span class="sourceLineNo">1616</span><a name="line.1616"></a>
 <span class="sourceLineNo">1617</span>  /**<a name="line.1617"></a>
-<span class="sourceLineNo">1618</span>   * Execute the observed function with the specified Observer.<a name="line.1618"></a>
+<span class="sourceLineNo">1618</span>   * Execute the observe function with the specified Observer.<a name="line.1618"></a>
 <span class="sourceLineNo">1619</span>   * The Observer must be created by the {@link #tracker(Procedure)} methods.<a name="line.1619"></a>
-<span class="sourceLineNo">1620</span>   * The observed function may throw an exception.<a name="line.1620"></a>
+<span class="sourceLineNo">1620</span>   * The observe function may throw an exception.<a name="line.1620"></a>
 <span class="sourceLineNo">1621</span>   *<a name="line.1621"></a>
 <span class="sourceLineNo">1622</span>   * @param observer   the Observer.<a name="line.1622"></a>
-<span class="sourceLineNo">1623</span>   * @param observed   the observed function.<a name="line.1623"></a>
+<span class="sourceLineNo">1623</span>   * @param observe    the observe function.<a name="line.1623"></a>
 <span class="sourceLineNo">1624</span>   * @param parameters the parameters if any. The parameters are only used to generate a spy event.<a name="line.1624"></a>
-<span class="sourceLineNo">1625</span>   * @throws Exception if the observed function throws an an exception.<a name="line.1625"></a>
+<span class="sourceLineNo">1625</span>   * @throws Exception if the observe function throws an an exception.<a name="line.1625"></a>
 <span class="sourceLineNo">1626</span>   */<a name="line.1626"></a>
 <span class="sourceLineNo">1627</span>  public void observe( @Nonnull final Observer observer,<a name="line.1627"></a>
-<span class="sourceLineNo">1628</span>                       @Nonnull final Procedure observed,<a name="line.1628"></a>
+<span class="sourceLineNo">1628</span>                       @Nonnull final Procedure observe,<a name="line.1628"></a>
 <span class="sourceLineNo">1629</span>                       @Nullable final Object[] parameters )<a name="line.1629"></a>
 <span class="sourceLineNo">1630</span>    throws Throwable<a name="line.1630"></a>
 <span class="sourceLineNo">1631</span>  {<a name="line.1631"></a>
@@ -1643,17 +1643,17 @@
 <span class="sourceLineNo">1635</span>                    () -&gt; "Arez-0019: Attempted to invoke observe(..) on observer named '" + observer.getName() +<a name="line.1635"></a>
 <span class="sourceLineNo">1636</span>                          "' but observer is not configured to use an application executor." );<a name="line.1636"></a>
 <span class="sourceLineNo">1637</span>    }<a name="line.1637"></a>
-<span class="sourceLineNo">1638</span>    rawObserve( observer, observed, parameters );<a name="line.1638"></a>
+<span class="sourceLineNo">1638</span>    rawObserve( observer, observe, parameters );<a name="line.1638"></a>
 <span class="sourceLineNo">1639</span>  }<a name="line.1639"></a>
 <span class="sourceLineNo">1640</span><a name="line.1640"></a>
 <span class="sourceLineNo">1641</span>  void rawObserve( @Nonnull final Observer observer,<a name="line.1641"></a>
-<span class="sourceLineNo">1642</span>                   @Nonnull final Procedure observed,<a name="line.1642"></a>
+<span class="sourceLineNo">1642</span>                   @Nonnull final Procedure observe,<a name="line.1642"></a>
 <span class="sourceLineNo">1643</span>                   @Nullable final Object[] parameters )<a name="line.1643"></a>
 <span class="sourceLineNo">1644</span>    throws Throwable<a name="line.1644"></a>
 <span class="sourceLineNo">1645</span>  {<a name="line.1645"></a>
 <span class="sourceLineNo">1646</span>    _action( observerToName( observer ),<a name="line.1646"></a>
-<span class="sourceLineNo">1647</span>             procedureToFunction( observed ),<a name="line.1647"></a>
-<span class="sourceLineNo">1648</span>             trackerObservedFlags( observer ),<a name="line.1648"></a>
+<span class="sourceLineNo">1647</span>             procedureToFunction( observe ),<a name="line.1647"></a>
+<span class="sourceLineNo">1648</span>             trackerObserveFlags( observer ),<a name="line.1648"></a>
 <span class="sourceLineNo">1649</span>             observer,<a name="line.1649"></a>
 <span class="sourceLineNo">1650</span>             parameters,<a name="line.1650"></a>
 <span class="sourceLineNo">1651</span>             false );<a name="line.1651"></a>
@@ -1752,29 +1752,29 @@
 <span class="sourceLineNo">1744</span>  }<a name="line.1744"></a>
 <span class="sourceLineNo">1745</span><a name="line.1745"></a>
 <span class="sourceLineNo">1746</span>  /**<a name="line.1746"></a>
-<span class="sourceLineNo">1747</span>   * Execute the observed function with the specified Observer.<a name="line.1747"></a>
+<span class="sourceLineNo">1747</span>   * Execute the observe function with the specified Observer.<a name="line.1747"></a>
 <span class="sourceLineNo">1748</span>   * The Observer must be created by the {@link #tracker(Procedure)} methods.<a name="line.1748"></a>
-<span class="sourceLineNo">1749</span>   * The observed function should not throw an exception.<a name="line.1749"></a>
+<span class="sourceLineNo">1749</span>   * The observe function should not throw an exception.<a name="line.1749"></a>
 <span class="sourceLineNo">1750</span>   *<a name="line.1750"></a>
 <span class="sourceLineNo">1751</span>   * @param observer the Observer.<a name="line.1751"></a>
-<span class="sourceLineNo">1752</span>   * @param observed the observed function.<a name="line.1752"></a>
+<span class="sourceLineNo">1752</span>   * @param observe  the observe function.<a name="line.1752"></a>
 <span class="sourceLineNo">1753</span>   */<a name="line.1753"></a>
-<span class="sourceLineNo">1754</span>  public void safeObserve( @Nonnull final Observer observer, @Nonnull final SafeProcedure observed )<a name="line.1754"></a>
+<span class="sourceLineNo">1754</span>  public void safeObserve( @Nonnull final Observer observer, @Nonnull final SafeProcedure observe )<a name="line.1754"></a>
 <span class="sourceLineNo">1755</span>  {<a name="line.1755"></a>
-<span class="sourceLineNo">1756</span>    safeObserve( observer, observed, null );<a name="line.1756"></a>
+<span class="sourceLineNo">1756</span>    safeObserve( observer, observe, null );<a name="line.1756"></a>
 <span class="sourceLineNo">1757</span>  }<a name="line.1757"></a>
 <span class="sourceLineNo">1758</span><a name="line.1758"></a>
 <span class="sourceLineNo">1759</span>  /**<a name="line.1759"></a>
-<span class="sourceLineNo">1760</span>   * Execute the observed function with the specified Observer.<a name="line.1760"></a>
+<span class="sourceLineNo">1760</span>   * Execute the observe function with the specified Observer.<a name="line.1760"></a>
 <span class="sourceLineNo">1761</span>   * The Observer must be created by the {@link #tracker(Procedure)} methods.<a name="line.1761"></a>
-<span class="sourceLineNo">1762</span>   * The observed function should not throw an exception.<a name="line.1762"></a>
+<span class="sourceLineNo">1762</span>   * The observe function should not throw an exception.<a name="line.1762"></a>
 <span class="sourceLineNo">1763</span>   *<a name="line.1763"></a>
 <span class="sourceLineNo">1764</span>   * @param observer   the Observer.<a name="line.1764"></a>
-<span class="sourceLineNo">1765</span>   * @param observed   the observed function.<a name="line.1765"></a>
+<span class="sourceLineNo">1765</span>   * @param observe    the observe function.<a name="line.1765"></a>
 <span class="sourceLineNo">1766</span>   * @param parameters the parameters if any. The parameters are only used to generate a spy event.<a name="line.1766"></a>
 <span class="sourceLineNo">1767</span>   */<a name="line.1767"></a>
 <span class="sourceLineNo">1768</span>  public void safeObserve( @Nonnull final Observer observer,<a name="line.1768"></a>
-<span class="sourceLineNo">1769</span>                           @Nonnull final SafeProcedure observed,<a name="line.1769"></a>
+<span class="sourceLineNo">1769</span>                           @Nonnull final SafeProcedure observe,<a name="line.1769"></a>
 <span class="sourceLineNo">1770</span>                           @Nullable final Object[] parameters )<a name="line.1770"></a>
 <span class="sourceLineNo">1771</span>  {<a name="line.1771"></a>
 <span class="sourceLineNo">1772</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.1772"></a>
@@ -1784,8 +1784,8 @@
 <span class="sourceLineNo">1776</span>                          "' but observer is not configured to use an application executor." );<a name="line.1776"></a>
 <span class="sourceLineNo">1777</span>    }<a name="line.1777"></a>
 <span class="sourceLineNo">1778</span>    _safeAction( observerToName( observer ),<a name="line.1778"></a>
-<span class="sourceLineNo">1779</span>                 safeProcedureToFunction( observed ),<a name="line.1779"></a>
-<span class="sourceLineNo">1780</span>                 trackerObservedFlags( observer ),<a name="line.1780"></a>
+<span class="sourceLineNo">1779</span>                 safeProcedureToFunction( observe ),<a name="line.1779"></a>
+<span class="sourceLineNo">1780</span>                 trackerObserveFlags( observer ),<a name="line.1780"></a>
 <span class="sourceLineNo">1781</span>                 observer,<a name="line.1781"></a>
 <span class="sourceLineNo">1782</span>                 parameters,<a name="line.1782"></a>
 <span class="sourceLineNo">1783</span>                 false );<a name="line.1783"></a>
@@ -1802,7 +1802,7 @@
 <span class="sourceLineNo">1794</span><a name="line.1794"></a>
 <span class="sourceLineNo">1795</span>    verifyActionFlags( name, flags );<a name="line.1795"></a>
 <span class="sourceLineNo">1796</span><a name="line.1796"></a>
-<span class="sourceLineNo">1797</span>    final boolean observed = null != observer;<a name="line.1797"></a>
+<span class="sourceLineNo">1797</span>    final boolean observe = null != observer;<a name="line.1797"></a>
 <span class="sourceLineNo">1798</span>    Throwable t = null;<a name="line.1798"></a>
 <span class="sourceLineNo">1799</span>    boolean completed = false;<a name="line.1799"></a>
 <span class="sourceLineNo">1800</span>    long startedAt = 0L;<a name="line.1800"></a>
@@ -1812,7 +1812,7 @@
 <span class="sourceLineNo">1804</span>      if ( willPropagateSpyEvents() )<a name="line.1804"></a>
 <span class="sourceLineNo">1805</span>      {<a name="line.1805"></a>
 <span class="sourceLineNo">1806</span>        startedAt = System.currentTimeMillis();<a name="line.1806"></a>
-<span class="sourceLineNo">1807</span>        reportActionStarted( name, parameters, observed );<a name="line.1807"></a>
+<span class="sourceLineNo">1807</span>        reportActionStarted( name, parameters, observe );<a name="line.1807"></a>
 <span class="sourceLineNo">1808</span>      }<a name="line.1808"></a>
 <span class="sourceLineNo">1809</span>      verifyActionNestingAllowed( name, observer );<a name="line.1809"></a>
 <span class="sourceLineNo">1810</span>      if ( canImmediatelyInvokeAction( flags ) )<a name="line.1810"></a>
@@ -1838,7 +1838,7 @@
 <span class="sourceLineNo">1830</span>        final boolean noReportResults = ( flags &amp; Flags.NO_REPORT_RESULT ) == Flags.NO_REPORT_RESULT;<a name="line.1830"></a>
 <span class="sourceLineNo">1831</span>        reportActionCompleted( name,<a name="line.1831"></a>
 <span class="sourceLineNo">1832</span>                               parameters,<a name="line.1832"></a>
-<span class="sourceLineNo">1833</span>                               observed,<a name="line.1833"></a>
+<span class="sourceLineNo">1833</span>                               observe,<a name="line.1833"></a>
 <span class="sourceLineNo">1834</span>                               null,<a name="line.1834"></a>
 <span class="sourceLineNo">1835</span>                               startedAt,<a name="line.1835"></a>
 <span class="sourceLineNo">1836</span>                               expectResult,<a name="line.1836"></a>
@@ -1857,7 +1857,7 @@
 <span class="sourceLineNo">1849</span>      {<a name="line.1849"></a>
 <span class="sourceLineNo">1850</span>        if ( !completed )<a name="line.1850"></a>
 <span class="sourceLineNo">1851</span>        {<a name="line.1851"></a>
-<span class="sourceLineNo">1852</span>          reportActionCompleted( name, parameters, observed, t, startedAt, expectResult, null );<a name="line.1852"></a>
+<span class="sourceLineNo">1852</span>          reportActionCompleted( name, parameters, observe, t, startedAt, expectResult, null );<a name="line.1852"></a>
 <span class="sourceLineNo">1853</span>        }<a name="line.1853"></a>
 <span class="sourceLineNo">1854</span>      }<a name="line.1854"></a>
 <span class="sourceLineNo">1855</span>      triggerScheduler();<a name="line.1855"></a>
@@ -2335,7 +2335,7 @@
 <span class="sourceLineNo">2327</span>    return Arez.areNamesEnabled() ? observer.getName() : null;<a name="line.2327"></a>
 <span class="sourceLineNo">2328</span>  }<a name="line.2328"></a>
 <span class="sourceLineNo">2329</span><a name="line.2329"></a>
-<span class="sourceLineNo">2330</span>  private int trackerObservedFlags( @Nonnull final Observer observer )<a name="line.2330"></a>
+<span class="sourceLineNo">2330</span>  private int trackerObserveFlags( @Nonnull final Observer observer )<a name="line.2330"></a>
 <span class="sourceLineNo">2331</span>  {<a name="line.2331"></a>
 <span class="sourceLineNo">2332</span>    return Flags.REQUIRE_NEW_TRANSACTION |<a name="line.2332"></a>
 <span class="sourceLineNo">2333</span>           ( Arez.shouldCheckInvariants() ?<a name="line.2333"></a>
