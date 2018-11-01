@@ -533,7 +533,7 @@
 <dt><a href="arez/annotations/ComputableValueRef.html" title="annotation in arez.annotations"><span class="typeNameLink">ComputableValueRef</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Marks a template method that returns the <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instance for
- the <a href="arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> annotated property.</div>
+ the <a href="arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> annotated property.</div>
 </dd>
 <dt><a href="arez/spy/ComputeCompleteEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputeCompleteEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
@@ -541,10 +541,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeCompleteEvent.html#ComputeCompleteEvent-arez.spy.ComputableValueInfo-java.lang.Object-java.lang.Throwable-int-">ComputeCompleteEvent(ComputableValueInfo, Object, Throwable, int)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputeCompleteEvent.html" title="class in arez.spy">ComputeCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="arez/annotations/Computed.html" title="annotation in arez.annotations"><span class="typeNameLink">Computed</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
-<dd>
-<div class="block">Methods marked with this annotation are <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances within Arez.</div>
-</dd>
 <dt><a href="arez/spy/ComputeStartEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputeStartEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification when Computation starts.</div>
@@ -1306,7 +1302,8 @@
 </dd>
 <dt><a href="arez/annotations/Memoize.html" title="annotation in arez.annotations"><span class="typeNameLink">Memoize</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Methods marked with this annotation are <a href="https://en.wikipedia.org/wiki/Memoization">memoized</a> while there is an observer.</div>
+<div class="block">Methods marked with this annotation are <a href="https://en.wikipedia.org/wiki/Memoization">memoized</a> while
+ activated which typically means they have an observer.</div>
 </dd>
 <dt><a href="arez/component/MemoizeCache.html" title="class in arez.component"><span class="typeNameLink">MemoizeCache</span></a>&lt;<a href="arez/component/MemoizeCache.html" title="type parameter in MemoizeCache">T</a>&gt; - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
 <dd>

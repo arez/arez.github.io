@@ -106,7 +106,7 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
 
  <p>Annotating a class with this annotation will result in a class named "[MyComponent]Repository"</p>
 
- <p>The way to add custom queries or <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> queries is to define an interface that
+ <p>The way to add custom queries or <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> queries is to define an interface that
  defines an abstract <code>self()</code> that returns the underlying repository. Using this
  combined with default methods, you can define as many new queries and mutations as is desired.
  The extension class then needs to be registered by setting the appropriate parameter on this
@@ -122,7 +122,7 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
      return self().findByQuery( issue -&gt; issue.getTitle().equals( title ) );
    }
 
-   \@Computed
+   \@Memoize
    default List&lt;Issue&gt; findAllCompleted()
    {
      return self().findAllByQuery( Issue::isCompleted );

@@ -96,7 +96,7 @@
 public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#line.45">ArezComponent</a></pre>
 <div class="block">Annotation that marks classes to be processed by Arez annotation processor.
  Classes with this annotation can contain <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> properties,
- <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> properties, <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> methods and <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a> methods.
+ <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> properties, <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> methods and <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a> methods.
 
  <p>The annotation controls the way that contained actions and observables are
  named (if names are enabled in the system.</p>
@@ -119,12 +119,12 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
  <li>Must be concrete, not abstract</li>
  <li>Must not be final</li>
  <li>Must not be a non-static nested class</li>
- <li>Must have at least one method annotated with <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>, <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a>, <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a> or <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a></li>
+ <li>Must have at least one method annotated with <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>, <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a>, <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> or <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a></li>
  </ul>
 
  <p>The annotation processor that handles this annotation will analyze all super classes and super
  interfaces. This includes analysis of default methods on interfaces. So it is perfectly valid to
- add <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a>, <a href="../../arez/annotations/Computed.html" title="annotation in arez.annotations"><code>Computed</code></a>, <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>, <a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations"><code>PreDispose</code></a> and <a href="../../arez/annotations/PostDispose.html" title="annotation in arez.annotations"><code>PostDispose</code></a>
+ add <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a>, <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a>, <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>, <a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations"><code>PreDispose</code></a> and <a href="../../arez/annotations/PostDispose.html" title="annotation in arez.annotations"><code>PostDispose</code></a>
  annotations to default methods on implemented interfaces.</p></div>
 </li>
 </ul>

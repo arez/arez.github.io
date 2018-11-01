@@ -17,7 +17,7 @@
 <span class="sourceLineNo">009</span>/**<a name="line.9"></a>
 <span class="sourceLineNo">010</span> * Annotation that marks classes to be processed by Arez annotation processor.<a name="line.10"></a>
 <span class="sourceLineNo">011</span> * Classes with this annotation can contain {@link Observable} properties,<a name="line.11"></a>
-<span class="sourceLineNo">012</span> * {@link Computed} properties, {@link Observe} methods and {@link Action} methods.<a name="line.12"></a>
+<span class="sourceLineNo">012</span> * {@link Memoize} properties, {@link Observe} methods and {@link Action} methods.<a name="line.12"></a>
 <span class="sourceLineNo">013</span> *<a name="line.13"></a>
 <span class="sourceLineNo">014</span> * &lt;p&gt;The annotation controls the way that contained actions and observables are<a name="line.14"></a>
 <span class="sourceLineNo">015</span> * named (if names are enabled in the system.&lt;/p&gt;<a name="line.15"></a>
@@ -40,12 +40,12 @@
 <span class="sourceLineNo">032</span> * &lt;li&gt;Must be concrete, not abstract&lt;/li&gt;<a name="line.32"></a>
 <span class="sourceLineNo">033</span> * &lt;li&gt;Must not be final&lt;/li&gt;<a name="line.33"></a>
 <span class="sourceLineNo">034</span> * &lt;li&gt;Must not be a non-static nested class&lt;/li&gt;<a name="line.34"></a>
-<span class="sourceLineNo">035</span> * &lt;li&gt;Must have at least one method annotated with {@link Action}, {@link Observe}, {@link Computed} or {@link Observable}&lt;/li&gt;<a name="line.35"></a>
+<span class="sourceLineNo">035</span> * &lt;li&gt;Must have at least one method annotated with {@link Action}, {@link Observe}, {@link Memoize} or {@link Observable}&lt;/li&gt;<a name="line.35"></a>
 <span class="sourceLineNo">036</span> * &lt;/ul&gt;<a name="line.36"></a>
 <span class="sourceLineNo">037</span> *<a name="line.37"></a>
 <span class="sourceLineNo">038</span> * &lt;p&gt;The annotation processor that handles this annotation will analyze all super classes and super<a name="line.38"></a>
 <span class="sourceLineNo">039</span> * interfaces. This includes analysis of default methods on interfaces. So it is perfectly valid to<a name="line.39"></a>
-<span class="sourceLineNo">040</span> * add {@link Observable}, {@link Computed}, {@link Action}, {@link PreDispose} and {@link PostDispose}<a name="line.40"></a>
+<span class="sourceLineNo">040</span> * add {@link Observable}, {@link Memoize}, {@link Action}, {@link PreDispose} and {@link PostDispose}<a name="line.40"></a>
 <span class="sourceLineNo">041</span> * annotations to default methods on implemented interfaces.&lt;/p&gt;<a name="line.41"></a>
 <span class="sourceLineNo">042</span> */<a name="line.42"></a>
 <span class="sourceLineNo">043</span>@Documented<a name="line.43"></a>
