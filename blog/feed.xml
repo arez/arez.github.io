@@ -14,6 +14,18 @@
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
         <item>
+            <title><![CDATA[Arez 0.113 released]]></title>
+            <link>https://arez.github.io/blog/2018/11/02/version-0.113-release.html</link>
+            <guid>https://arez.github.io/blog/2018/11/02/version-0.113-release.html</guid>
+            <pubDate>Fri, 02 Nov 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.112...v0.113)
+
+Changes in this release:
+
+* **\[processor\]** Change the way the Dagger2 factory is defined by switching from a static method using a
+  `@Provide` annotation to using an abstract]]></description>
+        </item>
+        <item>
             <title><![CDATA[Arez 0.112 released]]></title>
             <link>https://arez.github.io/blog/2018/11/02/version-0.112-release.html</link>
             <guid>https://arez.github.io/blog/2018/11/02/version-0.112-release.html</guid>

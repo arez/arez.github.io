@@ -107,12 +107,9 @@ classpath then a module will be generated for each base component and base repos
 <p><pre><code class="hljs"><span class="hljs-meta">@Generated</span>(<span class="hljs-string">"arez.processor.ArezProcessor"</span>)
 <span class="hljs-meta">@Module</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">MyServiceDaggerModule</span> </span>{
-  <span class="hljs-meta">@Nonnull</span>
-  <span class="hljs-meta">@Provides</span>
+  <span class="hljs-meta">@Binds</span>
   <span class="hljs-meta">@Singleton</span>
-  <span class="hljs-function"><span class="hljs-keyword">static</span> MyService <span class="hljs-title">provideComponent</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Arez_MyService component)</span> </span>{
-    <span class="hljs-keyword">return</span> component;
-  }
+  <span class="hljs-function">MyService <span class="hljs-title">bindComponent</span><span class="hljs-params">(Arez_MyService component)</span></span>;
 }</code></pre></p>
 <p>These can be incorporated into a dagger component like:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@Singleton</span>
