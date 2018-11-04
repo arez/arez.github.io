@@ -93,8 +93,12 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/OnActivate.html#line.25">OnActivate</a></pre>
-<div class="block">Identifies method that is called when the ComputableValue changes from the INACTIVE state to any other state.
+public @interface <a href="../../src-html/arez/annotations/OnActivate.html#line.29">OnActivate</a></pre>
+<div class="block">Identifies method that is called when the <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> changes from the INACTIVE state to any other state.
+
+ <p>This method can only be associated with a <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> annotated method that has 0 parameters.
+ This limitation is in place to limit implementation complexity and because no use case for this
+ functionality has been found.</p>
 
  <p>The method must also conform to the following constraints:</p>
  <ul>
@@ -105,7 +109,7 @@ public @interface <a href="../../src-html/arez/annotations/OnActivate.html#line.
  <li>Must not be static</li>
  <li>Must not be abstract</li>
  <li>Must not throw exceptions</li>
- <li>Must not be for a computable property that has keepAlive parameter set to true</li>
+ <li>Must not be for a <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> method that has the <a href="../../arez/annotations/Memoize.html#keepAlive--"><code>Memoize.keepAlive()</code></a> parameter set to true</li>
  </ul></div>
 </li>
 </ul>
@@ -153,7 +157,7 @@ public @interface <a href="../../src-html/arez/annotations/OnActivate.html#line.
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/OnActivate.html#line.35">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/OnActivate.html#line.39">name</a></pre>
 <div class="block">Return the name of the ComputableValue that this method is associated with.
  This value will be derived if the method name matches the pattern "on[Name]Activate",
  otherwise it must be specified.</div>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -200,6 +200,12 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../arez/ComputableValue.html" title="class in arez">ComputableValue</a>&lt;<a href="../../arez/component/MemoizeCache.html" title="type parameter in MemoizeCache">T</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/MemoizeCache.html#getComputableValue-java.lang.Object...-">getComputableValue</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;args)</code>
+<div class="block">Retrieve the computable value for specified parameters, creating it if necessary.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/MemoizeCache.html#isDisposed--">isDisposed</a></span>()</code>
 <div class="block">Return true if dispose() has been called on object.</div>
@@ -332,7 +338,7 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <a name="dispose--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
 <pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/component/MemoizeCache.html#line.179">dispose</a>()</pre>
@@ -341,6 +347,21 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../arez/Disposable.html#dispose--">dispose</a></code>&nbsp;in interface&nbsp;<code><a href="../../arez/Disposable.html" title="interface in arez">Disposable</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getComputableValue-java.lang.Object...-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getComputableValue</h4>
+<pre>public&nbsp;<a href="../../arez/ComputableValue.html" title="class in arez">ComputableValue</a>&lt;<a href="../../arez/component/MemoizeCache.html" title="type parameter in MemoizeCache">T</a>&gt;&nbsp;<a href="../../src-html/arez/component/MemoizeCache.html#line.226">getComputableValue</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;args)</pre>
+<div class="block">Retrieve the computable value for specified parameters, creating it if necessary.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>args</code> - the arguments passed to the memoized function.</dd>
 </dl>
 </li>
 </ul>
