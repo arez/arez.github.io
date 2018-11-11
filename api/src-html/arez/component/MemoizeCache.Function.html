@@ -304,7 +304,7 @@
 <span class="sourceLineNo">296</span>                       " but unable to locate corresponding ComputableValue." );<a name="line.296"></a>
 <span class="sourceLineNo">297</span>    }<a name="line.297"></a>
 <span class="sourceLineNo">298</span>    assert null != computableValue;<a name="line.298"></a>
-<span class="sourceLineNo">299</span>    getContext().scheduleDispose( computableValue );<a name="line.299"></a>
+<span class="sourceLineNo">299</span>    getContext().scheduleDispose( Arez.areNamesEnabled() ? computableValue.getName() + ".dispose" : null, computableValue );<a name="line.299"></a>
 <span class="sourceLineNo">300</span>    while ( stack.size() &gt; 1 )<a name="line.300"></a>
 <span class="sourceLineNo">301</span>    {<a name="line.301"></a>
 <span class="sourceLineNo">302</span>      final Map map = stack.pop();<a name="line.302"></a>

@@ -1367,9 +1367,9 @@
 <dd>
 <div class="block">Set `arez.enforce_transaction_type` setting to false.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#noPurgeReactionsWhenRunawayDetected--">noPurgeReactionsWhenRunawayDetected()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#noPurgeTasksWhenRunawayDetected--">noPurgeTasksWhenRunawayDetected()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
-<div class="block">Set `arez.purge_reactions_when_runaway_detected` setting to false.</div>
+<div class="block">Set `arez.purge_tasks_when_runaway_detected` setting to false.</div>
 </dd>
 <dt><a href="arez/component/NoResultException.html" title="class in arez.component"><span class="typeNameLink">NoResultException</span></a> - Exception in <a href="arez/component/package-summary.html">arez.component</a></dt>
 <dd>
@@ -1689,9 +1689,13 @@
 <dd>
 <div class="block">Changing the value of an ObservableValue.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#purgeReactionsWhenRunawayDetected--">purgeReactionsWhenRunawayDetected()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Arez.html#purgeTasksWhenRunawayDetected--">purgeTasksWhenRunawayDetected()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
-<div class="block">Set `arez.purge_reactions_when_runaway_detected` setting to true.</div>
+<div class="block">Return true if active tasks will be purged if the scheduler is still running after 100 rounds.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#purgeTasksWhenRunawayDetected--">purgeTasksWhenRunawayDetected()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
+<dd>
+<div class="block">Set `arez.purge_tasks_when_runaway_detected` setting to true.</div>
 </dd>
 </dl>
 <a name="I:R">
@@ -1893,7 +1897,7 @@
 <dd>
 <div class="block">Schedule this observer if it does not already have a reaction pending.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#scheduleDispose-arez.Disposable-">scheduleDispose(Disposable)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#scheduleDispose-java.lang.String-arez.Disposable-">scheduleDispose(String, Disposable)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Add the specified disposable to the list of pending disposables.</div>
 </dd>
