@@ -1,5 +1,6 @@
 arez
 arez.annotations
 arez.component
+arez.component.internal
 arez.processor
 arez.spy

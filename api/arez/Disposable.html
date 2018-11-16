@@ -99,11 +99,11 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../arez/Component.html" title="class in arez">Component</a>, <a href="../arez/ComputableValue.html" title="class in arez">ComputableValue</a>, <a href="../arez/component/DisposeNotifier.html" title="class in arez.component">DisposeNotifier</a>, <a href="../arez/component/MemoizeCache.html" title="class in arez.component">MemoizeCache</a>, <a href="../arez/Node.html" title="class in arez">Node</a>, <a href="../arez/ObservableValue.html" title="class in arez">ObservableValue</a>, <a href="../arez/Observer.html" title="class in arez">Observer</a></dd>
+<dd><a href="../arez/Component.html" title="class in arez">Component</a>, <a href="../arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a>, <a href="../arez/ComputableValue.html" title="class in arez">ComputableValue</a>, <a href="../arez/component/DisposeNotifier.html" title="class in arez.component">DisposeNotifier</a>, <a href="../arez/component/internal/MemoizeCache.html" title="class in arez.component.internal">MemoizeCache</a>, <a href="../arez/Node.html" title="class in arez">Node</a>, <a href="../arez/ObservableValue.html" title="class in arez">ObservableValue</a>, <a href="../arez/Observer.html" title="class in arez">Observer</a></dd>
 </dl>
 <hr>
 <br>
-<pre>public interface <a href="../src-html/arez/Disposable.html#line.11">Disposable</a></pre>
+<pre>public interface <a href="../src-html/arez/Disposable.html#line.12">Disposable</a></pre>
 <div class="block">Interface that allows caller to release any resources associated with element.
  It is safe to invoke <a href="../arez/Disposable.html#dispose--"><code>dispose()</code></a> multiple times on a element. Once an
  element is disposed, no methods should be invoked on element.</div>
@@ -188,7 +188,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>void&nbsp;<a href="../src-html/arez/Disposable.html#line.16">dispose</a>()</pre>
+<pre>void&nbsp;<a href="../src-html/arez/Disposable.html#line.17">dispose</a>()</pre>
 <div class="block">Dispose the element. See <a href="../arez/Disposable.html" title="interface in arez"><code>Disposable</code></a> for a description of the implications.</div>
 </li>
 </ul>
@@ -198,7 +198,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.23">isDisposed</a>()</pre>
+<pre>boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.24">isDisposed</a>()</pre>
 <div class="block">Return true if dispose() has been called on object.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -212,7 +212,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>isNotDisposed</h4>
-<pre>default&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.30">isNotDisposed</a>()</pre>
+<pre>default&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.31">isNotDisposed</a>()</pre>
 <div class="block">Return true if <a href="../arez/Disposable.html#isDisposed--"><code>isDisposed()</code></a> returns false.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -226,7 +226,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>static&nbsp;void&nbsp;<a href="../src-html/arez/Disposable.html#line.40">dispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>static&nbsp;void&nbsp;<a href="../src-html/arez/Disposable.html#line.41">dispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Dispose the supplied object if it is Disposable, else do nothing.</div>
 <dl>
@@ -241,7 +241,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>static&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.54">isDisposed</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>static&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.55">isDisposed</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Return true if the parameter is Disposable and has been disposed, else return false.</div>
 <dl>
@@ -258,7 +258,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>isNotDisposed</h4>
-<pre>static&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.65">isNotDisposed</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>static&nbsp;boolean&nbsp;<a href="../src-html/arez/Disposable.html#line.66">isNotDisposed</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Return true if <a href="../arez/Disposable.html#isDisposed-java.lang.Object-"><code>isDisposed(Object)</code></a> returns false for the same parameter.</div>
 <dl>
@@ -276,7 +276,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>asDisposable</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-static&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/Disposable.html#line.78">asDisposable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+static&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/Disposable.html#line.79">asDisposable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Cast specified object to instance of Disposable.
  Invariant checks will verify that the cast is valid before proceeding.</div>

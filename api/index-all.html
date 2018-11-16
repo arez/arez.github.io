@@ -72,17 +72,17 @@
 </a>
 <h2 class="title">A</h2>
 <dl>
-<dt><a href="arez/component/AbstractContainer.html" title="class in arez.component"><span class="typeNameLink">AbstractContainer</span></a>&lt;<a href="arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">K</a>,<a href="arez/component/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&gt; - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dt><a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal"><span class="typeNameLink">AbstractContainer</span></a>&lt;<a href="arez/component/internal/AbstractContainer.html" title="type parameter in AbstractContainer">K</a>,<a href="arez/component/internal/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&gt; - Class in <a href="arez/component/internal/package-summary.html">arez.component.internal</a></dt>
 <dd>
 <div class="block">Abstract base class for observable Arez components that contain other components.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#AbstractContainer--">AbstractContainer()</a></span> - Constructor for class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#AbstractContainer--">AbstractContainer()</a></span> - Constructor for class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="arez/component/AbstractRepository.html" title="class in arez.component"><span class="typeNameLink">AbstractRepository</span></a>&lt;<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">R</a> extends <a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a>&lt;<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>,<a href="arez/component/AbstractRepository.html" title="type parameter in AbstractRepository">R</a>&gt;&gt; - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dt><a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal"><span class="typeNameLink">AbstractRepository</span></a>&lt;<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>,<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">R</a> extends <a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a>&lt;<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>,<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">R</a>&gt;&gt; - Class in <a href="arez/component/internal/package-summary.html">arez.component.internal</a></dt>
 <dd>
 <div class="block">Abstract base class for repositories that contain Arez components.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#AbstractRepository--">AbstractRepository()</a></span> - Constructor for class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#AbstractRepository--">AbstractRepository()</a></span> - Constructor for class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/annotations/Action.html" title="annotation in arez.annotations"><span class="typeNameLink">Action</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -204,6 +204,10 @@
 <dd>
 <div class="block">This package contains additional classes to support the component model used by Arez.</div>
 </dd>
+<dt><a href="arez/component/internal/package-summary.html">arez.component.internal</a> - package arez.component.internal</dt>
+<dd>
+<div class="block">This package contains internal implementation classes required to support the component model used by Arez.</div>
+</dd>
 <dt><a href="arez/processor/package-summary.html">arez.processor</a> - package arez.processor</dt>
 <dd>
 <div class="block">Processor for the arez.annotations.ArezComponent annotation.</div>
@@ -296,7 +300,7 @@
 <dd>
 <div class="block">Convert specified stream to a set, wrapping as an unmodifiable set if required.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#attach-T-">attach(T)</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#attach-T-">attach(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Attach specified entity to the set of entities managed by the container.</div>
 </dd>
@@ -306,7 +310,7 @@
 </a>
 <h2 class="title">C</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="arez/component/MemoizeCache.Function.html#call-java.lang.Object...-">call(Object...)</a></span> - Method in interface arez.component.<a href="arez/component/MemoizeCache.Function.html" title="interface in arez.component">MemoizeCache.Function</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/MemoizeCache.Function.html#call-java.lang.Object...-">call(Object...)</a></span> - Method in interface arez.component.internal.<a href="arez/component/internal/MemoizeCache.Function.html" title="interface in arez.component.internal">MemoizeCache.Function</a></dt>
 <dd>
 <div class="block">Return calculated memoizable value.</div>
 </dd>
@@ -366,31 +370,14 @@
 <dd>
 <div class="block">The component is an abstraction representation of a reactive component within Arez.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#COMPONENT_COMPLETE">COMPONENT_COMPLETE</a></span> - Static variable in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#componentComplete--">componentComplete()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
-<div class="block">The <a href="arez/annotations/PostConstruct.html" title="annotation in arez.annotations"><code>PostConstruct</code></a> method has been invoked and
- the <a href="arez/Component.html" title="class in arez"><code>Component</code></a> has been instantiated.</div>
+<div class="block">Transition component state from <a href="arez/component/internal/ComponentKernel.html#COMPONENT_INITIALIZED"><code>ComponentKernel.COMPONENT_INITIALIZED</code></a> to
+ <a href="arez/component/internal/ComponentKernel.html#COMPONENT_CONSTRUCTED"><code>ComponentKernel.COMPONENT_CONSTRUCTED</code></a> and then to <a href="arez/component/internal/ComponentKernel.html#COMPONENT_READY"><code>ComponentKernel.COMPONENT_READY</code></a>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#COMPONENT_CONSTRUCTED">COMPONENT_CONSTRUCTED</a></span> - Static variable in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#componentConstructed--">componentConstructed()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
-<div class="block">The reactive elements have been created (i.e.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#COMPONENT_DISPOSED">COMPONENT_DISPOSED</a></span> - Static variable in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
-<dd>
-<div class="block">The component has been disposed.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#COMPONENT_DISPOSING">COMPONENT_DISPOSING</a></span> - Static variable in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
-<dd>
-<div class="block">The component is disposing.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#COMPONENT_INITIALIZED">COMPONENT_INITIALIZED</a></span> - Static variable in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
-<dd>
-<div class="block">The components constructor has been called, the <a href="arez/ArezContext.html" title="class in arez"><code>ArezContext</code></a> field initialized (if necessary),
- and the synthetic id has been generated (if required).</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#COMPONENT_READY">COMPONENT_READY</a></span> - Static variable in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
-<dd>
-<div class="block">The scheduler has been triggered and any <a href="arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> methods have been invoked if runtime managed.</div>
+<div class="block">Transition component state from <a href="arez/component/internal/ComponentKernel.html#COMPONENT_INITIALIZED"><code>ComponentKernel.COMPONENT_INITIALIZED</code></a> to <a href="arez/component/internal/ComponentKernel.html#COMPONENT_CONSTRUCTED"><code>ComponentKernel.COMPONENT_CONSTRUCTED</code></a>.</div>
 </dd>
 <dt><a href="arez/spy/ComponentCreateCompleteEvent.html" title="class in arez.spy"><span class="typeNameLink">ComponentCreateCompleteEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
@@ -436,6 +423,12 @@
 <dd>
 <div class="block">A representation of a component instance exposed to spy framework.</div>
 </dd>
+<dt><a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal"><span class="typeNameLink">ComponentKernel</span></a> - Class in <a href="arez/component/internal/package-summary.html">arez.component.internal</a></dt>
+<dd>
+<div class="block">The "kernel" of the components generated by the annotation processor.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#ComponentKernel-arez.ArezContext-java.lang.String-int-arez.Component-arez.SafeProcedure-arez.SafeProcedure-arez.SafeProcedure-boolean-boolean-boolean-">ComponentKernel(ArezContext, String, int, Component, SafeProcedure, SafeProcedure, SafeProcedure, boolean, boolean, boolean)</a></span> - Constructor for class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="arez/annotations/ComponentNameRef.html" title="annotation in arez.annotations"><span class="typeNameLink">ComponentNameRef</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Annotate the method that will be overridden to provider the debug name for the Arez component.</div>
@@ -445,13 +438,13 @@
 <div class="block">Interface implemented by components so that observers can observe the component without
  observing a particular property.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#componentReady--">componentReady()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="block">Transition component state from <a href="arez/component/internal/ComponentKernel.html#COMPONENT_CONSTRUCTED"><code>ComponentKernel.COMPONENT_CONSTRUCTED</code></a> to <a href="arez/component/internal/ComponentKernel.html#COMPONENT_READY"><code>ComponentKernel.COMPONENT_READY</code></a>.</div>
+</dd>
 <dt><a href="arez/annotations/ComponentRef.html" title="annotation in arez.annotations"><span class="typeNameLink">ComponentRef</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Marks a template method that returns the <a href="arez/Component.html" title="class in arez"><code>Component</code></a> instance for the component.</div>
-</dd>
-<dt><a href="arez/component/ComponentState.html" title="class in arez.component"><span class="typeNameLink">ComponentState</span></a> - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
-<dd>
-<div class="block">This class is used in generated code to manage the state of the component.</div>
 </dd>
 <dt><a href="arez/annotations/ComponentTypeNameRef.html" title="annotation in arez.annotations"><span class="typeNameLink">ComponentTypeNameRef</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -547,11 +540,11 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeStartEvent.html#ComputeStartEvent-arez.spy.ComputableValueInfo-">ComputeStartEvent(ComputableValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputeStartEvent.html" title="class in arez.spy">ComputeStartEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#contains-T-">contains(T)</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#contains-T-">contains(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Return true if the specified entity is contained in the container.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#contains-T-">contains(T)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#contains-T-">contains(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return true if the specified entity is contained in the container.</div>
 </dd>
@@ -577,15 +570,15 @@
 <dd>
 <div class="block">Enumeration that describes the types of dependencies supported by an <a href="arez/Observer.html" title="class in arez"><code>Observer</code></a> or a <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#describe-byte-">describe(byte)</a></span> - Static method in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#describeState--">describeState()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
-<div class="block">Describe specified state.</div>
+<div class="block">Describe component state.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#destroy-T-">destroy(T)</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#destroy-T-">destroy(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Detach the entity from the container and dispose the entity.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#detach-T-">detach(T)</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#detach-T-">detach(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Detach entity from container without disposing entity.</div>
 </dd>
@@ -641,7 +634,11 @@
 <dd>
 <div class="block">Dispose the element.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/MemoizeCache.html#dispose--">dispose()</a></span> - Method in class arez.component.<a href="arez/component/MemoizeCache.html" title="class in arez.component">MemoizeCache</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#dispose--">dispose()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="block">Dispose the element.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/MemoizeCache.html#dispose--">dispose()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/MemoizeCache.html" title="class in arez.component.internal">MemoizeCache</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/ComputableValue.html#dispose--">dispose()</a></span> - Method in class arez.<a href="arez/ComputableValue.html" title="class in arez">ComputableValue</a></dt>
 <dd>
@@ -728,7 +725,7 @@
 <dd>
 <div class="block">Set `arez.enforce_transaction_type` setting to true.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#entities--">entities()</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#entities--">entities()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Return a stream of all entities in the container.</div>
 </dd>
@@ -759,19 +756,19 @@
 <dd>
 <div class="block">Enum to control if a feature should be enabled.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#findAll--">findAll()</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#findAll--">findAll()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return all the entities.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#findAll-java.util.Comparator-">findAll(Comparator&lt;T&gt;)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#findAll-java.util.Comparator-">findAll(Comparator&lt;T&gt;)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return all entities sorted by supplied comparator.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#findAllByQuery-java.util.function.Predicate-">findAllByQuery(Predicate&lt;T&gt;)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#findAllByQuery-java.util.function.Predicate-">findAllByQuery(Predicate&lt;T&gt;)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return all entities that match query.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#findAllByQuery-java.util.function.Predicate-java.util.Comparator-">findAllByQuery(Predicate&lt;T&gt;, Comparator&lt;T&gt;)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#findAllByQuery-java.util.function.Predicate-java.util.Comparator-">findAllByQuery(Predicate&lt;T&gt;, Comparator&lt;T&gt;)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return all entities that match query sorted by supplied comparator.</div>
 </dd>
@@ -795,11 +792,11 @@
 <dd>
 <div class="block">Find all the collection of observers not contained by a native component.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#findByArezId-K-">findByArezId(K)</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#findByArezId-K-">findByArezId(K)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Return the entity with the specified ArezId or null if no such entity.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#findByArezId-K-">findByArezId(K)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#findByArezId-K-">findByArezId(K)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return the entity with the specified ArezId or null if no such entity.</div>
 </dd>
@@ -811,7 +808,7 @@
 <dd>
 <div class="block">Lookup the entity with the specified type and the specified id, returning null if not present.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#findByQuery-java.util.function.Predicate-">findByQuery(Predicate&lt;T&gt;)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#findByQuery-java.util.function.Predicate-">findByQuery(Predicate&lt;T&gt;)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return the entity that matches query or null if unable to locate matching entity.</div>
 </dd>
@@ -833,7 +830,7 @@
 </a>
 <h2 class="title">G</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="arez/component/MemoizeCache.html#get-java.lang.Object...-">get(Object...)</a></span> - Method in class arez.component.<a href="arez/component/MemoizeCache.html" title="class in arez.component">MemoizeCache</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/MemoizeCache.html#get-java.lang.Object...-">get(Object...)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/MemoizeCache.html" title="class in arez.component.internal">MemoizeCache</a></dt>
 <dd>
 <div class="block">Return the result of the memoized function, calculating if necessary.</div>
 </dd>
@@ -853,17 +850,21 @@
 <dd>
 <div class="block">Dispose the supplied object if it is Disposable, else do nothing.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#getByArezId-K-">getByArezId(K)</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#getByArezId-K-">getByArezId(K)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Return the entity with the specified ArezId else throw an exception.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#getByArezId-K-">getByArezId(K)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#getByArezId-K-">getByArezId(K)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return the entity with the specified ArezId else throw an exception.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#getByQuery-java.util.function.Predicate-">getByQuery(Predicate&lt;T&gt;)</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#getByQuery-java.util.function.Predicate-">getByQuery(Predicate&lt;T&gt;)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return the entity that matches query else throw an exception.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#getComponent--">getComponent()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="block">Return the native component associated with the component.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputableValueInfo.html#getComponent--">getComponent()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a></dt>
 <dd>
@@ -885,7 +886,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComponentDisposeStartEvent.html#getComponentInfo--">getComponentInfo()</a></span> - Method in class arez.spy.<a href="arez/spy/ComponentDisposeStartEvent.html" title="class in arez.spy">ComponentDisposeStartEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/component/MemoizeCache.html#getComputableValue-java.lang.Object...-">getComputableValue(Object...)</a></span> - Method in class arez.component.<a href="arez/component/MemoizeCache.html" title="class in arez.component">MemoizeCache</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/MemoizeCache.html#getComputableValue-java.lang.Object...-">getComputableValue(Object...)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/MemoizeCache.html" title="class in arez.component.internal">MemoizeCache</a></dt>
 <dd>
 <div class="block">Retrieve the computable value for specified parameters, creating it if necessary.</div>
 </dd>
@@ -905,6 +906,10 @@
 <dd>
 <div class="block">Return the ComputableValues associated with the component.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#getContext--">getContext()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="block">Return the context in which this component was created.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/Zone.html#getContext--">getContext()</a></span> - Method in class arez.<a href="arez/Zone.html" title="class in arez">Zone</a></dt>
 <dd>
 <div class="block">Return the context for the zone.</div>
@@ -917,6 +922,10 @@
 <dd>
 <div class="block">Return the list of dependencies of the Observer.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#getDisposeNotifier--">getDisposeNotifier()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="block">Return the dispose notifier associated with the component.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ActionCompleteEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/ActionCompleteEvent.html" title="class in arez.spy">ActionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeCompleteEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeCompleteEvent.html" title="class in arez.spy">ComputeCompleteEvent</a></dt>
@@ -925,7 +934,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/TransactionCompleteEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/TransactionCompleteEvent.html" title="class in arez.spy">TransactionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#getEntitiesObservableValue--">getEntitiesObservableValue()</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#getEntitiesObservableValue--">getEntitiesObservableValue()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Return the observable associated with entities.</div>
 </dd>
@@ -934,6 +943,10 @@
 <dt><span class="memberNameLink"><a href="arez/Component.html#getId--">getId()</a></span> - Method in class arez.<a href="arez/Component.html" title="class in arez">Component</a></dt>
 <dd>
 <div class="block">Return the unique id of the component.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#getId--">getId()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="block">Return the synthetic id associated with the component.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/NoSuchEntityException.html#getId--">getId()</a></span> - Method in exception arez.component.<a href="arez/component/NoSuchEntityException.html" title="class in arez.component">NoSuchEntityException</a></dt>
 <dd>
@@ -946,6 +959,10 @@
 <dt><span class="memberNameLink"><a href="arez/Component.html#getName--">getName()</a></span> - Method in class arez.<a href="arez/Component.html" title="class in arez">Component</a></dt>
 <dd>
 <div class="block">Return the unique name of the component.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#getName--">getName()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="block">Return the name of the component.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Node.html#getName--">getName()</a></span> - Method in class arez.<a href="arez/Node.html" title="class in arez">Node</a></dt>
 <dd>
@@ -1081,15 +1098,15 @@
 <dd>
 <div class="block">Return true if the specified Observable has an accessor.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#hasBeenCompleted-byte-">hasBeenCompleted(byte)</a></span> - Static method in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#hasBeenCompleted--">hasBeenCompleted()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
 <div class="block">Return true if the component has been completed.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#hasBeenConstructed-byte-">hasBeenConstructed(byte)</a></span> - Static method in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#hasBeenConstructed--">hasBeenConstructed()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
 <div class="block">Return true if the component has been constructed.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#hasBeenInitialized-byte-">hasBeenInitialized(byte)</a></span> - Static method in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#hasBeenInitialized--">hasBeenInitialized()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
 <div class="block">Return true if the component has been initialized.</div>
 </dd>
@@ -1112,7 +1129,7 @@
 <div class="block">The Inverse annotation is used to annotate the reverse direction of the relationship annotated
  by the <a href="arez/annotations/Reference.html" title="annotation in arez.annotations"><code>Reference</code></a> annotation.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#isActive-byte-">isActive(byte)</a></span> - Static method in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#isActive--">isActive()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
 <div class="block">Return true if the component is active and can be interacted with.</div>
 </dd>
@@ -1150,11 +1167,15 @@
 <dd>
 <div class="block">Return true if dispose() has been called on object.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Component.html#isDisposed--">isDisposed()</a></span> - Method in class arez.<a href="arez/Component.html" title="class in arez">Component</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#isDisposed--">isDisposed()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
 <div class="block">Return true if dispose() has been called on object.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/MemoizeCache.html#isDisposed--">isDisposed()</a></span> - Method in class arez.component.<a href="arez/component/MemoizeCache.html" title="class in arez.component">MemoizeCache</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/MemoizeCache.html#isDisposed--">isDisposed()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/MemoizeCache.html" title="class in arez.component.internal">MemoizeCache</a></dt>
+<dd>
+<div class="block">Return true if dispose() has been called on object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Component.html#isDisposed--">isDisposed()</a></span> - Method in class arez.<a href="arez/Component.html" title="class in arez">Component</a></dt>
 <dd>
 <div class="block">Return true if dispose() has been called on object.</div>
 </dd>
@@ -1181,10 +1202,6 @@
 <dt><span class="memberNameLink"><a href="arez/spy/ElementInfo.html#isDisposed--">isDisposed()</a></span> - Method in interface arez.spy.<a href="arez/spy/ElementInfo.html" title="interface in arez.spy">ElementInfo</a></dt>
 <dd>
 <div class="block">Return true if dispose() has been called on object.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/ComponentState.html#isDisposingOrDisposed-byte-">isDisposingOrDisposed(byte)</a></span> - Static method in class arez.component.<a href="arez/component/ComponentState.html" title="class in arez.component">ComponentState</a></dt>
-<dd>
-<div class="block">Return true if the component is disposing or disposed.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/TransactionCompleteEvent.html#isMutation--">isMutation()</a></span> - Method in class arez.spy.<a href="arez/spy/TransactionCompleteEvent.html" title="class in arez.spy">TransactionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
@@ -1309,19 +1326,19 @@
 <div class="block">Methods marked with this annotation are <a href="https://en.wikipedia.org/wiki/Memoization">memoized</a> while
  activated which typically means they have an observer.</div>
 </dd>
-<dt><a href="arez/component/MemoizeCache.html" title="class in arez.component"><span class="typeNameLink">MemoizeCache</span></a>&lt;<a href="arez/component/MemoizeCache.html" title="type parameter in MemoizeCache">T</a>&gt; - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dt><a href="arez/component/internal/MemoizeCache.html" title="class in arez.component.internal"><span class="typeNameLink">MemoizeCache</span></a>&lt;<a href="arez/component/internal/MemoizeCache.html" title="type parameter in MemoizeCache">T</a>&gt; - Class in <a href="arez/component/internal/package-summary.html">arez.component.internal</a></dt>
 <dd>
 <div class="block">The class responsible for caching</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/MemoizeCache.html#MemoizeCache-arez.ArezContext-arez.Component-java.lang.String-arez.component.MemoizeCache.Function-int-">MemoizeCache(ArezContext, Component, String, MemoizeCache.Function&lt;T&gt;, int)</a></span> - Constructor for class arez.component.<a href="arez/component/MemoizeCache.html" title="class in arez.component">MemoizeCache</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/MemoizeCache.html#MemoizeCache-arez.ArezContext-arez.Component-java.lang.String-arez.component.internal.MemoizeCache.Function-int-">MemoizeCache(ArezContext, Component, String, MemoizeCache.Function&lt;T&gt;, int)</a></span> - Constructor for class arez.component.internal.<a href="arez/component/internal/MemoizeCache.html" title="class in arez.component.internal">MemoizeCache</a></dt>
 <dd>
 <div class="block">Create the Memoize method cache.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/MemoizeCache.html#MemoizeCache-arez.ArezContext-arez.Component-java.lang.String-arez.component.MemoizeCache.Function-int-int-">MemoizeCache(ArezContext, Component, String, MemoizeCache.Function&lt;T&gt;, int, int)</a></span> - Constructor for class arez.component.<a href="arez/component/MemoizeCache.html" title="class in arez.component">MemoizeCache</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/MemoizeCache.html#MemoizeCache-arez.ArezContext-arez.Component-java.lang.String-arez.component.internal.MemoizeCache.Function-int-int-">MemoizeCache(ArezContext, Component, String, MemoizeCache.Function&lt;T&gt;, int, int)</a></span> - Constructor for class arez.component.internal.<a href="arez/component/internal/MemoizeCache.html" title="class in arez.component.internal">MemoizeCache</a></dt>
 <dd>
 <div class="block">Create the Memoize method cache.</div>
 </dd>
-<dt><a href="arez/component/MemoizeCache.Function.html" title="interface in arez.component"><span class="typeNameLink">MemoizeCache.Function</span></a>&lt;<a href="arez/component/MemoizeCache.Function.html" title="type parameter in MemoizeCache.Function">T</a>&gt; - Interface in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dt><a href="arez/component/internal/MemoizeCache.Function.html" title="interface in arez.component.internal"><span class="typeNameLink">MemoizeCache.Function</span></a>&lt;<a href="arez/component/internal/MemoizeCache.Function.html" title="type parameter in MemoizeCache.Function">T</a>&gt; - Interface in <a href="arez/component/internal/package-summary.html">arez.component.internal</a></dt>
 <dd>
 <div class="block">Functional interface for calculating memoizable value.</div>
 </dd>
@@ -1484,6 +1501,10 @@
 <dd>
 <div class="block">Invoke <a href="arez/component/ComponentObservable.html#observe--"><code>ComponentObservable.observe()</code></a> on the supplied object if any.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#observe--">observe()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="block">Return true if the component is "alive" a.k.a.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/Flags.html#OBSERVE_LOWER_PRIORITY_DEPENDENCIES">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
 <dd>
 <div class="block">Flag indicating that the Observer is allowed to observe <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
@@ -1640,7 +1661,7 @@
 <dd>
 <div class="block">Annotation to identify method invoked prior to disposing element.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#preDispose--">preDispose()</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#preDispose--">preDispose()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Dispose or detach all the entities associated with the container.</div>
 </dd>
@@ -1901,7 +1922,7 @@
 <dd>
 <div class="block">Add the specified disposable to the list of pending disposables.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#self--">self()</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#self--">self()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return the repository instance cast to typed subtype.</div>
 </dd>
@@ -1929,11 +1950,11 @@
 <dd>
 <div class="block">Return true if invariants will be checked.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractContainer.html#shouldDisposeEntryOnDispose--">shouldDisposeEntryOnDispose()</a></span> - Method in class arez.component.<a href="arez/component/AbstractContainer.html" title="class in arez.component">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#shouldDisposeEntryOnDispose--">shouldDisposeEntryOnDispose()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Return true if disposing the container should result in disposing contained entities or just detaching the entities.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/AbstractRepository.html#shouldDisposeEntryOnDispose--">shouldDisposeEntryOnDispose()</a></span> - Method in class arez.component.<a href="arez/component/AbstractRepository.html" title="class in arez.component">AbstractRepository</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#shouldDisposeEntryOnDispose--">shouldDisposeEntryOnDispose()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return true if disposing the container should result in disposing contained entities or just detaching the entities.</div>
 </dd>
@@ -2047,6 +2068,7 @@
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#toString--">toString()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dt><span class="memberNameLink"><a href="arez/component/NoSuchEntityException.html#toString--">toString()</a></span> - Method in exception arez.component.<a href="arez/component/NoSuchEntityException.html" title="class in arez.component">NoSuchEntityException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/Component.html#toString--">toString()</a></span> - Method in class arez.<a href="arez/Component.html" title="class in arez">Component</a></dt>
