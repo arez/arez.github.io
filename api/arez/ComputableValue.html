@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -162,6 +162,13 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../arez/Disposable.html" title="interface in arez">Disposable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ComputableValue.html#keepAlive--">keepAlive</a></span>()</code>
+<div class="block">Invoke this method to ensure that the ComputableValue is activated and computing
+ a value even if there are no observers.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ComputableValue.html#reportPossiblyChanged--">reportPossiblyChanged</a></span>()</code>
 <div class="block">Invoked when a non-arez dependency of the ComputableValue has changed.</div>
@@ -209,7 +216,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>get</h4>
-<pre>public&nbsp;<a href="../arez/ComputableValue.html" title="type parameter in ComputableValue">T</a>&nbsp;<a href="../src-html/arez/ComputableValue.html#line.149">get</a>()</pre>
+<pre>public&nbsp;<a href="../arez/ComputableValue.html" title="type parameter in ComputableValue">T</a>&nbsp;<a href="../src-html/arez/ComputableValue.html#line.154">get</a>()</pre>
 <div class="block">Return the computable value, calculating the value if it is not up to date.
  Before invoking this method, a transaction <b>MUST</b> be active but it may be read-only or read-write.</div>
 <dl>
@@ -224,7 +231,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportPossiblyChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputableValue.html#line.191">reportPossiblyChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputableValue.html#line.196">reportPossiblyChanged</a>()</pre>
 <div class="block">Invoked when a non-arez dependency of the ComputableValue has changed. The ComputableValue
  may or may not change as a result of the dependency change but Arez will recalculate
  the ComputableValue during the normal reaction cycle or when next accessed and will propagate
@@ -239,21 +246,46 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputableValue.html#line.211">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputableValue.html#line.216">dispose</a>()</pre>
 <div class="block">Dispose the ComputableValue so that it can no longer be used.</div>
 </li>
 </ul>
 <a name="isDisposed--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ComputableValue.html#line.250">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ComputableValue.html#line.255">isDisposed</a>()</pre>
 <div class="block">Return true if dispose() has been called on object.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if dispose has been called.</dd>
+</dl>
+</li>
+</ul>
+<a name="keepAlive--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>keepAlive</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/ComputableValue.html#line.276">keepAlive</a>()</pre>
+<div class="block">Invoke this method to ensure that the ComputableValue is activated and computing
+ a value even if there are no observers. This is used when there is a chance that
+ the value will be accessed multiple times, without being accessed from within a
+ tracking transaction (i.e. the value may only be accessed from actions or may have
+ observers come and go).
+
+ <p>This method should not be called if the computable value was created with the
+ <a href="../arez/Flags.html#KEEPALIVE"><code>Flags.KEEPALIVE</code></a> as it is never deactivated in that configuration.</p>
+
+ <p>When the computable value no longer needs to be kept alive the return value
+ from this method should be disposed.</p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the object to dispose when no longer need to keep alive.</dd>
 </dl>
 </li>
 </ul>

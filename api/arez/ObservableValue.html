@@ -239,7 +239,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportObserved</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.495">reportObserved</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.500">reportObserved</a>()</pre>
 <div class="block">Notify Arez that this observable has been "observed" in the current transaction.
  Before invoking this method, a transaction <b>MUST</b> be active but it may be read-only or read-write.</div>
 </li>
@@ -250,7 +250,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportObservedIfTrackingTransactionActive</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.503">reportObservedIfTrackingTransactionActive</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.508">reportObservedIfTrackingTransactionActive</a>()</pre>
 <div class="block">Notify Arez that this observable has been "observed" if a tracking transaction is active.</div>
 </li>
 </ul>
@@ -260,7 +260,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>preReportChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.516">preReportChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.521">preReportChanged</a>()</pre>
 <div class="block">Check that pre-conditions are satisfied before changing observable value.
  In production mode this will typically be a no-op. This method should be invoked
  before state is modified. Before invoking this method, a read-write transaction <b>MUST</b> be active.</div>
@@ -272,7 +272,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>reportChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.529">reportChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ObservableValue.html#line.534">reportChanged</a>()</pre>
 <div class="block">Notify Arez that this observable has changed.
  This is called when the observable has definitely changed.
  Before invoking this method, a read-write transaction <b>MUST</b> be active.</div>
