@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Wed, 07 Nov 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 19 Nov 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.115 released]]></title>
+            <link>https://arez.github.io/blog/2018/11/19/version-0.115-release.html</link>
+            <guid>https://arez.github.io/blog/2018/11/19/version-0.115-release.html</guid>
+            <pubDate>Mon, 19 Nov 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.114...v0.115)
+
+Changes in this release:
+
+* **\[core\]** Fixed bug inside scheduler that occurred when runaway reactions were detected and purged.
+  The observers had been removed from the task ]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.114 released]]></title>
             <link>https://arez.github.io/blog/2018/11/07/version-0.114-release.html</link>
