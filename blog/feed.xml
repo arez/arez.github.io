@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Mon, 19 Nov 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 21 Nov 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.116 released]]></title>
+            <link>https://arez.github.io/blog/2018/11/21/version-0.116-release.html</link>
+            <guid>https://arez.github.io/blog/2018/11/21/version-0.116-release.html</guid>
+            <pubDate>Wed, 21 Nov 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.115...v0.116)
+
+Changes in this release:
+
+* **\[processor\]** Eliminate dead code emitted when an abstract observable with no initializer
+  (i.e. `@Observable( initializer = Feature.DISABLE )`) ]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.115 released]]></title>
             <link>https://arez.github.io/blog/2018/11/19/version-0.115-release.html</link>
