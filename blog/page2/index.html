@@ -1,10 +1,143 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Blog · Arez</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Blog · Arez"/><meta property="og:type" content="website"/><meta property="og:url" content="https://arez.github.io/index.html"/><meta property="og:description" content="Fast, easy, reactive state"/><link rel="shortcut icon" href="/img/favicon-32x32.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><link rel="alternate" type="application/atom+xml" href="https://arez.github.io/blog/atom.xml" title="Arez Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://arez.github.io/blog/feed.xml" title="Arez Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">Arez</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="/blog" target="_self">Blog</a></li><li><a href="https://github.com/arez/arez/releases" target="_blank">Releases</a></li><li><a href="https://github.com/arez/arez" target="_blank">GitHub</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Recent Posts</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Recent Posts</h3><ul><li class="navListItem"><a class="navItem" href="/blog/2018/11/21/version-0.116-release.html">Arez 0.116 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/11/19/version-0.115-release.html">Arez 0.115 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/11/07/version-0.114-release.html">Arez 0.114 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/11/02/version-0.113-release.html">Arez 0.113 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/11/02/version-0.112-release.html">Arez 0.112 released</a></li></ul></div></div></section></div><script>
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Blog · Arez</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Blog · Arez"/><meta property="og:type" content="website"/><meta property="og:url" content="https://arez.github.io/index.html"/><meta property="og:description" content="Fast, easy, reactive state"/><link rel="shortcut icon" href="/img/favicon-32x32.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><link rel="alternate" type="application/atom+xml" href="https://arez.github.io/blog/atom.xml" title="Arez Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://arez.github.io/blog/feed.xml" title="Arez Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">Arez</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="/blog" target="_self">Blog</a></li><li><a href="https://github.com/arez/arez/releases" target="_blank">Releases</a></li><li><a href="https://github.com/arez/arez" target="_blank">GitHub</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Recent Posts</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Recent Posts</h3><ul><li class="navListItem"><a class="navItem" href="/blog/2018/11/30/version-0.117-release.html">Arez 0.117 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/11/21/version-0.116-release.html">Arez 0.116 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/11/19/version-0.115-release.html">Arez 0.115 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/11/07/version-0.114-release.html">Arez 0.114 released</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/11/02/version-0.113-release.html">Arez 0.113 released</a></li></ul></div></div></section></div><script>
           var toggler = document.getElementById('navToggler');
           var nav = document.getElementById('docsNav');
           toggler.onclick = function() {
             nav.classList.toggle('docsSliderActive');
           };
-        </script></nav></div><div class="container mainContainer documentContainer postContainer blogContainer"><div class="wrapper"><div class="posts"><div class="post"><header class="postHeader"><h1><a href="/blog/2018/08/31/version-0.106-release.html">Arez 0.106 released</a></h1><p class="post-meta">August 31, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.105...v0.106">Full Changelog</a></p>
+        </script></nav></div><div class="container mainContainer documentContainer postContainer blogContainer"><div class="wrapper"><div class="posts"><div class="post"><header class="postHeader"><h1><a href="/blog/2018/09/21/version-0.107-release.html">Arez 0.107 released</a></h1><p class="post-meta">September 21, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.106...v0.107">Full Changelog</a></p>
+<p>Changes in this release:</p>
+<ul>
+<li><strong>[processor]</strong> The invariant check generated to link references was being generated outside of the
+associated guard. This could result in dead-code not being eliminated in GWT2.x and triggered warnings
+in source code analysis programs such as spotbugs.</li>
+<li><strong>[gwt-output-qa]</strong> Add assertion to verify that the <code>arez.*Info</code> interfaces are not present if
+<code>Arez.areSpiesEnabled()</code> returns false.</li>
+<li><strong>[core]</strong> Remove the <code>onDispose</code> parameter from the <code>ArezContext.autorun(...)</code> methods and the
+<code>ArezContext.computed(...)</code> methods. This hook method was never used from within the component model
+and infrequently used (if ever) from the raw API. Removing it reduced code complexity and size.</li>
+<li><strong>[core]</strong> Add invariant to ensure that the parameter <code>runImmediately</code> parameter can only be <code>true</code>
+if <code>keepAlive</code> parameter is <code>true</code> when creating computed values via the <code>ArezContext.computed(...)</code>
+methods.</li>
+<li><strong>[core]</strong> Changed the default value for the <code>runImmediately</code> parameter passed to the
+<code>ArezContext.autorun(...)</code> to be <code>true</code>. Previously the default value was <code>false</code> if the <code>autorun(...)</code>
+method variant had a <code>component</code> parameter but otherwise the default value was <code>true</code>.</li>
+<li><strong>[core]</strong> Refactor the internal representation of runtime and configuration flags within <code>arez.Observer</code>
+instances. Previously the internal state was represented by several internal variables. This resulted in
+significant memory pressure when an application consisted of many observers. These configuration values
+have been collapsed into a single bit field. The fields that were collapsed include the configuration
+values: <code>_mode</code>, <code>_priority</code>, <code>_observeLowerPriorityDependencies</code>, <code>_canNestActions</code> and
+<code>_arezOnlyDependencies</code>. The runtime fields collapsed into the bit field include: <code>_state</code>, <code>_scheduled</code> and
+<code>_executeTrackedNext</code>. The <code>ComputedValue._keepAlive</code> field has also been merged into the bit field.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.getObservers(ObservableValue)</code> that was replaced by <code>ObservableValueInfo.getObservers()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.asComputedValue(ObservableValue)</code> that was replaced by <code>ObservableValueInfo.asComputedValue()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.asComputedValue(ObservableValue)</code> that was replaced by <code>ObservableValueInfo.asComputedValue()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.getComponent(ObservableValue)</code> that was replaced by <code>ObservableValueInfo.getComponent()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.getValue(ObservableValue)</code> that was replaced by <code>ObservableValueInfo.getValue()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.hasAccessor(ObservableValue)</code> that was replaced by <code>ObservableValueInfo.hasAccessor()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.hasMutator(ObservableValue)</code> that was replaced by <code>ObservableValueInfo.hasMutator()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.setValue(ObservableValue,Object)</code> that was replaced by <code>ObservableValueInfo.setValue(Object)</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.isReadOnly(Observer)</code> that was replaced by <code>ObserverInfo.isReadOnly()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.isScheduled(Observer)</code> that was replaced by <code>ObserverInfo.isScheduled()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.isRunning(Observer)</code> that was replaced by <code>ObserverInfo.isRunning()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.getDependencies(Observer)</code> that was replaced by <code>ObserverInfo.getDependencies()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.asComputedValue(Observer)</code> that was replaced by <code>ObserverInfo.asComputedValue()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.isComputedValue(Observer)</code> that was replaced by <code>ObserverInfo.isComputedValue()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.getComponent(Observer)</code> that was replaced by <code>ObserverInfo.getComponent()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.isComputing(ComputedValue)</code> that was replaced by <code>ComputedValueInfo.isComputing()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.getDependencies(ComputedValue)</code> that was replaced by <code>ComputedValueInfo.getDependencies()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.getComponent(ComputedValue)</code> that was replaced by <code>ComputedValueInfo.getComponent()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.isActive(ComputedValue)</code> that was replaced by <code>ComputedValueInfo.isActive()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.getObservers(ComputedValue)</code> that was replaced by <code>ComputedValueInfo.getObservers()</code>.</li>
+<li><strong>[core]</strong> Remove the method <code>Spy.getValue(ComputedValue)</code> that was replaced by <code>ComputedValueInfo.getValue()</code>.</li>
+<li><strong>[core]</strong> Rename the <code>ArezContext.autorun(...)</code> methods to <code>ArezContext.observer(...)</code> and change the way
+configuration is passed into to be flags so that it matches the underlying representation of configuration.</li>
+<li><strong>[core]</strong> Refactor the <code>ArezContext.tracker(...)</code> methods to change the way configuration is passed into to
+be flags so that it matches the underlying representation of configuration.</li>
+<li><strong>[core]</strong> Refactor the internal representation of configuration flags within <code>arez.component.MemoizeCache</code> to
+use a bit mask so it is easy to pass flags when creating the underlying <code>ComputedValue</code> instances.</li>
+<li><strong>[core]</strong> Refactor the <code>ArezContext.computed(...)</code> methods to change the way configuration is passed into to
+be flags so that it matches the underlying representation of configuration.</li>
+<li><strong>[core]</strong> Move <code>arez.Spy</code> to <code>arez.spy.Spy</code> and <code>arez.SpyEventHandler</code> to <code>arez.spy.SpyEventHandler</code> so that
+the Arez Spy API is located in a single package.</li>
+<li><strong>[core]</strong> Remove the <code>TYPE</code> field from the spy events that is a constant derived at runtime and instead inline
+the constant where it is used.</li>
+<li><strong>[core]</strong> Add <code>setterAlwaysMutates</code> parameter to <code>@Observable</code> that defaults to true. If set to false then the
+generated code for the setter will check that the setter actually made a change to the observable value before
+propagating the change. This makes it possible for a setter to reject a change or transform/normalize a value
+before assigning the value and this may not result in an actual change.</li>
+<li>💥 <strong>[core]</strong> Replace usage of the <code>arez.Priority</code> enum with <code>arez.annotations.Priority</code> and <code>arez.spy.Priority</code>
+and remove the <code>arez.Priority</code> class. The purpose is to migrate to where it is used and make it easy to identify
+which code should be stripped during production compiles and under what circumstances. i.e. <code>arez.annotations.Priority</code>
+should never be compiled to javascript and <code>arez.spy.Priority</code> should only be present if spies are enabled.</li>
+<li>💥 <strong>[core]</strong> Rename the <code>canNestActions</code> parameter on the <code>@Autorun</code> and <code>@Track</code> annotation to
+<code>nestedActionsAllowed</code> to align with underlying flags naming convention.</li>
+<li>💥 <strong>[core]</strong> Rename the <code>@Autorun</code> annotation to <code>@Observed</code> to reflect naming conventions in the lower level
+api and to prepare for merging with <code>@Tracked</code> annotation.</li>
+<li>Update the <code>org.realityforge.guiceyloops:guiceyloops:jar</code> dependency to version <code>0.96</code>.</li>
+<li>💥 <strong>[core]</strong> Rename the <code>onDepsUpdated</code> parameter to <code>onDepsChanged</code> to reflect conventions in the rest
+of the codebase.</li>
+<li>💥 <strong>[core]</strong> Rename <code>arez.annotations.ObservableRef</code> to <code>arez.annotations.ObservableValueRef</code>. The default
+naming convention was also changed from <code>get[Name]Observable</code> to <code>get[Name]ObservableValue</code>.</li>
+<li><strong>[core]</strong> Rename the <code>tracked</code> parameter on <code>ArezContext.observer(...)</code> methods to <code>observed</code> to align
+with documentation.</li>
+<li><strong>[core]</strong> Merge the <code>@Tracked</code> annotation into the <code>@Observed</code> annotation. This involved adding an additional
+parameter <code>executor</code> that controls which actor is responsible for invoking the <code>@Observed</code> method. By default the
+<code>executor</code> is set to <code>AREZ</code> which makes the invocation of the observed method the responsibility of the Arez
+runtime. It can also be set to <code>APPLICATION</code> which means it is the responsibility of the application to invoke
+the <code>@Observed</code> method. Previously you annotated a method with the <code>@Track</code> annotation which is equivalent to
+annotating a method with <code>@Observed(executor=APPLICATION)</code>. The annotation processor was then updated to apply
+different constraints on the method depending upon the value of the <code>executor</code> parameter. Support was also added
+for the <code>reportParameters</code> parameter previously present on <code>@Track</code> annotation.</li>
+<li><strong>[core]</strong> Rename the <code>ArezContext.track(...)</code> methods to <code>ArezContext.observe(...)</code>. This more accurately
+reflects the intent of the operation.</li>
+<li><strong>[core]</strong> If an application invoked <code>Observer.schedule()</code> on a non-STALE <code>Observer</code> with an <code>observed</code> method
+and an <code>onDepsChanged</code> hook present then the next time that the <code>Observer</code> reacted to changes it would invoke the
+<code>observed</code> method rather than the <code>onDepsChanged</code> as expected. This bug has been fixed.</li>
+<li><strong>[core]</strong> Add support for the <code>arezOnlyDependencies</code> parameter to the <code>@Observed</code> that makes it possible to
+specify the flags <code>AREZ_DEPENDENCIES_ONLY</code> and <code>NON_AREZ_DEPENDENCIES</code> when using the component model.</li>
+<li><strong>[core]</strong> Introduce the <code>@ComponentIdRef</code> annotation that makes it possible to access the id of the component
+without resorting to the <code>arez.component.Identifiable</code> interface which has some performance impact.</li>
+<li><strong>[core]</strong> Fixed a bug where a component annotated with <code>@ArezComponent(nameIncludesId=false)</code> that also had a
+<code>@Repository</code> annotation would always have an id of <code>0</code> in production mode.</li>
+<li><strong>[core]</strong> The <code>Observer.schedule()</code>, <code>Observer.reportStale()</code> and <code>ComputedValue.reportPossibleChanged()</code>
+did not register as usages of the transaction and thus actions that did not set <code>verifyActionRequired</code>
+parameter to <code>false</code> would generate an invariant failure if the action only invoked these methods without also
+accessing or mutating other observable state. These methods now mark the transaction as used so it is no longer
+necessary to set <code>verifyActionRequired</code> to <code>false</code>.</li>
+<li><strong>[core]</strong> Fixed bug where an action with <code>Flags.READ_ONLY</code> without the <code>Flags.REQUIRE_NEW_TRANSACTION</code> nested
+in an action with the <code>Flags.READ_ONLY</code> flag would still create a new transaction. This has been fixed so that the
+nested action no longer creates a new transaction.</li>
+<li><strong>[core]</strong> Added new helper method <code>ArezContext.isReadOnlyTransactionActive()</code>.</li>
+<li><strong>[core]</strong> Rename method <code>ArezContext.isWriteTransactionActive()</code> to <code>ArezContext.isReadWriteTransactionActive()</code>.</li>
+<li><strong>[core]</strong> Changed the core api for invoking actions. Previously actions were created by passing a number
+of boolean flags such as <code>mutation</code>, <code>verifyActionRequired</code> and <code>requireNewTransaction</code>. These have been collapsed
+into a flags parameter that was moved after the executable parameter. The <code>parameters</code> parameter was changed from
+a non-null, var-args parameter into a nullable array. Update the annotation processor to pass null if there are no
+parameters or <code>Arez.areSpiesEnabled()</code> returns <code>false</code>. This improves the ability of the GWT compiler to optimize
+and eliminate unused code.</li>
+<li><strong>[core]</strong> Update the <code>ArezContext.observe(...)</code> and <code>ArezContext.safeObserve(...)</code> methods to change the last
+parameter from a non-null, var args parameter into a nullable array. Makes the code easier for the GWT compiler
+to optimize.</li>
+<li><strong>[core]</strong> Remove the <code>ArezContext.noTxAction(...)</code> and <code>ArezContext.safeNoTxAction(...)</code> methods and associated
+infrastructure for suspending and resuming transactions. The API was error prone and no use-case existed for the
+functionality so it has been removed until such a time where a use-case is determined. Removal also resulted in a
+decrease in code size when compiled using GWT.</li>
+<li><strong>[core]</strong> Add a flag <code>Flags.AREZ_OR_NO_DEPENDENCIES</code> that makes it possible for observers that have not
+specified the <code>Flags.SCHEDULED_EXTERNALLY</code> flag to have zero dependencies. An <code>Observer</code> or <code>ComputedValue</code>
+that has zero dependencies will never be scheduled again but sometimes this is an expected scenario,
+particularly as various elements of a reactive system are disposed.</li>
+<li><strong>[core]</strong> Replace the <code>arezOnlyDependencies</code> on the <code>@Computed</code> and <code>@Observed</code> annotations with an
+enumeration <code>DepType</code> that supports three values: <code>AREZ</code> (which has equivalent behaviour as the previous
+<code>arezOnlyDependencies=true</code> parameter), <code>AREZ_OR_EXTERNAL</code> (which is equivalent behaviour as the previous
+<code>arezOnlyDependencies=false</code> parameter) and <code>AREZ_OR_NONE</code> which expects that the observer or computed value
+to be derived from arez dependencies <em>but</em> also allows the observer or computed value to have zero dependencies.</li>
+<li><strong>[core]</strong> Start to enforce the constraint that application executed observed methods must complete having
+accessed at least one dependency if the dependency type is <code>AREZ</code>. i.e. If a method annotated with
+<code>@Observed( executor = Executor.APPLICATION, depType = DepType.AREZ )</code> does not access an observable an
+invariant failure will be generated.</li>
+<li><strong>[core]</strong> Rename the <code>@Dependency</code> annotation to <code>@ComponentDependency</code> to more accurately reflect intent.</li>
+</ul>
+</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2018/08/31/version-0.106-release.html">Arez 0.106 released</a></h1><p class="post-meta">August 31, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.105...v0.106">Full Changelog</a></p>
 <p>Changes in this release:</p>
 <ul>
 <li><strong>[core]</strong> Add invariant check that stops an observer's transaction from executing within the scope of
@@ -290,56 +423,6 @@ as the existing value and thus no modify action actually occurs. The purpose of 
 annotated methods that either specify or default the value of the <code>verifyRequired</code> annotation parameter
 to <code>true</code> will still register the write and will not generate an invariant failure if that is the only
 arez activity within the scope of the action method.</li>
-</ul>
-</span></div></article></div><div class="post"><header class="postHeader"><h1><a href="/blog/2018/07/05/version-0.96-release.html">Arez 0.96 released</a></h1><p class="post-meta">July 5, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/arez" target="_blank">Arez Project</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/arez/arez/compare/v0.95...v0.96">Full Changelog</a></p>
-<p>Changes in this release:</p>
-<ul>
-<li><strong>[core]</strong> Improve the invariant failure message when a <code>ComputedValue</code> completes without accessing
-any observables.</li>
-<li>Upgrade the <code>org.realityforge.braincheck:braincheck:jar</code> dependency to <code>1.11.0</code> for improved
-compatibility with J2CL with respect to compile-time constants.</li>
-<li><strong>[processor]</strong> Generate the correct error message when a <code>@Dependency</code> annotation is on a method
-that returns an incompatible type.</li>
-<li>💥 <strong>[core]</strong> Remove the <code>arez.Priority.HIGHEST</code> enum value. It was originally used to schedule dispose
-transactions but is no longer used for that use-case. This enum value is not exposed to the component
-framework thus there is limited if any usage of this priority within the framework users and it can be
-removed.</li>
-<li>💥 <strong>[core]</strong> Introduce the <code>LOWEST</code> enum value for priority exposed to applications using the component
-model as well as applications using only core features. This means that applications that required 4
-separate priority levels continue to be supported by Arez.</li>
-<li>💥 <strong>[core]</strong> Introduce the <code>observeLowerPriorityDependencies</code> parameter that can be passed when
-creating an autorun observer via <code>ArezContext.autorun(...)</code>, a tracker observer via <code>ArezContext.tracker(...)</code>
-or a computed value via <code>ArezContext.createComputedValue(...)</code>. This parameter defaults to <code>false</code> but
-if passed as <code>true</code> will allow the underlying observer instance to observe <code>ComputedValue</code> instances with
-a lower priority than the observer. Usually this scenario results in an invariant failure in development
-mode as low priority <code>ComputedValue</code> instances could delay reaction of a high priority observer. This
-effectively makes the <code>&quot;high-priority&quot;</code> observer react after the <code>&quot;low-priority&quot;</code> computed value which
-can introduce significant confusion. Sometimes this priority inversion is acceptable and the new parameter
-allows the user to eliminate the invariant failure when desired. In production mode, this parameter
-has no effect.</li>
-<li>💥 <strong>[annotations]</strong> Add the <code>observeLowerPriorityDependencies</code> parameter to the <code>@Autorun</code>, <code>@Computed</code>
-and <code>@Tracked</code> annotations that integrates the underlying capability with the component model.</li>
-<li>💥 <strong>[core]</strong> Rename <code>ArezContext.createComputedValue(...)</code> methods to <code>ArezContext.computedValue(...)</code>.
-Rename <code>ArezContext.createComponent(...)</code> methods to <code>ArezContext.component(...)</code>. Rename
-<code>ArezContext.createObservable(...)</code> methods to <code>ArezContext.observable(...)</code>. These renames are aimed at
-providing a more consistent API.</li>
-<li>Compile-time constants work differently between the JRE, J2CL and GWT2.x environments. Adopt an
-approach that has the same effective outcome across all environments. This involves using instance
-comparisons for results returned from <code>System.getProperty(...)</code> in GWT2.x and J2CL environments and
-using normal <code>equals()</code> method in JRE. It should be noted that for this to work correctly in the J2CL
-environment, the properties still need to defined via code such as:
-<code>/** @define {string} */ goog.define('arez.environment', 'production');</code></li>
-<li><strong>[core]</strong> Introduce JDepend based test that verifies that no unexpected dependencies between packages
-occur.</li>
-<li>💥💥💥💥 <strong>[core]</strong> The <code>arez-annotations</code> and <code>arez-component</code> modules have been merged into <code>arez-core</code>.
-Both <code>arez-annotations</code> and <code>arez-component</code> were necessary to use the component model. Most if not all
-Arez applications make use of the component model so it was felt merging the modules simplified usage in
-downstream projects. JDepend is used to ensure that no undesired dependencies between packages are added
-now that the code is in a single module.</li>
-<li><strong>[processor]</strong> Fix bug where the code to set the component state is guarded by <code>Arez.shouldCheckInvariants()</code>
-while the code to check the state was guarded by <code>Arez.shouldCheckApiInvariants()</code> which meant that the
-component would generate invariant failures if <code>Arez.shouldCheckApiInvariants()</code> returned true and
-<code>Arez.shouldCheckInvariants()</code> returned false.</li>
 </ul>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev" href="/blog/">← Prev</a><a class="docs-next" href="/blog/page3/">Next →</a></div></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="Arez" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/docs/concepts.html">Concepts</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/arez/arez" data-icon="octicon-star" data-count-href="/arez/arez/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the Arez Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
               var search = docsearch({
