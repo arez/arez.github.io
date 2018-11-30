@@ -300,6 +300,10 @@
 <dd>
 <div class="block">Convert specified stream to a set, wrapping as an unmodifiable set if required.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/spy/Spy.html#asTaskInfo-arez.Task-">asTaskInfo(Task)</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
+<dd>
+<div class="block">Convert the specified task into an TaskInfo.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#attach-T-">attach(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
 <div class="block">Attach specified entity to the set of entities managed by the container.</div>
@@ -660,6 +664,14 @@
 <dd>
 <div class="block">Make the Observer INACTIVE and release any resources associated with observer.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/Task.html#dispose--">dispose()</a></span> - Method in class arez.<a href="arez/Task.html" title="class in arez">Task</a></dt>
+<dd>
+<div class="block">Dispose the element.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Flags.html#DISPOSE_ON_COMPLETE">DISPOSE_ON_COMPLETE</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dd>
+<div class="block">A flag that can be passed to a Task that indicates that the task should be disposed after it has completed execution.</div>
+</dd>
 <dt><a href="arez/component/DisposeNotifier.html" title="class in arez.component"><span class="typeNameLink">DisposeNotifier</span></a> - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
 <dd>
 <div class="block">The class responsible for notifying listeners when an element is disposed.</div>
@@ -782,15 +794,19 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/Spy.html#findAllTopLevelComputableValues--">findAllTopLevelComputableValues()</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
 <dd>
-<div class="block">Find all the collection of computable values not contained by a native component.</div>
+<div class="block">Find all the computable values not contained by a native component.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/Spy.html#findAllTopLevelObservableValues--">findAllTopLevelObservableValues()</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
 <dd>
-<div class="block">Find all the collection of observables not contained by a native component.</div>
+<div class="block">Find all the observables not contained by a native component.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/Spy.html#findAllTopLevelObservers--">findAllTopLevelObservers()</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
 <dd>
-<div class="block">Find all the collection of observers not contained by a native component.</div>
+<div class="block">Find all the observers not contained by a native component.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/Spy.html#findAllTopLevelTasks--">findAllTopLevelTasks()</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
+<dd>
+<div class="block">Find all the "top-level" tasks defined by the system.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#findByArezId-K-">findByArezId(K)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
 <dd>
@@ -932,6 +948,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserveCompleteEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserveCompleteEvent.html" title="class in arez.spy">ObserveCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskCompleteEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/TaskCompleteEvent.html" title="class in arez.spy">TaskCompleteEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/TransactionCompleteEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/TransactionCompleteEvent.html" title="class in arez.spy">TransactionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#getEntitiesObservableValue--">getEntitiesObservableValue()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
@@ -1042,6 +1060,10 @@
 <dd>
 <div class="block">Return the priority of the Observer.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskInfo.html#getPriority--">getPriority()</a></span> - Method in interface arez.spy.<a href="arez/spy/TaskInfo.html" title="interface in arez.spy">TaskInfo</a></dt>
+<dd>
+<div class="block">Return the priority of the task.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ActionCompleteEvent.html#getResult--">getResult()</a></span> - Method in class arez.spy.<a href="arez/spy/ActionCompleteEvent.html" title="class in arez.spy">ActionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeCompleteEvent.html#getResult--">getResult()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeCompleteEvent.html" title="class in arez.spy">ComputeCompleteEvent</a></dt>
@@ -1050,6 +1072,10 @@
 <dd>
 <div class="block">Return the spy associated with context.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskCompleteEvent.html#getTask--">getTask()</a></span> - Method in class arez.spy.<a href="arez/spy/TaskCompleteEvent.html" title="class in arez.spy">TaskCompleteEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskStartEvent.html#getTask--">getTask()</a></span> - Method in class arez.spy.<a href="arez/spy/TaskStartEvent.html" title="class in arez.spy">TaskStartEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ActionCompleteEvent.html#getThrowable--">getThrowable()</a></span> - Method in class arez.spy.<a href="arez/spy/ActionCompleteEvent.html" title="class in arez.spy">ActionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeCompleteEvent.html#getThrowable--">getThrowable()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeCompleteEvent.html" title="class in arez.spy">ComputeCompleteEvent</a></dt>
@@ -1057,6 +1083,8 @@
 <dt><span class="memberNameLink"><a href="arez/spy/ObserveCompleteEvent.html#getThrowable--">getThrowable()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserveCompleteEvent.html" title="class in arez.spy">ObserveCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverErrorEvent.html#getThrowable--">getThrowable()</a></span> - Method in class arez.spy.<a href="arez/spy/ObserverErrorEvent.html" title="class in arez.spy">ObserverErrorEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskCompleteEvent.html#getThrowable--">getThrowable()</a></span> - Method in class arez.spy.<a href="arez/spy/TaskCompleteEvent.html" title="class in arez.spy">TaskCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/TransactionCompleteEvent.html#getTracker--">getTracker()</a></span> - Method in class arez.spy.<a href="arez/spy/TransactionCompleteEvent.html" title="class in arez.spy">TransactionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
@@ -1203,6 +1231,14 @@
 <dd>
 <div class="block">Return true if dispose() has been called on object.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/Task.html#isDisposed--">isDisposed()</a></span> - Method in class arez.<a href="arez/Task.html" title="class in arez">Task</a></dt>
+<dd>
+<div class="block">Return true if dispose() has been called on object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskInfo.html#isIdle--">isIdle()</a></span> - Method in interface arez.spy.<a href="arez/spy/TaskInfo.html" title="interface in arez.spy">TaskInfo</a></dt>
+<dd>
+<div class="block">Return true if the task is idle - not scheduled to run and not disposed.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/TransactionCompleteEvent.html#isMutation--">isMutation()</a></span> - Method in class arez.spy.<a href="arez/spy/TransactionCompleteEvent.html" title="class in arez.spy">TransactionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/TransactionStartEvent.html#isMutation--">isMutation()</a></span> - Method in class arez.spy.<a href="arez/spy/TransactionStartEvent.html" title="class in arez.spy">TransactionStartEvent</a></dt>
@@ -1238,6 +1274,10 @@
 <dt><span class="memberNameLink"><a href="arez/spy/ObserverInfo.html#isScheduled--">isScheduled()</a></span> - Method in interface arez.spy.<a href="arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a></dt>
 <dd>
 <div class="block">Return true if the Observer is scheduled to run.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskInfo.html#isScheduled--">isScheduled()</a></span> - Method in interface arez.spy.<a href="arez/spy/TaskInfo.html" title="interface in arez.spy">TaskInfo</a></dt>
+<dd>
+<div class="block">Return true if the task is scheduled to run.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#isSchedulerPaused--">isSchedulerPaused()</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
@@ -1923,6 +1963,14 @@
 <dd>
 <div class="block">Schedule this observer if it does not already have a reaction pending.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/Task.html#schedule--">schedule()</a></span> - Method in class arez.<a href="arez/Task.html" title="class in arez">Task</a></dt>
+<dd>
+<div class="block">Re-schedule this task if it is idle and trigger the scheduler if it is not active.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#scheduleDispose-arez.Disposable-">scheduleDispose(Disposable)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Add the specified disposable to the list of pending disposables.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/ArezContext.html#scheduleDispose-java.lang.String-arez.Disposable-">scheduleDispose(String, Disposable)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Add the specified disposable to the list of pending disposables.</div>
@@ -1977,6 +2025,42 @@
 </a>
 <h2 class="title">T</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#task-arez.SafeProcedure-">task(SafeProcedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create and queue a task to be executed by the runtime.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#task-java.lang.String-arez.SafeProcedure-">task(String, SafeProcedure)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create and queue a task to be executed by the runtime.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#task-arez.SafeProcedure-int-">task(SafeProcedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create and queue a task to be executed by the runtime.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezContext.html#task-java.lang.String-arez.SafeProcedure-int-">task(String, SafeProcedure, int)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create and queue a task to be executed by the runtime.</div>
+</dd>
+<dt><a href="arez/Task.html" title="class in arez"><span class="typeNameLink">Task</span></a> - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">A task represents an executable element that can be run by the task executor.</div>
+</dd>
+<dt><a href="arez/spy/TaskCompleteEvent.html" title="class in arez.spy"><span class="typeNameLink">TaskCompleteEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">Notification that task has completed execution.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskCompleteEvent.html#TaskCompleteEvent-arez.spy.TaskInfo-java.lang.Throwable-int-">TaskCompleteEvent(TaskInfo, Throwable, int)</a></span> - Constructor for class arez.spy.<a href="arez/spy/TaskCompleteEvent.html" title="class in arez.spy">TaskCompleteEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/TaskInfo.html" title="interface in arez.spy"><span class="typeNameLink">TaskInfo</span></a> - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">A representation of a task instance exposed to spy framework.</div>
+</dd>
+<dt><a href="arez/spy/TaskStartEvent.html" title="class in arez.spy"><span class="typeNameLink">TaskStartEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">Notification that Task is starting.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskStartEvent.html#TaskStartEvent-arez.spy.TaskInfo-">TaskStartEvent(TaskInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/TaskStartEvent.html" title="class in arez.spy">TaskStartEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ActionCompleteEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/ActionCompleteEvent.html" title="class in arez.spy">ActionCompleteEvent</a></dt>
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
@@ -2062,6 +2146,14 @@
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/SerializableEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in interface arez.spy.<a href="arez/spy/SerializableEvent.html" title="interface in arez.spy">SerializableEvent</a></dt>
+<dd>
+<div class="block">Convert event attributes to json compatible values in map.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskCompleteEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/TaskCompleteEvent.html" title="class in arez.spy">TaskCompleteEvent</a></dt>
+<dd>
+<div class="block">Convert event attributes to json compatible values in map.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/spy/TaskStartEvent.html#toMap-java.util.Map-">toMap(Map&lt;String, Object&gt;)</a></span> - Method in class arez.spy.<a href="arez/spy/TaskStartEvent.html" title="class in arez.spy">TaskStartEvent</a></dt>
 <dd>
 <div class="block">Convert event attributes to json compatible values in map.</div>
 </dd>

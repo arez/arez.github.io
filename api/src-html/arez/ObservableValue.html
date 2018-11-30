@@ -414,11 +414,11 @@
 <span class="sourceLineNo">406</span>                       "named '" + getName() + "' when observer is disposed." );<a name="line.406"></a>
 <span class="sourceLineNo">407</span>      invariant( () -&gt; !isComputableValue() ||<a name="line.407"></a>
 <span class="sourceLineNo">408</span>                       observer.canObserveLowerPriorityDependencies() ||<a name="line.408"></a>
-<span class="sourceLineNo">409</span>                       observer.getPriority().ordinal() &gt;= getObserver().getPriority().ordinal(),<a name="line.409"></a>
+<span class="sourceLineNo">409</span>                       observer.getTask().getPriority().ordinal() &gt;= getObserver().getTask().getPriority().ordinal(),<a name="line.409"></a>
 <span class="sourceLineNo">410</span>                 () -&gt; "Arez-0183: Attempting to add observer named '" + observer.getName() + "' to ObservableValue " +<a name="line.410"></a>
-<span class="sourceLineNo">411</span>                       "named '" + getName() + "' where the observer is scheduled at a " + observer.getPriority() +<a name="line.411"></a>
-<span class="sourceLineNo">412</span>                       " priority but the ObservableValue's owner is scheduled at a " +<a name="line.412"></a>
-<span class="sourceLineNo">413</span>                       getObserver().getPriority() + " priority." );<a name="line.413"></a>
+<span class="sourceLineNo">411</span>                       "named '" + getName() + "' where the observer is scheduled at a " +<a name="line.411"></a>
+<span class="sourceLineNo">412</span>                       observer.getTask().getPriority() + " priority but the ObservableValue's owner is scheduled " +<a name="line.412"></a>
+<span class="sourceLineNo">413</span>                       "at a " + getObserver().getTask().getPriority() + " priority." );<a name="line.413"></a>
 <span class="sourceLineNo">414</span>      invariant( () -&gt; getContext().getTransaction().getTracker() == observer,<a name="line.414"></a>
 <span class="sourceLineNo">415</span>                 () -&gt; "Arez-0203: Attempting to add observer named '" + observer.getName() + "' to ObservableValue " +<a name="line.415"></a>
 <span class="sourceLineNo">416</span>                       "named '" + getName() + "' but the observer is not the tracker in transaction named '" +<a name="line.416"></a>

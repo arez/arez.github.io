@@ -25,6 +25,10 @@
 <ul>
 <li><a href="#why-guard-invariant-checks-with-arezshouldcheckinvariants">Why guard invariant checks with <code>Arez.shouldCheckInvariants()</code>?</a></li>
 </ul></li>
+<li><a href="#alternatives">Alternatives</a>
+<ul>
+<li><a href="#how-does-arez-compare-to-mobx">How does Arez compare to Mobx?</a></li>
+</ul></li>
 </ul>
 <!-- tocstop -->
 <p></nav></p>
@@ -32,8 +36,7 @@
 <h3><a class="anchor" aria-hidden="true" name="why-are-observe-methods-not-being-re-run-when-observable-properties-change"></a><a href="#why-are-observe-methods-not-being-re-run-when-observable-properties-change" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why are @Observe methods not being re-run when observable properties change?</h3>
 <p>Arez only re-runs <a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a> annotated methods if it is told that an observable property that
 is a dependency of the <a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a> method is changed. Assuming you are using classes annotated
-with <a href="/api/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a>  then this means
-that the code must:</p>
+with <a href="/api/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a> then this means that the code must:</p>
 <ul>
 <li>mutate the property using the setter method to mark the property as changed. The generated code ultimately calls
 the <a href="/api/arez/ObservableValue.html#reportChanged--"><code>ObservableValue.reportChanged()</code></a> method to mark the property as changed.</li>
@@ -155,6 +158,31 @@ code would be optimized in one context but kept in another context within the sa
 to be a deployment target. As an indication of how much of an impact it can have, the size of one trivial
 application went from 141KB to 74KB after this change. If/When Arez targets GWT 3.x and not GWT 2.x, it is
 expected that most of this complexity can be removed from the codebase.</p>
+<h2><a class="anchor" aria-hidden="true" name="alternatives"></a><a href="#alternatives" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Alternatives</h2>
+<h3><a class="anchor" aria-hidden="true" name="how-does-arez-compare-to-mobx"></a><a href="#how-does-arez-compare-to-mobx" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How does Arez compare to Mobx?</h3>
+<p>Arez began life as a port of Mobx so they both share a core conceptual model of observable values, computable
+values (a.k.a derived values) and observers. The internals that implement Arez are better optimized for both
+execution speed and base code size than the Mobx equivalents due to the magic of the GWT2.x and J2CL compilers.
+For many use cases Arez has a much smaller memory footprint.</p>
+<p>As the number of observable nodes increases, Mobx has the advantage and the code size will increase at a
+lower rate compared to a normal Arez application. The actual threshold where the size of the Arez code is higher
+than the equivalent functionality in Mobx is a moving target as both projects are continually evolving. In
+practice it is expected to be in the vicinity of ~6000 <code>@Observable</code> annotated methods but this has not been
+measured recently.</p>
+<p>The reason for the difference is primarily how the two different frameworks make an object reactive. The Arez
+component model statically generates code at compile time to make an element reactive while Mobx introduces
+reactivity dynamically at runtime. Arez has experimented with using dynamic runtime enhancement of a component
+but this approach relied upon features of J2CL and J2CL is still in development. Arez's dynamic components were
+also limited to running on a javascript virtual machine and would no longer be able to be run on a JVM without
+an alternative implementation strategy.</p>
+<p>Mobx has a much larger ecosystem with a larger developer base. As a result Mobx offers much better educational
+resources (such as documentation and video courses). Some features of Mobx (i.e. <code>when(...)</code>) are only available
+as libraries (i.e. <code>arez-when</code> project) where they are baked into Mobx. Arez includes an opinionated
+component model within the core framework where as the equivalent within in the Mobx ecosystem is provided by
+<a href="https://github.com/mobxjs/mobx-state-tree">Mobx State Tree</a> or MST. MST provides similar features to the Arez
+component model as well as additional functionality such as serialization and deserialization of state.</p>
+<p>Overall the two libraries share many similarities. Arez is focused on performance and is written in Java. Mobx
+has a larger ecosystem and is written in javascript (or TypeScript to be more precise).</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="dependency_injection.html">← Dependency Injection</a><a class="docs-next button" href="related_projects.html">Related projects →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="Arez" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/docs/concepts.html">Concepts</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/arez/arez" data-icon="octicon-star" data-count-href="/arez/arez/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the Arez Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
               var search = docsearch({
                 apiKey: 'b8c49751e0914443436822868f0c5000',
