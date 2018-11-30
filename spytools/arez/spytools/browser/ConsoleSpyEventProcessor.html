@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -120,7 +120,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public class <a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.38">ConsoleSpyEventProcessor</a>
+<pre>public class <a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.40">ConsoleSpyEventProcessor</a>
 extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="class in arez.spytools">AbstractSpyEventProcessor</a></pre>
 <div class="block">A SpyEventHandler that prints spy events to the browser console.
  The events are grouped according to their nesting levels and are colored to make them easy
@@ -331,18 +331,32 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 </tr>
 <tr id="i24" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/spytools/browser/ConsoleSpyEventProcessor.html#onTaskComplete-arez.spytools.SpyUtil.NestingDelta-arez.spy.TaskCompleteEvent-">onTaskComplete</a></span>(<a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
+              <a href="https://arez.github.io/api/arez/spy/TaskCompleteEvent.html?is-external=true" title="class or interface in arez.spy">TaskCompleteEvent</a>&nbsp;e)</code>
+<div class="block">Handle the TaskCompleteEvent.</div>
+</td>
+</tr>
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/spytools/browser/ConsoleSpyEventProcessor.html#onTaskStart-arez.spytools.SpyUtil.NestingDelta-arez.spy.TaskStartEvent-">onTaskStart</a></span>(<a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
+           <a href="https://arez.github.io/api/arez/spy/TaskStartEvent.html?is-external=true" title="class or interface in arez.spy">TaskStartEvent</a>&nbsp;e)</code>
+<div class="block">Handle the TaskStartEvent.</div>
+</td>
+</tr>
+<tr id="i26" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/spytools/browser/ConsoleSpyEventProcessor.html#onTransactionComplete-arez.spytools.SpyUtil.NestingDelta-arez.spy.TransactionCompleteEvent-">onTransactionComplete</a></span>(<a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                      <a href="https://arez.github.io/api/arez/spy/TransactionCompleteEvent.html?is-external=true" title="class or interface in arez.spy">TransactionCompleteEvent</a>&nbsp;e)</code>
 <div class="block">Handle the TransactionCompleteEvent.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/spytools/browser/ConsoleSpyEventProcessor.html#parametersToString-java.lang.Object:A-">parametersToString</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;parameters)</code>
 <div class="block">Convert array of parameters into something consumable by a human.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/spytools/browser/ConsoleSpyEventProcessor.html#TransactionStart-arez.spytools.SpyUtil.NestingDelta-arez.spy.TransactionStartEvent-">TransactionStart</a></span>(<a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                 <a href="https://arez.github.io/api/arez/spy/TransactionStartEvent.html?is-external=true" title="class or interface in arez.spy">TransactionStartEvent</a>&nbsp;e)</code>
@@ -384,7 +398,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ConsoleSpyEventProcessor</h4>
-<pre>public&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.70">ConsoleSpyEventProcessor</a>()</pre>
+<pre>public&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.74">ConsoleSpyEventProcessor</a>()</pre>
 <div class="block">Create the processor.</div>
 </li>
 </ul>
@@ -396,13 +410,49 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="onTaskStart-arez.spytools.SpyUtil.NestingDelta-arez.spy.TaskStartEvent-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onTaskStart</h4>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.116">onTaskStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                           <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
+                           <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                           <a href="https://arez.github.io/api/arez/spy/TaskStartEvent.html?is-external=true" title="class or interface in arez.spy">TaskStartEvent</a>&nbsp;e)</pre>
+<div class="block">Handle the TaskStartEvent.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>d</code> - the change in nesting level.</dd>
+<dd><code>e</code> - the event.</dd>
+</dl>
+</li>
+</ul>
+<a name="onTaskComplete-arez.spytools.SpyUtil.NestingDelta-arez.spy.TaskCompleteEvent-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onTaskComplete</h4>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.127">onTaskComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                              <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
+                              <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                              <a href="https://arez.github.io/api/arez/spy/TaskCompleteEvent.html?is-external=true" title="class or interface in arez.spy">TaskCompleteEvent</a>&nbsp;e)</pre>
+<div class="block">Handle the TaskCompleteEvent.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>d</code> - the change in nesting level.</dd>
+<dd><code>e</code> - the event.</dd>
+</dl>
+</li>
+</ul>
 <a name="onComponentCreateStart-arez.spytools.SpyUtil.NestingDelta-arez.spy.ComponentCreateStartEvent-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>onComponentCreateStart</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.109">onComponentCreateStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.138">onComponentCreateStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                       <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                       <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                       <a href="https://arez.github.io/api/arez/spy/ComponentCreateStartEvent.html?is-external=true" title="class or interface in arez.spy">ComponentCreateStartEvent</a>&nbsp;e)</pre>
@@ -420,7 +470,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onComponentCreateCompleteEvent</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.121">onComponentCreateCompleteEvent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.150">onComponentCreateCompleteEvent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               <a href="https://arez.github.io/api/arez/spy/ComponentCreateCompleteEvent.html?is-external=true" title="class or interface in arez.spy">ComponentCreateCompleteEvent</a>&nbsp;e)</pre>
@@ -438,7 +488,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onComponentDisposeStart</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.133">onComponentDisposeStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.162">onComponentDisposeStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="https://arez.github.io/api/arez/spy/ComponentDisposeStartEvent.html?is-external=true" title="class or interface in arez.spy">ComponentDisposeStartEvent</a>&nbsp;e)</pre>
@@ -456,7 +506,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onComponentDisposeComplete</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.145">onComponentDisposeComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.174">onComponentDisposeComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                           <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                           <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                           <a href="https://arez.github.io/api/arez/spy/ComponentDisposeCompleteEvent.html?is-external=true" title="class or interface in arez.spy">ComponentDisposeCompleteEvent</a>&nbsp;e)</pre>
@@ -474,7 +524,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onObserverCreate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.157">onObserverCreate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.186">onObserverCreate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                 <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                 <a href="https://arez.github.io/api/arez/spy/ObserverCreateEvent.html?is-external=true" title="class or interface in arez.spy">ObserverCreateEvent</a>&nbsp;e)</pre>
@@ -492,7 +542,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onObserverDispose</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.168">onObserverDispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.197">onObserverDispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="https://arez.github.io/api/arez/spy/ObserverDisposeEvent.html?is-external=true" title="class or interface in arez.spy">ObserverDisposeEvent</a>&nbsp;e)</pre>
@@ -510,7 +560,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onObserverError</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.179">onObserverError</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.208">onObserverError</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                <a href="https://arez.github.io/api/arez/spy/ObserverErrorEvent.html?is-external=true" title="class or interface in arez.spy">ObserverErrorEvent</a>&nbsp;e)</pre>
@@ -528,7 +578,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onObservableValueCreate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.192">onObservableValueCreate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.221">onObservableValueCreate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="https://arez.github.io/api/arez/spy/ObservableValueCreateEvent.html?is-external=true" title="class or interface in arez.spy">ObservableValueCreateEvent</a>&nbsp;e)</pre>
@@ -546,7 +596,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onObservableValueDispose</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.204">onObservableValueDispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.233">onObservableValueDispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                         <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                         <a href="https://arez.github.io/api/arez/spy/ObservableValueDisposeEvent.html?is-external=true" title="class or interface in arez.spy">ObservableValueDisposeEvent</a>&nbsp;e)</pre>
@@ -564,7 +614,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onObservableValueChange</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.216">onObservableValueChange</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.245">onObservableValueChange</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="https://arez.github.io/api/arez/spy/ObservableValueChangeEvent.html?is-external=true" title="class or interface in arez.spy">ObservableValueChangeEvent</a>&nbsp;e)</pre>
@@ -582,7 +632,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onComputableValueCreate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.232">onComputableValueCreate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.261">onComputableValueCreate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="https://arez.github.io/api/arez/spy/ComputableValueCreateEvent.html?is-external=true" title="class or interface in arez.spy">ComputableValueCreateEvent</a>&nbsp;e)</pre>
@@ -600,7 +650,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onComputableValueActivate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.244">onComputableValueActivate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.273">onComputableValueActivate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                          <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                          <a href="https://arez.github.io/api/arez/spy/ComputableValueActivateEvent.html?is-external=true" title="class or interface in arez.spy">ComputableValueActivateEvent</a>&nbsp;e)</pre>
@@ -618,7 +668,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onComputeStart</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.256">onComputeStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.285">onComputeStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                               <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                               <a href="https://arez.github.io/api/arez/spy/ComputeStartEvent.html?is-external=true" title="class or interface in arez.spy">ComputeStartEvent</a>&nbsp;e)</pre>
@@ -636,7 +686,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onComputeComplete</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.267">onComputeComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.296">onComputeComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="https://arez.github.io/api/arez/spy/ComputeCompleteEvent.html?is-external=true" title="class or interface in arez.spy">ComputeCompleteEvent</a>&nbsp;e)</pre>
@@ -654,7 +704,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onComputableValueDeactivate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.278">onComputableValueDeactivate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.307">onComputableValueDeactivate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                            <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                            <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                            <a href="https://arez.github.io/api/arez/spy/ComputableValueDeactivateEvent.html?is-external=true" title="class or interface in arez.spy">ComputableValueDeactivateEvent</a>&nbsp;e)</pre>
@@ -672,7 +722,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onComputableValueDispose</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.290">onComputableValueDispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.319">onComputableValueDispose</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                         <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                         <a href="https://arez.github.io/api/arez/spy/ComputableValueDisposeEvent.html?is-external=true" title="class or interface in arez.spy">ComputableValueDisposeEvent</a>&nbsp;e)</pre>
@@ -690,7 +740,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onObserveSchedule</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.302">onObserveSchedule</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.331">onObserveSchedule</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="https://arez.github.io/api/arez/spy/ObserveScheduleEvent.html?is-external=true" title="class or interface in arez.spy">ObserveScheduleEvent</a>&nbsp;e)</pre>
@@ -708,7 +758,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onObserveStart</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.313">onObserveStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.342">onObserveStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                               <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                               <a href="https://arez.github.io/api/arez/spy/ObserveStartEvent.html?is-external=true" title="class or interface in arez.spy">ObserveStartEvent</a>&nbsp;e)</pre>
@@ -726,7 +776,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onObserveComplete</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.324">onObserveComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.353">onObserveComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="https://arez.github.io/api/arez/spy/ObserveCompleteEvent.html?is-external=true" title="class or interface in arez.spy">ObserveCompleteEvent</a>&nbsp;e)</pre>
@@ -744,7 +794,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>TransactionStart</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.337">TransactionStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.366">TransactionStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                 <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                 <a href="https://arez.github.io/api/arez/spy/TransactionStartEvent.html?is-external=true" title="class or interface in arez.spy">TransactionStartEvent</a>&nbsp;e)</pre>
@@ -762,7 +812,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onTransactionComplete</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.354">onTransactionComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.383">onTransactionComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                      <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                      <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                      <a href="https://arez.github.io/api/arez/spy/TransactionCompleteEvent.html?is-external=true" title="class or interface in arez.spy">TransactionCompleteEvent</a>&nbsp;e)</pre>
@@ -780,7 +830,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onActionStart</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.375">onActionStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.404">onActionStart</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                              <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                              <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                              <a href="https://arez.github.io/api/arez/spy/ActionStartEvent.html?is-external=true" title="class or interface in arez.spy">ActionStartEvent</a>&nbsp;e)</pre>
@@ -798,7 +848,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>onActionComplete</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.389">onActionComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.418">onActionComplete</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                 <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;d,
                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                 <a href="https://arez.github.io/api/arez/spy/ActionCompleteEvent.html?is-external=true" title="class or interface in arez.spy">ActionCompleteEvent</a>&nbsp;e)</pre>
@@ -817,7 +867,7 @@ extends <a href="../../../arez/spytools/AbstractSpyEventProcessor.html" title="c
 <li class="blockList">
 <h4>parametersToString</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.411">parametersToString</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.440">parametersToString</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;parameters)</pre>
 <div class="block">Convert array of parameters into something consumable by a human.
  Java objects use toString() while native javascript objects use <code>JSON.stringify()</code>.</div>
@@ -836,7 +886,7 @@ protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Stri
 <li class="blockList">
 <h4>getStringifyReplacer</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected&nbsp;<a href="../../../arez/spytools/browser/StringifyReplacer.html" title="class in arez.spytools.browser">StringifyReplacer</a>&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.447">getStringifyReplacer</a>()</pre>
+protected&nbsp;<a href="../../../arez/spytools/browser/StringifyReplacer.html" title="class in arez.spytools.browser">StringifyReplacer</a>&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.476">getStringifyReplacer</a>()</pre>
 <div class="block">Create replacer callback.
  This method has been extracted to allow sub classes to override.</div>
 <dl>
@@ -851,7 +901,7 @@ protected&nbsp;<a href="../../../arez/spytools/browser/StringifyReplacer.html" t
 <ul class="blockList">
 <li class="blockList">
 <h4>log</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.459">log</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.488">log</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                    <a href="../../../arez/spytools/SpyUtil.NestingDelta.html" title="enum in arez.spytools">SpyUtil.NestingDelta</a>&nbsp;delta,
                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
@@ -872,7 +922,7 @@ protected&nbsp;<a href="../../../arez/spytools/browser/StringifyReplacer.html" t
 <ul class="blockListLast">
 <li class="blockList">
 <h4>handleUnhandledEvent</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.482">handleUnhandledEvent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../../src-html/arez/spytools/browser/ConsoleSpyEventProcessor.html#line.511">handleUnhandledEvent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;event)</pre>
 <div class="block">Handle the specified event that had no processors defined for it.</div>
 <dl>
