@@ -1802,7 +1802,7 @@ public&nbsp;<a href="../arez/Task.html" title="class in arez">Task</a>&nbsp;<a h
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>work</code> - the representation of the task to execute.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a Disposable that can be used to cancel the task before it is executed.</dd>
+<dd>the new task.</dd>
 </dl>
 </li>
 </ul>
@@ -1824,7 +1824,7 @@ public&nbsp;<a href="../arez/Task.html" title="class in arez">Task</a>&nbsp;<a h
 <dd><code>name</code> - the name of the task. Must be null if <a href="../arez/Arez.html#areNamesEnabled--"><code>Arez.areNamesEnabled()</code></a> returns <code>false</code>.</dd>
 <dd><code>work</code> - the representation of the task to execute.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a Disposable that can be used to cancel the task before it is executed.</dd>
+<dd>the new task.</dd>
 </dl>
 </li>
 </ul>
@@ -1844,9 +1844,9 @@ public&nbsp;<a href="../arez/Task.html" title="class in arez">Task</a>&nbsp;<a h
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>work</code> - the representation of the task to execute.</dd>
-<dd><code>flags</code> - the flags to configure task. Valid flags include PRIORITY_* and RUN_* flags.</dd>
+<dd><code>flags</code> - the flags to configure task. Valid flags include PRIORITY_* flags, DISPOSE_ON_COMPLETE and RUN_* flags.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a Disposable that can be used to cancel the task before it is executed.</dd>
+<dd>the new task.</dd>
 </dl>
 </li>
 </ul>
@@ -1869,9 +1869,9 @@ public&nbsp;<a href="../arez/Task.html" title="class in arez">Task</a>&nbsp;<a h
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the name of the task. Must be null if <a href="../arez/Arez.html#areNamesEnabled--"><code>Arez.areNamesEnabled()</code></a> returns <code>false</code>.</dd>
 <dd><code>work</code> - the representation of the task to execute.</dd>
-<dd><code>flags</code> - the flags to configure task. Valid flags include PRIORITY_* and RUN_* flags.</dd>
+<dd><code>flags</code> - the flags to configure task. Valid flags include PRIORITY_* flags, DISPOSE_ON_COMPLETE and RUN_* flags.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a Disposable that can be used to cancel the task before it is executed.</dd>
+<dd>the new task.</dd>
 </dl>
 </li>
 </ul>

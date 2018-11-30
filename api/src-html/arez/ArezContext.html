@@ -1000,7 +1000,7 @@
 <span class="sourceLineNo">992</span>   * If the scheduler is not running then the scheduler will be triggered.<a name="line.992"></a>
 <span class="sourceLineNo">993</span>   *<a name="line.993"></a>
 <span class="sourceLineNo">994</span>   * @param work the representation of the task to execute.<a name="line.994"></a>
-<span class="sourceLineNo">995</span>   * @return a Disposable that can be used to cancel the task before it is executed.<a name="line.995"></a>
+<span class="sourceLineNo">995</span>   * @return the new task.<a name="line.995"></a>
 <span class="sourceLineNo">996</span>   */<a name="line.996"></a>
 <span class="sourceLineNo">997</span>  @Nonnull<a name="line.997"></a>
 <span class="sourceLineNo">998</span>  public Task task( @Nonnull final SafeProcedure work )<a name="line.998"></a>
@@ -1014,7 +1014,7 @@
 <span class="sourceLineNo">1006</span>   *<a name="line.1006"></a>
 <span class="sourceLineNo">1007</span>   * @param name the name of the task. Must be null if {@link Arez#areNamesEnabled()} returns &lt;code&gt;false&lt;/code&gt;.<a name="line.1007"></a>
 <span class="sourceLineNo">1008</span>   * @param work the representation of the task to execute.<a name="line.1008"></a>
-<span class="sourceLineNo">1009</span>   * @return a Disposable that can be used to cancel the task before it is executed.<a name="line.1009"></a>
+<span class="sourceLineNo">1009</span>   * @return the new task.<a name="line.1009"></a>
 <span class="sourceLineNo">1010</span>   */<a name="line.1010"></a>
 <span class="sourceLineNo">1011</span>  @Nonnull<a name="line.1011"></a>
 <span class="sourceLineNo">1012</span>  public Task task( @Nullable final String name, @Nonnull final SafeProcedure work )<a name="line.1012"></a>
@@ -1028,8 +1028,8 @@
 <span class="sourceLineNo">1020</span>   * scheduler will be triggered.<a name="line.1020"></a>
 <span class="sourceLineNo">1021</span>   *<a name="line.1021"></a>
 <span class="sourceLineNo">1022</span>   * @param work  the representation of the task to execute.<a name="line.1022"></a>
-<span class="sourceLineNo">1023</span>   * @param flags the flags to configure task. Valid flags include PRIORITY_* and RUN_* flags.<a name="line.1023"></a>
-<span class="sourceLineNo">1024</span>   * @return a Disposable that can be used to cancel the task before it is executed.<a name="line.1024"></a>
+<span class="sourceLineNo">1023</span>   * @param flags the flags to configure task. Valid flags include PRIORITY_* flags, DISPOSE_ON_COMPLETE and RUN_* flags.<a name="line.1023"></a>
+<span class="sourceLineNo">1024</span>   * @return the new task.<a name="line.1024"></a>
 <span class="sourceLineNo">1025</span>   */<a name="line.1025"></a>
 <span class="sourceLineNo">1026</span>  @Nonnull<a name="line.1026"></a>
 <span class="sourceLineNo">1027</span>  public Task task( @Nonnull final SafeProcedure work, final int flags )<a name="line.1027"></a>
@@ -1044,8 +1044,8 @@
 <span class="sourceLineNo">1036</span>   *<a name="line.1036"></a>
 <span class="sourceLineNo">1037</span>   * @param name  the name of the task. Must be null if {@link Arez#areNamesEnabled()} returns &lt;code&gt;false&lt;/code&gt;.<a name="line.1037"></a>
 <span class="sourceLineNo">1038</span>   * @param work  the representation of the task to execute.<a name="line.1038"></a>
-<span class="sourceLineNo">1039</span>   * @param flags the flags to configure task. Valid flags include PRIORITY_* and RUN_* flags.<a name="line.1039"></a>
-<span class="sourceLineNo">1040</span>   * @return a Disposable that can be used to cancel the task before it is executed.<a name="line.1040"></a>
+<span class="sourceLineNo">1039</span>   * @param flags the flags to configure task. Valid flags include PRIORITY_* flags, DISPOSE_ON_COMPLETE and RUN_* flags.<a name="line.1039"></a>
+<span class="sourceLineNo">1040</span>   * @return the new task.<a name="line.1040"></a>
 <span class="sourceLineNo">1041</span>   */<a name="line.1041"></a>
 <span class="sourceLineNo">1042</span>  @Nonnull<a name="line.1042"></a>
 <span class="sourceLineNo">1043</span>  public Task task( @Nullable final String name, @Nonnull final SafeProcedure work, final int flags )<a name="line.1043"></a>
