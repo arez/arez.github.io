@@ -156,10 +156,6 @@
 <dd>
 <div class="block">Return true if observable properties, computable properties or query results that are of type collection are wrapped in unmodifiable variant prior to returning.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Arez.html#areEnvironmentsEnabled--">areEnvironmentsEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
-<dd>
-<div class="block">Return true if environments are enabled.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#areNamesEnabled--">areNamesEnabled()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
 <div class="block">Return true if user should pass names into API methods, false if should pass null.</div>
@@ -586,10 +582,6 @@
 <dd>
 <div class="block">Detach entity from container without disposing entity.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#disableEnvironments--">disableEnvironments()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
-<dd>
-<div class="block">Set `arez.enable_environments` setting to false.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#disableNames--">disableNames()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
 <div class="block">Set `arez.enable_names` setting to false.</div>
@@ -664,6 +656,10 @@
 <dd>
 <div class="block">Make the Observer INACTIVE and release any resources associated with observer.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/SchedulerLock.html#dispose--">dispose()</a></span> - Method in class arez.<a href="arez/SchedulerLock.html" title="class in arez">SchedulerLock</a></dt>
+<dd>
+<div class="block">Dispose the element.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/Task.html#dispose--">dispose()</a></span> - Method in class arez.<a href="arez/Task.html" title="class in arez">Task</a></dt>
 <dd>
 <div class="block">Dispose the element.</div>
@@ -692,10 +688,6 @@
 <dt><a href="arez/spy/ElementInfo.html" title="interface in arez.spy"><span class="typeNameLink">ElementInfo</span></a> - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">A representation of an element exposed to spy framework.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#enableEnvironments--">enableEnvironments()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
-<dd>
-<div class="block">Set `arez.enable_environments` setting to true.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#enableNames--">enableNames()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
@@ -741,22 +733,9 @@
 <dd>
 <div class="block">Return a stream of all entities in the container.</div>
 </dd>
-<dt><a href="arez/Environment.html" title="interface in arez"><span class="typeNameLink">Environment</span></a> - Interface in <a href="arez/package-summary.html">arez</a></dt>
-<dd>
-<div class="block">Interface that used to intercept executions so that the environment can be setup when running.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#ENVIRONMENT_NOT_REQUIRED">ENVIRONMENT_NOT_REQUIRED</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
-<dd>
-<div class="block">The action or observer need not be wrapped by the <a href="arez/Environment.html" title="interface in arez"><code>Environment</code></a> if the environment is supplied to the <a href="arez/ArezContext.html" title="class in arez"><code>ArezContext</code></a>.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#ENVIRONMENT_REQUIRED">ENVIRONMENT_REQUIRED</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
-<dd>
-<div class="block">The action or observer must be wrapped by the <a href="arez/Environment.html" title="interface in arez"><code>Environment</code></a> if the environment is
- supplied to the <a href="arez/ArezContext.html" title="class in arez"><code>ArezContext</code></a>.</div>
-</dd>
 <dt><a href="arez/annotations/Executor.html" title="enum in arez.annotations"><span class="typeNameLink">Executor</span></a> - Enum in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Enum describing the agent responsible for executing the <a href="arez/Observer.html" title="class in arez"><code>Observer</code></a>'s observed method.</div>
+<div class="block">Enum describing the executor responsible for executing the <a href="arez/Observer.html" title="class in arez"><code>Observer</code></a>'s observe method.</div>
 </dd>
 </dl>
 <a name="I:F">
@@ -1224,6 +1203,10 @@
 <div class="block">Return true if dispose() has been called on object.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Observer.html#isDisposed--">isDisposed()</a></span> - Method in class arez.<a href="arez/Observer.html" title="class in arez">Observer</a></dt>
+<dd>
+<div class="block">Return true if dispose() has been called on object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/SchedulerLock.html#isDisposed--">isDisposed()</a></span> - Method in class arez.<a href="arez/SchedulerLock.html" title="class in arez">SchedulerLock</a></dt>
 <dd>
 <div class="block">Return true if dispose() has been called on object.</div>
 </dd>
@@ -1854,20 +1837,8 @@
 <dd>
 <div class="block">Reset the state of Arez config to either production or development state.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#resetState--">resetState()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
-<dd>
-<div class="block">Reset the state of Arez.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ActionCompleteEvent.html#returnsResult--">returnsResult()</a></span> - Method in class arez.spy.<a href="arez/spy/ActionCompleteEvent.html" title="class in arez.spy">ActionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/Environment.html#run-arez.SafeFunction-">run(SafeFunction&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Environment.html" title="interface in arez">Environment</a></dt>
-<dd>
-<div class="block">Run the specified function.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/Environment.html#run-arez.Function-">run(Function&lt;T&gt;)</a></span> - Method in interface arez.<a href="arez/Environment.html" title="interface in arez">Environment</a></dt>
-<dd>
-<div class="block">Run the specified function.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/Zone.html#run-arez.Function-">run(Function&lt;T&gt;)</a></span> - Method in class arez.<a href="arez/Zone.html" title="class in arez">Zone</a></dt>
 <dd>
 <div class="block">Run the specified function in the zone.</div>
@@ -1979,6 +1950,10 @@
 <dd>
 <div class="block">Add the specified disposable to the list of pending disposables.</div>
 </dd>
+<dt><a href="arez/SchedulerLock.html" title="class in arez"><span class="typeNameLink">SchedulerLock</span></a> - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">A lock that stops the scheduler from running tasks until the lock is released.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#self--">self()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return the repository instance cast to typed subtype.</div>
@@ -1990,10 +1965,6 @@
 <dt><span class="memberNameLink"><a href="arez/spy/PropertyMutator.html#set-T-">set(T)</a></span> - Method in interface arez.spy.<a href="arez/spy/PropertyMutator.html" title="interface in arez.spy">PropertyMutator</a></dt>
 <dd>
 <div class="block">Change the value of an ObservableValue to specified value.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/ArezContext.html#setEnvironment-arez.Environment-">setEnvironment(Environment)</a></span> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Specify the environment in which reactions are invoked.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#setValue-java.lang.Object-">setValue(Object)</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>

@@ -32,7 +32,7 @@
 <span class="sourceLineNo">024</span> * &lt;li&gt;Must not be abstract&lt;/li&gt;<a name="line.24"></a>
 <span class="sourceLineNo">025</span> * &lt;/ul&gt;<a name="line.25"></a>
 <span class="sourceLineNo">026</span> *<a name="line.26"></a>
-<span class="sourceLineNo">027</span> * &lt;p&gt;If the {@link #executor()} is set to {@link Executor#AREZ} then the method must also<a name="line.27"></a>
+<span class="sourceLineNo">027</span> * &lt;p&gt;If the {@link #executor()} is set to {@link Executor#INTERNAL} then the method must also<a name="line.27"></a>
 <span class="sourceLineNo">028</span> * comply with the following additional constraints:&lt;/p&gt;<a name="line.28"></a>
 <span class="sourceLineNo">029</span> * &lt;ul&gt;<a name="line.29"></a>
 <span class="sourceLineNo">030</span> * &lt;li&gt;Must not be public&lt;/li&gt;<a name="line.30"></a>
@@ -78,7 +78,7 @@
 <span class="sourceLineNo">070</span>   *<a name="line.70"></a>
 <span class="sourceLineNo">071</span>   * @return the actor responsible for calling the observed method.<a name="line.71"></a>
 <span class="sourceLineNo">072</span>   */<a name="line.72"></a>
-<span class="sourceLineNo">073</span>  Executor executor() default Executor.AREZ;<a name="line.73"></a>
+<span class="sourceLineNo">073</span>  Executor executor() default Executor.INTERNAL;<a name="line.73"></a>
 <span class="sourceLineNo">074</span><a name="line.74"></a>
 <span class="sourceLineNo">075</span>  /**<a name="line.75"></a>
 <span class="sourceLineNo">076</span>   * Flag controlling whether the observer can observe ComputableValue instances with lower priorities.<a name="line.76"></a>
@@ -117,7 +117,7 @@
 <span class="sourceLineNo">109</span>  /**<a name="line.109"></a>
 <span class="sourceLineNo">110</span>   * Return true if the return value of the observed function (if any) should be reported to the Arez spy subsystem.<a name="line.110"></a>
 <span class="sourceLineNo">111</span>   * It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.<a name="line.111"></a>
-<span class="sourceLineNo">112</span>   * This is only useful if the value of {@link #executor()} is set to {@link Executor#APPLICATION} as otherwise the<a name="line.112"></a>
+<span class="sourceLineNo">112</span>   * This is only useful if the value of {@link #executor()} is set to {@link Executor#EXTERNAL} as otherwise the<a name="line.112"></a>
 <span class="sourceLineNo">113</span>   * result is not reported anyway.<a name="line.113"></a>
 <span class="sourceLineNo">114</span>   *<a name="line.114"></a>
 <span class="sourceLineNo">115</span>   * @return true to report the return value, false otherwise.<a name="line.115"></a>
@@ -137,18 +137,7 @@
 <span class="sourceLineNo">129</span>   */<a name="line.129"></a>
 <span class="sourceLineNo">130</span>  @Nonnull<a name="line.130"></a>
 <span class="sourceLineNo">131</span>  DepType depType() default DepType.AREZ;<a name="line.131"></a>
-<span class="sourceLineNo">132</span><a name="line.132"></a>
-<span class="sourceLineNo">133</span>  /**<a name="line.133"></a>
-<span class="sourceLineNo">134</span>   * True if invocations of the observed method must be executed in an {@link arez.Environment}.<a name="line.134"></a>
-<span class="sourceLineNo">135</span>   * If the {@link #executor()} is set to {@link Executor#AREZ} then this setting is effectively ignored as all<a name="line.135"></a>
-<span class="sourceLineNo">136</span>   * reaction executed by the arez runtime will run inside an environment (if environments are enabled and configured).<a name="line.136"></a>
-<span class="sourceLineNo">137</span>   * If the {@link #executor()} is set to {@link Executor#APPLICATION} then this setting determine whether<a name="line.137"></a>
-<span class="sourceLineNo">138</span>   * the execution of the observed method will be wrapped in an environment.<a name="line.138"></a>
-<span class="sourceLineNo">139</span>   *<a name="line.139"></a>
-<span class="sourceLineNo">140</span>   * @return true if invocations of the observed method must be executed in an {@link arez.Environment}, false otherwise.<a name="line.140"></a>
-<span class="sourceLineNo">141</span>   */<a name="line.141"></a>
-<span class="sourceLineNo">142</span>  boolean requireEnvironment() default false;<a name="line.142"></a>
-<span class="sourceLineNo">143</span>}<a name="line.143"></a>
+<span class="sourceLineNo">132</span>}<a name="line.132"></a>
 
 
 

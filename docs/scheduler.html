@@ -40,7 +40,7 @@ updated but not all the observers and computable values have reacted and are con
 interacts with Arez components while the scheduler is paused. A simple example of how pausing works is as follows:</p>
 <p><pre><code class="hljs"><span class="hljs-keyword">assert</span> !Arez.context().isSchedulerPaused();
 <span class="hljs-comment">// Pause the scheduler here</span>
-<span class="hljs-keyword">final</span> Disposable pausedControl = Arez.context().pauseScheduler();
+<span class="hljs-keyword">final</span> SchedulerLock pausedControl = Arez.context().pauseScheduler();
 <span class="hljs-keyword">assert</span> Arez.context().isSchedulerPaused();
 <span class="hljs-comment">// Perform work here that requires that the scheduler be disabled</span>
 ...

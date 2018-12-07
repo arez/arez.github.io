@@ -167,7 +167,7 @@ tracking transaction which allows the Arez framework to detect which observable 
 within the scope of the transaction. If any of these properties are modified then Arez will invoke the method annotated
 with <a href="/api/arez/annotations/OnDepsChange.html"><code>@OnDepsChange</code></a> to indicate that the observed method needs to be rescheduled.</p>
 <p>An example is illustrated below:</p>
-<p><pre><code class="hljs">  <span class="hljs-meta">@Observe</span>( executor = Executor.APPLICATION )
+<p><pre><code class="hljs">  <span class="hljs-meta">@Observe</span>( executor = Executor.EXTERNAL )
   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">render</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-string">"&lt;table class='ticket'&gt;"</span> +
@@ -208,7 +208,7 @@ this should give you enough of a taste to understand how Arez components are aut
     setRemainingRides( getRemainingRides() - <span class="hljs-number">1</span> );
   }
 
-  <span class="hljs-meta">@Observe</span>( executor = Executor.APPLICATION )
+  <span class="hljs-meta">@Observe</span>( executor = Executor.EXTERNAL )
   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">render</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-string">"&lt;table class='ticket'&gt;"</span> +

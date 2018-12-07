@@ -118,7 +118,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public enum <a href="../../src-html/arez/annotations/Executor.html#line.9">Executor</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang">Enum</a>&lt;<a href="../../arez/annotations/Executor.html" title="enum in arez.annotations">Executor</a>&gt;</pre>
-<div class="block">Enum describing the agent responsible for executing the <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a>'s observed method.</div>
+<div class="block">Enum describing the executor responsible for executing the <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a>'s observe method.</div>
 </li>
 </ul>
 </div>
@@ -137,12 +137,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?i
 <th class="colOne" scope="col">Enum Constant and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Executor.html#APPLICATION">APPLICATION</a></span></code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Executor.html#EXTERNAL">EXTERNAL</a></span></code>
 <div class="block">The application is responsible for invoking the observed method via the <a href="../../arez/ArezContext.html#observe-arez.Observer-arez.Function-java.lang.Object:A-"><code>ArezContext.observe(Observer, arez.Function, Object...)</code></a>  or <a href="../../arez/ArezContext.html#observe-arez.Observer-arez.Procedure-java.lang.Object:A-"><code>ArezContext.observe(Observer, Procedure, Object...)</code></a> methods.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Executor.html#AREZ">AREZ</a></span></code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Executor.html#INTERNAL">INTERNAL</a></span></code>
 <div class="block">Arez is responsible for invoking the observed method.</div>
 </td>
 </tr>
@@ -203,23 +203,23 @@ the order they are declared.</div>
 <!--   -->
 </a>
 <h3>Enum Constant Detail</h3>
-<a name="AREZ">
+<a name="INTERNAL">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>AREZ</h4>
-<pre>public static final&nbsp;<a href="../../arez/annotations/Executor.html" title="enum in arez.annotations">Executor</a> <a href="../../src-html/arez/annotations/Executor.html#line.14">AREZ</a></pre>
+<h4>INTERNAL</h4>
+<pre>public static final&nbsp;<a href="../../arez/annotations/Executor.html" title="enum in arez.annotations">Executor</a> <a href="../../src-html/arez/annotations/Executor.html#line.14">INTERNAL</a></pre>
 <div class="block">Arez is responsible for invoking the observed method.</div>
 </li>
 </ul>
-<a name="APPLICATION">
+<a name="EXTERNAL">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>APPLICATION</h4>
-<pre>public static final&nbsp;<a href="../../arez/annotations/Executor.html" title="enum in arez.annotations">Executor</a> <a href="../../src-html/arez/annotations/Executor.html#line.18">APPLICATION</a></pre>
+<h4>EXTERNAL</h4>
+<pre>public static final&nbsp;<a href="../../arez/annotations/Executor.html" title="enum in arez.annotations">Executor</a> <a href="../../src-html/arez/annotations/Executor.html#line.18">EXTERNAL</a></pre>
 <div class="block">The application is responsible for invoking the observed method via the <a href="../../arez/ArezContext.html#observe-arez.Observer-arez.Function-java.lang.Object:A-"><code>ArezContext.observe(Observer, arez.Function, Object...)</code></a>  or <a href="../../arez/ArezContext.html#observe-arez.Observer-arez.Procedure-java.lang.Object:A-"><code>ArezContext.observe(Observer, Procedure, Object...)</code></a> methods.</div>
 </li>
 </ul>

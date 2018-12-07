@@ -177,12 +177,6 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 <div class="block">Return true if the return value of the comptable value should be reported to the Arez spy subsystem.</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#requireEnvironment--">requireEnvironment</a></span></code>
-<div class="block">True if invocations of the computable must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>.</div>
-</td>
-</tr>
 </table>
 </li>
 </ul>
@@ -323,34 +317,13 @@ public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum i
 </li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="requireEnvironment--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>requireEnvironment</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.104">requireEnvironment</a></pre>
-<div class="block">True if invocations of the computable must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if invocations of the computable must be executed in an <a href="../../arez/Environment.html" title="interface in arez"><code>Environment</code></a>, false otherwise.</dd>
-</dl>
-<dl>
-<dt>Default:</dt>
-<dd>false</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="blockList">
 <li class="blockList"><a name="reportResult--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>reportResult</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.112">reportResult</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.105">reportResult</a></pre>
 <div class="block">Return true if the return value of the comptable value should be reported to the Arez spy subsystem.
  It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.</div>
 <dl>

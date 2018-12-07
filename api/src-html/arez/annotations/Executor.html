@@ -12,18 +12,18 @@
 <span class="sourceLineNo">004</span>import arez.Procedure;<a name="line.4"></a>
 <span class="sourceLineNo">005</span><a name="line.5"></a>
 <span class="sourceLineNo">006</span>/**<a name="line.6"></a>
-<span class="sourceLineNo">007</span> * Enum describing the agent responsible for executing the {@link arez.Observer}'s observed method.<a name="line.7"></a>
+<span class="sourceLineNo">007</span> * Enum describing the executor responsible for executing the {@link arez.Observer}'s observe method.<a name="line.7"></a>
 <span class="sourceLineNo">008</span> */<a name="line.8"></a>
 <span class="sourceLineNo">009</span>public enum Executor<a name="line.9"></a>
 <span class="sourceLineNo">010</span>{<a name="line.10"></a>
 <span class="sourceLineNo">011</span>  /**<a name="line.11"></a>
 <span class="sourceLineNo">012</span>   * Arez is responsible for invoking the observed method.<a name="line.12"></a>
 <span class="sourceLineNo">013</span>   */<a name="line.13"></a>
-<span class="sourceLineNo">014</span>  AREZ,<a name="line.14"></a>
+<span class="sourceLineNo">014</span>  INTERNAL,<a name="line.14"></a>
 <span class="sourceLineNo">015</span>  /**<a name="line.15"></a>
 <span class="sourceLineNo">016</span>   * The application is responsible for invoking the observed method via the {@link arez.ArezContext#observe(Observer, arez.Function, Object...)}  or {@link arez.ArezContext#observe(Observer, Procedure, Object...)} methods.<a name="line.16"></a>
 <span class="sourceLineNo">017</span>   */<a name="line.17"></a>
-<span class="sourceLineNo">018</span>  APPLICATION<a name="line.18"></a>
+<span class="sourceLineNo">018</span>  EXTERNAL<a name="line.18"></a>
 <span class="sourceLineNo">019</span>}<a name="line.19"></a>
 
 

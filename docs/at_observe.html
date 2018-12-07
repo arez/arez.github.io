@@ -88,7 +88,7 @@ external schedulers. An example that demonstrates something similar is:</p>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurrencyView</span>
 </span>{
   <span class="hljs-comment">// A read-only observer that renders</span>
-  <span class="hljs-meta">@Observe</span>( executor = Executor.APPLICATION )
+  <span class="hljs-meta">@Observe</span>( executor = Executor.EXTERNAL )
   <span class="hljs-function"><span class="hljs-keyword">public</span> ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-comment">//Render component here</span>
