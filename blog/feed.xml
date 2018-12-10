@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Fri, 07 Dec 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 10 Dec 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.120 released]]></title>
+            <link>https://arez.github.io/blog/2018/12/10/version-0.120-release.html</link>
+            <guid>https://arez.github.io/blog/2018/12/10/version-0.120-release.html</guid>
+            <pubDate>Mon, 10 Dec 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.119...v0.120)
+
+Changes in this release:
+
+* **\[core\]** Generate an invariant failure if `ComputeableValue.reportPossiblyChanged()` is invoked on
+  disposed `ComputeableValue` instance.
+* **\[c]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.119 released]]></title>
             <link>https://arez.github.io/blog/2018/12/07/version-0.119-release.html</link>
