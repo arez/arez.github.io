@@ -66,7 +66,7 @@
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a name="I:A">
+<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a name="I:A">
 <!--   -->
 </a>
 <h2 class="title">A</h2>
@@ -91,6 +91,10 @@
 <dd>
 <div class="block">Create the component.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.html#create--">create()</a></span> - Static method in class arez.dom.<a href="arez/dom/GeoPosition.html" title="class in arez.dom">GeoPosition</a></dt>
+<dd>
+<div class="block">Create the GeoPosition component.</div>
+</dd>
 </dl>
 <a name="I:D">
 <!--   -->
@@ -98,9 +102,13 @@
 <h2 class="title">D</h2>
 <dl>
 <dt><a href="arez/dom/Dimension.html" title="class in arez.dom"><span class="typeNameLink">Dimension</span></a> - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A class containing width and height dimensions.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/Dimension.html#Dimension-int-int-">Dimension(int, int)</a></span> - Constructor for class arez.dom.<a href="arez/dom/Dimension.html" title="class in arez.dom">Dimension</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Create the dimension object.</div>
+</dd>
 <dt><a href="arez/dom/DocumentVisibility.html" title="class in arez.dom"><span class="typeNameLink">DocumentVisibility</span></a> - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
 <dd>
 <div class="block">Wrapper of component to expose visibility state of document reactively.</div>
@@ -116,7 +124,7 @@
 <h2 class="title">E</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="arez/dom/Dimension.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class arez.dom.<a href="arez/dom/Dimension.html" title="class in arez.dom">Dimension</a></dt>
-<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/Position.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class arez.dom.<a href="arez/dom/Position.html" title="class in arez.dom">Position</a></dt>
 <dt><a href="arez/dom/EventDrivenValue.html" title="class in arez.dom"><span class="typeNameLink">EventDrivenValue</span></a>&lt;<a href="arez/dom/EventDrivenValue.html" title="type parameter in EventDrivenValue">SourceType</a> extends elemental2.dom.EventTarget,<a href="arez/dom/EventDrivenValue.html" title="type parameter in EventDrivenValue">ValueType</a>&gt; - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
 <dd>
 <div class="block">An observable component that exposes a value provided by a lambda as observable where the value can
@@ -132,19 +140,63 @@
 </a>
 <h2 class="title">G</h2>
 <dl>
+<dt><a href="arez/dom/GeoPosition.html" title="class in arez.dom"><span class="typeNameLink">GeoPosition</span></a> - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
+<dd>
+<div class="block">A component that exposes the current geo position asn observable property.</div>
+</dd>
+<dt><a href="arez/dom/GeoPosition.Status.html" title="class in arez.dom"><span class="typeNameLink">GeoPosition.Status</span></a> - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/EventDrivenValue.Accessor.html#get-SourceType-">get(SourceType)</a></span> - Method in interface arez.dom.<a href="arez/dom/EventDrivenValue.Accessor.html" title="interface in arez.dom">EventDrivenValue.Accessor</a></dt>
 <dd>
 <div class="block">Return the value.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/Position.html#getAccuracy--">getAccuracy()</a></span> - Method in class arez.dom.<a href="arez/dom/Position.html" title="class in arez.dom">Position</a></dt>
+<dd>
+<div class="block">Return the accuracy of the latitude and longitude properties, expressed in meters.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/Position.html#getAltitude--">getAltitude()</a></span> - Method in class arez.dom.<a href="arez/dom/Position.html" title="class in arez.dom">Position</a></dt>
+<dd>
+<div class="block">Return the position's altitude in meters, relative to sea level.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/dom/DocumentVisibility.html#getDocument--">getDocument()</a></span> - Method in class arez.dom.<a href="arez/dom/DocumentVisibility.html" title="class in arez.dom">DocumentVisibility</a></dt>
 <dd>
 <div class="block">Return the document that monitoring visibility state.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.html#getErrorMessage--">getErrorMessage()</a></span> - Method in class arez.dom.<a href="arez/dom/GeoPosition.html" title="class in arez.dom">GeoPosition</a></dt>
+<dd>
+<div class="block">Return the error message reported by the geolocation API when position could not be loaded else null.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/Position.html#getHeading--">getHeading()</a></span> - Method in class arez.dom.<a href="arez/dom/Position.html" title="class in arez.dom">Position</a></dt>
+<dd>
+<div class="block">Return  the direction in which the device is traveling.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/Dimension.html#getHeight--">getHeight()</a></span> - Method in class arez.dom.<a href="arez/dom/Dimension.html" title="class in arez.dom">Dimension</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Return the height.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/Position.html#getLatitude--">getLatitude()</a></span> - Method in class arez.dom.<a href="arez/dom/Position.html" title="class in arez.dom">Position</a></dt>
+<dd>
+<div class="block">Return the position's latitude in decimal degrees.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/Position.html#getLongitude--">getLongitude()</a></span> - Method in class arez.dom.<a href="arez/dom/Position.html" title="class in arez.dom">Position</a></dt>
+<dd>
+<div class="block">Return the position's longitude in decimal degrees.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.html#getPosition--">getPosition()</a></span> - Method in class arez.dom.<a href="arez/dom/GeoPosition.html" title="class in arez.dom">GeoPosition</a></dt>
+<dd>
+<div class="block">Return an immutable representation of the current position.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/EventDrivenValue.html#getSource--">getSource()</a></span> - Method in class arez.dom.<a href="arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a></dt>
 <dd>
 <div class="block">Return the element that generates the events that report potential changes to the observed value.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/Position.html#getSpeed--">getSpeed()</a></span> - Method in class arez.dom.<a href="arez/dom/Position.html" title="class in arez.dom">Position</a></dt>
+<dd>
+<div class="block">Return the velocity of the device in meters per second.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.html#getStatus--">getStatus()</a></span> - Method in class arez.dom.<a href="arez/dom/GeoPosition.html" title="class in arez.dom">GeoPosition</a></dt>
+<dd>
+<div class="block">Return the status indicating whether the position is available.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/dom/EventDrivenValue.html#getValue--">getValue()</a></span> - Method in class arez.dom.<a href="arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a></dt>
 <dd>
@@ -159,13 +211,19 @@
 <div class="block">Return the visibility state of the document as a string.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/dom/Dimension.html#getWidth--">getWidth()</a></span> - Method in class arez.dom.<a href="arez/dom/Dimension.html" title="class in arez.dom">Dimension</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Return the width.</div>
+</dd>
 </dl>
 <a name="I:I">
 <!--   -->
 </a>
 <h2 class="title">I</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.Status.html#INITIAL">INITIAL</a></span> - Static variable in class arez.dom.<a href="arez/dom/GeoPosition.Status.html" title="class in arez.dom">GeoPosition.Status</a></dt>
+<dd>
+<div class="block">Position data is yet to start loading.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/WindowSize.html#inner-elemental2.dom.Window-">inner(Window)</a></span> - Static method in class arez.dom.<a href="arez/dom/WindowSize.html" title="class in arez.dom">WindowSize</a></dt>
 <dd>
 <div class="block">Create an event driven observable component for window.innerWidth and window.innerHeight wrapped in dimension object.</div>
@@ -177,6 +235,16 @@
 <dt><span class="memberNameLink"><a href="arez/dom/WindowSize.html#innerWidth-elemental2.dom.Window-">innerWidth(Window)</a></span> - Static method in class arez.dom.<a href="arez/dom/WindowSize.html" title="class in arez.dom">WindowSize</a></dt>
 <dd>
 <div class="block">Create an event driven observable component for window.innerWidth.</div>
+</dd>
+</dl>
+<a name="I:L">
+<!--   -->
+</a>
+<h2 class="title">L</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.Status.html#LOADING">LOADING</a></span> - Static variable in class arez.dom.<a href="arez/dom/GeoPosition.Status.html" title="class in arez.dom">GeoPosition.Status</a></dt>
+<dd>
+<div class="block">Position data is loading.</div>
 </dd>
 </dl>
 <a name="I:O">
@@ -193,6 +261,32 @@
 <div class="block">Create an event driven observable component for window.outerWidth.</div>
 </dd>
 </dl>
+<a name="I:P">
+<!--   -->
+</a>
+<h2 class="title">P</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.Status.html#PERMISSION_DENIED">PERMISSION_DENIED</a></span> - Static variable in class arez.dom.<a href="arez/dom/GeoPosition.Status.html" title="class in arez.dom">GeoPosition.Status</a></dt>
+<dd>
+<div class="block">The acquisition of the geolocation information failed because the page didn't have the permission to do it.</div>
+</dd>
+<dt><a href="arez/dom/Position.html" title="class in arez.dom"><span class="typeNameLink">Position</span></a> - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
+<dd>
+<div class="block">An immutable variant of <code>GeolocationCoordinates</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/Position.html#Position-double-java.lang.Double-java.lang.Double-double-double-java.lang.Double-">Position(double, Double, Double, double, double, Double)</a></span> - Constructor for class arez.dom.<a href="arez/dom/Position.html" title="class in arez.dom">Position</a></dt>
+<dd>
+<div class="block">Create the position object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.Status.html#POSITION_LOADED">POSITION_LOADED</a></span> - Static variable in class arez.dom.<a href="arez/dom/GeoPosition.Status.html" title="class in arez.dom">GeoPosition.Status</a></dt>
+<dd>
+<div class="block">No error acquiring position.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.Status.html#POSITION_UNAVAILABLE">POSITION_UNAVAILABLE</a></span> - Static variable in class arez.dom.<a href="arez/dom/GeoPosition.Status.html" title="class in arez.dom">GeoPosition.Status</a></dt>
+<dd>
+<div class="block">The acquisition of the geolocation failed because at least one internal source of position returned an internal error.</div>
+</dd>
+</dl>
 <a name="I:S">
 <!--   -->
 </a>
@@ -205,6 +299,16 @@
 <dt><span class="memberNameLink"><a href="arez/dom/EventDrivenValue.html#setSource-SourceType-">setSource(SourceType)</a></span> - Method in class arez.dom.<a href="arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a></dt>
 <dd>
 <div class="block">Set the element that generates events.</div>
+</dd>
+</dl>
+<a name="I:T">
+<!--   -->
+</a>
+<h2 class="title">T</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.Status.html#TIMEOUT">TIMEOUT</a></span> - Static variable in class arez.dom.<a href="arez/dom/GeoPosition.Status.html" title="class in arez.dom">GeoPosition.Status</a></dt>
+<dd>
+<div class="block">The time allowed to acquire the geolocation, defined by PositionOptions.timeout information was reached before the information was obtained.</div>
 </dd>
 </dl>
 <a name="I:V">
@@ -232,7 +336,7 @@ the order they are declared.</div>
 <div class="block">Factory for getting observable models that sizing of windows.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;</div>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;</div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav"><a name="navbar.bottom">
 <!--   -->
