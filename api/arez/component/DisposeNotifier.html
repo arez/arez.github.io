@@ -261,10 +261,8 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <ul class="blockList">
 <li class="blockList">
 <h4>addOnDisposeListener</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.58">addOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
-                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 <a href="../../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.58">addOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
+                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
 <div class="block">Add the listener to notify list under key.
  This method MUST NOT be invoked after <a href="../../arez/component/DisposeNotifier.html#dispose--"><code>dispose()</code></a> has been invoked.
  This method should not be invoked if another listener has been added with the same key without
@@ -282,8 +280,7 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <ul class="blockListLast">
 <li class="blockList">
 <h4>removeOnDisposeListener</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.80">removeOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.80">removeOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</pre>
 <div class="block">Remove the listener with specified key from the notify list.
  This method MUST NOT be invoked after <a href="../../arez/component/DisposeNotifier.html#dispose--"><code>dispose()</code></a> has been invoked.
  This method should only be invoked when a listener has been added for specific using
