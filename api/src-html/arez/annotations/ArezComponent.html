@@ -124,71 +124,68 @@
 <span class="sourceLineNo">116</span>  boolean disposeOnDeactivate() default false;<a name="line.116"></a>
 <span class="sourceLineNo">117</span><a name="line.117"></a>
 <span class="sourceLineNo">118</span>  /**<a name="line.118"></a>
-<span class="sourceLineNo">119</span>   * Indicate whether an @Inject annotation should be added to constructor of the generated class.<a name="line.119"></a>
-<span class="sourceLineNo">120</span>   * {@link Feature#ENABLE} will force the addition of an @Inject annotation, {@link Feature#DISABLE}<a name="line.120"></a>
-<span class="sourceLineNo">121</span>   * will result in no @Inject annotation and {@link Feature#AUTODETECT} will add an @Inject<a name="line.121"></a>
-<span class="sourceLineNo">122</span>   * if any fields or methods in the component or any parent type has an @Inject annotation OR the class<a name="line.122"></a>
-<span class="sourceLineNo">123</span>   * has an annotation that is itself annotated with the javax.inject.Scope annotation.<a name="line.123"></a>
-<span class="sourceLineNo">124</span>   *<a name="line.124"></a>
-<span class="sourceLineNo">125</span>   * @return enum controlling present of Inject annotation on constructor.<a name="line.125"></a>
-<span class="sourceLineNo">126</span>   */<a name="line.126"></a>
-<span class="sourceLineNo">127</span>  Feature inject() default Feature.AUTODETECT;<a name="line.127"></a>
-<span class="sourceLineNo">128</span><a name="line.128"></a>
-<span class="sourceLineNo">129</span>  /**<a name="line.129"></a>
-<span class="sourceLineNo">130</span>   * Indicate whether a dagger module should be generated for enhanced component class.<a name="line.130"></a>
-<span class="sourceLineNo">131</span>   * {@link Feature#ENABLE} will force the generation of the module, {@link Feature#DISABLE}<a name="line.131"></a>
-<span class="sourceLineNo">132</span>   * will result in no dagger module and {@link Feature#AUTODETECT} will add a dagger<a name="line.132"></a>
-<span class="sourceLineNo">133</span>   * module if the &lt;code&gt;dagger.Module&lt;/code&gt; class is present on the classpath AND the class<a name="line.133"></a>
-<span class="sourceLineNo">134</span>   * has an annotation that is itself annotated with the javax.inject.Scope annotation.<a name="line.134"></a>
-<span class="sourceLineNo">135</span>   *<a name="line.135"></a>
-<span class="sourceLineNo">136</span>   * @return enum controlling whether a dagger module should be generated for repository.<a name="line.136"></a>
-<span class="sourceLineNo">137</span>   */<a name="line.137"></a>
-<span class="sourceLineNo">138</span>  Feature dagger() default Feature.AUTODETECT;<a name="line.138"></a>
-<span class="sourceLineNo">139</span><a name="line.139"></a>
-<span class="sourceLineNo">140</span>  /**<a name="line.140"></a>
-<span class="sourceLineNo">141</span>   * Return true if an the generated component should NOT trigger scheduler at the end of the constructor.<a name="line.141"></a>
-<span class="sourceLineNo">142</span>   * This is useful if the component creator will trigger schedules manually at a later time.<a name="line.142"></a>
-<span class="sourceLineNo">143</span>   * This MUST be false if there is no observed methods annotated on the component.<a name="line.143"></a>
-<span class="sourceLineNo">144</span>   *<a name="line.144"></a>
-<span class="sourceLineNo">145</span>   * @return return true if an the generated component should NOT trigger scheduler at the end of the constructor.<a name="line.145"></a>
-<span class="sourceLineNo">146</span>   */<a name="line.146"></a>
-<span class="sourceLineNo">147</span>  boolean deferSchedule() default false;<a name="line.147"></a>
-<span class="sourceLineNo">148</span><a name="line.148"></a>
-<span class="sourceLineNo">149</span>  /**<a name="line.149"></a>
-<span class="sourceLineNo">150</span>   * Indicate whether a component requires that the {@link Object#hashCode()} and {@link Object#equals(Object)}<a name="line.150"></a>
-<span class="sourceLineNo">151</span>   * methods are implemented. These methods MUST be implemented if the {@link Repository} annotation is present<a name="line.151"></a>
-<span class="sourceLineNo">152</span>   * but may be implemented in other scenarios. {@link Feature#ENABLE} will force the generation of the methods,<a name="line.152"></a>
-<span class="sourceLineNo">153</span>   * {@link Feature#DISABLE} will not generate these methods and {@link Feature#AUTODETECT} will generated these<a name="line.153"></a>
-<span class="sourceLineNo">154</span>   * methods if the {@link Repository} annotation is present.<a name="line.154"></a>
-<span class="sourceLineNo">155</span>   *<a name="line.155"></a>
-<span class="sourceLineNo">156</span>   * @return enum controlling whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods are implemented.<a name="line.156"></a>
-<span class="sourceLineNo">157</span>   */<a name="line.157"></a>
-<span class="sourceLineNo">158</span>  Feature requireEquals() default Feature.AUTODETECT;<a name="line.158"></a>
-<span class="sourceLineNo">159</span><a name="line.159"></a>
-<span class="sourceLineNo">160</span>  /**<a name="line.160"></a>
-<span class="sourceLineNo">161</span>   * Indicates whether the component should support access of the id via {@link arez.component.Identifiable#getArezId(Object)}.<a name="line.161"></a>
-<span class="sourceLineNo">162</span>   * This must be supported if the {@link Repository} annotation is present but may be supported in other scenarios.<a name="line.162"></a>
-<span class="sourceLineNo">163</span>   * This feature is present on all components if {@link Arez#areNativeComponentsEnabled()} is true,<a name="line.163"></a>
-<span class="sourceLineNo">164</span>   * {@link Arez#areRegistriesEnabled()} is true or {@link Arez#areNamesEnabled()} is true and {@link #nameIncludesId()}<a name="line.164"></a>
-<span class="sourceLineNo">165</span>   * is true. In other scenarios it can be disabled. This is usually done to decrease code-size.<a name="line.165"></a>
-<span class="sourceLineNo">166</span>   * {@link Feature#ENABLE} will require support, {@link Feature#DISABLE} will remove support and {@link Feature#AUTODETECT}<a name="line.166"></a>
-<span class="sourceLineNo">167</span>   * will add support if the {@link Repository} annotation is present or a method annotated with {@link ComponentId}<a name="line.167"></a>
-<span class="sourceLineNo">168</span>   * is present. If the {@link Repository} annotation is present or a method annotated with {@link ComponentId}<a name="line.168"></a>
-<span class="sourceLineNo">169</span>   * is present then it is an error to set the value to {@link Feature#DISABLE}.<a name="line.169"></a>
-<span class="sourceLineNo">170</span>   *<a name="line.170"></a>
-<span class="sourceLineNo">171</span>   * @return enum controlling whether a unique if of the component can be accessed via {@link arez.component.Identifiable#getArezId(Object)}.<a name="line.171"></a>
-<span class="sourceLineNo">172</span>   */<a name="line.172"></a>
-<span class="sourceLineNo">173</span>  Feature requireId() default Feature.AUTODETECT;<a name="line.173"></a>
-<span class="sourceLineNo">174</span><a name="line.174"></a>
-<span class="sourceLineNo">175</span>  /**<a name="line.175"></a>
-<span class="sourceLineNo">176</span>   * Indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.176"></a>
-<span class="sourceLineNo">177</span>   * This feature is ignored unless {@link Arez#isVerifyEnabled()} is true. The {@link Feature#AUTODETECT}<a name="line.177"></a>
-<span class="sourceLineNo">178</span>   * value will enable this feature if the component has any {@link Reference} methods or any {@link Inverse} methods.<a name="line.178"></a>
-<span class="sourceLineNo">179</span>   *<a name="line.179"></a>
-<span class="sourceLineNo">180</span>   * @return enum that indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.180"></a>
-<span class="sourceLineNo">181</span>   */<a name="line.181"></a>
-<span class="sourceLineNo">182</span>  Feature verify() default Feature.AUTODETECT;<a name="line.182"></a>
-<span class="sourceLineNo">183</span>}<a name="line.183"></a>
+<span class="sourceLineNo">119</span>   * Specify how the component is integrated into the injection framework.<a name="line.119"></a>
+<span class="sourceLineNo">120</span>   *<a name="line.120"></a>
+<span class="sourceLineNo">121</span>   * @return enum controlling the integration into the injection framework.<a name="line.121"></a>
+<span class="sourceLineNo">122</span>   * @see InjectMode<a name="line.122"></a>
+<span class="sourceLineNo">123</span>   */<a name="line.123"></a>
+<span class="sourceLineNo">124</span>  InjectMode inject() default InjectMode.AUTODETECT;<a name="line.124"></a>
+<span class="sourceLineNo">125</span><a name="line.125"></a>
+<span class="sourceLineNo">126</span>  /**<a name="line.126"></a>
+<span class="sourceLineNo">127</span>   * Indicate whether dagger artifacts should be generated to support injection.<a name="line.127"></a>
+<span class="sourceLineNo">128</span>   * {@link Feature#ENABLE} will force the generation of the artifacts, {@link Feature#DISABLE}<a name="line.128"></a>
+<span class="sourceLineNo">129</span>   * will result in no dagger artifacts and {@link Feature#AUTODETECT} will add a dagger<a name="line.129"></a>
+<span class="sourceLineNo">130</span>   * artifacts if the &lt;code&gt;dagger.Module&lt;/code&gt; class is present on the classpath AND {@link #inject()}<a name="line.130"></a>
+<span class="sourceLineNo">131</span>   * does not resolve to {@link InjectMode#NONE}.<a name="line.131"></a>
+<span class="sourceLineNo">132</span>   *<a name="line.132"></a>
+<span class="sourceLineNo">133</span>   * @return enum controlling whether a dagger module should be generated for repository.<a name="line.133"></a>
+<span class="sourceLineNo">134</span>   */<a name="line.134"></a>
+<span class="sourceLineNo">135</span>  Feature dagger() default Feature.AUTODETECT;<a name="line.135"></a>
+<span class="sourceLineNo">136</span><a name="line.136"></a>
+<span class="sourceLineNo">137</span>  /**<a name="line.137"></a>
+<span class="sourceLineNo">138</span>   * Return true if an the generated component should NOT trigger scheduler at the end of the constructor.<a name="line.138"></a>
+<span class="sourceLineNo">139</span>   * This is useful if the component creator will trigger schedules manually at a later time.<a name="line.139"></a>
+<span class="sourceLineNo">140</span>   * This MUST be false if there is no observed methods annotated on the component.<a name="line.140"></a>
+<span class="sourceLineNo">141</span>   *<a name="line.141"></a>
+<span class="sourceLineNo">142</span>   * @return return true if an the generated component should NOT trigger scheduler at the end of the constructor.<a name="line.142"></a>
+<span class="sourceLineNo">143</span>   */<a name="line.143"></a>
+<span class="sourceLineNo">144</span>  boolean deferSchedule() default false;<a name="line.144"></a>
+<span class="sourceLineNo">145</span><a name="line.145"></a>
+<span class="sourceLineNo">146</span>  /**<a name="line.146"></a>
+<span class="sourceLineNo">147</span>   * Indicate whether a component requires that the {@link Object#hashCode()} and {@link Object#equals(Object)}<a name="line.147"></a>
+<span class="sourceLineNo">148</span>   * methods are implemented. These methods MUST be implemented if the {@link Repository} annotation is present<a name="line.148"></a>
+<span class="sourceLineNo">149</span>   * but may be implemented in other scenarios. {@link Feature#ENABLE} will force the generation of the methods,<a name="line.149"></a>
+<span class="sourceLineNo">150</span>   * {@link Feature#DISABLE} will not generate these methods and {@link Feature#AUTODETECT} will generated these<a name="line.150"></a>
+<span class="sourceLineNo">151</span>   * methods if the {@link Repository} annotation is present.<a name="line.151"></a>
+<span class="sourceLineNo">152</span>   *<a name="line.152"></a>
+<span class="sourceLineNo">153</span>   * @return enum controlling whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods are implemented.<a name="line.153"></a>
+<span class="sourceLineNo">154</span>   */<a name="line.154"></a>
+<span class="sourceLineNo">155</span>  Feature requireEquals() default Feature.AUTODETECT;<a name="line.155"></a>
+<span class="sourceLineNo">156</span><a name="line.156"></a>
+<span class="sourceLineNo">157</span>  /**<a name="line.157"></a>
+<span class="sourceLineNo">158</span>   * Indicates whether the component should support access of the id via {@link arez.component.Identifiable#getArezId(Object)}.<a name="line.158"></a>
+<span class="sourceLineNo">159</span>   * This must be supported if the {@link Repository} annotation is present but may be supported in other scenarios.<a name="line.159"></a>
+<span class="sourceLineNo">160</span>   * This feature is present on all components if {@link Arez#areNativeComponentsEnabled()} is true,<a name="line.160"></a>
+<span class="sourceLineNo">161</span>   * {@link Arez#areRegistriesEnabled()} is true or {@link Arez#areNamesEnabled()} is true and {@link #nameIncludesId()}<a name="line.161"></a>
+<span class="sourceLineNo">162</span>   * is true. In other scenarios it can be disabled. This is usually done to decrease code-size.<a name="line.162"></a>
+<span class="sourceLineNo">163</span>   * {@link Feature#ENABLE} will require support, {@link Feature#DISABLE} will remove support and {@link Feature#AUTODETECT}<a name="line.163"></a>
+<span class="sourceLineNo">164</span>   * will add support if the {@link Repository} annotation is present or a method annotated with {@link ComponentId}<a name="line.164"></a>
+<span class="sourceLineNo">165</span>   * is present. If the {@link Repository} annotation is present or a method annotated with {@link ComponentId}<a name="line.165"></a>
+<span class="sourceLineNo">166</span>   * is present then it is an error to set the value to {@link Feature#DISABLE}.<a name="line.166"></a>
+<span class="sourceLineNo">167</span>   *<a name="line.167"></a>
+<span class="sourceLineNo">168</span>   * @return enum controlling whether a unique if of the component can be accessed via {@link arez.component.Identifiable#getArezId(Object)}.<a name="line.168"></a>
+<span class="sourceLineNo">169</span>   */<a name="line.169"></a>
+<span class="sourceLineNo">170</span>  Feature requireId() default Feature.AUTODETECT;<a name="line.170"></a>
+<span class="sourceLineNo">171</span><a name="line.171"></a>
+<span class="sourceLineNo">172</span>  /**<a name="line.172"></a>
+<span class="sourceLineNo">173</span>   * Indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.173"></a>
+<span class="sourceLineNo">174</span>   * This feature is ignored unless {@link Arez#isVerifyEnabled()} is true. The {@link Feature#AUTODETECT}<a name="line.174"></a>
+<span class="sourceLineNo">175</span>   * value will enable this feature if the component has any {@link Reference} methods or any {@link Inverse} methods.<a name="line.175"></a>
+<span class="sourceLineNo">176</span>   *<a name="line.176"></a>
+<span class="sourceLineNo">177</span>   * @return enum that indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.177"></a>
+<span class="sourceLineNo">178</span>   */<a name="line.178"></a>
+<span class="sourceLineNo">179</span>  Feature verify() default Feature.AUTODETECT;<a name="line.179"></a>
+<span class="sourceLineNo">180</span>}<a name="line.180"></a>
 
 
 

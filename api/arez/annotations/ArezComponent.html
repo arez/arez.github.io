@@ -159,7 +159,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#dagger--">dagger</a></span></code>
-<div class="block">Indicate whether a dagger module should be generated for enhanced component class.</div>
+<div class="block">Indicate whether dagger artifacts should be generated to support injection.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -181,9 +181,9 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
+<td class="colFirst"><code><a href="../../arez/annotations/InjectMode.html" title="enum in arez.annotations">InjectMode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#inject--">inject</a></span></code>
-<div class="block">Indicate whether an @Inject annotation should be added to constructor of the generated class.</div>
+<div class="block">Specify how the component is integrated into the injection framework.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -413,19 +413,17 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>inject</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.127">inject</a></pre>
-<div class="block">Indicate whether an @Inject annotation should be added to constructor of the generated class.
- <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the addition of an @Inject annotation, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
- will result in no @Inject annotation and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add an @Inject
- if any fields or methods in the component or any parent type has an @Inject annotation OR the class
- has an annotation that is itself annotated with the javax.inject.Scope annotation.</div>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/InjectMode.html" title="enum in arez.annotations">InjectMode</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.124">inject</a></pre>
+<div class="block">Specify how the component is integrated into the injection framework.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>enum controlling present of Inject annotation on constructor.</dd>
+<dd>enum controlling the integration into the injection framework.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../arez/annotations/InjectMode.html" title="enum in arez.annotations"><code>InjectMode</code></a></dd>
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>arez.annotations.Feature.AUTODETECT</dd>
+<dd>arez.annotations.InjectMode.AUTODETECT</dd>
 </dl>
 </li>
 </ul>
@@ -438,12 +436,12 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>dagger</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.138">dagger</a></pre>
-<div class="block">Indicate whether a dagger module should be generated for enhanced component class.
- <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the generation of the module, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
- will result in no dagger module and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add a dagger
- module if the <code>dagger.Module</code> class is present on the classpath AND the class
- has an annotation that is itself annotated with the javax.inject.Scope annotation.</div>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.135">dagger</a></pre>
+<div class="block">Indicate whether dagger artifacts should be generated to support injection.
+ <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the generation of the artifacts, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
+ will result in no dagger artifacts and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add a dagger
+ artifacts if the <code>dagger.Module</code> class is present on the classpath AND <a href="../../arez/annotations/ArezComponent.html#inject--"><code>inject()</code></a>
+ does not resolve to <a href="../../arez/annotations/InjectMode.html#NONE"><code>InjectMode.NONE</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>enum controlling whether a dagger module should be generated for repository.</dd>
@@ -463,7 +461,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>deferSchedule</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.147">deferSchedule</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.144">deferSchedule</a></pre>
 <div class="block">Return true if an the generated component should NOT trigger scheduler at the end of the constructor.
  This is useful if the component creator will trigger schedules manually at a later time.
  This MUST be false if there is no observed methods annotated on the component.</div>
@@ -486,7 +484,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>requireEquals</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.158">requireEquals</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.155">requireEquals</a></pre>
 <div class="block">Indicate whether a component requires that the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang"><code>Object.equals(Object)</code></a>
  methods are implemented. These methods MUST be implemented if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present
  but may be implemented in other scenarios. <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the generation of the methods,
@@ -511,7 +509,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>requireId</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.173">requireId</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.170">requireId</a></pre>
 <div class="block">Indicates whether the component should support access of the id via <a href="../../arez/component/Identifiable.html#getArezId-java.lang.Object-"><code>Identifiable.getArezId(Object)</code></a>.
  This must be supported if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present but may be supported in other scenarios.
  This feature is present on all components if <a href="../../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> is true,
@@ -540,7 +538,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockListLast">
 <li class="blockList">
 <h4>verify</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.182">verify</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.179">verify</a></pre>
 <div class="block">Indicates whether the component should implement the interface <a href="../../arez/component/Verifiable.html" title="interface in arez.component"><code>Verifiable</code></a>.
  This feature is ignored unless <a href="../../arez/Arez.html#isVerifyEnabled--"><code>Arez.isVerifyEnabled()</code></a> is true. The <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a>
  value will enable this feature if the component has any <a href="../../arez/annotations/Reference.html" title="annotation in arez.annotations"><code>Reference</code></a> methods or any <a href="../../arez/annotations/Inverse.html" title="annotation in arez.annotations"><code>Inverse</code></a> methods.</div>

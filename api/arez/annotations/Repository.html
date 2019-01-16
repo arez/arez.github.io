@@ -174,9 +174,9 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
+<td class="colFirst"><code><a href="../../arez/annotations/InjectMode.html" title="enum in arez.annotations">InjectMode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Repository.html#inject--">inject</a></span></code>
-<div class="block">Indicate whether an @Inject annotation should be added to constructor of the generated repository.</div>
+<div class="block">Specify how the repository is integrated into the injection framework.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -276,19 +276,17 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
 <ul class="blockList">
 <li class="blockList">
 <h4>inject</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.89">inject</a></pre>
-<div class="block">Indicate whether an @Inject annotation should be added to constructor of the generated repository.
- <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the addition of an @Inject annotation, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
- will result in no @Inject annotation and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add an @Inject
- if any it is present on the classpath. Note that this is effectively <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> if
- dagger parameter is true.</div>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/InjectMode.html" title="enum in arez.annotations">InjectMode</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.86">inject</a></pre>
+<div class="block">Specify how the repository is integrated into the injection framework.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>enum controlling present of Inject annotation on constructor of repository.</dd>
+<dd>enum controlling the integration of the repository into the injection framework.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../arez/annotations/InjectMode.html" title="enum in arez.annotations"><code>InjectMode</code></a></dd>
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>arez.annotations.Feature.AUTODETECT</dd>
+<dd>arez.annotations.InjectMode.AUTODETECT</dd>
 </dl>
 </li>
 </ul>
@@ -301,7 +299,7 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
 <ul class="blockList">
 <li class="blockList">
 <h4>attach</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Repository.AttachType.html" title="enum in arez.annotations">Repository.AttachType</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.96">attach</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Repository.AttachType.html" title="enum in arez.annotations">Repository.AttachType</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.93">attach</a></pre>
 <div class="block">Indicate the strategy for attaching entities to the repository.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -322,7 +320,7 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
 <ul class="blockListLast">
 <li class="blockList">
 <h4>detach</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Repository.DetachType.html" title="enum in arez.annotations">Repository.DetachType</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.103">detach</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Repository.DetachType.html" title="enum in arez.annotations">Repository.DetachType</a>&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.100">detach</a></pre>
 <div class="block">Indicate the strategy for detaching entities from the repository.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
