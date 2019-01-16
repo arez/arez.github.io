@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Tue, 11 Dec 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 17 Jan 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.122 released]]></title>
+            <link>https://arez.github.io/blog/2019/01/17/version-0.122-release.html</link>
+            <guid>https://arez.github.io/blog/2019/01/17/version-0.122-release.html</guid>
+            <pubDate>Thu, 17 Jan 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.121...v0.122)
+
+Changes in this release:
+
+* Add the `arez-dom` project into the set of projects that are built and tested during the build and release process.
+* **\[core\]** Change the `inject`]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.121 released]]></title>
             <link>https://arez.github.io/blog/2018/12/11/version-0.121-release.html</link>
