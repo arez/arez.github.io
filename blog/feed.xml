@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Thu, 17 Jan 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 18 Jan 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.124 released]]></title>
+            <link>https://arez.github.io/blog/2019/01/18/version-0.124-release.html</link>
+            <guid>https://arez.github.io/blog/2019/01/18/version-0.124-release.html</guid>
+            <pubDate>Fri, 18 Jan 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.123...v0.124)
+
+Changes in this release:
+
+* **\[core\]** Fix invalid invariant check that produced false positive in `reportChangeConfirmed()` after a
+  `ComputableValue` is marked as changed wh]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.123 released]]></title>
             <link>https://arez.github.io/blog/2019/01/17/version-0.123-release.html</link>
