@@ -9,6 +9,23 @@
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2019 the Arez Project</rights>
     <entry>
+        <title type="html"><![CDATA[Arez 0.126 released]]></title>
+        <id>https://arez.github.io/blog/2019/01/23/version-0.126-release.html</id>
+        <link href="https://arez.github.io/blog/2019/01/23/version-0.126-release.html">
+        </link>
+        <updated>2019-01-23T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.125...v0.126)
+
+Changes in this release:
+
+* **\[processor\]** Allow the `allowEmpty` parameter to be set to `true` in an `@ArezComponent`
+  annotated class even when there is arez annotated meth]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Arez 0.125 released]]></title>
         <id>https://arez.github.io/blog/2019/01/23/version-0.125-release.html</id>
         <link href="https://arez.github.io/blog/2019/01/23/version-0.125-release.html">
