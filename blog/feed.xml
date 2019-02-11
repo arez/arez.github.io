@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Wed, 06 Feb 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 11 Feb 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.129 released]]></title>
+            <link>https://arez.github.io/blog/2019/02/11/version-0.129-release.html</link>
+            <guid>https://arez.github.io/blog/2019/02/11/version-0.129-release.html</guid>
+            <pubDate>Mon, 11 Feb 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.128...v0.129)
+
+Changes in this release:
+
+* **\[core\]** Fix bug where the `onActivate` callback for `ComputableValue` instances was when disposing
+  the `ComputableValue` instance while it was ]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.128 released]]></title>
             <link>https://arez.github.io/blog/2019/02/06/version-0.128-release.html</link>
