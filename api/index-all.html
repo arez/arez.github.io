@@ -144,7 +144,11 @@
 <dd>
 <div class="block">Add error handler to the list of error handlers called.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/DisposeNotifier.html#addOnDisposeListener-java.lang.Object-arez.SafeProcedure-">addOnDisposeListener(Object, SafeProcedure)</a></span> - Method in class arez.component.<a href="arez/component/DisposeNotifier.html" title="class in arez.component">DisposeNotifier</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/DisposeNotifier.html#addOnDisposeListener-java.lang.Object-arez.SafeProcedure-">addOnDisposeListener(Object, SafeProcedure)</a></span> - Method in interface arez.component.<a href="arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></dt>
+<dd>
+<div class="block">Add the listener to notify list under key.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#addOnDisposeListener-java.lang.Object-arez.SafeProcedure-">addOnDisposeListener(Object, SafeProcedure)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
 <div class="block">Add the listener to notify list under key.</div>
 </dd>
@@ -272,9 +276,9 @@
 <dd>
 <div class="block">Cast specified object to instance of Disposable.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/DisposeTrackable.html#asDisposeTrackable-java.lang.Object-">asDisposeTrackable(Object)</a></span> - Static method in interface arez.component.<a href="arez/component/DisposeTrackable.html" title="interface in arez.component">DisposeTrackable</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/DisposeNotifier.html#asDisposeNotifier-java.lang.Object-">asDisposeNotifier(Object)</a></span> - Static method in interface arez.component.<a href="arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></dt>
 <dd>
-<div class="block">Cast the specified object to an instance of DisposeTrackable.</div>
+<div class="block">Cast the specified object to an instance of DisposeNotifier.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/Identifiable.html#asIdentifiable-java.lang.Object-">asIdentifiable(Object)</a></span> - Static method in interface arez.component.<a href="arez/component/Identifiable.html" title="interface in arez.component">Identifiable</a></dt>
 <dd>
@@ -626,10 +630,6 @@
 <dd>
 <div class="block">Dispose the element.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/DisposeNotifier.html#dispose--">dispose()</a></span> - Method in class arez.component.<a href="arez/component/DisposeNotifier.html" title="class in arez.component">DisposeNotifier</a></dt>
-<dd>
-<div class="block">Dispose the element.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#dispose--">dispose()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
 <div class="block">Dispose the element.</div>
@@ -668,13 +668,7 @@
 <dd>
 <div class="block">A flag that can be passed to a Task that indicates that the task should be disposed after it has completed execution.</div>
 </dd>
-<dt><a href="arez/component/DisposeNotifier.html" title="class in arez.component"><span class="typeNameLink">DisposeNotifier</span></a> - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
-<dd>
-<div class="block">The class responsible for notifying listeners when an element is disposed.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/DisposeNotifier.html#DisposeNotifier--">DisposeNotifier()</a></span> - Constructor for class arez.component.<a href="arez/component/DisposeNotifier.html" title="class in arez.component">DisposeNotifier</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="arez/component/DisposeTrackable.html" title="interface in arez.component"><span class="typeNameLink">DisposeTrackable</span></a> - Interface in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dt><a href="arez/component/DisposeNotifier.html" title="interface in arez.component"><span class="typeNameLink">DisposeNotifier</span></a> - Interface in <a href="arez/component/package-summary.html">arez.component</a></dt>
 <dd>
 <div class="block">Interface implemented by a component if it supports notifying listeners
  when the component is disposed.</div>
@@ -921,10 +915,6 @@
 <dd>
 <div class="block">Return the list of dependencies of the Observer.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#getDisposeNotifier--">getDisposeNotifier()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
-<dd>
-<div class="block">Return the dispose notifier associated with the component.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ActionCompleteEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/ActionCompleteEvent.html" title="class in arez.spy">ActionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeCompleteEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/ComputeCompleteEvent.html" title="class in arez.spy">ComputeCompleteEvent</a></dt>
@@ -985,14 +975,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/TransactionStartEvent.html#getName--">getName()</a></span> - Method in class arez.spy.<a href="arez/spy/TransactionStartEvent.html" title="class in arez.spy">TransactionStartEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/component/DisposeTrackable.html#getNotifier--">getNotifier()</a></span> - Method in interface arez.component.<a href="arez/component/DisposeTrackable.html" title="interface in arez.component">DisposeTrackable</a></dt>
-<dd>
-<div class="block">Return the notifier associated with the component.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/DisposeTrackable.html#getNotifier-java.lang.Object-">getNotifier(Object)</a></span> - Static method in interface arez.component.<a href="arez/component/DisposeTrackable.html" title="interface in arez.component">DisposeTrackable</a></dt>
-<dd>
-<div class="block">Return the notifier associated with the supplied object if object implements DisposeTrackable.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObservableValueChangeEvent.html#getObservableValue--">getObservableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableValueChangeEvent.html" title="class in arez.spy">ObservableValueChangeEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObservableValueCreateEvent.html#getObservableValue--">getObservableValue()</a></span> - Method in class arez.spy.<a href="arez/spy/ObservableValueCreateEvent.html" title="class in arez.spy">ObservableValueCreateEvent</a></dt>
@@ -1177,10 +1159,6 @@
 <dt><span class="memberNameLink"><a href="arez/spy/ComputableValueInfo.html#isComputing--">isComputing()</a></span> - Method in interface arez.spy.<a href="arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a></dt>
 <dd>
 <div class="block">Return true if the ComputableValue is "computing".</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/DisposeNotifier.html#isDisposed--">isDisposed()</a></span> - Method in class arez.component.<a href="arez/component/DisposeNotifier.html" title="class in arez.component">DisposeNotifier</a></dt>
-<dd>
-<div class="block">Return true if dispose() has been called on object.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#isDisposed--">isDisposed()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
@@ -1447,6 +1425,10 @@
 <dt><span class="memberNameLink"><a href="arez/component/NoSuchEntityException.html#NoSuchEntityException-java.lang.Object-">NoSuchEntityException(Object)</a></span> - Constructor for exception arez.component.<a href="arez/component/NoSuchEntityException.html" title="class in arez.component">NoSuchEntityException</a></dt>
 <dd>
 <div class="block">Create the exception</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#notifyOnDisposeListeners--">notifyOnDisposeListeners()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="block">Notify an OnDispose listeners that have been added to the component.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/ComponentObservable.html#notObserved-java.lang.Object-">notObserved(Object)</a></span> - Static method in interface arez.component.<a href="arez/component/ComponentObservable.html" title="interface in arez.component">ComponentObservable</a></dt>
 <dd>
@@ -1801,7 +1783,11 @@
 <dd>
 <div class="block">Remove error handler from list of existing error handlers.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/DisposeNotifier.html#removeOnDisposeListener-java.lang.Object-">removeOnDisposeListener(Object)</a></span> - Method in class arez.component.<a href="arez/component/DisposeNotifier.html" title="class in arez.component">DisposeNotifier</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/DisposeNotifier.html#removeOnDisposeListener-java.lang.Object-">removeOnDisposeListener(Object)</a></span> - Method in interface arez.component.<a href="arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></dt>
+<dd>
+<div class="block">Remove the listener with specified key from the notify list.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#removeOnDisposeListener-java.lang.Object-">removeOnDisposeListener(Object)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
 <div class="block">Remove the listener with specified key from the notify list.</div>
 </dd>

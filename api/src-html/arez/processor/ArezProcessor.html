@@ -309,7 +309,7 @@
 <span class="sourceLineNo">301</span>      null == nameIncludesIdValue ? nameIncludesIdDefault : (boolean) nameIncludesIdValue.getValue();<a name="line.301"></a>
 <span class="sourceLineNo">302</span>    final boolean disposeOnDeactivate = getAnnotationParameter( arezComponent, "disposeOnDeactivate" );<a name="line.302"></a>
 <span class="sourceLineNo">303</span>    final boolean observableFlag = isComponentObservableRequired( arezComponent, typeElement, disposeOnDeactivate );<a name="line.303"></a>
-<span class="sourceLineNo">304</span>    final boolean disposeTrackableFlag =<a name="line.304"></a>
+<span class="sourceLineNo">304</span>    final boolean disposeNotifierFlag =<a name="line.304"></a>
 <span class="sourceLineNo">305</span>      ProcessorUtil.isDisposableTrackableRequired( processingEnv.getElementUtils(), typeElement );<a name="line.305"></a>
 <span class="sourceLineNo">306</span>    final boolean allowConcrete = getAnnotationParameter( arezComponent, "allowConcrete" );<a name="line.306"></a>
 <span class="sourceLineNo">307</span>    final boolean allowEmpty = getAnnotationParameter( arezComponent, "allowEmpty" );<a name="line.307"></a>
@@ -440,7 +440,7 @@
 <span class="sourceLineNo">432</span>                               allowEmpty,<a name="line.432"></a>
 <span class="sourceLineNo">433</span>                               generated,<a name="line.433"></a>
 <span class="sourceLineNo">434</span>                               observableFlag,<a name="line.434"></a>
-<span class="sourceLineNo">435</span>                               disposeTrackableFlag,<a name="line.435"></a>
+<span class="sourceLineNo">435</span>                               disposeNotifierFlag,<a name="line.435"></a>
 <span class="sourceLineNo">436</span>                               disposeOnDeactivate,<a name="line.436"></a>
 <span class="sourceLineNo">437</span>                               injectMode,<a name="line.437"></a>
 <span class="sourceLineNo">438</span>                               dagger,<a name="line.438"></a>
@@ -503,11 +503,11 @@
 <span class="sourceLineNo">495</span>                                        "javax.inject.Singleton annotation which is an invalid " +<a name="line.495"></a>
 <span class="sourceLineNo">496</span>                                        "combination.", typeElement );<a name="line.496"></a>
 <span class="sourceLineNo">497</span>    }<a name="line.497"></a>
-<span class="sourceLineNo">498</span>    if ( !descriptor.isDisposeTrackable() &amp;&amp; descriptor.hasRepository() )<a name="line.498"></a>
+<span class="sourceLineNo">498</span>    if ( !descriptor.isDisposeNotifier() &amp;&amp; descriptor.hasRepository() )<a name="line.498"></a>
 <span class="sourceLineNo">499</span>    {<a name="line.499"></a>
-<span class="sourceLineNo">500</span>      throw new ArezProcessorException( "@ArezComponent target has specified the disposeTrackable = DISABLE " +<a name="line.500"></a>
+<span class="sourceLineNo">500</span>      throw new ArezProcessorException( "@ArezComponent target has specified the disposeNotifier = DISABLE " +<a name="line.500"></a>
 <span class="sourceLineNo">501</span>                                        "annotation parameter but is also annotated with @Repository that " +<a name="line.501"></a>
-<span class="sourceLineNo">502</span>                                        "requires disposeTrackable = ENABLE.", typeElement );<a name="line.502"></a>
+<span class="sourceLineNo">502</span>                                        "requires disposeNotifier = ENABLE.", typeElement );<a name="line.502"></a>
 <span class="sourceLineNo">503</span>    }<a name="line.503"></a>
 <span class="sourceLineNo">504</span><a name="line.504"></a>
 <span class="sourceLineNo">505</span>    final boolean idRequired = isIdRequired( descriptor, arezComponent );<a name="line.505"></a>

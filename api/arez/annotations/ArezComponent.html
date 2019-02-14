@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>)
-public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#line.45">ArezComponent</a></pre>
+public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#line.46">ArezComponent</a></pre>
 <div class="block">Annotation that marks classes to be processed by Arez annotation processor.
  Classes with this annotation can contain <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> properties,
  <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> properties, <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> methods and <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a> methods.
@@ -169,15 +169,15 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#disposeOnDeactivate--">disposeOnDeactivate</a></span></code>
-<div class="block">Return true if the component should dispose itself once it is no longer "observed".</div>
+<td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#disposeNotifier--">disposeNotifier</a></span></code>
+<div class="block">Return enum to control whether the component should support implement the <a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component"><code>DisposeNotifier</code></a> interface.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#disposeTrackable--">disposeTrackable</a></span></code>
-<div class="block">Return enum to control whether the component should support implement <a href="../../arez/component/DisposeTrackable.html" title="interface in arez.component"><code>DisposeTrackable</code></a>.</div>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#disposeOnDeactivate--">disposeOnDeactivate</a></span></code>
+<div class="block">Return true if the component should dispose itself once it is no longer "observed".</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -245,7 +245,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.54">name</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.55">name</a></pre>
 <div class="block">Return the name of the type.
  The value must conform to the requirements of a java identifier.</div>
 <dl>
@@ -267,7 +267,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>nameIncludesId</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.63">nameIncludesId</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.64">nameIncludesId</a></pre>
 <div class="block">Return true if the name derived for component should include the id, false otherwise.
  If the user does not specify a value for this parameter but does specify the <tt>javax.inject.Singleton</tt>
  on the same type then the default value of this parameter is false, otherwise it is true.</div>
@@ -290,7 +290,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>allowEmpty</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.72">allowEmpty</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.73">allowEmpty</a></pre>
 <div class="block">Return true if the component does not need to explicitly declare elements.
  Otherwise if no elements (i.e. <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a>s, <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a>s, <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a>s etc) are defined
  on a component it will generate an error.</div>
@@ -313,7 +313,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>allowConcrete</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.80">allowConcrete</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.81">allowConcrete</a></pre>
 <div class="block">Return true if the component type does not need to be abstract.
  Otherwise an error will be generated if this annotation is added to a concrete type.</div>
 <dl>
@@ -335,7 +335,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>observable</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.93">observable</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.94">observable</a></pre>
 <div class="block">Return the enum to control whether the component should support being "observed" by
  <a href="../../arez/component/ComponentObservable.html#observe-java.lang.Object-"><code>ComponentObservable.observe(Object)</code></a>.
  <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the implementation of the ComponentObservable interface,
@@ -356,24 +356,23 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 </li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="disposeTrackable--">
+<li class="blockList"><a name="disposeNotifier--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>disposeTrackable</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.107">disposeTrackable</a></pre>
-<div class="block">Return enum to control whether the component should support implement <a href="../../arez/component/DisposeTrackable.html" title="interface in arez.component"><code>DisposeTrackable</code></a>.
+<h4>disposeNotifier</h4>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.107">disposeNotifier</a></pre>
+<div class="block">Return enum to control whether the component should support implement the <a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component"><code>DisposeNotifier</code></a> interface.
  This will result in the component invoking dispose listener callbacks during dispose operation
  within the scope of the disposing transaction.
 
- <p><a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the implementation of the DisposeTrackable interface,
- <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> will result in not implementing the DisposeTrackable interface and
- <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will cause the component to implement the interface if the component
- is not annotated with <tt>javax.inject.Singleton</tt>.</p></div>
+ <p>If the value of this parameter is <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the component will implement the
+ interface <a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component"><code>DisposeNotifier</code></a> interface unless the component is annotated with
+ <tt>javax.inject.Singleton</tt>.</p></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Return enum to control whether the component should support implement DisposeTrackable.</dd>
+<dd>Return enum to control whether the component should implement DisposeNotifier.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>

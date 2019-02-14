@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":6,"i1":17,"i2":6};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../arez/component/ComponentObservable.html" title="interface in arez.component"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../arez/component/DisposeTrackable.html" title="interface in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/component/Identifiable.html" title="interface in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/component/DisposeNotifier.html" target="_top">Frames</a></li>
@@ -74,13 +74,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -91,57 +91,27 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">arez.component</div>
-<h2 title="Class DisposeNotifier" class="title">Class DisposeNotifier</h2>
+<h2 title="Interface DisposeNotifier" class="title">Interface DisposeNotifier</h2>
 </div>
 <div class="contentContainer">
-<ul class="inheritance">
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
-<li>
-<ul class="inheritance">
-<li>arez.component.DisposeNotifier</li>
-</ul>
-</li>
-</ul>
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
-<dl>
-<dt>All Implemented Interfaces:</dt>
-<dd><a href="../../arez/Disposable.html" title="interface in arez">Disposable</a></dd>
-</dl>
 <hr>
 <br>
-<pre>public final class <a href="../../src-html/arez/component/DisposeNotifier.html#line.18">DisposeNotifier</a>
-extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
-implements <a href="../../arez/Disposable.html" title="interface in arez">Disposable</a></pre>
-<div class="block">The class responsible for notifying listeners when an element is disposed.
- Listeners are added to a notify list using a key and should be added at most once.
- The listeners can also be removed from the notify list. The notifier will then notifier
- will then notify all listeners when <a href="../../arez/component/DisposeNotifier.html#dispose--"><code>dispose()</code></a> is invoked after which this
- class should no longer been interacted with.</div>
+<pre>public interface <a href="../../src-html/arez/component/DisposeNotifier.html#line.18">DisposeNotifier</a></pre>
+<div class="block">Interface implemented by a component if it supports notifying listeners
+ when the component is disposed. This notification occurs using a call-back
+ and occurs within the dispose transaction (after <a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations"><code>PreDispose</code></a>
+ is invoked if present) using a callback. Contrast this with the strategy used by
+ <a href="../../arez/component/ComponentObservable.html" title="interface in arez.component"><code>ComponentObservable</code></a> which uses standard Arez observables to track when
+ a component is disposed.</div>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#DisposeNotifier--">DisposeNotifier</a></span>()</code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -149,7 +119,7 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -162,38 +132,18 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#dispose--">dispose</a></span>()</code>
-<div class="block">Dispose the element.</div>
+<td class="colFirst"><code>static <a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#asDisposeNotifier-java.lang.Object-">asDisposeNotifier</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</code>
+<div class="block">Cast the specified object to an instance of DisposeNotifier.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#isDisposed--">isDisposed</a></span>()</code>
-<div class="block">Return true if dispose() has been called on object.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#removeOnDisposeListener-java.lang.Object-">removeOnDisposeListener</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</code>
 <div class="block">Remove the listener with specified key from the notify list.</div>
 </td>
 </tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.arez.Disposable">
-<!--   -->
-</a>
-<h3>Methods inherited from interface&nbsp;arez.<a href="../../arez/Disposable.html" title="interface in arez">Disposable</a></h3>
-<code><a href="../../arez/Disposable.html#asDisposable-java.lang.Object-">asDisposable</a>, <a href="../../arez/Disposable.html#dispose-java.lang.Object-">dispose</a>, <a href="../../arez/Disposable.html#isDisposed-java.lang.Object-">isDisposed</a>, <a href="../../arez/Disposable.html#isNotDisposed--">isNotDisposed</a>, <a href="../../arez/Disposable.html#isNotDisposed-java.lang.Object-">isNotDisposed</a></code></li>
-</ul>
 </li>
 </ul>
 </li>
@@ -202,71 +152,28 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="DisposeNotifier--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>DisposeNotifier</h4>
-<pre>public&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.18">DisposeNotifier</a>()</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="dispose--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.28">dispose</a>()</pre>
-<div class="block">Dispose the element. See <a href="../../arez/Disposable.html" title="interface in arez"><code>Disposable</code></a> for a description of the implications.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../arez/Disposable.html#dispose--">dispose</a></code>&nbsp;in interface&nbsp;<code><a href="../../arez/Disposable.html" title="interface in arez">Disposable</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="isDisposed--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.44">isDisposed</a>()</pre>
-<div class="block">Return true if dispose() has been called on object.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../arez/Disposable.html#isDisposed--">isDisposed</a></code>&nbsp;in interface&nbsp;<code><a href="../../arez/Disposable.html" title="interface in arez">Disposable</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if dispose has been called.</dd>
-</dl>
-</li>
-</ul>
 <a name="addOnDisposeListener-java.lang.Object-arez.SafeProcedure-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addOnDisposeListener</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.58">addOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
-                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
+<pre>void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.33">addOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
+                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
 <div class="block">Add the listener to notify list under key.
- This method MUST NOT be invoked after <a href="../../arez/component/DisposeNotifier.html#dispose--"><code>dispose()</code></a> has been invoked.
+ This method MUST NOT be invoked after the component has been disposed.
  This method should not be invoked if another listener has been added with the same key without
- being removed.</div>
+ being removed.
+
+ <p>If the key implements <a href="../../arez/Disposable.html" title="interface in arez"><code>Disposable</code></a> and <a href="../../arez/Disposable.html#isDisposed--"><code>Disposable.isDisposed()</code></a> returns <code>true</code>
+ when invoking the calback then the callback will be skipped. This rare situation only occurs when there is
+ circular dependency in the object model usually involving <a href="../../arez/annotations/CascadeDispose.html" title="annotation in arez.annotations"><code>CascadeDispose</code></a>.</p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - the key to uniquely identify listener.</dd>
@@ -277,18 +184,34 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <a name="removeOnDisposeListener-java.lang.Object-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>removeOnDisposeListener</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.80">removeOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</pre>
+<pre>void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.43">removeOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</pre>
 <div class="block">Remove the listener with specified key from the notify list.
- This method MUST NOT be invoked after <a href="../../arez/component/DisposeNotifier.html#dispose--"><code>dispose()</code></a> has been invoked.
- This method should only be invoked when a listener has been added for specific using
+ This method should only be invoked when a listener has been added for specific key using
  <a href="../../arez/component/DisposeNotifier.html#addOnDisposeListener-java.lang.Object-arez.SafeProcedure-"><code>addOnDisposeListener(Object, SafeProcedure)</code></a> and has not been removed by another
  call to this method.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - the key under which the listener was previously added.</dd>
+</dl>
+</li>
+</ul>
+<a name="asDisposeNotifier-java.lang.Object-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>asDisposeNotifier</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> static&nbsp;<a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a>&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.53">asDisposeNotifier</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
+<div class="block">Cast the specified object to an instance of DisposeNotifier.
+ Invariant checks will verify that the cast is valid before proceeding.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>object</code> - the object.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the object cast to DisposeNotifier.</dd>
 </dl>
 </li>
 </ul>
@@ -320,7 +243,7 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../arez/component/ComponentObservable.html" title="interface in arez.component"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../arez/component/DisposeTrackable.html" title="interface in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../arez/component/Identifiable.html" title="interface in arez.component"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?arez/component/DisposeNotifier.html" target="_top">Frames</a></li>
@@ -346,13 +269,13 @@ implements <a href="../../arez/Disposable.html" title="interface in arez">Dispos
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
