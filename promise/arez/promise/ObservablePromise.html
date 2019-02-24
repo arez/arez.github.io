@@ -135,7 +135,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
    {
      final Promise&lt;Response&gt; promise = DomGlobal.fetch( "https://example.com/" );
      final ObservablePromise&lt;Response, Object&gt; observablePromise = ObservablePromise.create( promise );
-     Arez.context().autorun( () -&gt; {
+     Arez.context().observer( () -&gt; {
        final String message = "Promise Status: " + observablePromise.getState();
        DomGlobal.console.log( message );
      } );
