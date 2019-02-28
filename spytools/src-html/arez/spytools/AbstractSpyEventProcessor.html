@@ -14,7 +14,7 @@
 <span class="sourceLineNo">006</span>import java.util.Map;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import java.util.function.BiConsumer;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import javax.annotation.Nonnull;<a name="line.8"></a>
-<span class="sourceLineNo">009</span>import static org.realityforge.braincheck.Guards.*;<a name="line.9"></a>
+<span class="sourceLineNo">009</span>import static arez.Guards.*;<a name="line.9"></a>
 <span class="sourceLineNo">010</span><a name="line.10"></a>
 <span class="sourceLineNo">011</span>/**<a name="line.11"></a>
 <span class="sourceLineNo">012</span> * Abstract base class for processing spy events.<a name="line.12"></a>
@@ -47,7 +47,7 @@
 <span class="sourceLineNo">039</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.39"></a>
 <span class="sourceLineNo">040</span>    {<a name="line.40"></a>
 <span class="sourceLineNo">041</span>      apiInvariant( () -&gt; !_processors.containsKey( type ),<a name="line.41"></a>
-<span class="sourceLineNo">042</span>                    () -&gt; "Arez-0157: Attempting to call AbstractSpyEventProcessor.on() to register a processor " +<a name="line.42"></a>
+<span class="sourceLineNo">042</span>                    () -&gt; "Attempting to call AbstractSpyEventProcessor.on() to register a processor " +<a name="line.42"></a>
 <span class="sourceLineNo">043</span>                          "for type " + type + " but an existing processor already exists for type" );<a name="line.43"></a>
 <span class="sourceLineNo">044</span>    }<a name="line.44"></a>
 <span class="sourceLineNo">045</span>    _processors.put( type, processor );<a name="line.45"></a>
