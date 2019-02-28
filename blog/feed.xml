@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Sun, 24 Feb 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 28 Feb 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.132 released]]></title>
+            <link>https://arez.github.io/blog/2019/02/28/version-0.132-release.html</link>
+            <guid>https://arez.github.io/blog/2019/02/28/version-0.132-release.html</guid>
+            <pubDate>Thu, 28 Feb 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.131...v0.132)
+
+Changes in this release:
+
+* Remove the `org.realityforge.braincheck:braincheck:jar` dependency by reimplementing the invariant
+  checking code in `arez.Guards`. The dependency ha]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.131 released]]></title>
             <link>https://arez.github.io/blog/2019/02/24/version-0.131-release.html</link>
