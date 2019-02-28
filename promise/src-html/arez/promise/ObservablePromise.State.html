@@ -17,7 +17,7 @@
 <span class="sourceLineNo">009</span>import java.util.Objects;<a name="line.9"></a>
 <span class="sourceLineNo">010</span>import javax.annotation.Nonnull;<a name="line.10"></a>
 <span class="sourceLineNo">011</span>import jsinterop.base.Js;<a name="line.11"></a>
-<span class="sourceLineNo">012</span>import static org.realityforge.braincheck.Guards.*;<a name="line.12"></a>
+<span class="sourceLineNo">012</span>import static arez.Guards.*;<a name="line.12"></a>
 <span class="sourceLineNo">013</span><a name="line.13"></a>
 <span class="sourceLineNo">014</span>/**<a name="line.14"></a>
 <span class="sourceLineNo">015</span> * An observable model that wraps a Promise and exposes observable state that track<a name="line.15"></a>
@@ -165,7 +165,7 @@
 <span class="sourceLineNo">157</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.157"></a>
 <span class="sourceLineNo">158</span>    {<a name="line.158"></a>
 <span class="sourceLineNo">159</span>      apiInvariant( () -&gt; _state == State.REJECTED,<a name="line.159"></a>
-<span class="sourceLineNo">160</span>                    () -&gt; "Arez-0167: ObservablePromise.getError() called when the promise is not in " +<a name="line.160"></a>
+<span class="sourceLineNo">160</span>                    () -&gt; "ObservablePromise.getError() called when the promise is not in " +<a name="line.160"></a>
 <span class="sourceLineNo">161</span>                          "rejected state. State: " + _state + ", Promise: " + _promise );<a name="line.161"></a>
 <span class="sourceLineNo">162</span>    }<a name="line.162"></a>
 <span class="sourceLineNo">163</span>    return _error;<a name="line.163"></a>
@@ -176,7 +176,7 @@
 <span class="sourceLineNo">168</span>    if ( Arez.shouldCheckInvariants() )<a name="line.168"></a>
 <span class="sourceLineNo">169</span>    {<a name="line.169"></a>
 <span class="sourceLineNo">170</span>      invariant( () -&gt; _state == State.REJECTED,<a name="line.170"></a>
-<span class="sourceLineNo">171</span>                 () -&gt; "Arez-0168: ObservablePromise.setError() called when promise is in incorrect state. " +<a name="line.171"></a>
+<span class="sourceLineNo">171</span>                 () -&gt; "ObservablePromise.setError() called when promise is in incorrect state. " +<a name="line.171"></a>
 <span class="sourceLineNo">172</span>                       "State: " + _state + ", Promise: " + _promise );<a name="line.172"></a>
 <span class="sourceLineNo">173</span>    }<a name="line.173"></a>
 <span class="sourceLineNo">174</span>    _error = error;<a name="line.174"></a>
