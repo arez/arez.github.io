@@ -126,7 +126,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
    public void onModuleLoad()
    {
      final IntervalTicker ticker = IntervalTicker.create( 1000 );
-     Arez.context().autorun( () -&gt; DomGlobal.console.log( "Tick: " + ticker.getTickTime() ) );
+     Arez.context().observer( () -&gt; DomGlobal.console.log( "Tick: " + ticker.getTickTime() ) );
    }
  }
  </code></pre></div>

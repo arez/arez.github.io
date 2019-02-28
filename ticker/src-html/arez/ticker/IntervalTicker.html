@@ -17,7 +17,7 @@
 <span class="sourceLineNo">009</span>import arez.annotations.OnDeactivate;<a name="line.9"></a>
 <span class="sourceLineNo">010</span>import elemental2.dom.DomGlobal;<a name="line.10"></a>
 <span class="sourceLineNo">011</span>import javax.annotation.Nonnull;<a name="line.11"></a>
-<span class="sourceLineNo">012</span>import static org.realityforge.braincheck.Guards.*;<a name="line.12"></a>
+<span class="sourceLineNo">012</span>import static arez.Guards.*;<a name="line.12"></a>
 <span class="sourceLineNo">013</span><a name="line.13"></a>
 <span class="sourceLineNo">014</span>/**<a name="line.14"></a>
 <span class="sourceLineNo">015</span> * An Observable model that "ticks" at a specified interval. The tick is actually updating the<a name="line.15"></a>
@@ -37,7 +37,7 @@
 <span class="sourceLineNo">029</span> *   public void onModuleLoad()<a name="line.29"></a>
 <span class="sourceLineNo">030</span> *   {<a name="line.30"></a>
 <span class="sourceLineNo">031</span> *     final IntervalTicker ticker = IntervalTicker.create( 1000 );<a name="line.31"></a>
-<span class="sourceLineNo">032</span> *     Arez.context().autorun( () -&gt; DomGlobal.console.log( "Tick: " + ticker.getTickTime() ) );<a name="line.32"></a>
+<span class="sourceLineNo">032</span> *     Arez.context().observer( () -&gt; DomGlobal.console.log( "Tick: " + ticker.getTickTime() ) );<a name="line.32"></a>
 <span class="sourceLineNo">033</span> *   }<a name="line.33"></a>
 <span class="sourceLineNo">034</span> * }<a name="line.34"></a>
 <span class="sourceLineNo">035</span> * }&lt;/pre&gt;<a name="line.35"></a>
@@ -102,7 +102,7 @@
 <span class="sourceLineNo">094</span>    {<a name="line.94"></a>
 <span class="sourceLineNo">095</span>      apiInvariant( () -&gt; interval &gt;= 0,<a name="line.95"></a>
 <span class="sourceLineNo">096</span>                    () -&gt;<a name="line.96"></a>
-<span class="sourceLineNo">097</span>                      "Arez-0169: IntervalTicker.setInterval() was passed an invalid interval. Expected " +<a name="line.97"></a>
+<span class="sourceLineNo">097</span>                      "IntervalTicker.setInterval() was passed an invalid interval. Expected " +<a name="line.97"></a>
 <span class="sourceLineNo">098</span>                      "a positive number but actual value was " + interval );<a name="line.98"></a>
 <span class="sourceLineNo">099</span>    }<a name="line.99"></a>
 <span class="sourceLineNo">100</span>    _interval = interval;<a name="line.100"></a>
@@ -125,7 +125,7 @@
 <span class="sourceLineNo">117</span>    final long rawTime = getLastTickTime();<a name="line.117"></a>
 <span class="sourceLineNo">118</span>    if ( Arez.shouldCheckInvariants() )<a name="line.118"></a>
 <span class="sourceLineNo">119</span>    {<a name="line.119"></a>
-<span class="sourceLineNo">120</span>      invariant( () -&gt; 0 != rawTime, () -&gt; "Arez-0170: IntervalTicker.getTickTime() has unexpected rawTime of 0." );<a name="line.120"></a>
+<span class="sourceLineNo">120</span>      invariant( () -&gt; 0 != rawTime, () -&gt; "IntervalTicker.getTickTime() has unexpected rawTime of 0." );<a name="line.120"></a>
 <span class="sourceLineNo">121</span>    }<a name="line.121"></a>
 <span class="sourceLineNo">122</span>    return rawTime;<a name="line.122"></a>
 <span class="sourceLineNo">123</span>  }<a name="line.123"></a>
@@ -164,7 +164,7 @@
 <span class="sourceLineNo">156</span>    if ( Arez.shouldCheckInvariants() )<a name="line.156"></a>
 <span class="sourceLineNo">157</span>    {<a name="line.157"></a>
 <span class="sourceLineNo">158</span>      invariant( () -&gt; 0 == _intervalId,<a name="line.158"></a>
-<span class="sourceLineNo">159</span>                 () -&gt; "Arez-0171: IntervalTicker.setupTimer() called but timer is already active." );<a name="line.159"></a>
+<span class="sourceLineNo">159</span>                 () -&gt; "IntervalTicker.setupTimer() called but timer is already active." );<a name="line.159"></a>
 <span class="sourceLineNo">160</span>    }<a name="line.160"></a>
 <span class="sourceLineNo">161</span>    _intervalId = DomGlobal.setInterval( e -&gt; tick(), _interval );<a name="line.161"></a>
 <span class="sourceLineNo">162</span>    /*<a name="line.162"></a>
@@ -179,7 +179,7 @@
 <span class="sourceLineNo">171</span>    if ( Arez.shouldCheckInvariants() )<a name="line.171"></a>
 <span class="sourceLineNo">172</span>    {<a name="line.172"></a>
 <span class="sourceLineNo">173</span>      invariant( () -&gt; 0 != _intervalId,<a name="line.173"></a>
-<span class="sourceLineNo">174</span>                 () -&gt; "Arez-0172: IntervalTicker.clearTimer() called but no timer is active." );<a name="line.174"></a>
+<span class="sourceLineNo">174</span>                 () -&gt; "IntervalTicker.clearTimer() called but no timer is active." );<a name="line.174"></a>
 <span class="sourceLineNo">175</span>    }<a name="line.175"></a>
 <span class="sourceLineNo">176</span>    DomGlobal.clearTimeout( _intervalId );<a name="line.176"></a>
 <span class="sourceLineNo">177</span>    _intervalId = 0;<a name="line.177"></a>
