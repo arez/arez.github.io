@@ -66,7 +66,7 @@
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a name="I:A">
+<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a name="I:A">
 <!--   -->
 </a>
 <h2 class="title">A</h2>
@@ -98,6 +98,14 @@
 <dt><span class="memberNameLink"><a href="arez/dom/IdleStatus.html#create--">create()</a></span> - Static method in class arez.dom.<a href="arez/dom/IdleStatus.html" title="class in arez.dom">IdleStatus</a></dt>
 <dd>
 <div class="block">Create an instance of this model.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/MediaQuery.html#create-java.lang.String-">create(String)</a></span> - Static method in class arez.dom.<a href="arez/dom/MediaQuery.html" title="class in arez.dom">MediaQuery</a></dt>
+<dd>
+<div class="block">Create an instance of MediaQuery.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/MediaQuery.html#create-elemental2.dom.Window-java.lang.String-">create(Window, String)</a></span> - Static method in class arez.dom.<a href="arez/dom/MediaQuery.html" title="class in arez.dom">MediaQuery</a></dt>
+<dd>
+<div class="block">Create an instance of MediaQuery.</div>
 </dd>
 </dl>
 <a name="I:D">
@@ -198,6 +206,10 @@
 <dd>
 <div class="block">Return an immutable representation of the current position.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/dom/MediaQuery.html#getQuery--">getQuery()</a></span> - Method in class arez.dom.<a href="arez/dom/MediaQuery.html" title="class in arez.dom">MediaQuery</a></dt>
+<dd>
+<div class="block">Return the media query to test against window.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/EventDrivenValue.html#getSource--">getSource()</a></span> - Method in class arez.dom.<a href="arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a></dt>
 <dd>
 <div class="block">Return the element that generates the events that report potential changes to the observed value.</div>
@@ -229,6 +241,10 @@
 <dt><span class="memberNameLink"><a href="arez/dom/Dimension.html#getWidth--">getWidth()</a></span> - Method in class arez.dom.<a href="arez/dom/Dimension.html" title="class in arez.dom">Dimension</a></dt>
 <dd>
 <div class="block">Return the width.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/MediaQuery.html#getWindow--">getWindow()</a></span> - Method in class arez.dom.<a href="arez/dom/MediaQuery.html" title="class in arez.dom">MediaQuery</a></dt>
+<dd>
+<div class="block">Return the window against which the MediaQuery will run.</div>
 </dd>
 </dl>
 <a name="I:I">
@@ -269,6 +285,20 @@
 <dt><span class="memberNameLink"><a href="arez/dom/GeoPosition.Status.html#LOADING">LOADING</a></span> - Static variable in class arez.dom.<a href="arez/dom/GeoPosition.Status.html" title="class in arez.dom">GeoPosition.Status</a></dt>
 <dd>
 <div class="block">Position data is loading.</div>
+</dd>
+</dl>
+<a name="I:M">
+<!--   -->
+</a>
+<h2 class="title">M</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="arez/dom/MediaQuery.html#matches--">matches()</a></span> - Method in class arez.dom.<a href="arez/dom/MediaQuery.html" title="class in arez.dom">MediaQuery</a></dt>
+<dd>
+<div class="block">Return true if the media query matches, false otherwise.</div>
+</dd>
+<dt><a href="arez/dom/MediaQuery.html" title="class in arez.dom"><span class="typeNameLink">MediaQuery</span></a> - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
+<dd>
+<div class="block">An observable model that indicates whether a window matches a CSS media query.</div>
 </dd>
 </dl>
 <a name="I:O">
@@ -324,6 +354,10 @@
 <dd>
 <div class="block">Specify the set of events to listen to.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/dom/MediaQuery.html#setQuery-java.lang.String-">setQuery(String)</a></span> - Method in class arez.dom.<a href="arez/dom/MediaQuery.html" title="class in arez.dom">MediaQuery</a></dt>
+<dd>
+<div class="block">Change the media query to test against.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/EventDrivenValue.html#setSource-SourceType-">setSource(SourceType)</a></span> - Method in class arez.dom.<a href="arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a></dt>
 <dd>
 <div class="block">Set the element that generates events.</div>
@@ -368,7 +402,7 @@ the order they are declared.</div>
 <div class="block">Factory for getting observable models that sizing of windows.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;</div>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;</div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav"><a name="navbar.bottom">
 <!--   -->
