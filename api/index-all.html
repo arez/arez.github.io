@@ -156,6 +156,10 @@
 <dd>
 <div class="block">Add a spy handler to the list of handlers.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/Guards.html#apiInvariant-java.util.function.Supplier-java.util.function.Supplier-">apiInvariant(Supplier&lt;Boolean&gt;, Supplier&lt;String&gt;)</a></span> - Static method in class arez.<a href="arez/Guards.html" title="class in arez">Guards</a></dt>
+<dd>
+<div class="block">Check an api invariant in the code base.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--">areCollectionsPropertiesUnmodifiable()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
 <div class="block">Return true if observable properties, computable properties or query results that are of type collection are wrapped in unmodifiable variant prior to returning.</div>
@@ -251,6 +255,10 @@
 <dt><a href="arez/ArezTestUtil.html" title="class in arez"><span class="typeNameLink">ArezTestUtil</span></a> - Class in <a href="arez/package-summary.html">arez</a></dt>
 <dd>
 <div class="block">Utility class for interacting with Arez config settings in tests.</div>
+</dd>
+<dt><a href="arez/ArezTestUtil.Logger.html" title="interface in arez"><span class="typeNameLink">ArezTestUtil.Logger</span></a> - Interface in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">Interface to intercept log messages emitted by Arez runtime..</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/Spy.html#asComponentInfo-arez.Component-">asComponentInfo(Component)</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
 <dd>
@@ -737,6 +745,10 @@
 </a>
 <h2 class="title">F</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="arez/Guards.html#fail-java.util.function.Supplier-">fail(Supplier&lt;String&gt;)</a></span> - Static method in class arez.<a href="arez/Guards.html" title="class in arez">Guards</a></dt>
+<dd>
+<div class="block">Throw an IllegalStateException with supplied detail message.</div>
+</dd>
 <dt><a href="arez/annotations/Feature.html" title="enum in arez.annotations"><span class="typeNameLink">Feature</span></a> - Enum in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Enum to control if a feature should be enabled.</div>
@@ -1081,6 +1093,10 @@
 <dd>
 <div class="block">Return the value of the specified Observable.</div>
 </dd>
+<dt><a href="arez/Guards.html" title="class in arez"><span class="typeNameLink">Guards</span></a> - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">A utility class used to perform assertions and invariant checks.</div>
+</dd>
 </dl>
 <a name="I:H">
 <!--   -->
@@ -1120,6 +1136,10 @@
 <dt><a href="arez/annotations/InjectMode.html" title="enum in arez.annotations"><span class="typeNameLink">InjectMode</span></a> - Enum in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Enum that controls how the component interacts with the injection framework if at all.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Guards.html#invariant-java.util.function.Supplier-java.util.function.Supplier-">invariant(Supplier&lt;Boolean&gt;, Supplier&lt;String&gt;)</a></span> - Static method in class arez.<a href="arez/Guards.html" title="class in arez">Guards</a></dt>
+<dd>
+<div class="block">Check an invariant in code base.</div>
 </dd>
 <dt><a href="arez/annotations/Inverse.html" title="annotation in arez.annotations"><span class="typeNameLink">Inverse</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -1325,6 +1345,8 @@
 <dd>
 <div class="block">The interface used to look up components by type and id.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.Logger.html#log-java.lang.String-java.lang.Throwable-">log(String, Throwable)</a></span> - Method in interface arez.<a href="arez/ArezTestUtil.Logger.html" title="interface in arez">ArezTestUtil.Logger</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a name="I:M">
 <!--   -->
@@ -1960,6 +1982,10 @@
 <dt><span class="memberNameLink"><a href="arez/spy/PropertyMutator.html#set-T-">set(T)</a></span> - Method in interface arez.spy.<a href="arez/spy/PropertyMutator.html" title="interface in arez.spy">PropertyMutator</a></dt>
 <dd>
 <div class="block">Change the value of an ObservableValue to specified value.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#setLogger-arez.ArezTestUtil.Logger-">setLogger(ArezTestUtil.Logger)</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
+<dd>
+<div class="block">Specify logger to use to capture logging in tests</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ObservableValueInfo.html#setValue-java.lang.Object-">setValue(Object)</a></span> - Method in interface arez.spy.<a href="arez/spy/ObservableValueInfo.html" title="interface in arez.spy">ObservableValueInfo</a></dt>
 <dd>

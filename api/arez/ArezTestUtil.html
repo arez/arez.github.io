@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../arez/ArezContext.html" title="class in arez"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../arez/Component.html" title="class in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../arez/ArezTestUtil.Logger.html" title="interface in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../index.html?arez/ArezTestUtil.html" target="_top">Frames</a></li>
@@ -72,7 +72,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>@GwtIncompatible
-public final class <a href="../src-html/arez/ArezTestUtil.html#line.11">ArezTestUtil</a>
+public final class <a href="../src-html/arez/ArezTestUtil.html#line.12">ArezTestUtil</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Utility class for interacting with Arez config settings in tests.</div>
 </li>
@@ -117,6 +117,27 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezTestUtil.Logger.html" title="interface in arez">ArezTestUtil.Logger</a></span></code>
+<div class="block">Interface to intercept log messages emitted by Arez runtime..</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -303,6 +324,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block">Reset the state of Arez config to either production or development state.</div>
 </td>
 </tr>
+<tr id="i29" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/ArezTestUtil.html#setLogger-arez.ArezTestUtil.Logger-">setLogger</a></span>(<a href="../arez/ArezTestUtil.Logger.html" title="interface in arez">ArezTestUtil.Logger</a>&nbsp;logger)</code>
+<div class="block">Specify logger to use to capture logging in tests</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -331,11 +358,25 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>resetConfig</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.22">resetConfig</a>(boolean&nbsp;productionMode)</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.31">resetConfig</a>(boolean&nbsp;productionMode)</pre>
 <div class="block">Reset the state of Arez config to either production or development state.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>productionMode</code> - true to set it to production mode configuration, false to set it to development mode config.</dd>
+</dl>
+</li>
+</ul>
+<a name="setLogger-arez.ArezTestUtil.Logger-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLogger</h4>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.92">setLogger</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="../arez/ArezTestUtil.Logger.html" title="interface in arez">ArezTestUtil.Logger</a>&nbsp;logger)</pre>
+<div class="block">Specify logger to use to capture logging in tests</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>logger</code> - the logger.</dd>
 </dl>
 </li>
 </ul>
@@ -345,7 +386,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enableNames</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.81">enableNames</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.111">enableNames</a>()</pre>
 <div class="block">Set `arez.enable_names` setting to true.</div>
 </li>
 </ul>
@@ -355,7 +396,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>disableNames</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.89">disableNames</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.119">disableNames</a>()</pre>
 <div class="block">Set `arez.enable_names` setting to false.</div>
 </li>
 </ul>
@@ -365,7 +406,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enableReferences</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.107">enableReferences</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.137">enableReferences</a>()</pre>
 <div class="block">Set `arez.enable_references` setting to true.</div>
 </li>
 </ul>
@@ -375,7 +416,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>disableReferences</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.115">disableReferences</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.145">disableReferences</a>()</pre>
 <div class="block">Set `arez.enable_references` setting to false.</div>
 </li>
 </ul>
@@ -385,7 +426,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enableVerify</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.133">enableVerify</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.163">enableVerify</a>()</pre>
 <div class="block">Set `arez.enable_verify` setting to true.</div>
 </li>
 </ul>
@@ -395,7 +436,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>disableVerify</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.141">disableVerify</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.171">disableVerify</a>()</pre>
 <div class="block">Set `arez.enable_verify` setting to false.</div>
 </li>
 </ul>
@@ -405,7 +446,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enablePropertyIntrospectors</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.159">enablePropertyIntrospectors</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.189">enablePropertyIntrospectors</a>()</pre>
 <div class="block">Set `arez.enable_property_introspection` setting to true.</div>
 </li>
 </ul>
@@ -415,7 +456,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>disablePropertyIntrospectors</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.167">disablePropertyIntrospectors</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.197">disablePropertyIntrospectors</a>()</pre>
 <div class="block">Set `arez.enable_property_introspection` setting to false.</div>
 </li>
 </ul>
@@ -425,7 +466,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>purgeTasksWhenRunawayDetected</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.185">purgeTasksWhenRunawayDetected</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.215">purgeTasksWhenRunawayDetected</a>()</pre>
 <div class="block">Set `arez.purge_tasks_when_runaway_detected` setting to true.</div>
 </li>
 </ul>
@@ -435,7 +476,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>noPurgeTasksWhenRunawayDetected</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.193">noPurgeTasksWhenRunawayDetected</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.223">noPurgeTasksWhenRunawayDetected</a>()</pre>
 <div class="block">Set `arez.purge_tasks_when_runaway_detected` setting to false.</div>
 </li>
 </ul>
@@ -445,7 +486,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enforceTransactionType</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.211">enforceTransactionType</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.241">enforceTransactionType</a>()</pre>
 <div class="block">Set `arez.enforce_transaction_type` setting to true.</div>
 </li>
 </ul>
@@ -455,7 +496,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>noEnforceTransactionType</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.219">noEnforceTransactionType</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.249">noEnforceTransactionType</a>()</pre>
 <div class="block">Set `arez.enforce_transaction_type` setting to false.</div>
 </li>
 </ul>
@@ -465,7 +506,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enableSpies</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.237">enableSpies</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.267">enableSpies</a>()</pre>
 <div class="block">Set `arez.enable_spies` setting to true.</div>
 </li>
 </ul>
@@ -475,7 +516,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>disableSpies</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.245">disableSpies</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.275">disableSpies</a>()</pre>
 <div class="block">Set `arez.enable_spies` setting to false.</div>
 </li>
 </ul>
@@ -485,7 +526,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enableZones</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.265">enableZones</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.295">enableZones</a>()</pre>
 <div class="block">Set `arez.enable_zones` setting to true.
  This will result in the Arez state being reset to align with this setting. The
  normal practice is to invoke this at the start of a test.</div>
@@ -497,7 +538,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>disableZones</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.276">disableZones</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.306">disableZones</a>()</pre>
 <div class="block">Set `arez.enable_zones` setting to false.
  This will result in the Arez state being reset to align with this setting. The
  normal practice is to invoke this at the start of a test.</div>
@@ -509,7 +550,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>makeCollectionPropertiesModifiable</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.295">makeCollectionPropertiesModifiable</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.325">makeCollectionPropertiesModifiable</a>()</pre>
 <div class="block">Set `arez.collections_properties_unmodifiable` setting to true.</div>
 </li>
 </ul>
@@ -519,7 +560,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>makeCollectionPropertiesUnmodifiable</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.303">makeCollectionPropertiesUnmodifiable</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.333">makeCollectionPropertiesUnmodifiable</a>()</pre>
 <div class="block">Set `arez.collections_properties_unmodifiable` setting to false.</div>
 </li>
 </ul>
@@ -529,7 +570,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enableNativeComponents</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.323">enableNativeComponents</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.353">enableNativeComponents</a>()</pre>
 <div class="block">Set `arez.enable_native_components` setting to true.
  This will result in the Arez state being reset to align with this setting. The
  normal practice is to invoke this at the start of a test.</div>
@@ -541,7 +582,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>disableNativeComponents</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.334">disableNativeComponents</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.364">disableNativeComponents</a>()</pre>
 <div class="block">Set `arez.enable_native_components` setting to false.
  This will result in the Arez state being reset to align with this setting. The
  normal practice is to invoke this at the start of a test.</div>
@@ -553,7 +594,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enableRegistries</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.355">enableRegistries</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.385">enableRegistries</a>()</pre>
 <div class="block">Set `arez.enable_registries` setting to true.
  This will result in the Arez state being reset to align with this setting. The
  normal practice is to invoke this at the start of a test.</div>
@@ -565,7 +606,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>disableRegistries</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.366">disableRegistries</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.396">disableRegistries</a>()</pre>
 <div class="block">Set `arez.enable_registries` setting to false.
  This will result in the Arez state being reset to align with this setting. The
  normal practice is to invoke this at the start of a test.</div>
@@ -577,7 +618,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enableObserverErrorHandlers</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.385">enableObserverErrorHandlers</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.415">enableObserverErrorHandlers</a>()</pre>
 <div class="block">Set `arez.enable_observer_error_handlers` setting to true.</div>
 </li>
 </ul>
@@ -587,7 +628,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>disableObserverErrorHandlers</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.393">disableObserverErrorHandlers</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.423">disableObserverErrorHandlers</a>()</pre>
 <div class="block">Set `arez.enable_observer_error_handlers` setting to false.</div>
 </li>
 </ul>
@@ -597,7 +638,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>checkInvariants</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.411">checkInvariants</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.441">checkInvariants</a>()</pre>
 <div class="block">Set `arez.check_invariants` setting to true.</div>
 </li>
 </ul>
@@ -607,7 +648,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>noCheckInvariants</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.419">noCheckInvariants</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.449">noCheckInvariants</a>()</pre>
 <div class="block">Set the `arez.check_invariants` setting to false.</div>
 </li>
 </ul>
@@ -617,7 +658,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>checkApiInvariants</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.437">checkApiInvariants</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.467">checkApiInvariants</a>()</pre>
 <div class="block">Set `arez.check_api_invariants` setting to true.</div>
 </li>
 </ul>
@@ -627,7 +668,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>noCheckApiInvariants</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.445">noCheckApiInvariants</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../src-html/arez/ArezTestUtil.html#line.475">noCheckApiInvariants</a>()</pre>
 <div class="block">Set the `arez.check_api_invariants` setting to false.</div>
 </li>
 </ul>
@@ -659,7 +700,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="subNav">
 <ul class="navList">
 <li><a href="../arez/ArezContext.html" title="class in arez"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../arez/Component.html" title="class in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../arez/ArezTestUtil.Logger.html" title="interface in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../index.html?arez/ArezTestUtil.html" target="_top">Frames</a></li>
@@ -683,7 +724,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
