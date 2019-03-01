@@ -508,16 +508,21 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>requireId</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.170">requireId</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.175">requireId</a></pre>
 <div class="block">Indicates whether the component should support access of the id via <a href="../../arez/component/Identifiable.html#getArezId-java.lang.Object-"><code>Identifiable.getArezId(Object)</code></a>.
- This must be supported if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present but may be supported in other scenarios.
- This feature is present on all components if <a href="../../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> is true,
- <a href="../../arez/Arez.html#areRegistriesEnabled--"><code>Arez.areRegistriesEnabled()</code></a> is true or <a href="../../arez/Arez.html#areNamesEnabled--"><code>Arez.areNamesEnabled()</code></a> is true and <a href="../../arez/annotations/ArezComponent.html#nameIncludesId--"><code>nameIncludesId()</code></a>
- is true. In other scenarios it can be disabled. This is usually done to decrease code-size.
- <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will require support, <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> will remove support and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a>
- will add support if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present or a method annotated with <a href="../../arez/annotations/ComponentId.html" title="annotation in arez.annotations"><code>ComponentId</code></a>
- is present. If the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present or a method annotated with <a href="../../arez/annotations/ComponentId.html" title="annotation in arez.annotations"><code>ComponentId</code></a>
- is present then it is an error to set the value to <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>.</div>
+ This feature must be enabled and will be enabled when the value of the parameter is <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a>
+ in the following scenarios:
+
+ <ul>
+ <li>the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present on the same type.</li>
+ <li>a method annotated with the <a href="../../arez/annotations/Inverse.html" title="annotation in arez.annotations"><code>Inverse</code></a> annotation is present.</li>
+ <li>a method annotated with the <a href="../../arez/annotations/ComponentId.html" title="annotation in arez.annotations"><code>ComponentId</code></a> annotation is present.</li>
+ <li>a method annotated with the <a href="../../arez/annotations/ComponentIdRef.html" title="annotation in arez.annotations"><code>ComponentIdRef</code></a> annotation is present.</li>
+ </ul>
+
+ <p>The feature is also enabled on every components if
+ <a href="../../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> is true, <a href="../../arez/Arez.html#areRegistriesEnabled--"><code>Arez.areRegistriesEnabled()</code></a> is true or
+ <a href="../../arez/Arez.html#areNamesEnabled--"><code>Arez.areNamesEnabled()</code></a> is true and <a href="../../arez/annotations/ArezComponent.html#nameIncludesId--"><code>nameIncludesId()</code></a> is true.</p></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>enum controlling whether a unique if of the component can be accessed via <a href="../../arez/component/Identifiable.html#getArezId-java.lang.Object-"><code>Identifiable.getArezId(Object)</code></a>.</dd>
@@ -537,7 +542,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockListLast">
 <li class="blockList">
 <h4>verify</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.179">verify</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.184">verify</a></pre>
 <div class="block">Indicates whether the component should implement the interface <a href="../../arez/component/Verifiable.html" title="interface in arez.component"><code>Verifiable</code></a>.
  This feature is ignored unless <a href="../../arez/Arez.html#isVerifyEnabled--"><code>Arez.isVerifyEnabled()</code></a> is true. The <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a>
  value will enable this feature if the component has any <a href="../../arez/annotations/Reference.html" title="annotation in arez.annotations"><code>Reference</code></a> methods or any <a href="../../arez/annotations/Inverse.html" title="annotation in arez.annotations"><code>Inverse</code></a> methods.</div>

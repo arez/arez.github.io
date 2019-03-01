@@ -164,28 +164,33 @@
 <span class="sourceLineNo">156</span><a name="line.156"></a>
 <span class="sourceLineNo">157</span>  /**<a name="line.157"></a>
 <span class="sourceLineNo">158</span>   * Indicates whether the component should support access of the id via {@link arez.component.Identifiable#getArezId(Object)}.<a name="line.158"></a>
-<span class="sourceLineNo">159</span>   * This must be supported if the {@link Repository} annotation is present but may be supported in other scenarios.<a name="line.159"></a>
-<span class="sourceLineNo">160</span>   * This feature is present on all components if {@link Arez#areNativeComponentsEnabled()} is true,<a name="line.160"></a>
-<span class="sourceLineNo">161</span>   * {@link Arez#areRegistriesEnabled()} is true or {@link Arez#areNamesEnabled()} is true and {@link #nameIncludesId()}<a name="line.161"></a>
-<span class="sourceLineNo">162</span>   * is true. In other scenarios it can be disabled. This is usually done to decrease code-size.<a name="line.162"></a>
-<span class="sourceLineNo">163</span>   * {@link Feature#ENABLE} will require support, {@link Feature#DISABLE} will remove support and {@link Feature#AUTODETECT}<a name="line.163"></a>
-<span class="sourceLineNo">164</span>   * will add support if the {@link Repository} annotation is present or a method annotated with {@link ComponentId}<a name="line.164"></a>
-<span class="sourceLineNo">165</span>   * is present. If the {@link Repository} annotation is present or a method annotated with {@link ComponentId}<a name="line.165"></a>
-<span class="sourceLineNo">166</span>   * is present then it is an error to set the value to {@link Feature#DISABLE}.<a name="line.166"></a>
-<span class="sourceLineNo">167</span>   *<a name="line.167"></a>
-<span class="sourceLineNo">168</span>   * @return enum controlling whether a unique if of the component can be accessed via {@link arez.component.Identifiable#getArezId(Object)}.<a name="line.168"></a>
-<span class="sourceLineNo">169</span>   */<a name="line.169"></a>
-<span class="sourceLineNo">170</span>  Feature requireId() default Feature.AUTODETECT;<a name="line.170"></a>
-<span class="sourceLineNo">171</span><a name="line.171"></a>
-<span class="sourceLineNo">172</span>  /**<a name="line.172"></a>
-<span class="sourceLineNo">173</span>   * Indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.173"></a>
-<span class="sourceLineNo">174</span>   * This feature is ignored unless {@link Arez#isVerifyEnabled()} is true. The {@link Feature#AUTODETECT}<a name="line.174"></a>
-<span class="sourceLineNo">175</span>   * value will enable this feature if the component has any {@link Reference} methods or any {@link Inverse} methods.<a name="line.175"></a>
-<span class="sourceLineNo">176</span>   *<a name="line.176"></a>
-<span class="sourceLineNo">177</span>   * @return enum that indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.177"></a>
-<span class="sourceLineNo">178</span>   */<a name="line.178"></a>
-<span class="sourceLineNo">179</span>  Feature verify() default Feature.AUTODETECT;<a name="line.179"></a>
-<span class="sourceLineNo">180</span>}<a name="line.180"></a>
+<span class="sourceLineNo">159</span>   * This feature must be enabled and will be enabled when the value of the parameter is {@link Feature#AUTODETECT}<a name="line.159"></a>
+<span class="sourceLineNo">160</span>   * in the following scenarios:<a name="line.160"></a>
+<span class="sourceLineNo">161</span>   *<a name="line.161"></a>
+<span class="sourceLineNo">162</span>   * &lt;ul&gt;<a name="line.162"></a>
+<span class="sourceLineNo">163</span>   * &lt;li&gt;the {@link Repository} annotation is present on the same type.&lt;/li&gt;<a name="line.163"></a>
+<span class="sourceLineNo">164</span>   * &lt;li&gt;a method annotated with the {@link Inverse} annotation is present.&lt;/li&gt;<a name="line.164"></a>
+<span class="sourceLineNo">165</span>   * &lt;li&gt;a method annotated with the {@link ComponentId} annotation is present.&lt;/li&gt;<a name="line.165"></a>
+<span class="sourceLineNo">166</span>   * &lt;li&gt;a method annotated with the {@link ComponentIdRef} annotation is present.&lt;/li&gt;<a name="line.166"></a>
+<span class="sourceLineNo">167</span>   * &lt;/ul&gt;<a name="line.167"></a>
+<span class="sourceLineNo">168</span>   *<a name="line.168"></a>
+<span class="sourceLineNo">169</span>   * &lt;p&gt;The feature is also enabled on every components if<a name="line.169"></a>
+<span class="sourceLineNo">170</span>   * {@link Arez#areNativeComponentsEnabled()} is true, {@link Arez#areRegistriesEnabled()} is true or<a name="line.170"></a>
+<span class="sourceLineNo">171</span>   * {@link Arez#areNamesEnabled()} is true and {@link #nameIncludesId()} is true.&lt;/p&gt;<a name="line.171"></a>
+<span class="sourceLineNo">172</span>   *<a name="line.172"></a>
+<span class="sourceLineNo">173</span>   * @return enum controlling whether a unique if of the component can be accessed via {@link arez.component.Identifiable#getArezId(Object)}.<a name="line.173"></a>
+<span class="sourceLineNo">174</span>   */<a name="line.174"></a>
+<span class="sourceLineNo">175</span>  Feature requireId() default Feature.AUTODETECT;<a name="line.175"></a>
+<span class="sourceLineNo">176</span><a name="line.176"></a>
+<span class="sourceLineNo">177</span>  /**<a name="line.177"></a>
+<span class="sourceLineNo">178</span>   * Indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.178"></a>
+<span class="sourceLineNo">179</span>   * This feature is ignored unless {@link Arez#isVerifyEnabled()} is true. The {@link Feature#AUTODETECT}<a name="line.179"></a>
+<span class="sourceLineNo">180</span>   * value will enable this feature if the component has any {@link Reference} methods or any {@link Inverse} methods.<a name="line.180"></a>
+<span class="sourceLineNo">181</span>   *<a name="line.181"></a>
+<span class="sourceLineNo">182</span>   * @return enum that indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.182"></a>
+<span class="sourceLineNo">183</span>   */<a name="line.183"></a>
+<span class="sourceLineNo">184</span>  Feature verify() default Feature.AUTODETECT;<a name="line.184"></a>
+<span class="sourceLineNo">185</span>}<a name="line.185"></a>
 
 
 
