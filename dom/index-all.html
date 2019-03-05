@@ -66,7 +66,7 @@
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a name="I:A">
+<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a name="I:A">
 <!--   -->
 </a>
 <h2 class="title">A</h2>
@@ -74,11 +74,29 @@
 <dt><a href="arez/dom/package-summary.html">arez.dom</a> - package arez.dom</dt>
 <dd>&nbsp;</dd>
 </dl>
+<a name="I:B">
+<!--   -->
+</a>
+<h2 class="title">B</h2>
+<dl>
+<dt><a href="arez/dom/BrowserLocation.html" title="class in arez.dom"><span class="typeNameLink">BrowserLocation</span></a> - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
+<dd>
+<div class="block">This is a simple abstraction over browser location as a hash.</div>
+</dd>
+</dl>
 <a name="I:C">
 <!--   -->
 </a>
 <h2 class="title">C</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="arez/dom/BrowserLocation.html#changeLocation-java.lang.String-">changeLocation(String)</a></span> - Method in class arez.dom.<a href="arez/dom/BrowserLocation.html" title="class in arez.dom">BrowserLocation</a></dt>
+<dd>
+<div class="block">Change the target location to the specified parameter.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/BrowserLocation.html#create--">create()</a></span> - Static method in class arez.dom.<a href="arez/dom/BrowserLocation.html" title="class in arez.dom">BrowserLocation</a></dt>
+<dd>
+<div class="block">Create the model object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/DocumentVisibility.html#create--">create()</a></span> - Static method in class arez.dom.<a href="arez/dom/DocumentVisibility.html" title="class in arez.dom">DocumentVisibility</a></dt>
 <dd>
 <div class="block">Create component monitoring the default document.</div>
@@ -106,6 +124,10 @@
 <dt><span class="memberNameLink"><a href="arez/dom/MediaQuery.html#create-elemental2.dom.Window-java.lang.String-">create(Window, String)</a></span> - Static method in class arez.dom.<a href="arez/dom/MediaQuery.html" title="class in arez.dom">MediaQuery</a></dt>
 <dd>
 <div class="block">Create an instance of MediaQuery.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/NetworkStatus.html#create--">create()</a></span> - Static method in class arez.dom.<a href="arez/dom/NetworkStatus.html" title="class in arez.dom">NetworkStatus</a></dt>
+<dd>
+<div class="block">Create an instance of NetworkStatus.</div>
 </dd>
 </dl>
 <a name="I:D">
@@ -170,6 +192,8 @@
 <dd>
 <div class="block">Return the position's altitude in meters, relative to sea level.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/dom/BrowserLocation.html#getBrowserLocation--">getBrowserLocation()</a></span> - Method in class arez.dom.<a href="arez/dom/BrowserLocation.html" title="class in arez.dom">BrowserLocation</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/DocumentVisibility.html#getDocument--">getDocument()</a></span> - Method in class arez.dom.<a href="arez/dom/DocumentVisibility.html" title="class in arez.dom">DocumentVisibility</a></dt>
 <dd>
 <div class="block">Return the document that monitoring visibility state.</div>
@@ -194,9 +218,17 @@
 <dd>
 <div class="block">Return the time at which the last monitored event was received.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/dom/NetworkStatus.html#getLastChangedAt--">getLastChangedAt()</a></span> - Method in class arez.dom.<a href="arez/dom/NetworkStatus.html" title="class in arez.dom">NetworkStatus</a></dt>
+<dd>
+<div class="block">Return the last time at which online status changed.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/Position.html#getLatitude--">getLatitude()</a></span> - Method in class arez.dom.<a href="arez/dom/Position.html" title="class in arez.dom">Position</a></dt>
 <dd>
 <div class="block">Return the position's latitude in decimal degrees.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/BrowserLocation.html#getLocation--">getLocation()</a></span> - Method in class arez.dom.<a href="arez/dom/BrowserLocation.html" title="class in arez.dom">BrowserLocation</a></dt>
+<dd>
+<div class="block">Return the location as the application sees it.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/dom/Position.html#getLongitude--">getLongitude()</a></span> - Method in class arez.dom.<a href="arez/dom/Position.html" title="class in arez.dom">Position</a></dt>
 <dd>
@@ -276,6 +308,10 @@
 <dd>
 <div class="block">Return true if the user is idle.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/dom/NetworkStatus.html#isOnLine--">isOnLine()</a></span> - Method in class arez.dom.<a href="arez/dom/NetworkStatus.html" title="class in arez.dom">NetworkStatus</a></dt>
+<dd>
+<div class="block">Return true if the browser is online, false otherwise.</div>
+</dd>
 </dl>
 <a name="I:L">
 <!--   -->
@@ -299,6 +335,16 @@
 <dt><a href="arez/dom/MediaQuery.html" title="class in arez.dom"><span class="typeNameLink">MediaQuery</span></a> - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
 <dd>
 <div class="block">An observable model that indicates whether a window matches a CSS media query.</div>
+</dd>
+</dl>
+<a name="I:N">
+<!--   -->
+</a>
+<h2 class="title">N</h2>
+<dl>
+<dt><a href="arez/dom/NetworkStatus.html" title="class in arez.dom"><span class="typeNameLink">NetworkStatus</span></a> - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
+<dd>
+<div class="block">An observable model that declares state that tracks when the user is "online".</div>
 </dd>
 </dl>
 <a name="I:O">
@@ -341,6 +387,16 @@
 <div class="block">The acquisition of the geolocation failed because at least one internal source of position returned an internal error.</div>
 </dd>
 </dl>
+<a name="I:R">
+<!--   -->
+</a>
+<h2 class="title">R</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="arez/dom/BrowserLocation.html#resetBrowserLocation--">resetBrowserLocation()</a></span> - Method in class arez.dom.<a href="arez/dom/BrowserLocation.html" title="class in arez.dom">BrowserLocation</a></dt>
+<dd>
+<div class="block">Revert the browsers location to the application location.</div>
+</dd>
+</dl>
 <a name="I:S">
 <!--   -->
 </a>
@@ -354,6 +410,10 @@
 <dd>
 <div class="block">Specify the set of events to listen to.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/dom/BrowserLocation.html#setPreventDefault-boolean-">setPreventDefault(boolean)</a></span> - Method in class arez.dom.<a href="arez/dom/BrowserLocation.html" title="class in arez.dom">BrowserLocation</a></dt>
+<dd>
+<div class="block">Set a flag to determine whether events default action will be prevented.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/dom/MediaQuery.html#setQuery-java.lang.String-">setQuery(String)</a></span> - Method in class arez.dom.<a href="arez/dom/MediaQuery.html" title="class in arez.dom">MediaQuery</a></dt>
 <dd>
 <div class="block">Change the media query to test against.</div>
@@ -365,6 +425,10 @@
 <dt><span class="memberNameLink"><a href="arez/dom/IdleStatus.html#setTimeout-long-">setTimeout(long)</a></span> - Method in class arez.dom.<a href="arez/dom/IdleStatus.html" title="class in arez.dom">IdleStatus</a></dt>
 <dd>
 <div class="block">Set the timeout.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/dom/BrowserLocation.html#shouldPreventDefault--">shouldPreventDefault()</a></span> - Method in class arez.dom.<a href="arez/dom/BrowserLocation.html" title="class in arez.dom">BrowserLocation</a></dt>
+<dd>
+<div class="block">Return true if component will prevent default actions when hash.</div>
 </dd>
 </dl>
 <a name="I:T">
@@ -402,7 +466,7 @@ the order they are declared.</div>
 <div class="block">Factory for getting observable models that sizing of windows.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;</div>
+<a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;</div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav"><a name="navbar.bottom">
 <!--   -->
