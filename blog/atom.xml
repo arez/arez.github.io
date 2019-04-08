@@ -9,6 +9,22 @@
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2019 the Arez Project</rights>
     <entry>
+        <title type="html"><![CDATA[Arez 0.135 released]]></title>
+        <id>https://arez.github.io/blog/2019/04/09/version-0.135-release.html</id>
+        <link href="https://arez.github.io/blog/2019/04/09/version-0.135-release.html">
+        </link>
+        <updated>2019-04-09T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.134...v0.135)
+
+Changes in this release:
+
+* Make sure the maven dependency for `org.realityforge.com.google.jsinterop:base` is transitive so that the necessary dependency on `jsinterop-annotatio]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Arez 0.134 released]]></title>
         <id>https://arez.github.io/blog/2019/04/09/version-0.134-release.html</id>
         <link href="https://arez.github.io/blog/2019/04/09/version-0.134-release.html">
