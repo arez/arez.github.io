@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Tue, 19 Mar 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 09 Apr 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.134 released]]></title>
+            <link>https://arez.github.io/blog/2019/04/09/version-0.134-release.html</link>
+            <guid>https://arez.github.io/blog/2019/04/09/version-0.134-release.html</guid>
+            <pubDate>Tue, 09 Apr 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.133...v0.134)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.gir` artifact to version `0.08`.
+* Upgrade the `org.realityforge.com.google.elemental2` artifacts to version `1.0.0-b21-]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.133 released]]></title>
             <link>https://arez.github.io/blog/2019/03/19/version-0.133-release.html</link>
