@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Tue, 09 Apr 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 16 Apr 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,17 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.136 released]]></title>
+            <link>https://arez.github.io/blog/2019/04/16/version-0.136-release.html</link>
+            <guid>https://arez.github.io/blog/2019/04/16/version-0.136-release.html</guid>
+            <pubDate>Tue, 16 Apr 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.135...v0.136)
+
+Changes in this release:
+
+* Improve the way defines are handled in closure by assigning the results of `goog.define` to a module local variable.]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.135 released]]></title>
             <link>https://arez.github.io/blog/2019/04/09/version-0.135-release.html</link>
