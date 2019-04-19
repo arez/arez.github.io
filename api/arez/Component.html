@@ -179,7 +179,7 @@ implements <a href="../arez/Disposable.html" title="interface in arez">Disposabl
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../arez/Component.html#toString--">toString</a></span>()</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/Component.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -260,7 +260,8 @@ implements <a href="../arez/Disposable.html" title="interface in arez">Disposabl
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Component.html#line.139">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Component.html#line.136">dispose</a>()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../arez/Disposable.html#dispose--">Disposable</a></code></span></div>
 <div class="block">Dispose the element. See <a href="../arez/Disposable.html" title="interface in arez"><code>Disposable</code></a> for a description of the implications.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -274,7 +275,8 @@ implements <a href="../arez/Disposable.html" title="interface in arez">Disposabl
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Component.html#line.181">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Component.html#line.175">isDisposed</a>()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../arez/Disposable.html#isDisposed--">Disposable</a></code></span></div>
 <div class="block">Return true if dispose() has been called on object.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -290,7 +292,7 @@ implements <a href="../arez/Disposable.html" title="interface in arez">Disposabl
 <ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/arez/Component.html#line.191">toString</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/arez/Component.html#line.182">toString</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dd>
@@ -303,7 +305,7 @@ implements <a href="../arez/Disposable.html" title="interface in arez">Disposabl
 <ul class="blockList">
 <li class="blockList">
 <h4>isComplete</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Component.html#line.208">isComplete</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Component.html#line.199">isComplete</a>()</pre>
 <div class="block">Return true if the creation of this component is complete.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -317,7 +319,7 @@ implements <a href="../arez/Disposable.html" title="interface in arez">Disposabl
 <ul class="blockListLast">
 <li class="blockList">
 <h4>complete</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Component.html#line.218">complete</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Component.html#line.209">complete</a>()</pre>
 <div class="block">The toolkit user should call this method when the component is complete.
  After this method has been invoked the user should not attempt to define any more <a href="../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a>s,
  <a href="../arez/Observer.html" title="class in arez"><code>Observer</code></a>s or <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>s on the component.</div>
