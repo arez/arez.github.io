@@ -64,12 +64,12 @@ Changes in this release:
         </link>
         <updated>2019-03-19T06:00:00Z</updated>
         <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.132...v0.133)
+[API Differences](/api-diff/?key=arez&old=0.132&new=0.133)
 
 Changes in this release:
 
 * Remove references to `arez-ticker` as it has been deprecated.
-* Remove references to `arez-timeddisposer` as it has been deprecated.
-* Remove referenc]]></summary>
+* Remove references to `arez-]]></summary>
         <author>
             <name>Arez Project</name>
             <uri>https://github.com/arez</uri>
@@ -82,11 +82,11 @@ Changes in this release:
         </link>
         <updated>2019-02-28T06:00:00Z</updated>
         <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.131...v0.132)
+[API Differences](/api-diff/?key=arez&old=0.131&new=0.132)
 
 Changes in this release:
 
-* Remove the `org.realityforge.braincheck:braincheck:jar` dependency by reimplementing the invariant
-  checking code in `arez.Guards`. The dependency ha]]></summary>
+* Remove the `org.realityforge.braincheck:braincheck:jar` dependency by reimplementing the in]]></summary>
         <author>
             <name>Arez Project</name>
             <uri>https://github.com/arez</uri>
@@ -117,11 +117,11 @@ Changes in this release:
         </link>
         <updated>2019-02-14T06:00:00Z</updated>
         <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.129...v0.130)
+[API Differences](/api-diff/?key=arez&old=0.129&new=0.130)
 
 Changes in this release:
 
-* Add the `react4j-drumloop` sample application into set off used to track code size changes over time.
-* Upgrade the `org.realityforge.com.google.eleme]]></summary>
+* Add the `react4j-drumloop` sample application into set off used to track code size changes ]]></summary>
         <author>
             <name>Arez Project</name>
             <uri>https://github.com/arez</uri>
@@ -134,11 +134,11 @@ Changes in this release:
         </link>
         <updated>2019-02-11T06:00:00Z</updated>
         <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.128...v0.129)
+[API Differences](/api-diff/?key=arez&old=0.128&new=0.129)
 
 Changes in this release:
 
-* **\[core\]** Fix bug where the `onActivate` callback for `ComputableValue` instances was when disposing
-  the `ComputableValue` instance while it was ]]></summary>
+* **\[core\]** Fix bug where the `onActivate` callback for `ComputableValue` instances was wh]]></summary>
         <author>
             <name>Arez Project</name>
             <uri>https://github.com/arez</uri>

@@ -53,12 +53,12 @@ Changes in this release:
             <guid>https://arez.github.io/blog/2019/03/19/version-0.133-release.html</guid>
             <pubDate>Tue, 19 Mar 2019 06:00:00 GMT</pubDate>
             <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.132...v0.133)
+[API Differences](/api-diff/?key=arez&old=0.132&new=0.133)
 
 Changes in this release:
 
 * Remove references to `arez-ticker` as it has been deprecated.
-* Remove references to `arez-timeddisposer` as it has been deprecated.
-* Remove referenc]]></description>
+* Remove references to `arez-]]></description>
         </item>
         <item>
             <title><![CDATA[Arez 0.132 released]]></title>
@@ -66,11 +66,11 @@ Changes in this release:
             <guid>https://arez.github.io/blog/2019/02/28/version-0.132-release.html</guid>
             <pubDate>Thu, 28 Feb 2019 06:00:00 GMT</pubDate>
             <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.131...v0.132)
+[API Differences](/api-diff/?key=arez&old=0.131&new=0.132)
 
 Changes in this release:
 
-* Remove the `org.realityforge.braincheck:braincheck:jar` dependency by reimplementing the invariant
-  checking code in `arez.Guards`. The dependency ha]]></description>
+* Remove the `org.realityforge.braincheck:braincheck:jar` dependency by reimplementing the in]]></description>
         </item>
         <item>
             <title><![CDATA[Arez 0.131 released]]></title>
@@ -91,11 +91,11 @@ Changes in this release:
             <guid>https://arez.github.io/blog/2019/02/14/version-0.130-release.html</guid>
             <pubDate>Thu, 14 Feb 2019 06:00:00 GMT</pubDate>
             <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.129...v0.130)
+[API Differences](/api-diff/?key=arez&old=0.129&new=0.130)
 
 Changes in this release:
 
-* Add the `react4j-drumloop` sample application into set off used to track code size changes over time.
-* Upgrade the `org.realityforge.com.google.eleme]]></description>
+* Add the `react4j-drumloop` sample application into set off used to track code size changes ]]></description>
         </item>
         <item>
             <title><![CDATA[Arez 0.129 released]]></title>
@@ -103,11 +103,11 @@ Changes in this release:
             <guid>https://arez.github.io/blog/2019/02/11/version-0.129-release.html</guid>
             <pubDate>Mon, 11 Feb 2019 06:00:00 GMT</pubDate>
             <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.128...v0.129)
+[API Differences](/api-diff/?key=arez&old=0.128&new=0.129)
 
 Changes in this release:
 
-* **\[core\]** Fix bug where the `onActivate` callback for `ComputableValue` instances was when disposing
-  the `ComputableValue` instance while it was ]]></description>
+* **\[core\]** Fix bug where the `onActivate` callback for `ComputableValue` instances was wh]]></description>
         </item>
         <item>
             <title><![CDATA[Arez 0.128 released]]></title>
