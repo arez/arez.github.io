@@ -94,8 +94,8 @@
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>)
 public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#line.46">ArezComponent</a></pre>
-<div class="block">Annotation that marks classes to be processed by Arez annotation processor.
- Classes with this annotation can contain <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> properties,
+<div class="block">Annotation that marks classes or interfaces to be processed by Arez annotation processor.
+ Classes or interfaces with this annotation can contain <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> properties,
  <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> properties, <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> methods and <a href="../../arez/annotations/Action.html" title="annotation in arez.annotations"><code>Action</code></a> methods.
 
  <p>The annotation controls the way that contained actions and observables are
@@ -115,7 +115,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 
  <p>The type that is annotated with <tt>@ArezComponent</tt> annotation must comply with the additional constraints:</p>
  <ul>
- <li>Must be a class, not an interface or enum</li>
+ <li>Must be a class or an interface</li>
  <li>Must be concrete, not abstract</li>
  <li>Must not be final</li>
  <li>Must not be a non-static nested class</li>

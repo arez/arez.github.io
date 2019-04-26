@@ -16,8 +16,8 @@
 <span class="sourceLineNo">008</span>import javax.annotation.Nonnull;<a name="line.8"></a>
 <span class="sourceLineNo">009</span><a name="line.9"></a>
 <span class="sourceLineNo">010</span>/**<a name="line.10"></a>
-<span class="sourceLineNo">011</span> * Annotation that marks classes to be processed by Arez annotation processor.<a name="line.11"></a>
-<span class="sourceLineNo">012</span> * Classes with this annotation can contain {@link Observable} properties,<a name="line.12"></a>
+<span class="sourceLineNo">011</span> * Annotation that marks classes or interfaces to be processed by Arez annotation processor.<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * Classes or interfaces with this annotation can contain {@link Observable} properties,<a name="line.12"></a>
 <span class="sourceLineNo">013</span> * {@link Memoize} properties, {@link Observe} methods and {@link Action} methods.<a name="line.13"></a>
 <span class="sourceLineNo">014</span> *<a name="line.14"></a>
 <span class="sourceLineNo">015</span> * &lt;p&gt;The annotation controls the way that contained actions and observables are<a name="line.15"></a>
@@ -37,7 +37,7 @@
 <span class="sourceLineNo">029</span> *<a name="line.29"></a>
 <span class="sourceLineNo">030</span> * &lt;p&gt;The type that is annotated with &lt;tt&gt;@ArezComponent&lt;/tt&gt; annotation must comply with the additional constraints:&lt;/p&gt;<a name="line.30"></a>
 <span class="sourceLineNo">031</span> * &lt;ul&gt;<a name="line.31"></a>
-<span class="sourceLineNo">032</span> * &lt;li&gt;Must be a class, not an interface or enum&lt;/li&gt;<a name="line.32"></a>
+<span class="sourceLineNo">032</span> * &lt;li&gt;Must be a class or an interface&lt;/li&gt;<a name="line.32"></a>
 <span class="sourceLineNo">033</span> * &lt;li&gt;Must be concrete, not abstract&lt;/li&gt;<a name="line.33"></a>
 <span class="sourceLineNo">034</span> * &lt;li&gt;Must not be final&lt;/li&gt;<a name="line.34"></a>
 <span class="sourceLineNo">035</span> * &lt;li&gt;Must not be a non-static nested class&lt;/li&gt;<a name="line.35"></a>

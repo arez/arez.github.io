@@ -277,9 +277,9 @@
 <span class="sourceLineNo">269</span>                                     @Nonnull final TypeElement typeElement )<a name="line.269"></a>
 <span class="sourceLineNo">270</span>    throws ArezProcessorException<a name="line.270"></a>
 <span class="sourceLineNo">271</span>  {<a name="line.271"></a>
-<span class="sourceLineNo">272</span>    if ( ElementKind.CLASS != typeElement.getKind() )<a name="line.272"></a>
+<span class="sourceLineNo">272</span>    if ( ElementKind.CLASS != typeElement.getKind() &amp;&amp; ElementKind.INTERFACE != typeElement.getKind() )<a name="line.272"></a>
 <span class="sourceLineNo">273</span>    {<a name="line.273"></a>
-<span class="sourceLineNo">274</span>      throw new ArezProcessorException( "@ArezComponent target must be a class", typeElement );<a name="line.274"></a>
+<span class="sourceLineNo">274</span>      throw new ArezProcessorException( "@ArezComponent target must be a class or an interface", typeElement );<a name="line.274"></a>
 <span class="sourceLineNo">275</span>    }<a name="line.275"></a>
 <span class="sourceLineNo">276</span>    else if ( typeElement.getModifiers().contains( Modifier.FINAL ) )<a name="line.276"></a>
 <span class="sourceLineNo">277</span>    {<a name="line.277"></a>
