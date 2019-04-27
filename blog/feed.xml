@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Fri, 26 Apr 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 27 Apr 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.138 released]]></title>
+            <link>https://arez.github.io/blog/2019/04/27/version-0.138-release.html</link>
+            <guid>https://arez.github.io/blog/2019/04/27/version-0.138-release.html</guid>
+            <pubDate>Sat, 27 Apr 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.137...v0.138)
+[API Differences](/api-diff/?key=arez&old=0.137&new=0.138)
+
+Changes in this release:
+
+* Change nullability annotation on the `object` parameter in `Identifiable.getArezId(object)`]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.137 released]]></title>
             <link>https://arez.github.io/blog/2019/04/26/version-0.137-release.html</link>
