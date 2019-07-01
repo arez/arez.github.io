@@ -23,213 +23,212 @@
 <span class="sourceLineNo">015</span>import java.util.stream.Stream;<a name="line.15"></a>
 <span class="sourceLineNo">016</span>import javax.annotation.Nonnull;<a name="line.16"></a>
 <span class="sourceLineNo">017</span>import javax.annotation.Nullable;<a name="line.17"></a>
-<span class="sourceLineNo">018</span>import arez.Guards;<a name="line.18"></a>
-<span class="sourceLineNo">019</span>import static arez.Guards.*;<a name="line.19"></a>
-<span class="sourceLineNo">020</span><a name="line.20"></a>
-<span class="sourceLineNo">021</span>/**<a name="line.21"></a>
-<span class="sourceLineNo">022</span> * Abstract base class for observable Arez components that contain other components.<a name="line.22"></a>
-<span class="sourceLineNo">023</span> *<a name="line.23"></a>
-<span class="sourceLineNo">024</span> * &lt;p&gt;When multiple results are returned as a list, they are passed through {@link CollectionsUtil#asList(Stream)} or<a name="line.24"></a>
-<span class="sourceLineNo">025</span> * {@link CollectionsUtil#wrap(List)} and this will convert the result set to an unmodifiable variant if<a name="line.25"></a>
-<span class="sourceLineNo">026</span> * {@link Arez#areCollectionsPropertiesUnmodifiable()} returns true. Typically this means that in<a name="line.26"></a>
-<span class="sourceLineNo">027</span> * development mode these will be made immutable but that the lists will be passed through as-is<a name="line.27"></a>
-<span class="sourceLineNo">028</span> * in production mode for maximum performance.&lt;/p&gt;<a name="line.28"></a>
-<span class="sourceLineNo">029</span> */<a name="line.29"></a>
-<span class="sourceLineNo">030</span>public abstract class AbstractContainer&lt;K, T&gt;<a name="line.30"></a>
-<span class="sourceLineNo">031</span>{<a name="line.31"></a>
-<span class="sourceLineNo">032</span>  /**<a name="line.32"></a>
-<span class="sourceLineNo">033</span>   * A map of all the entities ArezId to entity.<a name="line.33"></a>
-<span class="sourceLineNo">034</span>   */<a name="line.34"></a>
-<span class="sourceLineNo">035</span>  private final HashMap&lt;K, T&gt; _entities = new HashMap&lt;&gt;();<a name="line.35"></a>
-<span class="sourceLineNo">036</span><a name="line.36"></a>
-<span class="sourceLineNo">037</span>  /**<a name="line.37"></a>
-<span class="sourceLineNo">038</span>   * Attach specified entity to the set of entities managed by the container.<a name="line.38"></a>
-<span class="sourceLineNo">039</span>   * This should not be invoked if the entity is already attached to the repository.<a name="line.39"></a>
-<span class="sourceLineNo">040</span>   *<a name="line.40"></a>
-<span class="sourceLineNo">041</span>   * @param entity the entity to register.<a name="line.41"></a>
-<span class="sourceLineNo">042</span>   */<a name="line.42"></a>
-<span class="sourceLineNo">043</span>  @SuppressWarnings( "SuspiciousMethodCalls" )<a name="line.43"></a>
-<span class="sourceLineNo">044</span>  protected void attach( @Nonnull final T entity )<a name="line.44"></a>
-<span class="sourceLineNo">045</span>  {<a name="line.45"></a>
-<span class="sourceLineNo">046</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.46"></a>
-<span class="sourceLineNo">047</span>    {<a name="line.47"></a>
-<span class="sourceLineNo">048</span>      apiInvariant( () -&gt; Disposable.isNotDisposed( entity ),<a name="line.48"></a>
-<span class="sourceLineNo">049</span>                    () -&gt; "Arez-0168: Called attach() passing an entity that is disposed. Entity: " + entity );<a name="line.49"></a>
-<span class="sourceLineNo">050</span>      apiInvariant( () -&gt; !_entities.containsKey( Identifiable.getArezId( entity ) ),<a name="line.50"></a>
-<span class="sourceLineNo">051</span>                    () -&gt; "Arez-0136: Called attach() passing an entity that is already attached " +<a name="line.51"></a>
-<span class="sourceLineNo">052</span>                          "to the container. Entity: " + entity );<a name="line.52"></a>
-<span class="sourceLineNo">053</span>    }<a name="line.53"></a>
-<span class="sourceLineNo">054</span>    getEntitiesObservableValue().preReportChanged();<a name="line.54"></a>
-<span class="sourceLineNo">055</span>    attachEntity( entity );<a name="line.55"></a>
-<span class="sourceLineNo">056</span>    _entities.put( Identifiable.getArezId( entity ), entity );<a name="line.56"></a>
-<span class="sourceLineNo">057</span>    getEntitiesObservableValue().reportChanged();<a name="line.57"></a>
-<span class="sourceLineNo">058</span>  }<a name="line.58"></a>
-<span class="sourceLineNo">059</span><a name="line.59"></a>
-<span class="sourceLineNo">060</span>  /**<a name="line.60"></a>
-<span class="sourceLineNo">061</span>   * Return true if disposing the container should result in disposing contained entities or just detaching the entities.<a name="line.61"></a>
-<span class="sourceLineNo">062</span>   *<a name="line.62"></a>
-<span class="sourceLineNo">063</span>   * @return true to dispose entities on container dispose, false to detach entities on container disposed.<a name="line.63"></a>
-<span class="sourceLineNo">064</span>   */<a name="line.64"></a>
-<span class="sourceLineNo">065</span>  protected abstract boolean shouldDisposeEntryOnDispose();<a name="line.65"></a>
-<span class="sourceLineNo">066</span><a name="line.66"></a>
-<span class="sourceLineNo">067</span>  /**<a name="line.67"></a>
-<span class="sourceLineNo">068</span>   * Dispose or detach all the entities associated with the container.<a name="line.68"></a>
-<span class="sourceLineNo">069</span>   */<a name="line.69"></a>
-<span class="sourceLineNo">070</span>  @PreDispose<a name="line.70"></a>
-<span class="sourceLineNo">071</span>  protected void preDispose()<a name="line.71"></a>
-<span class="sourceLineNo">072</span>  {<a name="line.72"></a>
-<span class="sourceLineNo">073</span>    _entities.values().forEach( entry -&gt; detachEntity( entry, shouldDisposeEntryOnDispose() ) );<a name="line.73"></a>
-<span class="sourceLineNo">074</span>    _entities.clear();<a name="line.74"></a>
-<span class="sourceLineNo">075</span>  }<a name="line.75"></a>
-<span class="sourceLineNo">076</span><a name="line.76"></a>
-<span class="sourceLineNo">077</span>  /**<a name="line.77"></a>
-<span class="sourceLineNo">078</span>   * Return true if the specified entity is contained in the container.<a name="line.78"></a>
-<span class="sourceLineNo">079</span>   *<a name="line.79"></a>
-<span class="sourceLineNo">080</span>   * @param entity the entity.<a name="line.80"></a>
-<span class="sourceLineNo">081</span>   * @return true if the specified entity is contained in the container, false otherwise.<a name="line.81"></a>
-<span class="sourceLineNo">082</span>   */<a name="line.82"></a>
-<span class="sourceLineNo">083</span>  protected boolean contains( @Nonnull final T entity )<a name="line.83"></a>
-<span class="sourceLineNo">084</span>  {<a name="line.84"></a>
-<span class="sourceLineNo">085</span>    getEntitiesObservableValue().reportObserved();<a name="line.85"></a>
-<span class="sourceLineNo">086</span>    return _entities.containsKey( Identifiable.&lt;K&gt;getArezId( entity ) );<a name="line.86"></a>
-<span class="sourceLineNo">087</span>  }<a name="line.87"></a>
-<span class="sourceLineNo">088</span><a name="line.88"></a>
-<span class="sourceLineNo">089</span>  /**<a name="line.89"></a>
-<span class="sourceLineNo">090</span>   * Detach the entity from the container and dispose the entity.<a name="line.90"></a>
-<span class="sourceLineNo">091</span>   * The entity must be attached to the container.<a name="line.91"></a>
-<span class="sourceLineNo">092</span>   *<a name="line.92"></a>
-<span class="sourceLineNo">093</span>   * @param entity the entity to destroy.<a name="line.93"></a>
-<span class="sourceLineNo">094</span>   */<a name="line.94"></a>
-<span class="sourceLineNo">095</span>  protected void destroy( @Nonnull final T entity )<a name="line.95"></a>
-<span class="sourceLineNo">096</span>  {<a name="line.96"></a>
-<span class="sourceLineNo">097</span>    detach( entity, true );<a name="line.97"></a>
-<span class="sourceLineNo">098</span>  }<a name="line.98"></a>
-<span class="sourceLineNo">099</span><a name="line.99"></a>
-<span class="sourceLineNo">100</span>  /**<a name="line.100"></a>
-<span class="sourceLineNo">101</span>   * Detach entity from container without disposing entity.<a name="line.101"></a>
-<span class="sourceLineNo">102</span>   * The entity must be attached to the container.<a name="line.102"></a>
-<span class="sourceLineNo">103</span>   *<a name="line.103"></a>
-<span class="sourceLineNo">104</span>   * @param entity the entity to detach.<a name="line.104"></a>
-<span class="sourceLineNo">105</span>   */<a name="line.105"></a>
-<span class="sourceLineNo">106</span>  protected void detach( @Nonnull final T entity )<a name="line.106"></a>
-<span class="sourceLineNo">107</span>  {<a name="line.107"></a>
-<span class="sourceLineNo">108</span>    detach( entity, false );<a name="line.108"></a>
-<span class="sourceLineNo">109</span>  }<a name="line.109"></a>
-<span class="sourceLineNo">110</span><a name="line.110"></a>
-<span class="sourceLineNo">111</span>  /**<a name="line.111"></a>
-<span class="sourceLineNo">112</span>   * Detach entity from container without disposing entity.<a name="line.112"></a>
-<span class="sourceLineNo">113</span>   * The entity must be attached to the container.<a name="line.113"></a>
-<span class="sourceLineNo">114</span>   *<a name="line.114"></a>
-<span class="sourceLineNo">115</span>   * @param entity the entity to detach.<a name="line.115"></a>
-<span class="sourceLineNo">116</span>   */<a name="line.116"></a>
-<span class="sourceLineNo">117</span>  private void detach( @Nonnull final T entity, final boolean disposeEntity )<a name="line.117"></a>
-<span class="sourceLineNo">118</span>  {<a name="line.118"></a>
-<span class="sourceLineNo">119</span>    // This method has been extracted to try and avoid GWT inlining into invoker<a name="line.119"></a>
-<span class="sourceLineNo">120</span>    final T removed = _entities.remove( Identifiable.&lt;K&gt;getArezId( entity ) );<a name="line.120"></a>
-<span class="sourceLineNo">121</span>    if ( null != removed )<a name="line.121"></a>
-<span class="sourceLineNo">122</span>    {<a name="line.122"></a>
-<span class="sourceLineNo">123</span>      getEntitiesObservableValue().preReportChanged();<a name="line.123"></a>
-<span class="sourceLineNo">124</span>      detachEntity( entity, disposeEntity );<a name="line.124"></a>
-<span class="sourceLineNo">125</span>      getEntitiesObservableValue().reportChanged();<a name="line.125"></a>
-<span class="sourceLineNo">126</span>    }<a name="line.126"></a>
-<span class="sourceLineNo">127</span>    else<a name="line.127"></a>
-<span class="sourceLineNo">128</span>    {<a name="line.128"></a>
-<span class="sourceLineNo">129</span>      Guards.fail( () -&gt; "Arez-0157: Called detach() passing an entity that was not attached to the container. Entity: " +<a name="line.129"></a>
-<span class="sourceLineNo">130</span>                         entity );<a name="line.130"></a>
-<span class="sourceLineNo">131</span>    }<a name="line.131"></a>
-<span class="sourceLineNo">132</span>  }<a name="line.132"></a>
-<span class="sourceLineNo">133</span><a name="line.133"></a>
-<span class="sourceLineNo">134</span>  /**<a name="line.134"></a>
-<span class="sourceLineNo">135</span>   * Return the entity with the specified ArezId or null if no such entity.<a name="line.135"></a>
-<span class="sourceLineNo">136</span>   *<a name="line.136"></a>
-<span class="sourceLineNo">137</span>   * @param arezId the id of entity.<a name="line.137"></a>
-<span class="sourceLineNo">138</span>   * @return the entity or null if no such entity.<a name="line.138"></a>
-<span class="sourceLineNo">139</span>   */<a name="line.139"></a>
-<span class="sourceLineNo">140</span>  @Nullable<a name="line.140"></a>
-<span class="sourceLineNo">141</span>  protected T findByArezId( @Nonnull final K arezId )<a name="line.141"></a>
-<span class="sourceLineNo">142</span>  {<a name="line.142"></a>
-<span class="sourceLineNo">143</span>    final T entity = _entities.get( arezId );<a name="line.143"></a>
-<span class="sourceLineNo">144</span>    if ( null != entity )<a name="line.144"></a>
-<span class="sourceLineNo">145</span>    {<a name="line.145"></a>
-<span class="sourceLineNo">146</span>      ComponentObservable.observe( entity );<a name="line.146"></a>
-<span class="sourceLineNo">147</span>      return entity;<a name="line.147"></a>
-<span class="sourceLineNo">148</span>    }<a name="line.148"></a>
-<span class="sourceLineNo">149</span>    getEntitiesObservableValue().reportObserved();<a name="line.149"></a>
-<span class="sourceLineNo">150</span>    return null;<a name="line.150"></a>
-<span class="sourceLineNo">151</span>  }<a name="line.151"></a>
-<span class="sourceLineNo">152</span><a name="line.152"></a>
-<span class="sourceLineNo">153</span>  /**<a name="line.153"></a>
-<span class="sourceLineNo">154</span>   * Return the entity with the specified ArezId else throw an exception.<a name="line.154"></a>
-<span class="sourceLineNo">155</span>   *<a name="line.155"></a>
-<span class="sourceLineNo">156</span>   * @param arezId the id of entity.<a name="line.156"></a>
-<span class="sourceLineNo">157</span>   * @return the entity.<a name="line.157"></a>
-<span class="sourceLineNo">158</span>   * @throws NoSuchEntityException if unable to locate entity with specified ArezId.<a name="line.158"></a>
-<span class="sourceLineNo">159</span>   */<a name="line.159"></a>
-<span class="sourceLineNo">160</span>  @Nonnull<a name="line.160"></a>
-<span class="sourceLineNo">161</span>  protected T getByArezId( @Nonnull final K arezId )<a name="line.161"></a>
-<span class="sourceLineNo">162</span>    throws NoSuchEntityException<a name="line.162"></a>
-<span class="sourceLineNo">163</span>  {<a name="line.163"></a>
-<span class="sourceLineNo">164</span>    final T entity = findByArezId( arezId );<a name="line.164"></a>
-<span class="sourceLineNo">165</span>    if ( null == entity )<a name="line.165"></a>
-<span class="sourceLineNo">166</span>    {<a name="line.166"></a>
-<span class="sourceLineNo">167</span>      throw new NoSuchEntityException( arezId );<a name="line.167"></a>
-<span class="sourceLineNo">168</span>    }<a name="line.168"></a>
-<span class="sourceLineNo">169</span>    return entity;<a name="line.169"></a>
-<span class="sourceLineNo">170</span>  }<a name="line.170"></a>
-<span class="sourceLineNo">171</span><a name="line.171"></a>
-<span class="sourceLineNo">172</span>  /**<a name="line.172"></a>
-<span class="sourceLineNo">173</span>   * Return the observable associated with entities.<a name="line.173"></a>
-<span class="sourceLineNo">174</span>   * This template method is implemented by the Arez annotation processor and is used internally<a name="line.174"></a>
-<span class="sourceLineNo">175</span>   * to container. It should not be invoked by extensions.<a name="line.175"></a>
-<span class="sourceLineNo">176</span>   *<a name="line.176"></a>
-<span class="sourceLineNo">177</span>   * @return the Arez observable associated with entities observable property.<a name="line.177"></a>
-<span class="sourceLineNo">178</span>   */<a name="line.178"></a>
-<span class="sourceLineNo">179</span>  @ObservableValueRef<a name="line.179"></a>
-<span class="sourceLineNo">180</span>  @Nonnull<a name="line.180"></a>
-<span class="sourceLineNo">181</span>  protected abstract ObservableValue getEntitiesObservableValue();<a name="line.181"></a>
-<span class="sourceLineNo">182</span><a name="line.182"></a>
-<span class="sourceLineNo">183</span>  /**<a name="line.183"></a>
-<span class="sourceLineNo">184</span>   * Return a stream of all entities in the container.<a name="line.184"></a>
-<span class="sourceLineNo">185</span>   *<a name="line.185"></a>
-<span class="sourceLineNo">186</span>   * @return the underlying entities.<a name="line.186"></a>
-<span class="sourceLineNo">187</span>   */<a name="line.187"></a>
-<span class="sourceLineNo">188</span>  @arez.annotations.Observable( expectSetter = false )<a name="line.188"></a>
-<span class="sourceLineNo">189</span>  @Nonnull<a name="line.189"></a>
-<span class="sourceLineNo">190</span>  public Stream&lt;T&gt; entities()<a name="line.190"></a>
-<span class="sourceLineNo">191</span>  {<a name="line.191"></a>
-<span class="sourceLineNo">192</span>    return _entities.values().stream();<a name="line.192"></a>
-<span class="sourceLineNo">193</span>  }<a name="line.193"></a>
-<span class="sourceLineNo">194</span><a name="line.194"></a>
-<span class="sourceLineNo">195</span>  private void attachEntity( @Nonnull final T entity )<a name="line.195"></a>
-<span class="sourceLineNo">196</span>  {<a name="line.196"></a>
-<span class="sourceLineNo">197</span>    DisposeNotifier<a name="line.197"></a>
-<span class="sourceLineNo">198</span>      .asDisposeNotifier( entity )<a name="line.198"></a>
-<span class="sourceLineNo">199</span>      .addOnDisposeListener( this, () -&gt; {<a name="line.199"></a>
-<span class="sourceLineNo">200</span>        getEntitiesObservableValue().preReportChanged();<a name="line.200"></a>
-<span class="sourceLineNo">201</span>        detach( entity, false );<a name="line.201"></a>
-<span class="sourceLineNo">202</span>        getEntitiesObservableValue().reportChanged();<a name="line.202"></a>
-<span class="sourceLineNo">203</span>      } );<a name="line.203"></a>
-<span class="sourceLineNo">204</span>  }<a name="line.204"></a>
-<span class="sourceLineNo">205</span><a name="line.205"></a>
-<span class="sourceLineNo">206</span>  private void detachEntity( @Nonnull final T entity, final boolean disposeOnDetach )<a name="line.206"></a>
-<span class="sourceLineNo">207</span>  {<a name="line.207"></a>
-<span class="sourceLineNo">208</span>    detachEntity( entity );<a name="line.208"></a>
-<span class="sourceLineNo">209</span>    if ( disposeOnDetach )<a name="line.209"></a>
-<span class="sourceLineNo">210</span>    {<a name="line.210"></a>
-<span class="sourceLineNo">211</span>      Disposable.dispose( entity );<a name="line.211"></a>
-<span class="sourceLineNo">212</span>    }<a name="line.212"></a>
-<span class="sourceLineNo">213</span>  }<a name="line.213"></a>
-<span class="sourceLineNo">214</span><a name="line.214"></a>
-<span class="sourceLineNo">215</span>  private void detachEntity( @Nonnull final T entity )<a name="line.215"></a>
-<span class="sourceLineNo">216</span>  {<a name="line.216"></a>
-<span class="sourceLineNo">217</span>    DisposeNotifier.asDisposeNotifier( entity ).removeOnDisposeListener( this );<a name="line.217"></a>
-<span class="sourceLineNo">218</span>  }<a name="line.218"></a>
-<span class="sourceLineNo">219</span><a name="line.219"></a>
-<span class="sourceLineNo">220</span>  final HashMap&lt;K, T&gt; entityMap()<a name="line.220"></a>
-<span class="sourceLineNo">221</span>  {<a name="line.221"></a>
-<span class="sourceLineNo">222</span>    return _entities;<a name="line.222"></a>
-<span class="sourceLineNo">223</span>  }<a name="line.223"></a>
-<span class="sourceLineNo">224</span>}<a name="line.224"></a>
+<span class="sourceLineNo">018</span>import static org.realityforge.braincheck.Guards.*;<a name="line.18"></a>
+<span class="sourceLineNo">019</span><a name="line.19"></a>
+<span class="sourceLineNo">020</span>/**<a name="line.20"></a>
+<span class="sourceLineNo">021</span> * Abstract base class for observable Arez components that contain other components.<a name="line.21"></a>
+<span class="sourceLineNo">022</span> *<a name="line.22"></a>
+<span class="sourceLineNo">023</span> * &lt;p&gt;When multiple results are returned as a list, they are passed through {@link CollectionsUtil#asList(Stream)} or<a name="line.23"></a>
+<span class="sourceLineNo">024</span> * {@link CollectionsUtil#wrap(List)} and this will convert the result set to an unmodifiable variant if<a name="line.24"></a>
+<span class="sourceLineNo">025</span> * {@link Arez#areCollectionsPropertiesUnmodifiable()} returns true. Typically this means that in<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * development mode these will be made immutable but that the lists will be passed through as-is<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * in production mode for maximum performance.&lt;/p&gt;<a name="line.27"></a>
+<span class="sourceLineNo">028</span> */<a name="line.28"></a>
+<span class="sourceLineNo">029</span>public abstract class AbstractContainer&lt;K, T&gt;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>{<a name="line.30"></a>
+<span class="sourceLineNo">031</span>  /**<a name="line.31"></a>
+<span class="sourceLineNo">032</span>   * A map of all the entities ArezId to entity.<a name="line.32"></a>
+<span class="sourceLineNo">033</span>   */<a name="line.33"></a>
+<span class="sourceLineNo">034</span>  private final HashMap&lt;K, T&gt; _entities = new HashMap&lt;&gt;();<a name="line.34"></a>
+<span class="sourceLineNo">035</span><a name="line.35"></a>
+<span class="sourceLineNo">036</span>  /**<a name="line.36"></a>
+<span class="sourceLineNo">037</span>   * Attach specified entity to the set of entities managed by the container.<a name="line.37"></a>
+<span class="sourceLineNo">038</span>   * This should not be invoked if the entity is already attached to the repository.<a name="line.38"></a>
+<span class="sourceLineNo">039</span>   *<a name="line.39"></a>
+<span class="sourceLineNo">040</span>   * @param entity the entity to register.<a name="line.40"></a>
+<span class="sourceLineNo">041</span>   */<a name="line.41"></a>
+<span class="sourceLineNo">042</span>  @SuppressWarnings( "SuspiciousMethodCalls" )<a name="line.42"></a>
+<span class="sourceLineNo">043</span>  protected void attach( @Nonnull final T entity )<a name="line.43"></a>
+<span class="sourceLineNo">044</span>  {<a name="line.44"></a>
+<span class="sourceLineNo">045</span>    if ( Arez.shouldCheckApiInvariants() )<a name="line.45"></a>
+<span class="sourceLineNo">046</span>    {<a name="line.46"></a>
+<span class="sourceLineNo">047</span>      apiInvariant( () -&gt; Disposable.isNotDisposed( entity ),<a name="line.47"></a>
+<span class="sourceLineNo">048</span>                    () -&gt; "Arez-0168: Called attach() passing an entity that is disposed. Entity: " + entity );<a name="line.48"></a>
+<span class="sourceLineNo">049</span>      apiInvariant( () -&gt; !_entities.containsKey( Identifiable.getArezId( entity ) ),<a name="line.49"></a>
+<span class="sourceLineNo">050</span>                    () -&gt; "Arez-0136: Called attach() passing an entity that is already attached " +<a name="line.50"></a>
+<span class="sourceLineNo">051</span>                          "to the container. Entity: " + entity );<a name="line.51"></a>
+<span class="sourceLineNo">052</span>    }<a name="line.52"></a>
+<span class="sourceLineNo">053</span>    getEntitiesObservableValue().preReportChanged();<a name="line.53"></a>
+<span class="sourceLineNo">054</span>    attachEntity( entity );<a name="line.54"></a>
+<span class="sourceLineNo">055</span>    _entities.put( Identifiable.getArezId( entity ), entity );<a name="line.55"></a>
+<span class="sourceLineNo">056</span>    getEntitiesObservableValue().reportChanged();<a name="line.56"></a>
+<span class="sourceLineNo">057</span>  }<a name="line.57"></a>
+<span class="sourceLineNo">058</span><a name="line.58"></a>
+<span class="sourceLineNo">059</span>  /**<a name="line.59"></a>
+<span class="sourceLineNo">060</span>   * Return true if disposing the container should result in disposing contained entities or just detaching the entities.<a name="line.60"></a>
+<span class="sourceLineNo">061</span>   *<a name="line.61"></a>
+<span class="sourceLineNo">062</span>   * @return true to dispose entities on container dispose, false to detach entities on container disposed.<a name="line.62"></a>
+<span class="sourceLineNo">063</span>   */<a name="line.63"></a>
+<span class="sourceLineNo">064</span>  protected abstract boolean shouldDisposeEntryOnDispose();<a name="line.64"></a>
+<span class="sourceLineNo">065</span><a name="line.65"></a>
+<span class="sourceLineNo">066</span>  /**<a name="line.66"></a>
+<span class="sourceLineNo">067</span>   * Dispose or detach all the entities associated with the container.<a name="line.67"></a>
+<span class="sourceLineNo">068</span>   */<a name="line.68"></a>
+<span class="sourceLineNo">069</span>  @PreDispose<a name="line.69"></a>
+<span class="sourceLineNo">070</span>  protected void preDispose()<a name="line.70"></a>
+<span class="sourceLineNo">071</span>  {<a name="line.71"></a>
+<span class="sourceLineNo">072</span>    _entities.values().forEach( entry -&gt; detachEntity( entry, shouldDisposeEntryOnDispose() ) );<a name="line.72"></a>
+<span class="sourceLineNo">073</span>    _entities.clear();<a name="line.73"></a>
+<span class="sourceLineNo">074</span>  }<a name="line.74"></a>
+<span class="sourceLineNo">075</span><a name="line.75"></a>
+<span class="sourceLineNo">076</span>  /**<a name="line.76"></a>
+<span class="sourceLineNo">077</span>   * Return true if the specified entity is contained in the container.<a name="line.77"></a>
+<span class="sourceLineNo">078</span>   *<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * @param entity the entity.<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   * @return true if the specified entity is contained in the container, false otherwise.<a name="line.80"></a>
+<span class="sourceLineNo">081</span>   */<a name="line.81"></a>
+<span class="sourceLineNo">082</span>  protected boolean contains( @Nonnull final T entity )<a name="line.82"></a>
+<span class="sourceLineNo">083</span>  {<a name="line.83"></a>
+<span class="sourceLineNo">084</span>    getEntitiesObservableValue().reportObserved();<a name="line.84"></a>
+<span class="sourceLineNo">085</span>    return _entities.containsKey( Identifiable.&lt;K&gt;getArezId( entity ) );<a name="line.85"></a>
+<span class="sourceLineNo">086</span>  }<a name="line.86"></a>
+<span class="sourceLineNo">087</span><a name="line.87"></a>
+<span class="sourceLineNo">088</span>  /**<a name="line.88"></a>
+<span class="sourceLineNo">089</span>   * Detach the entity from the container and dispose the entity.<a name="line.89"></a>
+<span class="sourceLineNo">090</span>   * The entity must be attached to the container.<a name="line.90"></a>
+<span class="sourceLineNo">091</span>   *<a name="line.91"></a>
+<span class="sourceLineNo">092</span>   * @param entity the entity to destroy.<a name="line.92"></a>
+<span class="sourceLineNo">093</span>   */<a name="line.93"></a>
+<span class="sourceLineNo">094</span>  protected void destroy( @Nonnull final T entity )<a name="line.94"></a>
+<span class="sourceLineNo">095</span>  {<a name="line.95"></a>
+<span class="sourceLineNo">096</span>    detach( entity, true );<a name="line.96"></a>
+<span class="sourceLineNo">097</span>  }<a name="line.97"></a>
+<span class="sourceLineNo">098</span><a name="line.98"></a>
+<span class="sourceLineNo">099</span>  /**<a name="line.99"></a>
+<span class="sourceLineNo">100</span>   * Detach entity from container without disposing entity.<a name="line.100"></a>
+<span class="sourceLineNo">101</span>   * The entity must be attached to the container.<a name="line.101"></a>
+<span class="sourceLineNo">102</span>   *<a name="line.102"></a>
+<span class="sourceLineNo">103</span>   * @param entity the entity to detach.<a name="line.103"></a>
+<span class="sourceLineNo">104</span>   */<a name="line.104"></a>
+<span class="sourceLineNo">105</span>  protected void detach( @Nonnull final T entity )<a name="line.105"></a>
+<span class="sourceLineNo">106</span>  {<a name="line.106"></a>
+<span class="sourceLineNo">107</span>    detach( entity, false );<a name="line.107"></a>
+<span class="sourceLineNo">108</span>  }<a name="line.108"></a>
+<span class="sourceLineNo">109</span><a name="line.109"></a>
+<span class="sourceLineNo">110</span>  /**<a name="line.110"></a>
+<span class="sourceLineNo">111</span>   * Detach entity from container without disposing entity.<a name="line.111"></a>
+<span class="sourceLineNo">112</span>   * The entity must be attached to the container.<a name="line.112"></a>
+<span class="sourceLineNo">113</span>   *<a name="line.113"></a>
+<span class="sourceLineNo">114</span>   * @param entity the entity to detach.<a name="line.114"></a>
+<span class="sourceLineNo">115</span>   */<a name="line.115"></a>
+<span class="sourceLineNo">116</span>  private void detach( @Nonnull final T entity, final boolean disposeEntity )<a name="line.116"></a>
+<span class="sourceLineNo">117</span>  {<a name="line.117"></a>
+<span class="sourceLineNo">118</span>    // This method has been extracted to try and avoid GWT inlining into invoker<a name="line.118"></a>
+<span class="sourceLineNo">119</span>    final T removed = _entities.remove( Identifiable.&lt;K&gt;getArezId( entity ) );<a name="line.119"></a>
+<span class="sourceLineNo">120</span>    if ( null != removed )<a name="line.120"></a>
+<span class="sourceLineNo">121</span>    {<a name="line.121"></a>
+<span class="sourceLineNo">122</span>      getEntitiesObservableValue().preReportChanged();<a name="line.122"></a>
+<span class="sourceLineNo">123</span>      detachEntity( entity, disposeEntity );<a name="line.123"></a>
+<span class="sourceLineNo">124</span>      getEntitiesObservableValue().reportChanged();<a name="line.124"></a>
+<span class="sourceLineNo">125</span>    }<a name="line.125"></a>
+<span class="sourceLineNo">126</span>    else<a name="line.126"></a>
+<span class="sourceLineNo">127</span>    {<a name="line.127"></a>
+<span class="sourceLineNo">128</span>      fail( () -&gt; "Arez-0157: Called detach() passing an entity that was not attached to the container. Entity: " +<a name="line.128"></a>
+<span class="sourceLineNo">129</span>                  entity );<a name="line.129"></a>
+<span class="sourceLineNo">130</span>    }<a name="line.130"></a>
+<span class="sourceLineNo">131</span>  }<a name="line.131"></a>
+<span class="sourceLineNo">132</span><a name="line.132"></a>
+<span class="sourceLineNo">133</span>  /**<a name="line.133"></a>
+<span class="sourceLineNo">134</span>   * Return the entity with the specified ArezId or null if no such entity.<a name="line.134"></a>
+<span class="sourceLineNo">135</span>   *<a name="line.135"></a>
+<span class="sourceLineNo">136</span>   * @param arezId the id of entity.<a name="line.136"></a>
+<span class="sourceLineNo">137</span>   * @return the entity or null if no such entity.<a name="line.137"></a>
+<span class="sourceLineNo">138</span>   */<a name="line.138"></a>
+<span class="sourceLineNo">139</span>  @Nullable<a name="line.139"></a>
+<span class="sourceLineNo">140</span>  protected T findByArezId( @Nonnull final K arezId )<a name="line.140"></a>
+<span class="sourceLineNo">141</span>  {<a name="line.141"></a>
+<span class="sourceLineNo">142</span>    final T entity = _entities.get( arezId );<a name="line.142"></a>
+<span class="sourceLineNo">143</span>    if ( null != entity )<a name="line.143"></a>
+<span class="sourceLineNo">144</span>    {<a name="line.144"></a>
+<span class="sourceLineNo">145</span>      ComponentObservable.observe( entity );<a name="line.145"></a>
+<span class="sourceLineNo">146</span>      return entity;<a name="line.146"></a>
+<span class="sourceLineNo">147</span>    }<a name="line.147"></a>
+<span class="sourceLineNo">148</span>    getEntitiesObservableValue().reportObserved();<a name="line.148"></a>
+<span class="sourceLineNo">149</span>    return null;<a name="line.149"></a>
+<span class="sourceLineNo">150</span>  }<a name="line.150"></a>
+<span class="sourceLineNo">151</span><a name="line.151"></a>
+<span class="sourceLineNo">152</span>  /**<a name="line.152"></a>
+<span class="sourceLineNo">153</span>   * Return the entity with the specified ArezId else throw an exception.<a name="line.153"></a>
+<span class="sourceLineNo">154</span>   *<a name="line.154"></a>
+<span class="sourceLineNo">155</span>   * @param arezId the id of entity.<a name="line.155"></a>
+<span class="sourceLineNo">156</span>   * @return the entity.<a name="line.156"></a>
+<span class="sourceLineNo">157</span>   * @throws NoSuchEntityException if unable to locate entity with specified ArezId.<a name="line.157"></a>
+<span class="sourceLineNo">158</span>   */<a name="line.158"></a>
+<span class="sourceLineNo">159</span>  @Nonnull<a name="line.159"></a>
+<span class="sourceLineNo">160</span>  protected T getByArezId( @Nonnull final K arezId )<a name="line.160"></a>
+<span class="sourceLineNo">161</span>    throws NoSuchEntityException<a name="line.161"></a>
+<span class="sourceLineNo">162</span>  {<a name="line.162"></a>
+<span class="sourceLineNo">163</span>    final T entity = findByArezId( arezId );<a name="line.163"></a>
+<span class="sourceLineNo">164</span>    if ( null == entity )<a name="line.164"></a>
+<span class="sourceLineNo">165</span>    {<a name="line.165"></a>
+<span class="sourceLineNo">166</span>      throw new NoSuchEntityException( arezId );<a name="line.166"></a>
+<span class="sourceLineNo">167</span>    }<a name="line.167"></a>
+<span class="sourceLineNo">168</span>    return entity;<a name="line.168"></a>
+<span class="sourceLineNo">169</span>  }<a name="line.169"></a>
+<span class="sourceLineNo">170</span><a name="line.170"></a>
+<span class="sourceLineNo">171</span>  /**<a name="line.171"></a>
+<span class="sourceLineNo">172</span>   * Return the observable associated with entities.<a name="line.172"></a>
+<span class="sourceLineNo">173</span>   * This template method is implemented by the Arez annotation processor and is used internally<a name="line.173"></a>
+<span class="sourceLineNo">174</span>   * to container. It should not be invoked by extensions.<a name="line.174"></a>
+<span class="sourceLineNo">175</span>   *<a name="line.175"></a>
+<span class="sourceLineNo">176</span>   * @return the Arez observable associated with entities observable property.<a name="line.176"></a>
+<span class="sourceLineNo">177</span>   */<a name="line.177"></a>
+<span class="sourceLineNo">178</span>  @ObservableValueRef<a name="line.178"></a>
+<span class="sourceLineNo">179</span>  @Nonnull<a name="line.179"></a>
+<span class="sourceLineNo">180</span>  protected abstract ObservableValue getEntitiesObservableValue();<a name="line.180"></a>
+<span class="sourceLineNo">181</span><a name="line.181"></a>
+<span class="sourceLineNo">182</span>  /**<a name="line.182"></a>
+<span class="sourceLineNo">183</span>   * Return a stream of all entities in the container.<a name="line.183"></a>
+<span class="sourceLineNo">184</span>   *<a name="line.184"></a>
+<span class="sourceLineNo">185</span>   * @return the underlying entities.<a name="line.185"></a>
+<span class="sourceLineNo">186</span>   */<a name="line.186"></a>
+<span class="sourceLineNo">187</span>  @arez.annotations.Observable( expectSetter = false )<a name="line.187"></a>
+<span class="sourceLineNo">188</span>  @Nonnull<a name="line.188"></a>
+<span class="sourceLineNo">189</span>  public Stream&lt;T&gt; entities()<a name="line.189"></a>
+<span class="sourceLineNo">190</span>  {<a name="line.190"></a>
+<span class="sourceLineNo">191</span>    return _entities.values().stream();<a name="line.191"></a>
+<span class="sourceLineNo">192</span>  }<a name="line.192"></a>
+<span class="sourceLineNo">193</span><a name="line.193"></a>
+<span class="sourceLineNo">194</span>  private void attachEntity( @Nonnull final T entity )<a name="line.194"></a>
+<span class="sourceLineNo">195</span>  {<a name="line.195"></a>
+<span class="sourceLineNo">196</span>    DisposeNotifier<a name="line.196"></a>
+<span class="sourceLineNo">197</span>      .asDisposeNotifier( entity )<a name="line.197"></a>
+<span class="sourceLineNo">198</span>      .addOnDisposeListener( this, () -&gt; {<a name="line.198"></a>
+<span class="sourceLineNo">199</span>        getEntitiesObservableValue().preReportChanged();<a name="line.199"></a>
+<span class="sourceLineNo">200</span>        detach( entity, false );<a name="line.200"></a>
+<span class="sourceLineNo">201</span>        getEntitiesObservableValue().reportChanged();<a name="line.201"></a>
+<span class="sourceLineNo">202</span>      } );<a name="line.202"></a>
+<span class="sourceLineNo">203</span>  }<a name="line.203"></a>
+<span class="sourceLineNo">204</span><a name="line.204"></a>
+<span class="sourceLineNo">205</span>  private void detachEntity( @Nonnull final T entity, final boolean disposeOnDetach )<a name="line.205"></a>
+<span class="sourceLineNo">206</span>  {<a name="line.206"></a>
+<span class="sourceLineNo">207</span>    detachEntity( entity );<a name="line.207"></a>
+<span class="sourceLineNo">208</span>    if ( disposeOnDetach )<a name="line.208"></a>
+<span class="sourceLineNo">209</span>    {<a name="line.209"></a>
+<span class="sourceLineNo">210</span>      Disposable.dispose( entity );<a name="line.210"></a>
+<span class="sourceLineNo">211</span>    }<a name="line.211"></a>
+<span class="sourceLineNo">212</span>  }<a name="line.212"></a>
+<span class="sourceLineNo">213</span><a name="line.213"></a>
+<span class="sourceLineNo">214</span>  private void detachEntity( @Nonnull final T entity )<a name="line.214"></a>
+<span class="sourceLineNo">215</span>  {<a name="line.215"></a>
+<span class="sourceLineNo">216</span>    DisposeNotifier.asDisposeNotifier( entity ).removeOnDisposeListener( this );<a name="line.216"></a>
+<span class="sourceLineNo">217</span>  }<a name="line.217"></a>
+<span class="sourceLineNo">218</span><a name="line.218"></a>
+<span class="sourceLineNo">219</span>  final HashMap&lt;K, T&gt; entityMap()<a name="line.219"></a>
+<span class="sourceLineNo">220</span>  {<a name="line.220"></a>
+<span class="sourceLineNo">221</span>    return _entities;<a name="line.221"></a>
+<span class="sourceLineNo">222</span>  }<a name="line.222"></a>
+<span class="sourceLineNo">223</span>}<a name="line.223"></a>
 
 
 
