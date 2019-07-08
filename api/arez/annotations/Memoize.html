@@ -173,6 +173,12 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#readOutsideTransaction--">readOutsideTransaction</a></span></code>
+<div class="block">Return true if the memoized value can be read outside a transaction.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#reportResult--">reportResult</a></span></code>
 <div class="block">Return true if the return value of the memoized value should be reported to the Arez spy subsystem.</div>
 </td>
@@ -318,7 +324,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 <li class="blockList"><a name="reportResult--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>reportResult</h4>
 <pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.105">reportResult</a></pre>
@@ -331,6 +337,29 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 <dl>
 <dt>Default:</dt>
 <dd>true</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="readOutsideTransaction--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>readOutsideTransaction</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.114">readOutsideTransaction</a></pre>
+<div class="block">Return true if the memoized value can be read outside a transaction.
+ It should be noted that if there is no Observer tracking the memoized value, then the value will be
+ calculated each time it is accessed.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true to allow reads outside a transaction, false to require a transaction to read memoized value.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
 </dl>
 </li>
 </ul>
