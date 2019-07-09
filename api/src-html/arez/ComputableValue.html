@@ -268,7 +268,7 @@
 <span class="sourceLineNo">260</span>        // we can elide this transaction if invariants are disabled<a name="line.260"></a>
 <span class="sourceLineNo">261</span>        getContext().safeAction( Arez.areNamesEnabled() ? getName() + ".dispose" : null,<a name="line.261"></a>
 <span class="sourceLineNo">262</span>                                 () -&gt; getContext().getTransaction().reportDispose( this ),<a name="line.262"></a>
-<span class="sourceLineNo">263</span>                                 Flags.NO_VERIFY_ACTION_REQUIRED );<a name="line.263"></a>
+<span class="sourceLineNo">263</span>                                 ActionFlags.NO_VERIFY_ACTION_REQUIRED );<a name="line.263"></a>
 <span class="sourceLineNo">264</span>      }<a name="line.264"></a>
 <span class="sourceLineNo">265</span>      _disposed = true;<a name="line.265"></a>
 <span class="sourceLineNo">266</span>      _value = null;<a name="line.266"></a>
@@ -389,7 +389,7 @@
 <span class="sourceLineNo">381</span>      {<a name="line.381"></a>
 <span class="sourceLineNo">382</span>        getContext().safeAction( Arez.areNamesEnabled() ? getName() + ".deactivate" : null,<a name="line.382"></a>
 <span class="sourceLineNo">383</span>                                 observableValue::deactivate,<a name="line.383"></a>
-<span class="sourceLineNo">384</span>                                 Flags.NO_VERIFY_ACTION_REQUIRED );<a name="line.384"></a>
+<span class="sourceLineNo">384</span>                                 ActionFlags.NO_VERIFY_ACTION_REQUIRED );<a name="line.384"></a>
 <span class="sourceLineNo">385</span>      }<a name="line.385"></a>
 <span class="sourceLineNo">386</span>    }<a name="line.386"></a>
 <span class="sourceLineNo">387</span>  }<a name="line.387"></a>
