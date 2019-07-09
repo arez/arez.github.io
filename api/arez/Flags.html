@@ -405,7 +405,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>RUN_NOW</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.71">RUN_NOW</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.67">RUN_NOW</a></pre>
 <div class="block">The scheduler will be triggered when the observer is created to immediately invoke the
  <a href="../arez/Observer.html#Z:Z_observe"><code>Observer._observe</code></a> function. This configuration should not be specified if there
  is no <a href="../arez/Observer.html#Z:Z_observe"><code>Observer._observe</code></a> function supplied. This should not be
@@ -422,7 +422,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>RUN_LATER</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.78">RUN_LATER</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.74">RUN_LATER</a></pre>
 <div class="block">The scheduler will not be triggered when the observer is created. The observer either
  has no <a href="../arez/Observer.html#Z:Z_observe"><code>Observer._observe</code></a> function or is responsible for ensuring that
  <a href="../arez/ArezContext.html#triggerScheduler--"><code>ArezContext.triggerScheduler()</code></a> is invoked at a later time. This should not be
@@ -439,7 +439,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>KEEPALIVE</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.84">KEEPALIVE</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.80">KEEPALIVE</a></pre>
 <div class="block">The runtime will keep the observer reacting to dependencies until disposed. This is the default value for
  observers that supply a observed function but may be explicitly supplied when creating <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>
  instances.</div>
@@ -455,7 +455,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>READ_OUTSIDE_TRANSACTION</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.101">READ_OUTSIDE_TRANSACTION</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.97">READ_OUTSIDE_TRANSACTION</a></pre>
 <div class="block">The flag is valid on computable values.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -469,7 +469,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>NO_WRAP_TASK</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.108">NO_WRAP_TASK</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.104">NO_WRAP_TASK</a></pre>
 <div class="block">The flag that can be passed to a task and indicates that task should not be wrapped.
  The wrapping is responsible for ensuring the task never generates an exception and for generating
  the spy events. If wrapping is disabled it is expected that the task callback supplier is responsible for integrating
@@ -486,7 +486,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>DISPOSE_ON_COMPLETE</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.112">DISPOSE_ON_COMPLETE</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.108">DISPOSE_ON_COMPLETE</a></pre>
 <div class="block">A flag that can be passed to a Task that indicates that the task should be disposed after it has completed execution.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -500,7 +500,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_HIGHEST</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.122">PRIORITY_HIGHEST</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.118">PRIORITY_HIGHEST</a></pre>
 <div class="block">Highest priority.
  This priority should be used when the observer will dispose or release other reactive elements
  (and thus remove elements from being scheduled).
@@ -519,7 +519,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_HIGH</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.133">PRIORITY_HIGH</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.129">PRIORITY_HIGH</a></pre>
 <div class="block">High priority.
  To reduce the chance that downstream elements will react multiple times within a single
  reaction round, this priority should be used when the observer may trigger many downstream
@@ -539,7 +539,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_NORMAL</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.141">PRIORITY_NORMAL</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.137">PRIORITY_NORMAL</a></pre>
 <div class="block">Normal priority if no other priority otherwise specified.
  <p>Only one of the PRIORITY_* flags should be applied to observer.</p></div>
 <dl>
@@ -556,7 +556,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_LOW</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.154">PRIORITY_LOW</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.150">PRIORITY_LOW</a></pre>
 <div class="block">Low priority.
  Usually used to schedule observers that reflect state onto non-reactive
  application components. i.e. Observers that are used to build html views,
@@ -578,7 +578,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_LOWEST</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.165">PRIORITY_LOWEST</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.161">PRIORITY_LOWEST</a></pre>
 <div class="block">Lowest priority. Use this priority if the observer is a <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> that
  may be unobserved when a <a href="../arez/Flags.html#PRIORITY_LOW"><code>PRIORITY_LOW</code></a> observer reacts. This is used to avoid
  recomputing state that is likely to either be unobserved or recomputed as part of
@@ -598,7 +598,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_MASK</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.169">PRIORITY_MASK</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.165">PRIORITY_MASK</a></pre>
 <div class="block">Mask used to extract priority bits.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -612,7 +612,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>NO_REPORT_RESULT</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.173">NO_REPORT_RESULT</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Flags.html#line.169">NO_REPORT_RESULT</a></pre>
 <div class="block">The flag can be passed to actions or observers to force the action to not report result to spy infrastructure.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>

@@ -43,7 +43,7 @@ the <a href="/docs/at_observe.html">@Observe</a> annotation.</p>
   <span class="hljs-comment">// Interact with arez observable state (or computable values) here</span>
   <span class="hljs-comment">// and any time these changed this function will be re-run.</span>
   ...
-}, Flags.READ_WRITE );</code></pre></p>
+}, ActionFlags.READ_WRITE );</code></pre></p>
 <p>A &quot;tracker&quot; observer is created with a <code>onDepsChange</code> hook function but no <code>observed</code> function. i.e. A
 tracker observer uses an application executor. Using a tracker observer is a little more complex within Arez.
 The developer must explicitly create the observer via <a href="/api/arez/ArezContext.html#tracker-arez.Procedure-"><code>ArezContext.tracker(*)</code></a>
