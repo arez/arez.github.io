@@ -220,16 +220,31 @@
 <dd>
 <div class="block">Spy events and introspection utilities.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#AREZ_DEPENDENCIES">AREZ_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#AREZ_DEPENDENCIES">AREZ_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
+<dd>
+<div class="block">Indicates that application code can not invoke <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a>
+ and the <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> is only recalculated if a dependency is updated.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#AREZ_DEPENDENCIES">AREZ_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate dependency has changed and the observer.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#AREZ_OR_EXTERNAL_DEPENDENCIES">AREZ_OR_EXTERNAL_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#AREZ_OR_EXTERNAL_DEPENDENCIES">AREZ_OR_EXTERNAL_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
+<dd>
+<div class="block">Indicates that application code can invoke <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
+ indicate some dependency has changed and that the <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> should recompute.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#AREZ_OR_EXTERNAL_DEPENDENCIES">AREZ_OR_EXTERNAL_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">Flag set if the application code can invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to indicate non-arez dependency has changed.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#AREZ_OR_NO_DEPENDENCIES">AREZ_OR_NO_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#AREZ_OR_NO_DEPENDENCIES">AREZ_OR_NO_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
+<dd>
+<div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
+ indicate dependency has changed.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#AREZ_OR_NO_DEPENDENCIES">AREZ_OR_NO_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate dependency has changed.</div>
@@ -507,6 +522,10 @@
 <div class="block">The ComputableValue represents an ObservableValue derived from other ObservableValues within
  the Arez system.</div>
 </dd>
+<dt><a href="arez/ComputableValue.Flags.html" title="class in arez"><span class="typeNameLink">ComputableValue.Flags</span></a> - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">Flags that can configure ComputableValue instances during creation.</div>
+</dd>
 <dt><a href="arez/spy/ComputableValueActivateEvent.html" title="class in arez.spy"><span class="typeNameLink">ComputableValueActivateEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">ComputableValue has activated.</div>
@@ -660,9 +679,9 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/Task.html#dispose--">dispose()</a></span> - Method in class arez.<a href="arez/Task.html" title="class in arez">Task</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#DISPOSE_ON_COMPLETE">DISPOSE_ON_COMPLETE</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Task.Flags.html#DISPOSE_ON_COMPLETE">DISPOSE_ON_COMPLETE</a></span> - Static variable in class arez.<a href="arez/Task.Flags.html" title="class in arez">Task.Flags</a></dt>
 <dd>
-<div class="block">A flag that can be passed to a Task that indicates that the task should be disposed after it has completed execution.</div>
+<div class="block">The flag that specifies that the task should be disposed after it has completed execution.</div>
 </dd>
 <dt><a href="arez/component/DisposeNotifier.html" title="interface in arez.component"><span class="typeNameLink">DisposeNotifier</span></a> - Interface in <a href="arez/component/package-summary.html">arez.component</a></dt>
 <dd>
@@ -797,10 +816,10 @@
 <dd>
 <div class="block">Find the component identified by the specified type and id.</div>
 </dd>
-<dt><a href="arez/Flags.html" title="class in arez"><span class="typeNameLink">Flags</span></a> - Class in <a href="arez/package-summary.html">arez</a></dt>
-<dd>
-<div class="block">Flags that can be passed when creating observers that determine the configuration of the observer.</div>
-</dd>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#Flags--">Flags()</a></span> - Constructor for class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#Flags--">Flags()</a></span> - Constructor for class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="arez/Function.html" title="interface in arez"><span class="typeNameLink">Function</span></a>&lt;<a href="arez/Function.html" title="type parameter in Function">T</a>&gt; - Interface in <a href="arez/package-summary.html">arez</a></dt>
 <dd>
 <div class="block">Functional interface for returning a value.</div>
@@ -1260,12 +1279,16 @@
 </a>
 <h2 class="title">K</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#KEEPALIVE">KEEPALIVE</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
+<dd>
+<div class="block">The runtime will keep the observer reacting to dependencies until disposed.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="arez/ComputableValue.html#keepAlive--">keepAlive()</a></span> - Method in class arez.<a href="arez/ComputableValue.html" title="class in arez">ComputableValue</a></dt>
 <dd>
 <div class="block">Invoke this method to ensure that the ComputableValue is activated and computing
  a value even if there are no observers.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#KEEPALIVE">KEEPALIVE</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#KEEPALIVE">KEEPALIVE</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">The runtime will keep the observer reacting to dependencies until disposed.</div>
 </dd>
@@ -1346,11 +1369,11 @@
 </a>
 <h2 class="title">N</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#NESTED_ACTIONS_ALLOWED">NESTED_ACTIONS_ALLOWED</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#NESTED_ACTIONS_ALLOWED">NESTED_ACTIONS_ALLOWED</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">Indicates that the an action can be created from within the Observers observed function.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#NESTED_ACTIONS_DISALLOWED">NESTED_ACTIONS_DISALLOWED</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#NESTED_ACTIONS_DISALLOWED">NESTED_ACTIONS_DISALLOWED</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">Indicates that the an action must not be created from within the Observers observed function.</div>
 </dd>
@@ -1358,7 +1381,11 @@
 <dd>
 <div class="block">Do not report result to spy infrastructure.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#NO_REPORT_RESULT">NO_REPORT_RESULT</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#NO_REPORT_RESULT">NO_REPORT_RESULT</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
+<dd>
+<div class="block">If passed, then the computable value should not report result to the spy infrastructure.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#NO_REPORT_RESULT">NO_REPORT_RESULT</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">The flag can be passed to actions or observers to force the action to not report result to spy infrastructure.</div>
 </dd>
@@ -1366,9 +1393,9 @@
 <dd>
 <div class="block">This flag can be passed to skip verification that action was required.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#NO_WRAP_TASK">NO_WRAP_TASK</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Task.Flags.html#NO_WRAP_TASK">NO_WRAP_TASK</a></span> - Static variable in class arez.<a href="arez/Task.Flags.html" title="class in arez">Task.Flags</a></dt>
 <dd>
-<div class="block">The flag that can be passed to a task and indicates that task should not be wrapped.</div>
+<div class="block">The flag that indicates that task should not be wrapped.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ArezTestUtil.html#noCheckApiInvariants--">noCheckApiInvariants()</a></span> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
@@ -1509,7 +1536,11 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/ComponentKernel.html#observe--">observe()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#OBSERVE_LOWER_PRIORITY_DEPENDENCIES">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#OBSERVE_LOWER_PRIORITY_DEPENDENCIES">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
+<dd>
+<div class="block">Flag indicating that the Observer is allowed to observe <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#OBSERVE_LOWER_PRIORITY_DEPENDENCIES">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">Flag indicating that the Observer is allowed to observe <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
 </dd>
@@ -1571,6 +1602,8 @@
 <dd>
 <div class="block">A node within Arez that is notified of changes in 0 or more Observables.</div>
 </dd>
+<dt><a href="arez/Observer.Flags.html" title="class in arez"><span class="typeNameLink">Observer.Flags</span></a> - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="arez/spy/ObserverCreateEvent.html" title="class in arez.spy"><span class="typeNameLink">ObserverCreateEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification when Observer is created.</div>
@@ -1686,27 +1719,71 @@
 <dd>
 <div class="block">Enum to control scheduling priority of observers/reactions.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#PRIORITY_HIGH">PRIORITY_HIGH</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#PRIORITY_HIGH">PRIORITY_HIGH</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
 <div class="block">High priority.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#PRIORITY_HIGHEST">PRIORITY_HIGHEST</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#PRIORITY_HIGH">PRIORITY_HIGH</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
+<dd>
+<div class="block">High priority.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Task.Flags.html#PRIORITY_HIGH">PRIORITY_HIGH</a></span> - Static variable in class arez.<a href="arez/Task.Flags.html" title="class in arez">Task.Flags</a></dt>
+<dd>
+<div class="block">High priority.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#PRIORITY_HIGHEST">PRIORITY_HIGHEST</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
 <div class="block">Highest priority.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#PRIORITY_LOW">PRIORITY_LOW</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#PRIORITY_HIGHEST">PRIORITY_HIGHEST</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
+<dd>
+<div class="block">Highest priority.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Task.Flags.html#PRIORITY_HIGHEST">PRIORITY_HIGHEST</a></span> - Static variable in class arez.<a href="arez/Task.Flags.html" title="class in arez">Task.Flags</a></dt>
+<dd>
+<div class="block">Highest priority.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#PRIORITY_LOW">PRIORITY_LOW</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
 <div class="block">Low priority.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#PRIORITY_LOWEST">PRIORITY_LOWEST</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#PRIORITY_LOW">PRIORITY_LOW</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
+<dd>
+<div class="block">Low priority.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Task.Flags.html#PRIORITY_LOW">PRIORITY_LOW</a></span> - Static variable in class arez.<a href="arez/Task.Flags.html" title="class in arez">Task.Flags</a></dt>
+<dd>
+<div class="block">Low priority.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#PRIORITY_LOWEST">PRIORITY_LOWEST</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
 <div class="block">Lowest priority.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#PRIORITY_MASK">PRIORITY_MASK</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#PRIORITY_LOWEST">PRIORITY_LOWEST</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
+<dd>
+<div class="block">Lowest priority.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Task.Flags.html#PRIORITY_LOWEST">PRIORITY_LOWEST</a></span> - Static variable in class arez.<a href="arez/Task.Flags.html" title="class in arez">Task.Flags</a></dt>
+<dd>
+<div class="block">Lowest priority.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#PRIORITY_MASK">PRIORITY_MASK</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
 <div class="block">Mask used to extract priority bits.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#PRIORITY_NORMAL">PRIORITY_NORMAL</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#PRIORITY_MASK">PRIORITY_MASK</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
+<dd>
+<div class="block">Mask used to extract priority bits.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#PRIORITY_NORMAL">PRIORITY_NORMAL</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
+<dd>
+<div class="block">Normal priority if no other priority otherwise specified.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#PRIORITY_NORMAL">PRIORITY_NORMAL</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
+<dd>
+<div class="block">Normal priority if no other priority otherwise specified.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Task.Flags.html#PRIORITY_NORMAL">PRIORITY_NORMAL</a></span> - Static variable in class arez.<a href="arez/Task.Flags.html" title="class in arez">Task.Flags</a></dt>
 <dd>
 <div class="block">Normal priority if no other priority otherwise specified.</div>
 </dd>
@@ -1747,11 +1824,11 @@
 <dd>
 <div class="block">The action can only read arez state.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#READ_ONLY">READ_ONLY</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#READ_ONLY">READ_ONLY</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">The observer can only read arez state.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#READ_OUTSIDE_TRANSACTION">READ_OUTSIDE_TRANSACTION</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#READ_OUTSIDE_TRANSACTION">READ_OUTSIDE_TRANSACTION</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
 <div class="block">The flag is valid on computable values.</div>
 </dd>
@@ -1759,7 +1836,7 @@
 <dd>
 <div class="block">The action can read or write arez state.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#READ_WRITE">READ_WRITE</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#READ_WRITE">READ_WRITE</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">The observer can read or write arez state.</div>
 </dd>
@@ -1850,14 +1927,31 @@
 <dd>
 <div class="block">Run the specified procedure in the zone.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#RUN_LATER">RUN_LATER</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#RUN_LATER">RUN_LATER</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
+<dd>
+<div class="block">The scheduler will not be triggered when the ComputableValue is created.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#RUN_LATER">RUN_LATER</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">The scheduler will not be triggered when the observer is created.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/Flags.html#RUN_NOW">RUN_NOW</a></span> - Static variable in class arez.<a href="arez/Flags.html" title="class in arez">Flags</a></dt>
+<dt><span class="memberNameLink"><a href="arez/Task.Flags.html#RUN_LATER">RUN_LATER</a></span> - Static variable in class arez.<a href="arez/Task.Flags.html" title="class in arez">Task.Flags</a></dt>
+<dd>
+<div class="block">The scheduler will not be triggered when the task is created.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#RUN_NOW">RUN_NOW</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
+<dd>
+<div class="block">The scheduler will be triggered when the ComputableValue is created to immediately invoke the
+ compute function.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#RUN_NOW">RUN_NOW</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
 <div class="block">The scheduler will be triggered when the observer is created to immediately invoke the
  <a href="arez/Observer.html#Z:Z_observe"><code>Observer._observe</code></a> function.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="arez/Task.Flags.html#RUN_NOW">RUN_NOW</a></span> - Static variable in class arez.<a href="arez/Task.Flags.html" title="class in arez">Task.Flags</a></dt>
+<dd>
+<div class="block">The scheduler will be triggered when the task is created to immediately invoke the task.</div>
 </dd>
 </dl>
 <a name="I:S">
@@ -2025,6 +2119,8 @@
 <dd>
 <div class="block">A task represents an executable element that can be run by the task executor.</div>
 </dd>
+<dt><a href="arez/Task.Flags.html" title="class in arez"><span class="typeNameLink">Task.Flags</span></a> - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="arez/spy/TaskCompleteEvent.html" title="class in arez.spy"><span class="typeNameLink">TaskCompleteEvent</span></a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification that task has completed execution.</div>

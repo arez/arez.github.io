@@ -66,7 +66,7 @@
 <span class="sourceLineNo">058</span>   * The state of the observer that is least stale.<a name="line.58"></a>
 <span class="sourceLineNo">059</span>   * This cached value is used to avoid redundant propagations.<a name="line.59"></a>
 <span class="sourceLineNo">060</span>   */<a name="line.60"></a>
-<span class="sourceLineNo">061</span>  private int _leastStaleObserverState = Flags.STATE_UP_TO_DATE;<a name="line.61"></a>
+<span class="sourceLineNo">061</span>  private int _leastStaleObserverState = Observer.Flags.STATE_UP_TO_DATE;<a name="line.61"></a>
 <span class="sourceLineNo">062</span>  /**<a name="line.62"></a>
 <span class="sourceLineNo">063</span>   * The observer that created this observable if any.<a name="line.63"></a>
 <span class="sourceLineNo">064</span>   */<a name="line.64"></a>
@@ -339,7 +339,7 @@
 <span class="sourceLineNo">331</span>       * It is possible for the owner to already be deactivated if dispose() is explicitly<a name="line.331"></a>
 <span class="sourceLineNo">332</span>       * called within the transaction.<a name="line.332"></a>
 <span class="sourceLineNo">333</span>       */<a name="line.333"></a>
-<span class="sourceLineNo">334</span>      _observer.setState( Flags.STATE_INACTIVE );<a name="line.334"></a>
+<span class="sourceLineNo">334</span>      _observer.setState( Observer.Flags.STATE_INACTIVE );<a name="line.334"></a>
 <span class="sourceLineNo">335</span>      if ( willPropagateSpyEvents() &amp;&amp; shouldPropagateDeactivateEvent )<a name="line.335"></a>
 <span class="sourceLineNo">336</span>      {<a name="line.336"></a>
 <span class="sourceLineNo">337</span>        reportSpyEvent( new ComputableValueDeactivateEvent( _observer.getComputableValue().asInfo() ) );<a name="line.337"></a>
@@ -366,7 +366,7 @@
 <span class="sourceLineNo">358</span>                       "ObservableValue is already active." );<a name="line.358"></a>
 <span class="sourceLineNo">359</span>    }<a name="line.359"></a>
 <span class="sourceLineNo">360</span>    assert null != _observer;<a name="line.360"></a>
-<span class="sourceLineNo">361</span>    _observer.setState( Flags.STATE_UP_TO_DATE );<a name="line.361"></a>
+<span class="sourceLineNo">361</span>    _observer.setState( Observer.Flags.STATE_UP_TO_DATE );<a name="line.361"></a>
 <span class="sourceLineNo">362</span>    if ( willPropagateSpyEvents() )<a name="line.362"></a>
 <span class="sourceLineNo">363</span>    {<a name="line.363"></a>
 <span class="sourceLineNo">364</span>      reportSpyEvent( new ComputableValueActivateEvent( _observer.getComputableValue().asInfo() ) );<a name="line.364"></a>
@@ -483,9 +483,9 @@
 <span class="sourceLineNo">475</span>      invariant( () -&gt; getContext().isTransactionActive(),<a name="line.475"></a>
 <span class="sourceLineNo">476</span>                 () -&gt; "Arez-0074: Attempt to invoke setLeastStaleObserverState on ObservableValue named '" +<a name="line.476"></a>
 <span class="sourceLineNo">477</span>                       getName() + "' when there is no active transaction." );<a name="line.477"></a>
-<span class="sourceLineNo">478</span>      invariant( () -&gt; Flags.isActive( leastStaleObserverState ),<a name="line.478"></a>
+<span class="sourceLineNo">478</span>      invariant( () -&gt; Observer.Flags.isActive( leastStaleObserverState ),<a name="line.478"></a>
 <span class="sourceLineNo">479</span>                 () -&gt; "Arez-0075: Attempt to invoke setLeastStaleObserverState on ObservableValue named '" +<a name="line.479"></a>
-<span class="sourceLineNo">480</span>                       getName() + "' with invalid value " + Flags.getStateName( leastStaleObserverState ) + "." );<a name="line.480"></a>
+<span class="sourceLineNo">480</span>                       getName() + "' with invalid value " + Observer.Flags.getStateName( leastStaleObserverState ) + "." );<a name="line.480"></a>
 <span class="sourceLineNo">481</span>    }<a name="line.481"></a>
 <span class="sourceLineNo">482</span>    _leastStaleObserverState = leastStaleObserverState;<a name="line.482"></a>
 <span class="sourceLineNo">483</span>  }<a name="line.483"></a>
@@ -625,11 +625,11 @@
 <span class="sourceLineNo">617</span>      final int leastStaleObserverState =<a name="line.617"></a>
 <span class="sourceLineNo">618</span>        getObservers().stream().<a name="line.618"></a>
 <span class="sourceLineNo">619</span>          map( Observer::getLeastStaleObserverState ).<a name="line.619"></a>
-<span class="sourceLineNo">620</span>          min( Comparator.naturalOrder() ).orElse( Flags.STATE_UP_TO_DATE );<a name="line.620"></a>
+<span class="sourceLineNo">620</span>          min( Comparator.naturalOrder() ).orElse( Observer.Flags.STATE_UP_TO_DATE );<a name="line.620"></a>
 <span class="sourceLineNo">621</span>      invariant( () -&gt; leastStaleObserverState &gt;= _leastStaleObserverState,<a name="line.621"></a>
 <span class="sourceLineNo">622</span>                 () -&gt; "Arez-0078: Calculated leastStaleObserverState on ObservableValue named '" + getName() +<a name="line.622"></a>
-<span class="sourceLineNo">623</span>                       "' is '" + Flags.getStateName( leastStaleObserverState ) + "' which is unexpectedly less " +<a name="line.623"></a>
-<span class="sourceLineNo">624</span>                       "than cached value '" + Flags.getStateName( _leastStaleObserverState ) + "'." );<a name="line.624"></a>
+<span class="sourceLineNo">623</span>                       "' is '" + Observer.Flags.getStateName( leastStaleObserverState ) + "' which is unexpectedly less " +<a name="line.623"></a>
+<span class="sourceLineNo">624</span>                       "than cached value '" + Observer.Flags.getStateName( _leastStaleObserverState ) + "'." );<a name="line.624"></a>
 <span class="sourceLineNo">625</span>    }<a name="line.625"></a>
 <span class="sourceLineNo">626</span>  }<a name="line.626"></a>
 <span class="sourceLineNo">627</span><a name="line.627"></a>

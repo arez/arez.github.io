@@ -14,10 +14,10 @@
 <span class="sourceLineNo">006</span>import arez.Component;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import arez.ComputableValue;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import arez.Disposable;<a name="line.8"></a>
-<span class="sourceLineNo">009</span>import arez.Flags;<a name="line.9"></a>
-<span class="sourceLineNo">010</span>import arez.ObservableValue;<a name="line.10"></a>
-<span class="sourceLineNo">011</span>import arez.Procedure;<a name="line.11"></a>
-<span class="sourceLineNo">012</span>import arez.SafeProcedure;<a name="line.12"></a>
+<span class="sourceLineNo">009</span>import arez.ObservableValue;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import arez.Procedure;<a name="line.10"></a>
+<span class="sourceLineNo">011</span>import arez.SafeProcedure;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>import arez.Task;<a name="line.12"></a>
 <span class="sourceLineNo">013</span>import arez.annotations.ArezComponent;<a name="line.13"></a>
 <span class="sourceLineNo">014</span>import arez.annotations.CascadeDispose;<a name="line.14"></a>
 <span class="sourceLineNo">015</span>import arez.annotations.Observe;<a name="line.15"></a>
@@ -201,7 +201,7 @@
 <span class="sourceLineNo">193</span>                                    null,<a name="line.193"></a>
 <span class="sourceLineNo">194</span>                                    this::scheduleDispose,<a name="line.194"></a>
 <span class="sourceLineNo">195</span>                                    null,<a name="line.195"></a>
-<span class="sourceLineNo">196</span>                                    Flags.PRIORITY_HIGHEST );<a name="line.196"></a>
+<span class="sourceLineNo">196</span>                                    ComputableValue.Flags.PRIORITY_HIGHEST );<a name="line.196"></a>
 <span class="sourceLineNo">197</span>  }<a name="line.197"></a>
 <span class="sourceLineNo">198</span><a name="line.198"></a>
 <span class="sourceLineNo">199</span>  private void scheduleDispose()<a name="line.199"></a>
@@ -221,7 +221,7 @@
 <span class="sourceLineNo">213</span>      _disposeScheduled = true;<a name="line.213"></a>
 <span class="sourceLineNo">214</span>      getContext().task( Arez.areNamesEnabled() ? getName() + ".disposeOnDeactivate.task" : null,<a name="line.214"></a>
 <span class="sourceLineNo">215</span>                         this::dispose,<a name="line.215"></a>
-<span class="sourceLineNo">216</span>                         Flags.PRIORITY_HIGHEST | Flags.DISPOSE_ON_COMPLETE | Flags.NO_WRAP_TASK );<a name="line.216"></a>
+<span class="sourceLineNo">216</span>                         Task.Flags.PRIORITY_HIGHEST | Task.Flags.DISPOSE_ON_COMPLETE | Task.Flags.NO_WRAP_TASK );<a name="line.216"></a>
 <span class="sourceLineNo">217</span>    }<a name="line.217"></a>
 <span class="sourceLineNo">218</span>  }<a name="line.218"></a>
 <span class="sourceLineNo">219</span><a name="line.219"></a>

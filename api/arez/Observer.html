@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../arez/ObservableValue.html" title="class in arez"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../arez/ObserverError.html" title="enum in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../arez/Observer.Flags.html" title="class in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../index.html?arez/Observer.html" target="_top">Frames</a></li>
@@ -72,7 +72,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -125,6 +125,25 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></span></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -204,7 +223,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.277">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.278">dispose</a>()</pre>
 <div class="block">Make the Observer INACTIVE and release any resources associated with observer.
  The applications should NOT interact with the Observer after it has been disposed.</div>
 </li>
@@ -215,7 +234,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Observer.html#line.321">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/Observer.html#line.322">isDisposed</a>()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../arez/Disposable.html#isDisposed--">Disposable</a></code></span></div>
 <div class="block">Return true if dispose() has been called on object.</div>
 <dl>
@@ -230,7 +249,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportStale</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.400">reportStale</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.401">reportStale</a>()</pre>
 <div class="block">This method should be invoked if the observer has non-arez dependencies and one of
  these dependencies has been updated. This will mark the observer as stale and reschedule
  the reaction if necessary. The method must be invoked from within a read-write transaction.
@@ -243,7 +262,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>schedule</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.550">schedule</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Observer.html#line.551">schedule</a>()</pre>
 <div class="block">Schedule this observer if it does not already have a reaction pending.
  The observer will not actually react if it is not already marked as STALE.</div>
 </li>
@@ -276,7 +295,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../arez/ObservableValue.html" title="class in arez"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../arez/ObserverError.html" title="enum in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../arez/Observer.Flags.html" title="class in arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../index.html?arez/Observer.html" target="_top">Frames</a></li>
@@ -300,7 +319,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

@@ -16,19 +16,19 @@
 <span class="sourceLineNo">008</span>  /**<a name="line.8"></a>
 <span class="sourceLineNo">009</span>   * The action can only read arez state.<a name="line.9"></a>
 <span class="sourceLineNo">010</span>   */<a name="line.10"></a>
-<span class="sourceLineNo">011</span>  public static final int READ_ONLY = Transaction.Flags.READ_ONLY;<a name="line.11"></a>
+<span class="sourceLineNo">011</span>  public static final int READ_ONLY = 1 &lt;&lt; 24;<a name="line.11"></a>
 <span class="sourceLineNo">012</span>  /**<a name="line.12"></a>
 <span class="sourceLineNo">013</span>   * The action can read or write arez state.<a name="line.13"></a>
 <span class="sourceLineNo">014</span>   */<a name="line.14"></a>
-<span class="sourceLineNo">015</span>  public static final int READ_WRITE = Transaction.Flags.READ_WRITE;<a name="line.15"></a>
+<span class="sourceLineNo">015</span>  public static final int READ_WRITE = 1 &lt;&lt; 23;<a name="line.15"></a>
 <span class="sourceLineNo">016</span>  /**<a name="line.16"></a>
 <span class="sourceLineNo">017</span>   * Do not report result to spy infrastructure.<a name="line.17"></a>
 <span class="sourceLineNo">018</span>   */<a name="line.18"></a>
-<span class="sourceLineNo">019</span>  public static final int NO_REPORT_RESULT = Flags.NO_REPORT_RESULT;<a name="line.19"></a>
+<span class="sourceLineNo">019</span>  public static final int NO_REPORT_RESULT = 1 &lt;&lt; 12;<a name="line.19"></a>
 <span class="sourceLineNo">020</span>  /**<a name="line.20"></a>
 <span class="sourceLineNo">021</span>   * The action must create a new transaction and will not use containing transaction.<a name="line.21"></a>
 <span class="sourceLineNo">022</span>   */<a name="line.22"></a>
-<span class="sourceLineNo">023</span>  public static final int REQUIRE_NEW_TRANSACTION = Flags.REQUIRE_NEW_TRANSACTION;<a name="line.23"></a>
+<span class="sourceLineNo">023</span>  public static final int REQUIRE_NEW_TRANSACTION = 1 &lt;&lt; 11;<a name="line.23"></a>
 <span class="sourceLineNo">024</span>  /**<a name="line.24"></a>
 <span class="sourceLineNo">025</span>   * If passed to an action, the the action must verify that an action performed an activity<a name="line.25"></a>
 <span class="sourceLineNo">026</span>   * that required a transaction. These activities include:<a name="line.26"></a>
@@ -43,12 +43,12 @@
 <span class="sourceLineNo">035</span>   * VERIFY_ACTION_REQUIRED nor {@link #NO_VERIFY_ACTION_REQUIRED} is specified then VERIFY_ACTION_REQUIRED<a name="line.35"></a>
 <span class="sourceLineNo">036</span>   * is assumed.&lt;/p&gt;<a name="line.36"></a>
 <span class="sourceLineNo">037</span>   */<a name="line.37"></a>
-<span class="sourceLineNo">038</span>  public static final int VERIFY_ACTION_REQUIRED = Flags.VERIFY_ACTION_REQUIRED;<a name="line.38"></a>
+<span class="sourceLineNo">038</span>  public static final int VERIFY_ACTION_REQUIRED = 1 &lt;&lt; 27;<a name="line.38"></a>
 <span class="sourceLineNo">039</span>  /**<a name="line.39"></a>
 <span class="sourceLineNo">040</span>   * This flag can be passed to skip verification that action was required.<a name="line.40"></a>
 <span class="sourceLineNo">041</span>   * This flag must not be present if {@link #VERIFY_ACTION_REQUIRED} is present.<a name="line.41"></a>
 <span class="sourceLineNo">042</span>   */<a name="line.42"></a>
-<span class="sourceLineNo">043</span>  public static final int NO_VERIFY_ACTION_REQUIRED = Flags.NO_VERIFY_ACTION_REQUIRED;<a name="line.43"></a>
+<span class="sourceLineNo">043</span>  public static final int NO_VERIFY_ACTION_REQUIRED = 1 &lt;&lt; 26;<a name="line.43"></a>
 <span class="sourceLineNo">044</span>  /**<a name="line.44"></a>
 <span class="sourceLineNo">045</span>   * Mask used to extract verify action bits.<a name="line.45"></a>
 <span class="sourceLineNo">046</span>   */<a name="line.46"></a>
@@ -56,8 +56,8 @@
 <span class="sourceLineNo">048</span>  /**<a name="line.48"></a>
 <span class="sourceLineNo">049</span>   * Mask containing flags that can be applied to an action.<a name="line.49"></a>
 <span class="sourceLineNo">050</span>   */<a name="line.50"></a>
-<span class="sourceLineNo">051</span>  static final int ACTION_FLAGS_MASK =<a name="line.51"></a>
-<span class="sourceLineNo">052</span>    Transaction.Flags.TRANSACTION_MASK | REQUIRE_NEW_TRANSACTION | VERIFY_ACTION_MASK | NO_REPORT_RESULT;<a name="line.52"></a>
+<span class="sourceLineNo">051</span>  static final int CONFIG_FLAGS_MASK =<a name="line.51"></a>
+<span class="sourceLineNo">052</span>    READ_ONLY | READ_WRITE | REQUIRE_NEW_TRANSACTION | VERIFY_ACTION_MASK | NO_REPORT_RESULT;<a name="line.52"></a>
 <span class="sourceLineNo">053</span><a name="line.53"></a>
 <span class="sourceLineNo">054</span>  private ActionFlags()<a name="line.54"></a>
 <span class="sourceLineNo">055</span>  {<a name="line.55"></a>
