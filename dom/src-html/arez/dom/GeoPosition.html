@@ -11,7 +11,7 @@
 <span class="sourceLineNo">003</span>import arez.Arez;<a name="line.3"></a>
 <span class="sourceLineNo">004</span>import arez.ArezContext;<a name="line.4"></a>
 <span class="sourceLineNo">005</span>import arez.ComputableValue;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import arez.Flags;<a name="line.6"></a>
+<span class="sourceLineNo">006</span>import arez.Task;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import arez.annotations.Action;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import arez.annotations.ArezComponent;<a name="line.8"></a>
 <span class="sourceLineNo">009</span>import arez.annotations.ComponentNameRef;<a name="line.9"></a>
@@ -194,7 +194,7 @@
 <span class="sourceLineNo">186</span>    {<a name="line.186"></a>
 <span class="sourceLineNo">187</span>      context().task( Arez.areNamesEnabled() ? componentName() + ".setLoadingStatus" : null,<a name="line.187"></a>
 <span class="sourceLineNo">188</span>                      () -&gt; setStatus( Status.LOADING ),<a name="line.188"></a>
-<span class="sourceLineNo">189</span>                      Flags.DISPOSE_ON_COMPLETE );<a name="line.189"></a>
+<span class="sourceLineNo">189</span>                      Task.Flags.DISPOSE_ON_COMPLETE );<a name="line.189"></a>
 <span class="sourceLineNo">190</span>      _watcherId = DomGlobal.navigator.geolocation.watchPosition( e -&gt; onSuccess( e.getCoords() ), this::onFailure );<a name="line.190"></a>
 <span class="sourceLineNo">191</span>    }<a name="line.191"></a>
 <span class="sourceLineNo">192</span>    _activateCount++;<a name="line.192"></a>
