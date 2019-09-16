@@ -14,6 +14,17 @@
         </image>
         <copyright>Copyright © 2019 the Arez Project</copyright>
         <item>
+            <title><![CDATA[Arez 0.145 released]]></title>
+            <link>https://arez.github.io/blog/2019/09/16/version-0.145-release.html</link>
+            <guid>https://arez.github.io/blog/2019/09/16/version-0.145-release.html</guid>
+            <pubDate>Mon, 16 Sep 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.144...v0.145)
+
+Changes in this release:
+
+* Avoid issuing a warning when the `@ComponentDependency` annotation is applied to a field with a type annotated by `@ActAsComponent` or to a method wit]]></description>
+        </item>
+        <item>
             <title><![CDATA[Arez 0.144 released]]></title>
             <link>https://arez.github.io/blog/2019/09/16/version-0.144-release.html</link>
             <guid>https://arez.github.io/blog/2019/09/16/version-0.144-release.html</guid>
