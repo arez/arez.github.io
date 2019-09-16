@@ -190,7 +190,19 @@
 <span class="sourceLineNo">182</span>   * @return enum that indicates whether the component should implement the interface {@link arez.component.Verifiable}.<a name="line.182"></a>
 <span class="sourceLineNo">183</span>   */<a name="line.183"></a>
 <span class="sourceLineNo">184</span>  Feature verify() default Feature.AUTODETECT;<a name="line.184"></a>
-<span class="sourceLineNo">185</span>}<a name="line.185"></a>
+<span class="sourceLineNo">185</span><a name="line.185"></a>
+<span class="sourceLineNo">186</span>  /**<a name="line.186"></a>
+<span class="sourceLineNo">187</span>   * Indicate whether references to the component should also be annotated with {@link CascadeDispose} or {@link ComponentDependency}.<a name="line.187"></a>
+<span class="sourceLineNo">188</span>   * This is used to ensure that when a component is disposed that any reference to the component from another<a name="line.188"></a>
+<span class="sourceLineNo">189</span>   * component is rectified. The annotation processor will warn if the above rules are violated.<a name="line.189"></a>
+<span class="sourceLineNo">190</span>   * {@link Feature#ENABLE} will tell the annotation to warn if references to component are invalid.<a name="line.190"></a>
+<span class="sourceLineNo">191</span>   * {@link Feature#DISABLE} disables the warning. {@link Feature#AUTODETECT} will enable the warning if<a name="line.191"></a>
+<span class="sourceLineNo">192</span>   * the {@link #disposeNotifier()} resolves to {@link Feature#ENABLE}.<a name="line.192"></a>
+<span class="sourceLineNo">193</span>   *<a name="line.193"></a>
+<span class="sourceLineNo">194</span>   * @return enum controlling whether a references to components should be explicitly managed.<a name="line.194"></a>
+<span class="sourceLineNo">195</span>   */<a name="line.195"></a>
+<span class="sourceLineNo">196</span>  Feature verifyReferencesToComponent() default Feature.AUTODETECT;<a name="line.196"></a>
+<span class="sourceLineNo">197</span>}<a name="line.197"></a>
 
 
 

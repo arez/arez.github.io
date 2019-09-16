@@ -224,6 +224,12 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <div class="block">Indicates whether the component should implement the interface <a href="../../arez/component/Verifiable.html" title="interface in arez.component"><code>Verifiable</code></a>.</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#verifyReferencesToComponent--">verifyReferencesToComponent</a></span></code>
+<div class="block">Indicate whether references to the component should also be annotated with <a href="../../arez/annotations/CascadeDispose.html" title="annotation in arez.annotations"><code>CascadeDispose</code></a> or <a href="../../arez/annotations/ComponentDependency.html" title="annotation in arez.annotations"><code>ComponentDependency</code></a>.</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -539,7 +545,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <li class="blockList"><a name="verify--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>verify</h4>
 <pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.184">verify</a></pre>
@@ -549,6 +555,32 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>enum that indicates whether the component should implement the interface <a href="../../arez/component/Verifiable.html" title="interface in arez.component"><code>Verifiable</code></a>.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>arez.annotations.Feature.AUTODETECT</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="verifyReferencesToComponent--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>verifyReferencesToComponent</h4>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.196">verifyReferencesToComponent</a></pre>
+<div class="block">Indicate whether references to the component should also be annotated with <a href="../../arez/annotations/CascadeDispose.html" title="annotation in arez.annotations"><code>CascadeDispose</code></a> or <a href="../../arez/annotations/ComponentDependency.html" title="annotation in arez.annotations"><code>ComponentDependency</code></a>.
+ This is used to ensure that when a component is disposed that any reference to the component from another
+ component is rectified. The annotation processor will warn if the above rules are violated.
+ <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will tell the annotation to warn if references to component are invalid.
+ <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> disables the warning. <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will enable the warning if
+ the <a href="../../arez/annotations/ArezComponent.html#disposeNotifier--"><code>disposeNotifier()</code></a> resolves to <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>enum controlling whether a references to components should be explicitly managed.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>

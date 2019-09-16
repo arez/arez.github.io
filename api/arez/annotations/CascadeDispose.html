@@ -93,9 +93,14 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>={<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#FIELD" title="class or interface in java.lang.annotation">FIELD</a>})
-public @interface <a href="../../src-html/arez/annotations/CascadeDispose.html#line.34">CascadeDispose</a></pre>
+public @interface <a href="../../src-html/arez/annotations/CascadeDispose.html#line.39">CascadeDispose</a></pre>
 <div class="block">Methods and fields annotated by this annotation should be disposed when the component is disposed.
  The dispose occurs after the <a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations"><code>PreDispose</code></a> method.
+
+ <p>It should be noted that it is preferable for the field that defines the contained component is marked
+ with this annotation rather than the method accessor. The reason is that the annotation processor
+ will issue a warning if a field that the processor identifies as a potential contained component if it is
+ not annotated with <a href="../../arez/annotations/ComponentDependency.html" title="annotation in arez.annotations"><code>ComponentDependency</code></a> or <a href="../../arez/annotations/CascadeDispose.html" title="annotation in arez.annotations"><code>CascadeDispose</code></a>.</p>
 
  <p>If the element annotated is a method then the method must comply with the additional constraints:</p>
  <ul>
