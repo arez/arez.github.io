@@ -13,7 +13,8 @@ for cleaning up the resource manually in a method annotated with <a href="/api/a
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyService</span>
 </span>{
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> MySubService _subService = MySubService.create();
+  <span class="hljs-meta">@CascadeDispose</span>
+  <span class="hljs-keyword">final</span> MySubService _subService = MySubService.create();
 
   <span class="hljs-meta">@PreDispose</span>
   <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">preDispose</span><span class="hljs-params">()</span>

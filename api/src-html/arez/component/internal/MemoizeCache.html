@@ -196,7 +196,7 @@
 <span class="sourceLineNo">188</span>  }<a name="line.188"></a>
 <span class="sourceLineNo">189</span><a name="line.189"></a>
 <span class="sourceLineNo">190</span>  @Nonnull<a name="line.190"></a>
-<span class="sourceLineNo">191</span>  final ArezContext getContext()<a name="line.191"></a>
+<span class="sourceLineNo">191</span>  private ArezContext getContext()<a name="line.191"></a>
 <span class="sourceLineNo">192</span>  {<a name="line.192"></a>
 <span class="sourceLineNo">193</span>    return Arez.areZonesEnabled() ? Objects.requireNonNull( _context ) : Arez.context();<a name="line.193"></a>
 <span class="sourceLineNo">194</span>  }<a name="line.194"></a>
@@ -289,12 +289,12 @@
 <span class="sourceLineNo">281</span>    {<a name="line.281"></a>
 <span class="sourceLineNo">282</span>      return;<a name="line.282"></a>
 <span class="sourceLineNo">283</span>    }<a name="line.283"></a>
-<span class="sourceLineNo">284</span>    final Stack&lt;Map&gt; stack = new Stack&lt;&gt;();<a name="line.284"></a>
+<span class="sourceLineNo">284</span>    final Stack&lt;Map&lt;Object,?&gt;&gt; stack = new Stack&lt;&gt;();<a name="line.284"></a>
 <span class="sourceLineNo">285</span>    stack.push( _cache );<a name="line.285"></a>
 <span class="sourceLineNo">286</span>    final int size = args.length - 1;<a name="line.286"></a>
 <span class="sourceLineNo">287</span>    for ( int i = 0; i &lt; size; i++ )<a name="line.287"></a>
 <span class="sourceLineNo">288</span>    {<a name="line.288"></a>
-<span class="sourceLineNo">289</span>      stack.push( (Map) stack.peek().get( args[ i ] ) );<a name="line.289"></a>
+<span class="sourceLineNo">289</span>      stack.push( (Map&lt;Object,?&gt;) stack.peek().get( args[ i ] ) );<a name="line.289"></a>
 <span class="sourceLineNo">290</span>    }<a name="line.290"></a>
 <span class="sourceLineNo">291</span>    final ComputableValue&lt;T&gt; computableValue = (ComputableValue&lt;T&gt;) stack.peek().remove( args[ size ] );<a name="line.291"></a>
 <span class="sourceLineNo">292</span>    if ( Arez.shouldCheckInvariants() )<a name="line.292"></a>
@@ -309,7 +309,7 @@
 <span class="sourceLineNo">301</span>                       Task.Flags.PRIORITY_HIGHEST | Task.Flags.DISPOSE_ON_COMPLETE | Task.Flags.NO_WRAP_TASK );<a name="line.301"></a>
 <span class="sourceLineNo">302</span>    while ( stack.size() &gt; 1 )<a name="line.302"></a>
 <span class="sourceLineNo">303</span>    {<a name="line.303"></a>
-<span class="sourceLineNo">304</span>      final Map map = stack.pop();<a name="line.304"></a>
+<span class="sourceLineNo">304</span>      final Map&lt;Object,?&gt; map = stack.pop();<a name="line.304"></a>
 <span class="sourceLineNo">305</span>      if ( map.isEmpty() )<a name="line.305"></a>
 <span class="sourceLineNo">306</span>      {<a name="line.306"></a>
 <span class="sourceLineNo">307</span>        stack.peek().remove( args[ stack.size() - 1 ] );<a name="line.307"></a>

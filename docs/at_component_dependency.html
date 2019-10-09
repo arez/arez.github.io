@@ -23,22 +23,22 @@ a dependency has been set to null.</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonViewModel</span>
 </span>{
+  <span class="hljs-comment">// This reference is immutable and the network replication</span>
+  <span class="hljs-comment">// layer is responsible for managing the lifecycle of person</span>
+  <span class="hljs-comment">// component and may dispose it when the Person entity is deleted</span>
+  <span class="hljs-comment">// on the server which should trigger this view model being disposed.</span>
+  <span class="hljs-meta">@ComponentDependency</span>
   <span class="hljs-meta">@Nonnull</span>
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Person _person;
+  <span class="hljs-keyword">final</span> Person _person;
   ...
 
   <span class="hljs-comment">// Let imagine there is a lot more logic and state on the view model</span>
   <span class="hljs-comment">// to justify it's existence rather than just having view layer directly</span>
   <span class="hljs-comment">// accessing underlying entities</span>
 
-  <span class="hljs-meta">@ComponentDependency</span>
   <span class="hljs-meta">@Nonnull</span>
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> Person <span class="hljs-title">getPerson</span><span class="hljs-params">()</span>
   </span>{
-    <span class="hljs-comment">// This reference is immutable and the network replication</span>
-    <span class="hljs-comment">// layer is responsible for managing the lifecycle of person</span>
-    <span class="hljs-comment">// component and may dispose it when the Person entity is deleted</span>
-    <span class="hljs-comment">// on the server which should trigger this view model being disposed.</span>
     <span class="hljs-keyword">return</span> _person;
   }
 

@@ -17,7 +17,8 @@ Australian dollars as the value changes over time. Assuming the currency is obse
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurrencyView</span>
 </span>{
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Currency bitcoin = <span class="hljs-keyword">new</span> Arez_Currency();
+  <span class="hljs-meta">@CascadeDispose</span>
+  <span class="hljs-keyword">final</span> Currency bitcoin = <span class="hljs-keyword">new</span> Arez_Currency();
 
   <span class="hljs-meta">@Observe</span>
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">renderView</span><span class="hljs-params">()</span>
@@ -42,7 +43,8 @@ could be achieved with code such as:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurrencyView</span>
 </span>{
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Currency bitcoin = <span class="hljs-keyword">new</span> Arez_Currency();
+  <span class="hljs-meta">@CascadeDispose</span>
+  <span class="hljs-keyword">final</span> Currency bitcoin = <span class="hljs-keyword">new</span> Arez_Currency();
 
   <span class="hljs-meta">@Observe</span>
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">render</span><span class="hljs-params">()</span>

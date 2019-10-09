@@ -2150,7 +2150,7 @@
 <span class="sourceLineNo">2142</span>    return _taskQueue;<a name="line.2142"></a>
 <span class="sourceLineNo">2143</span>  }<a name="line.2143"></a>
 <span class="sourceLineNo">2144</span><a name="line.2144"></a>
-<span class="sourceLineNo">2145</span>  void registerObservableValue( @Nonnull final ObservableValue observableValue )<a name="line.2145"></a>
+<span class="sourceLineNo">2145</span>  void registerObservableValue( @Nonnull final ObservableValue&lt;?&gt; observableValue )<a name="line.2145"></a>
 <span class="sourceLineNo">2146</span>  {<a name="line.2146"></a>
 <span class="sourceLineNo">2147</span>    final String name = observableValue.getName();<a name="line.2147"></a>
 <span class="sourceLineNo">2148</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2148"></a>
@@ -2166,7 +2166,7 @@
 <span class="sourceLineNo">2158</span>    _observableValues.put( name, observableValue );<a name="line.2158"></a>
 <span class="sourceLineNo">2159</span>  }<a name="line.2159"></a>
 <span class="sourceLineNo">2160</span><a name="line.2160"></a>
-<span class="sourceLineNo">2161</span>  void deregisterObservableValue( @Nonnull final ObservableValue observableValue )<a name="line.2161"></a>
+<span class="sourceLineNo">2161</span>  void deregisterObservableValue( @Nonnull final ObservableValue&lt;?&gt; observableValue )<a name="line.2161"></a>
 <span class="sourceLineNo">2162</span>  {<a name="line.2162"></a>
 <span class="sourceLineNo">2163</span>    final String name = observableValue.getName();<a name="line.2163"></a>
 <span class="sourceLineNo">2164</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2164"></a>
@@ -2238,7 +2238,7 @@
 <span class="sourceLineNo">2230</span>    return _observers;<a name="line.2230"></a>
 <span class="sourceLineNo">2231</span>  }<a name="line.2231"></a>
 <span class="sourceLineNo">2232</span><a name="line.2232"></a>
-<span class="sourceLineNo">2233</span>  void registerComputableValue( @Nonnull final ComputableValue computableValue )<a name="line.2233"></a>
+<span class="sourceLineNo">2233</span>  void registerComputableValue( @Nonnull final ComputableValue&lt;?&gt; computableValue )<a name="line.2233"></a>
 <span class="sourceLineNo">2234</span>  {<a name="line.2234"></a>
 <span class="sourceLineNo">2235</span>    final String name = computableValue.getName();<a name="line.2235"></a>
 <span class="sourceLineNo">2236</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2236"></a>
@@ -2254,7 +2254,7 @@
 <span class="sourceLineNo">2246</span>    _computableValues.put( name, computableValue );<a name="line.2246"></a>
 <span class="sourceLineNo">2247</span>  }<a name="line.2247"></a>
 <span class="sourceLineNo">2248</span><a name="line.2248"></a>
-<span class="sourceLineNo">2249</span>  void deregisterComputableValue( @Nonnull final ComputableValue computableValue )<a name="line.2249"></a>
+<span class="sourceLineNo">2249</span>  void deregisterComputableValue( @Nonnull final ComputableValue&lt;?&gt; computableValue )<a name="line.2249"></a>
 <span class="sourceLineNo">2250</span>  {<a name="line.2250"></a>
 <span class="sourceLineNo">2251</span>    final String name = computableValue.getName();<a name="line.2251"></a>
 <span class="sourceLineNo">2252</span>    if ( Arez.shouldCheckInvariants() )<a name="line.2252"></a>

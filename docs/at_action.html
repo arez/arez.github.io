@@ -16,7 +16,8 @@ action or a network response.</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Wallet</span>
 </span>{
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Currency aud = <span class="hljs-keyword">new</span> Arez_Currency();
+  <span class="hljs-meta">@CascadeDispose</span>
+  <span class="hljs-keyword">final</span> Currency aud = <span class="hljs-keyword">new</span> Arez_Currency();
 
   <span class="hljs-comment">// A read-write action that updates observable value</span>
   <span class="hljs-meta">@Action</span>
