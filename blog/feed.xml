@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Wed, 02 Oct 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 10 Oct 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,20 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.147 released]]></title>
+            <link>https://arez.github.io/blog/2019/10/10/version-0.147-release.html</link>
+            <guid>https://arez.github.io/blog/2019/10/10/version-0.147-release.html</guid>
+            <pubDate>Thu, 10 Oct 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.146...v0.147)
+[API Differences](/api-diff/?key=arez&old=0.146&new=0.147)
+
+The release includes 2 breaking API changes.
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.braincheck` art]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.146 released]]></title>
             <link>https://arez.github.io/blog/2019/10/02/version-0.146-release.html</link>
