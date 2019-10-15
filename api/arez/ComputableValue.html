@@ -116,7 +116,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public final class <a href="../src-html/arez/ComputableValue.html#line.21">ComputableValue</a>&lt;T&gt;
+<pre>public final class <a href="../src-html/arez/ComputableValue.html#line.22">ComputableValue</a>&lt;T&gt;
 extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <div class="block">The ComputableValue represents an ObservableValue derived from other ObservableValues within
  the Arez system. The value is calculated lazily. i.e. The ComputableValue will only
@@ -144,7 +144,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <th class="colLast" scope="col">Class and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>class&nbsp;</code></td>
+<td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></span></code>
 <div class="block">Flags that can configure ComputableValue instances during creation.</div>
 </td>
@@ -237,7 +237,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>get</h4>
-<pre>public&nbsp;<a href="../arez/ComputableValue.html" title="type parameter in ComputableValue">T</a>&nbsp;<a href="../src-html/arez/ComputableValue.html#line.159">get</a>()</pre>
+<pre>public&nbsp;<a href="../arez/ComputableValue.html" title="type parameter in ComputableValue">T</a>&nbsp;<a href="../src-html/arez/ComputableValue.html#line.162">get</a>()</pre>
 <div class="block">Return the computable value, calculating the value if it is not up to date.
  Before invoking this method, a transaction <b>MUST</b> be active but it may be read-only or read-write.</div>
 <dl>
@@ -252,7 +252,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportPossiblyChanged</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputableValue.html#line.223">reportPossiblyChanged</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputableValue.html#line.226">reportPossiblyChanged</a>()</pre>
 <div class="block">Invoked when a non-arez dependency of the ComputableValue has changed. The ComputableValue
  may or may not change as a result of the dependency change but Arez will recalculate
  the ComputableValue during the normal reaction cycle or when next accessed and will propagate
@@ -267,7 +267,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputableValue.html#line.253">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/ComputableValue.html#line.256">dispose</a>()</pre>
 <div class="block">Dispose the ComputableValue so that it can no longer be used.</div>
 </li>
 </ul>
@@ -277,7 +277,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ComputableValue.html#line.289">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../src-html/arez/ComputableValue.html#line.292">isDisposed</a>()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../arez/Disposable.html#isDisposed--">Disposable</a></code></span></div>
 <div class="block">Return true if dispose() has been called on object.</div>
 <dl>
@@ -292,7 +292,7 @@ extends <a href="../arez/Node.html" title="class in arez">Node</a></pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>keepAlive</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/ComputableValue.html#line.310">keepAlive</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/ComputableValue.html#line.313">keepAlive</a>()</pre>
 <div class="block">Invoke this method to ensure that the ComputableValue is activated and computing
  a value even if there are no observers. This is used when there is a chance that
  the value will be accessed multiple times, without being accessed from within a

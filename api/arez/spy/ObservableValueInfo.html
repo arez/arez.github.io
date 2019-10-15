@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public interface <a href="../../src-html/arez/spy/ObservableValueInfo.html#line.12">ObservableValueInfo</a>
+<pre>public interface <a href="../../src-html/arez/spy/ObservableValueInfo.html#line.13">ObservableValueInfo</a>
 extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">ElementInfo</a></pre>
 <div class="block">A representation of an ObservableValue instance exposed to spy framework.</div>
 </li>
@@ -200,7 +200,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>isComputableValue</h4>
-<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.20">isComputableValue</a>()</pre>
+<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.21">isComputableValue</a>()</pre>
 <div class="block">Return true if the Observable is a ComputableValue.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -214,7 +214,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>asComputableValue</h4>
-<pre><a href="../../arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a>&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.28">asComputableValue</a>()</pre>
+<pre><a href="../../arez/spy/ComputableValueInfo.html" title="interface in arez.spy">ComputableValueInfo</a>&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.29">asComputableValue</a>()</pre>
 <div class="block">Convert the Observable to a ComputableValue.
  This method should only be called if <a href="../../arez/spy/ObservableValueInfo.html#isComputableValue--"><code>isComputableValue()</code></a> returns true.</div>
 <dl>
@@ -229,7 +229,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>getObservers</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.37">getObservers</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../arez/spy/ObserverInfo.html" title="interface in arez.spy">ObserverInfo</a>&gt;&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.38">getObservers</a>()</pre>
 <div class="block">Return the list of observers for the Observable.
  The list is an immutable copy of the observers of the <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a>.</div>
 <dl>
@@ -244,7 +244,7 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>getComponent</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="../../arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a>&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.46">getComponent</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="../../arez/spy/ComponentInfo.html" title="interface in arez.spy">ComponentInfo</a>&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.47">getComponent</a>()</pre>
 <div class="block">Return the component for the Observable.
  This method should not be invoked if <a href="../../arez/Arez.html#areNativeComponentsEnabled--"><code>Arez.areNativeComponentsEnabled()</code></a> returns false.</div>
 <dl>
@@ -259,7 +259,8 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>hasAccessor</h4>
-<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.54">hasAccessor</a>()</pre>
+<pre>@OmitSymbol(unless="arez.enable_property_introspection")
+boolean&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.56">hasAccessor</a>()</pre>
 <div class="block">Return true if the specified Observable has an accessor.
  This method should not be invoked if <a href="../../arez/Arez.html#arePropertyIntrospectorsEnabled--"><code>Arez.arePropertyIntrospectorsEnabled()</code></a> returns false.</div>
 <dl>
@@ -274,8 +275,9 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>getValue</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.65">getValue</a>()
-                   throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
+<pre>@OmitSymbol(unless="arez.enable_property_introspection")
+ <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.68">getValue</a>()
+                                                                             throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
 <div class="block">Return the value of the specified Observable.
  This method should only be invoked if <a href="../../arez/Arez.html#arePropertyIntrospectorsEnabled--"><code>Arez.arePropertyIntrospectorsEnabled()</code></a> returns true
  and <a href="../../arez/spy/ObservableValueInfo.html#hasAccessor--"><code>hasAccessor()</code></a> for the same element returns true.</div>
@@ -293,7 +295,8 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockList">
 <li class="blockList">
 <h4>hasMutator</h4>
-<pre>boolean&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.74">hasMutator</a>()</pre>
+<pre>@OmitSymbol(unless="arez.enable_property_introspection")
+boolean&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.78">hasMutator</a>()</pre>
 <div class="block">Return true if the specified Observable has a mutator.
  This method should not be invoked if <a href="../../arez/Arez.html#arePropertyIntrospectorsEnabled--"><code>Arez.arePropertyIntrospectorsEnabled()</code></a> returns false.</div>
 <dl>
@@ -308,8 +311,9 @@ extends <a href="../../arez/spy/ElementInfo.html" title="interface in arez.spy">
 <ul class="blockListLast">
 <li class="blockList">
 <h4>setValue</h4>
-<pre>void&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.84">setValue</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)
-       throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
+<pre>@OmitSymbol(unless="arez.enable_property_introspection")
+void&nbsp;<a href="../../src-html/arez/spy/ObservableValueInfo.html#line.89">setValue</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)
+                                                                throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
 <div class="block">Set the value of the specified Observable.
  This method should only be invoked if <a href="../../arez/Arez.html#arePropertyIntrospectorsEnabled--"><code>Arez.arePropertyIntrospectorsEnabled()</code></a> returns true
  and <a href="../../arez/spy/ObservableValueInfo.html#hasMutator--"><code>hasMutator()</code></a> for the same element returns true.</div>

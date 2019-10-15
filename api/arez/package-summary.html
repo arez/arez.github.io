@@ -68,6 +68,8 @@
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
 <div class="header">
+<p>@OmitPattern(type="^.*\\.Arez_.*$",symbol="^toString$",unless="arez.enable_names") @OmitPattern(type="^.*(\\.|_)Arez_[^\\.]Repository$",symbol="^getRepositoryName$",unless="arez.enable_names") @OmitPattern(type="^.*(\\.|_)Arez_[^\\.]Repository$",symbol="\\$equals") @OmitPattern(type="^.*(\\.|_)Arez_[^\\.]Repository$",symbol="^\\$\\$arezi\\$\\$_id$",unless="arez.enable_native_components") @OmitPattern(type="^.*(\\.|_)Arez_[^\\.]Repository$",symbol="^\\$\\$arezi\\$\\$_nextId$",unless="arez.enable_native_components")
+</p>
 <h1 title="Package" class="title">Package&nbsp;arez</h1>
 <div class="docSummary">
 <div class="block">Core Arez primitives.</div>
@@ -178,6 +180,12 @@
 <td class="colLast">
 <div class="block">The ComputableValue represents an ObservableValue derived from other ObservableValues within
  the Arez system.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></td>
+<td class="colLast">
+<div class="block">Flags that can configure ComputableValue instances during creation.</div>
 </td>
 </tr>
 <tr class="rowColor">

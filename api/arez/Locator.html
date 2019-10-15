@@ -103,7 +103,8 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public interface <a href="../src-html/arez/Locator.html#line.10">Locator</a></pre>
+<pre>@OmitType(unless="arez.enable_references")
+public interface <a href="../src-html/arez/Locator.html#line.12">Locator</a></pre>
 <div class="block">The interface used to look up components by type and id.
  This is primarily used by components that represent entities that relate to other entities.</div>
 </li>
@@ -152,7 +153,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>findById</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> &lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/Locator.html#line.21">findById</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;type,
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> &lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/Locator.html#line.23">findById</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;type,
                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;id)</pre>
 <div class="block">Lookup the entity with the specified type and the specified id, returning null if not present.</div>
 <dl>
