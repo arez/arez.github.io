@@ -27,9 +27,7 @@ is used.</p>
 
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">performSomeAction</span><span class="hljs-params">()</span>
   </span>{
-    _repository.findAll().forEach( e -&gt; {
-      _myService.performAction( e.getValue() );
-    } );
+    _repository.findAll().forEach( e -&gt; _myService.performAction( e.getValue() ) );
   }
 }</code></pre></p>
 <p><pre><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleConsumer</span>
@@ -46,9 +44,7 @@ is used.</p>
 
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">performSomeAction</span><span class="hljs-params">()</span>
   </span>{
-    _repository.findAll().forEach( e -&gt; {
-      _myService.performAction( e.getValue() );
-    } );
+    _repository.findAll().forEach( e -&gt; _myService.performAction( e.getValue() ) );
   }
 }</code></pre></p>
 <p>In both scenarios the <code>ExampleConsumer</code> class needs to be injected with two separate dependencies; <code>MyService</code>

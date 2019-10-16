@@ -235,11 +235,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_HIGH</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.299">PRIORITY_HIGH</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.298">PRIORITY_HIGH</a></pre>
 <div class="block">High priority.
  To reduce the chance that downstream elements will react multiple times within a single
- reaction round, this priority should be used when the observer or task may trigger many
- downstream task.
+ reaction round, this priority should be used when the task may trigger many downstream tasks.
  <p>Only one of the PRIORITY_* flags should be applied to a task.</p></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -255,7 +254,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_NORMAL</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.308">PRIORITY_NORMAL</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.307">PRIORITY_NORMAL</a></pre>
 <div class="block">Normal priority if no other priority otherwise specified.
 
  <p>Only one of the PRIORITY_* flags should be applied to a task.</p></div>
@@ -273,10 +272,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_LOW</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.322">PRIORITY_LOW</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.321">PRIORITY_LOW</a></pre>
 <div class="block">Low priority.
- Usually used to schedule observers that reflect state onto non-reactive
- application components. i.e. Observers that are used to build html views,
+ Usually used to schedule tasks that reflect state onto non-reactive
+ application components. i.e. Tasks that are used to build html views,
  perform network operations etc. These reactions are often at low priority
  to avoid recalculation of dependencies (i.e. <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>s) triggering
  this reaction multiple times within a single reaction round.
@@ -296,8 +295,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_LOWEST</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.333">PRIORITY_LOWEST</a></pre>
-<div class="block">Lowest priority. Use this priority if the observer is a <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> that
+<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.332">PRIORITY_LOWEST</a></pre>
+<div class="block">Lowest priority. Use this priority if the task is a <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> that
  may be unobserved when a <a href="../arez/Task.Flags.html#PRIORITY_LOW"><code>PRIORITY_LOW</code></a> observer reacts. This is used to avoid
  recomputing state that is likely to either be unobserved or recomputed as part of
  another observers reaction.
@@ -316,7 +315,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>RUN_NOW</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.350">RUN_NOW</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.349">RUN_NOW</a></pre>
 <div class="block">The scheduler will be triggered when the task is created to immediately invoke the task.
  This should not be specified if <a href="../arez/Task.Flags.html#RUN_LATER"><code>RUN_LATER</code></a> is specified.</div>
 <dl>
@@ -331,7 +330,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>RUN_LATER</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.356">RUN_LATER</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.355">RUN_LATER</a></pre>
 <div class="block">The scheduler will not be triggered when the task is created. The application is responsible
  for ensuring thatthe  <a href="../arez/ArezContext.html#triggerScheduler--"><code>ArezContext.triggerScheduler()</code></a> method is invoked at a later time.
  This should not be specified if <a href="../arez/Task.Flags.html#RUN_NOW"><code>RUN_NOW</code></a> is specified.</div>
@@ -347,7 +346,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>NO_WRAP_TASK</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.367">NO_WRAP_TASK</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.366">NO_WRAP_TASK</a></pre>
 <div class="block">The flag that indicates that task should not be wrapped.
  The wrapping is responsible for ensuring the task never generates an exception and for generating
  the spy events. If wrapping is disabled it is expected that the caller is responsible for integrating
@@ -364,7 +363,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>DISPOSE_ON_COMPLETE</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.371">DISPOSE_ON_COMPLETE</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Task.Flags.html#line.370">DISPOSE_ON_COMPLETE</a></pre>
 <div class="block">The flag that specifies that the task should be disposed after it has completed execution.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>

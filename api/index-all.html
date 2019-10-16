@@ -232,8 +232,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#AREZ_DEPENDENCIES">AREZ_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
-<div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
- indicate dependency has changed and the observer.</div>
+<div class="block">Flag set set if the application code can not invoke the <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> method.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#AREZ_OR_EXTERNAL_DEPENDENCIES">AREZ_OR_EXTERNAL_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
@@ -242,17 +241,17 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#AREZ_OR_EXTERNAL_DEPENDENCIES">AREZ_OR_EXTERNAL_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
-<div class="block">Flag set if the application code can invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to indicate non-arez dependency has changed.</div>
+<div class="block">Flag set if the application code can invoke the <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> method to indicate that a non-arez dependency has changed.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#AREZ_OR_NO_DEPENDENCIES">AREZ_OR_NO_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
-<div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
- indicate dependency has changed.</div>
+<div class="block">Flag set set if the application code can not invoke <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
+ indicate that a dependency has changed.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#AREZ_OR_NO_DEPENDENCIES">AREZ_OR_NO_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
-<div class="block">Flag set set if the application code can not invoke <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> or <a href="arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
- indicate dependency has changed.</div>
+<div class="block">Flag set set if the application code can not invokethe  <a href="arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> method to indicate
+ that a dependency has changed.</div>
 </dd>
 <dt><a href="arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><span class="typeNameLink">ArezComponent</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
@@ -1306,7 +1305,7 @@
 <dl>
 <dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#KEEPALIVE">KEEPALIVE</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
-<div class="block">The runtime will keep the observer reacting to dependencies until disposed.</div>
+<div class="block">The runtime will keep the ComputableValue reacting to dependencies until disposed.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ComputableValue.html#keepAlive--">keepAlive()</a></span> - Method in class arez.<a href="arez/ComputableValue.html" title="class in arez">ComputableValue</a></dt>
 <dd>
@@ -1563,7 +1562,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#OBSERVE_LOWER_PRIORITY_DEPENDENCIES">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
-<div class="block">Flag indicating that the Observer is allowed to observe <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
+<div class="block">Flag indicating that the ComputableValue is allowed to observe <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/Observer.Flags.html#OBSERVE_LOWER_PRIORITY_DEPENDENCIES">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></span> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
 <dd>
@@ -1855,7 +1854,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ComputableValue.Flags.html#READ_OUTSIDE_TRANSACTION">READ_OUTSIDE_TRANSACTION</a></span> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
-<div class="block">The flag is valid on computable values.</div>
+<div class="block">Can the ComputableValue be accessed outside a transaction.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/ActionFlags.html#READ_WRITE">READ_WRITE</a></span> - Static variable in class arez.<a href="arez/ActionFlags.html" title="class in arez">ActionFlags</a></dt>
 <dd>
