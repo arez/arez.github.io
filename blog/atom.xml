@@ -9,6 +9,22 @@
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2019 the Arez Project</rights>
     <entry>
+        <title type="html"><![CDATA[Arez 0.150 released]]></title>
+        <id>https://arez.github.io/blog/2019/10/16/version-0.150-release.html</id>
+        <link href="https://arez.github.io/blog/2019/10/16/version-0.150-release.html">
+        </link>
+        <updated>2019-10-16T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.149...v0.150)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.grim` artifacts to version `0.03`.]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Arez 0.149 released]]></title>
         <id>https://arez.github.io/blog/2019/10/16/version-0.149-release.html</id>
         <link href="https://arez.github.io/blog/2019/10/16/version-0.149-release.html">
