@@ -54,20 +54,9 @@ could be achieved with code such as:</p>
   }
 
   <span class="hljs-meta">@OnDepsChange</span>
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChange</span><span class="hljs-params">()</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChange</span><span class="hljs-params">( @Nonnull <span class="hljs-keyword">final</span> Observer observer )</span>
   </span>{
-    debounce( <span class="hljs-keyword">this</span>::scheduleRender, <span class="hljs-number">2000</span> );
-  }
-
-  <span class="hljs-meta">@ObserverRef</span>
-  <span class="hljs-function"><span class="hljs-keyword">abstract</span> Observer <span class="hljs-title">getRenderObserver</span><span class="hljs-params">()</span></span>;
-
-  <span class="hljs-meta">@Action</span>( verifyRequired = <span class="hljs-keyword">false</span> )
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">scheduleRender</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-comment">// Actually schedule the re-render. Has to occur within</span>
-    <span class="hljs-comment">// an action or inside a read-write transaction</span>
-    getRenderObserver().schedule();
+    debounce( observer::schedule, <span class="hljs-number">2000</span> );
   }
 
   <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">debounce</span><span class="hljs-params">( @Nonnull <span class="hljs-keyword">final</span> SafeProcedure action, <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> timeInMillis )</span>
@@ -97,7 +86,6 @@ external schedulers. An example that demonstrates something similar is:</p>
     ...
   }
 
-  <span class="hljs-meta">@OnDepsChange</span>
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRenderDepsChange</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-comment">// Schedule this component</span>
