@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,33 +136,27 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;T&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/CollectionsUtil.html#asSet-java.util.stream.Stream-">asSet</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;T&gt;&nbsp;stream)</code>
-<div class="block">Convert specified stream to a set, wrapping as an unmodifiable set if required.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/CollectionsUtil.html#wrap-java.util.Collection-">wrap</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;T&gt;&nbsp;collection)</code>
 <div class="block">Wrap specified parameter with unmodifiable variant if and only if <a href="../../arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
  returns true, otherwise return the supplied list.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/CollectionsUtil.html#wrap-java.util.List-">wrap</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;&nbsp;list)</code>
 <div class="block">Wrap specified list with unmodifiable list if and only if <a href="../../arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
  returns true, otherwise return the supplied list.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static &lt;K,V&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;K,V&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/CollectionsUtil.html#wrap-java.util.Map-">wrap</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;K,V&gt;&nbsp;map)</code>
 <div class="block">Wrap specified parameter with unmodifiable map if and only if <a href="../../arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
  returns true, otherwise return the supplied map.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/CollectionsUtil.html#wrap-java.util.Set-">wrap</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;T&gt;&nbsp;set)</code>
 <div class="block">Wrap specified parameter with unmodifiable set if and only if <a href="../../arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
@@ -272,32 +266,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </dl>
 </li>
 </ul>
-<a name="asSet-java.util.stream.Stream-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>asSet</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public static&nbsp;&lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;T&gt;&nbsp;<a href="../../src-html/arez/component/CollectionsUtil.html#line.94">asSet</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;T&gt;&nbsp;stream)</pre>
-<div class="block">Convert specified stream to a set, wrapping as an unmodifiable set if required.
- This method should be called by repository extensions when returning set results.</div>
-<dl>
-<dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - the type of elements in stream.</dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>stream</code> - the input stream.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the output set</dd>
-</dl>
-</li>
-</ul>
 <a name="asList-java.util.stream.Stream-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>asList</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public static&nbsp;&lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;&nbsp;<a href="../../src-html/arez/component/CollectionsUtil.html#line.108">asList</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;T&gt;&nbsp;stream)</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public static&nbsp;&lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;&nbsp;<a href="../../src-html/arez/component/CollectionsUtil.html#line.94">asList</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;T&gt;&nbsp;stream)</pre>
 <div class="block">Convert specified stream to a list, wrapping as an unmodifiable list if required.
  This method should be called by repository extensions when returning list results.</div>
 <dl>
