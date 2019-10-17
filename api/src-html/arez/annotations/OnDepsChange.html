@@ -22,26 +22,30 @@
 <span class="sourceLineNo">014</span> * &lt;li&gt;Must not be private&lt;/li&gt;<a name="line.14"></a>
 <span class="sourceLineNo">015</span> * &lt;li&gt;Must not be static&lt;/li&gt;<a name="line.15"></a>
 <span class="sourceLineNo">016</span> * &lt;li&gt;Must not be abstract&lt;/li&gt;<a name="line.16"></a>
-<span class="sourceLineNo">017</span> * &lt;li&gt;Must have no parameters&lt;/li&gt;<a name="line.17"></a>
+<span class="sourceLineNo">017</span> * &lt;li&gt;Must have either no parameters or a single parameter of type {@link arez.Observer}&lt;/li&gt;<a name="line.17"></a>
 <span class="sourceLineNo">018</span> * &lt;li&gt;Must not return a value&lt;/li&gt;<a name="line.18"></a>
 <span class="sourceLineNo">019</span> * &lt;li&gt;Must not throw an exception&lt;/li&gt;<a name="line.19"></a>
 <span class="sourceLineNo">020</span> * &lt;/ul&gt;<a name="line.20"></a>
-<span class="sourceLineNo">021</span> */<a name="line.21"></a>
-<span class="sourceLineNo">022</span>@Documented<a name="line.22"></a>
-<span class="sourceLineNo">023</span>@Target( ElementType.METHOD )<a name="line.23"></a>
-<span class="sourceLineNo">024</span>public @interface OnDepsChange<a name="line.24"></a>
-<span class="sourceLineNo">025</span>{<a name="line.25"></a>
-<span class="sourceLineNo">026</span>  /**<a name="line.26"></a>
-<span class="sourceLineNo">027</span>   * Return the name of the paired Tracked relative to the component.<a name="line.27"></a>
-<span class="sourceLineNo">028</span>   * The value must conform to the requirements of a java identifier.<a name="line.28"></a>
-<span class="sourceLineNo">029</span>   * The name need not be specified. If the {@link Observe} annotated method is<a name="line.29"></a>
-<span class="sourceLineNo">030</span>   * named "render" then this will default to being named "onRenderDepsChange".<a name="line.30"></a>
-<span class="sourceLineNo">031</span>   *<a name="line.31"></a>
-<span class="sourceLineNo">032</span>   * @return the name of the paired {@link Observe} annotated method relative to the component.<a name="line.32"></a>
-<span class="sourceLineNo">033</span>   */<a name="line.33"></a>
-<span class="sourceLineNo">034</span>  @Nonnull<a name="line.34"></a>
-<span class="sourceLineNo">035</span>  String name() default "&lt;default&gt;";<a name="line.35"></a>
-<span class="sourceLineNo">036</span>}<a name="line.36"></a>
+<span class="sourceLineNo">021</span> *<a name="line.21"></a>
+<span class="sourceLineNo">022</span> * &lt;p&gt;If the annotated method has a parameter of type {@link arez.Observer} then the underlying {@link arez.Observer}<a name="line.22"></a>
+<span class="sourceLineNo">023</span> * instance associated with the {@link Observe}/{@link OnDepsChange} annotated method is passed to the method when<a name="line.23"></a>
+<span class="sourceLineNo">024</span> * dependencies change. This is extremely useful when implementing asynchronous callbacks.&lt;/p&gt;<a name="line.24"></a>
+<span class="sourceLineNo">025</span> */<a name="line.25"></a>
+<span class="sourceLineNo">026</span>@Documented<a name="line.26"></a>
+<span class="sourceLineNo">027</span>@Target( ElementType.METHOD )<a name="line.27"></a>
+<span class="sourceLineNo">028</span>public @interface OnDepsChange<a name="line.28"></a>
+<span class="sourceLineNo">029</span>{<a name="line.29"></a>
+<span class="sourceLineNo">030</span>  /**<a name="line.30"></a>
+<span class="sourceLineNo">031</span>   * Return the name of the paired Tracked relative to the component.<a name="line.31"></a>
+<span class="sourceLineNo">032</span>   * The value must conform to the requirements of a java identifier.<a name="line.32"></a>
+<span class="sourceLineNo">033</span>   * The name need not be specified. If the {@link Observe} annotated method is<a name="line.33"></a>
+<span class="sourceLineNo">034</span>   * named "render" then this will default to being named "onRenderDepsChange".<a name="line.34"></a>
+<span class="sourceLineNo">035</span>   *<a name="line.35"></a>
+<span class="sourceLineNo">036</span>   * @return the name of the paired {@link Observe} annotated method relative to the component.<a name="line.36"></a>
+<span class="sourceLineNo">037</span>   */<a name="line.37"></a>
+<span class="sourceLineNo">038</span>  @Nonnull<a name="line.38"></a>
+<span class="sourceLineNo">039</span>  String name() default "&lt;default&gt;";<a name="line.39"></a>
+<span class="sourceLineNo">040</span>}<a name="line.40"></a>
 
 
 
