@@ -93,13 +93,11 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/ComponentNameRef.html#line.36">ComponentNameRef</a></pre>
-<div class="block">Annotate the method that will be overridden to provider the debug name for the Arez component.
+public @interface <a href="../../src-html/arez/annotations/ComponentNameRef.html#line.34">ComponentNameRef</a></pre>
+<div class="block">Annotate the method that will be overridden to provide the "name" of the Arez component.
  This is useful when the user wants to manually create Arez elements (i.e. <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> instances,
  <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a> instances or <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances etc) and wants to use the same naming
- convention as the generated Arez subclass. If not specified Arez will generate a private method (currently named
- <tt>$$arez$$_name()</tt>) that serves the same purpose. The method returns a string name for the model if names
- are enabled.
+ convention as the generated Arez subclass.
 
  <p>This annotation should appear at most once on a component. The
  annotation should be on a method that accepts no parameters and returns
