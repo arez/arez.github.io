@@ -61,45 +61,17 @@ be automatically annotated with the <code>@javax.inject.Singleton</code> scope a
 is present.</p>
 <p>This would be sufficient if the consumer code always consumed the enhanced classes but as this is rarely the
 case, each injection framework has mechanisms that allow the framework to supply an instance of the enhanced
-sub-class when the base class is requested. The way this is done is framework specific and is covered in the
-following sections.</p>
-<h2><a class="anchor" aria-hidden="true" name="gin"></a><a href="#gin" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GIN</h2>
-<p><a href="https://code.google.com/archive/p/google-gin/">GIN</a> is a extension of Guice 3.0 that runs under GWT. The root
-objects in the object graph are accessed via a <code>Ginjector</code> and the injection rules can be customized by
-supplying <code>GinModule</code> classes to the <code>Ginjector</code>. A <code>GinModule</code> that would expose the base classes in the
-injection the framework is as simple as:</p>
-<p><pre><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleGinModule</span>
-  <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractGinModule</span>
-</span>{
-  <span class="hljs-meta">@Override</span>
-  <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">()</span>
-  </span>{
-    bind( MyService<span class="hljs-class">.<span class="hljs-keyword">class</span> ).<span class="hljs-title">to</span>( <span class="hljs-title">Arez_MyService</span>.<span class="hljs-title">class</span> ).<span class="hljs-title">asEagerSingleton</span>()</span>;
-    bind( MyEntityRepository<span class="hljs-class">.<span class="hljs-keyword">class</span> ).<span class="hljs-title">to</span>( <span class="hljs-title">Arez_MyEntityRepository</span>.<span class="hljs-title">class</span> ).<span class="hljs-title">asEagerSingleton</span>()</span>;
-  }
-}</code></pre></p>
-<p>Which could be linked up to a <code>Ginjector</code> like:</p>
-<p><pre><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ExampleGinjector</span>
-  <span class="hljs-keyword">extends</span> <span class="hljs-title">Ginjector</span>
-</span>{
-  <span class="hljs-function">ExampleConsumer <span class="hljs-title">getExampleConsumer</span><span class="hljs-params">()</span></span>;
-}</code></pre></p>
-<p>And used in code like:</p>
-<p><pre><code class="hljs"><span class="hljs-keyword">final</span> ExampleGinjector injector = GWT.create( ExampleGinjector<span class="hljs-class">.<span class="hljs-keyword">class</span> )</span>;
-injector.getExampleConsumer().performSomeAction();</code></pre></p>
-<p>Gin was the injection framework of choice for GWT applications for a very long time and thus is present in
-many existing GWT applications. However it is no longer under active development, has problems in modern
-JVMs and is unlikely to be supported in GWT3.x so it's use is not recommended for modern GWT applications.</p>
+sub-class when the base class is requested. The way this is done is framework specific and Dagger integration
+is covered in the following section.</p>
 <h2><a class="anchor" aria-hidden="true" name="dagger2"></a><a href="#dagger2" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dagger2</h2>
 <p><a href="https://google.github.io/dagger">Dagger2</a> is a modern take on a dependency injection framework that uses annotation
 processors and statically checks the object graph at compilation time. The root objects in the graph are accessed via
 a component which is an interface annotated by the <code>@dagger.Component</code> annotation. The injection rules are customized
 via <code>@dagger.Module</code> annotated classes.</p>
-<p>Arez has greater support for the dagger injection framework than GIN. The <a href="/api/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a>
-and <a href="/api/arez/annotations/Repository.html"><code>@Repository</code></a> annotations have a <code>dagger</code> parameter that controls whether the Arez
-annotation processor generates dagger modules.</p>
-<p>If the value of the <code>dagger</code> parameter is <code>ENABLE</code> or <code>AUTODETECT</code> and the <code>dagger.Component</code> class is on the
-classpath then a module will be generated for each base component and base repository that looks like:</p>
+<p>The <a href="/api/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a> and <a href="/api/arez/annotations/Repository.html"><code>@Repository</code></a> annotations have a <code>dagger</code>
+parameter that controls whether the Arez annotation processor generates dagger modules. If the value of the
+<code>dagger</code> parameter is <code>ENABLE</code> or <code>AUTODETECT</code> and the <code>dagger.Component</code> class is on the classpath then a
+module will be generated for each base component and base repository that looks like:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@Generated</span>(<span class="hljs-string">"arez.processor.ArezProcessor"</span>)
 <span class="hljs-meta">@Module</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">MyServiceDaggerModule</span> </span>{
