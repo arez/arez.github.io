@@ -50,9 +50,9 @@ reference such as:</p>
 <span class="hljs-keyword">final</span> UserRepository userRepository = UserRepository.newRepository();
 
 <span class="hljs-keyword">final</span> TypeBasedLocator locator = <span class="hljs-keyword">new</span> TypeBasedLocator();
-locator.registerLookup( Group.class, id -&gt; groupRepository.findById( (Integer) id ) );
-locator.registerLookup( Permission.class, id -&gt; permissionRepository.findById( (Integer) id ) );
-locator.registerLookup( User.class, id -&gt; userRepository.findById( (Integer) id ) );
+locator.registerLookup( Group<span class="hljs-class">.<span class="hljs-keyword">class</span>, <span class="hljs-title">id</span> -&gt; <span class="hljs-title">groupRepository</span>.<span class="hljs-title">findById</span>( (<span class="hljs-title">Integer</span>) <span class="hljs-title">id</span> ) )</span>;
+locator.registerLookup( Permission<span class="hljs-class">.<span class="hljs-keyword">class</span>, <span class="hljs-title">id</span> -&gt; <span class="hljs-title">permissionRepository</span>.<span class="hljs-title">findById</span>( (<span class="hljs-title">Integer</span>) <span class="hljs-title">id</span> ) )</span>;
+locator.registerLookup( User<span class="hljs-class">.<span class="hljs-keyword">class</span>, <span class="hljs-title">id</span> -&gt; <span class="hljs-title">userRepository</span>.<span class="hljs-title">findById</span>( (<span class="hljs-title">Integer</span>) <span class="hljs-title">id</span> ) )</span>;
 
 Arez.context().registerLocator( locator );</code></pre></p>
 <p>The point at which a reference will be resolved or looked up in the <a href="/api/arez/Locator.html"><code>Locator</code></a> depends upon the value

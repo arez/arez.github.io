@@ -74,8 +74,8 @@ injection the framework is as simple as:</p>
   <span class="hljs-meta">@Override</span>
   <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">()</span>
   </span>{
-    bind( MyService.class ).to( Arez_MyService.class ).asEagerSingleton();
-    bind( MyEntityRepository.class ).to( Arez_MyEntityRepository.class ).asEagerSingleton();
+    bind( MyService<span class="hljs-class">.<span class="hljs-keyword">class</span> ).<span class="hljs-title">to</span>( <span class="hljs-title">Arez_MyService</span>.<span class="hljs-title">class</span> ).<span class="hljs-title">asEagerSingleton</span>()</span>;
+    bind( MyEntityRepository<span class="hljs-class">.<span class="hljs-keyword">class</span> ).<span class="hljs-title">to</span>( <span class="hljs-title">Arez_MyEntityRepository</span>.<span class="hljs-title">class</span> ).<span class="hljs-title">asEagerSingleton</span>()</span>;
   }
 }</code></pre></p>
 <p>Which could be linked up to a <code>Ginjector</code> like:</p>
@@ -85,7 +85,7 @@ injection the framework is as simple as:</p>
   <span class="hljs-function">ExampleConsumer <span class="hljs-title">getExampleConsumer</span><span class="hljs-params">()</span></span>;
 }</code></pre></p>
 <p>And used in code like:</p>
-<p><pre><code class="hljs"><span class="hljs-keyword">final</span> ExampleGinjector injector = GWT.create( ExampleGinjector.class );
+<p><pre><code class="hljs"><span class="hljs-keyword">final</span> ExampleGinjector injector = GWT.create( ExampleGinjector<span class="hljs-class">.<span class="hljs-keyword">class</span> )</span>;
 injector.getExampleConsumer().performSomeAction();</code></pre></p>
 <p>Gin was the injection framework of choice for GWT applications for a very long time and thus is present in
 many existing GWT applications. However it is no longer under active development, has problems in modern
@@ -109,8 +109,8 @@ classpath then a module will be generated for each base component and base repos
 }</code></pre></p>
 <p>These can be incorporated into a dagger component like:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@Singleton</span>
-<span class="hljs-meta">@Component</span>( modules = { MyServiceDaggerModule.class, MyEntityRepositoryDaggerModule.class } )
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ExampleDaggerComponent</span>
+<span class="hljs-meta">@Component</span>( modules = { MyServiceDaggerModule<span class="hljs-class">.<span class="hljs-keyword">class</span>, <span class="hljs-title">MyEntityRepositoryDaggerModule</span>.<span class="hljs-title">class</span> } )
+<span class="hljs-title">public</span> <span class="hljs-title">interface</span> <span class="hljs-title">ExampleDaggerComponent</span>
 </span>{
   <span class="hljs-function">ExampleConsumer <span class="hljs-title">getExampleConsumer</span><span class="hljs-params">()</span></span>;
 }</code></pre></p>
