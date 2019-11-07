@@ -429,436 +429,435 @@
 <span class="sourceLineNo">421</span>                               scopeAnnotation,<a name="line.421"></a>
 <span class="sourceLineNo">422</span>                               deferSchedule,<a name="line.422"></a>
 <span class="sourceLineNo">423</span>                               generateToString,<a name="line.423"></a>
-<span class="sourceLineNo">424</span>                               packageElement,<a name="line.424"></a>
-<span class="sourceLineNo">425</span>                               typeElement );<a name="line.425"></a>
-<span class="sourceLineNo">426</span><a name="line.426"></a>
-<span class="sourceLineNo">427</span>    descriptor.analyzeCandidateMethods( methods, processingEnv.getTypeUtils() );<a name="line.427"></a>
-<span class="sourceLineNo">428</span>    descriptor.validate();<a name="line.428"></a>
-<span class="sourceLineNo">429</span><a name="line.429"></a>
-<span class="sourceLineNo">430</span>    for ( final ObservableDescriptor observable : descriptor.getObservables() )<a name="line.430"></a>
-<span class="sourceLineNo">431</span>    {<a name="line.431"></a>
-<span class="sourceLineNo">432</span>      if ( observable.expectSetter() )<a name="line.432"></a>
-<span class="sourceLineNo">433</span>      {<a name="line.433"></a>
-<span class="sourceLineNo">434</span>        final TypeMirror returnType = observable.getGetterType().getReturnType();<a name="line.434"></a>
-<span class="sourceLineNo">435</span>        final TypeMirror parameterType = observable.getSetterType().getParameterTypes().get( 0 );<a name="line.435"></a>
-<span class="sourceLineNo">436</span>        if ( !processingEnv.getTypeUtils().isSameType( parameterType, returnType ) &amp;&amp;<a name="line.436"></a>
-<span class="sourceLineNo">437</span>             !parameterType.toString().equals( returnType.toString() ) )<a name="line.437"></a>
-<span class="sourceLineNo">438</span>        {<a name="line.438"></a>
-<span class="sourceLineNo">439</span>          throw new ArezProcessorException( "@Observable property defines a setter and getter with different types." +<a name="line.439"></a>
-<span class="sourceLineNo">440</span>                                            " Getter type: " + returnType + " Setter type: " + parameterType + ".",<a name="line.440"></a>
-<span class="sourceLineNo">441</span>                                            observable.getGetter() );<a name="line.441"></a>
-<span class="sourceLineNo">442</span>        }<a name="line.442"></a>
-<span class="sourceLineNo">443</span>      }<a name="line.443"></a>
-<span class="sourceLineNo">444</span>    }<a name="line.444"></a>
-<span class="sourceLineNo">445</span><a name="line.445"></a>
-<span class="sourceLineNo">446</span>    final AnnotationMirror repository =<a name="line.446"></a>
-<span class="sourceLineNo">447</span>      ProcessorUtil.findAnnotationByType( typeElement, Constants.REPOSITORY_ANNOTATION_CLASSNAME );<a name="line.447"></a>
-<span class="sourceLineNo">448</span>    if ( null != repository )<a name="line.448"></a>
-<span class="sourceLineNo">449</span>    {<a name="line.449"></a>
-<span class="sourceLineNo">450</span>      final List&lt;TypeElement&gt; extensions =<a name="line.450"></a>
-<span class="sourceLineNo">451</span>        ProcessorUtil.getTypeMirrorsAnnotationParameter( typeElement,<a name="line.451"></a>
-<span class="sourceLineNo">452</span>                                                         Constants.REPOSITORY_ANNOTATION_CLASSNAME,<a name="line.452"></a>
-<span class="sourceLineNo">453</span>                                                         "extensions" ).stream().<a name="line.453"></a>
-<span class="sourceLineNo">454</span>          map( typeMirror -&gt; (TypeElement) processingEnv.getTypeUtils().asElement( typeMirror ) ).<a name="line.454"></a>
-<span class="sourceLineNo">455</span>          collect( Collectors.toList() );<a name="line.455"></a>
-<span class="sourceLineNo">456</span>      final String name = getAnnotationParameter( repository, "name" );<a name="line.456"></a>
-<span class="sourceLineNo">457</span>      final String repositoryInjectConfig = getRepositoryInjectMode( repository );<a name="line.457"></a>
-<span class="sourceLineNo">458</span>      final String repositoryDaggerConfig = getRepositoryDaggerConfig( repository );<a name="line.458"></a>
-<span class="sourceLineNo">459</span>      descriptor.configureRepository( name, extensions, repositoryInjectConfig, repositoryDaggerConfig );<a name="line.459"></a>
-<span class="sourceLineNo">460</span>    }<a name="line.460"></a>
-<span class="sourceLineNo">461</span>    if ( !observableFlag &amp;&amp; descriptor.hasRepository() )<a name="line.461"></a>
-<span class="sourceLineNo">462</span>    {<a name="line.462"></a>
-<span class="sourceLineNo">463</span>      throw new ArezProcessorException( "@ArezComponent target has specified observable = DISABLE and " +<a name="line.463"></a>
-<span class="sourceLineNo">464</span>                                        "but is also annotated with the @Repository annotation which requires " +<a name="line.464"></a>
-<span class="sourceLineNo">465</span>                                        "that the observable != DISABLE.", typeElement );<a name="line.465"></a>
-<span class="sourceLineNo">466</span>    }<a name="line.466"></a>
-<span class="sourceLineNo">467</span>    if ( descriptor.hasRepository() &amp;&amp;<a name="line.467"></a>
-<span class="sourceLineNo">468</span>         ProcessorUtil.hasAnnotationOfType( typeElement, Constants.SINGLETON_ANNOTATION_CLASSNAME ) )<a name="line.468"></a>
-<span class="sourceLineNo">469</span>    {<a name="line.469"></a>
-<span class="sourceLineNo">470</span>      throw new ArezProcessorException( "@ArezComponent target is annotated with both the " +<a name="line.470"></a>
-<span class="sourceLineNo">471</span>                                        "@arez.annotations.Repository annotation and the " +<a name="line.471"></a>
-<span class="sourceLineNo">472</span>                                        "javax.inject.Singleton annotation which is an invalid " +<a name="line.472"></a>
-<span class="sourceLineNo">473</span>                                        "combination.", typeElement );<a name="line.473"></a>
-<span class="sourceLineNo">474</span>    }<a name="line.474"></a>
-<span class="sourceLineNo">475</span>    if ( !descriptor.isDisposeNotifier() &amp;&amp; descriptor.hasRepository() )<a name="line.475"></a>
-<span class="sourceLineNo">476</span>    {<a name="line.476"></a>
-<span class="sourceLineNo">477</span>      throw new ArezProcessorException( "@ArezComponent target has specified the disposeNotifier = DISABLE " +<a name="line.477"></a>
-<span class="sourceLineNo">478</span>                                        "annotation parameter but is also annotated with @Repository that " +<a name="line.478"></a>
-<span class="sourceLineNo">479</span>                                        "requires disposeNotifier = ENABLE.", typeElement );<a name="line.479"></a>
-<span class="sourceLineNo">480</span>    }<a name="line.480"></a>
-<span class="sourceLineNo">481</span><a name="line.481"></a>
-<span class="sourceLineNo">482</span>    final boolean idRequired = isIdRequired( descriptor, arezComponent );<a name="line.482"></a>
-<span class="sourceLineNo">483</span>    descriptor.setIdRequired( idRequired );<a name="line.483"></a>
-<span class="sourceLineNo">484</span>    if ( !idRequired )<a name="line.484"></a>
-<span class="sourceLineNo">485</span>    {<a name="line.485"></a>
-<span class="sourceLineNo">486</span>      if ( descriptor.hasRepository() )<a name="line.486"></a>
-<span class="sourceLineNo">487</span>      {<a name="line.487"></a>
-<span class="sourceLineNo">488</span>        throw new ArezProcessorException( "@ArezComponent target has specified the idRequired = DISABLE " +<a name="line.488"></a>
-<span class="sourceLineNo">489</span>                                          "annotation parameter but is also annotated with @Repository that " +<a name="line.489"></a>
-<span class="sourceLineNo">490</span>                                          "requires idRequired = ENABLE.", typeElement );<a name="line.490"></a>
-<span class="sourceLineNo">491</span>      }<a name="line.491"></a>
-<span class="sourceLineNo">492</span>      if ( descriptor.hasComponentIdMethod() )<a name="line.492"></a>
-<span class="sourceLineNo">493</span>      {<a name="line.493"></a>
-<span class="sourceLineNo">494</span>        throw new ArezProcessorException( "@ArezComponent target has specified the idRequired = DISABLE " +<a name="line.494"></a>
-<span class="sourceLineNo">495</span>                                          "annotation parameter but also has annotated a method with @ComponentId " +<a name="line.495"></a>
-<span class="sourceLineNo">496</span>                                          "that requires idRequired = ENABLE.", typeElement );<a name="line.496"></a>
-<span class="sourceLineNo">497</span>      }<a name="line.497"></a>
-<span class="sourceLineNo">498</span>      if ( descriptor.hasComponentIdRefMethod() )<a name="line.498"></a>
-<span class="sourceLineNo">499</span>      {<a name="line.499"></a>
-<span class="sourceLineNo">500</span>        throw new ArezProcessorException( "@ArezComponent target has specified the idRequired = DISABLE " +<a name="line.500"></a>
-<span class="sourceLineNo">501</span>                                          "annotation parameter but also has annotated a method with @ComponentIdRef " +<a name="line.501"></a>
-<span class="sourceLineNo">502</span>                                          "that requires idRequired = ENABLE.", typeElement );<a name="line.502"></a>
-<span class="sourceLineNo">503</span>      }<a name="line.503"></a>
-<span class="sourceLineNo">504</span>    }<a name="line.504"></a>
-<span class="sourceLineNo">505</span><a name="line.505"></a>
-<span class="sourceLineNo">506</span>    warnOnUnmanagedComponentReferences( descriptor, fields );<a name="line.506"></a>
-<span class="sourceLineNo">507</span><a name="line.507"></a>
-<span class="sourceLineNo">508</span>    return descriptor;<a name="line.508"></a>
-<span class="sourceLineNo">509</span>  }<a name="line.509"></a>
-<span class="sourceLineNo">510</span><a name="line.510"></a>
-<span class="sourceLineNo">511</span>  private void ensureNoFieldInjections( @Nonnull final List&lt;VariableElement&gt; fields )<a name="line.511"></a>
-<span class="sourceLineNo">512</span>  {<a name="line.512"></a>
-<span class="sourceLineNo">513</span>    for ( final VariableElement field : fields )<a name="line.513"></a>
-<span class="sourceLineNo">514</span>    {<a name="line.514"></a>
-<span class="sourceLineNo">515</span>      if ( hasInjectAnnotation( field ) )<a name="line.515"></a>
-<span class="sourceLineNo">516</span>      {<a name="line.516"></a>
-<span class="sourceLineNo">517</span>        throw new ArezProcessorException( "@Inject is not supported on fields in an Arez component. " +<a name="line.517"></a>
-<span class="sourceLineNo">518</span>                                          "Use constructor injection instead.", field );<a name="line.518"></a>
-<span class="sourceLineNo">519</span>      }<a name="line.519"></a>
-<span class="sourceLineNo">520</span>    }<a name="line.520"></a>
-<span class="sourceLineNo">521</span>  }<a name="line.521"></a>
-<span class="sourceLineNo">522</span><a name="line.522"></a>
-<span class="sourceLineNo">523</span>  private void ensureNoMethodInjections( @Nonnull final TypeElement typeElement )<a name="line.523"></a>
-<span class="sourceLineNo">524</span>  {<a name="line.524"></a>
-<span class="sourceLineNo">525</span>    ProcessorUtil.getMethods( typeElement, processingEnv.getElementUtils(), processingEnv.getTypeUtils() )<a name="line.525"></a>
-<span class="sourceLineNo">526</span>      .stream()<a name="line.526"></a>
-<span class="sourceLineNo">527</span>      .filter( this::hasInjectAnnotation )<a name="line.527"></a>
-<span class="sourceLineNo">528</span>      .forEach( method -&gt;<a name="line.528"></a>
-<span class="sourceLineNo">529</span>                {<a name="line.529"></a>
-<span class="sourceLineNo">530</span>                  throw new ArezProcessorException( "@Inject is not supported on methods in an Arez component. " +<a name="line.530"></a>
-<span class="sourceLineNo">531</span>                                                    "Use constructor injection instead.", method );<a name="line.531"></a>
-<span class="sourceLineNo">532</span><a name="line.532"></a>
-<span class="sourceLineNo">533</span>                } );<a name="line.533"></a>
-<span class="sourceLineNo">534</span>  }<a name="line.534"></a>
-<span class="sourceLineNo">535</span><a name="line.535"></a>
-<span class="sourceLineNo">536</span>  private void warnOnUnmanagedComponentReferences( @Nonnull final ComponentDescriptor descriptor,<a name="line.536"></a>
-<span class="sourceLineNo">537</span>                                                   @Nonnull final List&lt;VariableElement&gt; fields )<a name="line.537"></a>
-<span class="sourceLineNo">538</span>  {<a name="line.538"></a>
-<span class="sourceLineNo">539</span>    final TypeElement disposeNotifier =<a name="line.539"></a>
-<span class="sourceLineNo">540</span>      processingEnv.getElementUtils().getTypeElement( Constants.DISPOSE_NOTIFIER_CLASSNAME );<a name="line.540"></a>
-<span class="sourceLineNo">541</span>    assert null != disposeNotifier;<a name="line.541"></a>
-<span class="sourceLineNo">542</span><a name="line.542"></a>
-<span class="sourceLineNo">543</span>    for ( final VariableElement field : fields )<a name="line.543"></a>
-<span class="sourceLineNo">544</span>    {<a name="line.544"></a>
-<span class="sourceLineNo">545</span>      if ( !field.getModifiers().contains( Modifier.STATIC ) &amp;&amp; SuperficialValidation.validateElement( field ) )<a name="line.545"></a>
-<span class="sourceLineNo">546</span>      {<a name="line.546"></a>
-<span class="sourceLineNo">547</span>        final boolean isDisposeNotifier =<a name="line.547"></a>
-<span class="sourceLineNo">548</span>          processingEnv.getTypeUtils().isAssignable( field.asType(), disposeNotifier.asType() );<a name="line.548"></a>
-<span class="sourceLineNo">549</span>        final boolean isTypeAnnotatedByComponentAnnotation =<a name="line.549"></a>
-<span class="sourceLineNo">550</span>          !isDisposeNotifier &amp;&amp; isTypeAnnotatedByComponentAnnotation( field );<a name="line.550"></a>
-<span class="sourceLineNo">551</span>        final boolean isTypeAnnotatedActAsComponent =<a name="line.551"></a>
-<span class="sourceLineNo">552</span>          !isDisposeNotifier &amp;&amp;<a name="line.552"></a>
-<span class="sourceLineNo">553</span>          !isTypeAnnotatedByComponentAnnotation &amp;&amp;<a name="line.553"></a>
-<span class="sourceLineNo">554</span>          isTypeAnnotatedByActAsComponentAnnotation( field );<a name="line.554"></a>
-<span class="sourceLineNo">555</span>        if ( isDisposeNotifier || isTypeAnnotatedByComponentAnnotation || isTypeAnnotatedActAsComponent )<a name="line.555"></a>
-<span class="sourceLineNo">556</span>        {<a name="line.556"></a>
-<span class="sourceLineNo">557</span>          if ( !descriptor.isDependencyDefined( field ) &amp;&amp;<a name="line.557"></a>
-<span class="sourceLineNo">558</span>               !descriptor.isCascadeDisposeDefined( field ) &amp;&amp;<a name="line.558"></a>
-<span class="sourceLineNo">559</span>               ( isDisposeNotifier || isTypeAnnotatedActAsComponent || verifyReferencesToComponent( field ) ) &amp;&amp;<a name="line.559"></a>
-<span class="sourceLineNo">560</span>               isUnmanagedComponentReferenceNotSuppressed( field ) )<a name="line.560"></a>
-<span class="sourceLineNo">561</span>          {<a name="line.561"></a>
-<span class="sourceLineNo">562</span>            final String label =<a name="line.562"></a>
-<span class="sourceLineNo">563</span>              isDisposeNotifier ? "an implementation of DisposeNotifier" :<a name="line.563"></a>
-<span class="sourceLineNo">564</span>              isTypeAnnotatedByComponentAnnotation ? "an Arez component" :<a name="line.564"></a>
-<span class="sourceLineNo">565</span>              "annotated with @ActAsComponent";<a name="line.565"></a>
-<span class="sourceLineNo">566</span>            final String message =<a name="line.566"></a>
-<span class="sourceLineNo">567</span>              "Field named '" + field.getSimpleName().toString() + "' has a type that is " + label +<a name="line.567"></a>
-<span class="sourceLineNo">568</span>              " but is not annotated with @" + Constants.CASCADE_DISPOSE_ANNOTATION_CLASSNAME + " or " +<a name="line.568"></a>
-<span class="sourceLineNo">569</span>              "@" + Constants.COMPONENT_DEPENDENCY_ANNOTATION_CLASSNAME + ". This scenario can cause Please " +<a name="line.569"></a>
-<span class="sourceLineNo">570</span>              "annotate the field as appropriate or suppress the warning by annotating the field with " +<a name="line.570"></a>
-<span class="sourceLineNo">571</span>              "@SuppressWarnings( \"" + Constants.UNMANAGED_COMPONENT_REFERENCE_SUPPRESSION + "\" ) or " +<a name="line.571"></a>
-<span class="sourceLineNo">572</span>              "@SuppressArezWarnings( \"" + Constants.UNMANAGED_COMPONENT_REFERENCE_SUPPRESSION + "\" )";<a name="line.572"></a>
-<span class="sourceLineNo">573</span>            processingEnv.getMessager().printMessage( WARNING, message, field );<a name="line.573"></a>
-<span class="sourceLineNo">574</span>          }<a name="line.574"></a>
-<span class="sourceLineNo">575</span>        }<a name="line.575"></a>
-<span class="sourceLineNo">576</span>      }<a name="line.576"></a>
-<span class="sourceLineNo">577</span>    }<a name="line.577"></a>
-<span class="sourceLineNo">578</span><a name="line.578"></a>
-<span class="sourceLineNo">579</span>    for ( final ObservableDescriptor observable : descriptor.getObservables() )<a name="line.579"></a>
-<span class="sourceLineNo">580</span>    {<a name="line.580"></a>
-<span class="sourceLineNo">581</span>      if ( observable.isAbstract() )<a name="line.581"></a>
-<span class="sourceLineNo">582</span>      {<a name="line.582"></a>
-<span class="sourceLineNo">583</span>        final ExecutableElement getter = observable.getGetter();<a name="line.583"></a>
-<span class="sourceLineNo">584</span>        if ( SuperficialValidation.validateElement( getter ) )<a name="line.584"></a>
-<span class="sourceLineNo">585</span>        {<a name="line.585"></a>
-<span class="sourceLineNo">586</span>          final TypeMirror returnType = getter.getReturnType();<a name="line.586"></a>
-<span class="sourceLineNo">587</span>          final Element returnElement = processingEnv.getTypeUtils().asElement( returnType );<a name="line.587"></a>
-<span class="sourceLineNo">588</span>          final boolean isDisposeNotifier =<a name="line.588"></a>
-<span class="sourceLineNo">589</span>            processingEnv.getTypeUtils().isAssignable( returnType, disposeNotifier.asType() );<a name="line.589"></a>
-<span class="sourceLineNo">590</span>          final boolean isTypeAnnotatedByComponentAnnotation =<a name="line.590"></a>
-<span class="sourceLineNo">591</span>            !isDisposeNotifier &amp;&amp; isElementAnnotatedBy( returnElement, Constants.COMPONENT_ANNOTATION_CLASSNAME );<a name="line.591"></a>
-<span class="sourceLineNo">592</span>          final boolean isTypeAnnotatedActAsComponent =<a name="line.592"></a>
-<span class="sourceLineNo">593</span>            !isDisposeNotifier &amp;&amp;<a name="line.593"></a>
-<span class="sourceLineNo">594</span>            !isTypeAnnotatedByComponentAnnotation &amp;&amp;<a name="line.594"></a>
-<span class="sourceLineNo">595</span>            isElementAnnotatedBy( returnElement, Constants.ACT_AS_COMPONENT_ANNOTATION_CLASSNAME );<a name="line.595"></a>
-<span class="sourceLineNo">596</span>          if ( isDisposeNotifier || isTypeAnnotatedByComponentAnnotation || isTypeAnnotatedActAsComponent )<a name="line.596"></a>
-<span class="sourceLineNo">597</span>          {<a name="line.597"></a>
-<span class="sourceLineNo">598</span>            if ( !descriptor.isDependencyDefined( getter ) &amp;&amp;<a name="line.598"></a>
-<span class="sourceLineNo">599</span>                 !descriptor.isCascadeDisposeDefined( getter ) &amp;&amp;<a name="line.599"></a>
-<span class="sourceLineNo">600</span>                 ( isDisposeNotifier ||<a name="line.600"></a>
-<span class="sourceLineNo">601</span>                   isTypeAnnotatedActAsComponent ||<a name="line.601"></a>
-<span class="sourceLineNo">602</span>                   verifyReferencesToComponent( returnElement ) ) &amp;&amp;<a name="line.602"></a>
-<span class="sourceLineNo">603</span>                 isUnmanagedComponentReferenceNotSuppressed( getter ) &amp;&amp;<a name="line.603"></a>
-<span class="sourceLineNo">604</span>                 ( observable.hasSetter() &amp;&amp; isUnmanagedComponentReferenceNotSuppressed( observable.getSetter() ) ) )<a name="line.604"></a>
-<span class="sourceLineNo">605</span>            {<a name="line.605"></a>
-<span class="sourceLineNo">606</span>              final String label =<a name="line.606"></a>
-<span class="sourceLineNo">607</span>                isDisposeNotifier ? "an implementation of DisposeNotifier" :<a name="line.607"></a>
-<span class="sourceLineNo">608</span>                isTypeAnnotatedByComponentAnnotation ? "an Arez component" :<a name="line.608"></a>
-<span class="sourceLineNo">609</span>                "annotated with @ActAsComponent";<a name="line.609"></a>
-<span class="sourceLineNo">610</span>              final String message =<a name="line.610"></a>
-<span class="sourceLineNo">611</span>                "Method named '" + getter.getSimpleName().toString() + "' has a return type that is " + label +<a name="line.611"></a>
-<span class="sourceLineNo">612</span>                " but is not annotated with @" + Constants.CASCADE_DISPOSE_ANNOTATION_CLASSNAME + " or " +<a name="line.612"></a>
-<span class="sourceLineNo">613</span>                "@" + Constants.COMPONENT_DEPENDENCY_ANNOTATION_CLASSNAME + ". This scenario can cause errors. " +<a name="line.613"></a>
-<span class="sourceLineNo">614</span>                "Please annotate the method as appropriate or suppress the warning by annotating the method with " +<a name="line.614"></a>
-<span class="sourceLineNo">615</span>                "@SuppressWarnings( \"" + Constants.UNMANAGED_COMPONENT_REFERENCE_SUPPRESSION + "\" ) or " +<a name="line.615"></a>
-<span class="sourceLineNo">616</span>                "@SuppressArezWarnings( \"" + Constants.UNMANAGED_COMPONENT_REFERENCE_SUPPRESSION + "\" )";<a name="line.616"></a>
-<span class="sourceLineNo">617</span>              processingEnv.getMessager().printMessage( WARNING, message, getter );<a name="line.617"></a>
-<span class="sourceLineNo">618</span>            }<a name="line.618"></a>
-<span class="sourceLineNo">619</span>          }<a name="line.619"></a>
-<span class="sourceLineNo">620</span>        }<a name="line.620"></a>
-<span class="sourceLineNo">621</span>      }<a name="line.621"></a>
-<span class="sourceLineNo">622</span>    }<a name="line.622"></a>
-<span class="sourceLineNo">623</span>  }<a name="line.623"></a>
-<span class="sourceLineNo">624</span><a name="line.624"></a>
-<span class="sourceLineNo">625</span>  private boolean verifyReferencesToComponent( @Nonnull final VariableElement field )<a name="line.625"></a>
-<span class="sourceLineNo">626</span>  {<a name="line.626"></a>
-<span class="sourceLineNo">627</span>    return verifyReferencesToComponent( processingEnv.getTypeUtils().asElement( field.asType() ) );<a name="line.627"></a>
-<span class="sourceLineNo">628</span>  }<a name="line.628"></a>
-<span class="sourceLineNo">629</span><a name="line.629"></a>
-<span class="sourceLineNo">630</span>  private boolean verifyReferencesToComponent( @Nonnull final Element element )<a name="line.630"></a>
-<span class="sourceLineNo">631</span>  {<a name="line.631"></a>
-<span class="sourceLineNo">632</span>    assert SuperficialValidation.validateElement( element );<a name="line.632"></a>
-<span class="sourceLineNo">633</span><a name="line.633"></a>
-<span class="sourceLineNo">634</span>    final VariableElement verifyReferencesToComponent = (VariableElement)<a name="line.634"></a>
-<span class="sourceLineNo">635</span>      ProcessorUtil.getAnnotationValue( element,<a name="line.635"></a>
-<span class="sourceLineNo">636</span>                                        Constants.COMPONENT_ANNOTATION_CLASSNAME,<a name="line.636"></a>
-<span class="sourceLineNo">637</span>                                        "verifyReferencesToComponent" ).getValue();<a name="line.637"></a>
-<span class="sourceLineNo">638</span>    switch ( verifyReferencesToComponent.getSimpleName().toString() )<a name="line.638"></a>
-<span class="sourceLineNo">639</span>    {<a name="line.639"></a>
-<span class="sourceLineNo">640</span>      case "ENABLE":<a name="line.640"></a>
-<span class="sourceLineNo">641</span>        return true;<a name="line.641"></a>
-<span class="sourceLineNo">642</span>      case "DISABLE":<a name="line.642"></a>
-<span class="sourceLineNo">643</span>        return false;<a name="line.643"></a>
-<span class="sourceLineNo">644</span>      default:<a name="line.644"></a>
-<span class="sourceLineNo">645</span>        return ProcessorUtil.isDisposableTrackableRequired( element );<a name="line.645"></a>
-<span class="sourceLineNo">646</span>    }<a name="line.646"></a>
-<span class="sourceLineNo">647</span>  }<a name="line.647"></a>
-<span class="sourceLineNo">648</span><a name="line.648"></a>
-<span class="sourceLineNo">649</span>  private boolean isUnmanagedComponentReferenceNotSuppressed( @Nonnull final Element element )<a name="line.649"></a>
-<span class="sourceLineNo">650</span>  {<a name="line.650"></a>
-<span class="sourceLineNo">651</span>    return !isWarningSuppressed( element, Constants.UNMANAGED_COMPONENT_REFERENCE_SUPPRESSION );<a name="line.651"></a>
-<span class="sourceLineNo">652</span>  }<a name="line.652"></a>
-<span class="sourceLineNo">653</span><a name="line.653"></a>
-<span class="sourceLineNo">654</span>  private boolean isWarningSuppressed( @Nonnull final Element element, @Nonnull final String warning )<a name="line.654"></a>
-<span class="sourceLineNo">655</span>  {<a name="line.655"></a>
-<span class="sourceLineNo">656</span>    final AnnotationMirror suppress =<a name="line.656"></a>
-<span class="sourceLineNo">657</span>      ProcessorUtil.findAnnotationByType( element, Constants.SUPPRESS_AREZ_WARNINGS_ANNOTATION_CLASSNAME );<a name="line.657"></a>
-<span class="sourceLineNo">658</span>    if ( null != suppress )<a name="line.658"></a>
-<span class="sourceLineNo">659</span>    {<a name="line.659"></a>
-<span class="sourceLineNo">660</span>      final List&lt;AnnotationValue&gt; warnings = ProcessorUtil.getAnnotationValue( suppress, "value" );<a name="line.660"></a>
-<span class="sourceLineNo">661</span>      for ( final AnnotationValue suppression : warnings )<a name="line.661"></a>
-<span class="sourceLineNo">662</span>      {<a name="line.662"></a>
-<span class="sourceLineNo">663</span>        if ( warning.equals( suppression.getValue() ) )<a name="line.663"></a>
-<span class="sourceLineNo">664</span>        {<a name="line.664"></a>
-<span class="sourceLineNo">665</span>          return true;<a name="line.665"></a>
-<span class="sourceLineNo">666</span>        }<a name="line.666"></a>
-<span class="sourceLineNo">667</span>      }<a name="line.667"></a>
-<span class="sourceLineNo">668</span>    }<a name="line.668"></a>
-<span class="sourceLineNo">669</span><a name="line.669"></a>
-<span class="sourceLineNo">670</span>    final SuppressWarnings annotation = element.getAnnotation( SuppressWarnings.class );<a name="line.670"></a>
-<span class="sourceLineNo">671</span>    if ( null != annotation )<a name="line.671"></a>
-<span class="sourceLineNo">672</span>    {<a name="line.672"></a>
-<span class="sourceLineNo">673</span>      for ( final String suppression : annotation.value() )<a name="line.673"></a>
-<span class="sourceLineNo">674</span>      {<a name="line.674"></a>
-<span class="sourceLineNo">675</span>        if ( warning.equals( suppression ) )<a name="line.675"></a>
-<span class="sourceLineNo">676</span>        {<a name="line.676"></a>
-<span class="sourceLineNo">677</span>          return true;<a name="line.677"></a>
-<span class="sourceLineNo">678</span>        }<a name="line.678"></a>
-<span class="sourceLineNo">679</span>      }<a name="line.679"></a>
-<span class="sourceLineNo">680</span>    }<a name="line.680"></a>
-<span class="sourceLineNo">681</span>    final Element enclosingElement = element.getEnclosingElement();<a name="line.681"></a>
-<span class="sourceLineNo">682</span>    return null != enclosingElement &amp;&amp; isWarningSuppressed( enclosingElement, warning );<a name="line.682"></a>
-<span class="sourceLineNo">683</span>  }<a name="line.683"></a>
-<span class="sourceLineNo">684</span><a name="line.684"></a>
-<span class="sourceLineNo">685</span>  private boolean isTypeAnnotatedByActAsComponentAnnotation( @Nonnull final VariableElement field )<a name="line.685"></a>
-<span class="sourceLineNo">686</span>  {<a name="line.686"></a>
-<span class="sourceLineNo">687</span>    final Element element = processingEnv.getTypeUtils().asElement( field.asType() );<a name="line.687"></a>
-<span class="sourceLineNo">688</span>    return isElementAnnotatedBy( element, Constants.ACT_AS_COMPONENT_ANNOTATION_CLASSNAME );<a name="line.688"></a>
-<span class="sourceLineNo">689</span>  }<a name="line.689"></a>
-<span class="sourceLineNo">690</span><a name="line.690"></a>
-<span class="sourceLineNo">691</span>  private boolean isTypeAnnotatedByComponentAnnotation( @Nonnull final VariableElement field )<a name="line.691"></a>
-<span class="sourceLineNo">692</span>  {<a name="line.692"></a>
-<span class="sourceLineNo">693</span>    final Element element = processingEnv.getTypeUtils().asElement( field.asType() );<a name="line.693"></a>
-<span class="sourceLineNo">694</span>    return isElementAnnotatedBy( element, Constants.COMPONENT_ANNOTATION_CLASSNAME );<a name="line.694"></a>
-<span class="sourceLineNo">695</span>  }<a name="line.695"></a>
-<span class="sourceLineNo">696</span><a name="line.696"></a>
-<span class="sourceLineNo">697</span>  private boolean isElementAnnotatedBy( @Nullable final Element element, @Nonnull final String annotation )<a name="line.697"></a>
-<span class="sourceLineNo">698</span>  {<a name="line.698"></a>
-<span class="sourceLineNo">699</span>    return null != element &amp;&amp;<a name="line.699"></a>
-<span class="sourceLineNo">700</span>           SuperficialValidation.validateElement( element ) &amp;&amp;<a name="line.700"></a>
-<span class="sourceLineNo">701</span>           ProcessorUtil.hasAnnotationOfType( element, annotation );<a name="line.701"></a>
-<span class="sourceLineNo">702</span>  }<a name="line.702"></a>
-<span class="sourceLineNo">703</span><a name="line.703"></a>
-<span class="sourceLineNo">704</span>  private boolean isScopeAnnotation( @Nonnull final AnnotationMirror a )<a name="line.704"></a>
-<span class="sourceLineNo">705</span>  {<a name="line.705"></a>
-<span class="sourceLineNo">706</span>    final Element element = processingEnv.getTypeUtils().asElement( a.getAnnotationType() );<a name="line.706"></a>
-<span class="sourceLineNo">707</span>    return ProcessorUtil.hasAnnotationOfType( element, Constants.SCOPE_ANNOTATION_CLASSNAME );<a name="line.707"></a>
-<span class="sourceLineNo">708</span>  }<a name="line.708"></a>
-<span class="sourceLineNo">709</span><a name="line.709"></a>
-<span class="sourceLineNo">710</span>  private boolean isComponentObservableRequired( @Nonnull final AnnotationMirror arezComponent,<a name="line.710"></a>
-<span class="sourceLineNo">711</span>                                                 @Nonnull final TypeElement typeElement,<a name="line.711"></a>
-<span class="sourceLineNo">712</span>                                                 final boolean disposeOnDeactivate )<a name="line.712"></a>
-<span class="sourceLineNo">713</span>  {<a name="line.713"></a>
-<span class="sourceLineNo">714</span>    final VariableElement variableElement = getAnnotationParameter( arezComponent, "observable" );<a name="line.714"></a>
-<span class="sourceLineNo">715</span>    switch ( variableElement.getSimpleName().toString() )<a name="line.715"></a>
-<span class="sourceLineNo">716</span>    {<a name="line.716"></a>
-<span class="sourceLineNo">717</span>      case "ENABLE":<a name="line.717"></a>
-<span class="sourceLineNo">718</span>        return true;<a name="line.718"></a>
-<span class="sourceLineNo">719</span>      case "DISABLE":<a name="line.719"></a>
-<span class="sourceLineNo">720</span>        return false;<a name="line.720"></a>
-<span class="sourceLineNo">721</span>      default:<a name="line.721"></a>
-<span class="sourceLineNo">722</span>        return disposeOnDeactivate ||<a name="line.722"></a>
-<span class="sourceLineNo">723</span>               ProcessorUtil.hasAnnotationOfType( typeElement, Constants.REPOSITORY_ANNOTATION_CLASSNAME );<a name="line.723"></a>
-<span class="sourceLineNo">724</span>    }<a name="line.724"></a>
-<span class="sourceLineNo">725</span>  }<a name="line.725"></a>
-<span class="sourceLineNo">726</span><a name="line.726"></a>
-<span class="sourceLineNo">727</span>  @Nonnull<a name="line.727"></a>
-<span class="sourceLineNo">728</span>  private String getInjectMode( @Nonnull final AnnotationMirror arezComponent,<a name="line.728"></a>
-<span class="sourceLineNo">729</span>                                @Nonnull final TypeElement typeElement,<a name="line.729"></a>
-<span class="sourceLineNo">730</span>                                @Nullable final AnnotationMirror scopeAnnotation,<a name="line.730"></a>
-<span class="sourceLineNo">731</span>                                final String daggerMode )<a name="line.731"></a>
-<span class="sourceLineNo">732</span>  {<a name="line.732"></a>
-<span class="sourceLineNo">733</span>    final VariableElement injectParameter = getAnnotationParameter( arezComponent, "inject" );<a name="line.733"></a>
-<span class="sourceLineNo">734</span>    final String mode = injectParameter.getSimpleName().toString();<a name="line.734"></a>
-<span class="sourceLineNo">735</span>    if ( "AUTODETECT".equals( mode ) )<a name="line.735"></a>
-<span class="sourceLineNo">736</span>    {<a name="line.736"></a>
-<span class="sourceLineNo">737</span>      final boolean shouldInject = daggerMode.equals( "ENABLE" ) || null != scopeAnnotation;<a name="line.737"></a>
-<span class="sourceLineNo">738</span>      return shouldInject ? "PROVIDE" : "NONE";<a name="line.738"></a>
-<span class="sourceLineNo">739</span>    }<a name="line.739"></a>
-<span class="sourceLineNo">740</span>    else if ( "NONE".equals( mode ) )<a name="line.740"></a>
-<span class="sourceLineNo">741</span>    {<a name="line.741"></a>
-<span class="sourceLineNo">742</span>      if ( daggerMode.equals( "ENABLE" ) )<a name="line.742"></a>
-<span class="sourceLineNo">743</span>      {<a name="line.743"></a>
-<span class="sourceLineNo">744</span>        throw new ArezProcessorException( "@ArezComponent target has a dagger parameter that resolved to ENABLE " +<a name="line.744"></a>
-<span class="sourceLineNo">745</span>                                          "but the inject parameter is set to NONE and this is not a valid " +<a name="line.745"></a>
-<span class="sourceLineNo">746</span>                                          "combination of parameters.", typeElement );<a name="line.746"></a>
-<span class="sourceLineNo">747</span>      }<a name="line.747"></a>
-<span class="sourceLineNo">748</span>      if ( null != scopeAnnotation )<a name="line.748"></a>
-<span class="sourceLineNo">749</span>      {<a name="line.749"></a>
-<span class="sourceLineNo">750</span>        throw new ArezProcessorException( "@ArezComponent target is annotated with scope annotation " +<a name="line.750"></a>
-<span class="sourceLineNo">751</span>                                          scopeAnnotation + " but the inject parameter is set to NONE and this " +<a name="line.751"></a>
-<span class="sourceLineNo">752</span>                                          "is not a valid scenario. Remove the scope annotation or change the " +<a name="line.752"></a>
-<span class="sourceLineNo">753</span>                                          "inject parameter to a value other than NONE.", typeElement );<a name="line.753"></a>
-<span class="sourceLineNo">754</span>      }<a name="line.754"></a>
-<span class="sourceLineNo">755</span>      return mode;<a name="line.755"></a>
-<span class="sourceLineNo">756</span>    }<a name="line.756"></a>
-<span class="sourceLineNo">757</span>    else<a name="line.757"></a>
-<span class="sourceLineNo">758</span>    {<a name="line.758"></a>
-<span class="sourceLineNo">759</span>      return mode;<a name="line.759"></a>
-<span class="sourceLineNo">760</span>    }<a name="line.760"></a>
-<span class="sourceLineNo">761</span>  }<a name="line.761"></a>
-<span class="sourceLineNo">762</span><a name="line.762"></a>
-<span class="sourceLineNo">763</span>  private boolean isVerifyRequired( @Nonnull final AnnotationMirror arezComponent,<a name="line.763"></a>
-<span class="sourceLineNo">764</span>                                    @Nonnull final TypeElement typeElement )<a name="line.764"></a>
-<span class="sourceLineNo">765</span>  {<a name="line.765"></a>
-<span class="sourceLineNo">766</span>    final VariableElement daggerParameter = getAnnotationParameter( arezComponent, "verify" );<a name="line.766"></a>
-<span class="sourceLineNo">767</span>    switch ( daggerParameter.getSimpleName().toString() )<a name="line.767"></a>
-<span class="sourceLineNo">768</span>    {<a name="line.768"></a>
-<span class="sourceLineNo">769</span>      case "ENABLE":<a name="line.769"></a>
-<span class="sourceLineNo">770</span>        return true;<a name="line.770"></a>
-<span class="sourceLineNo">771</span>      case "DISABLE":<a name="line.771"></a>
-<span class="sourceLineNo">772</span>        return false;<a name="line.772"></a>
-<span class="sourceLineNo">773</span>      default:<a name="line.773"></a>
-<span class="sourceLineNo">774</span>        return ProcessorUtil.getMethods( typeElement, processingEnv.getElementUtils(), processingEnv.getTypeUtils() ).<a name="line.774"></a>
-<span class="sourceLineNo">775</span>          stream().anyMatch( this::hasReferenceAnnotations );<a name="line.775"></a>
-<span class="sourceLineNo">776</span>    }<a name="line.776"></a>
-<span class="sourceLineNo">777</span>  }<a name="line.777"></a>
-<span class="sourceLineNo">778</span><a name="line.778"></a>
-<span class="sourceLineNo">779</span>  private boolean hasReferenceAnnotations( @Nonnull final Element method )<a name="line.779"></a>
-<span class="sourceLineNo">780</span>  {<a name="line.780"></a>
-<span class="sourceLineNo">781</span>    return ProcessorUtil.hasAnnotationOfType( method, Constants.REFERENCE_ANNOTATION_CLASSNAME ) ||<a name="line.781"></a>
-<span class="sourceLineNo">782</span>           ProcessorUtil.hasAnnotationOfType( method, Constants.REFERENCE_ID_ANNOTATION_CLASSNAME ) ||<a name="line.782"></a>
-<span class="sourceLineNo">783</span>           ProcessorUtil.hasAnnotationOfType( method, Constants.INVERSE_ANNOTATION_CLASSNAME );<a name="line.783"></a>
-<span class="sourceLineNo">784</span>  }<a name="line.784"></a>
-<span class="sourceLineNo">785</span><a name="line.785"></a>
-<span class="sourceLineNo">786</span>  private boolean isEqualsRequired( @Nonnull final AnnotationMirror arezComponent,<a name="line.786"></a>
-<span class="sourceLineNo">787</span>                                    @Nonnull final TypeElement typeElement )<a name="line.787"></a>
-<span class="sourceLineNo">788</span>  {<a name="line.788"></a>
-<span class="sourceLineNo">789</span>    final VariableElement injectParameter = getAnnotationParameter( arezComponent, "requireEquals" );<a name="line.789"></a>
-<span class="sourceLineNo">790</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.790"></a>
-<span class="sourceLineNo">791</span>    {<a name="line.791"></a>
-<span class="sourceLineNo">792</span>      case "ENABLE":<a name="line.792"></a>
-<span class="sourceLineNo">793</span>        return true;<a name="line.793"></a>
-<span class="sourceLineNo">794</span>      case "DISABLE":<a name="line.794"></a>
-<span class="sourceLineNo">795</span>        return false;<a name="line.795"></a>
-<span class="sourceLineNo">796</span>      default:<a name="line.796"></a>
-<span class="sourceLineNo">797</span>        return ProcessorUtil.hasAnnotationOfType( typeElement, Constants.REPOSITORY_ANNOTATION_CLASSNAME );<a name="line.797"></a>
-<span class="sourceLineNo">798</span>    }<a name="line.798"></a>
-<span class="sourceLineNo">799</span>  }<a name="line.799"></a>
-<span class="sourceLineNo">800</span><a name="line.800"></a>
-<span class="sourceLineNo">801</span>  private boolean isIdRequired( @Nonnull final ComponentDescriptor descriptor,<a name="line.801"></a>
-<span class="sourceLineNo">802</span>                                @Nonnull final AnnotationMirror arezComponent )<a name="line.802"></a>
-<span class="sourceLineNo">803</span>  {<a name="line.803"></a>
-<span class="sourceLineNo">804</span>    final VariableElement injectParameter = getAnnotationParameter( arezComponent, "requireId" );<a name="line.804"></a>
-<span class="sourceLineNo">805</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.805"></a>
-<span class="sourceLineNo">806</span>    {<a name="line.806"></a>
-<span class="sourceLineNo">807</span>      case "ENABLE":<a name="line.807"></a>
-<span class="sourceLineNo">808</span>        return true;<a name="line.808"></a>
-<span class="sourceLineNo">809</span>      case "DISABLE":<a name="line.809"></a>
-<span class="sourceLineNo">810</span>        return false;<a name="line.810"></a>
-<span class="sourceLineNo">811</span>      default:<a name="line.811"></a>
-<span class="sourceLineNo">812</span>        return descriptor.hasRepository() ||<a name="line.812"></a>
-<span class="sourceLineNo">813</span>               descriptor.hasComponentIdMethod() ||<a name="line.813"></a>
-<span class="sourceLineNo">814</span>               descriptor.hasComponentIdRefMethod() ||<a name="line.814"></a>
-<span class="sourceLineNo">815</span>               descriptor.hasInverses();<a name="line.815"></a>
-<span class="sourceLineNo">816</span>    }<a name="line.816"></a>
-<span class="sourceLineNo">817</span>  }<a name="line.817"></a>
-<span class="sourceLineNo">818</span><a name="line.818"></a>
-<span class="sourceLineNo">819</span>  @Nonnull<a name="line.819"></a>
-<span class="sourceLineNo">820</span>  private String getRepositoryInjectMode( @Nonnull final AnnotationMirror repository )<a name="line.820"></a>
-<span class="sourceLineNo">821</span>  {<a name="line.821"></a>
-<span class="sourceLineNo">822</span>    final VariableElement injectParameter = getAnnotationParameter( repository, "inject" );<a name="line.822"></a>
-<span class="sourceLineNo">823</span>    return injectParameter.getSimpleName().toString();<a name="line.823"></a>
-<span class="sourceLineNo">824</span>  }<a name="line.824"></a>
-<span class="sourceLineNo">825</span><a name="line.825"></a>
-<span class="sourceLineNo">826</span>  @Nonnull<a name="line.826"></a>
-<span class="sourceLineNo">827</span>  private String getRepositoryDaggerConfig( @Nonnull final AnnotationMirror repository )<a name="line.827"></a>
-<span class="sourceLineNo">828</span>  {<a name="line.828"></a>
-<span class="sourceLineNo">829</span>    final VariableElement daggerParameter = getAnnotationParameter( repository, "dagger" );<a name="line.829"></a>
-<span class="sourceLineNo">830</span>    return daggerParameter.getSimpleName().toString();<a name="line.830"></a>
-<span class="sourceLineNo">831</span>  }<a name="line.831"></a>
-<span class="sourceLineNo">832</span><a name="line.832"></a>
-<span class="sourceLineNo">833</span>  private boolean hasInjectAnnotation( @Nonnull final Element method )<a name="line.833"></a>
-<span class="sourceLineNo">834</span>  {<a name="line.834"></a>
-<span class="sourceLineNo">835</span>    return ProcessorUtil.hasAnnotationOfType( method, Constants.INJECT_ANNOTATION_CLASSNAME );<a name="line.835"></a>
-<span class="sourceLineNo">836</span>  }<a name="line.836"></a>
-<span class="sourceLineNo">837</span><a name="line.837"></a>
-<span class="sourceLineNo">838</span>  @Nonnull<a name="line.838"></a>
-<span class="sourceLineNo">839</span>  private &lt;T&gt; T getAnnotationParameter( @Nonnull final AnnotationMirror annotation,<a name="line.839"></a>
-<span class="sourceLineNo">840</span>                                        @Nonnull final String parameterName )<a name="line.840"></a>
-<span class="sourceLineNo">841</span>  {<a name="line.841"></a>
-<span class="sourceLineNo">842</span>    return ProcessorUtil.getAnnotationValue( annotation, parameterName );<a name="line.842"></a>
-<span class="sourceLineNo">843</span>  }<a name="line.843"></a>
-<span class="sourceLineNo">844</span><a name="line.844"></a>
-<span class="sourceLineNo">845</span>  private void emitTypeSpec( @Nonnull final String packageName, @Nonnull final TypeSpec typeSpec )<a name="line.845"></a>
-<span class="sourceLineNo">846</span>    throws IOException<a name="line.846"></a>
-<span class="sourceLineNo">847</span>  {<a name="line.847"></a>
-<span class="sourceLineNo">848</span>    JavaFile.builder( packageName, typeSpec ).<a name="line.848"></a>
-<span class="sourceLineNo">849</span>      skipJavaLangImports( true ).<a name="line.849"></a>
-<span class="sourceLineNo">850</span>      build().<a name="line.850"></a>
-<span class="sourceLineNo">851</span>      writeTo( processingEnv.getFiler() );<a name="line.851"></a>
-<span class="sourceLineNo">852</span>  }<a name="line.852"></a>
-<span class="sourceLineNo">853</span>}<a name="line.853"></a>
+<span class="sourceLineNo">424</span>                               typeElement );<a name="line.424"></a>
+<span class="sourceLineNo">425</span><a name="line.425"></a>
+<span class="sourceLineNo">426</span>    descriptor.analyzeCandidateMethods( methods, processingEnv.getTypeUtils() );<a name="line.426"></a>
+<span class="sourceLineNo">427</span>    descriptor.validate();<a name="line.427"></a>
+<span class="sourceLineNo">428</span><a name="line.428"></a>
+<span class="sourceLineNo">429</span>    for ( final ObservableDescriptor observable : descriptor.getObservables() )<a name="line.429"></a>
+<span class="sourceLineNo">430</span>    {<a name="line.430"></a>
+<span class="sourceLineNo">431</span>      if ( observable.expectSetter() )<a name="line.431"></a>
+<span class="sourceLineNo">432</span>      {<a name="line.432"></a>
+<span class="sourceLineNo">433</span>        final TypeMirror returnType = observable.getGetterType().getReturnType();<a name="line.433"></a>
+<span class="sourceLineNo">434</span>        final TypeMirror parameterType = observable.getSetterType().getParameterTypes().get( 0 );<a name="line.434"></a>
+<span class="sourceLineNo">435</span>        if ( !processingEnv.getTypeUtils().isSameType( parameterType, returnType ) &amp;&amp;<a name="line.435"></a>
+<span class="sourceLineNo">436</span>             !parameterType.toString().equals( returnType.toString() ) )<a name="line.436"></a>
+<span class="sourceLineNo">437</span>        {<a name="line.437"></a>
+<span class="sourceLineNo">438</span>          throw new ArezProcessorException( "@Observable property defines a setter and getter with different types." +<a name="line.438"></a>
+<span class="sourceLineNo">439</span>                                            " Getter type: " + returnType + " Setter type: " + parameterType + ".",<a name="line.439"></a>
+<span class="sourceLineNo">440</span>                                            observable.getGetter() );<a name="line.440"></a>
+<span class="sourceLineNo">441</span>        }<a name="line.441"></a>
+<span class="sourceLineNo">442</span>      }<a name="line.442"></a>
+<span class="sourceLineNo">443</span>    }<a name="line.443"></a>
+<span class="sourceLineNo">444</span><a name="line.444"></a>
+<span class="sourceLineNo">445</span>    final AnnotationMirror repository =<a name="line.445"></a>
+<span class="sourceLineNo">446</span>      ProcessorUtil.findAnnotationByType( typeElement, Constants.REPOSITORY_ANNOTATION_CLASSNAME );<a name="line.446"></a>
+<span class="sourceLineNo">447</span>    if ( null != repository )<a name="line.447"></a>
+<span class="sourceLineNo">448</span>    {<a name="line.448"></a>
+<span class="sourceLineNo">449</span>      final List&lt;TypeElement&gt; extensions =<a name="line.449"></a>
+<span class="sourceLineNo">450</span>        ProcessorUtil.getTypeMirrorsAnnotationParameter( typeElement,<a name="line.450"></a>
+<span class="sourceLineNo">451</span>                                                         Constants.REPOSITORY_ANNOTATION_CLASSNAME,<a name="line.451"></a>
+<span class="sourceLineNo">452</span>                                                         "extensions" ).stream().<a name="line.452"></a>
+<span class="sourceLineNo">453</span>          map( typeMirror -&gt; (TypeElement) processingEnv.getTypeUtils().asElement( typeMirror ) ).<a name="line.453"></a>
+<span class="sourceLineNo">454</span>          collect( Collectors.toList() );<a name="line.454"></a>
+<span class="sourceLineNo">455</span>      final String name = getAnnotationParameter( repository, "name" );<a name="line.455"></a>
+<span class="sourceLineNo">456</span>      final String repositoryInjectConfig = getRepositoryInjectMode( repository );<a name="line.456"></a>
+<span class="sourceLineNo">457</span>      final String repositoryDaggerConfig = getRepositoryDaggerConfig( repository );<a name="line.457"></a>
+<span class="sourceLineNo">458</span>      descriptor.configureRepository( name, extensions, repositoryInjectConfig, repositoryDaggerConfig );<a name="line.458"></a>
+<span class="sourceLineNo">459</span>    }<a name="line.459"></a>
+<span class="sourceLineNo">460</span>    if ( !observableFlag &amp;&amp; descriptor.hasRepository() )<a name="line.460"></a>
+<span class="sourceLineNo">461</span>    {<a name="line.461"></a>
+<span class="sourceLineNo">462</span>      throw new ArezProcessorException( "@ArezComponent target has specified observable = DISABLE and " +<a name="line.462"></a>
+<span class="sourceLineNo">463</span>                                        "but is also annotated with the @Repository annotation which requires " +<a name="line.463"></a>
+<span class="sourceLineNo">464</span>                                        "that the observable != DISABLE.", typeElement );<a name="line.464"></a>
+<span class="sourceLineNo">465</span>    }<a name="line.465"></a>
+<span class="sourceLineNo">466</span>    if ( descriptor.hasRepository() &amp;&amp;<a name="line.466"></a>
+<span class="sourceLineNo">467</span>         ProcessorUtil.hasAnnotationOfType( typeElement, Constants.SINGLETON_ANNOTATION_CLASSNAME ) )<a name="line.467"></a>
+<span class="sourceLineNo">468</span>    {<a name="line.468"></a>
+<span class="sourceLineNo">469</span>      throw new ArezProcessorException( "@ArezComponent target is annotated with both the " +<a name="line.469"></a>
+<span class="sourceLineNo">470</span>                                        "@arez.annotations.Repository annotation and the " +<a name="line.470"></a>
+<span class="sourceLineNo">471</span>                                        "javax.inject.Singleton annotation which is an invalid " +<a name="line.471"></a>
+<span class="sourceLineNo">472</span>                                        "combination.", typeElement );<a name="line.472"></a>
+<span class="sourceLineNo">473</span>    }<a name="line.473"></a>
+<span class="sourceLineNo">474</span>    if ( !descriptor.isDisposeNotifier() &amp;&amp; descriptor.hasRepository() )<a name="line.474"></a>
+<span class="sourceLineNo">475</span>    {<a name="line.475"></a>
+<span class="sourceLineNo">476</span>      throw new ArezProcessorException( "@ArezComponent target has specified the disposeNotifier = DISABLE " +<a name="line.476"></a>
+<span class="sourceLineNo">477</span>                                        "annotation parameter but is also annotated with @Repository that " +<a name="line.477"></a>
+<span class="sourceLineNo">478</span>                                        "requires disposeNotifier = ENABLE.", typeElement );<a name="line.478"></a>
+<span class="sourceLineNo">479</span>    }<a name="line.479"></a>
+<span class="sourceLineNo">480</span><a name="line.480"></a>
+<span class="sourceLineNo">481</span>    final boolean idRequired = isIdRequired( descriptor, arezComponent );<a name="line.481"></a>
+<span class="sourceLineNo">482</span>    descriptor.setIdRequired( idRequired );<a name="line.482"></a>
+<span class="sourceLineNo">483</span>    if ( !idRequired )<a name="line.483"></a>
+<span class="sourceLineNo">484</span>    {<a name="line.484"></a>
+<span class="sourceLineNo">485</span>      if ( descriptor.hasRepository() )<a name="line.485"></a>
+<span class="sourceLineNo">486</span>      {<a name="line.486"></a>
+<span class="sourceLineNo">487</span>        throw new ArezProcessorException( "@ArezComponent target has specified the idRequired = DISABLE " +<a name="line.487"></a>
+<span class="sourceLineNo">488</span>                                          "annotation parameter but is also annotated with @Repository that " +<a name="line.488"></a>
+<span class="sourceLineNo">489</span>                                          "requires idRequired = ENABLE.", typeElement );<a name="line.489"></a>
+<span class="sourceLineNo">490</span>      }<a name="line.490"></a>
+<span class="sourceLineNo">491</span>      if ( descriptor.hasComponentIdMethod() )<a name="line.491"></a>
+<span class="sourceLineNo">492</span>      {<a name="line.492"></a>
+<span class="sourceLineNo">493</span>        throw new ArezProcessorException( "@ArezComponent target has specified the idRequired = DISABLE " +<a name="line.493"></a>
+<span class="sourceLineNo">494</span>                                          "annotation parameter but also has annotated a method with @ComponentId " +<a name="line.494"></a>
+<span class="sourceLineNo">495</span>                                          "that requires idRequired = ENABLE.", typeElement );<a name="line.495"></a>
+<span class="sourceLineNo">496</span>      }<a name="line.496"></a>
+<span class="sourceLineNo">497</span>      if ( descriptor.hasComponentIdRefMethod() )<a name="line.497"></a>
+<span class="sourceLineNo">498</span>      {<a name="line.498"></a>
+<span class="sourceLineNo">499</span>        throw new ArezProcessorException( "@ArezComponent target has specified the idRequired = DISABLE " +<a name="line.499"></a>
+<span class="sourceLineNo">500</span>                                          "annotation parameter but also has annotated a method with @ComponentIdRef " +<a name="line.500"></a>
+<span class="sourceLineNo">501</span>                                          "that requires idRequired = ENABLE.", typeElement );<a name="line.501"></a>
+<span class="sourceLineNo">502</span>      }<a name="line.502"></a>
+<span class="sourceLineNo">503</span>    }<a name="line.503"></a>
+<span class="sourceLineNo">504</span><a name="line.504"></a>
+<span class="sourceLineNo">505</span>    warnOnUnmanagedComponentReferences( descriptor, fields );<a name="line.505"></a>
+<span class="sourceLineNo">506</span><a name="line.506"></a>
+<span class="sourceLineNo">507</span>    return descriptor;<a name="line.507"></a>
+<span class="sourceLineNo">508</span>  }<a name="line.508"></a>
+<span class="sourceLineNo">509</span><a name="line.509"></a>
+<span class="sourceLineNo">510</span>  private void ensureNoFieldInjections( @Nonnull final List&lt;VariableElement&gt; fields )<a name="line.510"></a>
+<span class="sourceLineNo">511</span>  {<a name="line.511"></a>
+<span class="sourceLineNo">512</span>    for ( final VariableElement field : fields )<a name="line.512"></a>
+<span class="sourceLineNo">513</span>    {<a name="line.513"></a>
+<span class="sourceLineNo">514</span>      if ( hasInjectAnnotation( field ) )<a name="line.514"></a>
+<span class="sourceLineNo">515</span>      {<a name="line.515"></a>
+<span class="sourceLineNo">516</span>        throw new ArezProcessorException( "@Inject is not supported on fields in an Arez component. " +<a name="line.516"></a>
+<span class="sourceLineNo">517</span>                                          "Use constructor injection instead.", field );<a name="line.517"></a>
+<span class="sourceLineNo">518</span>      }<a name="line.518"></a>
+<span class="sourceLineNo">519</span>    }<a name="line.519"></a>
+<span class="sourceLineNo">520</span>  }<a name="line.520"></a>
+<span class="sourceLineNo">521</span><a name="line.521"></a>
+<span class="sourceLineNo">522</span>  private void ensureNoMethodInjections( @Nonnull final TypeElement typeElement )<a name="line.522"></a>
+<span class="sourceLineNo">523</span>  {<a name="line.523"></a>
+<span class="sourceLineNo">524</span>    ProcessorUtil.getMethods( typeElement, processingEnv.getElementUtils(), processingEnv.getTypeUtils() )<a name="line.524"></a>
+<span class="sourceLineNo">525</span>      .stream()<a name="line.525"></a>
+<span class="sourceLineNo">526</span>      .filter( this::hasInjectAnnotation )<a name="line.526"></a>
+<span class="sourceLineNo">527</span>      .forEach( method -&gt;<a name="line.527"></a>
+<span class="sourceLineNo">528</span>                {<a name="line.528"></a>
+<span class="sourceLineNo">529</span>                  throw new ArezProcessorException( "@Inject is not supported on methods in an Arez component. " +<a name="line.529"></a>
+<span class="sourceLineNo">530</span>                                                    "Use constructor injection instead.", method );<a name="line.530"></a>
+<span class="sourceLineNo">531</span><a name="line.531"></a>
+<span class="sourceLineNo">532</span>                } );<a name="line.532"></a>
+<span class="sourceLineNo">533</span>  }<a name="line.533"></a>
+<span class="sourceLineNo">534</span><a name="line.534"></a>
+<span class="sourceLineNo">535</span>  private void warnOnUnmanagedComponentReferences( @Nonnull final ComponentDescriptor descriptor,<a name="line.535"></a>
+<span class="sourceLineNo">536</span>                                                   @Nonnull final List&lt;VariableElement&gt; fields )<a name="line.536"></a>
+<span class="sourceLineNo">537</span>  {<a name="line.537"></a>
+<span class="sourceLineNo">538</span>    final TypeElement disposeNotifier =<a name="line.538"></a>
+<span class="sourceLineNo">539</span>      processingEnv.getElementUtils().getTypeElement( Constants.DISPOSE_NOTIFIER_CLASSNAME );<a name="line.539"></a>
+<span class="sourceLineNo">540</span>    assert null != disposeNotifier;<a name="line.540"></a>
+<span class="sourceLineNo">541</span><a name="line.541"></a>
+<span class="sourceLineNo">542</span>    for ( final VariableElement field : fields )<a name="line.542"></a>
+<span class="sourceLineNo">543</span>    {<a name="line.543"></a>
+<span class="sourceLineNo">544</span>      if ( !field.getModifiers().contains( Modifier.STATIC ) &amp;&amp; SuperficialValidation.validateElement( field ) )<a name="line.544"></a>
+<span class="sourceLineNo">545</span>      {<a name="line.545"></a>
+<span class="sourceLineNo">546</span>        final boolean isDisposeNotifier =<a name="line.546"></a>
+<span class="sourceLineNo">547</span>          processingEnv.getTypeUtils().isAssignable( field.asType(), disposeNotifier.asType() );<a name="line.547"></a>
+<span class="sourceLineNo">548</span>        final boolean isTypeAnnotatedByComponentAnnotation =<a name="line.548"></a>
+<span class="sourceLineNo">549</span>          !isDisposeNotifier &amp;&amp; isTypeAnnotatedByComponentAnnotation( field );<a name="line.549"></a>
+<span class="sourceLineNo">550</span>        final boolean isTypeAnnotatedActAsComponent =<a name="line.550"></a>
+<span class="sourceLineNo">551</span>          !isDisposeNotifier &amp;&amp;<a name="line.551"></a>
+<span class="sourceLineNo">552</span>          !isTypeAnnotatedByComponentAnnotation &amp;&amp;<a name="line.552"></a>
+<span class="sourceLineNo">553</span>          isTypeAnnotatedByActAsComponentAnnotation( field );<a name="line.553"></a>
+<span class="sourceLineNo">554</span>        if ( isDisposeNotifier || isTypeAnnotatedByComponentAnnotation || isTypeAnnotatedActAsComponent )<a name="line.554"></a>
+<span class="sourceLineNo">555</span>        {<a name="line.555"></a>
+<span class="sourceLineNo">556</span>          if ( !descriptor.isDependencyDefined( field ) &amp;&amp;<a name="line.556"></a>
+<span class="sourceLineNo">557</span>               !descriptor.isCascadeDisposeDefined( field ) &amp;&amp;<a name="line.557"></a>
+<span class="sourceLineNo">558</span>               ( isDisposeNotifier || isTypeAnnotatedActAsComponent || verifyReferencesToComponent( field ) ) &amp;&amp;<a name="line.558"></a>
+<span class="sourceLineNo">559</span>               isUnmanagedComponentReferenceNotSuppressed( field ) )<a name="line.559"></a>
+<span class="sourceLineNo">560</span>          {<a name="line.560"></a>
+<span class="sourceLineNo">561</span>            final String label =<a name="line.561"></a>
+<span class="sourceLineNo">562</span>              isDisposeNotifier ? "an implementation of DisposeNotifier" :<a name="line.562"></a>
+<span class="sourceLineNo">563</span>              isTypeAnnotatedByComponentAnnotation ? "an Arez component" :<a name="line.563"></a>
+<span class="sourceLineNo">564</span>              "annotated with @ActAsComponent";<a name="line.564"></a>
+<span class="sourceLineNo">565</span>            final String message =<a name="line.565"></a>
+<span class="sourceLineNo">566</span>              "Field named '" + field.getSimpleName().toString() + "' has a type that is " + label +<a name="line.566"></a>
+<span class="sourceLineNo">567</span>              " but is not annotated with @" + Constants.CASCADE_DISPOSE_ANNOTATION_CLASSNAME + " or " +<a name="line.567"></a>
+<span class="sourceLineNo">568</span>              "@" + Constants.COMPONENT_DEPENDENCY_ANNOTATION_CLASSNAME + ". This scenario can cause Please " +<a name="line.568"></a>
+<span class="sourceLineNo">569</span>              "annotate the field as appropriate or suppress the warning by annotating the field with " +<a name="line.569"></a>
+<span class="sourceLineNo">570</span>              "@SuppressWarnings( \"" + Constants.UNMANAGED_COMPONENT_REFERENCE_SUPPRESSION + "\" ) or " +<a name="line.570"></a>
+<span class="sourceLineNo">571</span>              "@SuppressArezWarnings( \"" + Constants.UNMANAGED_COMPONENT_REFERENCE_SUPPRESSION + "\" )";<a name="line.571"></a>
+<span class="sourceLineNo">572</span>            processingEnv.getMessager().printMessage( WARNING, message, field );<a name="line.572"></a>
+<span class="sourceLineNo">573</span>          }<a name="line.573"></a>
+<span class="sourceLineNo">574</span>        }<a name="line.574"></a>
+<span class="sourceLineNo">575</span>      }<a name="line.575"></a>
+<span class="sourceLineNo">576</span>    }<a name="line.576"></a>
+<span class="sourceLineNo">577</span><a name="line.577"></a>
+<span class="sourceLineNo">578</span>    for ( final ObservableDescriptor observable : descriptor.getObservables() )<a name="line.578"></a>
+<span class="sourceLineNo">579</span>    {<a name="line.579"></a>
+<span class="sourceLineNo">580</span>      if ( observable.isAbstract() )<a name="line.580"></a>
+<span class="sourceLineNo">581</span>      {<a name="line.581"></a>
+<span class="sourceLineNo">582</span>        final ExecutableElement getter = observable.getGetter();<a name="line.582"></a>
+<span class="sourceLineNo">583</span>        if ( SuperficialValidation.validateElement( getter ) )<a name="line.583"></a>
+<span class="sourceLineNo">584</span>        {<a name="line.584"></a>
+<span class="sourceLineNo">585</span>          final TypeMirror returnType = getter.getReturnType();<a name="line.585"></a>
+<span class="sourceLineNo">586</span>          final Element returnElement = processingEnv.getTypeUtils().asElement( returnType );<a name="line.586"></a>
+<span class="sourceLineNo">587</span>          final boolean isDisposeNotifier =<a name="line.587"></a>
+<span class="sourceLineNo">588</span>            processingEnv.getTypeUtils().isAssignable( returnType, disposeNotifier.asType() );<a name="line.588"></a>
+<span class="sourceLineNo">589</span>          final boolean isTypeAnnotatedByComponentAnnotation =<a name="line.589"></a>
+<span class="sourceLineNo">590</span>            !isDisposeNotifier &amp;&amp; isElementAnnotatedBy( returnElement, Constants.COMPONENT_ANNOTATION_CLASSNAME );<a name="line.590"></a>
+<span class="sourceLineNo">591</span>          final boolean isTypeAnnotatedActAsComponent =<a name="line.591"></a>
+<span class="sourceLineNo">592</span>            !isDisposeNotifier &amp;&amp;<a name="line.592"></a>
+<span class="sourceLineNo">593</span>            !isTypeAnnotatedByComponentAnnotation &amp;&amp;<a name="line.593"></a>
+<span class="sourceLineNo">594</span>            isElementAnnotatedBy( returnElement, Constants.ACT_AS_COMPONENT_ANNOTATION_CLASSNAME );<a name="line.594"></a>
+<span class="sourceLineNo">595</span>          if ( isDisposeNotifier || isTypeAnnotatedByComponentAnnotation || isTypeAnnotatedActAsComponent )<a name="line.595"></a>
+<span class="sourceLineNo">596</span>          {<a name="line.596"></a>
+<span class="sourceLineNo">597</span>            if ( !descriptor.isDependencyDefined( getter ) &amp;&amp;<a name="line.597"></a>
+<span class="sourceLineNo">598</span>                 !descriptor.isCascadeDisposeDefined( getter ) &amp;&amp;<a name="line.598"></a>
+<span class="sourceLineNo">599</span>                 ( isDisposeNotifier ||<a name="line.599"></a>
+<span class="sourceLineNo">600</span>                   isTypeAnnotatedActAsComponent ||<a name="line.600"></a>
+<span class="sourceLineNo">601</span>                   verifyReferencesToComponent( returnElement ) ) &amp;&amp;<a name="line.601"></a>
+<span class="sourceLineNo">602</span>                 isUnmanagedComponentReferenceNotSuppressed( getter ) &amp;&amp;<a name="line.602"></a>
+<span class="sourceLineNo">603</span>                 ( observable.hasSetter() &amp;&amp; isUnmanagedComponentReferenceNotSuppressed( observable.getSetter() ) ) )<a name="line.603"></a>
+<span class="sourceLineNo">604</span>            {<a name="line.604"></a>
+<span class="sourceLineNo">605</span>              final String label =<a name="line.605"></a>
+<span class="sourceLineNo">606</span>                isDisposeNotifier ? "an implementation of DisposeNotifier" :<a name="line.606"></a>
+<span class="sourceLineNo">607</span>                isTypeAnnotatedByComponentAnnotation ? "an Arez component" :<a name="line.607"></a>
+<span class="sourceLineNo">608</span>                "annotated with @ActAsComponent";<a name="line.608"></a>
+<span class="sourceLineNo">609</span>              final String message =<a name="line.609"></a>
+<span class="sourceLineNo">610</span>                "Method named '" + getter.getSimpleName().toString() + "' has a return type that is " + label +<a name="line.610"></a>
+<span class="sourceLineNo">611</span>                " but is not annotated with @" + Constants.CASCADE_DISPOSE_ANNOTATION_CLASSNAME + " or " +<a name="line.611"></a>
+<span class="sourceLineNo">612</span>                "@" + Constants.COMPONENT_DEPENDENCY_ANNOTATION_CLASSNAME + ". This scenario can cause errors. " +<a name="line.612"></a>
+<span class="sourceLineNo">613</span>                "Please annotate the method as appropriate or suppress the warning by annotating the method with " +<a name="line.613"></a>
+<span class="sourceLineNo">614</span>                "@SuppressWarnings( \"" + Constants.UNMANAGED_COMPONENT_REFERENCE_SUPPRESSION + "\" ) or " +<a name="line.614"></a>
+<span class="sourceLineNo">615</span>                "@SuppressArezWarnings( \"" + Constants.UNMANAGED_COMPONENT_REFERENCE_SUPPRESSION + "\" )";<a name="line.615"></a>
+<span class="sourceLineNo">616</span>              processingEnv.getMessager().printMessage( WARNING, message, getter );<a name="line.616"></a>
+<span class="sourceLineNo">617</span>            }<a name="line.617"></a>
+<span class="sourceLineNo">618</span>          }<a name="line.618"></a>
+<span class="sourceLineNo">619</span>        }<a name="line.619"></a>
+<span class="sourceLineNo">620</span>      }<a name="line.620"></a>
+<span class="sourceLineNo">621</span>    }<a name="line.621"></a>
+<span class="sourceLineNo">622</span>  }<a name="line.622"></a>
+<span class="sourceLineNo">623</span><a name="line.623"></a>
+<span class="sourceLineNo">624</span>  private boolean verifyReferencesToComponent( @Nonnull final VariableElement field )<a name="line.624"></a>
+<span class="sourceLineNo">625</span>  {<a name="line.625"></a>
+<span class="sourceLineNo">626</span>    return verifyReferencesToComponent( processingEnv.getTypeUtils().asElement( field.asType() ) );<a name="line.626"></a>
+<span class="sourceLineNo">627</span>  }<a name="line.627"></a>
+<span class="sourceLineNo">628</span><a name="line.628"></a>
+<span class="sourceLineNo">629</span>  private boolean verifyReferencesToComponent( @Nonnull final Element element )<a name="line.629"></a>
+<span class="sourceLineNo">630</span>  {<a name="line.630"></a>
+<span class="sourceLineNo">631</span>    assert SuperficialValidation.validateElement( element );<a name="line.631"></a>
+<span class="sourceLineNo">632</span><a name="line.632"></a>
+<span class="sourceLineNo">633</span>    final VariableElement verifyReferencesToComponent = (VariableElement)<a name="line.633"></a>
+<span class="sourceLineNo">634</span>      ProcessorUtil.getAnnotationValue( element,<a name="line.634"></a>
+<span class="sourceLineNo">635</span>                                        Constants.COMPONENT_ANNOTATION_CLASSNAME,<a name="line.635"></a>
+<span class="sourceLineNo">636</span>                                        "verifyReferencesToComponent" ).getValue();<a name="line.636"></a>
+<span class="sourceLineNo">637</span>    switch ( verifyReferencesToComponent.getSimpleName().toString() )<a name="line.637"></a>
+<span class="sourceLineNo">638</span>    {<a name="line.638"></a>
+<span class="sourceLineNo">639</span>      case "ENABLE":<a name="line.639"></a>
+<span class="sourceLineNo">640</span>        return true;<a name="line.640"></a>
+<span class="sourceLineNo">641</span>      case "DISABLE":<a name="line.641"></a>
+<span class="sourceLineNo">642</span>        return false;<a name="line.642"></a>
+<span class="sourceLineNo">643</span>      default:<a name="line.643"></a>
+<span class="sourceLineNo">644</span>        return ProcessorUtil.isDisposableTrackableRequired( element );<a name="line.644"></a>
+<span class="sourceLineNo">645</span>    }<a name="line.645"></a>
+<span class="sourceLineNo">646</span>  }<a name="line.646"></a>
+<span class="sourceLineNo">647</span><a name="line.647"></a>
+<span class="sourceLineNo">648</span>  private boolean isUnmanagedComponentReferenceNotSuppressed( @Nonnull final Element element )<a name="line.648"></a>
+<span class="sourceLineNo">649</span>  {<a name="line.649"></a>
+<span class="sourceLineNo">650</span>    return !isWarningSuppressed( element, Constants.UNMANAGED_COMPONENT_REFERENCE_SUPPRESSION );<a name="line.650"></a>
+<span class="sourceLineNo">651</span>  }<a name="line.651"></a>
+<span class="sourceLineNo">652</span><a name="line.652"></a>
+<span class="sourceLineNo">653</span>  private boolean isWarningSuppressed( @Nonnull final Element element, @Nonnull final String warning )<a name="line.653"></a>
+<span class="sourceLineNo">654</span>  {<a name="line.654"></a>
+<span class="sourceLineNo">655</span>    final AnnotationMirror suppress =<a name="line.655"></a>
+<span class="sourceLineNo">656</span>      ProcessorUtil.findAnnotationByType( element, Constants.SUPPRESS_AREZ_WARNINGS_ANNOTATION_CLASSNAME );<a name="line.656"></a>
+<span class="sourceLineNo">657</span>    if ( null != suppress )<a name="line.657"></a>
+<span class="sourceLineNo">658</span>    {<a name="line.658"></a>
+<span class="sourceLineNo">659</span>      final List&lt;AnnotationValue&gt; warnings = ProcessorUtil.getAnnotationValue( suppress, "value" );<a name="line.659"></a>
+<span class="sourceLineNo">660</span>      for ( final AnnotationValue suppression : warnings )<a name="line.660"></a>
+<span class="sourceLineNo">661</span>      {<a name="line.661"></a>
+<span class="sourceLineNo">662</span>        if ( warning.equals( suppression.getValue() ) )<a name="line.662"></a>
+<span class="sourceLineNo">663</span>        {<a name="line.663"></a>
+<span class="sourceLineNo">664</span>          return true;<a name="line.664"></a>
+<span class="sourceLineNo">665</span>        }<a name="line.665"></a>
+<span class="sourceLineNo">666</span>      }<a name="line.666"></a>
+<span class="sourceLineNo">667</span>    }<a name="line.667"></a>
+<span class="sourceLineNo">668</span><a name="line.668"></a>
+<span class="sourceLineNo">669</span>    final SuppressWarnings annotation = element.getAnnotation( SuppressWarnings.class );<a name="line.669"></a>
+<span class="sourceLineNo">670</span>    if ( null != annotation )<a name="line.670"></a>
+<span class="sourceLineNo">671</span>    {<a name="line.671"></a>
+<span class="sourceLineNo">672</span>      for ( final String suppression : annotation.value() )<a name="line.672"></a>
+<span class="sourceLineNo">673</span>      {<a name="line.673"></a>
+<span class="sourceLineNo">674</span>        if ( warning.equals( suppression ) )<a name="line.674"></a>
+<span class="sourceLineNo">675</span>        {<a name="line.675"></a>
+<span class="sourceLineNo">676</span>          return true;<a name="line.676"></a>
+<span class="sourceLineNo">677</span>        }<a name="line.677"></a>
+<span class="sourceLineNo">678</span>      }<a name="line.678"></a>
+<span class="sourceLineNo">679</span>    }<a name="line.679"></a>
+<span class="sourceLineNo">680</span>    final Element enclosingElement = element.getEnclosingElement();<a name="line.680"></a>
+<span class="sourceLineNo">681</span>    return null != enclosingElement &amp;&amp; isWarningSuppressed( enclosingElement, warning );<a name="line.681"></a>
+<span class="sourceLineNo">682</span>  }<a name="line.682"></a>
+<span class="sourceLineNo">683</span><a name="line.683"></a>
+<span class="sourceLineNo">684</span>  private boolean isTypeAnnotatedByActAsComponentAnnotation( @Nonnull final VariableElement field )<a name="line.684"></a>
+<span class="sourceLineNo">685</span>  {<a name="line.685"></a>
+<span class="sourceLineNo">686</span>    final Element element = processingEnv.getTypeUtils().asElement( field.asType() );<a name="line.686"></a>
+<span class="sourceLineNo">687</span>    return isElementAnnotatedBy( element, Constants.ACT_AS_COMPONENT_ANNOTATION_CLASSNAME );<a name="line.687"></a>
+<span class="sourceLineNo">688</span>  }<a name="line.688"></a>
+<span class="sourceLineNo">689</span><a name="line.689"></a>
+<span class="sourceLineNo">690</span>  private boolean isTypeAnnotatedByComponentAnnotation( @Nonnull final VariableElement field )<a name="line.690"></a>
+<span class="sourceLineNo">691</span>  {<a name="line.691"></a>
+<span class="sourceLineNo">692</span>    final Element element = processingEnv.getTypeUtils().asElement( field.asType() );<a name="line.692"></a>
+<span class="sourceLineNo">693</span>    return isElementAnnotatedBy( element, Constants.COMPONENT_ANNOTATION_CLASSNAME );<a name="line.693"></a>
+<span class="sourceLineNo">694</span>  }<a name="line.694"></a>
+<span class="sourceLineNo">695</span><a name="line.695"></a>
+<span class="sourceLineNo">696</span>  private boolean isElementAnnotatedBy( @Nullable final Element element, @Nonnull final String annotation )<a name="line.696"></a>
+<span class="sourceLineNo">697</span>  {<a name="line.697"></a>
+<span class="sourceLineNo">698</span>    return null != element &amp;&amp;<a name="line.698"></a>
+<span class="sourceLineNo">699</span>           SuperficialValidation.validateElement( element ) &amp;&amp;<a name="line.699"></a>
+<span class="sourceLineNo">700</span>           ProcessorUtil.hasAnnotationOfType( element, annotation );<a name="line.700"></a>
+<span class="sourceLineNo">701</span>  }<a name="line.701"></a>
+<span class="sourceLineNo">702</span><a name="line.702"></a>
+<span class="sourceLineNo">703</span>  private boolean isScopeAnnotation( @Nonnull final AnnotationMirror a )<a name="line.703"></a>
+<span class="sourceLineNo">704</span>  {<a name="line.704"></a>
+<span class="sourceLineNo">705</span>    final Element element = processingEnv.getTypeUtils().asElement( a.getAnnotationType() );<a name="line.705"></a>
+<span class="sourceLineNo">706</span>    return ProcessorUtil.hasAnnotationOfType( element, Constants.SCOPE_ANNOTATION_CLASSNAME );<a name="line.706"></a>
+<span class="sourceLineNo">707</span>  }<a name="line.707"></a>
+<span class="sourceLineNo">708</span><a name="line.708"></a>
+<span class="sourceLineNo">709</span>  private boolean isComponentObservableRequired( @Nonnull final AnnotationMirror arezComponent,<a name="line.709"></a>
+<span class="sourceLineNo">710</span>                                                 @Nonnull final TypeElement typeElement,<a name="line.710"></a>
+<span class="sourceLineNo">711</span>                                                 final boolean disposeOnDeactivate )<a name="line.711"></a>
+<span class="sourceLineNo">712</span>  {<a name="line.712"></a>
+<span class="sourceLineNo">713</span>    final VariableElement variableElement = getAnnotationParameter( arezComponent, "observable" );<a name="line.713"></a>
+<span class="sourceLineNo">714</span>    switch ( variableElement.getSimpleName().toString() )<a name="line.714"></a>
+<span class="sourceLineNo">715</span>    {<a name="line.715"></a>
+<span class="sourceLineNo">716</span>      case "ENABLE":<a name="line.716"></a>
+<span class="sourceLineNo">717</span>        return true;<a name="line.717"></a>
+<span class="sourceLineNo">718</span>      case "DISABLE":<a name="line.718"></a>
+<span class="sourceLineNo">719</span>        return false;<a name="line.719"></a>
+<span class="sourceLineNo">720</span>      default:<a name="line.720"></a>
+<span class="sourceLineNo">721</span>        return disposeOnDeactivate ||<a name="line.721"></a>
+<span class="sourceLineNo">722</span>               ProcessorUtil.hasAnnotationOfType( typeElement, Constants.REPOSITORY_ANNOTATION_CLASSNAME );<a name="line.722"></a>
+<span class="sourceLineNo">723</span>    }<a name="line.723"></a>
+<span class="sourceLineNo">724</span>  }<a name="line.724"></a>
+<span class="sourceLineNo">725</span><a name="line.725"></a>
+<span class="sourceLineNo">726</span>  @Nonnull<a name="line.726"></a>
+<span class="sourceLineNo">727</span>  private String getInjectMode( @Nonnull final AnnotationMirror arezComponent,<a name="line.727"></a>
+<span class="sourceLineNo">728</span>                                @Nonnull final TypeElement typeElement,<a name="line.728"></a>
+<span class="sourceLineNo">729</span>                                @Nullable final AnnotationMirror scopeAnnotation,<a name="line.729"></a>
+<span class="sourceLineNo">730</span>                                final String daggerMode )<a name="line.730"></a>
+<span class="sourceLineNo">731</span>  {<a name="line.731"></a>
+<span class="sourceLineNo">732</span>    final VariableElement injectParameter = getAnnotationParameter( arezComponent, "inject" );<a name="line.732"></a>
+<span class="sourceLineNo">733</span>    final String mode = injectParameter.getSimpleName().toString();<a name="line.733"></a>
+<span class="sourceLineNo">734</span>    if ( "AUTODETECT".equals( mode ) )<a name="line.734"></a>
+<span class="sourceLineNo">735</span>    {<a name="line.735"></a>
+<span class="sourceLineNo">736</span>      final boolean shouldInject = daggerMode.equals( "ENABLE" ) || null != scopeAnnotation;<a name="line.736"></a>
+<span class="sourceLineNo">737</span>      return shouldInject ? "PROVIDE" : "NONE";<a name="line.737"></a>
+<span class="sourceLineNo">738</span>    }<a name="line.738"></a>
+<span class="sourceLineNo">739</span>    else if ( "NONE".equals( mode ) )<a name="line.739"></a>
+<span class="sourceLineNo">740</span>    {<a name="line.740"></a>
+<span class="sourceLineNo">741</span>      if ( daggerMode.equals( "ENABLE" ) )<a name="line.741"></a>
+<span class="sourceLineNo">742</span>      {<a name="line.742"></a>
+<span class="sourceLineNo">743</span>        throw new ArezProcessorException( "@ArezComponent target has a dagger parameter that resolved to ENABLE " +<a name="line.743"></a>
+<span class="sourceLineNo">744</span>                                          "but the inject parameter is set to NONE and this is not a valid " +<a name="line.744"></a>
+<span class="sourceLineNo">745</span>                                          "combination of parameters.", typeElement );<a name="line.745"></a>
+<span class="sourceLineNo">746</span>      }<a name="line.746"></a>
+<span class="sourceLineNo">747</span>      if ( null != scopeAnnotation )<a name="line.747"></a>
+<span class="sourceLineNo">748</span>      {<a name="line.748"></a>
+<span class="sourceLineNo">749</span>        throw new ArezProcessorException( "@ArezComponent target is annotated with scope annotation " +<a name="line.749"></a>
+<span class="sourceLineNo">750</span>                                          scopeAnnotation + " but the inject parameter is set to NONE and this " +<a name="line.750"></a>
+<span class="sourceLineNo">751</span>                                          "is not a valid scenario. Remove the scope annotation or change the " +<a name="line.751"></a>
+<span class="sourceLineNo">752</span>                                          "inject parameter to a value other than NONE.", typeElement );<a name="line.752"></a>
+<span class="sourceLineNo">753</span>      }<a name="line.753"></a>
+<span class="sourceLineNo">754</span>      return mode;<a name="line.754"></a>
+<span class="sourceLineNo">755</span>    }<a name="line.755"></a>
+<span class="sourceLineNo">756</span>    else<a name="line.756"></a>
+<span class="sourceLineNo">757</span>    {<a name="line.757"></a>
+<span class="sourceLineNo">758</span>      return mode;<a name="line.758"></a>
+<span class="sourceLineNo">759</span>    }<a name="line.759"></a>
+<span class="sourceLineNo">760</span>  }<a name="line.760"></a>
+<span class="sourceLineNo">761</span><a name="line.761"></a>
+<span class="sourceLineNo">762</span>  private boolean isVerifyRequired( @Nonnull final AnnotationMirror arezComponent,<a name="line.762"></a>
+<span class="sourceLineNo">763</span>                                    @Nonnull final TypeElement typeElement )<a name="line.763"></a>
+<span class="sourceLineNo">764</span>  {<a name="line.764"></a>
+<span class="sourceLineNo">765</span>    final VariableElement daggerParameter = getAnnotationParameter( arezComponent, "verify" );<a name="line.765"></a>
+<span class="sourceLineNo">766</span>    switch ( daggerParameter.getSimpleName().toString() )<a name="line.766"></a>
+<span class="sourceLineNo">767</span>    {<a name="line.767"></a>
+<span class="sourceLineNo">768</span>      case "ENABLE":<a name="line.768"></a>
+<span class="sourceLineNo">769</span>        return true;<a name="line.769"></a>
+<span class="sourceLineNo">770</span>      case "DISABLE":<a name="line.770"></a>
+<span class="sourceLineNo">771</span>        return false;<a name="line.771"></a>
+<span class="sourceLineNo">772</span>      default:<a name="line.772"></a>
+<span class="sourceLineNo">773</span>        return ProcessorUtil.getMethods( typeElement, processingEnv.getElementUtils(), processingEnv.getTypeUtils() ).<a name="line.773"></a>
+<span class="sourceLineNo">774</span>          stream().anyMatch( this::hasReferenceAnnotations );<a name="line.774"></a>
+<span class="sourceLineNo">775</span>    }<a name="line.775"></a>
+<span class="sourceLineNo">776</span>  }<a name="line.776"></a>
+<span class="sourceLineNo">777</span><a name="line.777"></a>
+<span class="sourceLineNo">778</span>  private boolean hasReferenceAnnotations( @Nonnull final Element method )<a name="line.778"></a>
+<span class="sourceLineNo">779</span>  {<a name="line.779"></a>
+<span class="sourceLineNo">780</span>    return ProcessorUtil.hasAnnotationOfType( method, Constants.REFERENCE_ANNOTATION_CLASSNAME ) ||<a name="line.780"></a>
+<span class="sourceLineNo">781</span>           ProcessorUtil.hasAnnotationOfType( method, Constants.REFERENCE_ID_ANNOTATION_CLASSNAME ) ||<a name="line.781"></a>
+<span class="sourceLineNo">782</span>           ProcessorUtil.hasAnnotationOfType( method, Constants.INVERSE_ANNOTATION_CLASSNAME );<a name="line.782"></a>
+<span class="sourceLineNo">783</span>  }<a name="line.783"></a>
+<span class="sourceLineNo">784</span><a name="line.784"></a>
+<span class="sourceLineNo">785</span>  private boolean isEqualsRequired( @Nonnull final AnnotationMirror arezComponent,<a name="line.785"></a>
+<span class="sourceLineNo">786</span>                                    @Nonnull final TypeElement typeElement )<a name="line.786"></a>
+<span class="sourceLineNo">787</span>  {<a name="line.787"></a>
+<span class="sourceLineNo">788</span>    final VariableElement injectParameter = getAnnotationParameter( arezComponent, "requireEquals" );<a name="line.788"></a>
+<span class="sourceLineNo">789</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.789"></a>
+<span class="sourceLineNo">790</span>    {<a name="line.790"></a>
+<span class="sourceLineNo">791</span>      case "ENABLE":<a name="line.791"></a>
+<span class="sourceLineNo">792</span>        return true;<a name="line.792"></a>
+<span class="sourceLineNo">793</span>      case "DISABLE":<a name="line.793"></a>
+<span class="sourceLineNo">794</span>        return false;<a name="line.794"></a>
+<span class="sourceLineNo">795</span>      default:<a name="line.795"></a>
+<span class="sourceLineNo">796</span>        return ProcessorUtil.hasAnnotationOfType( typeElement, Constants.REPOSITORY_ANNOTATION_CLASSNAME );<a name="line.796"></a>
+<span class="sourceLineNo">797</span>    }<a name="line.797"></a>
+<span class="sourceLineNo">798</span>  }<a name="line.798"></a>
+<span class="sourceLineNo">799</span><a name="line.799"></a>
+<span class="sourceLineNo">800</span>  private boolean isIdRequired( @Nonnull final ComponentDescriptor descriptor,<a name="line.800"></a>
+<span class="sourceLineNo">801</span>                                @Nonnull final AnnotationMirror arezComponent )<a name="line.801"></a>
+<span class="sourceLineNo">802</span>  {<a name="line.802"></a>
+<span class="sourceLineNo">803</span>    final VariableElement injectParameter = getAnnotationParameter( arezComponent, "requireId" );<a name="line.803"></a>
+<span class="sourceLineNo">804</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.804"></a>
+<span class="sourceLineNo">805</span>    {<a name="line.805"></a>
+<span class="sourceLineNo">806</span>      case "ENABLE":<a name="line.806"></a>
+<span class="sourceLineNo">807</span>        return true;<a name="line.807"></a>
+<span class="sourceLineNo">808</span>      case "DISABLE":<a name="line.808"></a>
+<span class="sourceLineNo">809</span>        return false;<a name="line.809"></a>
+<span class="sourceLineNo">810</span>      default:<a name="line.810"></a>
+<span class="sourceLineNo">811</span>        return descriptor.hasRepository() ||<a name="line.811"></a>
+<span class="sourceLineNo">812</span>               descriptor.hasComponentIdMethod() ||<a name="line.812"></a>
+<span class="sourceLineNo">813</span>               descriptor.hasComponentIdRefMethod() ||<a name="line.813"></a>
+<span class="sourceLineNo">814</span>               descriptor.hasInverses();<a name="line.814"></a>
+<span class="sourceLineNo">815</span>    }<a name="line.815"></a>
+<span class="sourceLineNo">816</span>  }<a name="line.816"></a>
+<span class="sourceLineNo">817</span><a name="line.817"></a>
+<span class="sourceLineNo">818</span>  @Nonnull<a name="line.818"></a>
+<span class="sourceLineNo">819</span>  private String getRepositoryInjectMode( @Nonnull final AnnotationMirror repository )<a name="line.819"></a>
+<span class="sourceLineNo">820</span>  {<a name="line.820"></a>
+<span class="sourceLineNo">821</span>    final VariableElement injectParameter = getAnnotationParameter( repository, "inject" );<a name="line.821"></a>
+<span class="sourceLineNo">822</span>    return injectParameter.getSimpleName().toString();<a name="line.822"></a>
+<span class="sourceLineNo">823</span>  }<a name="line.823"></a>
+<span class="sourceLineNo">824</span><a name="line.824"></a>
+<span class="sourceLineNo">825</span>  @Nonnull<a name="line.825"></a>
+<span class="sourceLineNo">826</span>  private String getRepositoryDaggerConfig( @Nonnull final AnnotationMirror repository )<a name="line.826"></a>
+<span class="sourceLineNo">827</span>  {<a name="line.827"></a>
+<span class="sourceLineNo">828</span>    final VariableElement daggerParameter = getAnnotationParameter( repository, "dagger" );<a name="line.828"></a>
+<span class="sourceLineNo">829</span>    return daggerParameter.getSimpleName().toString();<a name="line.829"></a>
+<span class="sourceLineNo">830</span>  }<a name="line.830"></a>
+<span class="sourceLineNo">831</span><a name="line.831"></a>
+<span class="sourceLineNo">832</span>  private boolean hasInjectAnnotation( @Nonnull final Element method )<a name="line.832"></a>
+<span class="sourceLineNo">833</span>  {<a name="line.833"></a>
+<span class="sourceLineNo">834</span>    return ProcessorUtil.hasAnnotationOfType( method, Constants.INJECT_ANNOTATION_CLASSNAME );<a name="line.834"></a>
+<span class="sourceLineNo">835</span>  }<a name="line.835"></a>
+<span class="sourceLineNo">836</span><a name="line.836"></a>
+<span class="sourceLineNo">837</span>  @Nonnull<a name="line.837"></a>
+<span class="sourceLineNo">838</span>  private &lt;T&gt; T getAnnotationParameter( @Nonnull final AnnotationMirror annotation,<a name="line.838"></a>
+<span class="sourceLineNo">839</span>                                        @Nonnull final String parameterName )<a name="line.839"></a>
+<span class="sourceLineNo">840</span>  {<a name="line.840"></a>
+<span class="sourceLineNo">841</span>    return ProcessorUtil.getAnnotationValue( annotation, parameterName );<a name="line.841"></a>
+<span class="sourceLineNo">842</span>  }<a name="line.842"></a>
+<span class="sourceLineNo">843</span><a name="line.843"></a>
+<span class="sourceLineNo">844</span>  private void emitTypeSpec( @Nonnull final String packageName, @Nonnull final TypeSpec typeSpec )<a name="line.844"></a>
+<span class="sourceLineNo">845</span>    throws IOException<a name="line.845"></a>
+<span class="sourceLineNo">846</span>  {<a name="line.846"></a>
+<span class="sourceLineNo">847</span>    JavaFile.builder( packageName, typeSpec ).<a name="line.847"></a>
+<span class="sourceLineNo">848</span>      skipJavaLangImports( true ).<a name="line.848"></a>
+<span class="sourceLineNo">849</span>      build().<a name="line.849"></a>
+<span class="sourceLineNo">850</span>      writeTo( processingEnv.getFiler() );<a name="line.850"></a>
+<span class="sourceLineNo">851</span>  }<a name="line.851"></a>
+<span class="sourceLineNo">852</span>}<a name="line.852"></a>
 
 
 
