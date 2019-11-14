@@ -41,13 +41,14 @@
 <span class="sourceLineNo">033</span> * &lt;li&gt;Must be final&lt;/li&gt;<a name="line.33"></a>
 <span class="sourceLineNo">034</span> * &lt;li&gt;Must not be abstract&lt;/li&gt;<a name="line.34"></a>
 <span class="sourceLineNo">035</span> * &lt;li&gt;Must not throw exceptions&lt;/li&gt;<a name="line.35"></a>
-<span class="sourceLineNo">036</span> * &lt;/ul&gt;<a name="line.36"></a>
-<span class="sourceLineNo">037</span> */<a name="line.37"></a>
-<span class="sourceLineNo">038</span>@Documented<a name="line.38"></a>
-<span class="sourceLineNo">039</span>@Target( ElementType.METHOD )<a name="line.39"></a>
-<span class="sourceLineNo">040</span>public @interface ComponentId<a name="line.40"></a>
-<span class="sourceLineNo">041</span>{<a name="line.41"></a>
-<span class="sourceLineNo">042</span>}<a name="line.42"></a>
+<span class="sourceLineNo">036</span> * &lt;li&gt;The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.&lt;/li&gt;<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * &lt;/ul&gt;<a name="line.37"></a>
+<span class="sourceLineNo">038</span> */<a name="line.38"></a>
+<span class="sourceLineNo">039</span>@Documented<a name="line.39"></a>
+<span class="sourceLineNo">040</span>@Target( ElementType.METHOD )<a name="line.40"></a>
+<span class="sourceLineNo">041</span>public @interface ComponentId<a name="line.41"></a>
+<span class="sourceLineNo">042</span>{<a name="line.42"></a>
+<span class="sourceLineNo">043</span>}<a name="line.43"></a>
 
 
 

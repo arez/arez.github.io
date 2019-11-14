@@ -43,84 +43,85 @@
 <span class="sourceLineNo">035</span> * &lt;li&gt;Must not be final&lt;/li&gt;<a name="line.35"></a>
 <span class="sourceLineNo">036</span> * &lt;li&gt;Must not be abstract&lt;/li&gt;<a name="line.36"></a>
 <span class="sourceLineNo">037</span> * &lt;li&gt;Must not throw exceptions&lt;/li&gt;<a name="line.37"></a>
-<span class="sourceLineNo">038</span> * &lt;/ul&gt;<a name="line.38"></a>
-<span class="sourceLineNo">039</span> */<a name="line.39"></a>
-<span class="sourceLineNo">040</span>@Documented<a name="line.40"></a>
-<span class="sourceLineNo">041</span>@Target( ElementType.METHOD )<a name="line.41"></a>
-<span class="sourceLineNo">042</span>public @interface Memoize<a name="line.42"></a>
-<span class="sourceLineNo">043</span>{<a name="line.43"></a>
-<span class="sourceLineNo">044</span>  /**<a name="line.44"></a>
-<span class="sourceLineNo">045</span>   * Return the root name of the element value relative to the component.<a name="line.45"></a>
-<span class="sourceLineNo">046</span>   * If the method has parameters then the name will be used in combination with a sequence<a name="line.46"></a>
-<span class="sourceLineNo">047</span>   * when naming the synthesized {@link ComputableValue} instances. The value must conform to<a name="line.47"></a>
-<span class="sourceLineNo">048</span>   * the requirements of a java identifier. The name must also be unique across {@link Observable}s,<a name="line.48"></a>
-<span class="sourceLineNo">049</span>   * {@link Memoize}s and {@link Action}s within the scope of the {@link ArezComponent} annotated element.<a name="line.49"></a>
-<span class="sourceLineNo">050</span>   *<a name="line.50"></a>
-<span class="sourceLineNo">051</span>   * @return the root name of the element relative to the component.<a name="line.51"></a>
-<span class="sourceLineNo">052</span>   */<a name="line.52"></a>
-<span class="sourceLineNo">053</span>  @Nonnull<a name="line.53"></a>
-<span class="sourceLineNo">054</span>  String name() default "&lt;default&gt;";<a name="line.54"></a>
-<span class="sourceLineNo">055</span><a name="line.55"></a>
-<span class="sourceLineNo">056</span>  /**<a name="line.56"></a>
-<span class="sourceLineNo">057</span>   * A flag indicating whether the computable should be "kept alive". A computable that is kept alive<a name="line.57"></a>
-<span class="sourceLineNo">058</span>   * is activated on creation and never deactivates. This is useful if the computable property is only<a name="line.58"></a>
-<span class="sourceLineNo">059</span>   * accessed from within actions but should be kept up to date and not recomputed on each access.<a name="line.59"></a>
-<span class="sourceLineNo">060</span>   * This MUST not be set if the target method has any parameters as can not keep computed value active<a name="line.60"></a>
-<span class="sourceLineNo">061</span>   * if parameter values are unknown.<a name="line.61"></a>
-<span class="sourceLineNo">062</span>   *<a name="line.62"></a>
-<span class="sourceLineNo">063</span>   * @return true to keep computable alive.<a name="line.63"></a>
-<span class="sourceLineNo">064</span>   */<a name="line.64"></a>
-<span class="sourceLineNo">065</span>  boolean keepAlive() default false;<a name="line.65"></a>
-<span class="sourceLineNo">066</span><a name="line.66"></a>
-<span class="sourceLineNo">067</span>  /**<a name="line.67"></a>
-<span class="sourceLineNo">068</span>   * The priority of the underlying ComputableValue observer<a name="line.68"></a>
-<span class="sourceLineNo">069</span>   *<a name="line.69"></a>
-<span class="sourceLineNo">070</span>   * @return the priority of the ComputableValue observer.<a name="line.70"></a>
-<span class="sourceLineNo">071</span>   */<a name="line.71"></a>
-<span class="sourceLineNo">072</span>  Priority priority() default Priority.NORMAL;<a name="line.72"></a>
-<span class="sourceLineNo">073</span><a name="line.73"></a>
-<span class="sourceLineNo">074</span>  /**<a name="line.74"></a>
-<span class="sourceLineNo">075</span>   * Flag controlling whether the underlying observer can observe ComputableValue instances with lower priorities.<a name="line.75"></a>
-<span class="sourceLineNo">076</span>   * The default value of false will result in an invariant failure (in development mode) if a lower priority<a name="line.76"></a>
-<span class="sourceLineNo">077</span>   * dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher<a name="line.77"></a>
-<span class="sourceLineNo">078</span>   * priority observer is dependent upon a lower priority computable value. If the value is true then the no<a name="line.78"></a>
-<span class="sourceLineNo">079</span>   * invariant failure is triggered and the component relies on the component author to handle possible priority<a name="line.79"></a>
-<span class="sourceLineNo">080</span>   * inversion.<a name="line.80"></a>
-<span class="sourceLineNo">081</span>   *<a name="line.81"></a>
-<span class="sourceLineNo">082</span>   * @return false if observing lower priority dependencies should result in invariant failure in development mode.<a name="line.82"></a>
-<span class="sourceLineNo">083</span>   */<a name="line.83"></a>
-<span class="sourceLineNo">084</span>  boolean observeLowerPriorityDependencies() default false;<a name="line.84"></a>
-<span class="sourceLineNo">085</span><a name="line.85"></a>
-<span class="sourceLineNo">086</span>  /**<a name="line.86"></a>
-<span class="sourceLineNo">087</span>   * Enum indicating whether the value of the computable is derived from arez elements and/or external dependencies.<a name="line.87"></a>
-<span class="sourceLineNo">088</span>   * If set to {@link DepType#AREZ} then Arez will verify that the method annotated by this annotation accesses arez<a name="line.88"></a>
-<span class="sourceLineNo">089</span>   * elements (i.e. instances of {@link arez.ObservableValue} or instances of {@link ComputableValue}). If set to<a name="line.89"></a>
-<span class="sourceLineNo">090</span>   * {@link DepType#AREZ_OR_NONE} then the runtime will allow computable to exist with no dependencies. If set<a name="line.90"></a>
-<span class="sourceLineNo">091</span>   * to {@link DepType#AREZ_OR_EXTERNAL} then the component must define a {@link ComputableValueRef} method and should invoke<a name="line.91"></a>
-<span class="sourceLineNo">092</span>   * {@link ComputableValue#reportPossiblyChanged()} when the non-arez dependencies are changed.<a name="line.92"></a>
-<span class="sourceLineNo">093</span>   *<a name="line.93"></a>
-<span class="sourceLineNo">094</span>   * @return the types of dependencies allowed on the computable.<a name="line.94"></a>
-<span class="sourceLineNo">095</span>   */<a name="line.95"></a>
-<span class="sourceLineNo">096</span>  @Nonnull<a name="line.96"></a>
-<span class="sourceLineNo">097</span>  DepType depType() default DepType.AREZ;<a name="line.97"></a>
-<span class="sourceLineNo">098</span><a name="line.98"></a>
-<span class="sourceLineNo">099</span>  /**<a name="line.99"></a>
-<span class="sourceLineNo">100</span>   * Return true if the return value of the memoized value should be reported to the Arez spy subsystem.<a name="line.100"></a>
-<span class="sourceLineNo">101</span>   * It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.<a name="line.101"></a>
-<span class="sourceLineNo">102</span>   *<a name="line.102"></a>
-<span class="sourceLineNo">103</span>   * @return true to report the return value, false otherwise.<a name="line.103"></a>
-<span class="sourceLineNo">104</span>   */<a name="line.104"></a>
-<span class="sourceLineNo">105</span>  boolean reportResult() default true;<a name="line.105"></a>
-<span class="sourceLineNo">106</span><a name="line.106"></a>
-<span class="sourceLineNo">107</span>  /**<a name="line.107"></a>
-<span class="sourceLineNo">108</span>   * Return true if the memoized value can be read outside a transaction.<a name="line.108"></a>
-<span class="sourceLineNo">109</span>   * It should be noted that if there is no Observer tracking the memoized value, then the value will be<a name="line.109"></a>
-<span class="sourceLineNo">110</span>   * calculated each time it is accessed.<a name="line.110"></a>
-<span class="sourceLineNo">111</span>   *<a name="line.111"></a>
-<span class="sourceLineNo">112</span>   * @return true to allow reads outside a transaction, false to require a transaction to read memoized value.<a name="line.112"></a>
-<span class="sourceLineNo">113</span>   */<a name="line.113"></a>
-<span class="sourceLineNo">114</span>  boolean readOutsideTransaction() default false;<a name="line.114"></a>
-<span class="sourceLineNo">115</span>}<a name="line.115"></a>
+<span class="sourceLineNo">038</span> * &lt;li&gt;The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.&lt;/li&gt;<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * &lt;/ul&gt;<a name="line.39"></a>
+<span class="sourceLineNo">040</span> */<a name="line.40"></a>
+<span class="sourceLineNo">041</span>@Documented<a name="line.41"></a>
+<span class="sourceLineNo">042</span>@Target( ElementType.METHOD )<a name="line.42"></a>
+<span class="sourceLineNo">043</span>public @interface Memoize<a name="line.43"></a>
+<span class="sourceLineNo">044</span>{<a name="line.44"></a>
+<span class="sourceLineNo">045</span>  /**<a name="line.45"></a>
+<span class="sourceLineNo">046</span>   * Return the root name of the element value relative to the component.<a name="line.46"></a>
+<span class="sourceLineNo">047</span>   * If the method has parameters then the name will be used in combination with a sequence<a name="line.47"></a>
+<span class="sourceLineNo">048</span>   * when naming the synthesized {@link ComputableValue} instances. The value must conform to<a name="line.48"></a>
+<span class="sourceLineNo">049</span>   * the requirements of a java identifier. The name must also be unique across {@link Observable}s,<a name="line.49"></a>
+<span class="sourceLineNo">050</span>   * {@link Memoize}s and {@link Action}s within the scope of the {@link ArezComponent} annotated element.<a name="line.50"></a>
+<span class="sourceLineNo">051</span>   *<a name="line.51"></a>
+<span class="sourceLineNo">052</span>   * @return the root name of the element relative to the component.<a name="line.52"></a>
+<span class="sourceLineNo">053</span>   */<a name="line.53"></a>
+<span class="sourceLineNo">054</span>  @Nonnull<a name="line.54"></a>
+<span class="sourceLineNo">055</span>  String name() default "&lt;default&gt;";<a name="line.55"></a>
+<span class="sourceLineNo">056</span><a name="line.56"></a>
+<span class="sourceLineNo">057</span>  /**<a name="line.57"></a>
+<span class="sourceLineNo">058</span>   * A flag indicating whether the computable should be "kept alive". A computable that is kept alive<a name="line.58"></a>
+<span class="sourceLineNo">059</span>   * is activated on creation and never deactivates. This is useful if the computable property is only<a name="line.59"></a>
+<span class="sourceLineNo">060</span>   * accessed from within actions but should be kept up to date and not recomputed on each access.<a name="line.60"></a>
+<span class="sourceLineNo">061</span>   * This MUST not be set if the target method has any parameters as can not keep computed value active<a name="line.61"></a>
+<span class="sourceLineNo">062</span>   * if parameter values are unknown.<a name="line.62"></a>
+<span class="sourceLineNo">063</span>   *<a name="line.63"></a>
+<span class="sourceLineNo">064</span>   * @return true to keep computable alive.<a name="line.64"></a>
+<span class="sourceLineNo">065</span>   */<a name="line.65"></a>
+<span class="sourceLineNo">066</span>  boolean keepAlive() default false;<a name="line.66"></a>
+<span class="sourceLineNo">067</span><a name="line.67"></a>
+<span class="sourceLineNo">068</span>  /**<a name="line.68"></a>
+<span class="sourceLineNo">069</span>   * The priority of the underlying ComputableValue observer<a name="line.69"></a>
+<span class="sourceLineNo">070</span>   *<a name="line.70"></a>
+<span class="sourceLineNo">071</span>   * @return the priority of the ComputableValue observer.<a name="line.71"></a>
+<span class="sourceLineNo">072</span>   */<a name="line.72"></a>
+<span class="sourceLineNo">073</span>  Priority priority() default Priority.NORMAL;<a name="line.73"></a>
+<span class="sourceLineNo">074</span><a name="line.74"></a>
+<span class="sourceLineNo">075</span>  /**<a name="line.75"></a>
+<span class="sourceLineNo">076</span>   * Flag controlling whether the underlying observer can observe ComputableValue instances with lower priorities.<a name="line.76"></a>
+<span class="sourceLineNo">077</span>   * The default value of false will result in an invariant failure (in development mode) if a lower priority<a name="line.77"></a>
+<span class="sourceLineNo">078</span>   * dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * priority observer is dependent upon a lower priority computable value. If the value is true then the no<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   * invariant failure is triggered and the component relies on the component author to handle possible priority<a name="line.80"></a>
+<span class="sourceLineNo">081</span>   * inversion.<a name="line.81"></a>
+<span class="sourceLineNo">082</span>   *<a name="line.82"></a>
+<span class="sourceLineNo">083</span>   * @return false if observing lower priority dependencies should result in invariant failure in development mode.<a name="line.83"></a>
+<span class="sourceLineNo">084</span>   */<a name="line.84"></a>
+<span class="sourceLineNo">085</span>  boolean observeLowerPriorityDependencies() default false;<a name="line.85"></a>
+<span class="sourceLineNo">086</span><a name="line.86"></a>
+<span class="sourceLineNo">087</span>  /**<a name="line.87"></a>
+<span class="sourceLineNo">088</span>   * Enum indicating whether the value of the computable is derived from arez elements and/or external dependencies.<a name="line.88"></a>
+<span class="sourceLineNo">089</span>   * If set to {@link DepType#AREZ} then Arez will verify that the method annotated by this annotation accesses arez<a name="line.89"></a>
+<span class="sourceLineNo">090</span>   * elements (i.e. instances of {@link arez.ObservableValue} or instances of {@link ComputableValue}). If set to<a name="line.90"></a>
+<span class="sourceLineNo">091</span>   * {@link DepType#AREZ_OR_NONE} then the runtime will allow computable to exist with no dependencies. If set<a name="line.91"></a>
+<span class="sourceLineNo">092</span>   * to {@link DepType#AREZ_OR_EXTERNAL} then the component must define a {@link ComputableValueRef} method and should invoke<a name="line.92"></a>
+<span class="sourceLineNo">093</span>   * {@link ComputableValue#reportPossiblyChanged()} when the non-arez dependencies are changed.<a name="line.93"></a>
+<span class="sourceLineNo">094</span>   *<a name="line.94"></a>
+<span class="sourceLineNo">095</span>   * @return the types of dependencies allowed on the computable.<a name="line.95"></a>
+<span class="sourceLineNo">096</span>   */<a name="line.96"></a>
+<span class="sourceLineNo">097</span>  @Nonnull<a name="line.97"></a>
+<span class="sourceLineNo">098</span>  DepType depType() default DepType.AREZ;<a name="line.98"></a>
+<span class="sourceLineNo">099</span><a name="line.99"></a>
+<span class="sourceLineNo">100</span>  /**<a name="line.100"></a>
+<span class="sourceLineNo">101</span>   * Return true if the return value of the memoized value should be reported to the Arez spy subsystem.<a name="line.101"></a>
+<span class="sourceLineNo">102</span>   * It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.<a name="line.102"></a>
+<span class="sourceLineNo">103</span>   *<a name="line.103"></a>
+<span class="sourceLineNo">104</span>   * @return true to report the return value, false otherwise.<a name="line.104"></a>
+<span class="sourceLineNo">105</span>   */<a name="line.105"></a>
+<span class="sourceLineNo">106</span>  boolean reportResult() default true;<a name="line.106"></a>
+<span class="sourceLineNo">107</span><a name="line.107"></a>
+<span class="sourceLineNo">108</span>  /**<a name="line.108"></a>
+<span class="sourceLineNo">109</span>   * Return true if the memoized value can be read outside a transaction.<a name="line.109"></a>
+<span class="sourceLineNo">110</span>   * It should be noted that if there is no Observer tracking the memoized value, then the value will be<a name="line.110"></a>
+<span class="sourceLineNo">111</span>   * calculated each time it is accessed.<a name="line.111"></a>
+<span class="sourceLineNo">112</span>   *<a name="line.112"></a>
+<span class="sourceLineNo">113</span>   * @return true to allow reads outside a transaction, false to require a transaction to read memoized value.<a name="line.113"></a>
+<span class="sourceLineNo">114</span>   */<a name="line.114"></a>
+<span class="sourceLineNo">115</span>  boolean readOutsideTransaction() default false;<a name="line.115"></a>
+<span class="sourceLineNo">116</span>}<a name="line.116"></a>
 
 
 

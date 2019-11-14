@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/ComponentStateRef.html#line.28">ComponentStateRef</a></pre>
+public @interface <a href="../../src-html/arez/annotations/ComponentStateRef.html#line.29">ComponentStateRef</a></pre>
 <div class="block">Annotate the method that will be overridden to return true if the component is in the specified state.
  This is useful when the component must validate methods are only called in certain states or to change
  behaviour based on state (i.e. Avoid causing side-effects when disposing).
@@ -109,6 +109,7 @@ public @interface <a href="../../src-html/arez/annotations/ComponentStateRef.htm
  <li>Must not be final</li>
  <li>Must be abstract</li>
  <li>Must not throw exceptions</li>
+ <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
  </ul></div>
 </li>
 </ul>
@@ -155,7 +156,7 @@ public @interface <a href="../../src-html/arez/annotations/ComponentStateRef.htm
 <ul class="blockListLast">
 <li class="blockList">
 <h4>value</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/State.html" title="enum in arez.annotations">State</a>&nbsp;<a href="../../src-html/arez/annotations/ComponentStateRef.html#line.36">value</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/State.html" title="enum in arez.annotations">State</a>&nbsp;<a href="../../src-html/arez/annotations/ComponentStateRef.html#line.37">value</a></pre>
 <div class="block">Return the component state which will cause the annotated method to return true.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

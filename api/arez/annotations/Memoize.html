@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42">Memoize</a></pre>
+public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.43">Memoize</a></pre>
 <div class="block">Methods marked with this annotation are <a href="https://en.wikipedia.org/wiki/Memoization">memoized</a> while
  activated which typically means they have an observer. These methods are typically backed with one or more
  <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances.
@@ -122,6 +122,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
  <li>Must not be final</li>
  <li>Must not be abstract</li>
  <li>Must not throw exceptions</li>
+ <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
  </ul></div>
 </li>
 </ul>
@@ -204,7 +205,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 <ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.54">name</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.55">name</a></pre>
 <div class="block">Return the root name of the element value relative to the component.
  If the method has parameters then the name will be used in combination with a sequence
  when naming the synthesized <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances. The value must conform to
@@ -229,7 +230,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 <ul class="blockList">
 <li class="blockList">
 <h4>keepAlive</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.65">keepAlive</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.66">keepAlive</a></pre>
 <div class="block">A flag indicating whether the computable should be "kept alive". A computable that is kept alive
  is activated on creation and never deactivates. This is useful if the computable property is only
  accessed from within actions but should be kept up to date and not recomputed on each access.
@@ -254,7 +255,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 <ul class="blockList">
 <li class="blockList">
 <h4>priority</h4>
-<pre>public abstract&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a>&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.72">priority</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a>&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.73">priority</a></pre>
 <div class="block">The priority of the underlying ComputableValue observer</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -275,7 +276,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 <ul class="blockList">
 <li class="blockList">
 <h4>observeLowerPriorityDependencies</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.84">observeLowerPriorityDependencies</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.85">observeLowerPriorityDependencies</a></pre>
 <div class="block">Flag controlling whether the underlying observer can observe ComputableValue instances with lower priorities.
  The default value of false will result in an invariant failure (in development mode) if a lower priority
  dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher
@@ -301,7 +302,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 <ul class="blockList">
 <li class="blockList">
 <h4>depType</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a>&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.97">depType</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/DepType.html" title="enum in arez.annotations">DepType</a>&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.98">depType</a></pre>
 <div class="block">Enum indicating whether the value of the computable is derived from arez elements and/or external dependencies.
  If set to <a href="../../arez/annotations/DepType.html#AREZ"><code>DepType.AREZ</code></a> then Arez will verify that the method annotated by this annotation accesses arez
  elements (i.e. instances of <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> or instances of <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>). If set to
@@ -327,7 +328,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 <ul class="blockList">
 <li class="blockList">
 <h4>reportResult</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.105">reportResult</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.106">reportResult</a></pre>
 <div class="block">Return true if the return value of the memoized value should be reported to the Arez spy subsystem.
  It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.</div>
 <dl>
@@ -349,7 +350,7 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.42"
 <ul class="blockListLast">
 <li class="blockList">
 <h4>readOutsideTransaction</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.114">readOutsideTransaction</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.115">readOutsideTransaction</a></pre>
 <div class="block">Return true if the memoized value can be read outside a transaction.
  It should be noted that if there is no Observer tracking the memoized value, then the value will be
  calculated each time it is accessed.</div>

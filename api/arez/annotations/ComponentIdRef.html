@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/ComponentIdRef.html#line.23">ComponentIdRef</a></pre>
+public @interface <a href="../../src-html/arez/annotations/ComponentIdRef.html#line.24">ComponentIdRef</a></pre>
 <div class="block">Marks a template method that returns the Id of the component.
 
  <p>The method that is annotated with this annotation must also comply with the following constraints:</p>
@@ -105,6 +105,7 @@ public @interface <a href="../../src-html/arez/annotations/ComponentIdRef.html#l
  <li>Must be abstract</li>
  <li>Must not throw any exceptions</li>
  <li>Must return a value that has the same type as returned by the method annotated by <a href="../../arez/annotations/ComponentId.html" title="annotation in arez.annotations"><code>ComponentId</code></a> or an <code>int</code>.</li>
+ <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
  </ul></div>
 </li>
 </ul>

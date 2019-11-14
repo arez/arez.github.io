@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/OnDepsChange.html#line.28">OnDepsChange</a></pre>
+public @interface <a href="../../src-html/arez/annotations/OnDepsChange.html#line.29">OnDepsChange</a></pre>
 <div class="block">Identifies method that will be invoked when the dependencies of the paired <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> annotated method are changed.
 
  <p>The method that is annotated with this annotation must comply with the additional constraints:</p>
@@ -105,6 +105,7 @@ public @interface <a href="../../src-html/arez/annotations/OnDepsChange.html#lin
  <li>Must have either no parameters or a single parameter of type <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a></li>
  <li>Must not return a value</li>
  <li>Must not throw an exception</li>
+ <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
  </ul>
 
  <p>If the annotated method has a parameter of type <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a> then the underlying <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a>
@@ -155,7 +156,7 @@ public @interface <a href="../../src-html/arez/annotations/OnDepsChange.html#lin
 <ul class="blockListLast">
 <li class="blockList">
 <h4>name</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/OnDepsChange.html#line.39">name</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/OnDepsChange.html#line.40">name</a></pre>
 <div class="block">Return the name of the paired Tracked relative to the component.
  The value must conform to the requirements of a java identifier.
  The name need not be specified. If the <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> annotated method is

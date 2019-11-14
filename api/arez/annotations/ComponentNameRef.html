@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/ComponentNameRef.html#line.34">ComponentNameRef</a></pre>
+public @interface <a href="../../src-html/arez/annotations/ComponentNameRef.html#line.35">ComponentNameRef</a></pre>
 <div class="block">Annotate the method that will be overridden to provide the "name" of the Arez component.
  This is useful when the user wants to manually create Arez elements (i.e. <a href="../../arez/ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> instances,
  <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a> instances or <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances etc) and wants to use the same naming
@@ -113,6 +113,7 @@ public @interface <a href="../../src-html/arez/annotations/ComponentNameRef.html
  <li>Must not be final</li>
  <li>Must be abstract</li>
  <li>Must not throw exceptions</li>
+ <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
  </ul></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>

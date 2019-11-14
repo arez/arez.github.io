@@ -38,81 +38,82 @@
 <span class="sourceLineNo">030</span> * &lt;li&gt;Must not be static&lt;/li&gt;<a name="line.30"></a>
 <span class="sourceLineNo">031</span> * &lt;li&gt;Must not be final&lt;/li&gt;<a name="line.31"></a>
 <span class="sourceLineNo">032</span> * &lt;li&gt;May be abstract but if abstract then the paired setter or getter must also be abstract&lt;/li&gt;<a name="line.32"></a>
-<span class="sourceLineNo">033</span> * &lt;/ul&gt;<a name="line.33"></a>
-<span class="sourceLineNo">034</span> */<a name="line.34"></a>
-<span class="sourceLineNo">035</span>@Documented<a name="line.35"></a>
-<span class="sourceLineNo">036</span>@Target( ElementType.METHOD )<a name="line.36"></a>
-<span class="sourceLineNo">037</span>public @interface Observable<a name="line.37"></a>
-<span class="sourceLineNo">038</span>{<a name="line.38"></a>
-<span class="sourceLineNo">039</span>  /**<a name="line.39"></a>
-<span class="sourceLineNo">040</span>   * Return the name of the ObservableValue relative to the component. If not specified<a name="line.40"></a>
-<span class="sourceLineNo">041</span>   * will default to the name of the property by convention as described above.<a name="line.41"></a>
-<span class="sourceLineNo">042</span>   * The value must conform to the requirements of a java identifier.<a name="line.42"></a>
-<span class="sourceLineNo">043</span>   * The name must also be unique across {@link Observable}s,<a name="line.43"></a>
-<span class="sourceLineNo">044</span>   * {@link Memoize}s and {@link Action}s within the scope of the<a name="line.44"></a>
-<span class="sourceLineNo">045</span>   * {@link ArezComponent} annotated element.<a name="line.45"></a>
-<span class="sourceLineNo">046</span>   *<a name="line.46"></a>
-<span class="sourceLineNo">047</span>   * @return the name of the ObservableValue relative to the component.<a name="line.47"></a>
-<span class="sourceLineNo">048</span>   */<a name="line.48"></a>
-<span class="sourceLineNo">049</span>  @Nonnull<a name="line.49"></a>
-<span class="sourceLineNo">050</span>  String name() default "&lt;default&gt;";<a name="line.50"></a>
-<span class="sourceLineNo">051</span><a name="line.51"></a>
-<span class="sourceLineNo">052</span>  /**<a name="line.52"></a>
-<span class="sourceLineNo">053</span>   * Set this to false if there is no setter method and the component is<a name="line.53"></a>
-<span class="sourceLineNo">054</span>   * expected to use {@link ObservableValueRef} to indicate when value has changed.<a name="line.54"></a>
-<span class="sourceLineNo">055</span>   *<a name="line.55"></a>
-<span class="sourceLineNo">056</span>   * @return true if there is expected to be a setter, false if there should be no setter.<a name="line.56"></a>
-<span class="sourceLineNo">057</span>   */<a name="line.57"></a>
-<span class="sourceLineNo">058</span>  boolean expectSetter() default true;<a name="line.58"></a>
-<span class="sourceLineNo">059</span><a name="line.59"></a>
-<span class="sourceLineNo">060</span>  /**<a name="line.60"></a>
-<span class="sourceLineNo">061</span>   * Indicate whether the generated component class should add a parameter to the constructor to initialize this property.<a name="line.61"></a>
-<span class="sourceLineNo">062</span>   * This parameter should only be set to {@link Feature#ENABLE} when the observable property is defined by a<a name="line.62"></a>
-<span class="sourceLineNo">063</span>   * pair of abstract methods. If set to {@link Feature#AUTODETECT} then an initializer will be added for an<a name="line.63"></a>
-<span class="sourceLineNo">064</span>   * observable property if it is defined by a pair of abstract methods and the values is annotated with the<a name="line.64"></a>
-<span class="sourceLineNo">065</span>   * {@link javax.annotation.Nonnull} annotation and it is not annotated by {@link Inverse}.<a name="line.65"></a>
-<span class="sourceLineNo">066</span>   *<a name="line.66"></a>
-<span class="sourceLineNo">067</span>   * &lt;p&gt;The initializer parameters will be added as additional parameters at the end of the parameter list in<a name="line.67"></a>
-<span class="sourceLineNo">068</span>   * the generated classes constructors. The initializers will be defined in the order that the observable<a name="line.68"></a>
-<span class="sourceLineNo">069</span>   * properties are declared. They properties be assigned after the parent constructor has been invoked.&lt;/p&gt;<a name="line.69"></a>
-<span class="sourceLineNo">070</span>   *<a name="line.70"></a>
-<span class="sourceLineNo">071</span>   * @return flag controlling whether a parameter should be added to the constructor to initialize the property.<a name="line.71"></a>
-<span class="sourceLineNo">072</span>   */<a name="line.72"></a>
-<span class="sourceLineNo">073</span>  Feature initializer() default Feature.AUTODETECT;<a name="line.73"></a>
-<span class="sourceLineNo">074</span><a name="line.74"></a>
-<span class="sourceLineNo">075</span>  /**<a name="line.75"></a>
-<span class="sourceLineNo">076</span>   * Return true if the observable be read outside a transaction.<a name="line.76"></a>
-<span class="sourceLineNo">077</span>   * If the observable can be read outside a transaction then {@link ObservableValue#reportObserved()} will<a name="line.77"></a>
-<span class="sourceLineNo">078</span>   * only be invoked in a tracking transaction (i.e. when an {@link arez.Observer} created the transaction).<a name="line.78"></a>
-<span class="sourceLineNo">079</span>   * Thus {@link Action} annotated methods that only access observables that set the readOutsideTransaction<a name="line.79"></a>
-<span class="sourceLineNo">080</span>   * parameter to true and neither access nor modify other arez elements no longer need to be annotated with<a name="line.80"></a>
-<span class="sourceLineNo">081</span>   * {@link Action} annotations.<a name="line.81"></a>
-<span class="sourceLineNo">082</span>   *<a name="line.82"></a>
-<span class="sourceLineNo">083</span>   * @return true to allow reads outside a transaction, false to require a transaction to read observable.<a name="line.83"></a>
-<span class="sourceLineNo">084</span>   */<a name="line.84"></a>
-<span class="sourceLineNo">085</span>  boolean readOutsideTransaction() default false;<a name="line.85"></a>
-<span class="sourceLineNo">086</span><a name="line.86"></a>
-<span class="sourceLineNo">087</span>  /**<a name="line.87"></a>
-<span class="sourceLineNo">088</span>   * Return true if the observable will create an action if the write occurs outside a transaction.<a name="line.88"></a>
-<span class="sourceLineNo">089</span>   *<a name="line.89"></a>
-<span class="sourceLineNo">090</span>   * @return true to allow writes to create an action if needed, false to require a transaction to write observable.<a name="line.90"></a>
-<span class="sourceLineNo">091</span>   */<a name="line.91"></a>
-<span class="sourceLineNo">092</span>  boolean writeOutsideTransaction() default false;<a name="line.92"></a>
-<span class="sourceLineNo">093</span><a name="line.93"></a>
-<span class="sourceLineNo">094</span>  /**<a name="line.94"></a>
-<span class="sourceLineNo">095</span>   * Return false if the setter should verify observable value has changed before propagating change.<a name="line.95"></a>
-<span class="sourceLineNo">096</span>   * In some scenarios, the setter method will modify the value before updating the observable or may<a name="line.96"></a>
-<span class="sourceLineNo">097</span>   * decide to abort the update. This setting will force the generated code to check the value of the<a name="line.97"></a>
-<span class="sourceLineNo">098</span>   * observable property after the setter and only invoke {@link ObservableValue#reportChanged()} if<a name="line.98"></a>
-<span class="sourceLineNo">099</span>   * a change has actually occurred.<a name="line.99"></a>
-<span class="sourceLineNo">100</span>   *<a name="line.100"></a>
-<span class="sourceLineNo">101</span>   * &lt;p&gt;This parameter should not be set to false if the associated setter is abstract. It is also<a name="line.101"></a>
-<span class="sourceLineNo">102</span>   * invalid to set this value to false if {@link #expectSetter()} is false.&lt;/p&gt;<a name="line.102"></a>
-<span class="sourceLineNo">103</span>   *<a name="line.103"></a>
-<span class="sourceLineNo">104</span>   * @return false if the setter should verify observable value has changed before propagating change.<a name="line.104"></a>
-<span class="sourceLineNo">105</span>   */<a name="line.105"></a>
-<span class="sourceLineNo">106</span>  boolean setterAlwaysMutates() default true;<a name="line.106"></a>
-<span class="sourceLineNo">107</span>}<a name="line.107"></a>
+<span class="sourceLineNo">033</span> * &lt;li&gt;The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.&lt;/li&gt;<a name="line.33"></a>
+<span class="sourceLineNo">034</span> * &lt;/ul&gt;<a name="line.34"></a>
+<span class="sourceLineNo">035</span> */<a name="line.35"></a>
+<span class="sourceLineNo">036</span>@Documented<a name="line.36"></a>
+<span class="sourceLineNo">037</span>@Target( ElementType.METHOD )<a name="line.37"></a>
+<span class="sourceLineNo">038</span>public @interface Observable<a name="line.38"></a>
+<span class="sourceLineNo">039</span>{<a name="line.39"></a>
+<span class="sourceLineNo">040</span>  /**<a name="line.40"></a>
+<span class="sourceLineNo">041</span>   * Return the name of the ObservableValue relative to the component. If not specified<a name="line.41"></a>
+<span class="sourceLineNo">042</span>   * will default to the name of the property by convention as described above.<a name="line.42"></a>
+<span class="sourceLineNo">043</span>   * The value must conform to the requirements of a java identifier.<a name="line.43"></a>
+<span class="sourceLineNo">044</span>   * The name must also be unique across {@link Observable}s,<a name="line.44"></a>
+<span class="sourceLineNo">045</span>   * {@link Memoize}s and {@link Action}s within the scope of the<a name="line.45"></a>
+<span class="sourceLineNo">046</span>   * {@link ArezComponent} annotated element.<a name="line.46"></a>
+<span class="sourceLineNo">047</span>   *<a name="line.47"></a>
+<span class="sourceLineNo">048</span>   * @return the name of the ObservableValue relative to the component.<a name="line.48"></a>
+<span class="sourceLineNo">049</span>   */<a name="line.49"></a>
+<span class="sourceLineNo">050</span>  @Nonnull<a name="line.50"></a>
+<span class="sourceLineNo">051</span>  String name() default "&lt;default&gt;";<a name="line.51"></a>
+<span class="sourceLineNo">052</span><a name="line.52"></a>
+<span class="sourceLineNo">053</span>  /**<a name="line.53"></a>
+<span class="sourceLineNo">054</span>   * Set this to false if there is no setter method and the component is<a name="line.54"></a>
+<span class="sourceLineNo">055</span>   * expected to use {@link ObservableValueRef} to indicate when value has changed.<a name="line.55"></a>
+<span class="sourceLineNo">056</span>   *<a name="line.56"></a>
+<span class="sourceLineNo">057</span>   * @return true if there is expected to be a setter, false if there should be no setter.<a name="line.57"></a>
+<span class="sourceLineNo">058</span>   */<a name="line.58"></a>
+<span class="sourceLineNo">059</span>  boolean expectSetter() default true;<a name="line.59"></a>
+<span class="sourceLineNo">060</span><a name="line.60"></a>
+<span class="sourceLineNo">061</span>  /**<a name="line.61"></a>
+<span class="sourceLineNo">062</span>   * Indicate whether the generated component class should add a parameter to the constructor to initialize this property.<a name="line.62"></a>
+<span class="sourceLineNo">063</span>   * This parameter should only be set to {@link Feature#ENABLE} when the observable property is defined by a<a name="line.63"></a>
+<span class="sourceLineNo">064</span>   * pair of abstract methods. If set to {@link Feature#AUTODETECT} then an initializer will be added for an<a name="line.64"></a>
+<span class="sourceLineNo">065</span>   * observable property if it is defined by a pair of abstract methods and the values is annotated with the<a name="line.65"></a>
+<span class="sourceLineNo">066</span>   * {@link javax.annotation.Nonnull} annotation and it is not annotated by {@link Inverse}.<a name="line.66"></a>
+<span class="sourceLineNo">067</span>   *<a name="line.67"></a>
+<span class="sourceLineNo">068</span>   * &lt;p&gt;The initializer parameters will be added as additional parameters at the end of the parameter list in<a name="line.68"></a>
+<span class="sourceLineNo">069</span>   * the generated classes constructors. The initializers will be defined in the order that the observable<a name="line.69"></a>
+<span class="sourceLineNo">070</span>   * properties are declared. They properties be assigned after the parent constructor has been invoked.&lt;/p&gt;<a name="line.70"></a>
+<span class="sourceLineNo">071</span>   *<a name="line.71"></a>
+<span class="sourceLineNo">072</span>   * @return flag controlling whether a parameter should be added to the constructor to initialize the property.<a name="line.72"></a>
+<span class="sourceLineNo">073</span>   */<a name="line.73"></a>
+<span class="sourceLineNo">074</span>  Feature initializer() default Feature.AUTODETECT;<a name="line.74"></a>
+<span class="sourceLineNo">075</span><a name="line.75"></a>
+<span class="sourceLineNo">076</span>  /**<a name="line.76"></a>
+<span class="sourceLineNo">077</span>   * Return true if the observable be read outside a transaction.<a name="line.77"></a>
+<span class="sourceLineNo">078</span>   * If the observable can be read outside a transaction then {@link ObservableValue#reportObserved()} will<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * only be invoked in a tracking transaction (i.e. when an {@link arez.Observer} created the transaction).<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   * Thus {@link Action} annotated methods that only access observables that set the readOutsideTransaction<a name="line.80"></a>
+<span class="sourceLineNo">081</span>   * parameter to true and neither access nor modify other arez elements no longer need to be annotated with<a name="line.81"></a>
+<span class="sourceLineNo">082</span>   * {@link Action} annotations.<a name="line.82"></a>
+<span class="sourceLineNo">083</span>   *<a name="line.83"></a>
+<span class="sourceLineNo">084</span>   * @return true to allow reads outside a transaction, false to require a transaction to read observable.<a name="line.84"></a>
+<span class="sourceLineNo">085</span>   */<a name="line.85"></a>
+<span class="sourceLineNo">086</span>  boolean readOutsideTransaction() default false;<a name="line.86"></a>
+<span class="sourceLineNo">087</span><a name="line.87"></a>
+<span class="sourceLineNo">088</span>  /**<a name="line.88"></a>
+<span class="sourceLineNo">089</span>   * Return true if the observable will create an action if the write occurs outside a transaction.<a name="line.89"></a>
+<span class="sourceLineNo">090</span>   *<a name="line.90"></a>
+<span class="sourceLineNo">091</span>   * @return true to allow writes to create an action if needed, false to require a transaction to write observable.<a name="line.91"></a>
+<span class="sourceLineNo">092</span>   */<a name="line.92"></a>
+<span class="sourceLineNo">093</span>  boolean writeOutsideTransaction() default false;<a name="line.93"></a>
+<span class="sourceLineNo">094</span><a name="line.94"></a>
+<span class="sourceLineNo">095</span>  /**<a name="line.95"></a>
+<span class="sourceLineNo">096</span>   * Return false if the setter should verify observable value has changed before propagating change.<a name="line.96"></a>
+<span class="sourceLineNo">097</span>   * In some scenarios, the setter method will modify the value before updating the observable or may<a name="line.97"></a>
+<span class="sourceLineNo">098</span>   * decide to abort the update. This setting will force the generated code to check the value of the<a name="line.98"></a>
+<span class="sourceLineNo">099</span>   * observable property after the setter and only invoke {@link ObservableValue#reportChanged()} if<a name="line.99"></a>
+<span class="sourceLineNo">100</span>   * a change has actually occurred.<a name="line.100"></a>
+<span class="sourceLineNo">101</span>   *<a name="line.101"></a>
+<span class="sourceLineNo">102</span>   * &lt;p&gt;This parameter should not be set to false if the associated setter is abstract. It is also<a name="line.102"></a>
+<span class="sourceLineNo">103</span>   * invalid to set this value to false if {@link #expectSetter()} is false.&lt;/p&gt;<a name="line.103"></a>
+<span class="sourceLineNo">104</span>   *<a name="line.104"></a>
+<span class="sourceLineNo">105</span>   * @return false if the setter should verify observable value has changed before propagating change.<a name="line.105"></a>
+<span class="sourceLineNo">106</span>   */<a name="line.106"></a>
+<span class="sourceLineNo">107</span>  boolean setterAlwaysMutates() default true;<a name="line.107"></a>
+<span class="sourceLineNo">108</span>}<a name="line.108"></a>
 
 
 

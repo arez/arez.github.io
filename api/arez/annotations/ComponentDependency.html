@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>={<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#FIELD" title="class or interface in java.lang.annotation">FIELD</a>})
-public @interface <a href="../../src-html/arez/annotations/ComponentDependency.html#line.45">ComponentDependency</a></pre>
+public @interface <a href="../../src-html/arez/annotations/ComponentDependency.html#line.47">ComponentDependency</a></pre>
 <div class="block">Methods and fields marked with this annotation are dependencies of the component.
  If the dependency is disposed then the component takes an action to cascade the dispose
  or null the property referencing the dependency. The dependency MUST implement the
@@ -117,6 +117,7 @@ public @interface <a href="../../src-html/arez/annotations/ComponentDependency.h
  <li>Must not be static</li>
  <li>If not annotated with <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> then must not be abstract</li>
  <li>Must not throw exceptions</li>
+ <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
  </ul>
 
  <p>If the element annotated is a field then the field must comply with the additional constraints:</p>
@@ -125,6 +126,7 @@ public @interface <a href="../../src-html/arez/annotations/ComponentDependency.h
  <li>Must be a type that implements <a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component"><code>DisposeNotifier</code></a> or is annotated with <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a></li>
  <li>Must not be private</li>
  <li>Must not be static</li>
+ <li>The field must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
  </ul></div>
 </li>
 </ul>
@@ -177,7 +179,7 @@ public @interface <a href="../../src-html/arez/annotations/ComponentDependency.h
 <ul class="blockList">
 <li class="blockList">
 <h4>action</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/ComponentDependency.Action.html" title="enum in arez.annotations">ComponentDependency.Action</a>&nbsp;<a href="../../src-html/arez/annotations/ComponentDependency.html#line.72">action</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/ComponentDependency.Action.html" title="enum in arez.annotations">ComponentDependency.Action</a>&nbsp;<a href="../../src-html/arez/annotations/ComponentDependency.html#line.74">action</a></pre>
 <div class="block">Return the action to take when the dependency is disposed.
  A <a href="../../arez/annotations/ComponentDependency.Action.html#CASCADE"><code>ComponentDependency.Action.CASCADE</code></a> value indicates that the component should be deleted, while a
  <a href="../../arez/annotations/ComponentDependency.Action.html#SET_NULL"><code>ComponentDependency.Action.SET_NULL</code></a> value indicates that the observable field should be set to null.
@@ -202,7 +204,7 @@ public @interface <a href="../../src-html/arez/annotations/ComponentDependency.h
 <ul class="blockListLast">
 <li class="blockList">
 <h4>validateTypeAtRuntime</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ComponentDependency.html#line.81">validateTypeAtRuntime</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/ComponentDependency.html#line.83">validateTypeAtRuntime</a></pre>
 <div class="block">Return true and the value of the annotated field will be validated at runtime rather than at compile time.
  This is useful when the field is defined by an interface but the underlying field is guaranteed to implement
  <a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component"><code>DisposeNotifier</code></a> at runtime.</div>
