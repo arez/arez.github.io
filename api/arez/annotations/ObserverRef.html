@@ -93,20 +93,17 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/ObserverRef.html#line.26">ObserverRef</a></pre>
+public @interface <a href="../../src-html/arez/annotations/ObserverRef.html#line.23">ObserverRef</a></pre>
 <div class="block">Marks a template method that returns the <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a> instance for
  the associated <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> annotated method.
 
  <p>The method that is annotated with this annotation must also comply with the following constraints:</p>
  <ul>
  <li>Must not be annotated with any other arez annotation</li>
- <li>Must not be private</li>
- <li>Must not be static</li>
- <li>Must not be final</li>
  <li>Must be abstract</li>
  <li>Must not throw any exceptions</li>
  <li>Must return an instance of <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a>.</li>
- <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
+ <li>Must be accessible to the class annotated by the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
  </ul></div>
 </li>
 </ul>
@@ -153,7 +150,7 @@ public @interface <a href="../../src-html/arez/annotations/ObserverRef.html#line
 <ul class="blockListLast">
 <li class="blockList">
 <h4>name</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/ObserverRef.html#line.36">name</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/ObserverRef.html#line.33">name</a></pre>
 <div class="block">Return the name of the associated Observer that this ref relates to.
  This value will be derived if the method name matches the pattern "get[Name]Observer",
  otherwise it must be specified.</div>

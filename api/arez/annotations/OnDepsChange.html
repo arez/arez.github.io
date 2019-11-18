@@ -105,7 +105,7 @@ public @interface <a href="../../src-html/arez/annotations/OnDepsChange.html#lin
  <li>Must have either no parameters or a single parameter of type <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a></li>
  <li>Must not return a value</li>
  <li>Must not throw an exception</li>
- <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
+ <li>Must be accessible to the class annotated by the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
  </ul>
 
  <p>If the annotated method has a parameter of type <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a> then the underlying <a href="../../arez/Observer.html" title="class in arez"><code>Observer</code></a>

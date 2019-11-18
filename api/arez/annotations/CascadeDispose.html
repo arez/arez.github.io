@@ -112,7 +112,7 @@ public @interface <a href="../../src-html/arez/annotations/CascadeDispose.html#l
  <li>Must not be static</li>
  <li>Must not be abstract unless the method is annotated with <a href="../../arez/annotations/Reference.html" title="annotation in arez.annotations"><code>Reference</code></a> or <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> in which case it MUST be abstract</li>
  <li>Must not throw exceptions</li>
- <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
+ <li>Must be accessible to the class annotated by the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
  </ul>
 
  <p>If the element annotated is a field then the field must comply with the additional constraints:</p>

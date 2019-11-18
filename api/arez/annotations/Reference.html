@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/Reference.html#line.33">Reference</a></pre>
+public @interface <a href="../../src-html/arez/annotations/Reference.html#line.31">Reference</a></pre>
 <div class="block">A Reference annotation is placed on an abstract method that will resolve to a referenced object.
  The reference annotation is paired with a <a href="../../arez/annotations/ReferenceId.html" title="annotation in arez.annotations"><code>ReferenceId</code></a> method that returns the <code>id</code>
  of the referenced object. The <code>type</code> of the referenced object is the return type of the method
@@ -108,11 +108,9 @@ public @interface <a href="../../src-html/arez/annotations/Reference.html#line.3
  <li>Must not be annotated with any other arez annotation</li>
  <li>Must have 0 parameters</li>
  <li>Must return a value</li>
- <li>Must not be private</li>
- <li>Must not be static</li>
  <li>Must be abstract</li>
  <li>Must not throw exceptions</li>
- <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
+ <li>Must be accessible to the class annotated by the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
  </ul></div>
 </li>
 </ul>
@@ -183,7 +181,7 @@ public @interface <a href="../../src-html/arez/annotations/Reference.html#line.3
 <ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.43">name</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.41">name</a></pre>
 <div class="block">Return the name of the reference relative to the component. The value must conform
  to the requirements of a java identifier. If not specified, the name will be derived by assuming
  the naming convention "get[Name]" or failing that the name will be the method name.</div>
@@ -206,7 +204,7 @@ public @interface <a href="../../src-html/arez/annotations/Reference.html#line.3
 <ul class="blockList">
 <li class="blockList">
 <h4>load</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/LinkType.html" title="enum in arez.annotations">LinkType</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.51">load</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/LinkType.html" title="enum in arez.annotations">LinkType</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.49">load</a></pre>
 <div class="block">Return the strategy for resolving reference.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -227,7 +225,7 @@ public @interface <a href="../../src-html/arez/annotations/Reference.html#line.3
 <ul class="blockList">
 <li class="blockList">
 <h4>inverse</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.63">inverse</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.61">inverse</a></pre>
 <div class="block">Return the enum controlling whether there is an inverse for reference.
  <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> tells the annotation processor to expect an inverse and add code
  to maintain the inverse. <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> will generate no code to maintain
@@ -252,7 +250,7 @@ public @interface <a href="../../src-html/arez/annotations/Reference.html#line.3
 <ul class="blockList">
 <li class="blockList">
 <h4>inverseName</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.74">inverseName</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.72">inverseName</a></pre>
 <div class="block">Return the name of the inverse associated with the reference. The value must conform
  to the requirements of a java identifier. If not specified, the name will be derived
  by camelCasing the simple name of the class on which the <a href="../../arez/annotations/Reference.html" title="annotation in arez.annotations"><code>Reference</code></a> annotation
@@ -276,7 +274,7 @@ public @interface <a href="../../src-html/arez/annotations/Reference.html#line.3
 <ul class="blockListLast">
 <li class="blockList">
 <h4>inverseMultiplicity</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/Multiplicity.html" title="enum in arez.annotations">Multiplicity</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.82">inverseMultiplicity</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/Multiplicity.html" title="enum in arez.annotations">Multiplicity</a>&nbsp;<a href="../../src-html/arez/annotations/Reference.html#line.80">inverseMultiplicity</a></pre>
 <div class="block">Define the expected multiplicity of the inverse associated with the reference.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

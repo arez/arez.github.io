@@ -93,19 +93,16 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/ComponentRef.html#line.24">ComponentRef</a></pre>
+public @interface <a href="../../src-html/arez/annotations/ComponentRef.html#line.21">ComponentRef</a></pre>
 <div class="block">Marks a template method that returns the <a href="../../arez/Component.html" title="class in arez"><code>Component</code></a> instance for the component.
 
  <p>The method that is annotated with this annotation must also comply with the following constraints:</p>
  <ul>
  <li>Must not be annotated with any other arez annotation</li>
- <li>Must not be private</li>
- <li>Must not be static</li>
- <li>Must not be final</li>
  <li>Must be abstract</li>
  <li>Must not throw any exceptions</li>
  <li>Must return an instance of <a href="../../arez/Component.html" title="class in arez"><code>Component</code></a>.</li>
- <li>The method must be accessible to the component subclass which means it must not be package access unless it is in the same package as the arez component.</li>
+ <li>Must be accessible to the class annotated by the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
  </ul></div>
 </li>
 </ul>
