@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/ComponentTypeNameRef.html#line.29">ComponentTypeNameRef</a></pre>
+public @interface <a href="../../src-html/arez/annotations/ComponentTypeNameRef.html#line.40">ComponentTypeNameRef</a></pre>
 <div class="block">Annotate the method that will be overridden to return the value of ArezComponent.name().
  This is only useful when a class potentially has multiple <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotated subclasses.
  This method is used when manually setting up debug context and you want it to align with the concrete
@@ -111,6 +111,17 @@ public @interface <a href="../../src-html/arez/annotations/ComponentTypeNameRef.
  <li>Must be abstract</li>
  <li>Must not throw exceptions</li>
  <li>Must be accessible to the class annotated by the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
+ <li>
+   Should not be public as not expected to be invoked outside the component. A warning will be generated but can
+   be suppressed by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../arez/annotations/SuppressArezWarnings.html" title="annotation in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key
+   "Arez:PublicRefMethod". This warning is also suppressed by the annotation processor if it is implementing
+   an interface method.
+ </li>
+ <li>
+   Should not be protected if in the class annotated with the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation as the method is not
+   expected to be invoked outside the component. A warning will be generated but can be suppressed by the
+   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../arez/annotations/SuppressArezWarnings.html" title="annotation in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:ProtectedRefMethod".
+ </li>
  </ul></div>
 </li>
 </ul>

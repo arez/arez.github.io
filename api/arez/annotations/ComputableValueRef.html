@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/arez/annotations/ComputableValueRef.html#line.27">ComputableValueRef</a></pre>
+public @interface <a href="../../src-html/arez/annotations/ComputableValueRef.html#line.38">ComputableValueRef</a></pre>
 <div class="block">Marks a template method that returns the <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instance for
  the <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> annotated property. Each property marked with the <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> annotation is backed
  by an <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instance and some frameworks make use of this value to implement
@@ -107,6 +107,17 @@ public @interface <a href="../../src-html/arez/annotations/ComputableValueRef.ht
  <li>Must not throw any exceptions</li>
  <li>Must return an instance of <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>.</li>
  <li>Must be accessible to the class annotated by the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
+ <li>
+   Should not be public as not expected to be invoked outside the component. A warning will be generated but can
+   be suppressed by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../arez/annotations/SuppressArezWarnings.html" title="annotation in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key
+   "Arez:PublicRefMethod". This warning is also suppressed by the annotation processor if it is implementing
+   an interface method.
+ </li>
+ <li>
+   Should not be protected if in the class annotated with the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation as the method is not
+   expected to be invoked outside the component. A warning will be generated but can be suppressed by the
+   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../arez/annotations/SuppressArezWarnings.html" title="annotation in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:ProtectedRefMethod".
+ </li>
  </ul></div>
 </li>
 </ul>
@@ -153,7 +164,7 @@ public @interface <a href="../../src-html/arez/annotations/ComputableValueRef.ht
 <ul class="blockListLast">
 <li class="blockList">
 <h4>name</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/ComputableValueRef.html#line.37">name</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/ComputableValueRef.html#line.48">name</a></pre>
 <div class="block">Return the name of the associated Memoize property that this ref relates to.
  This value will be derived if the method name matches the pattern "get[Name]ComputableValue",
  otherwise it must be specified.</div>
