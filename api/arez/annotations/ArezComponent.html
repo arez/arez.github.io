@@ -157,68 +157,74 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#defaultPriority--">defaultPriority</a></span></code>
+<div class="block">The default priority used by <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> and <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> annotated methods.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#deferSchedule--">deferSchedule</a></span></code>
 <div class="block">Return true if an the generated component should NOT trigger scheduler at the end of the constructor.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#disposeNotifier--">disposeNotifier</a></span></code>
 <div class="block">Return enum to control whether the component should support implement the <a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component"><code>DisposeNotifier</code></a> interface.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#disposeOnDeactivate--">disposeOnDeactivate</a></span></code>
 <div class="block">Return true if the component should dispose itself once it is no longer "observed".</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/InjectMode.html" title="enum in arez.annotations">InjectMode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#inject--">inject</a></span></code>
 <div class="block">Specify how the component is integrated into the injection framework.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#name--">name</a></span></code>
 <div class="block">Return the name of the type.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#nameIncludesId--">nameIncludesId</a></span></code>
 <div class="block">Return true if the name derived for component should include the id, false otherwise.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#observable--">observable</a></span></code>
 <div class="block">Return the enum to control whether the component should support being "observed" by
  <a href="../../arez/component/ComponentObservable.html#observe-java.lang.Object-"><code>ComponentObservable.observe(Object)</code></a>.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#requireEquals--">requireEquals</a></span></code>
 <div class="block">Indicate whether a component requires that the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang"><code>Object.equals(Object)</code></a>
  methods are implemented.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#requireId--">requireId</a></span></code>
 <div class="block">Indicates whether the component should support access of the id via <a href="../../arez/component/Identifiable.html#getArezId-java.lang.Object-"><code>Identifiable.getArezId(Object)</code></a>.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#verify--">verify</a></span></code>
 <div class="block">Indicates whether the component should implement the interface <a href="../../arez/component/Verifiable.html" title="interface in arez.component"><code>Verifiable</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#verifyReferencesToComponent--">verifyReferencesToComponent</a></span></code>
 <div class="block">Indicate whether references to the component should also be annotated with <a href="../../arez/annotations/CascadeDispose.html" title="annotation in arez.annotations"><code>CascadeDispose</code></a> or <a href="../../arez/annotations/ComponentDependency.html" title="annotation in arez.annotations"><code>ComponentDependency</code></a>.</div>
@@ -540,7 +546,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <li class="blockList"><a name="verifyReferencesToComponent--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>verifyReferencesToComponent</h4>
 <pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.188">verifyReferencesToComponent</a></pre>
@@ -557,6 +563,29 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <dl>
 <dt>Default:</dt>
 <dd>arez.annotations.Feature.AUTODETECT</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="defaultPriority--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>defaultPriority</h4>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.197">defaultPriority</a></pre>
+<div class="block">The default priority used by <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> and <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> annotated methods.
+ This parameter should not be specified only be specified
+ if there are <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> or <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> annotated methods present on the component.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the default priority used by <a href="../../arez/annotations/Memoize.html" title="annotation in arez.annotations"><code>Memoize</code></a> and <a href="../../arez/annotations/Observe.html" title="annotation in arez.annotations"><code>Observe</code></a> annotated methods.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>arez.annotations.Priority.NORMAL</dd>
 </dl>
 </li>
 </ul>

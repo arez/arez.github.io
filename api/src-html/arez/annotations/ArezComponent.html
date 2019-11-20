@@ -194,7 +194,16 @@
 <span class="sourceLineNo">186</span>   * @return enum controlling whether a references to components should be explicitly managed.<a name="line.186"></a>
 <span class="sourceLineNo">187</span>   */<a name="line.187"></a>
 <span class="sourceLineNo">188</span>  Feature verifyReferencesToComponent() default Feature.AUTODETECT;<a name="line.188"></a>
-<span class="sourceLineNo">189</span>}<a name="line.189"></a>
+<span class="sourceLineNo">189</span><a name="line.189"></a>
+<span class="sourceLineNo">190</span>  /**<a name="line.190"></a>
+<span class="sourceLineNo">191</span>   * The default priority used by {@link Memoize} and {@link Observe} annotated methods.<a name="line.191"></a>
+<span class="sourceLineNo">192</span>   * This parameter should not be specified only be specified<a name="line.192"></a>
+<span class="sourceLineNo">193</span>   * if there are {@link Memoize} or {@link Observe} annotated methods present on the component.<a name="line.193"></a>
+<span class="sourceLineNo">194</span>   *<a name="line.194"></a>
+<span class="sourceLineNo">195</span>   * @return the default priority used by {@link Memoize} and {@link Observe} annotated methods.<a name="line.195"></a>
+<span class="sourceLineNo">196</span>   */<a name="line.196"></a>
+<span class="sourceLineNo">197</span>  Priority defaultPriority() default Priority.NORMAL;<a name="line.197"></a>
+<span class="sourceLineNo">198</span>}<a name="line.198"></a>
 
 
 

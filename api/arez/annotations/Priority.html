@@ -146,28 +146,33 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?i
 <th class="colOne" scope="col">Enum Constant and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#DEFAULT">DEFAULT</a></span></code>
+<div class="block">Default priority.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#HIGH">HIGH</a></span></code>
 <div class="block">High priority.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#HIGHEST">HIGHEST</a></span></code>
 <div class="block">Highest priority.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#LOW">LOW</a></span></code>
 <div class="block">Low priority.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#LOWEST">LOWEST</a></span></code>
 <div class="block">Lowest priority.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../arez/annotations/Priority.html#NORMAL">NORMAL</a></span></code>
-<div class="block">Normal priority if not otherwise specified.</div>
+<div class="block">Normal priority.</div>
 </td>
 </tr>
 </table>
@@ -257,7 +262,7 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>NORMAL</h4>
 <pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.34">NORMAL</a></pre>
-<div class="block">Normal priority if not otherwise specified.</div>
+<div class="block">Normal priority.</div>
 </li>
 </ul>
 <a name="LOW">
@@ -278,7 +283,7 @@ the order they are declared.</div>
 <a name="LOWEST">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>LOWEST</h4>
 <pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.50">LOWEST</a></pre>
@@ -286,6 +291,18 @@ the order they are declared.</div>
  This is low-priority reactions that reflect onto non-reactive applications. It is
  also used for (i.e. <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>s) that may be unobserved when a <a href="../../arez/annotations/Priority.html#LOW"><code>LOW</code></a>
  priority reaction runs.</div>
+</li>
+</ul>
+<a name="DEFAULT">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>DEFAULT</h4>
+<pre>public static final&nbsp;<a href="../../arez/annotations/Priority.html" title="enum in arez.annotations">Priority</a> <a href="../../src-html/arez/annotations/Priority.html#line.56">DEFAULT</a></pre>
+<div class="block">Default priority.
+ Use the value of the <a href="../../arez/annotations/ArezComponent.html#defaultPriority--"><code>ArezComponent.defaultPriority()</code></a> specified at the component level or <a href="../../arez/annotations/Priority.html#NORMAL"><code>NORMAL</code></a>
+ if for the value of <a href="../../arez/annotations/ArezComponent.html#defaultPriority--"><code>ArezComponent.defaultPriority()</code></a>.</div>
 </li>
 </ul>
 </li>
