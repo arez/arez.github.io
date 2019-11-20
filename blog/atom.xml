@@ -2,12 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://arez.github.io/blog</id>
     <title>Arez Blog</title>
-    <updated>2019-11-11T06:00:00Z</updated>
+    <updated>2019-11-20T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://arez.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Arez news and events.</subtitle>
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2019 the Arez Project</rights>
+    <entry>
+        <title type="html"><![CDATA[Arez 0.155 released]]></title>
+        <id>https://arez.github.io/blog/2019/11/20/version-0.155-release.html</id>
+        <link href="https://arez.github.io/blog/2019/11/20/version-0.155-release.html">
+        </link>
+        <updated>2019-11-20T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.154...v0.155)
+[API Differences](/api-diff/?key=arez&old=0.154&new=0.155)
+
+The release includes 4 non breaking API changes and 4 non breaking API changes.
+
+Changes in this release:
+
+* Upgrade th]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Arez 0.154 released]]></title>
         <id>https://arez.github.io/blog/2019/11/11/version-0.154-release.html</id>
