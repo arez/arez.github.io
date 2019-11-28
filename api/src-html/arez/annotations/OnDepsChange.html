@@ -26,27 +26,38 @@
 <span class="sourceLineNo">018</span> * &lt;li&gt;Must not return a value&lt;/li&gt;<a name="line.18"></a>
 <span class="sourceLineNo">019</span> * &lt;li&gt;Must not throw an exception&lt;/li&gt;<a name="line.19"></a>
 <span class="sourceLineNo">020</span> * &lt;li&gt;Must be accessible to the class annotated by the {@link ArezComponent} annotation.&lt;/li&gt;<a name="line.20"></a>
-<span class="sourceLineNo">021</span> * &lt;/ul&gt;<a name="line.21"></a>
-<span class="sourceLineNo">022</span> *<a name="line.22"></a>
-<span class="sourceLineNo">023</span> * &lt;p&gt;If the annotated method has a parameter of type {@link arez.Observer} then the underlying {@link arez.Observer}<a name="line.23"></a>
-<span class="sourceLineNo">024</span> * instance associated with the {@link Observe}/{@link OnDepsChange} annotated method is passed to the method when<a name="line.24"></a>
-<span class="sourceLineNo">025</span> * dependencies change. This is extremely useful when implementing asynchronous callbacks.&lt;/p&gt;<a name="line.25"></a>
-<span class="sourceLineNo">026</span> */<a name="line.26"></a>
-<span class="sourceLineNo">027</span>@Documented<a name="line.27"></a>
-<span class="sourceLineNo">028</span>@Target( ElementType.METHOD )<a name="line.28"></a>
-<span class="sourceLineNo">029</span>public @interface OnDepsChange<a name="line.29"></a>
-<span class="sourceLineNo">030</span>{<a name="line.30"></a>
-<span class="sourceLineNo">031</span>  /**<a name="line.31"></a>
-<span class="sourceLineNo">032</span>   * Return the name of the paired Tracked relative to the component.<a name="line.32"></a>
-<span class="sourceLineNo">033</span>   * The value must conform to the requirements of a java identifier.<a name="line.33"></a>
-<span class="sourceLineNo">034</span>   * The name need not be specified. If the {@link Observe} annotated method is<a name="line.34"></a>
-<span class="sourceLineNo">035</span>   * named "render" then this will default to being named "onRenderDepsChange".<a name="line.35"></a>
-<span class="sourceLineNo">036</span>   *<a name="line.36"></a>
-<span class="sourceLineNo">037</span>   * @return the name of the paired {@link Observe} annotated method relative to the component.<a name="line.37"></a>
-<span class="sourceLineNo">038</span>   */<a name="line.38"></a>
-<span class="sourceLineNo">039</span>  @Nonnull<a name="line.39"></a>
-<span class="sourceLineNo">040</span>  String name() default "&lt;default&gt;";<a name="line.40"></a>
-<span class="sourceLineNo">041</span>}<a name="line.41"></a>
+<span class="sourceLineNo">021</span> * &lt;li&gt;<a name="line.21"></a>
+<span class="sourceLineNo">022</span> *   Should not be public as not expected to be invoked outside the component. A warning will be generated but can<a name="line.22"></a>
+<span class="sourceLineNo">023</span> *   be suppressed by the {@link SuppressWarnings} or {@link SuppressArezWarnings} annotations with a key<a name="line.23"></a>
+<span class="sourceLineNo">024</span> *   "Arez:PublicHookMethod". This warning is also suppressed by the annotation processor if it is implementing<a name="line.24"></a>
+<span class="sourceLineNo">025</span> *   an interface method.<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * &lt;/li&gt;<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * &lt;li&gt;<a name="line.27"></a>
+<span class="sourceLineNo">028</span> *   Should not be protected if in the class annotated with the {@link ArezComponent} annotation as the method is not<a name="line.28"></a>
+<span class="sourceLineNo">029</span> *   expected to be invoked outside the component. A warning will be generated but can be suppressed by the<a name="line.29"></a>
+<span class="sourceLineNo">030</span> *   {@link SuppressWarnings} or {@link SuppressArezWarnings} annotations with a key "Arez:ProtectedHookMethod".<a name="line.30"></a>
+<span class="sourceLineNo">031</span> * &lt;/li&gt;<a name="line.31"></a>
+<span class="sourceLineNo">032</span> * &lt;/ul&gt;<a name="line.32"></a>
+<span class="sourceLineNo">033</span> *<a name="line.33"></a>
+<span class="sourceLineNo">034</span> * &lt;p&gt;If the annotated method has a parameter of type {@link arez.Observer} then the underlying {@link arez.Observer}<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * instance associated with the {@link Observe}/{@link OnDepsChange} annotated method is passed to the method when<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * dependencies change. This is extremely useful when implementing asynchronous callbacks.&lt;/p&gt;<a name="line.36"></a>
+<span class="sourceLineNo">037</span> */<a name="line.37"></a>
+<span class="sourceLineNo">038</span>@Documented<a name="line.38"></a>
+<span class="sourceLineNo">039</span>@Target( ElementType.METHOD )<a name="line.39"></a>
+<span class="sourceLineNo">040</span>public @interface OnDepsChange<a name="line.40"></a>
+<span class="sourceLineNo">041</span>{<a name="line.41"></a>
+<span class="sourceLineNo">042</span>  /**<a name="line.42"></a>
+<span class="sourceLineNo">043</span>   * Return the name of the paired Tracked relative to the component.<a name="line.43"></a>
+<span class="sourceLineNo">044</span>   * The value must conform to the requirements of a java identifier.<a name="line.44"></a>
+<span class="sourceLineNo">045</span>   * The name need not be specified. If the {@link Observe} annotated method is<a name="line.45"></a>
+<span class="sourceLineNo">046</span>   * named "render" then this will default to being named "onRenderDepsChange".<a name="line.46"></a>
+<span class="sourceLineNo">047</span>   *<a name="line.47"></a>
+<span class="sourceLineNo">048</span>   * @return the name of the paired {@link Observe} annotated method relative to the component.<a name="line.48"></a>
+<span class="sourceLineNo">049</span>   */<a name="line.49"></a>
+<span class="sourceLineNo">050</span>  @Nonnull<a name="line.50"></a>
+<span class="sourceLineNo">051</span>  String name() default "&lt;default&gt;";<a name="line.51"></a>
+<span class="sourceLineNo">052</span>}<a name="line.52"></a>
 
 
 

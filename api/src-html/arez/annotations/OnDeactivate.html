@@ -32,22 +32,33 @@
 <span class="sourceLineNo">024</span> * &lt;li&gt;Must not throw exceptions&lt;/li&gt;<a name="line.24"></a>
 <span class="sourceLineNo">025</span> * &lt;li&gt;Must not be for a {@link Memoize} method that has the {@link Memoize#keepAlive} parameter set to true&lt;/li&gt;<a name="line.25"></a>
 <span class="sourceLineNo">026</span> * &lt;li&gt;Must be accessible to the class annotated by the {@link ArezComponent} annotation.&lt;/li&gt;<a name="line.26"></a>
-<span class="sourceLineNo">027</span> * &lt;/ul&gt;<a name="line.27"></a>
-<span class="sourceLineNo">028</span> */<a name="line.28"></a>
-<span class="sourceLineNo">029</span>@Documented<a name="line.29"></a>
-<span class="sourceLineNo">030</span>@Target( ElementType.METHOD )<a name="line.30"></a>
-<span class="sourceLineNo">031</span>public @interface OnDeactivate<a name="line.31"></a>
-<span class="sourceLineNo">032</span>{<a name="line.32"></a>
-<span class="sourceLineNo">033</span>  /**<a name="line.33"></a>
-<span class="sourceLineNo">034</span>   * Return the name of the ComputableValue that this method is associated with.<a name="line.34"></a>
-<span class="sourceLineNo">035</span>   * This value will be derived if the method name matches the pattern "on[Name]Deactivate",<a name="line.35"></a>
-<span class="sourceLineNo">036</span>   * otherwise it must be specified.<a name="line.36"></a>
-<span class="sourceLineNo">037</span>   *<a name="line.37"></a>
-<span class="sourceLineNo">038</span>   * @return the name of the ComputableValue.<a name="line.38"></a>
-<span class="sourceLineNo">039</span>   */<a name="line.39"></a>
-<span class="sourceLineNo">040</span>  @Nonnull<a name="line.40"></a>
-<span class="sourceLineNo">041</span>  String name() default "&lt;default&gt;";<a name="line.41"></a>
-<span class="sourceLineNo">042</span>}<a name="line.42"></a>
+<span class="sourceLineNo">027</span> * &lt;li&gt;<a name="line.27"></a>
+<span class="sourceLineNo">028</span> *   Should not be public as not expected to be invoked outside the component. A warning will be generated but can<a name="line.28"></a>
+<span class="sourceLineNo">029</span> *   be suppressed by the {@link SuppressWarnings} or {@link SuppressArezWarnings} annotations with a key<a name="line.29"></a>
+<span class="sourceLineNo">030</span> *   "Arez:PublicHookMethod". This warning is also suppressed by the annotation processor if it is implementing<a name="line.30"></a>
+<span class="sourceLineNo">031</span> *   an interface method.<a name="line.31"></a>
+<span class="sourceLineNo">032</span> * &lt;/li&gt;<a name="line.32"></a>
+<span class="sourceLineNo">033</span> * &lt;li&gt;<a name="line.33"></a>
+<span class="sourceLineNo">034</span> *   Should not be protected if in the class annotated with the {@link ArezComponent} annotation as the method is not<a name="line.34"></a>
+<span class="sourceLineNo">035</span> *   expected to be invoked outside the component. A warning will be generated but can be suppressed by the<a name="line.35"></a>
+<span class="sourceLineNo">036</span> *   {@link SuppressWarnings} or {@link SuppressArezWarnings} annotations with a key "Arez:ProtectedHookMethod".<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * &lt;/li&gt;<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * &lt;/ul&gt;<a name="line.38"></a>
+<span class="sourceLineNo">039</span> */<a name="line.39"></a>
+<span class="sourceLineNo">040</span>@Documented<a name="line.40"></a>
+<span class="sourceLineNo">041</span>@Target( ElementType.METHOD )<a name="line.41"></a>
+<span class="sourceLineNo">042</span>public @interface OnDeactivate<a name="line.42"></a>
+<span class="sourceLineNo">043</span>{<a name="line.43"></a>
+<span class="sourceLineNo">044</span>  /**<a name="line.44"></a>
+<span class="sourceLineNo">045</span>   * Return the name of the ComputableValue that this method is associated with.<a name="line.45"></a>
+<span class="sourceLineNo">046</span>   * This value will be derived if the method name matches the pattern "on[Name]Deactivate",<a name="line.46"></a>
+<span class="sourceLineNo">047</span>   * otherwise it must be specified.<a name="line.47"></a>
+<span class="sourceLineNo">048</span>   *<a name="line.48"></a>
+<span class="sourceLineNo">049</span>   * @return the name of the ComputableValue.<a name="line.49"></a>
+<span class="sourceLineNo">050</span>   */<a name="line.50"></a>
+<span class="sourceLineNo">051</span>  @Nonnull<a name="line.51"></a>
+<span class="sourceLineNo">052</span>  String name() default "&lt;default&gt;";<a name="line.52"></a>
+<span class="sourceLineNo">053</span>}<a name="line.53"></a>
 
 
 
