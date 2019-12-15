@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -104,7 +104,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../arez/processor/AbstractStandardProcessor.html" title="class in arez.processor">arez.processor.AbstractStandardProcessor</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../arez/processor/AbstractArezProcessor.html" title="class in arez.processor">arez.processor.AbstractArezProcessor</a></li>
+<li>
+<ul class="inheritance">
 <li>arez.processor.ArezProcessor</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -124,8 +129,8 @@ var activeTableTab = "activeTableTab";
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedAnnotationTypes.html?is-external=true" title="class or interface in javax.annotation.processing">@SupportedAnnotationTypes</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedAnnotationTypes.html?is-external=true#value--" title="class or interface in javax.annotation.processing">value</a>="arez.annotations.ArezComponent")
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedSourceVersion.html?is-external=true" title="class or interface in javax.annotation.processing">@SupportedSourceVersion</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedSourceVersion.html?is-external=true#value--" title="class or interface in javax.annotation.processing">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/SourceVersion.html?is-external=true#RELEASE_8" title="class or interface in javax.lang.model">RELEASE_8</a>)
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedOptions.html?is-external=true" title="class or interface in javax.annotation.processing">@SupportedOptions</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedOptions.html?is-external=true#value--" title="class or interface in javax.annotation.processing">value</a>={"arez.defer.unresolved","arez.defer.errors"})
-public final class <a href="../../src-html/arez/processor/ArezProcessor.html#line.32">ArezProcessor</a>
-extends <a href="../../arez/processor/AbstractStandardProcessor.html" title="class in arez.processor">AbstractStandardProcessor</a></pre>
+public final class <a href="../../src-html/arez/processor/ArezProcessor.html#line.50">ArezProcessor</a>
+extends <a href="../../arez/processor/AbstractArezProcessor.html" title="class in arez.processor">AbstractArezProcessor</a></pre>
 <div class="block">Annotation processor that analyzes Arez annotated source and generates models from the annotations.</div>
 </li>
 </ul>
@@ -179,21 +184,20 @@ extends <a href="../../arez/processor/AbstractStandardProcessor.html" title="cla
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/processor/ArezProcessor.html#getIssueTrackerURL--">getIssueTrackerURL</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/processor/ArezProcessor.html#getOptionPrefix--">getOptionPrefix</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/processor/ArezProcessor.html#getRootAnnotationClassname--">getRootAnnotationClassname</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/processor/ArezProcessor.html#process-javax.lang.model.element.TypeElement-">process</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&nbsp;element)</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.arez.processor.AbstractArezProcessor">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;arez.processor.<a href="../../arez/processor/AbstractArezProcessor.html" title="class in arez.processor">AbstractArezProcessor</a></h3>
+<code><a href="../../arez/processor/AbstractArezProcessor.html#getIssueTrackerURL--">getIssueTrackerURL</a>, <a href="../../arez/processor/AbstractArezProcessor.html#getOptionPrefix--">getOptionPrefix</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.arez.processor.AbstractStandardProcessor">
 <!--   -->
@@ -235,7 +239,7 @@ extends <a href="../../arez/processor/AbstractStandardProcessor.html" title="cla
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ArezProcessor</h4>
-<pre>public&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.32">ArezProcessor</a>()</pre>
+<pre>public&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.50">ArezProcessor</a>()</pre>
 </li>
 </ul>
 </li>
@@ -252,36 +256,10 @@ extends <a href="../../arez/processor/AbstractStandardProcessor.html" title="cla
 <ul class="blockList">
 <li class="blockList">
 <h4>getRootAnnotationClassname</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.37">getRootAnnotationClassname</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.1951">getRootAnnotationClassname</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../arez/processor/AbstractStandardProcessor.html#getRootAnnotationClassname--">getRootAnnotationClassname</a></code>&nbsp;in class&nbsp;<code><a href="../../arez/processor/AbstractStandardProcessor.html" title="class in arez.processor">AbstractStandardProcessor</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getIssueTrackerURL--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getIssueTrackerURL</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.44">getIssueTrackerURL</a>()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../arez/processor/AbstractStandardProcessor.html#getIssueTrackerURL--">getIssueTrackerURL</a></code>&nbsp;in class&nbsp;<code><a href="../../arez/processor/AbstractStandardProcessor.html" title="class in arez.processor">AbstractStandardProcessor</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getOptionPrefix--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getOptionPrefix</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.51">getOptionPrefix</a>()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../arez/processor/AbstractStandardProcessor.html#getOptionPrefix--">getOptionPrefix</a></code>&nbsp;in class&nbsp;<code><a href="../../arez/processor/AbstractStandardProcessor.html" title="class in arez.processor">AbstractStandardProcessor</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -291,7 +269,7 @@ extends <a href="../../arez/processor/AbstractStandardProcessor.html" title="cla
 <ul class="blockListLast">
 <li class="blockList">
 <h4>process</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.57">process</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&nbsp;element)
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.1957">process</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&nbsp;element)
                 throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>,
                        <a href="../../arez/processor/ProcessorException.html" title="class in arez.processor">ProcessorException</a></pre>
 <dl>
