@@ -173,9 +173,9 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.43"
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
+<td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Memoize.html#readOutsideTransaction--">readOutsideTransaction</a></span></code>
-<div class="block">Return true if the memoized value can be read outside a transaction.</div>
+<div class="block">Indicate whether the memoized value can be read outside a transaction.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -350,17 +350,19 @@ public @interface <a href="../../src-html/arez/annotations/Memoize.html#line.43"
 <ul class="blockListLast">
 <li class="blockList">
 <h4>readOutsideTransaction</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.115">readOutsideTransaction</a></pre>
-<div class="block">Return true if the memoized value can be read outside a transaction.
- It should be noted that if there is no Observer tracking the memoized value, then the value will be
- calculated each time it is accessed.</div>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/Memoize.html#line.117">readOutsideTransaction</a></pre>
+<div class="block">Indicate whether the memoized value can be read outside a transaction.
+ If the value is <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the value will be derived from the
+ <a href="../../arez/annotations/ArezComponent.html#defaultReadOutsideTransaction--"><code>ArezComponent.defaultReadOutsideTransaction()</code></a> parameter on the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation. If
+ the value is set to <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then the memoized value can be read outside a transaction. It should
+ be noted that in this scenario the memoized value will be recalculated each time it is accessed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true to allow reads outside a transaction, false to require a transaction to read memoized value.</dd>
+<dd>flag that determines whether the memoized value allows reads outside a transaction, false to require a transaction to read the memoized value.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>false</dd>
+<dd>arez.annotations.Feature.AUTODETECT</dd>
 </dl>
 </li>
 </ul>

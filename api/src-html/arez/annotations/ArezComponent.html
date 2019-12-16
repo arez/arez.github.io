@@ -190,7 +190,15 @@
 <span class="sourceLineNo">182</span>   * @return the default priority used by {@link Memoize} and {@link Observe} annotated methods.<a name="line.182"></a>
 <span class="sourceLineNo">183</span>   */<a name="line.183"></a>
 <span class="sourceLineNo">184</span>  Priority defaultPriority() default Priority.NORMAL;<a name="line.184"></a>
-<span class="sourceLineNo">185</span>}<a name="line.185"></a>
+<span class="sourceLineNo">185</span><a name="line.185"></a>
+<span class="sourceLineNo">186</span>  /**<a name="line.186"></a>
+<span class="sourceLineNo">187</span>   * The default value for the readOutsideTransaction parameter of {@link Memoize} and {@link Observable}<a name="line.187"></a>
+<span class="sourceLineNo">188</span>   * annotated methods.<a name="line.188"></a>
+<span class="sourceLineNo">189</span>   *<a name="line.189"></a>
+<span class="sourceLineNo">190</span>   * @return true to allow reads outside a transaction by default, false to default to requiring a transaction to read observables and memoized values.<a name="line.190"></a>
+<span class="sourceLineNo">191</span>   */<a name="line.191"></a>
+<span class="sourceLineNo">192</span>  Feature defaultReadOutsideTransaction() default Feature.AUTODETECT;<a name="line.192"></a>
+<span class="sourceLineNo">193</span>}<a name="line.193"></a>
 
 
 

@@ -82,38 +82,41 @@
 <span class="sourceLineNo">074</span>  Feature initializer() default Feature.AUTODETECT;<a name="line.74"></a>
 <span class="sourceLineNo">075</span><a name="line.75"></a>
 <span class="sourceLineNo">076</span>  /**<a name="line.76"></a>
-<span class="sourceLineNo">077</span>   * Return true if the observable be read outside a transaction.<a name="line.77"></a>
-<span class="sourceLineNo">078</span>   * If the observable can be read outside a transaction then {@link ObservableValue#reportObserved()} will<a name="line.78"></a>
-<span class="sourceLineNo">079</span>   * only be invoked in a tracking transaction (i.e. when an {@link arez.Observer} created the transaction).<a name="line.79"></a>
-<span class="sourceLineNo">080</span>   * Thus {@link Action} annotated methods that only access observables that set the readOutsideTransaction<a name="line.80"></a>
-<span class="sourceLineNo">081</span>   * parameter to true and neither access nor modify other arez elements no longer need to be annotated with<a name="line.81"></a>
-<span class="sourceLineNo">082</span>   * {@link Action} annotations.<a name="line.82"></a>
-<span class="sourceLineNo">083</span>   *<a name="line.83"></a>
-<span class="sourceLineNo">084</span>   * @return true to allow reads outside a transaction, false to require a transaction to read observable.<a name="line.84"></a>
-<span class="sourceLineNo">085</span>   */<a name="line.85"></a>
-<span class="sourceLineNo">086</span>  boolean readOutsideTransaction() default false;<a name="line.86"></a>
-<span class="sourceLineNo">087</span><a name="line.87"></a>
-<span class="sourceLineNo">088</span>  /**<a name="line.88"></a>
-<span class="sourceLineNo">089</span>   * Return true if the observable will create an action if the write occurs outside a transaction.<a name="line.89"></a>
-<span class="sourceLineNo">090</span>   *<a name="line.90"></a>
-<span class="sourceLineNo">091</span>   * @return true to allow writes to create an action if needed, false to require a transaction to write observable.<a name="line.91"></a>
-<span class="sourceLineNo">092</span>   */<a name="line.92"></a>
-<span class="sourceLineNo">093</span>  boolean writeOutsideTransaction() default false;<a name="line.93"></a>
-<span class="sourceLineNo">094</span><a name="line.94"></a>
-<span class="sourceLineNo">095</span>  /**<a name="line.95"></a>
-<span class="sourceLineNo">096</span>   * Return false if the setter should verify observable value has changed before propagating change.<a name="line.96"></a>
-<span class="sourceLineNo">097</span>   * In some scenarios, the setter method will modify the value before updating the observable or may<a name="line.97"></a>
-<span class="sourceLineNo">098</span>   * decide to abort the update. This setting will force the generated code to check the value of the<a name="line.98"></a>
-<span class="sourceLineNo">099</span>   * observable property after the setter and only invoke {@link ObservableValue#reportChanged()} if<a name="line.99"></a>
-<span class="sourceLineNo">100</span>   * a change has actually occurred.<a name="line.100"></a>
-<span class="sourceLineNo">101</span>   *<a name="line.101"></a>
-<span class="sourceLineNo">102</span>   * &lt;p&gt;This parameter should not be set to false if the associated setter is abstract. It is also<a name="line.102"></a>
-<span class="sourceLineNo">103</span>   * invalid to set this value to false if {@link #expectSetter()} is false.&lt;/p&gt;<a name="line.103"></a>
+<span class="sourceLineNo">077</span>   * Indicate whether the observable can be read outside a transaction.<a name="line.77"></a>
+<span class="sourceLineNo">078</span>   * If the value is {@link Feature#AUTODETECT} then the value will be derived from the<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * {@link ArezComponent#defaultReadOutsideTransaction()} parameter on the {@link ArezComponent} annotation. If<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   * the value is set to {@link Feature#ENABLE} then the observable can be read outside a transaction and the<a name="line.80"></a>
+<span class="sourceLineNo">081</span>   * {@link ObservableValue#reportObserved()} will only be invoked if the observables is accessed from within<a name="line.81"></a>
+<span class="sourceLineNo">082</span>   * a tracking transaction (i.e. when an {@link arez.Observer} or {@link arez.ComputableValue} creates the<a name="line.82"></a>
+<span class="sourceLineNo">083</span>   * transaction). Thus, {@link Action} annotated methods that only access observables that set the<a name="line.83"></a>
+<span class="sourceLineNo">084</span>   * readOutsideTransaction parameter to {@link Feature#ENABLE} and neither access nor modify other arez elements<a name="line.84"></a>
+<span class="sourceLineNo">085</span>   * no longer need to be annotated with {@link Action} annotations.<a name="line.85"></a>
+<span class="sourceLineNo">086</span>   *<a name="line.86"></a>
+<span class="sourceLineNo">087</span>   * @return flag that determines whether the observable allows reads outside a transaction, false to require a transaction to read the observable.<a name="line.87"></a>
+<span class="sourceLineNo">088</span>   */<a name="line.88"></a>
+<span class="sourceLineNo">089</span>  Feature readOutsideTransaction() default Feature.AUTODETECT;<a name="line.89"></a>
+<span class="sourceLineNo">090</span><a name="line.90"></a>
+<span class="sourceLineNo">091</span>  /**<a name="line.91"></a>
+<span class="sourceLineNo">092</span>   * Return true if the observable will create an action if the write occurs outside a transaction.<a name="line.92"></a>
+<span class="sourceLineNo">093</span>   *<a name="line.93"></a>
+<span class="sourceLineNo">094</span>   * @return true to allow writes to create an action if needed, false to require a transaction to write observable.<a name="line.94"></a>
+<span class="sourceLineNo">095</span>   */<a name="line.95"></a>
+<span class="sourceLineNo">096</span>  boolean writeOutsideTransaction() default false;<a name="line.96"></a>
+<span class="sourceLineNo">097</span><a name="line.97"></a>
+<span class="sourceLineNo">098</span>  /**<a name="line.98"></a>
+<span class="sourceLineNo">099</span>   * Return false if the setter should verify observable value has changed before propagating change.<a name="line.99"></a>
+<span class="sourceLineNo">100</span>   * In some scenarios, the setter method will modify the value before updating the observable or may<a name="line.100"></a>
+<span class="sourceLineNo">101</span>   * decide to abort the update. This setting will force the generated code to check the value of the<a name="line.101"></a>
+<span class="sourceLineNo">102</span>   * observable property after the setter and only invoke {@link ObservableValue#reportChanged()} if<a name="line.102"></a>
+<span class="sourceLineNo">103</span>   * a change has actually occurred.<a name="line.103"></a>
 <span class="sourceLineNo">104</span>   *<a name="line.104"></a>
-<span class="sourceLineNo">105</span>   * @return false if the setter should verify observable value has changed before propagating change.<a name="line.105"></a>
-<span class="sourceLineNo">106</span>   */<a name="line.106"></a>
-<span class="sourceLineNo">107</span>  boolean setterAlwaysMutates() default true;<a name="line.107"></a>
-<span class="sourceLineNo">108</span>}<a name="line.108"></a>
+<span class="sourceLineNo">105</span>   * &lt;p&gt;This parameter should not be set to false if the associated setter is abstract. It is also<a name="line.105"></a>
+<span class="sourceLineNo">106</span>   * invalid to set this value to false if {@link #expectSetter()} is false.&lt;/p&gt;<a name="line.106"></a>
+<span class="sourceLineNo">107</span>   *<a name="line.107"></a>
+<span class="sourceLineNo">108</span>   * @return false if the setter should verify observable value has changed before propagating change.<a name="line.108"></a>
+<span class="sourceLineNo">109</span>   */<a name="line.109"></a>
+<span class="sourceLineNo">110</span>  boolean setterAlwaysMutates() default true;<a name="line.110"></a>
+<span class="sourceLineNo">111</span>}<a name="line.111"></a>
 
 
 
