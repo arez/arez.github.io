@@ -12,7 +12,7 @@
 <li>Upgrade the <code>org.realityforge.com.google.elemental2</code> artifacts to version <code>2.27</code>.</li>
 <li>Remove support for the <code>allowConcrete</code> parameter on the <code>@ArezComponent</code> annotation. Components must now be abstract. The <code>allowConcrete</code> parameter was initially present as transition mechanism from a period where components were required to be concrete.</li>
 <li>Improve the javadocs describing constraints on the annotations.</li>
-<li>Generate a suppressable warning if a ref method is protected and in the same class that is annotated by <code>@ArezComponent</code> or is public and not an implementation of an interface method. These methods are not expected to be invoked from outside the component instance and this warning discourages incorrect usage. This constraint has been applied to the annotations:
+<li>Generate a suppressible warning if a ref method is protected and in the same class that is annotated by <code>@ArezComponent</code> or is public and not an implementation of an interface method. These methods are not expected to be invoked from outside the component instance and this warning discourages incorrect usage. This constraint has been applied to the annotations:
 <ul>
 <li><code>@ComponentIdRef</code></li>
 <li><code>@ComponentNameRef</code></li>
