@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Thu, 05 Dec 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 17 Dec 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.159 released]]></title>
+            <link>https://arez.github.io/blog/2019/12/17/version-0.159-release.html</link>
+            <guid>https://arez.github.io/blog/2019/12/17/version-0.159-release.html</guid>
+            <pubDate>Tue, 17 Dec 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.158...v0.159)
+[API Differences](/api-diff/?key=arez&old=0.158&new=0.159)
+
+The release includes 5 non breaking API changes, 3 potentially breaking API changes and 2 breaking API changes.
+
+Change]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.158 released]]></title>
             <link>https://arez.github.io/blog/2019/12/05/version-0.158-release.html</link>
