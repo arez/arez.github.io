@@ -169,7 +169,7 @@ public @interface <a href="../../src-html/arez/annotations/Observable.html#line.
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
+<td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observable.html#writeOutsideTransaction--">writeOutsideTransaction</a></span></code>
 <div class="block">Return true if the observable will create an action if the write occurs outside a transaction.</div>
 </td>
@@ -301,7 +301,7 @@ public @interface <a href="../../src-html/arez/annotations/Observable.html#line.
 <ul class="blockList">
 <li class="blockList">
 <h4>writeOutsideTransaction</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/arez/annotations/Observable.html#line.96">writeOutsideTransaction</a></pre>
+<pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/Observable.html#line.96">writeOutsideTransaction</a></pre>
 <div class="block">Return true if the observable will create an action if the write occurs outside a transaction.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -309,7 +309,7 @@ public @interface <a href="../../src-html/arez/annotations/Observable.html#line.
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>false</dd>
+<dd>arez.annotations.Feature.AUTODETECT</dd>
 </dl>
 </li>
 </ul>

@@ -195,10 +195,17 @@
 <span class="sourceLineNo">187</span>   * The default value for the readOutsideTransaction parameter of {@link Memoize} and {@link Observable}<a name="line.187"></a>
 <span class="sourceLineNo">188</span>   * annotated methods.<a name="line.188"></a>
 <span class="sourceLineNo">189</span>   *<a name="line.189"></a>
-<span class="sourceLineNo">190</span>   * @return true to allow reads outside a transaction by default, false to default to requiring a transaction to read observables and memoized values.<a name="line.190"></a>
+<span class="sourceLineNo">190</span>   * @return The flag indicating whether the default is to allow reads outside a transaction or to require a transaction to read observables and memoized values.<a name="line.190"></a>
 <span class="sourceLineNo">191</span>   */<a name="line.191"></a>
 <span class="sourceLineNo">192</span>  Feature defaultReadOutsideTransaction() default Feature.AUTODETECT;<a name="line.192"></a>
-<span class="sourceLineNo">193</span>}<a name="line.193"></a>
+<span class="sourceLineNo">193</span><a name="line.193"></a>
+<span class="sourceLineNo">194</span>  /**<a name="line.194"></a>
+<span class="sourceLineNo">195</span>   * The default value for the writeOutsideTransaction parameter of {@link Observable} annotated methods.<a name="line.195"></a>
+<span class="sourceLineNo">196</span>   *<a name="line.196"></a>
+<span class="sourceLineNo">197</span>   * @return The flag indicating whether the default is to allow writes outside a transaction or to require a transaction to write observables values.<a name="line.197"></a>
+<span class="sourceLineNo">198</span>   */<a name="line.198"></a>
+<span class="sourceLineNo">199</span>  Feature defaultWriteOutsideTransaction() default Feature.AUTODETECT;<a name="line.199"></a>
+<span class="sourceLineNo">200</span>}<a name="line.200"></a>
 
 
 

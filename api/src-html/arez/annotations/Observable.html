@@ -101,7 +101,7 @@
 <span class="sourceLineNo">093</span>   *<a name="line.93"></a>
 <span class="sourceLineNo">094</span>   * @return true to allow writes to create an action if needed, false to require a transaction to write observable.<a name="line.94"></a>
 <span class="sourceLineNo">095</span>   */<a name="line.95"></a>
-<span class="sourceLineNo">096</span>  boolean writeOutsideTransaction() default false;<a name="line.96"></a>
+<span class="sourceLineNo">096</span>  Feature writeOutsideTransaction() default Feature.AUTODETECT;<a name="line.96"></a>
 <span class="sourceLineNo">097</span><a name="line.97"></a>
 <span class="sourceLineNo">098</span>  /**<a name="line.98"></a>
 <span class="sourceLineNo">099</span>   * Return false if the setter should verify observable value has changed before propagating change.<a name="line.99"></a>
