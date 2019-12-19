@@ -1308,7 +1308,7 @@
 <span class="sourceLineNo">1300</span>    if ( !processingEnv.getTypeUtils().isSameType( target, component.getElement().asType() ) )<a name="line.1300"></a>
 <span class="sourceLineNo">1301</span>    {<a name="line.1301"></a>
 <span class="sourceLineNo">1302</span>      throw new ProcessorException( "@Inverse target expected to find an associated @Reference annotation with " +<a name="line.1302"></a>
-<span class="sourceLineNo">1303</span>                                    "a target type equal to " + descriptor.getTargetType() + " but the actual " +<a name="line.1303"></a>
+<span class="sourceLineNo">1303</span>                                    "a target type equal to " + component.getElement().asType() + " but the actual " +<a name="line.1303"></a>
 <span class="sourceLineNo">1304</span>                                    "target type is " + target, descriptor.getObservable().getGetter() );<a name="line.1304"></a>
 <span class="sourceLineNo">1305</span>    }<a name="line.1305"></a>
 <span class="sourceLineNo">1306</span>  }<a name="line.1306"></a>
@@ -1603,8 +1603,8 @@
 <span class="sourceLineNo">1595</span>                                                 Constants.COMPONENT_ANNOTATION_CLASSNAME ) )<a name="line.1595"></a>
 <span class="sourceLineNo">1596</span>      {<a name="line.1596"></a>
 <span class="sourceLineNo">1597</span>        throw new ProcessorException( "@Reference target expected to return a type annotated with " +<a name="line.1597"></a>
-<span class="sourceLineNo">1598</span>                                      Constants.COMPONENT_ANNOTATION_CLASSNAME + " if there is an " +<a name="line.1598"></a>
-<span class="sourceLineNo">1599</span>                                      "inverse reference.", method );<a name="line.1599"></a>
+<span class="sourceLineNo">1598</span>                                      MemberChecks.toSimpleName( Constants.COMPONENT_ANNOTATION_CLASSNAME ) +<a name="line.1598"></a>
+<span class="sourceLineNo">1599</span>                                      " if there is an inverse reference", method );<a name="line.1599"></a>
 <span class="sourceLineNo">1600</span>      }<a name="line.1600"></a>
 <span class="sourceLineNo">1601</span>    }<a name="line.1601"></a>
 <span class="sourceLineNo">1602</span>    else<a name="line.1602"></a>
