@@ -1487,7 +1487,7 @@
 <span class="sourceLineNo">1479</span>               // Setter<a name="line.1479"></a>
 <span class="sourceLineNo">1480</span>               1 == element.getParameters().size() &amp;&amp;<a name="line.1480"></a>
 <span class="sourceLineNo">1481</span>               AnnotationsUtil.hasAnnotationOfType( element.getParameters().get( 0 ),<a name="line.1481"></a>
-<span class="sourceLineNo">1482</span>                                                    Constants.NONNULL_ANNOTATION_CLASSNAME )<a name="line.1482"></a>
+<span class="sourceLineNo">1482</span>                                                    GeneratorUtil.NONNULL_ANNOTATION_CLASSNAME )<a name="line.1482"></a>
 <span class="sourceLineNo">1483</span>             )<a name="line.1483"></a>
 <span class="sourceLineNo">1484</span>           );<a name="line.1484"></a>
 <span class="sourceLineNo">1485</span>  }<a name="line.1485"></a>
@@ -2948,15 +2948,15 @@
 <span class="sourceLineNo">2940</span>        {<a name="line.2940"></a>
 <span class="sourceLineNo">2941</span>          multiplicity = Multiplicity.ONE;<a name="line.2941"></a>
 <span class="sourceLineNo">2942</span>        }<a name="line.2942"></a>
-<span class="sourceLineNo">2943</span>        else if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.NULLABLE_ANNOTATION_CLASSNAME ) )<a name="line.2943"></a>
+<span class="sourceLineNo">2943</span>        else if ( AnnotationsUtil.hasAnnotationOfType( method, GeneratorUtil.NULLABLE_ANNOTATION_CLASSNAME ) )<a name="line.2943"></a>
 <span class="sourceLineNo">2944</span>        {<a name="line.2944"></a>
 <span class="sourceLineNo">2945</span>          multiplicity = Multiplicity.ZERO_OR_ONE;<a name="line.2945"></a>
 <span class="sourceLineNo">2946</span>        }<a name="line.2946"></a>
 <span class="sourceLineNo">2947</span>        else<a name="line.2947"></a>
 <span class="sourceLineNo">2948</span>        {<a name="line.2948"></a>
 <span class="sourceLineNo">2949</span>          throw new ProcessorException( "@Inverse target expected to be annotated with either " +<a name="line.2949"></a>
-<span class="sourceLineNo">2950</span>                                        Constants.NULLABLE_ANNOTATION_CLASSNAME + " or " +<a name="line.2950"></a>
-<span class="sourceLineNo">2951</span>                                        Constants.NONNULL_ANNOTATION_CLASSNAME, method );<a name="line.2951"></a>
+<span class="sourceLineNo">2950</span>                                        GeneratorUtil.NULLABLE_ANNOTATION_CLASSNAME + " or " +<a name="line.2950"></a>
+<span class="sourceLineNo">2951</span>                                        GeneratorUtil.NONNULL_ANNOTATION_CLASSNAME, method );<a name="line.2951"></a>
 <span class="sourceLineNo">2952</span>        }<a name="line.2952"></a>
 <span class="sourceLineNo">2953</span>      }<a name="line.2953"></a>
 <span class="sourceLineNo">2954</span>      final String referenceName = getInverseReferenceNameParameter( descriptor, method );<a name="line.2954"></a>
