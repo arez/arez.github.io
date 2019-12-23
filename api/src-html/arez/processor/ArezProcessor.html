@@ -2115,7 +2115,7 @@
 <span class="sourceLineNo">2107</span>                                    "disposeOnDeactivate = true which is not a valid combination", typeElement );<a name="line.2107"></a>
 <span class="sourceLineNo">2108</span>    }<a name="line.2108"></a>
 <span class="sourceLineNo">2109</span><a name="line.2109"></a>
-<span class="sourceLineNo">2110</span>    boolean generatesFactoryToInject = false;<a name="line.2110"></a>
+<span class="sourceLineNo">2110</span>    boolean generateFactory = false;<a name="line.2110"></a>
 <span class="sourceLineNo">2111</span>    if ( dagger )<a name="line.2111"></a>
 <span class="sourceLineNo">2112</span>    {<a name="line.2112"></a>
 <span class="sourceLineNo">2113</span>      final ExecutableElement ctor = constructors.get( 0 );<a name="line.2113"></a>
@@ -2135,7 +2135,7 @@
 <span class="sourceLineNo">2127</span>                                        "parameter to CONSUME or remove the @PerInstance parameter.",<a name="line.2127"></a>
 <span class="sourceLineNo">2128</span>                                        ctor );<a name="line.2128"></a>
 <span class="sourceLineNo">2129</span>        }<a name="line.2129"></a>
-<span class="sourceLineNo">2130</span>        generatesFactoryToInject = true;<a name="line.2130"></a>
+<span class="sourceLineNo">2130</span>        generateFactory = true;<a name="line.2130"></a>
 <span class="sourceLineNo">2131</span>      }<a name="line.2131"></a>
 <span class="sourceLineNo">2132</span>    }<a name="line.2132"></a>
 <span class="sourceLineNo">2133</span><a name="line.2133"></a>
@@ -2169,7 +2169,7 @@
 <span class="sourceLineNo">2161</span>                               disposeOnDeactivate,<a name="line.2161"></a>
 <span class="sourceLineNo">2162</span>                               injectMode,<a name="line.2162"></a>
 <span class="sourceLineNo">2163</span>                               dagger,<a name="line.2163"></a>
-<span class="sourceLineNo">2164</span>                               generatesFactoryToInject,<a name="line.2164"></a>
+<span class="sourceLineNo">2164</span>                               generateFactory,<a name="line.2164"></a>
 <span class="sourceLineNo">2165</span>                               requireEquals,<a name="line.2165"></a>
 <span class="sourceLineNo">2166</span>                               requireVerify,<a name="line.2166"></a>
 <span class="sourceLineNo">2167</span>                               scopeAnnotation,<a name="line.2167"></a>
