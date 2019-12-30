@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -72,7 +72,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.classes.inherited.from.class.org.realityforge.proton.AbstractStandardProcessor">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#fields.inherited.from.class.javax.annotation.processing.AbstractProcessor">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -138,6 +138,21 @@ extends <a href="../../arez/processor/AbstractArezProcessor.html" title="class i
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="nested.classes.inherited.from.class.org.realityforge.proton.AbstractStandardProcessor">
+<!--   -->
+</a>
+<h3>Nested classes/interfaces inherited from class&nbsp;org.realityforge.proton.AbstractStandardProcessor</h3>
+<code>org.realityforge.proton.AbstractStandardProcessor.Action</code></li>
+</ul>
+</li>
+</ul>
 <!-- =========== FIELD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="field.summary">
@@ -183,12 +198,9 @@ extends <a href="../../arez/processor/AbstractArezProcessor.html" title="class i
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/processor/ArezProcessor.html#getTypeElementsToProcess-javax.annotation.processing.RoundEnvironment-">getTypeElementsToProcess</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html?is-external=true" title="class or interface in javax.annotation.processing">RoundEnvironment</a>&nbsp;env)</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/processor/ArezProcessor.html#process-javax.lang.model.element.TypeElement-">process</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&nbsp;element)</code>&nbsp;</td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/processor/ArezProcessor.html#process-java.util.Set-javax.annotation.processing.RoundEnvironment-">process</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;? extends <a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&gt;&nbsp;annotations,
+       <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html?is-external=true" title="class or interface in javax.annotation.processing">RoundEnvironment</a>&nbsp;env)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -203,7 +215,7 @@ extends <a href="../../arez/processor/AbstractArezProcessor.html" title="class i
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.realityforge.proton.AbstractStandardProcessor</h3>
-<code>emitTypeSpec, process, reportError, shouldDeferUnresolved</code></li>
+<code>emitTypeSpec, errorIfProcessingOverAndInvalidTypesDetected, processTypeElements, reportError, shouldDeferUnresolved</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.javax.annotation.processing.AbstractProcessor">
@@ -250,34 +262,19 @@ extends <a href="../../arez/processor/AbstractArezProcessor.html" title="class i
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getTypeElementsToProcess-javax.annotation.processing.RoundEnvironment-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getTypeElementsToProcess</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&gt;&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.78">getTypeElementsToProcess</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html?is-external=true" title="class or interface in javax.annotation.processing">RoundEnvironment</a>&nbsp;env)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>getTypeElementsToProcess</code>&nbsp;in class&nbsp;<code>org.realityforge.proton.AbstractStandardProcessor</code></dd>
-</dl>
-</li>
-</ul>
-<a name="process-javax.lang.model.element.TypeElement-">
+<a name="process-java.util.Set-javax.annotation.processing.RoundEnvironment-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>process</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.86">process</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&nbsp;element)
-                throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>,
-                       org.realityforge.proton.ProcessorException</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/processor/ArezProcessor.html#line.77">process</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;? extends <a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&gt;&nbsp;annotations,
+                       <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html?is-external=true" title="class or interface in javax.annotation.processing">RoundEnvironment</a>&nbsp;env)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>process</code>&nbsp;in class&nbsp;<code>org.realityforge.proton.AbstractStandardProcessor</code></dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
-<dd><code>org.realityforge.proton.ProcessorException</code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html?is-external=true#process-java.util.Set-javax.annotation.processing.RoundEnvironment-" title="class or interface in javax.annotation.processing">process</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/Processor.html?is-external=true" title="class or interface in javax.annotation.processing">Processor</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html?is-external=true#process-java.util.Set-javax.annotation.processing.RoundEnvironment-" title="class or interface in javax.annotation.processing">process</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/AbstractProcessor.html?is-external=true" title="class or interface in javax.annotation.processing">AbstractProcessor</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -333,7 +330,7 @@ extends <a href="../../arez/processor/AbstractArezProcessor.html" title="class i
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.classes.inherited.from.class.org.realityforge.proton.AbstractStandardProcessor">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#fields.inherited.from.class.javax.annotation.processing.AbstractProcessor">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
