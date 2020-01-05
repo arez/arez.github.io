@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Sun, 29 Dec 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Jan 2020 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,17 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2020 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.163 released]]></title>
+            <link>https://arez.github.io/blog/2020/01/06/version-0.163-release.html</link>
+            <guid>https://arez.github.io/blog/2020/01/06/version-0.163-release.html</guid>
+            <pubDate>Mon, 06 Jan 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.162...v0.163)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.proton` artifact to version `0.11`.]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.162 released]]></title>
             <link>https://arez.github.io/blog/2019/12/29/version-0.162-release.html</link>
