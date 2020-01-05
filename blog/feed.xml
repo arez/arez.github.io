@@ -14,6 +14,17 @@
         </image>
         <copyright>Copyright © 2020 the Arez Project</copyright>
         <item>
+            <title><![CDATA[Arez 0.164 released]]></title>
+            <link>https://arez.github.io/blog/2020/01/06/version-0.164-release.html</link>
+            <guid>https://arez.github.io/blog/2020/01/06/version-0.164-release.html</guid>
+            <pubDate>Mon, 06 Jan 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.163...v0.164)
+
+Changes in this release:
+
+* Remove the generated `inject(...)` method from the dagger `Subcomponent` created for components with dagger enabled as it is unused and can negatively]]></description>
+        </item>
+        <item>
             <title><![CDATA[Arez 0.163 released]]></title>
             <link>https://arez.github.io/blog/2020/01/06/version-0.163-release.html</link>
             <guid>https://arez.github.io/blog/2020/01/06/version-0.163-release.html</guid>
