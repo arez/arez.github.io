@@ -944,7 +944,7 @@
 <span class="sourceLineNo">936</span>      final String message =<a name="line.936"></a>
 <span class="sourceLineNo">937</span>        "@ArezComponent target has specified a value for the defaultReadOutsideTransaction parameter but does not " +<a name="line.937"></a>
 <span class="sourceLineNo">938</span>        "contain any methods annotated with either @Memoize or @Observable. " +<a name="line.938"></a>
-<span class="sourceLineNo">939</span>        suppressedBy( Constants.WARNING_UNNECESSARY_ALLOW_EMPTY );<a name="line.939"></a>
+<span class="sourceLineNo">939</span>        suppressedBy( Constants.WARNING_UNNECESSARY_DEFAULT );<a name="line.939"></a>
 <span class="sourceLineNo">940</span>      processingEnv.getMessager().printMessage( WARNING, message, component.getElement() );<a name="line.940"></a>
 <span class="sourceLineNo">941</span>    }<a name="line.941"></a>
 <span class="sourceLineNo">942</span>    if ( null != component.getDeclaredDefaultWriteOutsideTransaction() &amp;&amp;<a name="line.942"></a>
@@ -954,7 +954,7 @@
 <span class="sourceLineNo">946</span>      final String message =<a name="line.946"></a>
 <span class="sourceLineNo">947</span>        "@ArezComponent target has specified a value for the defaultWriteOutsideTransaction parameter but does not " +<a name="line.947"></a>
 <span class="sourceLineNo">948</span>        "contain any methods annotated with @Observable. " +<a name="line.948"></a>
-<span class="sourceLineNo">949</span>        suppressedBy( Constants.WARNING_UNNECESSARY_ALLOW_EMPTY );<a name="line.949"></a>
+<span class="sourceLineNo">949</span>        suppressedBy( Constants.WARNING_UNNECESSARY_DEFAULT );<a name="line.949"></a>
 <span class="sourceLineNo">950</span>      processingEnv.getMessager().printMessage( WARNING, message, component.getElement() );<a name="line.950"></a>
 <span class="sourceLineNo">951</span>    }<a name="line.951"></a>
 <span class="sourceLineNo">952</span>  }<a name="line.952"></a>
