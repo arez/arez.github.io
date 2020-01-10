@@ -78,12 +78,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/processor/AbstractArezProcessor.html#AbstractArezProcessor--">AbstractArezProcessor()</a></span> - Constructor for class arez.processor.<a href="arez/processor/AbstractArezProcessor.html" title="class in arez.processor">AbstractArezProcessor</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal"><span class="typeNameLink">AbstractContainer</span></a>&lt;<a href="arez/component/internal/AbstractContainer.html" title="type parameter in AbstractContainer">K</a>,<a href="arez/component/internal/AbstractContainer.html" title="type parameter in AbstractContainer">T</a>&gt; - Class in <a href="arez/component/internal/package-summary.html">arez.component.internal</a></dt>
-<dd>
-<div class="block">Abstract base class for observable Arez components that contain other components.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#AbstractContainer--">AbstractContainer()</a></span> - Constructor for class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal"><span class="typeNameLink">AbstractRepository</span></a>&lt;<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>,<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">R</a> extends <a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a>&lt;<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">K</a>,<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">T</a>,<a href="arez/component/internal/AbstractRepository.html" title="type parameter in AbstractRepository">R</a>&gt;&gt; - Class in <a href="arez/component/internal/package-summary.html">arez.component.internal</a></dt>
 <dd>
 <div class="block">Abstract base class for repositories that contain Arez components.</div>
@@ -317,7 +311,7 @@
 <dd>
 <div class="block">Cast specified object to instance of Identifiable.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#asList-java.util.stream.Stream-">asList(Stream&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/CollectionsUtil.html#asList-java.util.stream.Stream-">asList(Stream&lt;T&gt;)</a></span> - Static method in class arez.component.internal.<a href="arez/component/internal/CollectionsUtil.html" title="class in arez.component.internal">CollectionsUtil</a></dt>
 <dd>
 <div class="block">Convert specified stream to a list, wrapping as an unmodifiable list if required.</div>
 </dd>
@@ -333,7 +327,7 @@
 <dd>
 <div class="block">Convert the specified task into an TaskInfo.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#attach-T-">attach(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#attach-T-">attach(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Attach specified entity to the set of entities managed by the container.</div>
 </dd>
@@ -375,7 +369,7 @@
 <dd>
 <div class="block">Set `arez.check_invariants` setting to true.</div>
 </dd>
-<dt><a href="arez/component/CollectionsUtil.html" title="class in arez.component"><span class="typeNameLink">CollectionsUtil</span></a> - Class in <a href="arez/component/package-summary.html">arez.component</a></dt>
+<dt><a href="arez/component/internal/CollectionsUtil.html" title="class in arez.component.internal"><span class="typeNameLink">CollectionsUtil</span></a> - Class in <a href="arez/component/internal/package-summary.html">arez.component.internal</a></dt>
 <dd>
 <div class="block">Utility methods used when returning results from repositories.</div>
 </dd>
@@ -581,10 +575,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="arez/spy/ComputeStartEvent.html#ComputeStartEvent-arez.spy.ComputableValueInfo-">ComputeStartEvent(ComputableValueInfo)</a></span> - Constructor for class arez.spy.<a href="arez/spy/ComputeStartEvent.html" title="class in arez.spy">ComputeStartEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#contains-T-">contains(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
-<dd>
-<div class="block">Return true if the specified entity is contained in the container.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#contains-T-">contains(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/Arez.html#context--">context()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
@@ -613,11 +603,11 @@
 <dd>
 <div class="block">Describe component state.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#destroy-T-">destroy(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#destroy-T-">destroy(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Detach the entity from the container and dispose the entity.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#detach-T-">detach(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#detach-T-">detach(T)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Detach entity from container without disposing entity.</div>
 </dd>
@@ -748,7 +738,7 @@
 <dd>
 <div class="block">Set `arez.enforce_transaction_type` setting to true.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#entities--">entities()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#entities--">entities()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return a stream of all entities in the container.</div>
 </dd>
@@ -806,10 +796,6 @@
 <dd>
 <div class="block">Find all the "top-level" tasks defined by the system.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#findByArezId-K-">findByArezId(K)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
-<dd>
-<div class="block">Return the entity with the specified ArezId or null if no such entity.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#findByArezId-K-">findByArezId(K)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/component/TypeBasedLocator.html#findById-java.lang.Class-java.lang.Object-">findById(Class&lt;T&gt;, Object)</a></span> - Method in class arez.component.<a href="arez/component/TypeBasedLocator.html" title="class in arez.component">TypeBasedLocator</a></dt>
@@ -859,10 +845,6 @@
 <dt><span class="memberNameLink"><a href="arez/component/Identifiable.html#getArezId-java.lang.Object-">getArezId(Object)</a></span> - Static method in interface arez.component.<a href="arez/component/Identifiable.html" title="interface in arez.component">Identifiable</a></dt>
 <dd>
 <div class="block">Dispose the supplied object if it is Disposable, else do nothing.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#getByArezId-K-">getByArezId(K)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
-<dd>
-<div class="block">Return the entity with the specified ArezId else throw an exception.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#getByArezId-K-">getByArezId(K)</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>&nbsp;</dd>
@@ -944,7 +926,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/TransactionCompleteEvent.html#getDuration--">getDuration()</a></span> - Method in class arez.spy.<a href="arez/spy/TransactionCompleteEvent.html" title="class in arez.spy">TransactionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#getEntitiesObservableValue--">getEntitiesObservableValue()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#getEntitiesObservableValue--">getEntitiesObservableValue()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return the observable associated with entities.</div>
 </dd>
@@ -1733,7 +1715,7 @@
 <dd>
 <div class="block">Annotation to identify method that is invoked before the component is disposed.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#preDispose--">preDispose()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#preDispose--">preDispose()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Dispose or detach all the entities associated with the container.</div>
 </dd>
@@ -1917,6 +1899,8 @@
 <dd>
 <div class="block">Invoked when a non-arez dependency of the ComputableValue has changed.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#reportRead--">reportRead()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="arez/spy/Spy.html#reportSpyEvent-java.lang.Object-">reportSpyEvent(Object)</a></span> - Method in interface arez.spy.<a href="arez/spy/Spy.html" title="interface in arez.spy">Spy</a></dt>
 <dd>
 <div class="block">Report an event in the Arez system.</div>
@@ -1926,6 +1910,8 @@
 <div class="block">This method should be invoked if the observer has non-arez dependencies and one of
  these dependencies has been updated.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#reportWrite--">reportWrite()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="arez/annotations/Repository.html" title="annotation in arez.annotations"><span class="typeNameLink">Repository</span></a> - Annotation Type in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Annotation that indicates that a repository must be generated for component.</div>
@@ -2107,10 +2093,6 @@
 <dt><span class="memberNameLink"><a href="arez/Arez.html#shouldCheckInvariants--">shouldCheckInvariants()</a></span> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
 <div class="block">Return true if invariants will be checked.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="arez/component/internal/AbstractContainer.html#shouldDisposeEntryOnDispose--">shouldDisposeEntryOnDispose()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractContainer.html" title="class in arez.component.internal">AbstractContainer</a></dt>
-<dd>
-<div class="block">Return true if disposing the container should result in disposing contained entities or just detaching the entities.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="arez/component/internal/AbstractRepository.html#shouldDisposeEntryOnDispose--">shouldDisposeEntryOnDispose()</a></span> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>&nbsp;</dd>
@@ -2438,22 +2420,22 @@ the order they are declared.</div>
 <dd>
 <div class="block">Return true if spy events will be propagated.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#wrap-java.util.Collection-">wrap(Collection&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/CollectionsUtil.html#wrap-java.util.Collection-">wrap(Collection&lt;T&gt;)</a></span> - Static method in class arez.component.internal.<a href="arez/component/internal/CollectionsUtil.html" title="class in arez.component.internal">CollectionsUtil</a></dt>
 <dd>
 <div class="block">Wrap specified parameter with unmodifiable variant if and only if <a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
  returns true, otherwise return the supplied list.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#wrap-java.util.Set-">wrap(Set&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/CollectionsUtil.html#wrap-java.util.Set-">wrap(Set&lt;T&gt;)</a></span> - Static method in class arez.component.internal.<a href="arez/component/internal/CollectionsUtil.html" title="class in arez.component.internal">CollectionsUtil</a></dt>
 <dd>
 <div class="block">Wrap specified parameter with unmodifiable set if and only if <a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
  returns true, otherwise return the supplied set.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#wrap-java.util.Map-">wrap(Map&lt;K, V&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/CollectionsUtil.html#wrap-java.util.Map-">wrap(Map&lt;K, V&gt;)</a></span> - Static method in class arez.component.internal.<a href="arez/component/internal/CollectionsUtil.html" title="class in arez.component.internal">CollectionsUtil</a></dt>
 <dd>
 <div class="block">Wrap specified parameter with unmodifiable map if and only if <a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
  returns true, otherwise return the supplied map.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="arez/component/CollectionsUtil.html#wrap-java.util.List-">wrap(List&lt;T&gt;)</a></span> - Static method in class arez.component.<a href="arez/component/CollectionsUtil.html" title="class in arez.component">CollectionsUtil</a></dt>
+<dt><span class="memberNameLink"><a href="arez/component/internal/CollectionsUtil.html#wrap-java.util.List-">wrap(List&lt;T&gt;)</a></span> - Static method in class arez.component.internal.<a href="arez/component/internal/CollectionsUtil.html" title="class in arez.component.internal">CollectionsUtil</a></dt>
 <dd>
 <div class="block">Wrap specified list with unmodifiable list if and only if <a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable--"><code>Arez.areCollectionsPropertiesUnmodifiable()</code></a>
  returns true, otherwise return the supplied list.</div>
