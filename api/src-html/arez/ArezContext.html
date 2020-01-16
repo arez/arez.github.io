@@ -1658,7 +1658,7 @@
 <span class="sourceLineNo">1650</span><a name="line.1650"></a>
 <span class="sourceLineNo">1651</span>  &lt;T&gt; T rawCompute( @Nonnull final ComputableValue&lt;T&gt; computableValue, @Nonnull final SafeFunction&lt;T&gt; action )<a name="line.1651"></a>
 <span class="sourceLineNo">1652</span>  {<a name="line.1652"></a>
-<span class="sourceLineNo">1653</span>    return _safeAction( computableValue.getName() + ".wrapper",<a name="line.1653"></a>
+<span class="sourceLineNo">1653</span>    return _safeAction( Arez.areNamesEnabled() ? computableValue.getName() + ".wrapper" : null,<a name="line.1653"></a>
 <span class="sourceLineNo">1654</span>                        action,<a name="line.1654"></a>
 <span class="sourceLineNo">1655</span>                        ActionFlags.REQUIRE_NEW_TRANSACTION |<a name="line.1655"></a>
 <span class="sourceLineNo">1656</span>                        ActionFlags.NO_VERIFY_ACTION_REQUIRED |<a name="line.1656"></a>
