@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -104,10 +104,15 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="https://arez.github.io/api/arez/Disposable.html?is-external=true" title="class or interface in arez">Disposable</a></dd>
+</dl>
 <hr>
 <br>
-<pre>public final class <a href="../../src-html/arez/dom/DocumentVisibility.html#line.29">DocumentVisibility</a>
-extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<pre>public final class <a href="../../src-html/arez/dom/DocumentVisibility.html#line.30">DocumentVisibility</a>
+extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="https://arez.github.io/api/arez/Disposable.html?is-external=true" title="class or interface in arez">Disposable</a></pre>
 <div class="block">Wrapper of component to expose visibility state of document reactively.
 
  <h1>A very simple example</h1>
@@ -179,36 +184,44 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#dispose--">dispose</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>elemental2.dom.HTMLDocument</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#getDocument--">getDocument</a></span>()</code>
 <div class="block">Return the document that monitoring visibility state.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../arez/dom/DocumentVisibility.Visibility.html" title="enum in arez.dom">DocumentVisibility.Visibility</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#getVisibility--">getVisibility</a></span>()</code>
 <div class="block">Return the visibility state of the document as an enum.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#getVisibilityState--">getVisibilityState</a></span>()</code>
 <div class="block">Return the visibility state of the document as a string.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#isDisposed--">isDisposed</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#isHidden--">isHidden</a></span>()</code>
 <div class="block">Return true if visibility state is "hidden".</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#isVisible--">isVisible</a></span>()</code>
 <div class="block">Return true if visibility state is "visible".</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#setDocument-elemental2.dom.HTMLDocument-">setDocument</a></span>(elemental2.dom.HTMLDocument&nbsp;document)</code>
 <div class="block">Change the document that is having visibility state monitored.</div>
@@ -221,6 +234,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
 <code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.arez.Disposable">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;arez.<a href="https://arez.github.io/api/arez/Disposable.html?is-external=true" title="class or interface in arez">Disposable</a></h3>
+<code><a href="https://arez.github.io/api/arez/Disposable.html?is-external=true#asDisposable-java.lang.Object-" title="class or interface in arez">asDisposable</a>, <a href="https://arez.github.io/api/arez/Disposable.html?is-external=true#dispose-java.lang.Object-" title="class or interface in arez">dispose</a>, <a href="https://arez.github.io/api/arez/Disposable.html?is-external=true#isDisposed-java.lang.Object-" title="class or interface in arez">isDisposed</a>, <a href="https://arez.github.io/api/arez/Disposable.html?is-external=true#isNotDisposed--" title="class or interface in arez">isNotDisposed</a>, <a href="https://arez.github.io/api/arez/Disposable.html?is-external=true#isNotDisposed-java.lang.Object-" title="class or interface in arez">isNotDisposed</a></code></li>
 </ul>
 </li>
 </ul>
@@ -243,7 +263,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>create</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../../arez/dom/DocumentVisibility.html" title="class in arez.dom">DocumentVisibility</a>&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.61">create</a>()</pre>
+public static&nbsp;<a href="../../arez/dom/DocumentVisibility.html" title="class in arez.dom">DocumentVisibility</a>&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.63">create</a>()</pre>
 <div class="block">Create component monitoring the default document.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -258,7 +278,7 @@ public static&nbsp;<a href="../../arez/dom/DocumentVisibility.html" title="class
 <li class="blockList">
 <h4>create</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../../arez/dom/DocumentVisibility.html" title="class in arez.dom">DocumentVisibility</a>&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.73">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../arez/dom/DocumentVisibility.html" title="class in arez.dom">DocumentVisibility</a>&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.75">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                  elemental2.dom.HTMLDocument&nbsp;document)</pre>
 <div class="block">Create component monitoring specific document.</div>
 <dl>
@@ -276,7 +296,7 @@ public static&nbsp;<a href="../../arez/dom/DocumentVisibility.html" title="class
 <li class="blockList">
 <h4>getDocument</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;elemental2.dom.HTMLDocument&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.89">getDocument</a>()</pre>
+public&nbsp;elemental2.dom.HTMLDocument&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.91">getDocument</a>()</pre>
 <div class="block">Return the document that monitoring visibility state.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -290,7 +310,7 @@ public&nbsp;elemental2.dom.HTMLDocument&nbsp;<a href="../../src-html/arez/dom/Do
 <ul class="blockList">
 <li class="blockList">
 <h4>setDocument</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.99">setDocument</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.101">setDocument</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                         elemental2.dom.HTMLDocument&nbsp;document)</pre>
 <div class="block">Change the document that is having visibility state monitored.</div>
 <dl>
@@ -306,7 +326,7 @@ public&nbsp;elemental2.dom.HTMLDocument&nbsp;<a href="../../src-html/arez/dom/Do
 <li class="blockList">
 <h4>getVisibility</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="../../arez/dom/DocumentVisibility.Visibility.html" title="enum in arez.dom">DocumentVisibility.Visibility</a>&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.110">getVisibility</a>()</pre>
+public&nbsp;<a href="../../arez/dom/DocumentVisibility.Visibility.html" title="enum in arez.dom">DocumentVisibility.Visibility</a>&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.112">getVisibility</a>()</pre>
 <div class="block">Return the visibility state of the document as an enum.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -321,7 +341,7 @@ public&nbsp;<a href="../../arez/dom/DocumentVisibility.Visibility.html" title="e
 <li class="blockList">
 <h4>getVisibilityState</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.121">getVisibilityState</a>()</pre>
+public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.123">getVisibilityState</a>()</pre>
 <div class="block">Return the visibility state of the document as a string.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -335,7 +355,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.
 <ul class="blockList">
 <li class="blockList">
 <h4>isVisible</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.131">isVisible</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.133">isVisible</a>()</pre>
 <div class="block">Return true if visibility state is "visible".</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -346,14 +366,40 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.
 <a name="isHidden--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isHidden</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.141">isHidden</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.143">isHidden</a>()</pre>
 <div class="block">Return true if visibility state is "hidden".</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if visibility state is "hidden".</dd>
+</dl>
+</li>
+</ul>
+<a name="dispose--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>dispose</h4>
+<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.149">dispose</a>()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://arez.github.io/api/arez/Disposable.html?is-external=true#dispose--" title="class or interface in arez">dispose</a></code>&nbsp;in interface&nbsp;<code><a href="https://arez.github.io/api/arez/Disposable.html?is-external=true" title="class or interface in arez">Disposable</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="isDisposed--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isDisposed</h4>
+<pre>public&nbsp;boolean&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.155">isDisposed</a>()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://arez.github.io/api/arez/Disposable.html?is-external=true#isDisposed--" title="class or interface in arez">isDisposed</a></code>&nbsp;in interface&nbsp;<code><a href="https://arez.github.io/api/arez/Disposable.html?is-external=true" title="class or interface in arez">Disposable</a></code></dd>
 </dl>
 </li>
 </ul>
