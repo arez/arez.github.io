@@ -233,7 +233,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>create</h4>
-<pre>public static&nbsp;<a href="../../arez/dom/IdleStatus.html" title="class in arez.dom">IdleStatus</a>&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.91">create</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../arez/dom/IdleStatus.html" title="class in arez.dom">IdleStatus</a>&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.94">create</a>()</pre>
 <div class="block">Create an instance of this model.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -248,7 +249,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>isIdle</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/Memoize.html?is-external=true" title="class or interface in arez.annotations">@Memoize</a>
-public&nbsp;boolean&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.118">isIdle</a>()</pre>
+public&nbsp;boolean&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.121">isIdle</a>()</pre>
 <div class="block">Return true if the user is idle.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -263,7 +264,7 @@ public&nbsp;boolean&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.1
 <li class="blockList">
 <h4>getTimeout</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/Observable.html?is-external=true" title="class or interface in arez.annotations">@Observable</a>
-public&nbsp;long&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.173">getTimeout</a>()</pre>
+public&nbsp;long&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.176">getTimeout</a>()</pre>
 <div class="block">Return the timeout.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -277,7 +278,7 @@ public&nbsp;long&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.173"
 <ul class="blockList">
 <li class="blockList">
 <h4>setTimeout</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.183">setTimeout</a>(long&nbsp;timeout)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.186">setTimeout</a>(long&nbsp;timeout)</pre>
 <div class="block">Set the timeout.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -291,8 +292,9 @@ public&nbsp;long&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.173"
 <ul class="blockList">
 <li class="blockList">
 <h4>getEvents</h4>
-<pre><a href="https://arez.github.io/api/arez/annotations/Observable.html?is-external=true" title="class or interface in arez.annotations">@Observable</a>
-public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.194">getEvents</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+ <a href="https://arez.github.io/api/arez/annotations/Observable.html?is-external=true" title="class or interface in arez.annotations">@Observable</a>
+public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.198">getEvents</a>()</pre>
 <div class="block">Return the set of events to listen to.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -306,7 +308,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>setEvents</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.205">setEvents</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.209">setEvents</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;events)</pre>
 <div class="block">Specify the set of events to listen to.
  If the model is already active, the listeners will be updated to reflect the new events.</div>
@@ -323,7 +325,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.htm
 <li class="blockList">
 <h4>getLastActivityAt</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/Observable.html?is-external=true" title="class or interface in arez.annotations">@Observable</a>
-public&nbsp;long&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.236">getLastActivityAt</a>()</pre>
+public&nbsp;long&nbsp;<a href="../../src-html/arez/dom/IdleStatus.html#line.240">getLastActivityAt</a>()</pre>
 <div class="block">Return the time at which the last monitored event was received.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
