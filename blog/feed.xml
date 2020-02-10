@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Thu, 16 Jan 2020 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 10 Feb 2020 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2020 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.167 released]]></title>
+            <link>https://arez.github.io/blog/2020/02/10/version-0.167-release.html</link>
+            <guid>https://arez.github.io/blog/2020/02/10/version-0.167-release.html</guid>
+            <pubDate>Mon, 10 Feb 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.166...v0.167)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.grim` artifacts to version `0.04`.
+* Upgrade the `com.google.truth` artifact to version `0.45`.
+* Upgrade the `com.googl]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.166 released]]></title>
             <link>https://arez.github.io/blog/2020/01/16/version-0.166-release.html</link>

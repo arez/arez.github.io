@@ -2,12 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://arez.github.io/blog</id>
     <title>Arez Blog</title>
-    <updated>2020-01-16T06:00:00Z</updated>
+    <updated>2020-02-10T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://arez.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Arez news and events.</subtitle>
     <logo>https://arez.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2020 the Arez Project</rights>
+    <entry>
+        <title type="html"><![CDATA[Arez 0.167 released]]></title>
+        <id>https://arez.github.io/blog/2020/02/10/version-0.167-release.html</id>
+        <link href="https://arez.github.io/blog/2020/02/10/version-0.167-release.html">
+        </link>
+        <updated>2020-02-10T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.166...v0.167)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.grim` artifacts to version `0.04`.
+* Upgrade the `com.google.truth` artifact to version `0.45`.
+* Upgrade the `com.googl]]></summary>
+        <author>
+            <name>Arez Project</name>
+            <uri>https://github.com/arez</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Arez 0.166 released]]></title>
         <id>https://arez.github.io/blog/2020/01/16/version-0.166-release.html</id>
