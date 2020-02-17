@@ -4,7 +4,7 @@
         <title>Arez Blog</title>
         <link>https://arez.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Arez news and events.</description>
-        <lastBuildDate>Sun, 16 Feb 2020 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 18 Feb 2020 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,20 @@
             <link>https://arez.github.io/blog</link>
         </image>
         <copyright>Copyright © 2020 the Arez Project</copyright>
+        <item>
+            <title><![CDATA[Arez 0.169 released]]></title>
+            <link>https://arez.github.io/blog/2020/02/18/version-0.169-release.html</link>
+            <guid>https://arez.github.io/blog/2020/02/18/version-0.169-release.html</guid>
+            <pubDate>Tue, 18 Feb 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/arez/arez/compare/v0.168...v0.169)
+[API Differences](/api-diff/?key=arez&old=0.168&new=0.169)
+
+The release includes 2 non breaking API changes and 2 breaking API changes.
+
+Changes in this release:
+
+* Remove `arez.a]]></description>
+        </item>
         <item>
             <title><![CDATA[Arez 0.168 released]]></title>
             <link>https://arez.github.io/blog/2020/02/16/version-0.168-release.html</link>
