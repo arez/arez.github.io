@@ -15,7 +15,7 @@ are changed.</li>
 <p>The Arez runtime schedules a task when dependency changes are detected or when application code
 explicitly invokes <a href="/api/arez/Observer.html#schedule--"><code>Observer.schedule()</code></a>.</p>
 <p>Arez uses <a href="/docs/transactions.html">transactions</a> to batch changes to Arez state and will only attempt to
-exeucte a task when the outer most transaction is completed. This makes sure intermediate or incomplete
+execute a task when the outer most transaction is completed. This makes sure intermediate or incomplete
 values produced during a transaction are not visible to the rest of the application until the transaction has
 completed.</p>
 <p>The scheduler supports 5 different priority levels (See <a href="/api/arez/spy/Priority.html"><code>Priority</code></a>) when scheduling observers.
