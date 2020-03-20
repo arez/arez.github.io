@@ -19,7 +19,7 @@ locate the referenced object by id and will return the referenced object when th
 when the component is constructed.</li>
 </ul>
 <p>The arez runtime looks up the referenced object using a <a href="/api/arez/Locator.html"><code>Locator</code></a> instance that is registered with the
-<a href="/api/arez/ArezContext.html"><code>ArezContext</code></a> using the <a href="/api/arez/ArezContext.html#registerLocator-arez.Locator-"><code>ArezContext.registerLocator(arez.Locator)</code></a> method. The
+<a href="/api/arez/ArezContext.html"><code>ArezContext</code></a> using the <a href="/api/arez/ArezContext.html#registerLocator-arez.Locator-"><code>ArezContext.registerLocator(Locator)</code></a> method. The
 <a href="/api/arez/Locator.html"><code>Locator</code></a> instance can be used to lookup any arbitrary object and this makes it possible for arez objects
 to lookup non-arez objects using a <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotated method.</p>
 <p>The most common scenario involves the application application developer creating a
@@ -56,13 +56,13 @@ locator.registerLookup( User<span class="hljs-class">.<span class="hljs-keyword"
 
 Arez.context().registerLocator( locator );</code></pre></p>
 <p>The point at which a reference will be resolved or looked up in the <a href="/api/arez/Locator.html"><code>Locator</code></a> depends upon the value
-of the <a href="/api/arez/annotations/Reference.html#load--"><code>Reference.load</code></a> parameter. The default value is
-<a href="/api/arez/annotations/LinkType.html#EAGER"><code>EAGER</code></a> which means the reference is resolved when the arez component
+of the <a href="/api/arez/annotations/Reference.html#load--"><code>@Reference.load</code></a> parameter. The default value is
+<a href="/api/arez/annotations/LinkType.html#EAGER"><code>LinkType.EAGER</code></a> which means the reference is resolved when the arez component
 is constructed or eagerly when the value of the reference id is changed.</p>
-<p>The <code>load</code> parameter can also be set to <a href="/api/arez/annotations/LinkType.html#LAZY"><code>LAZY</code></a> which means that the
+<p>The <code>load</code> parameter can also be set to <a href="/api/arez/annotations/LinkType.html#LAZY"><code>LinkType.LAZY</code></a> which means that the
 reference will be resolved when the reference is accessed and cached until the value returned by the method
 annotated by <a href="/api/arez/annotations/ReferenceId.html"><code>@ReferenceId</code></a> changes.</p>
-<p>The other value that the <code>load</code> parameter can be set to is <a href="/api/arez/annotations/LinkType.html#EXPLICIT"><code>EXPLICIT</code></a>.
+<p>The other value that the <code>load</code> parameter can be set to is <a href="/api/arez/annotations/LinkType.html#EXPLICIT"><code>LinkType.EXPLICIT</code></a>.
 This means that the references are resolved explicitly by the application. The application must invoke the method
 <a href="/api/arez/component/Linkable.html#link--"><code>Linkable.link()</code></a> before an attempt is made to access the reference. The
 <code>EXPLICIT</code> value is usually used when changes are applied in batches, across a network in non-deterministic order.</p>
@@ -80,13 +80,13 @@ annotation processor or the javac compiler will detect the problem.</p>
 <a href="/api/arez/annotations/Inverse.html"><code>@Inverse</code></a> annotation and by the value of the <code>multiplicity</code> parameter on the
 <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotation. Possible values and their implications include:</p>
 <ul>
-<li><a href="/api/arez/annotations/Multiplicity.html#MANY"><code>MANY</code></a>: The inverse is related to many references. The type of the
+<li><a href="/api/arez/annotations/Multiplicity.html#MANY"><code>Multiplicity.MANY</code></a>: The inverse is related to many references. The type of the
 inverse must be one of <code>java.util.Collection</code>, <code>java.util.List</code> or <code>java.util.Set</code> with a type parameter
 compatible with the class containing the method annotated with the <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotation.</li>
-<li><a href="/api/arez/annotations/Multiplicity.html#ONE"><code>ONE</code></a>: The inverse is related to exactly one reference. The type of
+<li><a href="/api/arez/annotations/Multiplicity.html#ONE"><code>Multiplicity.ONE</code></a>: The inverse is related to exactly one reference. The type of
 the inverse must be compatible with the class containing the method annotated with the <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a>
 annotation. The inverse MUST be annotated with <code>javax.annotation.Nonnull</code></li>
-<li><a href="/api/arez/annotations/Multiplicity.html#ZERO_OR_ONE"><code>ZERO_OR_ONE</code></a>: The inverse is related to one or no reference.
+<li><a href="/api/arez/annotations/Multiplicity.html#ZERO_OR_ONE"><code>Multiplicity.ZERO_OR_ONE</code></a>: The inverse is related to one or no reference.
 The type of the inverse must be compatible with the class containing the method annotated with the
 <a href="/api/arez/annotations/Reference.html"><code>@Reference</code></a> annotation. The inverse MUST be annotated with <code>javax.annotation.Nullable</code>.</li>
 </ul>
