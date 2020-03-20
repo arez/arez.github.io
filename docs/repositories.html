@@ -5,8 +5,9 @@
             nav.classList.toggle('docsSliderActive');
           };
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/arez/arez/tree/master/docs/repositories.md" target="_blank">Edit</a><h1>Repositories</h1></header><article><div><span><p>Components defined in Arez have an identifier by default. These identifiers may be an explicit value returned
-from a method annotated with <a href="/api/arez/annotations/ComponentId.html"><code>@ComponentId</code></a> or they may be an implicit value that is
-synthesized by Arez as a monotonically increasing integer for each instance of the component type.</p>
+from a method annotated with the <a href="/api/arez/annotations/ComponentId.html"><code>@ComponentId</code></a> annotation or they may be an
+implicit value that is synthesized by Arez as a monotonically increasing integer for each instance of the component
+type.</p>
 <p>Repositories within Arez, are a mechanism for saving references to all non-disposed instances of a particular
 component type within a particular Arez <a href="/docs/zones.html">Zone</a>. Each components is kept in a map with the identifier as
 the key. The repositories have mechanisms for creating, destroying and finding all the component instances. If
@@ -117,8 +118,8 @@ as standard reactive components.</p>
 such as <a href="/api/arez/annotations/Memoize.html"><code>@Memoize</code></a> methods. The standard way to do this is to define an interface that
 has a method <code>self()</code> that returns the repository type and defines one or more <code>default</code> methods that define the
 extensions methods are needed. These <code>default</code> methods can be be annotated with Arez annotations (i.e.
-<a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a>, <a href="/api/arez/annotations/Memoize.html"><code>@Memoize</code></a>, <a href="/api/arez/annotations/Action.html"><code>@Action</code></a> etc) and access
-the underlying repository using the <code>self()</code> method.</p>
+<a href="/api/arez/annotations/Observe.html"><code>@Observe</code></a>, <a href="/api/arez/annotations/Memoize.html"><code>@Memoize</code></a>,
+<a href="/api/arez/annotations/Action.html"><code>@Action</code></a> etc.) and access the underlying repository using the <code>self()</code> method.</p>
 <p>An extension may look something like:</p>
 <p><pre><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">MyComponentRepositoryExtension</span>
 </span>{
@@ -137,8 +138,8 @@ the underlying repository using the <code>self()</code> method.</p>
   <span class="hljs-meta">@Nonnull</span>
   <span class="hljs-function">MyComponentRepository <span class="hljs-title">self</span><span class="hljs-params">()</span></span>;
 }</code></pre></p>
-<p>This class must then be added to the <code>extensions</code> parameter of the <a href="/api/arez/annotations/Repository.html"><code>@Repository</code></a> annotation
-and these methods will be available on the repository.</p>
+<p>This class must then be added to the <code>extensions</code> parameter of the <a href="/api/arez/annotations/Repository.html"><code>@Repository</code></a>
+annotation and these methods will be available on the repository.</p>
 <p>For example:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
 <span class="hljs-meta">@Repository</span>( extensions = MyComponentRepositoryExtension<span class="hljs-class">.<span class="hljs-keyword">class</span> )
