@@ -91,8 +91,8 @@
 <li class="blockList">
 <hr>
 <br>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
+<pre>@Documented
+ @Target(value=METHOD)
 public @interface <a href="../../src-html/arez/annotations/Observable.html#line.38">Observable</a></pre>
 <div class="block">Annotation applied to methods that expose an ObservableValue value in Arez.
  Methods annotated with this either query state or mutate state. The query
@@ -151,7 +151,7 @@ public @interface <a href="../../src-html/arez/annotations/Observable.html#line.
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Observable.html#name--">name</a></span></code>
 <div class="block">Return the name of the ObservableValue relative to the component.</div>
 </td>
@@ -195,7 +195,7 @@ public @interface <a href="../../src-html/arez/annotations/Observable.html#line.
 <ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/Observable.html#line.51">name</a></pre>
+<pre>@Nonnull public abstract&nbsp;java.lang.String&nbsp;<a href="../../src-html/arez/annotations/Observable.html#line.51">name</a></pre>
 <div class="block">Return the name of the ObservableValue relative to the component. If not specified
  will default to the name of the property by convention as described above.
  The value must conform to the requirements of a java identifier.
@@ -248,7 +248,7 @@ public @interface <a href="../../src-html/arez/annotations/Observable.html#line.
  This parameter should only be set to <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> when the observable property is defined by a
  pair of abstract methods. If set to <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then an initializer will be added for an
  observable property if it is defined by a pair of abstract methods and the values is annotated with the
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation"><code>Nonnull</code></a> annotation and it is not annotated by <a href="../../arez/annotations/Inverse.html" title="annotation in arez.annotations"><code>Inverse</code></a>.
+ <code>Nonnull</code> annotation and it is not annotated by <a href="../../arez/annotations/Inverse.html" title="annotation in arez.annotations"><code>Inverse</code></a>.
 
  <p>The initializer parameters will be added as additional parameters at the end of the parameter list in
  the generated classes constructors. The initializers will be defined in the order that the observable

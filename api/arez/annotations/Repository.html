@@ -91,8 +91,8 @@
 <li class="blockList">
 <hr>
 <br>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>)
+<pre>@Documented
+ @Target(value=TYPE)
 public @interface <a href="../../src-html/arez/annotations/Repository.html#line.48">Repository</a></pre>
 <div class="block">Annotation that indicates that a repository must be generated for component.
  A repository is the default mechanism for managing instances of classes
@@ -168,7 +168,7 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;[]</code></td>
+<td class="colFirst"><code>java.lang.Class&lt;?&gt;[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/Repository.html#extensions--">extensions</a></span></code>
 <div class="block">Return the list of extension interfaces that the repository will implement.</div>
 </td>
@@ -200,7 +200,7 @@ public @interface <a href="../../src-html/arez/annotations/Repository.html#line.
 <ul class="blockList">
 <li class="blockList">
 <h4>extensions</h4>
-<pre>public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;[]&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.57">extensions</a></pre>
+<pre>public abstract&nbsp;java.lang.Class&lt;?&gt;[]&nbsp;<a href="../../src-html/arez/annotations/Repository.html#line.57">extensions</a></pre>
 <div class="block">Return the list of extension interfaces that the repository will implement.
  The extension interfaces should not define any non-default methods besides
  self().</div>

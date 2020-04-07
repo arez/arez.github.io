@@ -91,8 +91,8 @@
 <li class="blockList">
 <hr>
 <br>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
+<pre>@Documented
+ @Target(value=METHOD)
 public @interface <a href="../../src-html/arez/annotations/OnDeactivate.html#line.42">OnDeactivate</a></pre>
 <div class="block">Identifies method that is called when the <a href="../../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> changes to the INACTIVE state from
  any other state.
@@ -114,14 +114,14 @@ public @interface <a href="../../src-html/arez/annotations/OnDeactivate.html#lin
  <li>Must be accessible to the class annotated by the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
  <li>
    Should not be public as not expected to be invoked outside the component. A warning will be generated but can
-   be suppressed by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../arez/annotations/SuppressArezWarnings.html" title="annotation in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key
+   be suppressed by the <code>SuppressWarnings</code> or <a href="../../arez/annotations/SuppressArezWarnings.html" title="annotation in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key
    "Arez:PublicHookMethod". This warning is also suppressed by the annotation processor if it is implementing
    an interface method.
  </li>
  <li>
    Should not be protected if in the class annotated with the <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a> annotation as the method is not
    expected to be invoked outside the component. A warning will be generated but can be suppressed by the
-   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../arez/annotations/SuppressArezWarnings.html" title="annotation in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:ProtectedHookMethod".
+   <code>SuppressWarnings</code> or <a href="../../arez/annotations/SuppressArezWarnings.html" title="annotation in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:ProtectedHookMethod".
  </li>
  </ul></div>
 </li>
@@ -143,7 +143,7 @@ public @interface <a href="../../src-html/arez/annotations/OnDeactivate.html#lin
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/OnDeactivate.html#name--">name</a></span></code>
 <div class="block">Return the name of the ComputableValue that this method is associated with.</div>
 </td>
@@ -169,7 +169,7 @@ public @interface <a href="../../src-html/arez/annotations/OnDeactivate.html#lin
 <ul class="blockListLast">
 <li class="blockList">
 <h4>name</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/OnDeactivate.html#line.52">name</a></pre>
+<pre>@Nonnull public abstract&nbsp;java.lang.String&nbsp;<a href="../../src-html/arez/annotations/OnDeactivate.html#line.52">name</a></pre>
 <div class="block">Return the name of the ComputableValue that this method is associated with.
  This value will be derived if the method name matches the pattern "on[Name]Deactivate",
  otherwise it must be specified.</div>

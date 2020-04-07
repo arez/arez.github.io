@@ -91,8 +91,8 @@
 <li class="blockList">
 <hr>
 <br>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
- <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>={<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#FIELD" title="class or interface in java.lang.annotation">FIELD</a>})
+<pre>@Documented
+ @Target(value={METHOD,FIELD})
 public @interface <a href="../../src-html/arez/annotations/ComponentDependency.html#line.47">ComponentDependency</a></pre>
 <div class="block">Methods and fields marked with this annotation are dependencies of the component.
  If the dependency is disposed then the component takes an action to cascade the dispose
@@ -179,12 +179,12 @@ public @interface <a href="../../src-html/arez/annotations/ComponentDependency.h
 <ul class="blockList">
 <li class="blockList">
 <h4>action</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="../../arez/annotations/ComponentDependency.Action.html" title="enum in arez.annotations">ComponentDependency.Action</a>&nbsp;<a href="../../src-html/arez/annotations/ComponentDependency.html#line.74">action</a></pre>
+<pre>@Nonnull public abstract&nbsp;<a href="../../arez/annotations/ComponentDependency.Action.html" title="enum in arez.annotations">ComponentDependency.Action</a>&nbsp;<a href="../../src-html/arez/annotations/ComponentDependency.html#line.74">action</a></pre>
 <div class="block">Return the action to take when the dependency is disposed.
  A <a href="../../arez/annotations/ComponentDependency.Action.html#CASCADE"><code>ComponentDependency.Action.CASCADE</code></a> value indicates that the component should be deleted, while a
  <a href="../../arez/annotations/ComponentDependency.Action.html#SET_NULL"><code>ComponentDependency.Action.SET_NULL</code></a> value indicates that the observable field should be set to null.
  The <a href="../../arez/annotations/ComponentDependency.Action.html#SET_NULL"><code>ComponentDependency.Action.SET_NULL</code></a> is only valid on <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> properties that have an
- associated setter and are not annotated with <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation"><code>Nonnull</code></a>.</div>
+ associated setter and are not annotated with <code>Nonnull</code>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the action to take when the dependency is disposed.</dd>

@@ -95,7 +95,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>arez.Zone</li>
@@ -109,7 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>@OmitType(unless="arez.enable_zones")
 public final class <a href="../src-html/arez/Zone.html#line.10">Zone</a>
-extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+extends java.lang.Object</pre>
 <div class="block">An isolated Arez context.</div>
 </li>
 </ul>
@@ -168,8 +168,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -191,7 +191,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getContext</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;<a href="../src-html/arez/Zone.html#line.23">getContext</a>()</pre>
+<pre>@Nonnull public&nbsp;<a href="../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;<a href="../src-html/arez/Zone.html#line.23">getContext</a>()</pre>
 <div class="block">Return the context for the zone.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -214,7 +214,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>safeRun</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/Zone.html#line.49">safeRun</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;action)</pre>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/Zone.html#line.49">safeRun</a>(@Nonnull <a href="../arez/SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;action)</pre>
 <div class="block">Run the specified function in the zone.
  Activate the zone on entry, deactivate on exit.</div>
 <dl>
@@ -233,8 +233,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>run</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/Zone.html#line.71">run</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../arez/Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;action)
-          throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../src-html/arez/Zone.html#line.71">run</a>(@Nonnull <a href="../arez/Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;action)
+          throws java.lang.Throwable</pre>
 <div class="block">Run the specified function in the zone.
  Activate the zone on entry, deactivate on exit.</div>
 <dl>
@@ -245,7 +245,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the value returned from function.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></code> - if the function throws an exception.</dd>
+<dd><code>java.lang.Throwable</code> - if the function throws an exception.</dd>
 </dl>
 </li>
 </ul>
@@ -255,7 +255,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>safeRun</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Zone.html#line.91">safeRun</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Zone.html#line.91">safeRun</a>(@Nonnull <a href="../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
 <div class="block">Run the specified procedure in the zone.
  Activate the zone on entry, deactivate on exit.</div>
 <dl>
@@ -270,15 +270,15 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>run</h4>
-<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Zone.html#line.111">run</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)
-         throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/arez/Zone.html#line.111">run</a>(@Nonnull <a href="../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;action)
+         throws java.lang.Throwable</pre>
 <div class="block">Run the specified procedure in the zone.
  Activate the zone on entry, deactivate on exit.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>action</code> - the procedure to execute.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></code> - if the procedure throws an exception.</dd>
+<dd><code>java.lang.Throwable</code> - if the procedure throws an exception.</dd>
 </dl>
 </li>
 </ul>

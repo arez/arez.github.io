@@ -95,7 +95,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>arez.component.TypeBasedLocator</li>
@@ -113,7 +113,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>@OmitType(unless="arez.enable_references")
 public final class <a href="../../src-html/arez/component/TypeBasedLocator.html#line.17">TypeBasedLocator</a>
-extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+extends java.lang.Object
 implements <a href="../../arez/Locator.html" title="interface in arez">Locator</a></pre>
 <div class="block">An Locator implementation where you can register a function-per type to be resolved.</div>
 </li>
@@ -153,15 +153,15 @@ implements <a href="../../arez/Locator.html" title="interface in arez">Locator</
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/TypeBasedLocator.html#findById-java.lang.Class-java.lang.Object-">findById</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;type,
-        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;id)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/TypeBasedLocator.html#findById-java.lang.Class-java.lang.Object-">findById</a></span>(java.lang.Class&lt;T&gt;&nbsp;type,
+        java.lang.Object&nbsp;id)</code>
 <div class="block">Lookup the entity with the specified type and the specified id, returning null if not present.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/TypeBasedLocator.html#registerLookup-java.lang.Class-java.util.function.Function-">registerLookup</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;type,
-              <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,T&gt;&nbsp;findByIdFunction)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/TypeBasedLocator.html#registerLookup-java.lang.Class-java.util.function.Function-">registerLookup</a></span>(java.lang.Class&lt;T&gt;&nbsp;type,
+              java.util.function.Function&lt;java.lang.Object,T&gt;&nbsp;findByIdFunction)</code>
 <div class="block">Register a function that will find entities of specified type by id.</div>
 </td>
 </tr>
@@ -170,8 +170,8 @@ implements <a href="../../arez/Locator.html" title="interface in arez">Locator</
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -210,8 +210,8 @@ implements <a href="../../arez/Locator.html" title="interface in arez">Locator</
 <ul class="blockList">
 <li class="blockList">
 <h4>registerLookup</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;void&nbsp;<a href="../../src-html/arez/component/TypeBasedLocator.html#line.34">registerLookup</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;type,
-                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,T&gt;&nbsp;findByIdFunction)</pre>
+<pre>public&nbsp;&lt;T&gt;&nbsp;void&nbsp;<a href="../../src-html/arez/component/TypeBasedLocator.html#line.34">registerLookup</a>(@Nonnull java.lang.Class&lt;T&gt;&nbsp;type,
+                               @Nonnull java.util.function.Function&lt;java.lang.Object,T&gt;&nbsp;findByIdFunction)</pre>
 <div class="block">Register a function that will find entities of specified type by id.
  This must not be invoked if another function has already been registered for type.</div>
 <dl>
@@ -229,8 +229,8 @@ implements <a href="../../arez/Locator.html" title="interface in arez">Locator</
 <ul class="blockListLast">
 <li class="blockList">
 <h4>findById</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../../src-html/arez/component/TypeBasedLocator.html#line.48">findById</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;type,
-                                <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;id)</pre>
+<pre>@Nullable public&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../../src-html/arez/component/TypeBasedLocator.html#line.48">findById</a>(@Nonnull java.lang.Class&lt;T&gt;&nbsp;type,
+                                @Nonnull java.lang.Object&nbsp;id)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../arez/Locator.html#findById-java.lang.Class-java.lang.Object-">Locator</a></code></span></div>
 <div class="block">Lookup the entity with the specified type and the specified id, returning null if not present.</div>
 <dl>
