@@ -91,8 +91,8 @@
 <li class="blockList">
 <hr>
 <br>
-<pre>@Documented
- @Target(value=TYPE)
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
+ <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>)
 public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#line.43">ArezComponent</a></pre>
 <div class="block">Annotation that marks classes or interfaces to be processed by Arez annotation processor.
  Classes or interfaces with this annotation can contain <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a> properties,
@@ -184,7 +184,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#name--">name</a></span></code>
 <div class="block">Return the name of the type.</div>
 </td>
@@ -199,7 +199,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/annotations/ArezComponent.html#requireEquals--">requireEquals</a></span></code>
-<div class="block">Indicate whether a component requires that the <code>Object.hashCode()</code> and <code>Object.equals(Object)</code>
+<div class="block">Indicate whether a component requires that the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang"><code>Object.equals(Object)</code></a>
  methods are implemented.</div>
 </td>
 </tr>
@@ -254,7 +254,7 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
-<pre>@Nonnull public abstract&nbsp;java.lang.String&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.52">name</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.52">name</a></pre>
 <div class="block">Return the name of the type.
  The value must conform to the requirements of a java identifier.</div>
 <dl>
@@ -456,14 +456,14 @@ public @interface <a href="../../src-html/arez/annotations/ArezComponent.html#li
 <li class="blockList">
 <h4>requireEquals</h4>
 <pre>public abstract&nbsp;<a href="../../arez/annotations/Feature.html" title="enum in arez.annotations">Feature</a>&nbsp;<a href="../../src-html/arez/annotations/ArezComponent.html#line.144">requireEquals</a></pre>
-<div class="block">Indicate whether a component requires that the <code>Object.hashCode()</code> and <code>Object.equals(Object)</code>
+<div class="block">Indicate whether a component requires that the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang"><code>Object.equals(Object)</code></a>
  methods are implemented. These methods MUST be implemented if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present
  but may be implemented in other scenarios. <a href="../../arez/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the generation of the methods,
  <a href="../../arez/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> will not generate these methods and <a href="../../arez/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will generated these
  methods if the <a href="../../arez/annotations/Repository.html" title="annotation in arez.annotations"><code>Repository</code></a> annotation is present.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>enum controlling whether the <code>Object.hashCode()</code> and <code>Object.equals(Object)</code> methods are implemented.</dd>
+<dd>enum controlling whether the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang"><code>Object.equals(Object)</code></a> methods are implemented.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>

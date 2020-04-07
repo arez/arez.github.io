@@ -126,20 +126,20 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#addOnDisposeListener-java.lang.Object-arez.SafeProcedure-">addOnDisposeListener</a></span>(java.lang.Object&nbsp;key,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#addOnDisposeListener-java.lang.Object-arez.SafeProcedure-">addOnDisposeListener</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
                     <a href="../../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</code>
 <div class="block">Add the listener to notify list under key.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#asDisposeNotifier-java.lang.Object-">asDisposeNotifier</a></span>(java.lang.Object&nbsp;object)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#asDisposeNotifier-java.lang.Object-">asDisposeNotifier</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</code>
 <div class="block">Cast the specified object to an instance of DisposeNotifier.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#removeOnDisposeListener-java.lang.Object-">removeOnDisposeListener</a></span>(java.lang.Object&nbsp;key)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/component/DisposeNotifier.html#removeOnDisposeListener-java.lang.Object-">removeOnDisposeListener</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</code>
 <div class="block">Remove the listener with specified key from the notify list.</div>
 </td>
 </tr>
@@ -164,8 +164,8 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>addOnDisposeListener</h4>
-<pre>void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.33">addOnDisposeListener</a>(@Nonnull java.lang.Object&nbsp;key,
-                          @Nonnull <a href="../../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
+<pre>void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.33">addOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
+                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
 <div class="block">Add the listener to notify list under key.
  This method MUST NOT be invoked after the component has been disposed.
  This method should not be invoked if another listener has been added with the same key without
@@ -187,7 +187,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>removeOnDisposeListener</h4>
-<pre>void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.43">removeOnDisposeListener</a>(@Nonnull java.lang.Object&nbsp;key)</pre>
+<pre>void&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.43">removeOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</pre>
 <div class="block">Remove the listener with specified key from the notify list.
  This method should only be invoked when a listener has been added for specific key using
  <a href="../../arez/component/DisposeNotifier.html#addOnDisposeListener-java.lang.Object-arez.SafeProcedure-"><code>addOnDisposeListener(Object, SafeProcedure)</code></a> and has not been removed by another
@@ -204,7 +204,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>asDisposeNotifier</h4>
-<pre>@Nonnull static&nbsp;<a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a>&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.53">asDisposeNotifier</a>(@Nonnull java.lang.Object&nbsp;object)</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> static&nbsp;<a href="../../arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a>&nbsp;<a href="../../src-html/arez/component/DisposeNotifier.html#line.53">asDisposeNotifier</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Cast the specified object to an instance of DisposeNotifier.
  Invariant checks will verify that the cast is valid before proceeding.</div>
 <dl>
