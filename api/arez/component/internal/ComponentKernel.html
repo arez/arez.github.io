@@ -356,7 +356,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ComponentKernel</h4>
-<pre>public&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.148">ComponentKernel</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="../../../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;context,
+<pre>public&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.147">ComponentKernel</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="../../../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;context,
                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                        int&nbsp;id,
                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="../../../arez/Component.html" title="class in arez">Component</a>&nbsp;component,
@@ -382,7 +382,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>observe</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.233">observe</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.232">observe</a>()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../arez/component/ComponentObservable.html#observe--">ComponentObservable</a></code></span></div>
 <div class="block">Return true if the component is "alive" a.k.a. not disposing or disposed.
  This method MUST be invoked within a non-DISPOSE transaction and will add
@@ -402,7 +402,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>dispose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.266">dispose</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.265">dispose</a>()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../arez/Disposable.html#dispose--">Disposable</a></code></span></div>
 <div class="block">Dispose the element. See <a href="../../../arez/Disposable.html" title="interface in arez"><code>Disposable</code></a> for a description of the implications.</div>
 <dl>
@@ -417,7 +417,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.307">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.306">isDisposed</a>()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../arez/Disposable.html#isDisposed--">Disposable</a></code></span></div>
 <div class="block">Return true if dispose() has been called on object.</div>
 <dl>
@@ -434,7 +434,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>notifyOnDisposeListeners</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.331">notifyOnDisposeListeners</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.330">notifyOnDisposeListeners</a>()</pre>
 <div class="block">Notify an OnDispose listeners that have been added to the component.
  This method MUST only be called if the component has enabled onDisposeNotify feature.</div>
 </li>
@@ -445,7 +445,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>hasBeenInitialized</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.356">hasBeenInitialized</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.355">hasBeenInitialized</a>()</pre>
 <div class="block">Return true if the component has been initialized.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -459,7 +459,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>hasBeenConstructed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.367">hasBeenConstructed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.366">hasBeenConstructed</a>()</pre>
 <div class="block">Return true if the component has been constructed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -473,7 +473,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>hasBeenCompleted</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.378">hasBeenCompleted</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.377">hasBeenCompleted</a>()</pre>
 <div class="block">Return true if the component has been completed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -487,7 +487,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>isConstructed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.389">isConstructed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.388">isConstructed</a>()</pre>
 <div class="block">Return true if the component is in COMPONENT_CONSTRUCTED state.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -501,7 +501,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>isComplete</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.399">isComplete</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.398">isComplete</a>()</pre>
 <div class="block">Return true if the component is in COMPONENT_COMPLETE state.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -515,7 +515,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>isReady</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.409">isReady</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.408">isReady</a>()</pre>
 <div class="block">Return true if the component is ready.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -529,7 +529,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposing</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.419">isDisposing</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.418">isDisposing</a>()</pre>
 <div class="block">Return true if the component is disposing.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -543,7 +543,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>isActive</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.430">isActive</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.429">isActive</a>()</pre>
 <div class="block">Return true if the component is active and can be interacted with.
  This means that the component has been constructed and has not started to be disposed.</div>
 <dl>
@@ -558,7 +558,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>describeState</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.442">describeState</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.441">describeState</a>()</pre>
 <div class="block">Describe component state. This is usually used to provide error messages.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -572,7 +572,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>componentConstructed</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.474">componentConstructed</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.473">componentConstructed</a>()</pre>
 <div class="block">Transition component state from <a href="../../../arez/component/internal/ComponentKernel.html#COMPONENT_INITIALIZED"><code>COMPONENT_INITIALIZED</code></a> to <a href="../../../arez/component/internal/ComponentKernel.html#COMPONENT_CONSTRUCTED"><code>COMPONENT_CONSTRUCTED</code></a>.</div>
 </li>
 </ul>
@@ -582,7 +582,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>componentComplete</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.492">componentComplete</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.491">componentComplete</a>()</pre>
 <div class="block">Transition component state from <a href="../../../arez/component/internal/ComponentKernel.html#COMPONENT_INITIALIZED"><code>COMPONENT_INITIALIZED</code></a> to
  <a href="../../../arez/component/internal/ComponentKernel.html#COMPONENT_CONSTRUCTED"><code>COMPONENT_CONSTRUCTED</code></a> and then to <a href="../../../arez/component/internal/ComponentKernel.html#COMPONENT_READY"><code>COMPONENT_READY</code></a>.
  This should only be called if there is active elements that are part of the component that need to be scheduled,
@@ -595,7 +595,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>componentReady</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.513">componentReady</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.512">componentReady</a>()</pre>
 <div class="block">Transition component state from <a href="../../../arez/component/internal/ComponentKernel.html#COMPONENT_CONSTRUCTED"><code>COMPONENT_CONSTRUCTED</code></a> to <a href="../../../arez/component/internal/ComponentKernel.html#COMPONENT_READY"><code>COMPONENT_READY</code></a>.
  This should be invoked rather than <a href="../../../arez/component/internal/ComponentKernel.html#componentComplete--"><code>componentComplete()</code></a> if there is no active elements of the component that
  need to be scheduled.</div>
@@ -607,7 +607,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>getContext</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../../../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.549">getContext</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../../../arez/ArezContext.html" title="class in arez">ArezContext</a>&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.548">getContext</a>()</pre>
 <div class="block">Return the context in which this component was created.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -621,7 +621,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>safeSetObservable</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.561">safeSetObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.560">safeSetObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../../../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;setter)</pre>
 <div class="block">Invoke the setter in a transaction.
  If a transaction is active then invoke the setter directly, otherwise wrap the setter in an action.</div>
@@ -638,7 +638,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>setObservable</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.581">setObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.580">setObservable</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                           <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../../../arez/Procedure.html" title="interface in arez">Procedure</a>&nbsp;setter)
                    throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
 <div class="block">Invoke the setter in a transaction.
@@ -658,7 +658,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>getName</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.602">getName</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.601">getName</a>()</pre>
 <div class="block">Return the name of the component.
  This method should NOT be invoked unless <a href="../../../arez/Arez.html#areNamesEnabled--"><code>Arez.areNamesEnabled()</code></a> returns true and will throw an
  exception if invariant checking is enabled.</div>
@@ -674,7 +674,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>getId</h4>
-<pre>public&nbsp;int&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.620">getId</a>()</pre>
+<pre>public&nbsp;int&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.619">getId</a>()</pre>
 <div class="block">Return the synthetic id associated with the component.
  This method MUST NOT be invoked if a synthetic id is not present and will generate an invariant failure
  when invariants are enabled.</div>
@@ -691,7 +691,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <li class="blockList">
 <h4>getComponent</h4>
 <pre>@OmitSymbol(unless="arez.enable_native_components")
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../../../arez/Component.html" title="class in arez">Component</a>&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.639">getComponent</a>()</pre>
+ <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../../../arez/Component.html" title="class in arez">Component</a>&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.638">getComponent</a>()</pre>
 <div class="block">Return the native component associated with the component.
  This method MUST NOT be invoked if native components are disabled.</div>
 <dl>
@@ -706,7 +706,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>addOnDisposeListener</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.664">addOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
+<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.663">addOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../../../arez/SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</pre>
 <div class="block">Add the listener to notify list under key.
  This method MUST NOT be invoked after <a href="../../../arez/component/internal/ComponentKernel.html#dispose--"><code>dispose()</code></a> has been invoked.
@@ -729,7 +729,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockList">
 <li class="blockList">
 <h4>removeOnDisposeListener</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.686">removeOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.685">removeOnDisposeListener</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</pre>
 <div class="block">Remove the listener with specified key from the notify list.
  This method should only be invoked when a listener has been added for specific key using
  <a href="../../../arez/component/internal/ComponentKernel.html#addOnDisposeListener-java.lang.Object-arez.SafeProcedure-"><code>addOnDisposeListener(Object, SafeProcedure)</code></a> and has not been removed by another
@@ -746,7 +746,7 @@ implements <a href="../../../arez/Disposable.html" title="interface in arez">Dis
 <ul class="blockListLast">
 <li class="blockList">
 <h4>toString</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.716">toString</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/component/internal/ComponentKernel.html#line.715">toString</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dd>
