@@ -17,7 +17,7 @@ for cleaning up the resource manually in a method annotated with <a href="/api/a
   <span class="hljs-keyword">final</span> MySubService _subService = MySubService.create();
 
   <span class="hljs-meta">@PreDispose</span>
-  <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">preDispose</span><span class="hljs-params">()</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">preDispose</span><span class="hljs-params">()</span>
   </span>{
     Disposable.dispose( _subService );
   }

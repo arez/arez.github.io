@@ -81,7 +81,7 @@ See <a href="/docs/accessing_primitives.html">accessing primitives</a> documenta
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReactComponent</span>
 </span>{
   <span class="hljs-meta">@Observable</span>( expectSetter = <span class="hljs-keyword">false</span> )
-  <span class="hljs-function"><span class="hljs-keyword">protected</span> Props <span class="hljs-title">props</span><span class="hljs-params">()</span>
+  <span class="hljs-function">Props <span class="hljs-title">props</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-comment">//Return the native props object here.</span>
     ...
@@ -94,13 +94,13 @@ See <a href="/docs/accessing_primitives.html">accessing primitives</a> documenta
   <span class="hljs-comment">// This method is wrapped in an Action to ensure change is propagated</span>
   <span class="hljs-comment">// correctly in arez system.</span>
   <span class="hljs-meta">@Action</span>
-  <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reportPropsChanged</span><span class="hljs-params">()</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reportPropsChanged</span><span class="hljs-params">()</span>
   </span>{
     getPropsObservableValue().reportChanged();
   }
 
   <span class="hljs-comment">// This method is invoked by the React runtime</span>
-  <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">componentWillReceiveProps</span><span class="hljs-params">( @Nonnull <span class="hljs-keyword">final</span> Props nextProps )</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">componentWillReceiveProps</span><span class="hljs-params">( @Nonnull <span class="hljs-keyword">final</span> Props nextProps )</span>
   </span>{
     reportPropsChanged();
     ...

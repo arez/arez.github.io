@@ -99,14 +99,14 @@ manages online state.</p>
   }
 
   <span class="hljs-meta">@OnActivate</span>
-  <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onOnLineActivate</span><span class="hljs-params">()</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onOnLineActivate</span><span class="hljs-params">()</span>
   </span>{
     DomGlobal.window.addEventListener( <span class="hljs-string">"online"</span>, _listener );
     DomGlobal.window.addEventListener( <span class="hljs-string">"offline"</span>, _listener );
   }
 
   <span class="hljs-meta">@OnDeactivate</span>
-  <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onOnLineDeactivate</span><span class="hljs-params">()</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onOnLineDeactivate</span><span class="hljs-params">()</span>
   </span>{
     DomGlobal.window.removeEventListener( <span class="hljs-string">"online"</span>, _listener );
     DomGlobal.window.removeEventListener( <span class="hljs-string">"offline"</span>, _listener );
@@ -156,14 +156,14 @@ to <code>AREZ_OR_EXTERNAL</code> and the application needs to explicitly invoke 
   <span class="hljs-function"><span class="hljs-keyword">abstract</span> ComputableValue&lt;Boolean&gt; <span class="hljs-title">getOnLineComputableValue</span><span class="hljs-params">()</span></span>;
 
   <span class="hljs-meta">@OnActivate</span>
-  <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onOnLineActivate</span><span class="hljs-params">()</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onOnLineActivate</span><span class="hljs-params">()</span>
   </span>{
     DomGlobal.window.addEventListener( <span class="hljs-string">"online"</span>, _listener );
     DomGlobal.window.addEventListener( <span class="hljs-string">"offline"</span>, _listener );
   }
 
   <span class="hljs-meta">@OnDeactivate</span>
-  <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onOnLineDeactivate</span><span class="hljs-params">()</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onOnLineDeactivate</span><span class="hljs-params">()</span>
   </span>{
     DomGlobal.window.removeEventListener( <span class="hljs-string">"online"</span>, _listener );
     DomGlobal.window.removeEventListener( <span class="hljs-string">"offline"</span>, _listener );
