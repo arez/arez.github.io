@@ -3340,7 +3340,7 @@
 <span class="sourceLineNo">3332</span>  private boolean isMethodAProtectedOverride( @Nonnull final TypeElement typeElement,<a name="line.3332"></a>
 <span class="sourceLineNo">3333</span>                                              @Nonnull final ExecutableElement method )<a name="line.3333"></a>
 <span class="sourceLineNo">3334</span>  {<a name="line.3334"></a>
-<span class="sourceLineNo">3335</span>    final ExecutableElement overriddenMethod = ArezUtils.getOverriddenMethod( processingEnv, typeElement, method );<a name="line.3335"></a>
+<span class="sourceLineNo">3335</span>    final ExecutableElement overriddenMethod = ElementsUtil.getOverriddenMethod( processingEnv, typeElement, method );<a name="line.3335"></a>
 <span class="sourceLineNo">3336</span>    return null != overriddenMethod &amp;&amp; overriddenMethod.getModifiers().contains( Modifier.PROTECTED );<a name="line.3336"></a>
 <span class="sourceLineNo">3337</span>  }<a name="line.3337"></a>
 <span class="sourceLineNo">3338</span>}<a name="line.3338"></a>
