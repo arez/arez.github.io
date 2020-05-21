@@ -104,14 +104,14 @@
 <span class="sourceLineNo">096</span>  abstract ComputableValue&lt;?&gt; getOnLineComputableValue();<a name="line.96"></a>
 <span class="sourceLineNo">097</span><a name="line.97"></a>
 <span class="sourceLineNo">098</span>  @OnActivate<a name="line.98"></a>
-<span class="sourceLineNo">099</span>  final void onOnLineActivate()<a name="line.99"></a>
+<span class="sourceLineNo">099</span>  void onOnLineActivate()<a name="line.99"></a>
 <span class="sourceLineNo">100</span>  {<a name="line.100"></a>
 <span class="sourceLineNo">101</span>    DomGlobal.window.addEventListener( "online", _listener );<a name="line.101"></a>
 <span class="sourceLineNo">102</span>    DomGlobal.window.addEventListener( "offline", _listener );<a name="line.102"></a>
 <span class="sourceLineNo">103</span>  }<a name="line.103"></a>
 <span class="sourceLineNo">104</span><a name="line.104"></a>
 <span class="sourceLineNo">105</span>  @OnDeactivate<a name="line.105"></a>
-<span class="sourceLineNo">106</span>  final void onOnLineDeactivate()<a name="line.106"></a>
+<span class="sourceLineNo">106</span>  void onOnLineDeactivate()<a name="line.106"></a>
 <span class="sourceLineNo">107</span>  {<a name="line.107"></a>
 <span class="sourceLineNo">108</span>    DomGlobal.window.removeEventListener( "online", _listener );<a name="line.108"></a>
 <span class="sourceLineNo">109</span>    DomGlobal.window.removeEventListener( "offline", _listener );<a name="line.109"></a>
