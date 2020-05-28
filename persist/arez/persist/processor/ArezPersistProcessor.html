@@ -121,10 +121,10 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedAnnotationTypes.html?is-external=true" title="class or interface in javax.annotation.processing">@SupportedAnnotationTypes</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedAnnotationTypes.html?is-external=true#value--" title="class or interface in javax.annotation.processing">value</a>={"arez.persist.PersistType","arez.persist.Persist"})
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedAnnotationTypes.html?is-external=true" title="class or interface in javax.annotation.processing">@SupportedAnnotationTypes</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedAnnotationTypes.html?is-external=true#value--" title="class or interface in javax.annotation.processing">value</a>={"arez.persist.PersistType","arez.persist.PersistId","arez.persist.Persist"})
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedSourceVersion.html?is-external=true" title="class or interface in javax.annotation.processing">@SupportedSourceVersion</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedSourceVersion.html?is-external=true#value--" title="class or interface in javax.annotation.processing">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/SourceVersion.html?is-external=true#RELEASE_8" title="class or interface in javax.lang.model">RELEASE_8</a>)
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedOptions.html?is-external=true" title="class or interface in javax.annotation.processing">@SupportedOptions</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/SupportedOptions.html?is-external=true#value--" title="class or interface in javax.annotation.processing">value</a>={"arez.persist.defer.unresolved","arez.persist.defer.errors","arez.persist.debug"})
-public final class <a href="../../../src-html/arez/persist/processor/ArezPersistProcessor.html#line.41">ArezPersistProcessor</a>
+public final class <a href="../../../src-html/arez/persist/processor/ArezPersistProcessor.html#line.42">ArezPersistProcessor</a>
 extends org.realityforge.proton.AbstractStandardProcessor</pre>
 <div class="block">Annotation processor that analyzes Arez annotated source and generates models from the annotations.</div>
 </li>
@@ -247,7 +247,7 @@ extends org.realityforge.proton.AbstractStandardProcessor</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ArezPersistProcessor</h4>
-<pre>public&nbsp;<a href="../../../src-html/arez/persist/processor/ArezPersistProcessor.html#line.41">ArezPersistProcessor</a>()</pre>
+<pre>public&nbsp;<a href="../../../src-html/arez/persist/processor/ArezPersistProcessor.html#line.42">ArezPersistProcessor</a>()</pre>
 </li>
 </ul>
 </li>
@@ -264,7 +264,7 @@ extends org.realityforge.proton.AbstractStandardProcessor</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getIssueTrackerURL</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/processor/ArezPersistProcessor.html#line.58">getIssueTrackerURL</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/processor/ArezPersistProcessor.html#line.59">getIssueTrackerURL</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getIssueTrackerURL</code>&nbsp;in class&nbsp;<code>org.realityforge.proton.AbstractStandardProcessor</code></dd>
@@ -277,7 +277,7 @@ extends org.realityforge.proton.AbstractStandardProcessor</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getOptionPrefix</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/processor/ArezPersistProcessor.html#line.65">getOptionPrefix</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/processor/ArezPersistProcessor.html#line.66">getOptionPrefix</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getOptionPrefix</code>&nbsp;in class&nbsp;<code>org.realityforge.proton.AbstractStandardProcessor</code></dd>
@@ -290,7 +290,7 @@ extends org.realityforge.proton.AbstractStandardProcessor</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>process</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/persist/processor/ArezPersistProcessor.html#line.71">process</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;? extends <a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&gt;&nbsp;annotations,
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/persist/processor/ArezPersistProcessor.html#line.72">process</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;? extends <a href="https://docs.oracle.com/javase/8/docs/api/javax/lang/model/element/TypeElement.html?is-external=true" title="class or interface in javax.lang.model.element">TypeElement</a>&gt;&nbsp;annotations,
                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/processing/RoundEnvironment.html?is-external=true" title="class or interface in javax.annotation.processing">RoundEnvironment</a>&nbsp;env)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
