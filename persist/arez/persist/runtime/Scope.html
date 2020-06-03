@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -105,10 +105,15 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="https://arez.github.io/api/arez/component/Identifiable.html?is-external=true" title="class or interface in arez.component">Identifiable</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</dd>
+</dl>
 <hr>
 <br>
-<pre>public final class <a href="../../../src-html/arez/persist/runtime/Scope.html#line.24">Scope</a>
-extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<pre>public final class <a href="../../../src-html/arez/persist/runtime/Scope.html#line.25">Scope</a>
+extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="https://arez.github.io/api/arez/component/Identifiable.html?is-external=true" title="class or interface in arez.component">Identifiable</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</pre>
 <div class="block">A scope is used to control the lifecycle of state storage.
  State containing within a scope can be removed from the store using a single call
  to <a href="../../../arez/persist/runtime/ArezPersist.html#releaseScope-arez.persist.runtime.Scope-"><code>ArezPersist.releaseScope(Scope)</code></a>. Scopes can be nested within other scopes
@@ -165,27 +170,33 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/persist/runtime/Scope.html#getArezId--">getArezId</a></span>()</code>
+<div class="block">Return the id used by react4j when composing scope into an immutable key.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/persist/runtime/Scope.html#getName--">getName</a></span>()</code>
 <div class="block">Return the simple name of the scope.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../arez/persist/runtime/Scope.html" title="class in arez.persist.runtime">Scope</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/persist/runtime/Scope.html#getNestedScopes--">getNestedScopes</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/persist/runtime/Scope.html#getQualifiedName--">getQualifiedName</a></span>()</code>
 <div class="block">Return the qualified name of the scope.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/persist/runtime/Scope.html#isDisposed--">isDisposed</a></span>()</code>
 <div class="block">Return true if this scope has been disposed.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/persist/runtime/Scope.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -196,6 +207,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
 <code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.arez.component.Identifiable">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;arez.component.<a href="https://arez.github.io/api/arez/component/Identifiable.html?is-external=true" title="class or interface in arez.component">Identifiable</a></h3>
+<code><a href="https://arez.github.io/api/arez/component/Identifiable.html?is-external=true#asIdentifiable-java.lang.Object-" title="class or interface in arez.component">asIdentifiable</a>, <a href="https://arez.github.io/api/arez/component/Identifiable.html?is-external=true#getArezId-java.lang.Object-" title="class or interface in arez.component">getArezId</a></code></li>
 </ul>
 </li>
 </ul>
@@ -217,7 +235,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ROOT_SCOPE_NAME</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public static final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> <a href="../../../src-html/arez/persist/runtime/Scope.html#line.30">ROOT_SCOPE_NAME</a></pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public static final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> <a href="../../../src-html/arez/persist/runtime/Scope.html#line.32">ROOT_SCOPE_NAME</a></pre>
 <div class="block">The name of the root scope.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -239,7 +257,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getName</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.63">getName</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.65">getName</a>()</pre>
 <div class="block">Return the simple name of the scope.
  The simple name is the name that was used to create the scope.</div>
 <dl>
@@ -254,11 +272,28 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getQualifiedName</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.76">getQualifiedName</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.78">getQualifiedName</a>()</pre>
 <div class="block">Return the qualified name of the scope.
  The qualified name includes the parent scopes name followed by a "." character unless
  the parent scope is the root scope.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the qualified name of the scope.</dd>
+</dl>
+</li>
+</ul>
+<a name="getArezId--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getArezId</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.91">getArezId</a>()</pre>
+<div class="block">Return the id used by react4j when composing scope into an immutable key.
+ This just returns the qualified name of the scope.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://arez.github.io/api/arez/component/Identifiable.html?is-external=true#getArezId--" title="class or interface in arez.component">getArezId</a></code>&nbsp;in interface&nbsp;<code><a href="https://arez.github.io/api/arez/component/Identifiable.html?is-external=true" title="class or interface in arez.component">Identifiable</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the qualified name of the scope.</dd>
 </dl>
@@ -270,7 +305,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>findOrCreateScope</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../../../arez/persist/runtime/Scope.html" title="class in arez.persist.runtime">Scope</a>&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.89">findOrCreateScope</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../../../arez/persist/runtime/Scope.html" title="class in arez.persist.runtime">Scope</a>&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.107">findOrCreateScope</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Find or create a scope directly nested under the current scope.
  This must not be invoked on a disposed scope.</div>
 <dl>
@@ -287,7 +322,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>isDisposed</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.119">isDisposed</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.137">isDisposed</a>()</pre>
 <div class="block">Return true if this scope has been disposed.
  A scope is disposed by invoking <a href="../../../arez/persist/runtime/ArezPersist.html#disposeScope-arez.persist.runtime.Scope-"><code>ArezPersist.disposeScope(Scope)</code></a> on the scope or any parent scope.</div>
 <dl>
@@ -302,7 +337,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.125">toString</a>()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.143">toString</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dd>
@@ -315,7 +350,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getNestedScopes</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../arez/persist/runtime/Scope.html" title="class in arez.persist.runtime">Scope</a>&gt;&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.150">getNestedScopes</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../arez/persist/runtime/Scope.html" title="class in arez.persist.runtime">Scope</a>&gt;&nbsp;<a href="../../../src-html/arez/persist/runtime/Scope.html#line.168">getNestedScopes</a>()</pre>
 </li>
 </ul>
 </li>
