@@ -2461,7 +2461,7 @@ public&nbsp;boolean&nbsp;<a href="../src-html/arez/ArezContext.html#line.158">is
 <li class="blockList">
 <h4>registerLocator</h4>
 <pre>@OmitSymbol(unless="arez.enable_references")
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.2063">registerLocator</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../arez/Locator.html" title="interface in arez">Locator</a>&nbsp;locator)</pre>
+ <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../arez/Disposable.html" title="interface in arez">Disposable</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.2069">registerLocator</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../arez/Locator.html" title="interface in arez">Locator</a>&nbsp;locator)</pre>
 <div class="block">Register an entity locator to use to resolve references.
  The Locator must not already be registered.
  This should not be invoked unless Arez.areReferencesEnabled() returns true.</div>
@@ -2480,7 +2480,7 @@ public&nbsp;boolean&nbsp;<a href="../src-html/arez/ArezContext.html#line.158">is
 <li class="blockList">
 <h4>locator</h4>
 <pre>@OmitSymbol(unless="arez.enable_references")
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../arez/Locator.html" title="interface in arez">Locator</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.2082">locator</a>()</pre>
+ <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../arez/Locator.html" title="interface in arez">Locator</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.2088">locator</a>()</pre>
 <div class="block">Return the locator that can be used to resolve references.
  This should not be invoked unless Arez.areReferencesEnabled() returns true.</div>
 <dl>
@@ -2496,7 +2496,7 @@ public&nbsp;boolean&nbsp;<a href="../src-html/arez/ArezContext.html#line.158">is
 <li class="blockList">
 <h4>addObserverErrorHandler</h4>
 <pre>@OmitSymbol(unless="arez.enable_observer_error_handlers")
-public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2101">addObserverErrorHandler</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../arez/ObserverErrorHandler.html" title="interface in arez">ObserverErrorHandler</a>&nbsp;handler)</pre>
+public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2107">addObserverErrorHandler</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../arez/ObserverErrorHandler.html" title="interface in arez">ObserverErrorHandler</a>&nbsp;handler)</pre>
 <div class="block">Add error handler to the list of error handlers called.
  The handler should not already be in the list. This method should NOT be called if
  <a href="../arez/Arez.html#areObserverErrorHandlersEnabled--"><code>Arez.areObserverErrorHandlersEnabled()</code></a> returns false.</div>
@@ -2513,7 +2513,7 @@ public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2101">addO
 <li class="blockList">
 <h4>removeObserverErrorHandler</h4>
 <pre>@OmitSymbol(unless="arez.enable_observer_error_handlers")
-public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2119">removeObserverErrorHandler</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../arez/ObserverErrorHandler.html" title="interface in arez">ObserverErrorHandler</a>&nbsp;handler)</pre>
+public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2125">removeObserverErrorHandler</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> <a href="../arez/ObserverErrorHandler.html" title="interface in arez">ObserverErrorHandler</a>&nbsp;handler)</pre>
 <div class="block">Remove error handler from list of existing error handlers.
  The handler should already be in the list. This method should NOT be called if
  <a href="../arez/Arez.html#areObserverErrorHandlersEnabled--"><code>Arez.areObserverErrorHandlersEnabled()</code></a> returns false.</div>
@@ -2529,7 +2529,7 @@ public&nbsp;void&nbsp;<a href="../src-html/arez/ArezContext.html#line.2119">remo
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getSpy</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../arez/spy/Spy.html" title="interface in arez.spy">Spy</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.2168">getSpy</a>()</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a> public&nbsp;<a href="../arez/spy/Spy.html" title="interface in arez.spy">Spy</a>&nbsp;<a href="../src-html/arez/ArezContext.html#line.2174">getSpy</a>()</pre>
 <div class="block">Return the spy associated with context.
  This method should not be invoked unless <a href="../arez/Arez.html#areSpiesEnabled--"><code>Arez.areSpiesEnabled()</code></a> returns true.</div>
 <dl>
