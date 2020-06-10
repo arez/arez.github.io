@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>={<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#FIELD" title="class or interface in java.lang.annotation">FIELD</a>})
-public @interface <a href="../../src-html/arez/annotations/CascadeDispose.html#line.39">CascadeDispose</a></pre>
+public @interface <a href="../../src-html/arez/annotations/CascadeDispose.html#line.38">CascadeDispose</a></pre>
 <div class="block">Methods and fields annotated by this annotation should be disposed when the component is disposed.
  The dispose occurs after the <a href="../../arez/annotations/PreDispose.html" title="annotation in arez.annotations"><code>PreDispose</code></a> method.
 
@@ -105,7 +105,6 @@ public @interface <a href="../../src-html/arez/annotations/CascadeDispose.html#l
  <p>If the element annotated is a method then the method must comply with the additional constraints:</p>
  <ul>
  <li>Must not be annotated with any other arez annotation other than <a href="../../arez/annotations/Reference.html" title="annotation in arez.annotations"><code>Reference</code></a> or <a href="../../arez/annotations/Observable.html" title="annotation in arez.annotations"><code>Observable</code></a></li>
- <li>Must be final</li>
  <li>Must have 0 parameters</li>
  <li>The type of the field must implement <a href="../../arez/Disposable.html" title="interface in arez"><code>Disposable</code></a> or must be annotated by <a href="../../arez/annotations/ArezComponent.html" title="annotation in arez.annotations"><code>ArezComponent</code></a></li>
  <li>Must not be private</li>
