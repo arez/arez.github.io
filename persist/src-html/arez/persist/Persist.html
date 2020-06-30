@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>package arez.persist;<a name="line.1"></a>
+<span class="sourceLineNo">002</span><a name="line.2"></a>
+<span class="sourceLineNo">003</span>import java.lang.annotation.Documented;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import java.lang.annotation.ElementType;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import java.lang.annotation.Target;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import javax.annotation.Nonnull;<a name="line.6"></a>
+<span class="sourceLineNo">007</span><a name="line.7"></a>
+<span class="sourceLineNo">008</span>/**<a name="line.8"></a>
+<span class="sourceLineNo">009</span> * Annotation applied to observable properties that direct Arez to persist the property.<a name="line.9"></a>
+<span class="sourceLineNo">010</span> */<a name="line.10"></a>
+<span class="sourceLineNo">011</span>@Documented<a name="line.11"></a>
+<span class="sourceLineNo">012</span>@Target( ElementType.METHOD )<a name="line.12"></a>
+<span class="sourceLineNo">013</span>public @interface Persist<a name="line.13"></a>
+<span class="sourceLineNo">014</span>{<a name="line.14"></a>
+<span class="sourceLineNo">015</span>  /**<a name="line.15"></a>
+<span class="sourceLineNo">016</span>   * Return the name used to persist the property.<a name="line.16"></a>
+<span class="sourceLineNo">017</span>   * If unspecified and the method is named according to javabeans getter conventions then the java bean property name<a name="line.17"></a>
+<span class="sourceLineNo">018</span>   * will be used, otherwise the name of the method will be used. It should be notes that during the code generation<a name="line.18"></a>
+<span class="sourceLineNo">019</span>   * the name will also be used to look up the setter used to restore the property. So if the property is named<a name="line.19"></a>
+<span class="sourceLineNo">020</span>   * {@code expanded} then the library will expect a setter method named {@code setExpanded}.<a name="line.20"></a>
+<span class="sourceLineNo">021</span>   *<a name="line.21"></a>
+<span class="sourceLineNo">022</span>   * &lt;p&gt;It should be noted that production mode persistent properties that are not persisted across<a name="line.22"></a>
+<span class="sourceLineNo">023</span>   * reloads will use synthetic keys as an optimization strategy.&lt;/p&gt;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>   *<a name="line.24"></a>
+<span class="sourceLineNo">025</span>   * @return the name used to persist the property.<a name="line.25"></a>
+<span class="sourceLineNo">026</span>   */<a name="line.26"></a>
+<span class="sourceLineNo">027</span>  @Nonnull<a name="line.27"></a>
+<span class="sourceLineNo">028</span>  String name() default "&lt;default&gt;";<a name="line.28"></a>
+<span class="sourceLineNo">029</span><a name="line.29"></a>
+<span class="sourceLineNo">030</span>  /**<a name="line.30"></a>
+<span class="sourceLineNo">031</span>   * The key identifying the store where the observable data is stored.<a name="line.31"></a>
+<span class="sourceLineNo">032</span>   * The name of the store must comply with the requirements for a java identifier.<a name="line.32"></a>
+<span class="sourceLineNo">033</span>   *<a name="line.33"></a>
+<span class="sourceLineNo">034</span>   * @return the key identifying the store where the observable data is stored.<a name="line.34"></a>
+<span class="sourceLineNo">035</span>   */<a name="line.35"></a>
+<span class="sourceLineNo">036</span>  @Nonnull<a name="line.36"></a>
+<span class="sourceLineNo">037</span>  String store() default "&lt;default&gt;";<a name="line.37"></a>
+<span class="sourceLineNo">038</span>}<a name="line.38"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>
