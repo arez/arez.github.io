@@ -105,7 +105,7 @@
 </dl>
 <hr>
 <br>
-<pre>public static final class <a href="../src-html/arez/ComputableValue.html#line.623">ComputableValue.Flags</a>
+<pre>public static final class <a href="../src-html/arez/ComputableValue.html#line.616">ComputableValue.Flags</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Flags that can configure ComputableValue instances during creation.</div>
 </li>
@@ -273,7 +273,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>RUN_NOW</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.631">RUN_NOW</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.624">RUN_NOW</a></pre>
 <div class="block">The scheduler will be triggered when the ComputableValue is created to immediately invoke the
  compute function. This should not be specified if <a href="../arez/ComputableValue.Flags.html#RUN_LATER"><code>RUN_LATER</code></a> is specified.</div>
 <dl>
@@ -289,7 +289,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>RUN_LATER</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.639">RUN_LATER</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.632">RUN_LATER</a></pre>
 <div class="block">The scheduler will not be triggered when the ComputableValue is created. The ComputableValue
  is responsible for ensuring that <a href="../arez/ArezContext.html#triggerScheduler--"><code>ArezContext.triggerScheduler()</code></a> is invoked at a later
  time. This should not be specified if <a href="../arez/ComputableValue.Flags.html#RUN_NOW"><code>RUN_NOW</code></a> is specified.</div>
@@ -306,7 +306,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>NO_REPORT_RESULT</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.645">NO_REPORT_RESULT</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.638">NO_REPORT_RESULT</a></pre>
 <div class="block">If passed, then the computable value should not report result to the spy infrastructure.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -321,7 +321,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>AREZ_DEPENDENCIES</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.653">AREZ_DEPENDENCIES</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.646">AREZ_DEPENDENCIES</a></pre>
 <div class="block">Indicates that application code can not invoke <a href="../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a>
  and the <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> is only recalculated if a dependency is updated.</div>
 <dl>
@@ -338,7 +338,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>AREZ_OR_NO_DEPENDENCIES</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.661">AREZ_OR_NO_DEPENDENCIES</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.654">AREZ_OR_NO_DEPENDENCIES</a></pre>
 <div class="block">Flag set set if the application code can not invoke <a href="../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate that a dependency has changed.</div>
 <dl>
@@ -355,7 +355,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>AREZ_OR_EXTERNAL_DEPENDENCIES</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.669">AREZ_OR_EXTERNAL_DEPENDENCIES</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.662">AREZ_OR_EXTERNAL_DEPENDENCIES</a></pre>
 <div class="block">Indicates that application code can invoke <a href="../arez/ComputableValue.html#reportPossiblyChanged--"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate some dependency has changed and that the <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> should recompute.</div>
 <dl>
@@ -372,7 +372,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>OBSERVE_LOWER_PRIORITY_DEPENDENCIES</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.675">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.668">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></pre>
 <div class="block">Flag indicating that the ComputableValue is allowed to observe <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -387,7 +387,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>KEEPALIVE</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.681">KEEPALIVE</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.674">KEEPALIVE</a></pre>
 <div class="block">The runtime will keep the ComputableValue reacting to dependencies until disposed.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -402,7 +402,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_HIGHEST</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.692">PRIORITY_HIGHEST</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.685">PRIORITY_HIGHEST</a></pre>
 <div class="block">Highest priority.
  This priority should be used when the ComputableValue will dispose or release other reactive elements
  (and thus remove elements from being scheduled).
@@ -422,7 +422,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_HIGH</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.704">PRIORITY_HIGH</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.697">PRIORITY_HIGH</a></pre>
 <div class="block">High priority.
  To reduce the chance that downstream elements will react multiple times within a single
  reaction round, this priority should be used when the ComputableValue may trigger many downstream
@@ -443,7 +443,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_NORMAL</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.713">PRIORITY_NORMAL</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.706">PRIORITY_NORMAL</a></pre>
 <div class="block">Normal priority if no other priority otherwise specified.
  <p>Only one of the PRIORITY_* flags should be applied to ComputableValue.</p></div>
 <dl>
@@ -461,7 +461,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_LOW</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.727">PRIORITY_LOW</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.720">PRIORITY_LOW</a></pre>
 <div class="block">Low priority.
  Usually used to schedule ComputableValues that support reflecting state onto non-reactive
  application components. i.e. ComputableValue that are used to build html views,
@@ -484,7 +484,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_LOWEST</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.738">PRIORITY_LOWEST</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.731">PRIORITY_LOWEST</a></pre>
 <div class="block">Lowest priority. Use this priority if the ComputableValue may be unobserved when
  a <a href="../arez/ComputableValue.Flags.html#PRIORITY_LOW"><code>PRIORITY_LOW</code></a> element reacts. This is used to avoid recomputing state that is
  likely to either be unobserved or recomputed as part of another elements reaction.
@@ -504,7 +504,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_MASK</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.742">PRIORITY_MASK</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.735">PRIORITY_MASK</a></pre>
 <div class="block">Mask used to extract priority bits.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -518,7 +518,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>READ_OUTSIDE_TRANSACTION</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.746">READ_OUTSIDE_TRANSACTION</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/ComputableValue.Flags.html#line.739">READ_OUTSIDE_TRANSACTION</a></pre>
 <div class="block">Can the ComputableValue be accessed outside a transaction.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -540,7 +540,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Flags</h4>
-<pre>public&nbsp;<a href="../src-html/arez/ComputableValue.Flags.html#line.623">Flags</a>()</pre>
+<pre>public&nbsp;<a href="../src-html/arez/ComputableValue.Flags.html#line.616">Flags</a>()</pre>
 </li>
 </ul>
 </li>
