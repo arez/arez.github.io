@@ -105,7 +105,7 @@
 </dl>
 <hr>
 <br>
-<pre>public static final class <a href="../src-html/arez/Observer.html#line.980">Observer.Flags</a>
+<pre>public static final class <a href="../src-html/arez/Observer.html#line.979">Observer.Flags</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 </li>
 </ul>
@@ -288,7 +288,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>NO_REPORT_RESULT</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.985">NO_REPORT_RESULT</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.984">NO_REPORT_RESULT</a></pre>
 <div class="block">The flag can be passed to actions or observers to force the action to not report result to spy infrastructure.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -302,7 +302,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_HIGHEST</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.996">PRIORITY_HIGHEST</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.995">PRIORITY_HIGHEST</a></pre>
 <div class="block">Highest priority.
  This priority should be used when the observer will dispose or release other reactive elements
  (and thus remove elements from being scheduled).
@@ -322,7 +322,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_HIGH</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1008">PRIORITY_HIGH</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1007">PRIORITY_HIGH</a></pre>
 <div class="block">High priority.
  To reduce the chance that downstream elements will react multiple times within a single
  reaction round, this priority should be used when the observer may trigger many downstream
@@ -343,7 +343,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_NORMAL</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1017">PRIORITY_NORMAL</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1016">PRIORITY_NORMAL</a></pre>
 <div class="block">Normal priority if no other priority otherwise specified.
  <p>Only one of the PRIORITY_* flags should be applied to observer.</p></div>
 <dl>
@@ -361,7 +361,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_LOW</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1031">PRIORITY_LOW</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1030">PRIORITY_LOW</a></pre>
 <div class="block">Low priority.
  Usually used to schedule observers that reflect state onto non-reactive
  application components. i.e. Observers that are used to build html views,
@@ -384,7 +384,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_LOWEST</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1043">PRIORITY_LOWEST</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1042">PRIORITY_LOWEST</a></pre>
 <div class="block">Lowest priority. Use this priority if the observer is a <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> that
  may be unobserved when a <a href="../arez/Observer.Flags.html#PRIORITY_LOW"><code>PRIORITY_LOW</code></a> observer reacts. This is used to avoid
  recomputing state that is likely to either be unobserved or recomputed as part of
@@ -405,7 +405,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>PRIORITY_MASK</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1047">PRIORITY_MASK</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1046">PRIORITY_MASK</a></pre>
 <div class="block">Mask used to extract priority bits.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -419,7 +419,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>READ_ONLY</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1051">READ_ONLY</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1050">READ_ONLY</a></pre>
 <div class="block">The observer can only read arez state.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -433,7 +433,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>READ_WRITE</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1055">READ_WRITE</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1054">READ_WRITE</a></pre>
 <div class="block">The observer can read or write arez state.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -447,7 +447,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>RUN_NOW</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1063">RUN_NOW</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1062">RUN_NOW</a></pre>
 <div class="block">The scheduler will be triggered when the observer is created to immediately invoke the
  <a href="../arez/Observer.html#Z:Z_observe"><code>Observer._observe</code></a> function. This configuration should not be specified if there
  is no <a href="../arez/Observer.html#Z:Z_observe"><code>Observer._observe</code></a> function supplied. This should not be
@@ -464,7 +464,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>RUN_LATER</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1070">RUN_LATER</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1069">RUN_LATER</a></pre>
 <div class="block">The scheduler will not be triggered when the observer is created. The observer either
  has no <a href="../arez/Observer.html#Z:Z_observe"><code>Observer._observe</code></a> function or is responsible for ensuring that
  <a href="../arez/ArezContext.html#triggerScheduler--"><code>ArezContext.triggerScheduler()</code></a> is invoked at a later time. This should not be
@@ -481,7 +481,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>OBSERVE_LOWER_PRIORITY_DEPENDENCIES</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1074">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1073">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></pre>
 <div class="block">Flag indicating that the Observer is allowed to observe <a href="../arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -495,7 +495,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>NESTED_ACTIONS_ALLOWED</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1078">NESTED_ACTIONS_ALLOWED</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1077">NESTED_ACTIONS_ALLOWED</a></pre>
 <div class="block">Indicates that the an action can be created from within the Observers observed function.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -509,7 +509,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>NESTED_ACTIONS_DISALLOWED</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1082">NESTED_ACTIONS_DISALLOWED</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1081">NESTED_ACTIONS_DISALLOWED</a></pre>
 <div class="block">Indicates that the an action must not be created from within the Observers observed function.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -523,7 +523,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>AREZ_DEPENDENCIES</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1088">AREZ_DEPENDENCIES</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1087">AREZ_DEPENDENCIES</a></pre>
 <div class="block">Flag set set if the application code can not invoke the <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> method.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -538,7 +538,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>AREZ_OR_NO_DEPENDENCIES</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1096">AREZ_OR_NO_DEPENDENCIES</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1095">AREZ_OR_NO_DEPENDENCIES</a></pre>
 <div class="block">Flag set set if the application code can not invokethe  <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> method to indicate
  that a dependency has changed. In this scenario it is not an error if the observer does not invoke the
  <a href="../arez/ObservableValue.html#reportObserved--"><code>ObservableValue.reportObserved()</code></a> on a dependency during it's reaction.</div>
@@ -555,7 +555,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>AREZ_OR_EXTERNAL_DEPENDENCIES</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1102">AREZ_OR_EXTERNAL_DEPENDENCIES</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1101">AREZ_OR_EXTERNAL_DEPENDENCIES</a></pre>
 <div class="block">Flag set if the application code can invoke the <a href="../arez/Observer.html#reportStale--"><code>Observer.reportStale()</code></a> method to indicate that a non-arez dependency has changed.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -570,7 +570,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>KEEPALIVE</h4>
-<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1107">KEEPALIVE</a></pre>
+<pre>public static final&nbsp;int <a href="../src-html/arez/Observer.Flags.html#line.1106">KEEPALIVE</a></pre>
 <div class="block">The runtime will keep the observer reacting to dependencies until disposed. This is the default value for
  observers that supply a observed function.</div>
 <dl>
@@ -593,7 +593,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Flags</h4>
-<pre>public&nbsp;<a href="../src-html/arez/Observer.Flags.html#line.980">Flags</a>()</pre>
+<pre>public&nbsp;<a href="../src-html/arez/Observer.Flags.html#line.979">Flags</a>()</pre>
 </li>
 </ul>
 </li>
