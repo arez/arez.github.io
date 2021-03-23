@@ -8,36 +8,36 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package arez.spytools.browser;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import arez.Arez;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import arez.spy.ActionCompleteEvent;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import arez.spy.ActionStartEvent;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import arez.spy.ComponentCreateCompleteEvent;<a name="line.6"></a>
-<span class="sourceLineNo">007</span>import arez.spy.ComponentCreateStartEvent;<a name="line.7"></a>
-<span class="sourceLineNo">008</span>import arez.spy.ComponentDisposeCompleteEvent;<a name="line.8"></a>
-<span class="sourceLineNo">009</span>import arez.spy.ComponentDisposeStartEvent;<a name="line.9"></a>
-<span class="sourceLineNo">010</span>import arez.spy.ComputableValueActivateEvent;<a name="line.10"></a>
-<span class="sourceLineNo">011</span>import arez.spy.ComputableValueCreateEvent;<a name="line.11"></a>
-<span class="sourceLineNo">012</span>import arez.spy.ComputableValueDeactivateEvent;<a name="line.12"></a>
-<span class="sourceLineNo">013</span>import arez.spy.ComputableValueDisposeEvent;<a name="line.13"></a>
-<span class="sourceLineNo">014</span>import arez.spy.ComputeCompleteEvent;<a name="line.14"></a>
-<span class="sourceLineNo">015</span>import arez.spy.ComputeStartEvent;<a name="line.15"></a>
-<span class="sourceLineNo">016</span>import arez.spy.ObservableValueChangeEvent;<a name="line.16"></a>
-<span class="sourceLineNo">017</span>import arez.spy.ObservableValueCreateEvent;<a name="line.17"></a>
-<span class="sourceLineNo">018</span>import arez.spy.ObservableValueDisposeEvent;<a name="line.18"></a>
-<span class="sourceLineNo">019</span>import arez.spy.ObserveCompleteEvent;<a name="line.19"></a>
-<span class="sourceLineNo">020</span>import arez.spy.ObserveScheduleEvent;<a name="line.20"></a>
-<span class="sourceLineNo">021</span>import arez.spy.ObserveStartEvent;<a name="line.21"></a>
-<span class="sourceLineNo">022</span>import arez.spy.ObserverCreateEvent;<a name="line.22"></a>
-<span class="sourceLineNo">023</span>import arez.spy.ObserverDisposeEvent;<a name="line.23"></a>
-<span class="sourceLineNo">024</span>import arez.spy.ObserverErrorEvent;<a name="line.24"></a>
-<span class="sourceLineNo">025</span>import arez.spy.TaskCompleteEvent;<a name="line.25"></a>
-<span class="sourceLineNo">026</span>import arez.spy.TaskStartEvent;<a name="line.26"></a>
-<span class="sourceLineNo">027</span>import arez.spy.TransactionCompleteEvent;<a name="line.27"></a>
-<span class="sourceLineNo">028</span>import arez.spy.TransactionStartEvent;<a name="line.28"></a>
-<span class="sourceLineNo">029</span>import arez.spytools.AbstractSpyEventProcessor;<a name="line.29"></a>
-<span class="sourceLineNo">030</span>import arez.spytools.SpyUtil;<a name="line.30"></a>
-<span class="sourceLineNo">031</span>import elemental2.core.Global;<a name="line.31"></a>
-<span class="sourceLineNo">032</span>import elemental2.dom.DomGlobal;<a name="line.32"></a>
+<span class="sourceLineNo">003</span>import akasha.Console;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import akasha.core.JSON;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import arez.Arez;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import arez.spy.ActionCompleteEvent;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import arez.spy.ActionStartEvent;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import arez.spy.ComponentCreateCompleteEvent;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import arez.spy.ComponentCreateStartEvent;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import arez.spy.ComponentDisposeCompleteEvent;<a name="line.10"></a>
+<span class="sourceLineNo">011</span>import arez.spy.ComponentDisposeStartEvent;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>import arez.spy.ComputableValueActivateEvent;<a name="line.12"></a>
+<span class="sourceLineNo">013</span>import arez.spy.ComputableValueCreateEvent;<a name="line.13"></a>
+<span class="sourceLineNo">014</span>import arez.spy.ComputableValueDeactivateEvent;<a name="line.14"></a>
+<span class="sourceLineNo">015</span>import arez.spy.ComputableValueDisposeEvent;<a name="line.15"></a>
+<span class="sourceLineNo">016</span>import arez.spy.ComputeCompleteEvent;<a name="line.16"></a>
+<span class="sourceLineNo">017</span>import arez.spy.ComputeStartEvent;<a name="line.17"></a>
+<span class="sourceLineNo">018</span>import arez.spy.ObservableValueChangeEvent;<a name="line.18"></a>
+<span class="sourceLineNo">019</span>import arez.spy.ObservableValueCreateEvent;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import arez.spy.ObservableValueDisposeEvent;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import arez.spy.ObserveCompleteEvent;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import arez.spy.ObserveScheduleEvent;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import arez.spy.ObserveStartEvent;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import arez.spy.ObserverCreateEvent;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import arez.spy.ObserverDisposeEvent;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import arez.spy.ObserverErrorEvent;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import arez.spy.TaskCompleteEvent;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import arez.spy.TaskStartEvent;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import arez.spy.TransactionCompleteEvent;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>import arez.spy.TransactionStartEvent;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>import arez.spytools.AbstractSpyEventProcessor;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import arez.spytools.SpyUtil;<a name="line.32"></a>
 <span class="sourceLineNo">033</span>import javax.annotation.Nonnull;<a name="line.33"></a>
 <span class="sourceLineNo">034</span><a name="line.34"></a>
 <span class="sourceLineNo">035</span>/**<a name="line.35"></a>
@@ -253,11 +253,11 @@
 <span class="sourceLineNo">245</span>  protected void onObservableValueChange( @Nonnull final SpyUtil.NestingDelta d,<a name="line.245"></a>
 <span class="sourceLineNo">246</span>                                          @Nonnull final ObservableValueChangeEvent e )<a name="line.246"></a>
 <span class="sourceLineNo">247</span>  {<a name="line.247"></a>
-<span class="sourceLineNo">248</span>    DomGlobal.console.log( "%cObservable Changed " +<a name="line.248"></a>
-<span class="sourceLineNo">249</span>                           e.getObservableValue().getName() +<a name="line.249"></a>
-<span class="sourceLineNo">250</span>                           ( Arez.arePropertyIntrospectorsEnabled() ? " Value: %o " : null ),<a name="line.250"></a>
-<span class="sourceLineNo">251</span>                           OBSERVABLE_COLOR,<a name="line.251"></a>
-<span class="sourceLineNo">252</span>                           ( Arez.arePropertyIntrospectorsEnabled() ? e.getValue() : null ) );<a name="line.252"></a>
+<span class="sourceLineNo">248</span>    Console.log( "%cObservable Changed " +<a name="line.248"></a>
+<span class="sourceLineNo">249</span>                 e.getObservableValue().getName() +<a name="line.249"></a>
+<span class="sourceLineNo">250</span>                 ( Arez.arePropertyIntrospectorsEnabled() ? " Value: %o " : null ),<a name="line.250"></a>
+<span class="sourceLineNo">251</span>                 OBSERVABLE_COLOR,<a name="line.251"></a>
+<span class="sourceLineNo">252</span>                 ( Arez.arePropertyIntrospectorsEnabled() ? e.getValue() : null ) );<a name="line.252"></a>
 <span class="sourceLineNo">253</span>  }<a name="line.253"></a>
 <span class="sourceLineNo">254</span><a name="line.254"></a>
 <span class="sourceLineNo">255</span>  /**<a name="line.255"></a>
@@ -467,7 +467,7 @@
 <span class="sourceLineNo">459</span>        {<a name="line.459"></a>
 <span class="sourceLineNo">460</span>          requireComma = true;<a name="line.460"></a>
 <span class="sourceLineNo">461</span>        }<a name="line.461"></a>
-<span class="sourceLineNo">462</span>        sb.append( Global.JSON.stringify( parameter, filter::handleValue ) );<a name="line.462"></a>
+<span class="sourceLineNo">462</span>        sb.append( JSON.stringify( parameter, ( k, value ) -&gt; filter.handleValue( value ) ) );<a name="line.462"></a>
 <span class="sourceLineNo">463</span>      }<a name="line.463"></a>
 <span class="sourceLineNo">464</span>      sb.append( ")" );<a name="line.464"></a>
 <span class="sourceLineNo">465</span>      return sb.toString();<a name="line.465"></a>
@@ -499,23 +499,23 @@
 <span class="sourceLineNo">491</span>  {<a name="line.491"></a>
 <span class="sourceLineNo">492</span>    if ( SpyUtil.NestingDelta.INCREASE == delta )<a name="line.492"></a>
 <span class="sourceLineNo">493</span>    {<a name="line.493"></a>
-<span class="sourceLineNo">494</span>      DomGlobal.console.groupCollapsed( message, styling );<a name="line.494"></a>
+<span class="sourceLineNo">494</span>      Console.groupCollapsed( message, styling );<a name="line.494"></a>
 <span class="sourceLineNo">495</span>    }<a name="line.495"></a>
 <span class="sourceLineNo">496</span>    else if ( SpyUtil.NestingDelta.DECREASE == delta )<a name="line.496"></a>
 <span class="sourceLineNo">497</span>    {<a name="line.497"></a>
-<span class="sourceLineNo">498</span>      DomGlobal.console.log( message, styling );<a name="line.498"></a>
-<span class="sourceLineNo">499</span>      DomGlobal.console.groupEnd();<a name="line.499"></a>
+<span class="sourceLineNo">498</span>      Console.log( message, styling );<a name="line.498"></a>
+<span class="sourceLineNo">499</span>      Console.groupEnd();<a name="line.499"></a>
 <span class="sourceLineNo">500</span>    }<a name="line.500"></a>
 <span class="sourceLineNo">501</span>    else<a name="line.501"></a>
 <span class="sourceLineNo">502</span>    {<a name="line.502"></a>
-<span class="sourceLineNo">503</span>      DomGlobal.console.log( message, styling );<a name="line.503"></a>
+<span class="sourceLineNo">503</span>      Console.log( message, styling );<a name="line.503"></a>
 <span class="sourceLineNo">504</span>    }<a name="line.504"></a>
 <span class="sourceLineNo">505</span>  }<a name="line.505"></a>
 <span class="sourceLineNo">506</span><a name="line.506"></a>
 <span class="sourceLineNo">507</span>  @Override<a name="line.507"></a>
 <span class="sourceLineNo">508</span>  protected void handleUnhandledEvent( @Nonnull final Object event )<a name="line.508"></a>
 <span class="sourceLineNo">509</span>  {<a name="line.509"></a>
-<span class="sourceLineNo">510</span>    DomGlobal.console.log( event );<a name="line.510"></a>
+<span class="sourceLineNo">510</span>    Console.log( event );<a name="line.510"></a>
 <span class="sourceLineNo">511</span>  }<a name="line.511"></a>
 <span class="sourceLineNo">512</span>}<a name="line.512"></a>
 

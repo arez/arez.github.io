@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public class <a href="../../../src-html/arez/spytools/browser/StringifyReplacer.html#line.15">StringifyReplacer</a>
+<pre>public class <a href="../../../src-html/arez/spytools/browser/StringifyReplacer.html#line.17">StringifyReplacer</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Utility class that helps convert javascript values to strings for JSON.stringify method.
  This class is extracted so that downstream</div>
@@ -153,9 +153,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/spytools/browser/StringifyReplacer.html#handleValue-java.lang.String-java.lang.Object-">handleValue</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
-           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
+<td class="colFirst"><code>jsinterop.base.Any</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../arez/spytools/browser/StringifyReplacer.html#handleValue-java.lang.Object-">handleValue</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Return the transformed value for key-value pair.</div>
 </td>
 </tr>
@@ -187,7 +186,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>StringifyReplacer</h4>
-<pre>public&nbsp;<a href="../../../src-html/arez/spytools/browser/StringifyReplacer.html#line.15">StringifyReplacer</a>()</pre>
+<pre>public&nbsp;<a href="../../../src-html/arez/spytools/browser/StringifyReplacer.html#line.17">StringifyReplacer</a>()</pre>
 </li>
 </ul>
 </li>
@@ -198,21 +197,18 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="handleValue-java.lang.String-java.lang.Object-">
+<a name="handleValue-java.lang.Object-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>handleValue</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../../src-html/arez/spytools/browser/StringifyReplacer.html#line.27">handleValue</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
-                                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
+public&nbsp;jsinterop.base.Any&nbsp;<a href="../../../src-html/arez/spytools/browser/StringifyReplacer.html#line.29">handleValue</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
 <div class="block">Return the transformed value for key-value pair.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>key</code> - the name of the field.</dd>
 <dd><code>value</code> - the value to transform.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the transformed value.</dd>
@@ -226,7 +222,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.
 <li class="blockList">
 <h4>getPropertyNames</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;<a href="../../../src-html/arez/spytools/browser/StringifyReplacer.html#line.82">getPropertyNames</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;<a href="../../../src-html/arez/spytools/browser/StringifyReplacer.html#line.84">getPropertyNames</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</pre>
 <div class="block">Return the property names that should be extracted from object when converting object.</div>
 <dl>
