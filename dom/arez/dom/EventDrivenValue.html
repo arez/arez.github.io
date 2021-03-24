@@ -90,7 +90,7 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">arez.dom</div>
-<h2 title="Class EventDrivenValue" class="title">Class EventDrivenValue&lt;SourceType extends elemental2.dom.EventTarget,ValueType&gt;</h2>
+<h2 title="Class EventDrivenValue" class="title">Class EventDrivenValue&lt;SourceType extends akasha.EventTarget,ValueType&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
@@ -113,7 +113,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre><a href="https://arez.github.io/api/arez/annotations/ArezComponent.html?is-external=true" title="class or interface in arez.annotations">@ArezComponent</a>(<a href="https://arez.github.io/api/arez/annotations/ArezComponent.html?is-external=true#requireId--" title="class or interface in arez.annotations">requireId</a>=<a href="https://arez.github.io/api/arez/annotations/Feature.html?is-external=true#DISABLE" title="class or interface in arez.annotations">DISABLE</a>,
                <a href="https://arez.github.io/api/arez/annotations/ArezComponent.html?is-external=true#disposeNotifier--" title="class or interface in arez.annotations">disposeNotifier</a>=<a href="https://arez.github.io/api/arez/annotations/Feature.html?is-external=true#DISABLE" title="class or interface in arez.annotations">DISABLE</a>)
-public abstract class <a href="../../src-html/arez/dom/EventDrivenValue.html#line.40">EventDrivenValue</a>&lt;SourceType extends elemental2.dom.EventTarget,ValueType&gt;
+public abstract class <a href="../../src-html/arez/dom/EventDrivenValue.html#line.40">EventDrivenValue</a>&lt;SourceType extends akasha.EventTarget,ValueType&gt;
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">An observable component that exposes a value provided by a lambda as observable where the value can
  change in response to a browser event. A typical example is making the value of <code>window.innerWidth</code>
@@ -149,7 +149,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static interface&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/EventDrivenValue.Accessor.html" title="interface in arez.dom">EventDrivenValue.Accessor</a>&lt;<a href="../../arez/dom/EventDrivenValue.Accessor.html" title="type parameter in EventDrivenValue.Accessor">SourceType</a> extends elemental2.dom.EventTarget,<a href="../../arez/dom/EventDrivenValue.Accessor.html" title="type parameter in EventDrivenValue.Accessor">ValueType</a>&gt;</span></code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/EventDrivenValue.Accessor.html" title="interface in arez.dom">EventDrivenValue.Accessor</a>&lt;<a href="../../arez/dom/EventDrivenValue.Accessor.html" title="type parameter in EventDrivenValue.Accessor">SourceType</a> extends akasha.EventTarget,<a href="../../arez/dom/EventDrivenValue.Accessor.html" title="type parameter in EventDrivenValue.Accessor">ValueType</a>&gt;</span></code>
 <div class="block">The functional interface defining accessor.</div>
 </td>
 </tr>
@@ -169,7 +169,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static &lt;SourceType extends elemental2.dom.EventTarget,ValueType&gt;<br><a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;SourceType,ValueType&gt;</code></td>
+<td class="colFirst"><code>static &lt;SourceType extends akasha.EventTarget,ValueType&gt;<br><a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;SourceType,ValueType&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/EventDrivenValue.html#create-SourceType-java.lang.String-arez.dom.EventDrivenValue.Accessor-">create</a></span>(SourceType&nbsp;source,
       <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;event,
       <a href="../../arez/dom/EventDrivenValue.Accessor.html" title="interface in arez.dom">EventDrivenValue.Accessor</a>&lt;SourceType,ValueType&gt;&nbsp;getter)</code>
@@ -216,7 +216,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="create-elemental2.dom.EventTarget-java.lang.String-arez.dom.EventDrivenValue.Accessor-">
+<a name="create-akasha.EventTarget-java.lang.String-arez.dom.EventDrivenValue.Accessor-">
 <!--   -->
 </a><a name="create-SourceType-java.lang.String-arez.dom.EventDrivenValue.Accessor-">
 <!--   -->
@@ -225,12 +225,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>create</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;&lt;SourceType extends elemental2.dom.EventTarget,ValueType&gt;&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;SourceType,ValueType&gt;&nbsp;<a href="../../src-html/arez/dom/EventDrivenValue.html#line.86">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                                                                               SourceType&nbsp;source,
-                                                                                                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                                                                               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;event,
-                                                                                                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                                                                               <a href="../../arez/dom/EventDrivenValue.Accessor.html" title="interface in arez.dom">EventDrivenValue.Accessor</a>&lt;SourceType,ValueType&gt;&nbsp;getter)</pre>
+public static&nbsp;&lt;SourceType extends akasha.EventTarget,ValueType&gt;&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;SourceType,ValueType&gt;&nbsp;<a href="../../src-html/arez/dom/EventDrivenValue.html#line.86">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                                                                       SourceType&nbsp;source,
+                                                                                                                       <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                                                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;event,
+                                                                                                                       <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                                                                       <a href="../../arez/dom/EventDrivenValue.Accessor.html" title="interface in arez.dom">EventDrivenValue.Accessor</a>&lt;SourceType,ValueType&gt;&nbsp;getter)</pre>
 <div class="block">Create the component.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -261,7 +261,7 @@ public&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="type parameter
 </dl>
 </li>
 </ul>
-<a name="setSource-elemental2.dom.EventTarget-">
+<a name="setSource-akasha.EventTarget-">
 <!--   -->
 </a><a name="setSource-SourceType-">
 <!--   -->

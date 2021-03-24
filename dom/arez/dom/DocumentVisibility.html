@@ -120,7 +120,7 @@ implements <a href="https://arez.github.io/api/arez/Disposable.html?is-external=
  import arez.Arez;
  import arez.dom.DocumentVisibility;
  import com.google.gwt.core.client.EntryPoint;
- import elemental2.dom.DomGlobal;
+ import akasha.Console;
 
  public class DocumentVisibilityExample
    implements EntryPoint
@@ -128,7 +128,7 @@ implements <a href="https://arez.github.io/api/arez/Disposable.html?is-external=
    public void onModuleLoad()
    {
      final DocumentVisibility v = DocumentVisibility.create();
-     Arez.context().observer( () -&gt; DomGlobal.console.log( "Document Visibility: " + v.getVisibility() ) );
+     Arez.context().observer( () -&gt; Console.log( "Document Visibility: " + v.getVisibility() ) );
    }
  }
  </code></pre></div>
@@ -179,7 +179,7 @@ implements <a href="https://arez.github.io/api/arez/Disposable.html?is-external=
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../arez/dom/DocumentVisibility.html" title="class in arez.dom">DocumentVisibility</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#create-elemental2.dom.HTMLDocument-">create</a></span>(elemental2.dom.HTMLDocument&nbsp;document)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#create-akasha.Document-">create</a></span>(akasha.Document&nbsp;document)</code>
 <div class="block">Create component monitoring specific document.</div>
 </td>
 </tr>
@@ -188,7 +188,7 @@ implements <a href="https://arez.github.io/api/arez/Disposable.html?is-external=
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#dispose--">dispose</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>elemental2.dom.HTMLDocument</code></td>
+<td class="colFirst"><code>akasha.Document</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#getDocument--">getDocument</a></span>()</code>
 <div class="block">Return the document that monitoring visibility state.</div>
 </td>
@@ -223,7 +223,7 @@ implements <a href="https://arez.github.io/api/arez/Disposable.html?is-external=
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#setDocument-elemental2.dom.HTMLDocument-">setDocument</a></span>(elemental2.dom.HTMLDocument&nbsp;document)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/DocumentVisibility.html#setDocument-akasha.Document-">setDocument</a></span>(akasha.Document&nbsp;document)</code>
 <div class="block">Change the document that is having visibility state monitored.</div>
 </td>
 </tr>
@@ -271,7 +271,7 @@ public static&nbsp;<a href="../../arez/dom/DocumentVisibility.html" title="class
 </dl>
 </li>
 </ul>
-<a name="create-elemental2.dom.HTMLDocument-">
+<a name="create-akasha.Document-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -279,7 +279,7 @@ public static&nbsp;<a href="../../arez/dom/DocumentVisibility.html" title="class
 <h4>create</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
 public static&nbsp;<a href="../../arez/dom/DocumentVisibility.html" title="class in arez.dom">DocumentVisibility</a>&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.75">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                 elemental2.dom.HTMLDocument&nbsp;document)</pre>
+                                                 akasha.Document&nbsp;document)</pre>
 <div class="block">Create component monitoring specific document.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -296,7 +296,7 @@ public static&nbsp;<a href="../../arez/dom/DocumentVisibility.html" title="class
 <li class="blockList">
 <h4>getDocument</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;elemental2.dom.HTMLDocument&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.91">getDocument</a>()</pre>
+public&nbsp;akasha.Document&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.91">getDocument</a>()</pre>
 <div class="block">Return the document that monitoring visibility state.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -304,14 +304,14 @@ public&nbsp;elemental2.dom.HTMLDocument&nbsp;<a href="../../src-html/arez/dom/Do
 </dl>
 </li>
 </ul>
-<a name="setDocument-elemental2.dom.HTMLDocument-">
+<a name="setDocument-akasha.Document-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setDocument</h4>
 <pre>public&nbsp;void&nbsp;<a href="../../src-html/arez/dom/DocumentVisibility.html#line.101">setDocument</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                        elemental2.dom.HTMLDocument&nbsp;document)</pre>
+                        akasha.Document&nbsp;document)</pre>
 <div class="block">Change the document that is having visibility state monitored.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

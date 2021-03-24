@@ -116,18 +116,18 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  import arez.dom.EventDrivenValue;
  import arez.dom.WindowSize;
  import com.google.gwt.core.client.EntryPoint;
- import elemental2.dom.DomGlobal;
- import elemental2.dom.Window;
+ import akasha.Global;
+ import akasha.Window;
 
  public class WindowSizeExample
    implements EntryPoint
  {
    public void onModuleLoad()
    {
-     final EventDrivenValue&lt;Window, Integer&gt; innerHeight = WindowSize.innerHeight( DomGlobal.window );
-     final EventDrivenValue&lt;Window, Integer&gt; innerWidth = WindowSize.innerWidth( DomGlobal.window );
+     final EventDrivenValue&lt;Window, Integer&gt; innerHeight = WindowSize.innerHeight( Global.window() );
+     final EventDrivenValue&lt;Window, Integer&gt; innerWidth = WindowSize.innerWidth( Global.window() );
 
-     Arez.context().observer( () -&gt; DomGlobal.document.querySelector( "#status" ).textContent =
+     Arez.context().observer( () -&gt; Global.document().querySelector( "#status" ).textContent =
        "Screen size: " + innerWidth.getValue() + " x " + innerHeight.getValue() );
    }
  }
@@ -151,32 +151,32 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;elemental2.dom.Window,<a href="../../arez/dom/Dimension.html" title="class in arez.dom">Dimension</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/WindowSize.html#inner-elemental2.dom.Window-">inner</a></span>(elemental2.dom.Window&nbsp;window)</code>
+<td class="colFirst"><code>static <a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;akasha.Window,<a href="../../arez/dom/Dimension.html" title="class in arez.dom">Dimension</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/WindowSize.html#inner-akasha.Window-">inner</a></span>(akasha.Window&nbsp;window)</code>
 <div class="block">Create an event driven observable component for window.innerWidth and window.innerHeight wrapped in dimension object.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static <a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;elemental2.dom.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/WindowSize.html#innerHeight-elemental2.dom.Window-">innerHeight</a></span>(elemental2.dom.Window&nbsp;window)</code>
+<td class="colFirst"><code>static <a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;akasha.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/WindowSize.html#innerHeight-akasha.Window-">innerHeight</a></span>(akasha.Window&nbsp;window)</code>
 <div class="block">Create an event driven observable component for window.innerHeight.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>static <a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;elemental2.dom.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/WindowSize.html#innerWidth-elemental2.dom.Window-">innerWidth</a></span>(elemental2.dom.Window&nbsp;window)</code>
+<td class="colFirst"><code>static <a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;akasha.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/WindowSize.html#innerWidth-akasha.Window-">innerWidth</a></span>(akasha.Window&nbsp;window)</code>
 <div class="block">Create an event driven observable component for window.innerWidth.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>static <a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;elemental2.dom.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/WindowSize.html#outerHeight-elemental2.dom.Window-">outerHeight</a></span>(elemental2.dom.Window&nbsp;window)</code>
+<td class="colFirst"><code>static <a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;akasha.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/WindowSize.html#outerHeight-akasha.Window-">outerHeight</a></span>(akasha.Window&nbsp;window)</code>
 <div class="block">Create an event driven observable component for window.outerHeight.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>static <a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;elemental2.dom.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/WindowSize.html#outerWidth-elemental2.dom.Window-">outerWidth</a></span>(elemental2.dom.Window&nbsp;window)</code>
+<td class="colFirst"><code>static <a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;akasha.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/dom/WindowSize.html#outerWidth-akasha.Window-">outerWidth</a></span>(akasha.Window&nbsp;window)</code>
 <div class="block">Create an event driven observable component for window.outerWidth.</div>
 </td>
 </tr>
@@ -202,15 +202,15 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="inner-elemental2.dom.Window-">
+<a name="inner-akasha.Window-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>inner</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;elemental2.dom.Window,<a href="../../arez/dom/Dimension.html" title="class in arez.dom">Dimension</a>&gt;&nbsp;<a href="../../src-html/arez/dom/WindowSize.html#line.45">inner</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                               elemental2.dom.Window&nbsp;window)</pre>
+public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;akasha.Window,<a href="../../arez/dom/Dimension.html" title="class in arez.dom">Dimension</a>&gt;&nbsp;<a href="../../src-html/arez/dom/WindowSize.html#line.45">inner</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                       akasha.Window&nbsp;window)</pre>
 <div class="block">Create an event driven observable component for window.innerWidth and window.innerHeight wrapped in dimension object.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -220,15 +220,15 @@ public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class i
 </dl>
 </li>
 </ul>
-<a name="innerHeight-elemental2.dom.Window-">
+<a name="innerHeight-akasha.Window-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>innerHeight</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;elemental2.dom.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&nbsp;<a href="../../src-html/arez/dom/WindowSize.html#line.57">innerHeight</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                                   elemental2.dom.Window&nbsp;window)</pre>
+public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;akasha.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&nbsp;<a href="../../src-html/arez/dom/WindowSize.html#line.57">innerHeight</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                           akasha.Window&nbsp;window)</pre>
 <div class="block">Create an event driven observable component for window.innerHeight.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -238,15 +238,15 @@ public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class i
 </dl>
 </li>
 </ul>
-<a name="innerWidth-elemental2.dom.Window-">
+<a name="innerWidth-akasha.Window-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>innerWidth</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;elemental2.dom.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&nbsp;<a href="../../src-html/arez/dom/WindowSize.html#line.69">innerWidth</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                                  elemental2.dom.Window&nbsp;window)</pre>
+public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;akasha.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&nbsp;<a href="../../src-html/arez/dom/WindowSize.html#line.69">innerWidth</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                          akasha.Window&nbsp;window)</pre>
 <div class="block">Create an event driven observable component for window.innerWidth.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -256,15 +256,15 @@ public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class i
 </dl>
 </li>
 </ul>
-<a name="outerHeight-elemental2.dom.Window-">
+<a name="outerHeight-akasha.Window-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>outerHeight</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;elemental2.dom.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&nbsp;<a href="../../src-html/arez/dom/WindowSize.html#line.81">outerHeight</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                                   elemental2.dom.Window&nbsp;window)</pre>
+public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;akasha.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&nbsp;<a href="../../src-html/arez/dom/WindowSize.html#line.81">outerHeight</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                           akasha.Window&nbsp;window)</pre>
 <div class="block">Create an event driven observable component for window.outerHeight.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -274,15 +274,15 @@ public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class i
 </dl>
 </li>
 </ul>
-<a name="outerWidth-elemental2.dom.Window-">
+<a name="outerWidth-akasha.Window-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>outerWidth</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;elemental2.dom.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&nbsp;<a href="../../src-html/arez/dom/WindowSize.html#line.93">outerWidth</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                                  elemental2.dom.Window&nbsp;window)</pre>
+public static&nbsp;<a href="../../arez/dom/EventDrivenValue.html" title="class in arez.dom">EventDrivenValue</a>&lt;akasha.Window,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&nbsp;<a href="../../src-html/arez/dom/WindowSize.html#line.93">outerWidth</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                          akasha.Window&nbsp;window)</pre>
 <div class="block">Create an event driven observable component for window.outerWidth.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
