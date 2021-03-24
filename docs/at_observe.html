@@ -23,7 +23,8 @@ Australian dollars as the value changes over time. Assuming the currency is obse
   <span class="hljs-meta">@Observe</span>
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">renderView</span><span class="hljs-params">()</span>
   </span>{
-    <span class="hljs-keyword">final</span> Element element = DomGlobal.document.getElementById( <span class="hljs-string">"currencyTracker"</span> );
+    <span class="hljs-keyword">final</span> Element element = Global.document().getElementById( <span class="hljs-string">"currencyTracker"</span> );
+    <span class="hljs-keyword">assert</span> <span class="hljs-keyword">null</span> != element;
     element.innerHTML = <span class="hljs-string">"1 BTC = $"</span> + bitcoin.getAmount() + <span class="hljs-string">"AUD"</span>;
   }
 }</code></pre></p>
@@ -49,7 +50,8 @@ could be achieved with code such as:</p>
   <span class="hljs-meta">@Observe</span>
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">render</span><span class="hljs-params">()</span>
   </span>{
-    <span class="hljs-keyword">final</span> Element element = DomGlobal.document.getElementById( <span class="hljs-string">"currencyTracker"</span> );
+    <span class="hljs-keyword">final</span> Element element = Global.document().getElementById( <span class="hljs-string">"currencyTracker"</span> );
+    <span class="hljs-keyword">assert</span> <span class="hljs-keyword">null</span> != element;
     element.innerHTML = <span class="hljs-string">"1 BTC = $"</span> + bitcoin.getAmount() + <span class="hljs-string">"AUD"</span>;
   }
 
