@@ -112,7 +112,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre><a href="https://arez.github.io/api/arez/annotations/ArezComponent.html?is-external=true" title="class or interface in arez.annotations">@ArezComponent</a>(<a href="https://arez.github.io/api/arez/annotations/ArezComponent.html?is-external=true#requireId--" title="class or interface in arez.annotations">requireId</a>=<a href="https://arez.github.io/api/arez/annotations/Feature.html?is-external=true#DISABLE" title="class or interface in arez.annotations">DISABLE</a>)
-public abstract class <a href="../../src-html/arez/promise/ObservablePromise.html#line.49">ObservablePromise</a>&lt;T,E&gt;
+public abstract class <a href="../../src-html/arez/promise/ObservablePromise.html#line.48">ObservablePromise</a>&lt;T,E&gt;
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">An observable model that wraps a Promise and exposes observable state that track
  the state of the promise. The observable exposes the state of the promise as well
@@ -183,7 +183,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static &lt;T,E&gt;&nbsp;<a href="../../arez/promise/ObservablePromise.html" title="class in arez.promise">ObservablePromise</a>&lt;T,E&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/promise/ObservablePromise.html#create-elemental2.promise.Promise-">create</a></span>(elemental2.promise.Promise&lt;T&gt;&nbsp;promise)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../arez/promise/ObservablePromise.html#create-akasha.promise.Promise-">create</a></span>(akasha.promise.Promise&lt;T&gt;&nbsp;promise)</code>
 <div class="block">Create the observable model that wraps specified promise.</div>
 </td>
 </tr>
@@ -227,15 +227,15 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="create-elemental2.promise.Promise-">
+<a name="create-akasha.promise.Promise-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>create</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;&lt;T,E&gt;&nbsp;<a href="../../arez/promise/ObservablePromise.html" title="class in arez.promise">ObservablePromise</a>&lt;T,E&gt;&nbsp;<a href="../../src-html/arez/promise/ObservablePromise.html#line.90">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                           elemental2.promise.Promise&lt;T&gt;&nbsp;promise)</pre>
+public static&nbsp;&lt;T,E&gt;&nbsp;<a href="../../arez/promise/ObservablePromise.html" title="class in arez.promise">ObservablePromise</a>&lt;T,E&gt;&nbsp;<a href="../../src-html/arez/promise/ObservablePromise.html#line.89">create</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                           akasha.promise.Promise&lt;T&gt;&nbsp;promise)</pre>
 <div class="block">Create the observable model that wraps specified promise.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -256,7 +256,7 @@ public static&nbsp;&lt;T,E&gt;&nbsp;<a href="../../arez/promise/ObservablePromis
 <h4>getState</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/Observable.html?is-external=true" title="class or interface in arez.annotations">@Observable</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="../../arez/promise/ObservablePromise.State.html" title="enum in arez.promise">ObservablePromise.State</a>&nbsp;<a href="../../src-html/arez/promise/ObservablePromise.html#line.109">getState</a>()</pre>
+public&nbsp;<a href="../../arez/promise/ObservablePromise.State.html" title="enum in arez.promise">ObservablePromise.State</a>&nbsp;<a href="../../src-html/arez/promise/ObservablePromise.html#line.108">getState</a>()</pre>
 <div class="block">Return the promise state.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -271,7 +271,7 @@ public&nbsp;<a href="../../arez/promise/ObservablePromise.State.html" title="enu
 <li class="blockList">
 <h4>getValue</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/Observable.html?is-external=true" title="class or interface in arez.annotations">@Observable</a>
-public&nbsp;<a href="../../arez/promise/ObservablePromise.html" title="type parameter in ObservablePromise">T</a>&nbsp;<a href="../../src-html/arez/promise/ObservablePromise.html#line.127">getValue</a>()</pre>
+public&nbsp;<a href="../../arez/promise/ObservablePromise.html" title="type parameter in ObservablePromise">T</a>&nbsp;<a href="../../src-html/arez/promise/ObservablePromise.html#line.126">getValue</a>()</pre>
 <div class="block">Return the value that the promise was resolved to.
  This should NOT be called if the state is not <a href="../../arez/promise/ObservablePromise.State.html#FULFILLED"><code>ObservablePromise.State.FULFILLED</code></a> and will result in an invariant
  failure if invariants are enabled.</div>
@@ -288,7 +288,7 @@ public&nbsp;<a href="../../arez/promise/ObservablePromise.html" title="type para
 <li class="blockList">
 <h4>getError</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/Observable.html?is-external=true" title="class or interface in arez.annotations">@Observable</a>
-public&nbsp;<a href="../../arez/promise/ObservablePromise.html" title="type parameter in ObservablePromise">E</a>&nbsp;<a href="../../src-html/arez/promise/ObservablePromise.html#line.157">getError</a>()</pre>
+public&nbsp;<a href="../../arez/promise/ObservablePromise.html" title="type parameter in ObservablePromise">E</a>&nbsp;<a href="../../src-html/arez/promise/ObservablePromise.html#line.156">getError</a>()</pre>
 <div class="block">Return the error that the promise was rejected with.
  This should NOT be called if the state is not <a href="../../arez/promise/ObservablePromise.State.html#REJECTED"><code>ObservablePromise.State.REJECTED</code></a> and will result in an invariant
  failure if invariants are enabled.</div>
