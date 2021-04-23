@@ -128,7 +128,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  <h1>A very simple example</h1>
  <pre><code>
  import com.google.gwt.core.client.EntryPoint;
- import akasha.DomGlobal;
+ import akasha.Console;
  import arez.Arez;
  import arez.dom.IdleStatus;
 
@@ -140,7 +140,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
      final IdleStatus idleStatus = IdleStatus.create();
      Arez.context().autorun( () -&gt; {
        final String message = "Interaction Status: " + ( idleStatus.isIdle() ? "Idle" : "Active" );
-       DomGlobal.console.log( message );
+       Console.log( message );
      } );
    }
  }

@@ -9,8 +9,8 @@
 <pre><span class="sourceLineNo">001</span>package arez.dom;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
 <span class="sourceLineNo">003</span>import akasha.Coordinates;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import akasha.Global;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import akasha.PositionError;<a name="line.5"></a>
+<span class="sourceLineNo">004</span>import akasha.PositionError;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import akasha.WindowGlobal;<a name="line.5"></a>
 <span class="sourceLineNo">006</span>import arez.Arez;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import arez.ArezContext;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import arez.ComputableValue;<a name="line.8"></a>
@@ -194,7 +194,7 @@
 <span class="sourceLineNo">186</span>      context().task( Arez.areNamesEnabled() ? componentName() + ".setLoadingStatus" : null,<a name="line.186"></a>
 <span class="sourceLineNo">187</span>                      () -&gt; setStatus( Status.LOADING ),<a name="line.187"></a>
 <span class="sourceLineNo">188</span>                      Task.Flags.DISPOSE_ON_COMPLETE );<a name="line.188"></a>
-<span class="sourceLineNo">189</span>      _watcherId = Global.navigator().geolocation().watchPosition( e -&gt; onSuccess( e.coords() ), this::onFailure );<a name="line.189"></a>
+<span class="sourceLineNo">189</span>      _watcherId = WindowGlobal.navigator().geolocation().watchPosition( e -&gt; onSuccess( e.coords() ), this::onFailure );<a name="line.189"></a>
 <span class="sourceLineNo">190</span>    }<a name="line.190"></a>
 <span class="sourceLineNo">191</span>    _activateCount++;<a name="line.191"></a>
 <span class="sourceLineNo">192</span>  }<a name="line.192"></a>
@@ -205,7 +205,7 @@
 <span class="sourceLineNo">197</span>    if ( 0 == _activateCount )<a name="line.197"></a>
 <span class="sourceLineNo">198</span>    {<a name="line.198"></a>
 <span class="sourceLineNo">199</span>      setStatus( Status.INITIAL );<a name="line.199"></a>
-<span class="sourceLineNo">200</span>      Global.navigator().geolocation().clearWatch( _watcherId );<a name="line.200"></a>
+<span class="sourceLineNo">200</span>      WindowGlobal.navigator().geolocation().clearWatch( _watcherId );<a name="line.200"></a>
 <span class="sourceLineNo">201</span>      _watcherId = 0;<a name="line.201"></a>
 <span class="sourceLineNo">202</span>    }<a name="line.202"></a>
 <span class="sourceLineNo">203</span>  }<a name="line.203"></a>
