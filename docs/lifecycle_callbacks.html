@@ -25,14 +25,14 @@ reactive state.</p>
   <span class="hljs-meta">@PostConstruct</span>
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">postConstruct</span><span class="hljs-params">()</span>
   </span>{
-    Global.addHashchangeListener( _listener, <span class="hljs-keyword">false</span> );
+    WindowGlobal.addHashchangeListener( _listener, <span class="hljs-keyword">false</span> );
     ...
   }
 
   <span class="hljs-meta">@PreDispose</span>
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">preDispose</span><span class="hljs-params">()</span>
   </span>{
-    Global.removeHashchangeListener( _listener, <span class="hljs-keyword">false</span> );
+    WindowGlobal.removeHashchangeListener( _listener, <span class="hljs-keyword">false</span> );
   }
 
   ...
