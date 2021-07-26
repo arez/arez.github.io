@@ -2,5 +2,8 @@ arez
 arez.annotations
 arez.component
 arez.component.internal
+arez.dom
 arez.processor
+arez.promise
 arez.spy
+arez.testng
