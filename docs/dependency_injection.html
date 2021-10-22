@@ -8,7 +8,7 @@
 injection frameworks that have seen the most usage are:</p>
 <ul>
 <li><a href="https://sting-ioc.github.io/">Sting</a></li>
-<li><a href="https://google.github.io/dagger">Dagger2</a></li>
+<li><a href="https://dagger.dev/">Dagger2</a></li>
 <li><a href="https://code.google.com/archive/p/google-gin/">Gin</a></li>
 </ul>
 <p><a href="https://sting-ioc.github.io/">Sting</a> is the recommended toolkit as it is the easiest to integrate with, and it
@@ -27,7 +27,7 @@ of objects. The following sections describe the two frameworks that have builtin
 <h2><a class="anchor" aria-hidden="true" name="sting"></a><a href="#sting" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sting</h2>
 <p><a href="https://sting-ioc.github.io/">Sting</a> is a fast, easy to use, compile-time dependency injection toolkit. The toolkit
 accepts a set of annotated java classes and generates source code to instantiate and wire together the components.
-Sting was heavily inspired by <a href="https://google.github.io/dagger">Dagger2</a> but with a better developer-experience and
+Sting was heavily inspired by <a href="https://dagger.dev/">Dagger2</a> but with a better developer-experience and
 more efficient code generation. Sting models the application as a set of components that are contained within an
 injector. An injector is responsible for constructing and linking components together.</p>
 <p>The <a href="/api/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a> annotation has a
@@ -48,7 +48,7 @@ the <code>includes</code> parameter of the injector. (Although the next release 
 <p><pre><code class="hljs"><span class="hljs-keyword">final</span> ExampleStingInjector component = <span class="hljs-keyword">new</span> Sting_ExampleStingInjector();
 component.getExampleConsumer().performSomeAction( <span class="hljs-number">42</span> );</code></pre></p>
 <h2><a class="anchor" aria-hidden="true" name="dagger2"></a><a href="#dagger2" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dagger2</h2>
-<p><a href="https://google.github.io/dagger">Dagger2</a> is a another take on a dependency injection framework that uses annotation
+<p><a href="https://dagger.dev/">Dagger2</a> is a another take on a dependency injection framework that uses annotation
 processors and statically checks the object graph at compilation time. The root objects in the graph are accessed via
 a component which is an interface annotated by the <code>@dagger.Component</code> annotation. The injection rules are customized
 via <code>@dagger.Module</code> annotated classes.</p>
