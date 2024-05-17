@@ -72,7 +72,7 @@
 <span class="source-line-no">059</span><span id="line-59">                     "arez.defer.errors",</span>
 <span class="source-line-no">060</span><span id="line-60">                     "arez.debug",</span>
 <span class="source-line-no">061</span><span id="line-61">                     "arez.profile",</span>
-<span class="source-line-no">062</span><span id="line-62">                     "arez.verbose_out_of_round" } )</span>
+<span class="source-line-no">062</span><span id="line-62">                     "arez.verbose_out_of_round.errors" } )</span>
 <span class="source-line-no">063</span><span id="line-63">public final class ArezProcessor</span>
 <span class="source-line-no">064</span><span id="line-64">  extends AbstractStandardProcessor</span>
 <span class="source-line-no">065</span><span id="line-65">{</span>
@@ -187,7 +187,7 @@
 <span class="source-line-no">174</span><span id="line-174">    {</span>
 <span class="source-line-no">175</span><span id="line-175">      setter = false;</span>
 <span class="source-line-no">176</span><span id="line-176">      //Must be a getter</span>
-<span class="source-line-no">177</span><span id="line-177">      if ( 0 != method.getParameters().size() )</span>
+<span class="source-line-no">177</span><span id="line-177">      if ( !method.getParameters().isEmpty() )</span>
 <span class="source-line-no">178</span><span id="line-178">      {</span>
 <span class="source-line-no">179</span><span id="line-179">        throw new ProcessorException( "@Observable target should be a setter or getter", method );</span>
 <span class="source-line-no">180</span><span id="line-180">      }</span>
@@ -1452,11 +1452,11 @@
 <span class="source-line-no">1439</span><span id="line-1439">      null == annotation ? null : AnnotationsUtil.findAnnotationValueNoDefaults( annotation, "initializer" );</span>
 <span class="source-line-no">1440</span><span id="line-1440">    final String value = null == v ? "AUTODETECT" : ( (VariableElement) v.getValue() ).getSimpleName().toString();</span>
 <span class="source-line-no">1441</span><span id="line-1441">    return switch ( value )</span>
-<span class="source-line-no">1442</span><span id="line-1442">      {</span>
-<span class="source-line-no">1443</span><span id="line-1443">        case "ENABLE" -&gt; Boolean.TRUE;</span>
-<span class="source-line-no">1444</span><span id="line-1444">        case "DISABLE" -&gt; Boolean.FALSE;</span>
-<span class="source-line-no">1445</span><span id="line-1445">        default -&gt; null;</span>
-<span class="source-line-no">1446</span><span id="line-1446">      };</span>
+<span class="source-line-no">1442</span><span id="line-1442">    {</span>
+<span class="source-line-no">1443</span><span id="line-1443">      case "ENABLE" -&gt; Boolean.TRUE;</span>
+<span class="source-line-no">1444</span><span id="line-1444">      case "DISABLE" -&gt; Boolean.FALSE;</span>
+<span class="source-line-no">1445</span><span id="line-1445">      default -&gt; null;</span>
+<span class="source-line-no">1446</span><span id="line-1446">    };</span>
 <span class="source-line-no">1447</span><span id="line-1447">  }</span>
 <span class="source-line-no">1448</span><span id="line-1448"></span>
 <span class="source-line-no">1449</span><span id="line-1449">  private boolean autodetectInitializer( @Nonnull final ExecutableElement element )</span>
@@ -1606,12 +1606,12 @@
 <span class="source-line-no">1593</span><span id="line-1593">  {</span>
 <span class="source-line-no">1594</span><span id="line-1594">    final VariableElement variableElement = AnnotationsUtil.getAnnotationValueValue( annotation, "inverse" );</span>
 <span class="source-line-no">1595</span><span id="line-1595">    return switch ( variableElement.getSimpleName().toString() )</span>
-<span class="source-line-no">1596</span><span id="line-1596">      {</span>
-<span class="source-line-no">1597</span><span id="line-1597">        case "ENABLE" -&gt; true;</span>
-<span class="source-line-no">1598</span><span id="line-1598">        case "DISABLE" -&gt; false;</span>
-<span class="source-line-no">1599</span><span id="line-1599">        default -&gt; null != AnnotationsUtil.findAnnotationValueNoDefaults( annotation, "inverseName" ) ||</span>
-<span class="source-line-no">1600</span><span id="line-1600">                   null != AnnotationsUtil.findAnnotationValueNoDefaults( annotation, "inverseMultiplicity" );</span>
-<span class="source-line-no">1601</span><span id="line-1601">      };</span>
+<span class="source-line-no">1596</span><span id="line-1596">    {</span>
+<span class="source-line-no">1597</span><span id="line-1597">      case "ENABLE" -&gt; true;</span>
+<span class="source-line-no">1598</span><span id="line-1598">      case "DISABLE" -&gt; false;</span>
+<span class="source-line-no">1599</span><span id="line-1599">      default -&gt; null != AnnotationsUtil.findAnnotationValueNoDefaults( annotation, "inverseName" ) ||</span>
+<span class="source-line-no">1600</span><span id="line-1600">                 null != AnnotationsUtil.findAnnotationValueNoDefaults( annotation, "inverseMultiplicity" );</span>
+<span class="source-line-no">1601</span><span id="line-1601">    };</span>
 <span class="source-line-no">1602</span><span id="line-1602">  }</span>
 <span class="source-line-no">1603</span><span id="line-1603"></span>
 <span class="source-line-no">1604</span><span id="line-1604">  private void verifyMultiplicityOfAssociatedReferenceMethod( @Nonnull final ComponentDescriptor component,</span>
@@ -1712,11 +1712,11 @@
 <span class="source-line-no">1699</span><span id="line-1699">    final VariableElement variableElement =</span>
 <span class="source-line-no">1700</span><span id="line-1700">      AnnotationsUtil.getAnnotationValueValue( annotation, "inverseMultiplicity" );</span>
 <span class="source-line-no">1701</span><span id="line-1701">    return switch ( variableElement.getSimpleName().toString() )</span>
-<span class="source-line-no">1702</span><span id="line-1702">      {</span>
-<span class="source-line-no">1703</span><span id="line-1703">        case "MANY" -&gt; Multiplicity.MANY;</span>
-<span class="source-line-no">1704</span><span id="line-1704">        case "ONE" -&gt; Multiplicity.ONE;</span>
-<span class="source-line-no">1705</span><span id="line-1705">        default -&gt; Multiplicity.ZERO_OR_ONE;</span>
-<span class="source-line-no">1706</span><span id="line-1706">      };</span>
+<span class="source-line-no">1702</span><span id="line-1702">    {</span>
+<span class="source-line-no">1703</span><span id="line-1703">      case "MANY" -&gt; Multiplicity.MANY;</span>
+<span class="source-line-no">1704</span><span id="line-1704">      case "ONE" -&gt; Multiplicity.ONE;</span>
+<span class="source-line-no">1705</span><span id="line-1705">      default -&gt; Multiplicity.ZERO_OR_ONE;</span>
+<span class="source-line-no">1706</span><span id="line-1706">    };</span>
 <span class="source-line-no">1707</span><span id="line-1707">  }</span>
 <span class="source-line-no">1708</span><span id="line-1708"></span>
 <span class="source-line-no">1709</span><span id="line-1709">  @Nonnull</span>
@@ -2065,10 +2065,10 @@
 <span class="source-line-no">2052</span><span id="line-2052">    }</span>
 <span class="source-line-no">2053</span><span id="line-2053"></span>
 <span class="source-line-no">2054</span><span id="line-2054">    final List&lt;ExecutableElement&gt; methods =</span>
-<span class="source-line-no">2055</span><span id="line-2055">      ElementsUtil.getMethods( typeElement, processingEnv.getElementUtils(), processingEnv.getTypeUtils() );</span>
+<span class="source-line-no">2055</span><span id="line-2055">      ElementsUtil.getMethods( typeElement, processingEnv.getElementUtils(), processingEnv.getTypeUtils(), true );</span>
 <span class="source-line-no">2056</span><span id="line-2056">    final boolean generateToString = methods.stream().</span>
 <span class="source-line-no">2057</span><span id="line-2057">      noneMatch( m -&gt; m.getSimpleName().toString().equals( "toString" ) &amp;&amp;</span>
-<span class="source-line-no">2058</span><span id="line-2058">                      m.getParameters().size() == 0 &amp;&amp;</span>
+<span class="source-line-no">2058</span><span id="line-2058">                      m.getParameters().isEmpty() &amp;&amp;</span>
 <span class="source-line-no">2059</span><span id="line-2059">                      !( m.getEnclosingElement().getSimpleName().toString().equals( "Object" ) &amp;&amp;</span>
 <span class="source-line-no">2060</span><span id="line-2060">                         "java.lang".equals( processingEnv</span>
 <span class="source-line-no">2061</span><span id="line-2061">                                               .getElementUtils()</span>
@@ -3117,11 +3117,11 @@
 <span class="source-line-no">3104</span><span id="line-3104">                                                  Constants.COMPONENT_CLASSNAME,</span>
 <span class="source-line-no">3105</span><span id="line-3105">                                                  "verifyReferencesToComponent" );</span>
 <span class="source-line-no">3106</span><span id="line-3106">    return switch ( verifyReferencesToComponent )</span>
-<span class="source-line-no">3107</span><span id="line-3107">      {</span>
-<span class="source-line-no">3108</span><span id="line-3108">        case "ENABLE" -&gt; true;</span>
-<span class="source-line-no">3109</span><span id="line-3109">        case "DISABLE" -&gt; false;</span>
-<span class="source-line-no">3110</span><span id="line-3110">        default -&gt; isDisposableTrackableRequired( element );</span>
-<span class="source-line-no">3111</span><span id="line-3111">      };</span>
+<span class="source-line-no">3107</span><span id="line-3107">    {</span>
+<span class="source-line-no">3108</span><span id="line-3108">      case "ENABLE" -&gt; true;</span>
+<span class="source-line-no">3109</span><span id="line-3109">      case "DISABLE" -&gt; false;</span>
+<span class="source-line-no">3110</span><span id="line-3110">      default -&gt; isDisposableTrackableRequired( element );</span>
+<span class="source-line-no">3111</span><span id="line-3111">    };</span>
 <span class="source-line-no">3112</span><span id="line-3112">  }</span>
 <span class="source-line-no">3113</span><span id="line-3113"></span>
 <span class="source-line-no">3114</span><span id="line-3114">  private boolean isUnmanagedComponentReferenceNotSuppressed( @Nonnull final Element element )</span>
@@ -3155,14 +3155,14 @@
 <span class="source-line-no">3142</span><span id="line-3142">    final String service =</span>
 <span class="source-line-no">3143</span><span id="line-3143">      AnnotationsUtil.getEnumAnnotationParameter( typeElement, Constants.COMPONENT_CLASSNAME, "service" );</span>
 <span class="source-line-no">3144</span><span id="line-3144">    return switch ( service )</span>
-<span class="source-line-no">3145</span><span id="line-3145">      {</span>
-<span class="source-line-no">3146</span><span id="line-3146">        case "ENABLE" -&gt; true;</span>
-<span class="source-line-no">3147</span><span id="line-3147">        case "DISABLE" -&gt; false;</span>
-<span class="source-line-no">3148</span><span id="line-3148">        default -&gt; AnnotationsUtil.hasAnnotationOfType( typeElement, Constants.STING_CONTRIBUTE_TO ) ||</span>
-<span class="source-line-no">3149</span><span id="line-3149">                   AnnotationsUtil.hasAnnotationOfType( typeElement, Constants.STING_TYPED ) ||</span>
-<span class="source-line-no">3150</span><span id="line-3150">                   AnnotationsUtil.hasAnnotationOfType( typeElement, Constants.STING_NAMED ) ||</span>
-<span class="source-line-no">3151</span><span id="line-3151">                   AnnotationsUtil.hasAnnotationOfType( typeElement, Constants.STING_EAGER );</span>
-<span class="source-line-no">3152</span><span id="line-3152">      };</span>
+<span class="source-line-no">3145</span><span id="line-3145">    {</span>
+<span class="source-line-no">3146</span><span id="line-3146">      case "ENABLE" -&gt; true;</span>
+<span class="source-line-no">3147</span><span id="line-3147">      case "DISABLE" -&gt; false;</span>
+<span class="source-line-no">3148</span><span id="line-3148">      default -&gt; AnnotationsUtil.hasAnnotationOfType( typeElement, Constants.STING_CONTRIBUTE_TO ) ||</span>
+<span class="source-line-no">3149</span><span id="line-3149">                 AnnotationsUtil.hasAnnotationOfType( typeElement, Constants.STING_TYPED ) ||</span>
+<span class="source-line-no">3150</span><span id="line-3150">                 AnnotationsUtil.hasAnnotationOfType( typeElement, Constants.STING_NAMED ) ||</span>
+<span class="source-line-no">3151</span><span id="line-3151">                 AnnotationsUtil.hasAnnotationOfType( typeElement, Constants.STING_EAGER );</span>
+<span class="source-line-no">3152</span><span id="line-3152">    };</span>
 <span class="source-line-no">3153</span><span id="line-3153">  }</span>
 <span class="source-line-no">3154</span><span id="line-3154"></span>
 <span class="source-line-no">3155</span><span id="line-3155">  private boolean isComponentObservableRequired( @Nonnull final AnnotationMirror arezComponent,</span>
@@ -3170,11 +3170,11 @@
 <span class="source-line-no">3157</span><span id="line-3157">  {</span>
 <span class="source-line-no">3158</span><span id="line-3158">    final VariableElement variableElement = getAnnotationParameter( arezComponent, "observable" );</span>
 <span class="source-line-no">3159</span><span id="line-3159">    return switch ( variableElement.getSimpleName().toString() )</span>
-<span class="source-line-no">3160</span><span id="line-3160">      {</span>
-<span class="source-line-no">3161</span><span id="line-3161">        case "ENABLE" -&gt; true;</span>
-<span class="source-line-no">3162</span><span id="line-3162">        case "DISABLE" -&gt; false;</span>
-<span class="source-line-no">3163</span><span id="line-3163">        default -&gt; disposeOnDeactivate;</span>
-<span class="source-line-no">3164</span><span id="line-3164">      };</span>
+<span class="source-line-no">3160</span><span id="line-3160">    {</span>
+<span class="source-line-no">3161</span><span id="line-3161">      case "ENABLE" -&gt; true;</span>
+<span class="source-line-no">3162</span><span id="line-3162">      case "DISABLE" -&gt; false;</span>
+<span class="source-line-no">3163</span><span id="line-3163">      default -&gt; disposeOnDeactivate;</span>
+<span class="source-line-no">3164</span><span id="line-3164">    };</span>
 <span class="source-line-no">3165</span><span id="line-3165">  }</span>
 <span class="source-line-no">3166</span><span id="line-3166"></span>
 <span class="source-line-no">3167</span><span id="line-3167">  private boolean isVerifyRequired( @Nonnull final AnnotationMirror arezComponent,</span>
@@ -3182,211 +3182,210 @@
 <span class="source-line-no">3169</span><span id="line-3169">  {</span>
 <span class="source-line-no">3170</span><span id="line-3170">    final VariableElement parameter = getAnnotationParameter( arezComponent, "verify" );</span>
 <span class="source-line-no">3171</span><span id="line-3171">    return switch ( parameter.getSimpleName().toString() )</span>
-<span class="source-line-no">3172</span><span id="line-3172">      {</span>
-<span class="source-line-no">3173</span><span id="line-3173">        case "ENABLE" -&gt; true;</span>
-<span class="source-line-no">3174</span><span id="line-3174">        case "DISABLE" -&gt; false;</span>
-<span class="source-line-no">3175</span><span id="line-3175">        default -&gt;</span>
-<span class="source-line-no">3176</span><span id="line-3176">          ElementsUtil.getMethods( typeElement, processingEnv.getElementUtils(), processingEnv.getTypeUtils() ).</span>
-<span class="source-line-no">3177</span><span id="line-3177">            stream().anyMatch( this::hasReferenceAnnotations );</span>
-<span class="source-line-no">3178</span><span id="line-3178">      };</span>
-<span class="source-line-no">3179</span><span id="line-3179">  }</span>
-<span class="source-line-no">3180</span><span id="line-3180"></span>
-<span class="source-line-no">3181</span><span id="line-3181">  private boolean hasReferenceAnnotations( @Nonnull final Element method )</span>
-<span class="source-line-no">3182</span><span id="line-3182">  {</span>
-<span class="source-line-no">3183</span><span id="line-3183">    return AnnotationsUtil.hasAnnotationOfType( method, Constants.REFERENCE_CLASSNAME ) ||</span>
-<span class="source-line-no">3184</span><span id="line-3184">           AnnotationsUtil.hasAnnotationOfType( method, Constants.REFERENCE_ID_CLASSNAME ) ||</span>
-<span class="source-line-no">3185</span><span id="line-3185">           AnnotationsUtil.hasAnnotationOfType( method, Constants.INVERSE_CLASSNAME );</span>
-<span class="source-line-no">3186</span><span id="line-3186">  }</span>
-<span class="source-line-no">3187</span><span id="line-3187"></span>
-<span class="source-line-no">3188</span><span id="line-3188">  private boolean isEqualsRequired( @Nonnull final AnnotationMirror arezComponent )</span>
-<span class="source-line-no">3189</span><span id="line-3189">  {</span>
-<span class="source-line-no">3190</span><span id="line-3190">    final VariableElement injectParameter = getAnnotationParameter( arezComponent, "requireEquals" );</span>
-<span class="source-line-no">3191</span><span id="line-3191">    return "ENABLE".equals( injectParameter.getSimpleName().toString() );</span>
-<span class="source-line-no">3192</span><span id="line-3192">  }</span>
-<span class="source-line-no">3193</span><span id="line-3193"></span>
-<span class="source-line-no">3194</span><span id="line-3194">  @Nullable</span>
-<span class="source-line-no">3195</span><span id="line-3195">  private String getDefaultPriority( @Nonnull final AnnotationMirror arezComponent )</span>
-<span class="source-line-no">3196</span><span id="line-3196">  {</span>
-<span class="source-line-no">3197</span><span id="line-3197">    final AnnotationValue value =</span>
-<span class="source-line-no">3198</span><span id="line-3198">      AnnotationsUtil.findAnnotationValueNoDefaults( arezComponent, "defaultPriority" );</span>
-<span class="source-line-no">3199</span><span id="line-3199">    return null == value ? null : ( (VariableElement) value.getValue() ).getSimpleName().toString();</span>
-<span class="source-line-no">3200</span><span id="line-3200">  }</span>
-<span class="source-line-no">3201</span><span id="line-3201"></span>
-<span class="source-line-no">3202</span><span id="line-3202">  private boolean isIdRequired( @Nonnull final AnnotationMirror arezComponent )</span>
-<span class="source-line-no">3203</span><span id="line-3203">  {</span>
-<span class="source-line-no">3204</span><span id="line-3204">    final VariableElement injectParameter = getAnnotationParameter( arezComponent, "requireId" );</span>
-<span class="source-line-no">3205</span><span id="line-3205">    return !"DISABLE".equals( injectParameter.getSimpleName().toString() );</span>
-<span class="source-line-no">3206</span><span id="line-3206">  }</span>
-<span class="source-line-no">3207</span><span id="line-3207"></span>
-<span class="source-line-no">3208</span><span id="line-3208">  private boolean hasInjectAnnotation( @Nonnull final Element method )</span>
-<span class="source-line-no">3209</span><span id="line-3209">  {</span>
-<span class="source-line-no">3210</span><span id="line-3210">    return AnnotationsUtil.hasAnnotationOfType( method, Constants.INJECT_CLASSNAME );</span>
-<span class="source-line-no">3211</span><span id="line-3211">  }</span>
-<span class="source-line-no">3212</span><span id="line-3212"></span>
-<span class="source-line-no">3213</span><span id="line-3213">  @Nonnull</span>
-<span class="source-line-no">3214</span><span id="line-3214">  private &lt;T&gt; T getAnnotationParameter( @Nonnull final AnnotationMirror annotation,</span>
-<span class="source-line-no">3215</span><span id="line-3215">                                        @Nonnull final String parameterName )</span>
-<span class="source-line-no">3216</span><span id="line-3216">  {</span>
-<span class="source-line-no">3217</span><span id="line-3217">    return AnnotationsUtil.getAnnotationValueValue( annotation, parameterName );</span>
-<span class="source-line-no">3218</span><span id="line-3218">  }</span>
-<span class="source-line-no">3219</span><span id="line-3219"></span>
-<span class="source-line-no">3220</span><span id="line-3220">  @Nonnull</span>
-<span class="source-line-no">3221</span><span id="line-3221">  private TypeElement getDisposableTypeElement()</span>
-<span class="source-line-no">3222</span><span id="line-3222">  {</span>
-<span class="source-line-no">3223</span><span id="line-3223">    return getTypeElement( Constants.DISPOSABLE_CLASSNAME );</span>
-<span class="source-line-no">3224</span><span id="line-3224">  }</span>
-<span class="source-line-no">3225</span><span id="line-3225"></span>
-<span class="source-line-no">3226</span><span id="line-3226">  private boolean isDisposableTrackableRequired( @Nonnull final TypeElement element )</span>
-<span class="source-line-no">3227</span><span id="line-3227">  {</span>
-<span class="source-line-no">3228</span><span id="line-3228">    final String disposeNotifier =</span>
-<span class="source-line-no">3229</span><span id="line-3229">      AnnotationsUtil.getEnumAnnotationParameter( element, Constants.COMPONENT_CLASSNAME, "disposeNotifier" );</span>
-<span class="source-line-no">3230</span><span id="line-3230">    return switch ( disposeNotifier )</span>
-<span class="source-line-no">3231</span><span id="line-3231">      {</span>
-<span class="source-line-no">3232</span><span id="line-3232">        case "ENABLE" -&gt; true;</span>
-<span class="source-line-no">3233</span><span id="line-3233">        case "DISABLE" -&gt; false;</span>
-<span class="source-line-no">3234</span><span id="line-3234">        default -&gt; null == AnnotationsUtil.findAnnotationByType( element, Constants.COMPONENT_CLASSNAME ) ||</span>
-<span class="source-line-no">3235</span><span id="line-3235">                   !isService( element );</span>
-<span class="source-line-no">3236</span><span id="line-3236">      };</span>
-<span class="source-line-no">3237</span><span id="line-3237">  }</span>
-<span class="source-line-no">3238</span><span id="line-3238"></span>
-<span class="source-line-no">3239</span><span id="line-3239">  @Nonnull</span>
-<span class="source-line-no">3240</span><span id="line-3240">  private TypeElement getTypeElement( @Nonnull final String classname )</span>
-<span class="source-line-no">3241</span><span id="line-3241">  {</span>
-<span class="source-line-no">3242</span><span id="line-3242">    final TypeElement typeElement = findTypeElement( classname );</span>
-<span class="source-line-no">3243</span><span id="line-3243">    assert null != typeElement;</span>
-<span class="source-line-no">3244</span><span id="line-3244">    return typeElement;</span>
-<span class="source-line-no">3245</span><span id="line-3245">  }</span>
-<span class="source-line-no">3246</span><span id="line-3246"></span>
-<span class="source-line-no">3247</span><span id="line-3247">  @Nullable</span>
-<span class="source-line-no">3248</span><span id="line-3248">  private TypeElement findTypeElement( @Nonnull final String classname )</span>
-<span class="source-line-no">3249</span><span id="line-3249">  {</span>
-<span class="source-line-no">3250</span><span id="line-3250">    return processingEnv.getElementUtils().getTypeElement( classname );</span>
-<span class="source-line-no">3251</span><span id="line-3251">  }</span>
-<span class="source-line-no">3252</span><span id="line-3252"></span>
-<span class="source-line-no">3253</span><span id="line-3253">  private boolean isAssignable( @Nonnull final TypeMirror type, @Nonnull final TypeElement typeElement )</span>
-<span class="source-line-no">3254</span><span id="line-3254">  {</span>
-<span class="source-line-no">3255</span><span id="line-3255">    return processingEnv.getTypeUtils().isAssignable( type, typeElement.asType() );</span>
-<span class="source-line-no">3256</span><span id="line-3256">  }</span>
-<span class="source-line-no">3257</span><span id="line-3257"></span>
-<span class="source-line-no">3258</span><span id="line-3258">  private boolean isMethodAProtectedOverride( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">3259</span><span id="line-3259">                                              @Nonnull final ExecutableElement method )</span>
-<span class="source-line-no">3260</span><span id="line-3260">  {</span>
-<span class="source-line-no">3261</span><span id="line-3261">    final ExecutableElement overriddenMethod = ElementsUtil.getOverriddenMethod( processingEnv, typeElement, method );</span>
-<span class="source-line-no">3262</span><span id="line-3262">    return null != overriddenMethod &amp;&amp; overriddenMethod.getModifiers().contains( Modifier.PROTECTED );</span>
-<span class="source-line-no">3263</span><span id="line-3263">  }</span>
-<span class="source-line-no">3264</span><span id="line-3264"></span>
-<span class="source-line-no">3265</span><span id="line-3265">  private void mustBeStandardRefMethod( @Nonnull final ProcessingEnvironment processingEnv,</span>
-<span class="source-line-no">3266</span><span id="line-3266">                                        @Nonnull final ComponentDescriptor descriptor,</span>
-<span class="source-line-no">3267</span><span id="line-3267">                                        @Nonnull final ExecutableElement method,</span>
-<span class="source-line-no">3268</span><span id="line-3268">                                        @Nonnull final String annotationClassname )</span>
-<span class="source-line-no">3269</span><span id="line-3269">  {</span>
-<span class="source-line-no">3270</span><span id="line-3270">    mustBeRefMethod( descriptor, method, annotationClassname );</span>
-<span class="source-line-no">3271</span><span id="line-3271">    MemberChecks.mustNotHaveAnyParameters( annotationClassname, method );</span>
-<span class="source-line-no">3272</span><span id="line-3272">    shouldBeInternalRefMethod( processingEnv, descriptor, method, annotationClassname );</span>
-<span class="source-line-no">3273</span><span id="line-3273">  }</span>
-<span class="source-line-no">3274</span><span id="line-3274"></span>
-<span class="source-line-no">3275</span><span id="line-3275">  private void mustBeRefMethod( @Nonnull final ComponentDescriptor descriptor,</span>
-<span class="source-line-no">3276</span><span id="line-3276">                                @Nonnull final ExecutableElement method,</span>
-<span class="source-line-no">3277</span><span id="line-3277">                                @Nonnull final String annotationClassname )</span>
-<span class="source-line-no">3278</span><span id="line-3278">  {</span>
-<span class="source-line-no">3279</span><span id="line-3279">    MemberChecks.mustBeAbstract( annotationClassname, method );</span>
-<span class="source-line-no">3280</span><span id="line-3280">    final TypeElement typeElement = descriptor.getElement();</span>
-<span class="source-line-no">3281</span><span id="line-3281">    MemberChecks.mustNotBePackageAccessInDifferentPackage( typeElement,</span>
-<span class="source-line-no">3282</span><span id="line-3282">                                                           Constants.COMPONENT_CLASSNAME,</span>
-<span class="source-line-no">3283</span><span id="line-3283">                                                           annotationClassname,</span>
-<span class="source-line-no">3284</span><span id="line-3284">                                                           method );</span>
-<span class="source-line-no">3285</span><span id="line-3285">    MemberChecks.mustReturnAValue( annotationClassname, method );</span>
-<span class="source-line-no">3286</span><span id="line-3286">    MemberChecks.mustNotThrowAnyExceptions( annotationClassname, method );</span>
-<span class="source-line-no">3287</span><span id="line-3287">  }</span>
-<span class="source-line-no">3288</span><span id="line-3288"></span>
-<span class="source-line-no">3289</span><span id="line-3289">  private void mustBeHookHook( @Nonnull final TypeElement targetType,</span>
-<span class="source-line-no">3290</span><span id="line-3290">                               @Nonnull final String annotationName,</span>
-<span class="source-line-no">3291</span><span id="line-3291">                               @Nonnull final ExecutableElement method )</span>
-<span class="source-line-no">3292</span><span id="line-3292">    throws ProcessorException</span>
-<span class="source-line-no">3293</span><span id="line-3293">  {</span>
-<span class="source-line-no">3294</span><span id="line-3294">    MemberChecks.mustNotBeAbstract( annotationName, method );</span>
-<span class="source-line-no">3295</span><span id="line-3295">    MemberChecks.mustBeSubclassCallable( targetType, Constants.COMPONENT_CLASSNAME, annotationName, method );</span>
-<span class="source-line-no">3296</span><span id="line-3296">    MemberChecks.mustNotReturnAnyValue( annotationName, method );</span>
-<span class="source-line-no">3297</span><span id="line-3297">    MemberChecks.mustNotThrowAnyExceptions( annotationName, method );</span>
-<span class="source-line-no">3298</span><span id="line-3298">  }</span>
-<span class="source-line-no">3299</span><span id="line-3299"></span>
-<span class="source-line-no">3300</span><span id="line-3300">  private void shouldBeInternalRefMethod( @Nonnull final ProcessingEnvironment processingEnv,</span>
-<span class="source-line-no">3301</span><span id="line-3301">                                          @Nonnull final ComponentDescriptor descriptor,</span>
-<span class="source-line-no">3302</span><span id="line-3302">                                          @Nonnull final ExecutableElement method,</span>
-<span class="source-line-no">3303</span><span id="line-3303">                                          @Nonnull final String annotationClassname )</span>
-<span class="source-line-no">3304</span><span id="line-3304">  {</span>
-<span class="source-line-no">3305</span><span id="line-3305">    if ( MemberChecks.doesMethodNotOverrideInterfaceMethod( processingEnv, descriptor.getElement(), method ) )</span>
-<span class="source-line-no">3306</span><span id="line-3306">    {</span>
-<span class="source-line-no">3307</span><span id="line-3307">      MemberChecks.shouldNotBePublic( processingEnv,</span>
-<span class="source-line-no">3308</span><span id="line-3308">                                      method,</span>
-<span class="source-line-no">3309</span><span id="line-3309">                                      annotationClassname,</span>
-<span class="source-line-no">3310</span><span id="line-3310">                                      Constants.WARNING_PUBLIC_REF_METHOD,</span>
-<span class="source-line-no">3311</span><span id="line-3311">                                      Constants.SUPPRESS_AREZ_WARNINGS_CLASSNAME );</span>
-<span class="source-line-no">3312</span><span id="line-3312">    }</span>
-<span class="source-line-no">3313</span><span id="line-3313">  }</span>
-<span class="source-line-no">3314</span><span id="line-3314"></span>
-<span class="source-line-no">3315</span><span id="line-3315">  private void shouldBeInternalLifecycleMethod( @Nonnull final ProcessingEnvironment processingEnv,</span>
-<span class="source-line-no">3316</span><span id="line-3316">                                                @Nonnull final ComponentDescriptor descriptor,</span>
-<span class="source-line-no">3317</span><span id="line-3317">                                                @Nonnull final ExecutableElement method,</span>
-<span class="source-line-no">3318</span><span id="line-3318">                                                @Nonnull final String annotationClassname )</span>
-<span class="source-line-no">3319</span><span id="line-3319">  {</span>
-<span class="source-line-no">3320</span><span id="line-3320">    if ( MemberChecks.doesMethodNotOverrideInterfaceMethod( processingEnv, descriptor.getElement(), method ) )</span>
-<span class="source-line-no">3321</span><span id="line-3321">    {</span>
-<span class="source-line-no">3322</span><span id="line-3322">      MemberChecks.shouldNotBePublic( processingEnv,</span>
-<span class="source-line-no">3323</span><span id="line-3323">                                      method,</span>
-<span class="source-line-no">3324</span><span id="line-3324">                                      annotationClassname,</span>
-<span class="source-line-no">3325</span><span id="line-3325">                                      Constants.WARNING_PUBLIC_LIFECYCLE_METHOD,</span>
-<span class="source-line-no">3326</span><span id="line-3326">                                      Constants.SUPPRESS_AREZ_WARNINGS_CLASSNAME );</span>
-<span class="source-line-no">3327</span><span id="line-3327">    }</span>
-<span class="source-line-no">3328</span><span id="line-3328">  }</span>
-<span class="source-line-no">3329</span><span id="line-3329"></span>
-<span class="source-line-no">3330</span><span id="line-3330">  private void shouldBeInternalHookMethod( @Nonnull final ProcessingEnvironment processingEnv,</span>
-<span class="source-line-no">3331</span><span id="line-3331">                                           @Nonnull final ComponentDescriptor descriptor,</span>
-<span class="source-line-no">3332</span><span id="line-3332">                                           @Nonnull final ExecutableElement method,</span>
-<span class="source-line-no">3333</span><span id="line-3333">                                           @Nonnull final String annotationClassname )</span>
-<span class="source-line-no">3334</span><span id="line-3334">  {</span>
-<span class="source-line-no">3335</span><span id="line-3335">    if ( MemberChecks.doesMethodNotOverrideInterfaceMethod( processingEnv, descriptor.getElement(), method ) )</span>
-<span class="source-line-no">3336</span><span id="line-3336">    {</span>
-<span class="source-line-no">3337</span><span id="line-3337">      MemberChecks.shouldNotBePublic( processingEnv,</span>
-<span class="source-line-no">3338</span><span id="line-3338">                                      method,</span>
-<span class="source-line-no">3339</span><span id="line-3339">                                      annotationClassname,</span>
-<span class="source-line-no">3340</span><span id="line-3340">                                      Constants.WARNING_PUBLIC_HOOK_METHOD,</span>
-<span class="source-line-no">3341</span><span id="line-3341">                                      Constants.SUPPRESS_AREZ_WARNINGS_CLASSNAME );</span>
-<span class="source-line-no">3342</span><span id="line-3342">    }</span>
-<span class="source-line-no">3343</span><span id="line-3343">  }</span>
-<span class="source-line-no">3344</span><span id="line-3344"></span>
-<span class="source-line-no">3345</span><span id="line-3345">  @Nullable</span>
-<span class="source-line-no">3346</span><span id="line-3346">  private String deriveName( @Nonnull final ExecutableElement method,</span>
-<span class="source-line-no">3347</span><span id="line-3347">                             @Nonnull final Pattern pattern,</span>
-<span class="source-line-no">3348</span><span id="line-3348">                             @Nonnull final String name )</span>
-<span class="source-line-no">3349</span><span id="line-3349">    throws ProcessorException</span>
-<span class="source-line-no">3350</span><span id="line-3350">  {</span>
-<span class="source-line-no">3351</span><span id="line-3351">    if ( Constants.SENTINEL.equals( name ) )</span>
-<span class="source-line-no">3352</span><span id="line-3352">    {</span>
-<span class="source-line-no">3353</span><span id="line-3353">      final String methodName = method.getSimpleName().toString();</span>
-<span class="source-line-no">3354</span><span id="line-3354">      final Matcher matcher = pattern.matcher( methodName );</span>
-<span class="source-line-no">3355</span><span id="line-3355">      if ( matcher.find() )</span>
-<span class="source-line-no">3356</span><span id="line-3356">      {</span>
-<span class="source-line-no">3357</span><span id="line-3357">        final String candidate = matcher.group( 1 );</span>
-<span class="source-line-no">3358</span><span id="line-3358">        return firstCharacterToLowerCase( candidate );</span>
-<span class="source-line-no">3359</span><span id="line-3359">      }</span>
-<span class="source-line-no">3360</span><span id="line-3360">      else</span>
-<span class="source-line-no">3361</span><span id="line-3361">      {</span>
-<span class="source-line-no">3362</span><span id="line-3362">        return null;</span>
-<span class="source-line-no">3363</span><span id="line-3363">      }</span>
-<span class="source-line-no">3364</span><span id="line-3364">    }</span>
-<span class="source-line-no">3365</span><span id="line-3365">    else</span>
-<span class="source-line-no">3366</span><span id="line-3366">    {</span>
-<span class="source-line-no">3367</span><span id="line-3367">      return name;</span>
-<span class="source-line-no">3368</span><span id="line-3368">    }</span>
-<span class="source-line-no">3369</span><span id="line-3369">  }</span>
-<span class="source-line-no">3370</span><span id="line-3370"></span>
-<span class="source-line-no">3371</span><span id="line-3371">  @Nonnull</span>
-<span class="source-line-no">3372</span><span id="line-3372">  private String firstCharacterToLowerCase( @Nonnull final String name )</span>
-<span class="source-line-no">3373</span><span id="line-3373">  {</span>
-<span class="source-line-no">3374</span><span id="line-3374">    return Character.toLowerCase( name.charAt( 0 ) ) + name.substring( 1 );</span>
-<span class="source-line-no">3375</span><span id="line-3375">  }</span>
-<span class="source-line-no">3376</span><span id="line-3376">}</span>
+<span class="source-line-no">3172</span><span id="line-3172">    {</span>
+<span class="source-line-no">3173</span><span id="line-3173">      case "ENABLE" -&gt; true;</span>
+<span class="source-line-no">3174</span><span id="line-3174">      case "DISABLE" -&gt; false;</span>
+<span class="source-line-no">3175</span><span id="line-3175">      default -&gt; ElementsUtil.getMethods( typeElement, processingEnv.getElementUtils(), processingEnv.getTypeUtils() ).</span>
+<span class="source-line-no">3176</span><span id="line-3176">        stream().anyMatch( this::hasReferenceAnnotations );</span>
+<span class="source-line-no">3177</span><span id="line-3177">    };</span>
+<span class="source-line-no">3178</span><span id="line-3178">  }</span>
+<span class="source-line-no">3179</span><span id="line-3179"></span>
+<span class="source-line-no">3180</span><span id="line-3180">  private boolean hasReferenceAnnotations( @Nonnull final Element method )</span>
+<span class="source-line-no">3181</span><span id="line-3181">  {</span>
+<span class="source-line-no">3182</span><span id="line-3182">    return AnnotationsUtil.hasAnnotationOfType( method, Constants.REFERENCE_CLASSNAME ) ||</span>
+<span class="source-line-no">3183</span><span id="line-3183">           AnnotationsUtil.hasAnnotationOfType( method, Constants.REFERENCE_ID_CLASSNAME ) ||</span>
+<span class="source-line-no">3184</span><span id="line-3184">           AnnotationsUtil.hasAnnotationOfType( method, Constants.INVERSE_CLASSNAME );</span>
+<span class="source-line-no">3185</span><span id="line-3185">  }</span>
+<span class="source-line-no">3186</span><span id="line-3186"></span>
+<span class="source-line-no">3187</span><span id="line-3187">  private boolean isEqualsRequired( @Nonnull final AnnotationMirror arezComponent )</span>
+<span class="source-line-no">3188</span><span id="line-3188">  {</span>
+<span class="source-line-no">3189</span><span id="line-3189">    final VariableElement injectParameter = getAnnotationParameter( arezComponent, "requireEquals" );</span>
+<span class="source-line-no">3190</span><span id="line-3190">    return "ENABLE".equals( injectParameter.getSimpleName().toString() );</span>
+<span class="source-line-no">3191</span><span id="line-3191">  }</span>
+<span class="source-line-no">3192</span><span id="line-3192"></span>
+<span class="source-line-no">3193</span><span id="line-3193">  @Nullable</span>
+<span class="source-line-no">3194</span><span id="line-3194">  private String getDefaultPriority( @Nonnull final AnnotationMirror arezComponent )</span>
+<span class="source-line-no">3195</span><span id="line-3195">  {</span>
+<span class="source-line-no">3196</span><span id="line-3196">    final AnnotationValue value =</span>
+<span class="source-line-no">3197</span><span id="line-3197">      AnnotationsUtil.findAnnotationValueNoDefaults( arezComponent, "defaultPriority" );</span>
+<span class="source-line-no">3198</span><span id="line-3198">    return null == value ? null : ( (VariableElement) value.getValue() ).getSimpleName().toString();</span>
+<span class="source-line-no">3199</span><span id="line-3199">  }</span>
+<span class="source-line-no">3200</span><span id="line-3200"></span>
+<span class="source-line-no">3201</span><span id="line-3201">  private boolean isIdRequired( @Nonnull final AnnotationMirror arezComponent )</span>
+<span class="source-line-no">3202</span><span id="line-3202">  {</span>
+<span class="source-line-no">3203</span><span id="line-3203">    final VariableElement injectParameter = getAnnotationParameter( arezComponent, "requireId" );</span>
+<span class="source-line-no">3204</span><span id="line-3204">    return !"DISABLE".equals( injectParameter.getSimpleName().toString() );</span>
+<span class="source-line-no">3205</span><span id="line-3205">  }</span>
+<span class="source-line-no">3206</span><span id="line-3206"></span>
+<span class="source-line-no">3207</span><span id="line-3207">  private boolean hasInjectAnnotation( @Nonnull final Element method )</span>
+<span class="source-line-no">3208</span><span id="line-3208">  {</span>
+<span class="source-line-no">3209</span><span id="line-3209">    return AnnotationsUtil.hasAnnotationOfType( method, Constants.INJECT_CLASSNAME );</span>
+<span class="source-line-no">3210</span><span id="line-3210">  }</span>
+<span class="source-line-no">3211</span><span id="line-3211"></span>
+<span class="source-line-no">3212</span><span id="line-3212">  @Nonnull</span>
+<span class="source-line-no">3213</span><span id="line-3213">  private &lt;T&gt; T getAnnotationParameter( @Nonnull final AnnotationMirror annotation,</span>
+<span class="source-line-no">3214</span><span id="line-3214">                                        @Nonnull final String parameterName )</span>
+<span class="source-line-no">3215</span><span id="line-3215">  {</span>
+<span class="source-line-no">3216</span><span id="line-3216">    return AnnotationsUtil.getAnnotationValueValue( annotation, parameterName );</span>
+<span class="source-line-no">3217</span><span id="line-3217">  }</span>
+<span class="source-line-no">3218</span><span id="line-3218"></span>
+<span class="source-line-no">3219</span><span id="line-3219">  @Nonnull</span>
+<span class="source-line-no">3220</span><span id="line-3220">  private TypeElement getDisposableTypeElement()</span>
+<span class="source-line-no">3221</span><span id="line-3221">  {</span>
+<span class="source-line-no">3222</span><span id="line-3222">    return getTypeElement( Constants.DISPOSABLE_CLASSNAME );</span>
+<span class="source-line-no">3223</span><span id="line-3223">  }</span>
+<span class="source-line-no">3224</span><span id="line-3224"></span>
+<span class="source-line-no">3225</span><span id="line-3225">  private boolean isDisposableTrackableRequired( @Nonnull final TypeElement element )</span>
+<span class="source-line-no">3226</span><span id="line-3226">  {</span>
+<span class="source-line-no">3227</span><span id="line-3227">    final String disposeNotifier =</span>
+<span class="source-line-no">3228</span><span id="line-3228">      AnnotationsUtil.getEnumAnnotationParameter( element, Constants.COMPONENT_CLASSNAME, "disposeNotifier" );</span>
+<span class="source-line-no">3229</span><span id="line-3229">    return switch ( disposeNotifier )</span>
+<span class="source-line-no">3230</span><span id="line-3230">    {</span>
+<span class="source-line-no">3231</span><span id="line-3231">      case "ENABLE" -&gt; true;</span>
+<span class="source-line-no">3232</span><span id="line-3232">      case "DISABLE" -&gt; false;</span>
+<span class="source-line-no">3233</span><span id="line-3233">      default -&gt; null == AnnotationsUtil.findAnnotationByType( element, Constants.COMPONENT_CLASSNAME ) ||</span>
+<span class="source-line-no">3234</span><span id="line-3234">                 !isService( element );</span>
+<span class="source-line-no">3235</span><span id="line-3235">    };</span>
+<span class="source-line-no">3236</span><span id="line-3236">  }</span>
+<span class="source-line-no">3237</span><span id="line-3237"></span>
+<span class="source-line-no">3238</span><span id="line-3238">  @Nonnull</span>
+<span class="source-line-no">3239</span><span id="line-3239">  private TypeElement getTypeElement( @Nonnull final String classname )</span>
+<span class="source-line-no">3240</span><span id="line-3240">  {</span>
+<span class="source-line-no">3241</span><span id="line-3241">    final TypeElement typeElement = findTypeElement( classname );</span>
+<span class="source-line-no">3242</span><span id="line-3242">    assert null != typeElement;</span>
+<span class="source-line-no">3243</span><span id="line-3243">    return typeElement;</span>
+<span class="source-line-no">3244</span><span id="line-3244">  }</span>
+<span class="source-line-no">3245</span><span id="line-3245"></span>
+<span class="source-line-no">3246</span><span id="line-3246">  @Nullable</span>
+<span class="source-line-no">3247</span><span id="line-3247">  private TypeElement findTypeElement( @Nonnull final String classname )</span>
+<span class="source-line-no">3248</span><span id="line-3248">  {</span>
+<span class="source-line-no">3249</span><span id="line-3249">    return processingEnv.getElementUtils().getTypeElement( classname );</span>
+<span class="source-line-no">3250</span><span id="line-3250">  }</span>
+<span class="source-line-no">3251</span><span id="line-3251"></span>
+<span class="source-line-no">3252</span><span id="line-3252">  private boolean isAssignable( @Nonnull final TypeMirror type, @Nonnull final TypeElement typeElement )</span>
+<span class="source-line-no">3253</span><span id="line-3253">  {</span>
+<span class="source-line-no">3254</span><span id="line-3254">    return processingEnv.getTypeUtils().isAssignable( type, typeElement.asType() );</span>
+<span class="source-line-no">3255</span><span id="line-3255">  }</span>
+<span class="source-line-no">3256</span><span id="line-3256"></span>
+<span class="source-line-no">3257</span><span id="line-3257">  private boolean isMethodAProtectedOverride( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">3258</span><span id="line-3258">                                              @Nonnull final ExecutableElement method )</span>
+<span class="source-line-no">3259</span><span id="line-3259">  {</span>
+<span class="source-line-no">3260</span><span id="line-3260">    final ExecutableElement overriddenMethod = ElementsUtil.getOverriddenMethod( processingEnv, typeElement, method );</span>
+<span class="source-line-no">3261</span><span id="line-3261">    return null != overriddenMethod &amp;&amp; overriddenMethod.getModifiers().contains( Modifier.PROTECTED );</span>
+<span class="source-line-no">3262</span><span id="line-3262">  }</span>
+<span class="source-line-no">3263</span><span id="line-3263"></span>
+<span class="source-line-no">3264</span><span id="line-3264">  private void mustBeStandardRefMethod( @Nonnull final ProcessingEnvironment processingEnv,</span>
+<span class="source-line-no">3265</span><span id="line-3265">                                        @Nonnull final ComponentDescriptor descriptor,</span>
+<span class="source-line-no">3266</span><span id="line-3266">                                        @Nonnull final ExecutableElement method,</span>
+<span class="source-line-no">3267</span><span id="line-3267">                                        @Nonnull final String annotationClassname )</span>
+<span class="source-line-no">3268</span><span id="line-3268">  {</span>
+<span class="source-line-no">3269</span><span id="line-3269">    mustBeRefMethod( descriptor, method, annotationClassname );</span>
+<span class="source-line-no">3270</span><span id="line-3270">    MemberChecks.mustNotHaveAnyParameters( annotationClassname, method );</span>
+<span class="source-line-no">3271</span><span id="line-3271">    shouldBeInternalRefMethod( processingEnv, descriptor, method, annotationClassname );</span>
+<span class="source-line-no">3272</span><span id="line-3272">  }</span>
+<span class="source-line-no">3273</span><span id="line-3273"></span>
+<span class="source-line-no">3274</span><span id="line-3274">  private void mustBeRefMethod( @Nonnull final ComponentDescriptor descriptor,</span>
+<span class="source-line-no">3275</span><span id="line-3275">                                @Nonnull final ExecutableElement method,</span>
+<span class="source-line-no">3276</span><span id="line-3276">                                @Nonnull final String annotationClassname )</span>
+<span class="source-line-no">3277</span><span id="line-3277">  {</span>
+<span class="source-line-no">3278</span><span id="line-3278">    MemberChecks.mustBeAbstract( annotationClassname, method );</span>
+<span class="source-line-no">3279</span><span id="line-3279">    final TypeElement typeElement = descriptor.getElement();</span>
+<span class="source-line-no">3280</span><span id="line-3280">    MemberChecks.mustNotBePackageAccessInDifferentPackage( typeElement,</span>
+<span class="source-line-no">3281</span><span id="line-3281">                                                           Constants.COMPONENT_CLASSNAME,</span>
+<span class="source-line-no">3282</span><span id="line-3282">                                                           annotationClassname,</span>
+<span class="source-line-no">3283</span><span id="line-3283">                                                           method );</span>
+<span class="source-line-no">3284</span><span id="line-3284">    MemberChecks.mustReturnAValue( annotationClassname, method );</span>
+<span class="source-line-no">3285</span><span id="line-3285">    MemberChecks.mustNotThrowAnyExceptions( annotationClassname, method );</span>
+<span class="source-line-no">3286</span><span id="line-3286">  }</span>
+<span class="source-line-no">3287</span><span id="line-3287"></span>
+<span class="source-line-no">3288</span><span id="line-3288">  private void mustBeHookHook( @Nonnull final TypeElement targetType,</span>
+<span class="source-line-no">3289</span><span id="line-3289">                               @Nonnull final String annotationName,</span>
+<span class="source-line-no">3290</span><span id="line-3290">                               @Nonnull final ExecutableElement method )</span>
+<span class="source-line-no">3291</span><span id="line-3291">    throws ProcessorException</span>
+<span class="source-line-no">3292</span><span id="line-3292">  {</span>
+<span class="source-line-no">3293</span><span id="line-3293">    MemberChecks.mustNotBeAbstract( annotationName, method );</span>
+<span class="source-line-no">3294</span><span id="line-3294">    MemberChecks.mustBeSubclassCallable( targetType, Constants.COMPONENT_CLASSNAME, annotationName, method );</span>
+<span class="source-line-no">3295</span><span id="line-3295">    MemberChecks.mustNotReturnAnyValue( annotationName, method );</span>
+<span class="source-line-no">3296</span><span id="line-3296">    MemberChecks.mustNotThrowAnyExceptions( annotationName, method );</span>
+<span class="source-line-no">3297</span><span id="line-3297">  }</span>
+<span class="source-line-no">3298</span><span id="line-3298"></span>
+<span class="source-line-no">3299</span><span id="line-3299">  private void shouldBeInternalRefMethod( @Nonnull final ProcessingEnvironment processingEnv,</span>
+<span class="source-line-no">3300</span><span id="line-3300">                                          @Nonnull final ComponentDescriptor descriptor,</span>
+<span class="source-line-no">3301</span><span id="line-3301">                                          @Nonnull final ExecutableElement method,</span>
+<span class="source-line-no">3302</span><span id="line-3302">                                          @Nonnull final String annotationClassname )</span>
+<span class="source-line-no">3303</span><span id="line-3303">  {</span>
+<span class="source-line-no">3304</span><span id="line-3304">    if ( MemberChecks.doesMethodNotOverrideInterfaceMethod( processingEnv, descriptor.getElement(), method ) )</span>
+<span class="source-line-no">3305</span><span id="line-3305">    {</span>
+<span class="source-line-no">3306</span><span id="line-3306">      MemberChecks.shouldNotBePublic( processingEnv,</span>
+<span class="source-line-no">3307</span><span id="line-3307">                                      method,</span>
+<span class="source-line-no">3308</span><span id="line-3308">                                      annotationClassname,</span>
+<span class="source-line-no">3309</span><span id="line-3309">                                      Constants.WARNING_PUBLIC_REF_METHOD,</span>
+<span class="source-line-no">3310</span><span id="line-3310">                                      Constants.SUPPRESS_AREZ_WARNINGS_CLASSNAME );</span>
+<span class="source-line-no">3311</span><span id="line-3311">    }</span>
+<span class="source-line-no">3312</span><span id="line-3312">  }</span>
+<span class="source-line-no">3313</span><span id="line-3313"></span>
+<span class="source-line-no">3314</span><span id="line-3314">  private void shouldBeInternalLifecycleMethod( @Nonnull final ProcessingEnvironment processingEnv,</span>
+<span class="source-line-no">3315</span><span id="line-3315">                                                @Nonnull final ComponentDescriptor descriptor,</span>
+<span class="source-line-no">3316</span><span id="line-3316">                                                @Nonnull final ExecutableElement method,</span>
+<span class="source-line-no">3317</span><span id="line-3317">                                                @Nonnull final String annotationClassname )</span>
+<span class="source-line-no">3318</span><span id="line-3318">  {</span>
+<span class="source-line-no">3319</span><span id="line-3319">    if ( MemberChecks.doesMethodNotOverrideInterfaceMethod( processingEnv, descriptor.getElement(), method ) )</span>
+<span class="source-line-no">3320</span><span id="line-3320">    {</span>
+<span class="source-line-no">3321</span><span id="line-3321">      MemberChecks.shouldNotBePublic( processingEnv,</span>
+<span class="source-line-no">3322</span><span id="line-3322">                                      method,</span>
+<span class="source-line-no">3323</span><span id="line-3323">                                      annotationClassname,</span>
+<span class="source-line-no">3324</span><span id="line-3324">                                      Constants.WARNING_PUBLIC_LIFECYCLE_METHOD,</span>
+<span class="source-line-no">3325</span><span id="line-3325">                                      Constants.SUPPRESS_AREZ_WARNINGS_CLASSNAME );</span>
+<span class="source-line-no">3326</span><span id="line-3326">    }</span>
+<span class="source-line-no">3327</span><span id="line-3327">  }</span>
+<span class="source-line-no">3328</span><span id="line-3328"></span>
+<span class="source-line-no">3329</span><span id="line-3329">  private void shouldBeInternalHookMethod( @Nonnull final ProcessingEnvironment processingEnv,</span>
+<span class="source-line-no">3330</span><span id="line-3330">                                           @Nonnull final ComponentDescriptor descriptor,</span>
+<span class="source-line-no">3331</span><span id="line-3331">                                           @Nonnull final ExecutableElement method,</span>
+<span class="source-line-no">3332</span><span id="line-3332">                                           @Nonnull final String annotationClassname )</span>
+<span class="source-line-no">3333</span><span id="line-3333">  {</span>
+<span class="source-line-no">3334</span><span id="line-3334">    if ( MemberChecks.doesMethodNotOverrideInterfaceMethod( processingEnv, descriptor.getElement(), method ) )</span>
+<span class="source-line-no">3335</span><span id="line-3335">    {</span>
+<span class="source-line-no">3336</span><span id="line-3336">      MemberChecks.shouldNotBePublic( processingEnv,</span>
+<span class="source-line-no">3337</span><span id="line-3337">                                      method,</span>
+<span class="source-line-no">3338</span><span id="line-3338">                                      annotationClassname,</span>
+<span class="source-line-no">3339</span><span id="line-3339">                                      Constants.WARNING_PUBLIC_HOOK_METHOD,</span>
+<span class="source-line-no">3340</span><span id="line-3340">                                      Constants.SUPPRESS_AREZ_WARNINGS_CLASSNAME );</span>
+<span class="source-line-no">3341</span><span id="line-3341">    }</span>
+<span class="source-line-no">3342</span><span id="line-3342">  }</span>
+<span class="source-line-no">3343</span><span id="line-3343"></span>
+<span class="source-line-no">3344</span><span id="line-3344">  @Nullable</span>
+<span class="source-line-no">3345</span><span id="line-3345">  private String deriveName( @Nonnull final ExecutableElement method,</span>
+<span class="source-line-no">3346</span><span id="line-3346">                             @Nonnull final Pattern pattern,</span>
+<span class="source-line-no">3347</span><span id="line-3347">                             @Nonnull final String name )</span>
+<span class="source-line-no">3348</span><span id="line-3348">    throws ProcessorException</span>
+<span class="source-line-no">3349</span><span id="line-3349">  {</span>
+<span class="source-line-no">3350</span><span id="line-3350">    if ( Constants.SENTINEL.equals( name ) )</span>
+<span class="source-line-no">3351</span><span id="line-3351">    {</span>
+<span class="source-line-no">3352</span><span id="line-3352">      final String methodName = method.getSimpleName().toString();</span>
+<span class="source-line-no">3353</span><span id="line-3353">      final Matcher matcher = pattern.matcher( methodName );</span>
+<span class="source-line-no">3354</span><span id="line-3354">      if ( matcher.find() )</span>
+<span class="source-line-no">3355</span><span id="line-3355">      {</span>
+<span class="source-line-no">3356</span><span id="line-3356">        final String candidate = matcher.group( 1 );</span>
+<span class="source-line-no">3357</span><span id="line-3357">        return firstCharacterToLowerCase( candidate );</span>
+<span class="source-line-no">3358</span><span id="line-3358">      }</span>
+<span class="source-line-no">3359</span><span id="line-3359">      else</span>
+<span class="source-line-no">3360</span><span id="line-3360">      {</span>
+<span class="source-line-no">3361</span><span id="line-3361">        return null;</span>
+<span class="source-line-no">3362</span><span id="line-3362">      }</span>
+<span class="source-line-no">3363</span><span id="line-3363">    }</span>
+<span class="source-line-no">3364</span><span id="line-3364">    else</span>
+<span class="source-line-no">3365</span><span id="line-3365">    {</span>
+<span class="source-line-no">3366</span><span id="line-3366">      return name;</span>
+<span class="source-line-no">3367</span><span id="line-3367">    }</span>
+<span class="source-line-no">3368</span><span id="line-3368">  }</span>
+<span class="source-line-no">3369</span><span id="line-3369"></span>
+<span class="source-line-no">3370</span><span id="line-3370">  @Nonnull</span>
+<span class="source-line-no">3371</span><span id="line-3371">  private String firstCharacterToLowerCase( @Nonnull final String name )</span>
+<span class="source-line-no">3372</span><span id="line-3372">  {</span>
+<span class="source-line-no">3373</span><span id="line-3373">    return Character.toLowerCase( name.charAt( 0 ) ) + name.substring( 1 );</span>
+<span class="source-line-no">3374</span><span id="line-3374">  }</span>
+<span class="source-line-no">3375</span><span id="line-3375">}</span>
 
 
 
