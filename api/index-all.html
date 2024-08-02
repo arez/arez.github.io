@@ -155,6 +155,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Return true if the component does not need to explicitly declare elements.</div>
 </dd>
+<dt><a href="arez/annotations/MemoizeContextParameter.html#allowEmpty()" class="member-name-link">allowEmpty()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/MemoizeContextParameter.html" title="annotation interface in arez.annotations">MemoizeContextParameter</a></dt>
+<dd>
+<div class="block">Return true if the component does not need to have <a href="arez/annotations/Memoize.html" title="annotation interface in arez.annotations"><code>Memoize</code></a> annotated methods match.</div>
+</dd>
 <dt><a href="arez/Arez.html#areCollectionsPropertiesUnmodifiable()" class="member-name-link">areCollectionsPropertiesUnmodifiable()</a> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
 <div class="block">Return true if observable properties, computable properties or query results that are of type collection are wrapped in unmodifiable variant prior to returning.</div>
@@ -1809,6 +1813,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Functional interface for calculating memoizable value.</div>
 </dd>
+<dt><a href="arez/annotations/MemoizeContextParameter.html" class="type-name-link" title="annotation interface in arez.annotations">MemoizeContextParameter</a> - Annotation Interface in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
+<dd>
+<div class="block">Annotation applied to methods that define a single "contextual" parameter to one or more <a href="arez/annotations/Memoize.html" title="annotation interface in arez.annotations"><code>Memoize</code></a>
+ annotated methods.</div>
+</dd>
 <dt><a href="arez/annotations/Multiplicity.html" class="type-name-link" title="enum class in arez.annotations">Multiplicity</a> - Enum Class in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Defines the multiplicity of the <a href="arez/annotations/Inverse.html" title="annotation interface in arez.annotations"><code>Inverse</code></a> relationship for <a href="arez/annotations/Reference.html" title="annotation interface in arez.annotations"><code>Reference</code></a>.</div>
@@ -1843,6 +1852,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="arez/annotations/Memoize.html#name()" class="member-name-link">name()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/Memoize.html" title="annotation interface in arez.annotations">Memoize</a></dt>
 <dd>
 <div class="block">Return the root name of the element value relative to the component.</div>
+</dd>
+<dt><a href="arez/annotations/MemoizeContextParameter.html#name()" class="member-name-link">name()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/MemoizeContextParameter.html" title="annotation interface in arez.annotations">MemoizeContextParameter</a></dt>
+<dd>
+<div class="block">Return the name of the context parameter.</div>
 </dd>
 <dt><a href="arez/annotations/Observable.html#name()" class="member-name-link">name()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/Observable.html" title="annotation interface in arez.annotations">Observable</a></dt>
 <dd>
@@ -2258,6 +2271,10 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:P">P</h2>
 <dl class="index">
+<dt><a href="arez/annotations/MemoizeContextParameter.html#pattern()" class="member-name-link">pattern()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/MemoizeContextParameter.html" title="annotation interface in arez.annotations">MemoizeContextParameter</a></dt>
+<dd>
+<div class="block">Return a regular expression for matching the arez names of memoized methods where this context parameter is tracked.</div>
+</dd>
 <dt><a href="arez/ArezContext.html#pauseScheduler()" class="member-name-link">pauseScheduler()</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Pause scheduler so that it will not run any reactions next time <a href="arez/ArezContext.html#triggerScheduler()"><code>ArezContext.triggerScheduler()</code></a> is invoked.</div>
