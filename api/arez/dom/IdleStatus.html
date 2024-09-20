@@ -76,7 +76,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations"><a href="../annotations/ArezComponent.html" title="annotation interface in arez.annotations">@ArezComponent</a>(<a href="../annotations/ArezComponent.html#requireId()">requireId</a>=<a href="../annotations/Feature.html#DISABLE">DISABLE</a>)
-</span><span class="modifiers">public abstract class </span><span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-60">IdleStatus</a></span>
+</span><span class="modifiers">public abstract class </span><span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-64">IdleStatus</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">An Arez browser component that tracks when the user is idle. A user is considered idle if they have not
  interacted with the browser for a specified amount of time. The component declares state that tracks when
@@ -189,7 +189,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="create()">
 <h3>create</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="IdleStatus.html" title="class in arez.dom">IdleStatus</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-85">create</a></span>()</div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="IdleStatus.html" title="class in arez.dom">IdleStatus</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-89">create</a></span>()</div>
 <div class="block">Create an instance of this model.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -200,7 +200,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="create(long)">
 <h3>create</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="IdleStatus.html" title="class in arez.dom">IdleStatus</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-97">create</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="IdleStatus.html" title="class in arez.dom">IdleStatus</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-101">create</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span></div>
 <div class="block">Create an instance of this model.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -214,7 +214,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="isIdle()">
 <h3>isIdle</h3>
 <div class="member-signature"><span class="annotations"><a href="../annotations/Memoize.html" title="annotation interface in arez.annotations">@Memoize</a>
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-124">isIdle</a></span>()</div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-131">isIdle</a></span>()</div>
 <div class="block">Return true if the user is idle.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -226,7 +226,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getTimeout()">
 <h3>getTimeout</h3>
 <div class="member-signature"><span class="annotations"><a href="../annotations/Observable.html" title="annotation interface in arez.annotations">@Observable</a>(<a href="../annotations/Observable.html#initializer()">initializer</a>=<a href="../annotations/Feature.html#ENABLE">ENABLE</a>)
-</span><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-176">getTimeout</a></span>()</div>
+</span><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-183">getTimeout</a></span>()</div>
 <div class="block">Return the duration for which no events should be received for the idle condition to be triggered.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -237,7 +237,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setTimeout(long)">
 <h3>setTimeout</h3>
-<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-184">setTimeout</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span></div>
+<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-191">setTimeout</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span></div>
 <div class="block">Set the timeout.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -249,7 +249,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getEvents()">
 <h3>getEvents</h3>
 <div class="member-signature"><span class="annotations">@Nonnull <a href="../annotations/Observable.html" title="annotation interface in arez.annotations">@Observable</a>
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-191">getEvents</a></span>()</div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-198">getEvents</a></span>()</div>
 <div class="block">Return the set of events to listen to.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -260,7 +260,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setEvents(java.util.Set)">
 <h3>setEvents</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-204">setEvents</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;events)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-211">setEvents</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;events)</span></div>
 <div class="block">Specify the set of events to listen to.
  If the model is already active, the listeners will be updated to reflect the new events.</div>
 <dl class="notes">
@@ -273,7 +273,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getLastActivityAt()">
 <h3>getLastActivityAt</h3>
 <div class="member-signature"><span class="annotations"><a href="../annotations/Observable.html" title="annotation interface in arez.annotations">@Observable</a>
-</span><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-234">getLastActivityAt</a></span>()</div>
+</span><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/dom/IdleStatus.html#line-241">getLastActivityAt</a></span>()</div>
 <div class="block">Return the time at which the last monitored event was received.</div>
 <dl class="notes">
 <dt>Returns:</dt>

@@ -393,7 +393,7 @@
 <span class="source-line-no">380</span><span id="line-380">      PRIORITY_MASK | RUN_TYPE_MASK | DISPOSE_ON_COMPLETE | NO_REGISTER_TASK | NO_WRAP_TASK;</span>
 <span class="source-line-no">381</span><span id="line-381">    /**</span>
 <span class="source-line-no">382</span><span id="line-382">     * Mask containing flags that can be applied to a task representing an observer.</span>
-<span class="source-line-no">383</span><span id="line-383">     * This omits DISPOSE_ON_COMPLETE as observer is responsible for disposing task</span>
+<span class="source-line-no">383</span><span id="line-383">     * This omits the flag DISPOSE_ON_COMPLETE as the observer is responsible for disposing the task.</span>
 <span class="source-line-no">384</span><span id="line-384">     */</span>
 <span class="source-line-no">385</span><span id="line-385">    static final int OBSERVER_TASK_FLAGS_MASK = PRIORITY_MASK | RUN_TYPE_MASK;</span>
 <span class="source-line-no">386</span><span id="line-386">    /**</span>
