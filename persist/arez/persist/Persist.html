@@ -88,8 +88,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Return the name used to persist the property.</div>
 </div>
 <div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#store()" class="member-name-link">store</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#setterName()" class="member-name-link">setterName</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">Return the name of the setter.</div>
+</div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#store()" class="member-name-link">store</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">The key identifying the store where the observable data is stored.</div>
 </div>
 </div>
@@ -135,6 +140,24 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the key identifying the store where the observable data is stored.</dd>
+</dl>
+<dl class="notes">
+<dt>Default:</dt>
+<dd>"&lt;default&gt;"</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setterName()">
+<h3>setterName</h3>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/persist/Persist.html#line-47">setterName</a></span></div>
+<div class="block">Return the name of the setter.
+ If unspecified the tool assumes that the setter method is named according to javabeans setter based on the derived
+ <a href="#name()"><code>name()</code></a> of the property. So if the property is named <code>expanded</code> then the library will
+ derive a setter method named <code>setExpanded</code>.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the name of the setter used to update value when restoring from a persisted store.</dd>
 </dl>
 <dl class="notes">
 <dt>Default:</dt>

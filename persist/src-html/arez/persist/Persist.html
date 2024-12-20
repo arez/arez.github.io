@@ -48,7 +48,18 @@
 <span class="source-line-no">035</span><span id="line-35">   */</span>
 <span class="source-line-no">036</span><span id="line-36">  @Nonnull</span>
 <span class="source-line-no">037</span><span id="line-37">  String store() default "&lt;default&gt;";</span>
-<span class="source-line-no">038</span><span id="line-38">}</span>
+<span class="source-line-no">038</span><span id="line-38"></span>
+<span class="source-line-no">039</span><span id="line-39">  /**</span>
+<span class="source-line-no">040</span><span id="line-40">   * Return the name of the setter.</span>
+<span class="source-line-no">041</span><span id="line-41">   * If unspecified the tool assumes that the setter method is named according to javabeans setter based on the derived</span>
+<span class="source-line-no">042</span><span id="line-42">   * {@link #name()} of the property. So if the property is named {@code expanded} then the library will</span>
+<span class="source-line-no">043</span><span id="line-43">   * derive a setter method named {@code setExpanded}.</span>
+<span class="source-line-no">044</span><span id="line-44">   *</span>
+<span class="source-line-no">045</span><span id="line-45">   * @return the name of the setter used to update value when restoring from a persisted store.</span>
+<span class="source-line-no">046</span><span id="line-46">   */</span>
+<span class="source-line-no">047</span><span id="line-47">  @Nonnull</span>
+<span class="source-line-no">048</span><span id="line-48">  String setterName() default "&lt;default&gt;";</span>
+<span class="source-line-no">049</span><span id="line-49">}</span>
 
 
 
