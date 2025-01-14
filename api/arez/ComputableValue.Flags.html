@@ -75,7 +75,7 @@ loadScripts(document, 'script');</script>
 <dd><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;<a href="ComputableValue.html" title="type parameter in ComputableValue">T</a>&gt;</dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public static final class </span><span class="element-name"><a href="../src-html/arez/ComputableValue.html#line-598">ComputableValue.Flags</a></span>
+<div class="type-signature"><span class="modifiers">public static final class </span><span class="element-name"><a href="../src-html/arez/ComputableValue.html#line-562">ComputableValue.Flags</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Flags that can configure ComputableValue instances during creation.</div>
 </section>
@@ -93,7 +93,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#AREZ_DEPENDENCIES" class="member-name-link">AREZ_DEPENDENCIES</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Indicates that application code can not invoke <a href="ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a>
+<div class="block">Indicates that application code cannot invoke <a href="ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a>
  and the <a href="ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> is only recalculated if a dependency is updated.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
@@ -105,7 +105,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#AREZ_OR_NO_DEPENDENCIES" class="member-name-link">AREZ_OR_NO_DEPENDENCIES</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Flag set set if the application code can not invoke <a href="ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a> to
+<div class="block">Flag set if the application code cannot invoke <a href="ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate that a dependency has changed.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
@@ -156,7 +156,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#READ_OUTSIDE_TRANSACTION" class="member-name-link">READ_OUTSIDE_TRANSACTION</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Can the ComputableValue be accessed outside a transaction.</div>
+<div class="block">Flag indicating that the ComputableValue be accessed outside a transaction.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#RUN_LATER" class="member-name-link">RUN_LATER</a></code></div>
@@ -206,7 +206,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="RUN_NOW">
 <h3>RUN_NOW</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-606">RUN_NOW</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-570">RUN_NOW</a></span></div>
 <div class="block">The scheduler will be triggered when the ComputableValue is created to immediately invoke the
  compute function. This should not be specified if <a href="#RUN_LATER"><code>RUN_LATER</code></a> is specified.</div>
 <dl class="notes">
@@ -223,7 +223,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="RUN_LATER">
 <h3>RUN_LATER</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-614">RUN_LATER</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-578">RUN_LATER</a></span></div>
 <div class="block">The scheduler will not be triggered when the ComputableValue is created. The ComputableValue
  is responsible for ensuring that <a href="ArezContext.html#triggerScheduler()"><code>ArezContext.triggerScheduler()</code></a> is invoked at a later
  time. This should not be specified if <a href="#RUN_NOW"><code>RUN_NOW</code></a> is specified.</div>
@@ -241,7 +241,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="NO_REPORT_RESULT">
 <h3>NO_REPORT_RESULT</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-620">NO_REPORT_RESULT</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-584">NO_REPORT_RESULT</a></span></div>
 <div class="block">If passed, then the computable value should not report result to the spy infrastructure.</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -257,8 +257,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="AREZ_DEPENDENCIES">
 <h3>AREZ_DEPENDENCIES</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-628">AREZ_DEPENDENCIES</a></span></div>
-<div class="block">Indicates that application code can not invoke <a href="ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-592">AREZ_DEPENDENCIES</a></span></div>
+<div class="block">Indicates that application code cannot invoke <a href="ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a>
  and the <a href="ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> is only recalculated if a dependency is updated.</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -275,8 +275,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="AREZ_OR_NO_DEPENDENCIES">
 <h3>AREZ_OR_NO_DEPENDENCIES</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-636">AREZ_OR_NO_DEPENDENCIES</a></span></div>
-<div class="block">Flag set set if the application code can not invoke <a href="ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a> to
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-600">AREZ_OR_NO_DEPENDENCIES</a></span></div>
+<div class="block">Flag set if the application code cannot invoke <a href="ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate that a dependency has changed.</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -293,7 +293,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="AREZ_OR_EXTERNAL_DEPENDENCIES">
 <h3>AREZ_OR_EXTERNAL_DEPENDENCIES</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-644">AREZ_OR_EXTERNAL_DEPENDENCIES</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-608">AREZ_OR_EXTERNAL_DEPENDENCIES</a></span></div>
 <div class="block">Indicates that application code can invoke <a href="ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate some dependency has changed and that the <a href="ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> should recompute.</div>
 <dl class="notes">
@@ -311,7 +311,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="OBSERVE_LOWER_PRIORITY_DEPENDENCIES">
 <h3>OBSERVE_LOWER_PRIORITY_DEPENDENCIES</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-650">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-614">OBSERVE_LOWER_PRIORITY_DEPENDENCIES</a></span></div>
 <div class="block">Flag indicating that the ComputableValue is allowed to observe <a href="ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances with a lower priority.</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -327,7 +327,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="KEEPALIVE">
 <h3>KEEPALIVE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-656">KEEPALIVE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-620">KEEPALIVE</a></span></div>
 <div class="block">The runtime will keep the ComputableValue reacting to dependencies until disposed.</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -343,7 +343,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="PRIORITY_HIGHEST">
 <h3>PRIORITY_HIGHEST</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-667">PRIORITY_HIGHEST</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-631">PRIORITY_HIGHEST</a></span></div>
 <div class="block">Highest priority.
  This priority should be used when the ComputableValue will dispose or release other reactive elements
  (and thus remove elements from being scheduled).
@@ -364,7 +364,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="PRIORITY_HIGH">
 <h3>PRIORITY_HIGH</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-679">PRIORITY_HIGH</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-643">PRIORITY_HIGH</a></span></div>
 <div class="block">High priority.
  To reduce the chance that downstream elements will react multiple times within a single
  reaction round, this priority should be used when the ComputableValue may trigger many downstream
@@ -386,7 +386,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="PRIORITY_NORMAL">
 <h3>PRIORITY_NORMAL</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-688">PRIORITY_NORMAL</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-652">PRIORITY_NORMAL</a></span></div>
 <div class="block">Normal priority if no other priority otherwise specified.
  <p>Only one of the PRIORITY_* flags should be applied to ComputableValue.</p></div>
 <dl class="notes">
@@ -405,11 +405,11 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="PRIORITY_LOW">
 <h3>PRIORITY_LOW</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-702">PRIORITY_LOW</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-666">PRIORITY_LOW</a></span></div>
 <div class="block">Low priority.
  Usually used to schedule ComputableValues that support reflecting state onto non-reactive
- application components. i.e. ComputableValue that are used to build html views,
- perform network operations etc. These ComputableValues are often at low priority
+ application components. i.e., ComputableValue that are used to build html views,
+ perform network operations, etc. These ComputableValues are often at low priority
  to avoid recalculation of dependencies (i.e. <a href="ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>s) triggering
  this ComputableValue multiple times within a single reaction round.
  <p>Only one of the PRIORITY_* flags should be applied to ComputableValue.</p></div>
@@ -429,10 +429,10 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="PRIORITY_LOWEST">
 <h3>PRIORITY_LOWEST</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-713">PRIORITY_LOWEST</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-677">PRIORITY_LOWEST</a></span></div>
 <div class="block">Lowest priority. Use this priority if the ComputableValue may be unobserved when
- a <a href="#PRIORITY_LOW"><code>PRIORITY_LOW</code></a> element reacts. This is used to avoid recomputing state that is
- likely to either be unobserved or recomputed as part of another elements reaction.
+ a <a href="#PRIORITY_LOW"><code>PRIORITY_LOW</code></a> element reacts. This is used to avoid recomputing state, that is
+ likely to either be unobserved or recomputed as part of another element's reaction.
  <p>Only one of the PRIORITY_* flags should be applied to ComputableValue.</p></div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -450,7 +450,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="PRIORITY_MASK">
 <h3>PRIORITY_MASK</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-717">PRIORITY_MASK</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-681">PRIORITY_MASK</a></span></div>
 <div class="block">Mask used to extract priority bits.</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -465,8 +465,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="READ_OUTSIDE_TRANSACTION">
 <h3>READ_OUTSIDE_TRANSACTION</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-721">READ_OUTSIDE_TRANSACTION</a></span></div>
-<div class="block">Can the ComputableValue be accessed outside a transaction.</div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-685">READ_OUTSIDE_TRANSACTION</a></span></div>
+<div class="block">Flag indicating that the ComputableValue be accessed outside a transaction.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -488,7 +488,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>Flags</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-598">Flags</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ComputableValue.Flags.html#line-562">Flags</a></span>()</div>
 </section>
 </li>
 </ul>

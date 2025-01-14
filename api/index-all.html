@@ -205,7 +205,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/ComputableValue.Flags.html#AREZ_DEPENDENCIES" class="member-name-link">AREZ_DEPENDENCIES</a> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
-<div class="block">Indicates that application code can not invoke <a href="arez/ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a>
+<div class="block">Indicates that application code cannot invoke <a href="arez/ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a>
  and the <a href="arez/ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> is only recalculated if a dependency is updated.</div>
 </dd>
 <dt><a href="arez/Observer.Flags.html#AREZ_DEPENDENCIES" class="member-name-link">AREZ_DEPENDENCIES</a> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
@@ -228,7 +228,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/ComputableValue.Flags.html#AREZ_OR_NO_DEPENDENCIES" class="member-name-link">AREZ_OR_NO_DEPENDENCIES</a> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
-<div class="block">Flag set set if the application code can not invoke <a href="arez/ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a> to
+<div class="block">Flag set if the application code cannot invoke <a href="arez/ComputableValue.html#reportPossiblyChanged()"><code>ComputableValue.reportPossiblyChanged()</code></a> to
  indicate that a dependency has changed.</div>
 </dd>
 <dt><a href="arez/Observer.Flags.html#AREZ_OR_NO_DEPENDENCIES" class="member-name-link">AREZ_OR_NO_DEPENDENCIES</a> - Static variable in class arez.<a href="arez/Observer.Flags.html" title="class in arez">Observer.Flags</a></dt>
@@ -537,14 +537,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
-<dt><a href="arez/ArezContext.html#computable(arez.Component,java.lang.String,arez.SafeFunction,arez.Procedure,arez.Procedure)" class="member-name-link">computable(Component, String, SafeFunction&lt;T&gt;, Procedure, Procedure)</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><a href="arez/ArezContext.html#computable(arez.Component,java.lang.String,arez.SafeFunction,arez.Procedure,arez.Procedure,int)" class="member-name-link">computable(Component, String, SafeFunction&lt;T&gt;, Procedure, Procedure, int)</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
 <dt><a href="arez/ArezContext.html#computable(arez.SafeFunction)" class="member-name-link">computable(SafeFunction&lt;T&gt;)</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Create a ComputableValue with specified parameters.</div>
@@ -558,14 +550,6 @@ loadScripts(document, 'script');</script>
 <div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
 <dt><a href="arez/ArezContext.html#computable(java.lang.String,arez.SafeFunction,int)" class="member-name-link">computable(String, SafeFunction&lt;T&gt;, int)</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><a href="arez/ArezContext.html#computable(java.lang.String,arez.SafeFunction,arez.Procedure,arez.Procedure)" class="member-name-link">computable(String, SafeFunction&lt;T&gt;, Procedure, Procedure)</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
-<dd>
-<div class="block">Create a ComputableValue with specified parameters.</div>
-</dd>
-<dt><a href="arez/ArezContext.html#computable(java.lang.String,arez.SafeFunction,arez.Procedure,arez.Procedure,int)" class="member-name-link">computable(String, SafeFunction&lt;T&gt;, Procedure, Procedure, int)</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
@@ -1456,6 +1440,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Highest priority.</div>
 </dd>
+<dt><a href="arez/Hook.html" class="type-name-link" title="class in arez">Hook</a> - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">Hook that can be registered for the current observer.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:I">I</h2>
 <dl class="index">
@@ -1803,7 +1791,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/component/internal/MemoizeCache.html" class="type-name-link" title="class in arez.component.internal">MemoizeCache</a>&lt;<a href="arez/component/internal/MemoizeCache.html" title="type parameter in MemoizeCache">T</a>&gt; - Class in <a href="arez/component/internal/package-summary.html">arez.component.internal</a></dt>
 <dd>
-<div class="block">The class responsible for caching</div>
+<div class="block">The class responsible for caching ComputableValue instances for different input parameters.</div>
 </dd>
 <dt><a href="arez/component/internal/MemoizeCache.html#%3Cinit%3E(arez.ArezContext,arez.Component,java.lang.String,arez.component.internal.MemoizeCache.Function,int)" class="member-name-link">MemoizeCache(ArezContext, Component, String, MemoizeCache.Function&lt;T&gt;, int)</a> - Constructor for class arez.component.internal.<a href="arez/component/internal/MemoizeCache.html" title="class in arez.component.internal">MemoizeCache</a></dt>
 <dd>
@@ -2466,7 +2454,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/ComputableValue.Flags.html#READ_OUTSIDE_TRANSACTION" class="member-name-link">READ_OUTSIDE_TRANSACTION</a> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
-<div class="block">Can the ComputableValue be accessed outside a transaction.</div>
+<div class="block">Flag indicating that the ComputableValue be accessed outside a transaction.</div>
 </dd>
 <dt><a href="arez/ActionFlags.html#READ_WRITE" class="member-name-link">READ_WRITE</a> - Static variable in class arez.<a href="arez/ActionFlags.html" title="class in arez">ActionFlags</a></dt>
 <dd>
@@ -2499,6 +2487,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="arez/annotations/Inverse.html#referenceName()" class="member-name-link">referenceName()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/Inverse.html" title="annotation interface in arez.annotations">Inverse</a></dt>
 <dd>
 <div class="block">Return the name of the reference that the inverse is associated with.</div>
+</dd>
+<dt><a href="arez/ArezContext.html#registerHook(java.lang.String,arez.Procedure,arez.Procedure)" class="member-name-link">registerHook(String, Procedure, Procedure)</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Register a hook for the current ComputedValue or Observer.</div>
 </dd>
 <dt><a href="arez/ArezContext.html#registerLocator(arez.Locator)" class="member-name-link">registerLocator(Locator)</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>

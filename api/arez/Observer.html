@@ -81,7 +81,7 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="Disposable.html" title="interface in arez">Disposable</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public final class </span><span class="element-name"><a href="../src-html/arez/Observer.html#line-23">Observer</a></span>
+<div class="type-signature"><span class="modifiers">public final class </span><span class="element-name"><a href="../src-html/arez/Observer.html#line-25">Observer</a></span>
 <span class="extends-implements">extends <a href="Node.html" title="class in arez">Node</a></span></div>
 <div class="block">A node within Arez that is notified of changes in 0 or more Observables.</div>
 </section>
@@ -160,7 +160,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="dispose()">
 <h3>dispose</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Observer.html#line-281">dispose</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Observer.html#line-291">dispose</a></span>()</div>
 <div class="block">Make the Observer INACTIVE and release any resources associated with observer.
  The applications should NOT interact with the Observer after it has been disposed.</div>
 </section>
@@ -168,7 +168,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isDisposed()">
 <h3>isDisposed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Observer.html#line-325">isDisposed</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Observer.html#line-335">isDisposed</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Disposable.html#isDisposed()">Disposable</a></code></span></div>
 <div class="block">Return true if dispose() has been called on object.</div>
 <dl class="notes">
@@ -180,7 +180,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="reportStale()">
 <h3>reportStale</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Observer.html#line-405">reportStale</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Observer.html#line-415">reportStale</a></span>()</div>
 <div class="block">This method should be invoked if the observer has non-arez dependencies and one of
  these dependencies has been updated. This will mark the observer as stale and reschedule
  the reaction if necessary. The method must be invoked from within a read-write transaction.
@@ -190,7 +190,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="schedule()">
 <h3>schedule</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Observer.html#line-557">schedule</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Observer.html#line-565">schedule</a></span>()</div>
 <div class="block">Schedule this observer if it does not already have a reaction pending.
  The observer will not actually react if it is not already marked as STALE.</div>
 </section>

@@ -277,7 +277,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="&lt;init&gt;(arez.ArezContext,java.lang.String,int,arez.Component,arez.SafeProcedure,arez.SafeProcedure,arez.SafeProcedure,boolean,boolean,boolean)">
 <h3>ComponentKernel</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-147">ComponentKernel</a></span><wbr><span class="parameters">(@Nullable <a href="../../ArezContext.html" title="class in arez">ArezContext</a>&nbsp;context,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-151">ComponentKernel</a></span><wbr><span class="parameters">(@Nullable <a href="../../ArezContext.html" title="class in arez">ArezContext</a>&nbsp;context,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  int&nbsp;id,
  @Nullable <a href="../../Component.html" title="class in arez">Component</a>&nbsp;component,
@@ -300,7 +300,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="observe()">
 <h3>observe</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-230">observe</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-233">observe</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../ComponentObservable.html#observe()">ComponentObservable</a></code></span></div>
 <div class="block">Return true if the component is "alive" a.k.a. not disposing or disposed.
  This method MUST be invoked within a non-DISPOSE transaction and will add
@@ -317,7 +317,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="dispose()">
 <h3>dispose</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-263">dispose</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-271">dispose</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../Disposable.html#dispose()">Disposable</a></code></span></div>
 <div class="block">Dispose the element. See <a href="../../Disposable.html" title="interface in arez"><code>Disposable</code></a> for a description of the implications.</div>
 <dl class="notes">
@@ -329,7 +329,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="isDisposed()">
 <h3>isDisposed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-304">isDisposed</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-312">isDisposed</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../Disposable.html#isDisposed()">Disposable</a></code></span></div>
 <div class="block">Return true if dispose() has been called on object.</div>
 <dl class="notes">
@@ -343,7 +343,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="notifyOnDisposeListeners()">
 <h3>notifyOnDisposeListeners</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-329">notifyOnDisposeListeners</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-337">notifyOnDisposeListeners</a></span>()</div>
 <div class="block">Notify an OnDispose listeners that have been added to the component.
  This method MUST only be called if the component has enabled onDisposeNotify feature.</div>
 </section>
@@ -351,7 +351,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="hasBeenInitialized()">
 <h3>hasBeenInitialized</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-354">hasBeenInitialized</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-362">hasBeenInitialized</a></span>()</div>
 <div class="block">Return true if the component has been initialized.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -362,7 +362,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="hasBeenConstructed()">
 <h3>hasBeenConstructed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-365">hasBeenConstructed</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-373">hasBeenConstructed</a></span>()</div>
 <div class="block">Return true if the component has been constructed.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -373,7 +373,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="hasBeenCompleted()">
 <h3>hasBeenCompleted</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-376">hasBeenCompleted</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-384">hasBeenCompleted</a></span>()</div>
 <div class="block">Return true if the component has been completed.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -384,7 +384,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="isConstructed()">
 <h3>isConstructed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-387">isConstructed</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-395">isConstructed</a></span>()</div>
 <div class="block">Return true if the component is in COMPONENT_CONSTRUCTED state.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -395,7 +395,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="isComplete()">
 <h3>isComplete</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-397">isComplete</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-405">isComplete</a></span>()</div>
 <div class="block">Return true if the component is in COMPONENT_COMPLETE state.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -406,7 +406,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="isReady()">
 <h3>isReady</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-407">isReady</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-415">isReady</a></span>()</div>
 <div class="block">Return true if the component is ready.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -417,7 +417,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="isNotReady()">
 <h3>isNotReady</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-417">isNotReady</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-425">isNotReady</a></span>()</div>
 <div class="block">Return true if the component is NOT ready.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -428,7 +428,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="isDisposing()">
 <h3>isDisposing</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-427">isDisposing</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-435">isDisposing</a></span>()</div>
 <div class="block">Return true if the component is disposing.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -439,7 +439,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="isActive()">
 <h3>isActive</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-438">isActive</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-446">isActive</a></span>()</div>
 <div class="block">Return true if the component is active and can be interacted with.
  This means that the component has been constructed and has not started to be disposed.</div>
 <dl class="notes">
@@ -451,7 +451,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="describeState()">
 <h3>describeState</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-449">describeState</a></span>()</div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-457">describeState</a></span>()</div>
 <div class="block">Describe component state. This is usually used to provide error messages.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -462,14 +462,14 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="componentConstructed()">
 <h3>componentConstructed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-482">componentConstructed</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-490">componentConstructed</a></span>()</div>
 <div class="block">Transition component state from <code>COMPONENT_INITIALIZED</code> to <code>COMPONENT_CONSTRUCTED</code>.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="componentComplete()">
 <h3>componentComplete</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-500">componentComplete</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-508">componentComplete</a></span>()</div>
 <div class="block">Transition component state from <code>COMPONENT_INITIALIZED</code> to
  <code>COMPONENT_CONSTRUCTED</code> and then to <code>COMPONENT_READY</code>.
  This should only be called if there is active elements that are part of the component that need to be scheduled,
@@ -479,7 +479,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="componentReady()">
 <h3>componentReady</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-521">componentReady</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-529">componentReady</a></span>()</div>
 <div class="block">Transition component state from <code>COMPONENT_CONSTRUCTED</code> to <code>COMPONENT_READY</code>.
  This should be invoked rather than <a href="#componentComplete()"><code>componentComplete()</code></a> if there is no active elements of the component that
  need to be scheduled.</div>
@@ -488,7 +488,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="getContext()">
 <h3>getContext</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../ArezContext.html" title="class in arez">ArezContext</a></span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-556">getContext</a></span>()</div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../ArezContext.html" title="class in arez">ArezContext</a></span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-564">getContext</a></span>()</div>
 <div class="block">Return the context in which this component was created.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -499,7 +499,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="safeSetObservable(java.lang.String,arez.SafeProcedure)">
 <h3>safeSetObservable</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-569">safeSetObservable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-577">safeSetObservable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="../../SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;setter)</span></div>
 <div class="block">Invoke the setter in a transaction.
  If a transaction is active then invoke the setter directly, otherwise wrap the setter in an action.</div>
@@ -513,7 +513,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="setObservable(java.lang.String,arez.Procedure)">
 <h3>setObservable</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-589">setObservable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-597">setObservable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="../../Procedure.html" title="interface in arez">Procedure</a>&nbsp;setter)</span>
                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
 <div class="block">Invoke the setter in a transaction.
@@ -530,7 +530,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="getName()">
 <h3>getName</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-609">getName</a></span>()</div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-617">getName</a></span>()</div>
 <div class="block">Return the name of the component.
  This method should NOT be invoked unless <a href="../../Arez.html#areNamesEnabled()"><code>Arez.areNamesEnabled()</code></a> returns true and will throw an
  exception if invariant checking is enabled.</div>
@@ -543,7 +543,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="getId()">
 <h3>getId</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-628">getId</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-636">getId</a></span>()</div>
 <div class="block">Return the synthetic id associated with the component.
  This method MUST NOT be invoked if a synthetic id is not present and will generate an invariant failure
  when invariants are enabled.</div>
@@ -557,7 +557,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <section class="detail" id="getComponent()">
 <h3>getComponent</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_native_components")
-@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../Component.html" title="class in arez">Component</a></span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-645">getComponent</a></span>()</div>
+@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../Component.html" title="class in arez">Component</a></span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-653">getComponent</a></span>()</div>
 <div class="block">Return the native component associated with the component.
  This method MUST NOT be invoked if native components are disabled.</div>
 <dl class="notes">
@@ -569,7 +569,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="addOnDisposeListener(java.lang.Object,arez.SafeProcedure)">
 <h3>addOnDisposeListener</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-672">addOnDisposeListener</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-680">addOnDisposeListener</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
  @Nonnull <a href="../../SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action)</span></div>
 <div class="block">Add the listener to notify list under key.
  This method MUST NOT be invoked after <a href="#dispose()"><code>dispose()</code></a> has been invoked.
@@ -589,7 +589,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="removeOnDisposeListener(java.lang.Object)">
 <h3>removeOnDisposeListener</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-694">removeOnDisposeListener</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-702">removeOnDisposeListener</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key)</span></div>
 <div class="block">Remove the listener with specified key from the notify list.
  This method should only be invoked when a listener has been added for specific key using
  <a href="#addOnDisposeListener(java.lang.Object,arez.SafeProcedure)"><code>addOnDisposeListener(Object, SafeProcedure)</code></a> and has not been removed by another
@@ -603,7 +603,7 @@ implements <a href="../../Disposable.html" title="interface in arez">Disposable<
 <li>
 <section class="detail" id="toString()">
 <h3>toString</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-722">toString</a></span>()</div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../src-html/arez/component/internal/ComponentKernel.html#line-730">toString</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
