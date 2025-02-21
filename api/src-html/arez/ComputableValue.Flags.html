@@ -447,7 +447,7 @@
 <span class="source-line-no">434</span><span id="line-434">      {</span>
 <span class="source-line-no">435</span><span id="line-435">        if ( getObserver().areArezDependenciesRequired() )</span>
 <span class="source-line-no">436</span><span id="line-436">        {</span>
-<span class="source-line-no">437</span><span id="line-437">          final List&lt;ObservableValue&lt;?&gt;&gt; observableValues = Transaction.current().getObservableValues();</span>
+<span class="source-line-no">437</span><span id="line-437">          final FastList&lt;ObservableValue&lt;?&gt;&gt; observableValues = Transaction.current().getObservableValues();</span>
 <span class="source-line-no">438</span><span id="line-438">          apiInvariant( () -&gt; null != observableValues &amp;&amp; !observableValues.isEmpty(),</span>
 <span class="source-line-no">439</span><span id="line-439">                        () -&gt; "Arez-0173: ComputableValue named '" + getName() + "' completed compute but is not " +</span>
 <span class="source-line-no">440</span><span id="line-440">                              "observing any properties. As a result compute will never be rescheduled. " +</span>

@@ -61,7 +61,7 @@
 <span class="source-line-no">048</span><span id="line-48">  @Nonnull</span>
 <span class="source-line-no">049</span><span id="line-49">  private String _targetLocation;</span>
 <span class="source-line-no">050</span><span id="line-50">  /**</span>
-<span class="source-line-no">051</span><span id="line-51">   * Should we prevent the default action associated with hash change?</span>
+<span class="source-line-no">051</span><span id="line-51">   * Should we prevent the default action associated with hash change.</span>
 <span class="source-line-no">052</span><span id="line-52">   */</span>
 <span class="source-line-no">053</span><span id="line-53">  private boolean _preventDefault = true;</span>
 <span class="source-line-no">054</span><span id="line-54"></span>
@@ -202,7 +202,7 @@
 <span class="source-line-no">189</span><span id="line-189">  private void setHash( @Nonnull final String hash )</span>
 <span class="source-line-no">190</span><span id="line-190">  {</span>
 <span class="source-line-no">191</span><span id="line-191">    final Location location = WindowGlobal.location();</span>
-<span class="source-line-no">192</span><span id="line-192">    if ( 0 == hash.length() )</span>
+<span class="source-line-no">192</span><span id="line-192">    if ( hash.isEmpty() )</span>
 <span class="source-line-no">193</span><span id="line-193">    {</span>
 <span class="source-line-no">194</span><span id="line-194">      /*</span>
 <span class="source-line-no">195</span><span id="line-195">       * This code is needed to remove the stray #.</span>

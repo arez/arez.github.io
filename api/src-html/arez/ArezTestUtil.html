@@ -100,7 +100,7 @@
 <span class="source-line-no">087</span><span id="line-87">  }</span>
 <span class="source-line-no">088</span><span id="line-88"></span>
 <span class="source-line-no">089</span><span id="line-89">  /**</span>
-<span class="source-line-no">090</span><span id="line-90">   * Specify logger to use to capture logging in tests</span>
+<span class="source-line-no">090</span><span id="line-90">   * Specify logger to use to capture logging in tests.</span>
 <span class="source-line-no">091</span><span id="line-91">   *</span>
 <span class="source-line-no">092</span><span id="line-92">   * @param logger the logger.</span>
 <span class="source-line-no">093</span><span id="line-93">   */</span>
@@ -507,61 +507,87 @@
 <span class="source-line-no">494</span><span id="line-494">  }</span>
 <span class="source-line-no">495</span><span id="line-495"></span>
 <span class="source-line-no">496</span><span id="line-496">  /**</span>
-<span class="source-line-no">497</span><span id="line-497">   * Set the `arez.check_api_invariants` setting to true.</span>
+<span class="source-line-no">497</span><span id="line-497">   * Set the `arez.check_expensive_invariants` setting to true.</span>
 <span class="source-line-no">498</span><span id="line-498">   */</span>
-<span class="source-line-no">499</span><span id="line-499">  public static void checkApiInvariants()</span>
+<span class="source-line-no">499</span><span id="line-499">  public static void checkExpensiveInvariants()</span>
 <span class="source-line-no">500</span><span id="line-500">  {</span>
-<span class="source-line-no">501</span><span id="line-501">    setCheckApiInvariants( true );</span>
+<span class="source-line-no">501</span><span id="line-501">    setCheckExpensiveInvariants( true );</span>
 <span class="source-line-no">502</span><span id="line-502">  }</span>
 <span class="source-line-no">503</span><span id="line-503"></span>
 <span class="source-line-no">504</span><span id="line-504">  /**</span>
-<span class="source-line-no">505</span><span id="line-505">   * Set the `arez.check_api_invariants` setting to false.</span>
+<span class="source-line-no">505</span><span id="line-505">   * Set the `arez.check_expensive_invariants` setting to false.</span>
 <span class="source-line-no">506</span><span id="line-506">   */</span>
-<span class="source-line-no">507</span><span id="line-507">  public static void noCheckApiInvariants()</span>
+<span class="source-line-no">507</span><span id="line-507">  public static void noCheckExpensiveInvariants()</span>
 <span class="source-line-no">508</span><span id="line-508">  {</span>
-<span class="source-line-no">509</span><span id="line-509">    setCheckApiInvariants( false );</span>
+<span class="source-line-no">509</span><span id="line-509">    setCheckExpensiveInvariants( false );</span>
 <span class="source-line-no">510</span><span id="line-510">  }</span>
 <span class="source-line-no">511</span><span id="line-511"></span>
 <span class="source-line-no">512</span><span id="line-512">  /**</span>
-<span class="source-line-no">513</span><span id="line-513">   * Configure the `arez.check_api_invariants` setting.</span>
+<span class="source-line-no">513</span><span id="line-513">   * Configure the `arez.check_expensive_invariants` setting.</span>
 <span class="source-line-no">514</span><span id="line-514">   *</span>
-<span class="source-line-no">515</span><span id="line-515">   * @param checkApiInvariants the "check invariants" setting.</span>
+<span class="source-line-no">515</span><span id="line-515">   * @param checkExpensiveInvariants the "check expensive invariants" setting.</span>
 <span class="source-line-no">516</span><span id="line-516">   */</span>
-<span class="source-line-no">517</span><span id="line-517">  private static void setCheckApiInvariants( final boolean checkApiInvariants )</span>
+<span class="source-line-no">517</span><span id="line-517">  private static void setCheckExpensiveInvariants( final boolean checkExpensiveInvariants )</span>
 <span class="source-line-no">518</span><span id="line-518">  {</span>
-<span class="source-line-no">519</span><span id="line-519">    setConstant( "CHECK_API_INVARIANTS", checkApiInvariants );</span>
+<span class="source-line-no">519</span><span id="line-519">    setConstant( "CHECK_EXPENSIVE_INVARIANTS", checkExpensiveInvariants );</span>
 <span class="source-line-no">520</span><span id="line-520">  }</span>
 <span class="source-line-no">521</span><span id="line-521"></span>
 <span class="source-line-no">522</span><span id="line-522">  /**</span>
-<span class="source-line-no">523</span><span id="line-523">   * Set the specified field name on ArezConfig.</span>
+<span class="source-line-no">523</span><span id="line-523">   * Set the `arez.check_api_invariants` setting to true.</span>
 <span class="source-line-no">524</span><span id="line-524">   */</span>
-<span class="source-line-no">525</span><span id="line-525">  @SuppressWarnings( "NonJREEmulationClassesInClientCode" )</span>
-<span class="source-line-no">526</span><span id="line-526">  private static void setConstant( @Nonnull final String fieldName, final boolean value )</span>
-<span class="source-line-no">527</span><span id="line-527">  {</span>
-<span class="source-line-no">528</span><span id="line-528">    if ( ArezConfig.isProductionEnvironment() )</span>
-<span class="source-line-no">529</span><span id="line-529">    {</span>
-<span class="source-line-no">530</span><span id="line-530">      /*</span>
-<span class="source-line-no">531</span><span id="line-531">       * This should really never happen but if it does add assertion (so code stops in debugger) or</span>
-<span class="source-line-no">532</span><span id="line-532">       * failing that throw an exception.</span>
-<span class="source-line-no">533</span><span id="line-533">       */</span>
-<span class="source-line-no">534</span><span id="line-534">      assert ArezConfig.isDevelopmentEnvironment();</span>
-<span class="source-line-no">535</span><span id="line-535">      throw new IllegalStateException( "Unable to change constant " + fieldName + " as Arez is in production mode" );</span>
-<span class="source-line-no">536</span><span id="line-536">    }</span>
-<span class="source-line-no">537</span><span id="line-537">    else</span>
-<span class="source-line-no">538</span><span id="line-538">    {</span>
-<span class="source-line-no">539</span><span id="line-539">      try</span>
-<span class="source-line-no">540</span><span id="line-540">      {</span>
-<span class="source-line-no">541</span><span id="line-541">        final Field field = ArezConfig.class.getDeclaredField( fieldName );</span>
-<span class="source-line-no">542</span><span id="line-542">        field.setAccessible( true );</span>
-<span class="source-line-no">543</span><span id="line-543">        field.set( null, value );</span>
-<span class="source-line-no">544</span><span id="line-544">      }</span>
-<span class="source-line-no">545</span><span id="line-545">      catch ( final NoSuchFieldException | IllegalAccessException e )</span>
-<span class="source-line-no">546</span><span id="line-546">      {</span>
-<span class="source-line-no">547</span><span id="line-547">        throw new IllegalStateException( "Unable to change constant " + fieldName, e );</span>
-<span class="source-line-no">548</span><span id="line-548">      }</span>
-<span class="source-line-no">549</span><span id="line-549">    }</span>
-<span class="source-line-no">550</span><span id="line-550">  }</span>
-<span class="source-line-no">551</span><span id="line-551">}</span>
+<span class="source-line-no">525</span><span id="line-525">  public static void checkApiInvariants()</span>
+<span class="source-line-no">526</span><span id="line-526">  {</span>
+<span class="source-line-no">527</span><span id="line-527">    setCheckApiInvariants( true );</span>
+<span class="source-line-no">528</span><span id="line-528">  }</span>
+<span class="source-line-no">529</span><span id="line-529"></span>
+<span class="source-line-no">530</span><span id="line-530">  /**</span>
+<span class="source-line-no">531</span><span id="line-531">   * Set the `arez.check_api_invariants` setting to false.</span>
+<span class="source-line-no">532</span><span id="line-532">   */</span>
+<span class="source-line-no">533</span><span id="line-533">  public static void noCheckApiInvariants()</span>
+<span class="source-line-no">534</span><span id="line-534">  {</span>
+<span class="source-line-no">535</span><span id="line-535">    setCheckApiInvariants( false );</span>
+<span class="source-line-no">536</span><span id="line-536">  }</span>
+<span class="source-line-no">537</span><span id="line-537"></span>
+<span class="source-line-no">538</span><span id="line-538">  /**</span>
+<span class="source-line-no">539</span><span id="line-539">   * Configure the `arez.check_api_invariants` setting.</span>
+<span class="source-line-no">540</span><span id="line-540">   *</span>
+<span class="source-line-no">541</span><span id="line-541">   * @param checkApiInvariants the "check invariants" setting.</span>
+<span class="source-line-no">542</span><span id="line-542">   */</span>
+<span class="source-line-no">543</span><span id="line-543">  private static void setCheckApiInvariants( final boolean checkApiInvariants )</span>
+<span class="source-line-no">544</span><span id="line-544">  {</span>
+<span class="source-line-no">545</span><span id="line-545">    setConstant( "CHECK_API_INVARIANTS", checkApiInvariants );</span>
+<span class="source-line-no">546</span><span id="line-546">  }</span>
+<span class="source-line-no">547</span><span id="line-547"></span>
+<span class="source-line-no">548</span><span id="line-548">  /**</span>
+<span class="source-line-no">549</span><span id="line-549">   * Set the specified field name on ArezConfig.</span>
+<span class="source-line-no">550</span><span id="line-550">   */</span>
+<span class="source-line-no">551</span><span id="line-551">  @SuppressWarnings( "NonJREEmulationClassesInClientCode" )</span>
+<span class="source-line-no">552</span><span id="line-552">  private static void setConstant( @Nonnull final String fieldName, final boolean value )</span>
+<span class="source-line-no">553</span><span id="line-553">  {</span>
+<span class="source-line-no">554</span><span id="line-554">    if ( ArezConfig.isProductionEnvironment() )</span>
+<span class="source-line-no">555</span><span id="line-555">    {</span>
+<span class="source-line-no">556</span><span id="line-556">      /*</span>
+<span class="source-line-no">557</span><span id="line-557">       * This should really never happen but if it does add assertion (so code stops in debugger) or</span>
+<span class="source-line-no">558</span><span id="line-558">       * failing that throw an exception.</span>
+<span class="source-line-no">559</span><span id="line-559">       */</span>
+<span class="source-line-no">560</span><span id="line-560">      assert ArezConfig.isDevelopmentEnvironment();</span>
+<span class="source-line-no">561</span><span id="line-561">      throw new IllegalStateException( "Unable to change constant " + fieldName + " as Arez is in production mode" );</span>
+<span class="source-line-no">562</span><span id="line-562">    }</span>
+<span class="source-line-no">563</span><span id="line-563">    else</span>
+<span class="source-line-no">564</span><span id="line-564">    {</span>
+<span class="source-line-no">565</span><span id="line-565">      try</span>
+<span class="source-line-no">566</span><span id="line-566">      {</span>
+<span class="source-line-no">567</span><span id="line-567">        final Field field = ArezConfig.class.getDeclaredField( fieldName );</span>
+<span class="source-line-no">568</span><span id="line-568">        field.setAccessible( true );</span>
+<span class="source-line-no">569</span><span id="line-569">        field.set( null, value );</span>
+<span class="source-line-no">570</span><span id="line-570">      }</span>
+<span class="source-line-no">571</span><span id="line-571">      catch ( final NoSuchFieldException | IllegalAccessException e )</span>
+<span class="source-line-no">572</span><span id="line-572">      {</span>
+<span class="source-line-no">573</span><span id="line-573">        throw new IllegalStateException( "Unable to change constant " + fieldName, e );</span>
+<span class="source-line-no">574</span><span id="line-574">      }</span>
+<span class="source-line-no">575</span><span id="line-575">    }</span>
+<span class="source-line-no">576</span><span id="line-576">  }</span>
+<span class="source-line-no">577</span><span id="line-577">}</span>
 
 
 

@@ -172,8 +172,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Return true if apiInvariants will be checked.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#shouldCheckInvariants()" class="member-name-link">shouldCheckInvariants</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#shouldCheckExpensiveInvariants()" class="member-name-link">shouldCheckExpensiveInvariants</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Return true if expensive invariants will be checked.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#shouldCheckInvariants()" class="member-name-link">shouldCheckInvariants</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Return true if invariants will be checked.</div>
 </div>
 </div>
@@ -338,10 +343,22 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="shouldCheckExpensiveInvariants()">
+<h3>shouldCheckExpensiveInvariants</h3>
+<div class="member-signature"><span class="annotations">@OmitSymbol
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Arez.html#line-174">shouldCheckExpensiveInvariants</a></span>()</div>
+<div class="block">Return true if expensive invariants will be checked.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if expensive invariants will be checked.</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="shouldCheckApiInvariants()">
 <h3>shouldCheckApiInvariants</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol
-</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Arez.html#line-174">shouldCheckApiInvariants</a></span>()</div>
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Arez.html#line-185">shouldCheckApiInvariants</a></span>()</div>
 <div class="block">Return true if apiInvariants will be checked.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -353,7 +370,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="purgeTasksWhenRunawayDetected()">
 <h3>purgeTasksWhenRunawayDetected</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol
-</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Arez.html#line-185">purgeTasksWhenRunawayDetected</a></span>()</div>
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/Arez.html#line-196">purgeTasksWhenRunawayDetected</a></span>()</div>
 <div class="block">Return true if active tasks will be purged if the scheduler is still running after 100 rounds.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -364,7 +381,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="context()">
 <h3>context</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ArezContext.html" title="class in arez">ArezContext</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/Arez.html#line-196">context</a></span>()</div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ArezContext.html" title="class in arez">ArezContext</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/Arez.html#line-207">context</a></span>()</div>
 <div class="block">Return the ArezContext from the provider.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -376,7 +393,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="createZone()">
 <h3>createZone</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_zones")
-@Nonnull </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Zone.html" title="class in arez">Zone</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/Arez.html#line-208">createZone</a></span>()</div>
+@Nonnull </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Zone.html" title="class in arez">Zone</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/Arez.html#line-219">createZone</a></span>()</div>
 <div class="block">Create a new zone.
  This zone is not yet activated.</div>
 <dl class="notes">

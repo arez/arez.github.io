@@ -81,7 +81,7 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="Disposable.html" title="interface in arez">Disposable</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public final class </span><span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-22">ObservableValue</a>&lt;T&gt;</span>
+<div class="type-signature"><span class="modifiers">public final class </span><span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-20">ObservableValue</a>&lt;T&gt;</span>
 <span class="extends-implements">extends <a href="Node.html" title="class in arez">Node</a></span></div>
 <div class="block">The observable represents state that can be observed within the system.</div>
 </section>
@@ -154,7 +154,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="dispose()">
 <h3>dispose</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-154">dispose</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-152">dispose</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Disposable.html#dispose()">Disposable</a></code></span></div>
 <div class="block">Dispose the element. See <a href="Disposable.html" title="interface in arez"><code>Disposable</code></a> for a description of the implications.</div>
 </section>
@@ -162,7 +162,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isDisposed()">
 <h3>isDisposed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-199">isDisposed</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-197">isDisposed</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Disposable.html#isDisposed()">Disposable</a></code></span></div>
 <div class="block">Return true if dispose() has been called on object.</div>
 <dl class="notes">
@@ -174,7 +174,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="reportObserved()">
 <h3>reportObserved</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-503">reportObserved</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-500">reportObserved</a></span>()</div>
 <div class="block">Notify Arez that this observable has been "observed" in the current transaction.
  Before invoking this method, a transaction <b>MUST</b> be active but it may be read-only or read-write.</div>
 </section>
@@ -182,7 +182,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="reportObservedIfTrackingTransactionActive()">
 <h3>reportObservedIfTrackingTransactionActive</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-511">reportObservedIfTrackingTransactionActive</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-508">reportObservedIfTrackingTransactionActive</a></span>()</div>
 <div class="block">Notify Arez that this observable has been "observed" if a tracking transaction is active.</div>
 </section>
 </li>
@@ -190,7 +190,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="preReportChanged()">
 <h3>preReportChanged</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.check_invariants")
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-524">preReportChanged</a></span>()</div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-521">preReportChanged</a></span>()</div>
 <div class="block">Check that pre-conditions are satisfied before changing observable value.
  In production mode this will typically be a no-op. This method should be invoked
  before state is modified. Before invoking this method, a read-write transaction <b>MUST</b> be active.</div>
@@ -199,7 +199,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="reportChanged()">
 <h3>reportChanged</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-538">reportChanged</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ObservableValue.html#line-535">reportChanged</a></span>()</div>
 <div class="block">Notify Arez that this observable has changed.
  This is called when the observable has definitely changed.
  Before invoking this method, a read-write transaction <b>MUST</b> be active.</div>

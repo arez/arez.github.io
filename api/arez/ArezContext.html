@@ -75,7 +75,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public final class </span><span class="element-name"><a href="../src-html/arez/ArezContext.html#line-29">ArezContext</a></span>
+<div class="type-signature"><span class="modifiers">public final class </span><span class="element-name"><a href="../src-html/arez/ArezContext.html#line-28">ArezContext</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">The ArezContext defines the top level container of interconnected observables and observers.
  The context also provides the mechanism for creating transactions to read and write state
@@ -637,7 +637,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="isComponentPresent(java.lang.String,java.lang.Object)">
 <h3>isComponentPresent</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_native_components")
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-168">isComponentPresent</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-167">isComponentPresent</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
  @Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;id)</span></div>
 <div class="block">Return true if the component identified by type and id has been defined in context.</div>
 <dl class="notes">
@@ -653,7 +653,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="component(java.lang.String,java.lang.Object)">
 <h3>component</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_native_components")
-@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Component.html" title="class in arez">Component</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-187">component</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
+@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Component.html" title="class in arez">Component</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-186">component</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
  @Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;id)</span></div>
 <div class="block">Create a component with the specified parameters and return it.
  This method should only be invoked if <a href="Arez.html#areNativeComponentsEnabled()"><code>Arez.areNativeComponentsEnabled()</code></a> returns true.
@@ -673,7 +673,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="component(java.lang.String,java.lang.Object,java.lang.String)">
 <h3>component</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_native_components")
-@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Component.html" title="class in arez">Component</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-206">component</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
+@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Component.html" title="class in arez">Component</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-205">component</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
  @Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;id,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 <div class="block">Create a component with the specified parameters and return it.
@@ -695,7 +695,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="component(java.lang.String,java.lang.Object,java.lang.String,arez.SafeProcedure)">
 <h3>component</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_native_components")
-@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Component.html" title="class in arez">Component</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-226">component</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
+@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Component.html" title="class in arez">Component</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-225">component</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
  @Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;id,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nullable <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;preDispose)</span></div>
@@ -719,7 +719,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="component(java.lang.String,java.lang.Object,java.lang.String,arez.SafeProcedure,arez.SafeProcedure)">
 <h3>component</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_native_components")
-@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Component.html" title="class in arez">Component</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-250">component</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
+@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Component.html" title="class in arez">Component</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-249">component</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
  @Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;id,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nullable <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;preDispose,
@@ -744,7 +744,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="computable(arez.SafeFunction)">
 <h3>computable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-389">computable</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;function)</span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-388">computable</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;function)</span></div>
 <div class="block">Create a ComputableValue with specified parameters.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
@@ -759,7 +759,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="computable(arez.SafeFunction,int)">
 <h3>computable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-403">computable</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;function,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-402">computable</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;function,
  int&nbsp;flags)</span></div>
 <div class="block">Create a ComputableValue with specified parameters.</div>
 <dl class="notes">
@@ -776,7 +776,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="computable(java.lang.String,arez.SafeFunction)">
 <h3>computable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-418">computable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-417">computable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;function)</span></div>
 <div class="block">Create a ComputableValue with specified parameters.</div>
 <dl class="notes">
@@ -793,7 +793,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="computable(java.lang.String,arez.SafeFunction,int)">
 <h3>computable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-433">computable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-432">computable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;function,
  int&nbsp;flags)</span></div>
 <div class="block">Create a ComputableValue with specified parameters.</div>
@@ -812,7 +812,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="computable(arez.Component,java.lang.String,arez.SafeFunction)">
 <h3>computable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-450">computable</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-449">computable</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;function)</span></div>
 <div class="block">Create a ComputableValue with specified parameters.</div>
@@ -831,7 +831,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="computable(arez.Component,java.lang.String,arez.SafeFunction,int)">
 <h3>computable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-468">computable</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ComputableValue.html" title="class in arez">ComputableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-467">computable</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;function,
  int&nbsp;flags)</span></div>
@@ -852,7 +852,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(arez.Procedure)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-504">observer</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe)</span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-503">observer</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe)</span></div>
 <div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -865,7 +865,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(arez.Procedure,int)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-517">observer</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-516">observer</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
  int&nbsp;flags)</span></div>
 <div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
 <dl class="notes">
@@ -880,7 +880,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(java.lang.String,arez.Procedure)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-531">observer</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-530">observer</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe)</span></div>
 <div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
 <dl class="notes">
@@ -895,7 +895,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(java.lang.String,arez.Procedure,int)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-545">observer</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-544">observer</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
  int&nbsp;flags)</span></div>
 <div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
@@ -912,7 +912,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(arez.Component,java.lang.String,arez.Procedure)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-561">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-560">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe)</span></div>
 <div class="block">Create an "autorun" observer that reschedules observed procedure when dependency updates occur.</div>
@@ -929,7 +929,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(arez.Component,java.lang.String,arez.Procedure,int)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-578">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-577">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
  int&nbsp;flags)</span></div>
@@ -948,7 +948,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(arez.Component,java.lang.String,arez.Procedure,arez.Procedure)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-597">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-596">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange)</span></div>
@@ -968,7 +968,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(arez.Procedure,arez.Procedure)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-614">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-613">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange)</span></div>
 <div class="block">Create an observer.
  The user must pass either the <code>observe</code> or <code>onDepsChange</code> or both parameters.</div>
@@ -984,7 +984,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(arez.Procedure,arez.Procedure,int)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-629">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-628">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange,
  int&nbsp;flags)</span></div>
 <div class="block">Create an observer.
@@ -1002,7 +1002,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(java.lang.String,arez.Procedure,arez.Procedure)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-646">observer</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-645">observer</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange)</span></div>
 <div class="block">Create an observer.
@@ -1020,7 +1020,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(java.lang.String,arez.Procedure,arez.Procedure,int)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-664">observer</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-663">observer</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange,
  int&nbsp;flags)</span></div>
@@ -1040,7 +1040,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observer(arez.Component,java.lang.String,arez.Procedure,arez.Procedure,int)">
 <h3>observer</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-684">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-683">observer</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange,
@@ -1062,7 +1062,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tracker(arez.Procedure)">
 <h3>tracker</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-707">tracker</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange)</span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-706">tracker</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange)</span></div>
 <div class="block">Create a tracking observer. The tracking observer triggers the onDepsChange hook function when
  dependencies in the observe function are updated. Application code is responsible for executing the
  observe function by invoking a observe method such as <a href="#observe(arez.Observer,arez.Function)"><code>observe(Observer, Function)</code></a>.</div>
@@ -1077,7 +1077,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tracker(arez.Procedure,int)">
 <h3>tracker</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-722">tracker</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-721">tracker</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange,
  int&nbsp;flags)</span></div>
 <div class="block">Create a tracking observer. The tracking observer triggers the onDepsChange hook function when
  dependencies in the observe function are updated. Application code is responsible for executing the
@@ -1094,7 +1094,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tracker(java.lang.String,arez.Procedure)">
 <h3>tracker</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-738">tracker</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-737">tracker</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange)</span></div>
 <div class="block">Create a tracking observer. The tracking observer triggers the onDepsChange hook function when
  dependencies in the observe function are updated. Application code is responsible for executing the
@@ -1111,7 +1111,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tracker(java.lang.String,arez.Procedure,int)">
 <h3>tracker</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-754">tracker</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-753">tracker</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange,
  int&nbsp;flags)</span></div>
 <div class="block">Create a tracking observer. The tracking observer triggers the onDepsChange hook function when
@@ -1130,7 +1130,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tracker(arez.Component,java.lang.String,arez.Procedure)">
 <h3>tracker</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-772">tracker</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-771">tracker</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange)</span></div>
 <div class="block">Create a tracking observer. The tracking observer triggers the onDepsChange hook function when
@@ -1149,7 +1149,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tracker(arez.Component,java.lang.String,arez.Procedure,int)">
 <h3>tracker</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-791">tracker</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Observer.html" title="class in arez">Observer</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-790">tracker</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDepsChange,
  int&nbsp;flags)</span></div>
@@ -1170,7 +1170,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observable()">
 <h3>observable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-806">observable</a></span>()</div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-805">observable</a></span>()</div>
 <div class="block">Create an ObservableValue synthesizing name if required.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
@@ -1183,7 +1183,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observable(java.lang.String)">
 <h3>observable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-819">observable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-818">observable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 <div class="block">Create an ObservableValue with the specified name.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
@@ -1198,7 +1198,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observable(java.lang.String,arez.spy.PropertyAccessor,arez.spy.PropertyMutator)">
 <h3>observable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-834">observable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-833">observable</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nullable <a href="spy/PropertyAccessor.html" title="interface in arez.spy">PropertyAccessor</a>&lt;T&gt;&nbsp;accessor,
  @Nullable <a href="spy/PropertyMutator.html" title="interface in arez.spy">PropertyMutator</a>&lt;T&gt;&nbsp;mutator)</span></div>
 <div class="block">Create an ObservableValue.</div>
@@ -1217,7 +1217,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observable(arez.Component,java.lang.String)">
 <h3>observable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-850">observable</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-849">observable</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 <div class="block">Create an ObservableValue.</div>
 <dl class="notes">
@@ -1234,7 +1234,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observable(arez.Component,java.lang.String,arez.spy.PropertyAccessor)">
 <h3>observable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-866">observable</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-865">observable</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nullable <a href="spy/PropertyAccessor.html" title="interface in arez.spy">PropertyAccessor</a>&lt;T&gt;&nbsp;accessor)</span></div>
 <div class="block">Create an ObservableValue.</div>
@@ -1253,7 +1253,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observable(arez.Component,java.lang.String,arez.spy.PropertyAccessor,arez.spy.PropertyMutator)">
 <h3>observable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-884">observable</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ObservableValue.html" title="class in arez">ObservableValue</a>&lt;T&gt;</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-883">observable</a></span><wbr><span class="parameters">(@Nullable <a href="Component.html" title="class in arez">Component</a>&nbsp;component,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nullable <a href="spy/PropertyAccessor.html" title="interface in arez.spy">PropertyAccessor</a>&lt;T&gt;&nbsp;accessor,
  @Nullable <a href="spy/PropertyMutator.html" title="interface in arez.spy">PropertyMutator</a>&lt;T&gt;&nbsp;mutator)</span></div>
@@ -1274,7 +1274,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="task(arez.SafeProcedure)">
 <h3>task</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Task.html" title="class in arez">Task</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-937">task</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;work)</span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Task.html" title="class in arez">Task</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-936">task</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;work)</span></div>
 <div class="block">Create and queue a task to be executed by the runtime.
  If the scheduler is not running, then the scheduler will be triggered.</div>
 <dl class="notes">
@@ -1288,7 +1288,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="task(java.lang.String,arez.SafeProcedure)">
 <h3>task</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Task.html" title="class in arez">Task</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-951">task</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Task.html" title="class in arez">Task</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-950">task</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;work)</span></div>
 <div class="block">Create and queue a task to be executed by the runtime.
  If the scheduler is not running, then the scheduler will be triggered.</div>
@@ -1304,7 +1304,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="task(arez.SafeProcedure,int)">
 <h3>task</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Task.html" title="class in arez">Task</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-966">task</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;work,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Task.html" title="class in arez">Task</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-965">task</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;work,
  int&nbsp;flags)</span></div>
 <div class="block">Create and queue a task to be executed by the runtime.
  If the scheduler is not running and the <a href="Task.Flags.html#RUN_LATER"><code>Task.Flags.RUN_LATER</code></a> flag has not been supplied then the
@@ -1321,7 +1321,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="task(java.lang.String,arez.SafeProcedure,int)">
 <h3>task</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Task.html" title="class in arez">Task</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-983">task</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Task.html" title="class in arez">Task</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-982">task</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;work,
  int&nbsp;flags)</span></div>
 <div class="block">Create and queue a task to be executed by the runtime.
@@ -1340,7 +1340,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isSchedulerActive()">
 <h3>isSchedulerActive</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-998">isSchedulerActive</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-997">isSchedulerActive</a></span>()</div>
 <div class="block">Return true if the scheduler is currently executing tasks.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1351,7 +1351,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isTransactionActive()">
 <h3>isTransactionActive</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1008">isTransactionActive</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1007">isTransactionActive</a></span>()</div>
 <div class="block">Return true if there is a transaction in progress.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1362,7 +1362,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isTrackingTransactionActive()">
 <h3>isTrackingTransactionActive</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1020">isTrackingTransactionActive</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1019">isTrackingTransactionActive</a></span>()</div>
 <div class="block">Return true if there is a tracking transaction in progress.
  A tracking transaction is one created by an <a href="Observer.html" title="class in arez"><code>Observer</code></a> via the <a href="#observer(arez.Procedure)"><code>observer(Procedure)</code></a>
  or <a href="#tracker(arez.Procedure)"><code>tracker(Procedure)</code></a> methods or a computable via the <a href="#computable(arez.SafeFunction)"><code>computable(SafeFunction)</code></a> function.</div>
@@ -1375,7 +1375,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isComputableTransactionActive()">
 <h3>isComputableTransactionActive</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1031">isComputableTransactionActive</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1030">isComputableTransactionActive</a></span>()</div>
 <div class="block">Return true if there is a transaction in progress calculating a computable value.
  The transaction is one created for an <a href="ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> via the <a href="#computable(arez.SafeFunction)"><code>computable(SafeFunction)</code></a> functions.</div>
 <dl class="notes">
@@ -1387,7 +1387,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isReadWriteTransactionActive()">
 <h3>isReadWriteTransactionActive</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1049">isReadWriteTransactionActive</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1048">isReadWriteTransactionActive</a></span>()</div>
 <div class="block">Return true if there is a read-write transaction in progress.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1398,7 +1398,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isReadOnlyTransactionActive()">
 <h3>isReadOnlyTransactionActive</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1060">isReadOnlyTransactionActive</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1059">isReadOnlyTransactionActive</a></span>()</div>
 <div class="block">Return true if there is a read-only transaction in progress.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1409,7 +1409,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isSchedulerPaused()">
 <h3>isSchedulerPaused</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1134">isSchedulerPaused</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1133">isSchedulerPaused</a></span>()</div>
 <div class="block">Return true if the scheduler is paused.
  True means that <a href="#pauseScheduler()"><code>pauseScheduler()</code></a> has been called one or more times and the lock not disposed.</div>
 <dl class="notes">
@@ -1421,7 +1421,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="pauseScheduler()">
 <h3>pauseScheduler</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SchedulerLock.html" title="class in arez">SchedulerLock</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1159">pauseScheduler</a></span>()</div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SchedulerLock.html" title="class in arez">SchedulerLock</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1158">pauseScheduler</a></span>()</div>
 <div class="block">Pause scheduler so that it will not run any reactions next time <a href="#triggerScheduler()"><code>triggerScheduler()</code></a> is invoked.
  The scheduler will not resume scheduling reactions until the lock returned from this method is disposed.
 
@@ -1448,7 +1448,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="setTaskInterceptor(arez.TaskInterceptor)">
 <h3>setTaskInterceptor</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_task_interceptor")
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1171">setTaskInterceptor</a></span><wbr><span class="parameters">(@Nullable <a href="TaskInterceptor.html" title="interface in arez">TaskInterceptor</a>&nbsp;taskInterceptor)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1170">setTaskInterceptor</a></span><wbr><span class="parameters">(@Nullable <a href="TaskInterceptor.html" title="interface in arez">TaskInterceptor</a>&nbsp;taskInterceptor)</span></div>
 <div class="block">Specify a interceptor to use to wrap task execution in.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1459,7 +1459,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="triggerScheduler()">
 <h3>triggerScheduler</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1189">triggerScheduler</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1188">triggerScheduler</a></span>()</div>
 <div class="block">Method invoked to trigger the scheduler to run any pending reactions. The scheduler will only be
  triggered if there is no transaction active. This method is typically used after one or more Observers
  have been created outside a transaction with the runImmediately flag set to false and the caller wants
@@ -1470,7 +1470,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerHook(java.lang.String,arez.Procedure,arez.Procedure)">
 <h3>registerHook</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1238">registerHook</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1237">registerHook</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onActivate,
  @Nullable <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;onDeactivate)</span></div>
 <div class="block">Register a hook for the current ComputedValue or Observer.
@@ -1493,7 +1493,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action(arez.Function)">
 <h3>action</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1262">action</a></span><wbr><span class="parameters">(@Nonnull <a href="Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;executable)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1261">action</a></span><wbr><span class="parameters">(@Nonnull <a href="Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;executable)</span>
              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
 <div class="block">Execute the supplied executable in a transaction.
  The executable may throw an exception.</div>
@@ -1513,7 +1513,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action(arez.Function,int)">
 <h3>action</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1278">action</a></span><wbr><span class="parameters">(@Nonnull <a href="Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;executable,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1277">action</a></span><wbr><span class="parameters">(@Nonnull <a href="Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;executable,
  int&nbsp;flags)</span>
              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
 <div class="block">Execute the supplied executable in a transaction.
@@ -1535,7 +1535,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action(java.lang.String,arez.Function)">
 <h3>action</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1295">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1294">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;executable)</span>
              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
 <div class="block">Execute the supplied executable in a transaction.
@@ -1557,7 +1557,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action(java.lang.String,arez.Function,int)">
 <h3>action</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1313">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1312">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;executable,
  int&nbsp;flags)</span>
              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
@@ -1581,7 +1581,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action(java.lang.String,arez.Function,int,java.lang.Object[])">
 <h3>action</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1333">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1332">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;executable,
  int&nbsp;flags,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>[]&nbsp;parameters)</span>
@@ -1607,7 +1607,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observe(arez.Observer,arez.Function)">
 <h3>observe</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1353">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1352">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
  @Nonnull <a href="Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;observe)</span>
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
 <div class="block">Execute the observe function with the specified Observer.
@@ -1630,7 +1630,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observe(arez.Observer,arez.Function,java.lang.Object[])">
 <h3>observe</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1371">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1370">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
  @Nonnull <a href="Function.html" title="interface in arez">Function</a>&lt;T&gt;&nbsp;observe,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>[]&nbsp;parameters)</span>
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
@@ -1655,7 +1655,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAction(arez.SafeFunction)">
 <h3>safeAction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1398">safeAction</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;executable)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1397">safeAction</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;executable)</span></div>
 <div class="block">Execute the supplied executable.
  The executable is should not throw an exception.</div>
 <dl class="notes">
@@ -1671,7 +1671,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAction(arez.SafeFunction,int)">
 <h3>safeAction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1412">safeAction</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;executable,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1411">safeAction</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;executable,
  int&nbsp;flags)</span></div>
 <div class="block">Execute the supplied executable.
  The executable is should not throw an exception.</div>
@@ -1689,7 +1689,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAction(java.lang.String,arez.SafeFunction)">
 <h3>safeAction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1427">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1426">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;executable)</span></div>
 <div class="block">Execute the supplied executable.
  The executable is should not throw an exception.</div>
@@ -1707,7 +1707,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAction(java.lang.String,arez.SafeFunction,int)">
 <h3>safeAction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1442">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1441">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;executable,
  int&nbsp;flags)</span></div>
 <div class="block">Execute the supplied executable.
@@ -1727,7 +1727,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAction(java.lang.String,arez.SafeFunction,int,java.lang.Object[])">
 <h3>safeAction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1460">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1459">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;executable,
  int&nbsp;flags,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>[]&nbsp;parameters)</span></div>
@@ -1749,7 +1749,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeObserve(arez.Observer,arez.SafeFunction)">
 <h3>safeObserve</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1478">safeObserve</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1477">safeObserve</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
  @Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;observe)</span></div>
 <div class="block">Execute the observe function with the specified Observer.
  The Observer must be created by the <a href="#tracker(arez.Procedure)"><code>tracker(Procedure)</code></a> methods.
@@ -1768,7 +1768,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeObserve(arez.Observer,arez.SafeFunction,java.lang.Object[])">
 <h3>safeObserve</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1494">safeObserve</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1493">safeObserve</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
  @Nonnull <a href="SafeFunction.html" title="interface in arez">SafeFunction</a>&lt;T&gt;&nbsp;observe,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>[]&nbsp;parameters)</span></div>
 <div class="block">Execute the observe function with the specified Observer.
@@ -1789,7 +1789,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action(arez.Procedure)">
 <h3>action</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1520">action</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1519">action</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</span>
             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
 <div class="block">Execute the supplied executable in a transaction.
  The executable may throw an exception.</div>
@@ -1804,7 +1804,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action(arez.Procedure,int)">
 <h3>action</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1534">action</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1533">action</a></span><wbr><span class="parameters">(@Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
  int&nbsp;flags)</span>
             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
 <div class="block">Execute the supplied executable in a transaction.
@@ -1821,7 +1821,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action(java.lang.String,arez.Procedure)">
 <h3>action</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1549">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1548">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable)</span>
             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
 <div class="block">Execute the supplied executable in a transaction.
@@ -1838,7 +1838,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action(java.lang.String,arez.Procedure,int)">
 <h3>action</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1564">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1563">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
  int&nbsp;flags)</span>
             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
@@ -1857,7 +1857,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action(java.lang.String,arez.Procedure,int,java.lang.Object[])">
 <h3>action</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1582">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1581">action</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;executable,
  int&nbsp;flags,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>[]&nbsp;parameters)</span>
@@ -1878,7 +1878,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observe(arez.Observer,arez.Procedure)">
 <h3>observe</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1600">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1599">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe)</span>
              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
 <div class="block">Execute the observe function with the specified Observer.
@@ -1897,7 +1897,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observe(arez.Observer,arez.Procedure,java.lang.Object[])">
 <h3>observe</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1616">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1615">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
  @Nonnull <a href="Procedure.html" title="interface in arez">Procedure</a>&nbsp;observe,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>[]&nbsp;parameters)</span>
              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a></span></div>
@@ -1918,7 +1918,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAction(arez.SafeProcedure)">
 <h3>safeAction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1693">safeAction</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;executable)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1692">safeAction</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;executable)</span></div>
 <div class="block">Execute the supplied executable in a transaction.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1929,7 +1929,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAction(arez.SafeProcedure,int)">
 <h3>safeAction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1704">safeAction</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;executable,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1703">safeAction</a></span><wbr><span class="parameters">(@Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;executable,
  int&nbsp;flags)</span></div>
 <div class="block">Execute the supplied executable in a transaction.</div>
 <dl class="notes">
@@ -1942,7 +1942,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAction(java.lang.String,arez.SafeProcedure)">
 <h3>safeAction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1716">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1715">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;executable)</span></div>
 <div class="block">Execute the supplied executable in a transaction.</div>
 <dl class="notes">
@@ -1955,7 +1955,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAction(java.lang.String,arez.SafeProcedure,int)">
 <h3>safeAction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1728">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1727">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;executable,
  int&nbsp;flags)</span></div>
 <div class="block">Execute the supplied executable in a transaction.</div>
@@ -1970,7 +1970,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAction(java.lang.String,arez.SafeProcedure,int,java.lang.Object[])">
 <h3>safeAction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1743">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1742">safeAction</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  @Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;executable,
  int&nbsp;flags,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>[]&nbsp;parameters)</span></div>
@@ -1987,7 +1987,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeObserve(arez.Observer,arez.SafeProcedure)">
 <h3>safeObserve</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1759">safeObserve</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1758">safeObserve</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
  @Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;observe)</span></div>
 <div class="block">Execute the observe function with the specified Observer.
  The Observer must be created by the <a href="#tracker(arez.Procedure)"><code>tracker(Procedure)</code></a> methods.
@@ -2002,7 +2002,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeObserve(arez.Observer,arez.SafeProcedure,java.lang.Object[])">
 <h3>safeObserve</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1773">safeObserve</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-1772">safeObserve</a></span><wbr><span class="parameters">(@Nonnull <a href="Observer.html" title="class in arez">Observer</a>&nbsp;observer,
  @Nonnull <a href="SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;observe,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>[]&nbsp;parameters)</span></div>
 <div class="block">Execute the observe function with the specified Observer.
@@ -2020,7 +2020,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="registerLocator(arez.Locator)">
 <h3>registerLocator</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_references")
-@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Disposable.html" title="interface in arez">Disposable</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-2055">registerLocator</a></span><wbr><span class="parameters">(@Nonnull <a href="Locator.html" title="interface in arez">Locator</a>&nbsp;locator)</span></div>
+@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Disposable.html" title="interface in arez">Disposable</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-2054">registerLocator</a></span><wbr><span class="parameters">(@Nonnull <a href="Locator.html" title="interface in arez">Locator</a>&nbsp;locator)</span></div>
 <div class="block">Register an entity locator to use to resolve references.
  The Locator must not already be registered.
  This should not be invoked unless Arez.areReferencesEnabled() returns true.</div>
@@ -2036,7 +2036,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="locator()">
 <h3>locator</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_references")
-@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Locator.html" title="interface in arez">Locator</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-2074">locator</a></span>()</div>
+@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Locator.html" title="interface in arez">Locator</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-2073">locator</a></span>()</div>
 <div class="block">Return the locator that can be used to resolve references.
  This should not be invoked unless Arez.areReferencesEnabled() returns true.</div>
 <dl class="notes">
@@ -2049,7 +2049,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addObserverErrorHandler(arez.ObserverErrorHandler)">
 <h3>addObserverErrorHandler</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_observer_error_handlers")
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-2094">addObserverErrorHandler</a></span><wbr><span class="parameters">(@Nonnull <a href="ObserverErrorHandler.html" title="interface in arez">ObserverErrorHandler</a>&nbsp;handler)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-2093">addObserverErrorHandler</a></span><wbr><span class="parameters">(@Nonnull <a href="ObserverErrorHandler.html" title="interface in arez">ObserverErrorHandler</a>&nbsp;handler)</span></div>
 <div class="block">Add error handler to the list of error handlers called.
  The handler should not already be in the list. This method should NOT be called if
  <a href="Arez.html#areObserverErrorHandlersEnabled()"><code>Arez.areObserverErrorHandlersEnabled()</code></a> returns false.</div>
@@ -2063,7 +2063,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="removeObserverErrorHandler(arez.ObserverErrorHandler)">
 <h3>removeObserverErrorHandler</h3>
 <div class="member-signature"><span class="annotations">@OmitSymbol(unless="arez.enable_observer_error_handlers")
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-2112">removeObserverErrorHandler</a></span><wbr><span class="parameters">(@Nonnull <a href="ObserverErrorHandler.html" title="interface in arez">ObserverErrorHandler</a>&nbsp;handler)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-2111">removeObserverErrorHandler</a></span><wbr><span class="parameters">(@Nonnull <a href="ObserverErrorHandler.html" title="interface in arez">ObserverErrorHandler</a>&nbsp;handler)</span></div>
 <div class="block">Remove error handler from list of existing error handlers.
  The handler should already be in the list. This method should NOT be called if
  <a href="Arez.html#areObserverErrorHandlersEnabled()"><code>Arez.areObserverErrorHandlersEnabled()</code></a> returns false.</div>
@@ -2076,7 +2076,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getSpy()">
 <h3>getSpy</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="spy/Spy.html" title="interface in arez.spy">Spy</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-2161">getSpy</a></span>()</div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="spy/Spy.html" title="interface in arez.spy">Spy</a></span>&nbsp;<span class="element-name"><a href="../src-html/arez/ArezContext.html#line-2160">getSpy</a></span>()</div>
 <div class="block">Return the spy associated with context.
  This method should not be invoked unless <a href="Arez.html#areSpiesEnabled()"><code>Arez.areSpiesEnabled()</code></a> returns true.</div>
 <dl class="notes">
