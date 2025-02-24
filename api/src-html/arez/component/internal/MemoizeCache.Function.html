@@ -276,92 +276,93 @@
 <span class="source-line-no">263</span><span id="line-263">  private ComputableValue&lt;T&gt; createComputableValue( @Nonnull final Object... args )</span>
 <span class="source-line-no">264</span><span id="line-264">  {</span>
 <span class="source-line-no">265</span><span id="line-265">    final Component component = Arez.areNativeComponentsEnabled() ? _component : null;</span>
-<span class="source-line-no">266</span><span id="line-266">    final String name = Arez.areNamesEnabled() ? _name + "." + _nextIndex++ : null;</span>
-<span class="source-line-no">267</span><span id="line-267">    final SafeFunction&lt;T&gt; function = () -&gt; {</span>
-<span class="source-line-no">268</span><span id="line-268">      Arez.context().registerHook( "$MC$", null, () -&gt; disposeComputableValue( args ) );</span>
-<span class="source-line-no">269</span><span id="line-269">      return _function.call( args );</span>
-<span class="source-line-no">270</span><span id="line-270">    };</span>
-<span class="source-line-no">271</span><span id="line-271">    final ComputableValue&lt;T&gt; computable = getContext().computable( component, name, function, _flags );</span>
-<span class="source-line-no">272</span><span id="line-272">    for ( final Object arg : args )</span>
-<span class="source-line-no">273</span><span id="line-273">    {</span>
-<span class="source-line-no">274</span><span id="line-274">      if ( arg instanceof DisposeNotifier )</span>
-<span class="source-line-no">275</span><span id="line-275">      {</span>
-<span class="source-line-no">276</span><span id="line-276">        DisposeNotifier.asDisposeNotifier( arg ).addOnDisposeListener( "MemoizeCache", computable::dispose );</span>
-<span class="source-line-no">277</span><span id="line-277">      }</span>
-<span class="source-line-no">278</span><span id="line-278">    }</span>
-<span class="source-line-no">279</span><span id="line-279">    return computable;</span>
-<span class="source-line-no">280</span><span id="line-280">  }</span>
-<span class="source-line-no">281</span><span id="line-281"></span>
-<span class="source-line-no">282</span><span id="line-282">  /**</span>
-<span class="source-line-no">283</span><span id="line-283">   * Method invoked to dispose memoized value.</span>
-<span class="source-line-no">284</span><span id="line-284">   * This is called from deactivate hook so there should always by a cached value present</span>
-<span class="source-line-no">285</span><span id="line-285">   * and thus we never check for missing elements in chain.</span>
-<span class="source-line-no">286</span><span id="line-286">   *</span>
-<span class="source-line-no">287</span><span id="line-287">   * @param args the arguments originally passed to the memoized function.</span>
-<span class="source-line-no">288</span><span id="line-288">   */</span>
-<span class="source-line-no">289</span><span id="line-289">  @SuppressWarnings( "unchecked" )</span>
-<span class="source-line-no">290</span><span id="line-290">  void disposeComputableValue( @Nonnull final Object... args )</span>
-<span class="source-line-no">291</span><span id="line-291">  {</span>
-<span class="source-line-no">292</span><span id="line-292">    if ( Arez.shouldCheckInvariants() )</span>
-<span class="source-line-no">293</span><span id="line-293">    {</span>
-<span class="source-line-no">294</span><span id="line-294">      invariant( () -&gt; args.length == _argCount,</span>
-<span class="source-line-no">295</span><span id="line-295">                 () -&gt; "Arez-0163: MemoizeCache.disposeComputableValue called with " + args.length +</span>
-<span class="source-line-no">296</span><span id="line-296">                       " argument(s) but expected " + _argCount + " argument(s)." );</span>
-<span class="source-line-no">297</span><span id="line-297">    }</span>
-<span class="source-line-no">298</span><span id="line-298">    if ( _disposed )</span>
-<span class="source-line-no">299</span><span id="line-299">    {</span>
-<span class="source-line-no">300</span><span id="line-300">      return;</span>
-<span class="source-line-no">301</span><span id="line-301">    }</span>
-<span class="source-line-no">302</span><span id="line-302">    final Stack&lt;Map&lt;Object, ?&gt;&gt; stack = new Stack&lt;&gt;();</span>
-<span class="source-line-no">303</span><span id="line-303">    stack.push( _cache );</span>
-<span class="source-line-no">304</span><span id="line-304">    final int size = args.length - 1;</span>
-<span class="source-line-no">305</span><span id="line-305">    for ( int i = 0; i &lt; size; i++ )</span>
-<span class="source-line-no">306</span><span id="line-306">    {</span>
-<span class="source-line-no">307</span><span id="line-307">      stack.push( (Map&lt;Object, ?&gt;) stack.peek().get( args[ i ] ) );</span>
-<span class="source-line-no">308</span><span id="line-308">    }</span>
-<span class="source-line-no">309</span><span id="line-309">    final ComputableValue&lt;T&gt; computableValue = (ComputableValue&lt;T&gt;) stack.peek().remove( args[ size ] );</span>
-<span class="source-line-no">310</span><span id="line-310">    if ( Arez.shouldCheckInvariants() )</span>
-<span class="source-line-no">311</span><span id="line-311">    {</span>
-<span class="source-line-no">312</span><span id="line-312">      invariant( () -&gt; null != computableValue,</span>
-<span class="source-line-no">313</span><span id="line-313">                 () -&gt; "Arez-0193: MemoizeCache.disposeComputableValue called with args " + Arrays.asList( args ) +</span>
-<span class="source-line-no">314</span><span id="line-314">                       " but unable to locate corresponding ComputableValue." );</span>
-<span class="source-line-no">315</span><span id="line-315">    }</span>
-<span class="source-line-no">316</span><span id="line-316">    assert null != computableValue;</span>
-<span class="source-line-no">317</span><span id="line-317">    getContext().task( Arez.areNamesEnabled() ? computableValue.getName() + ".dispose" : null,</span>
-<span class="source-line-no">318</span><span id="line-318">                       computableValue::dispose,</span>
-<span class="source-line-no">319</span><span id="line-319">                       Task.Flags.PRIORITY_HIGHEST | Task.Flags.DISPOSE_ON_COMPLETE | Task.Flags.NO_WRAP_TASK );</span>
-<span class="source-line-no">320</span><span id="line-320">    while ( stack.size() &gt; 1 )</span>
-<span class="source-line-no">321</span><span id="line-321">    {</span>
-<span class="source-line-no">322</span><span id="line-322">      final Map&lt;Object, ?&gt; map = stack.pop();</span>
-<span class="source-line-no">323</span><span id="line-323">      if ( map.isEmpty() )</span>
-<span class="source-line-no">324</span><span id="line-324">      {</span>
-<span class="source-line-no">325</span><span id="line-325">        stack.peek().remove( args[ stack.size() - 1 ] );</span>
-<span class="source-line-no">326</span><span id="line-326">      }</span>
-<span class="source-line-no">327</span><span id="line-327">      else</span>
-<span class="source-line-no">328</span><span id="line-328">      {</span>
-<span class="source-line-no">329</span><span id="line-329">        return;</span>
-<span class="source-line-no">330</span><span id="line-330">      }</span>
-<span class="source-line-no">331</span><span id="line-331">    }</span>
-<span class="source-line-no">332</span><span id="line-332">  }</span>
-<span class="source-line-no">333</span><span id="line-333"></span>
-<span class="source-line-no">334</span><span id="line-334">  @OmitSymbol</span>
-<span class="source-line-no">335</span><span id="line-335">  Map&lt;Object, Object&gt; getCache()</span>
-<span class="source-line-no">336</span><span id="line-336">  {</span>
-<span class="source-line-no">337</span><span id="line-337">    return _cache;</span>
-<span class="source-line-no">338</span><span id="line-338">  }</span>
-<span class="source-line-no">339</span><span id="line-339"></span>
-<span class="source-line-no">340</span><span id="line-340">  @OmitSymbol</span>
-<span class="source-line-no">341</span><span id="line-341">  int getNextIndex()</span>
-<span class="source-line-no">342</span><span id="line-342">  {</span>
-<span class="source-line-no">343</span><span id="line-343">    return _nextIndex;</span>
-<span class="source-line-no">344</span><span id="line-344">  }</span>
-<span class="source-line-no">345</span><span id="line-345"></span>
-<span class="source-line-no">346</span><span id="line-346">  @OmitSymbol</span>
-<span class="source-line-no">347</span><span id="line-347">  int getFlags()</span>
-<span class="source-line-no">348</span><span id="line-348">  {</span>
-<span class="source-line-no">349</span><span id="line-349">    return _flags;</span>
-<span class="source-line-no">350</span><span id="line-350">  }</span>
-<span class="source-line-no">351</span><span id="line-351">}</span>
+<span class="source-line-no">266</span><span id="line-266">    final int id = _nextIndex++;</span>
+<span class="source-line-no">267</span><span id="line-267">    final String name = Arez.areNamesEnabled() ? _name + "." + id : null;</span>
+<span class="source-line-no">268</span><span id="line-268">    final SafeFunction&lt;T&gt; function = () -&gt; {</span>
+<span class="source-line-no">269</span><span id="line-269">      Arez.context().registerHook( "$MC$", null, () -&gt; disposeComputableValue( args ) );</span>
+<span class="source-line-no">270</span><span id="line-270">      return _function.call( args );</span>
+<span class="source-line-no">271</span><span id="line-271">    };</span>
+<span class="source-line-no">272</span><span id="line-272">    final ComputableValue&lt;T&gt; computable = getContext().computable( component, name, function, _flags );</span>
+<span class="source-line-no">273</span><span id="line-273">    for ( final Object arg : args )</span>
+<span class="source-line-no">274</span><span id="line-274">    {</span>
+<span class="source-line-no">275</span><span id="line-275">      if ( arg instanceof DisposeNotifier )</span>
+<span class="source-line-no">276</span><span id="line-276">      {</span>
+<span class="source-line-no">277</span><span id="line-277">        DisposeNotifier.asDisposeNotifier( arg ).addOnDisposeListener( "MemoizeCache" + id, computable::dispose );</span>
+<span class="source-line-no">278</span><span id="line-278">      }</span>
+<span class="source-line-no">279</span><span id="line-279">    }</span>
+<span class="source-line-no">280</span><span id="line-280">    return computable;</span>
+<span class="source-line-no">281</span><span id="line-281">  }</span>
+<span class="source-line-no">282</span><span id="line-282"></span>
+<span class="source-line-no">283</span><span id="line-283">  /**</span>
+<span class="source-line-no">284</span><span id="line-284">   * Method invoked to dispose memoized value.</span>
+<span class="source-line-no">285</span><span id="line-285">   * This is called from deactivate hook so there should always by a cached value present</span>
+<span class="source-line-no">286</span><span id="line-286">   * and thus we never check for missing elements in chain.</span>
+<span class="source-line-no">287</span><span id="line-287">   *</span>
+<span class="source-line-no">288</span><span id="line-288">   * @param args the arguments originally passed to the memoized function.</span>
+<span class="source-line-no">289</span><span id="line-289">   */</span>
+<span class="source-line-no">290</span><span id="line-290">  @SuppressWarnings( "unchecked" )</span>
+<span class="source-line-no">291</span><span id="line-291">  void disposeComputableValue( @Nonnull final Object... args )</span>
+<span class="source-line-no">292</span><span id="line-292">  {</span>
+<span class="source-line-no">293</span><span id="line-293">    if ( Arez.shouldCheckInvariants() )</span>
+<span class="source-line-no">294</span><span id="line-294">    {</span>
+<span class="source-line-no">295</span><span id="line-295">      invariant( () -&gt; args.length == _argCount,</span>
+<span class="source-line-no">296</span><span id="line-296">                 () -&gt; "Arez-0163: MemoizeCache.disposeComputableValue called with " + args.length +</span>
+<span class="source-line-no">297</span><span id="line-297">                       " argument(s) but expected " + _argCount + " argument(s)." );</span>
+<span class="source-line-no">298</span><span id="line-298">    }</span>
+<span class="source-line-no">299</span><span id="line-299">    if ( _disposed )</span>
+<span class="source-line-no">300</span><span id="line-300">    {</span>
+<span class="source-line-no">301</span><span id="line-301">      return;</span>
+<span class="source-line-no">302</span><span id="line-302">    }</span>
+<span class="source-line-no">303</span><span id="line-303">    final Stack&lt;Map&lt;Object, ?&gt;&gt; stack = new Stack&lt;&gt;();</span>
+<span class="source-line-no">304</span><span id="line-304">    stack.push( _cache );</span>
+<span class="source-line-no">305</span><span id="line-305">    final int size = args.length - 1;</span>
+<span class="source-line-no">306</span><span id="line-306">    for ( int i = 0; i &lt; size; i++ )</span>
+<span class="source-line-no">307</span><span id="line-307">    {</span>
+<span class="source-line-no">308</span><span id="line-308">      stack.push( (Map&lt;Object, ?&gt;) stack.peek().get( args[ i ] ) );</span>
+<span class="source-line-no">309</span><span id="line-309">    }</span>
+<span class="source-line-no">310</span><span id="line-310">    final ComputableValue&lt;T&gt; computableValue = (ComputableValue&lt;T&gt;) stack.peek().remove( args[ size ] );</span>
+<span class="source-line-no">311</span><span id="line-311">    if ( Arez.shouldCheckInvariants() )</span>
+<span class="source-line-no">312</span><span id="line-312">    {</span>
+<span class="source-line-no">313</span><span id="line-313">      invariant( () -&gt; null != computableValue,</span>
+<span class="source-line-no">314</span><span id="line-314">                 () -&gt; "Arez-0193: MemoizeCache.disposeComputableValue called with args " + Arrays.asList( args ) +</span>
+<span class="source-line-no">315</span><span id="line-315">                       " but unable to locate corresponding ComputableValue." );</span>
+<span class="source-line-no">316</span><span id="line-316">    }</span>
+<span class="source-line-no">317</span><span id="line-317">    assert null != computableValue;</span>
+<span class="source-line-no">318</span><span id="line-318">    getContext().task( Arez.areNamesEnabled() ? computableValue.getName() + ".dispose" : null,</span>
+<span class="source-line-no">319</span><span id="line-319">                       computableValue::dispose,</span>
+<span class="source-line-no">320</span><span id="line-320">                       Task.Flags.PRIORITY_HIGHEST | Task.Flags.DISPOSE_ON_COMPLETE | Task.Flags.NO_WRAP_TASK );</span>
+<span class="source-line-no">321</span><span id="line-321">    while ( stack.size() &gt; 1 )</span>
+<span class="source-line-no">322</span><span id="line-322">    {</span>
+<span class="source-line-no">323</span><span id="line-323">      final Map&lt;Object, ?&gt; map = stack.pop();</span>
+<span class="source-line-no">324</span><span id="line-324">      if ( map.isEmpty() )</span>
+<span class="source-line-no">325</span><span id="line-325">      {</span>
+<span class="source-line-no">326</span><span id="line-326">        stack.peek().remove( args[ stack.size() - 1 ] );</span>
+<span class="source-line-no">327</span><span id="line-327">      }</span>
+<span class="source-line-no">328</span><span id="line-328">      else</span>
+<span class="source-line-no">329</span><span id="line-329">      {</span>
+<span class="source-line-no">330</span><span id="line-330">        return;</span>
+<span class="source-line-no">331</span><span id="line-331">      }</span>
+<span class="source-line-no">332</span><span id="line-332">    }</span>
+<span class="source-line-no">333</span><span id="line-333">  }</span>
+<span class="source-line-no">334</span><span id="line-334"></span>
+<span class="source-line-no">335</span><span id="line-335">  @OmitSymbol</span>
+<span class="source-line-no">336</span><span id="line-336">  Map&lt;Object, Object&gt; getCache()</span>
+<span class="source-line-no">337</span><span id="line-337">  {</span>
+<span class="source-line-no">338</span><span id="line-338">    return _cache;</span>
+<span class="source-line-no">339</span><span id="line-339">  }</span>
+<span class="source-line-no">340</span><span id="line-340"></span>
+<span class="source-line-no">341</span><span id="line-341">  @OmitSymbol</span>
+<span class="source-line-no">342</span><span id="line-342">  int getNextIndex()</span>
+<span class="source-line-no">343</span><span id="line-343">  {</span>
+<span class="source-line-no">344</span><span id="line-344">    return _nextIndex;</span>
+<span class="source-line-no">345</span><span id="line-345">  }</span>
+<span class="source-line-no">346</span><span id="line-346"></span>
+<span class="source-line-no">347</span><span id="line-347">  @OmitSymbol</span>
+<span class="source-line-no">348</span><span id="line-348">  int getFlags()</span>
+<span class="source-line-no">349</span><span id="line-349">  {</span>
+<span class="source-line-no">350</span><span id="line-350">    return _flags;</span>
+<span class="source-line-no">351</span><span id="line-351">  }</span>
+<span class="source-line-no">352</span><span id="line-352">}</span>
 
 
 
