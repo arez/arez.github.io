@@ -677,83 +677,96 @@
 <span class="source-line-no">664</span><span id="line-664">    return _component;</span>
 <span class="source-line-no">665</span><span id="line-665">  }</span>
 <span class="source-line-no">666</span><span id="line-666"></span>
-<span class="source-line-no">667</span><span id="line-667">  /**</span>
-<span class="source-line-no">668</span><span id="line-668">   * Add the listener to notify list under key.</span>
-<span class="source-line-no">669</span><span id="line-669">   * This method MUST NOT be invoked after {@link #dispose()} has been invoked.</span>
-<span class="source-line-no">670</span><span id="line-670">   * This method should not be invoked if another listener has been added with the same key without</span>
-<span class="source-line-no">671</span><span id="line-671">   * being removed.</span>
-<span class="source-line-no">672</span><span id="line-672">   *</span>
-<span class="source-line-no">673</span><span id="line-673">   * &lt;p&gt;If the key implements {@link Disposable} and {@link Disposable#isDisposed()} returns &lt;code&gt;true&lt;/code&gt;</span>
-<span class="source-line-no">674</span><span id="line-674">   * when invoking the calback then the callback will be skipped. This rare situation only occurs when there is</span>
-<span class="source-line-no">675</span><span id="line-675">   * circular dependency in the object model usually involving {@link CascadeDispose}.&lt;/p&gt;</span>
-<span class="source-line-no">676</span><span id="line-676">   *</span>
-<span class="source-line-no">677</span><span id="line-677">   * @param key    the key to uniquely identify listener.</span>
-<span class="source-line-no">678</span><span id="line-678">   * @param action the listener callback.</span>
-<span class="source-line-no">679</span><span id="line-679">   */</span>
-<span class="source-line-no">680</span><span id="line-680">  public void addOnDisposeListener( @Nonnull final Object key, @Nonnull final SafeProcedure action )</span>
-<span class="source-line-no">681</span><span id="line-681">  {</span>
-<span class="source-line-no">682</span><span id="line-682">    assert null != _onDisposeListeners;</span>
-<span class="source-line-no">683</span><span id="line-683">    if ( Arez.shouldCheckApiInvariants() )</span>
-<span class="source-line-no">684</span><span id="line-684">    {</span>
-<span class="source-line-no">685</span><span id="line-685">      invariant( this::isNotDisposed,</span>
-<span class="source-line-no">686</span><span id="line-686">                 () -&gt; "Arez-0170: Attempting to add OnDispose listener but ComponentKernel has been disposed." );</span>
-<span class="source-line-no">687</span><span id="line-687">      invariant( () -&gt; !_onDisposeListeners.containsKey( key ),</span>
-<span class="source-line-no">688</span><span id="line-688">                 () -&gt; "Arez-0166: Attempting to add OnDispose listener with key '" + key +</span>
-<span class="source-line-no">689</span><span id="line-689">                       "' but a listener with that key already exists." );</span>
-<span class="source-line-no">690</span><span id="line-690">    }</span>
-<span class="source-line-no">691</span><span id="line-691">    _onDisposeListeners.put( key, action );</span>
-<span class="source-line-no">692</span><span id="line-692">  }</span>
-<span class="source-line-no">693</span><span id="line-693"></span>
-<span class="source-line-no">694</span><span id="line-694">  /**</span>
-<span class="source-line-no">695</span><span id="line-695">   * Remove the listener with specified key from the notify list.</span>
-<span class="source-line-no">696</span><span id="line-696">   * This method should only be invoked when a listener has been added for specific key using</span>
-<span class="source-line-no">697</span><span id="line-697">   * {@link #addOnDisposeListener(Object, SafeProcedure)} and has not been removed by another</span>
-<span class="source-line-no">698</span><span id="line-698">   * call to this method.</span>
-<span class="source-line-no">699</span><span id="line-699">   *</span>
-<span class="source-line-no">700</span><span id="line-700">   * @param key the key under which the listener was previously added.</span>
-<span class="source-line-no">701</span><span id="line-701">   */</span>
-<span class="source-line-no">702</span><span id="line-702">  public void removeOnDisposeListener( @Nonnull final Object key )</span>
-<span class="source-line-no">703</span><span id="line-703">  {</span>
-<span class="source-line-no">704</span><span id="line-704">    assert null != _onDisposeListeners;</span>
-<span class="source-line-no">705</span><span id="line-705">    // This method can be called when the notifier is disposed to avoid the caller (i.e. per-component</span>
-<span class="source-line-no">706</span><span id="line-706">    // generated code) from checking the disposed state of the notifier before invoking this method.</span>
-<span class="source-line-no">707</span><span id="line-707">    // This is necessary in a few rare circumstances but requiring the caller to check before invocation</span>
-<span class="source-line-no">708</span><span id="line-708">    // increases the generated code size.</span>
-<span class="source-line-no">709</span><span id="line-709">    final SafeProcedure removed = _onDisposeListeners.remove( key );</span>
-<span class="source-line-no">710</span><span id="line-710">    if ( Arez.shouldCheckApiInvariants() )</span>
-<span class="source-line-no">711</span><span id="line-711">    {</span>
-<span class="source-line-no">712</span><span id="line-712">      invariant( () -&gt; null != removed,</span>
-<span class="source-line-no">713</span><span id="line-713">                 () -&gt; "Arez-0167: Attempting to remove OnDispose listener with key '" + key +</span>
-<span class="source-line-no">714</span><span id="line-714">                       "' but no such listener exists." );</span>
-<span class="source-line-no">715</span><span id="line-715">    }</span>
-<span class="source-line-no">716</span><span id="line-716">  }</span>
-<span class="source-line-no">717</span><span id="line-717"></span>
-<span class="source-line-no">718</span><span id="line-718">  boolean hasOnDisposeListeners()</span>
-<span class="source-line-no">719</span><span id="line-719">  {</span>
-<span class="source-line-no">720</span><span id="line-720">    return null != _onDisposeListeners;</span>
-<span class="source-line-no">721</span><span id="line-721">  }</span>
-<span class="source-line-no">722</span><span id="line-722"></span>
-<span class="source-line-no">723</span><span id="line-723">  @Nonnull</span>
-<span class="source-line-no">724</span><span id="line-724">  Map&lt;Object, SafeProcedure&gt; getOnDisposeListeners()</span>
-<span class="source-line-no">725</span><span id="line-725">  {</span>
-<span class="source-line-no">726</span><span id="line-726">    assert null != _onDisposeListeners;</span>
-<span class="source-line-no">727</span><span id="line-727">    return _onDisposeListeners;</span>
-<span class="source-line-no">728</span><span id="line-728">  }</span>
-<span class="source-line-no">729</span><span id="line-729"></span>
-<span class="source-line-no">730</span><span id="line-730">  @Nonnull</span>
-<span class="source-line-no">731</span><span id="line-731">  @Override</span>
-<span class="source-line-no">732</span><span id="line-732">  public String toString()</span>
-<span class="source-line-no">733</span><span id="line-733">  {</span>
-<span class="source-line-no">734</span><span id="line-734">    if ( Arez.areNamesEnabled() )</span>
-<span class="source-line-no">735</span><span id="line-735">    {</span>
-<span class="source-line-no">736</span><span id="line-736">      return getName();</span>
-<span class="source-line-no">737</span><span id="line-737">    }</span>
-<span class="source-line-no">738</span><span id="line-738">    else</span>
-<span class="source-line-no">739</span><span id="line-739">    {</span>
-<span class="source-line-no">740</span><span id="line-740">      return super.toString();</span>
-<span class="source-line-no">741</span><span id="line-741">    }</span>
-<span class="source-line-no">742</span><span id="line-742">  }</span>
-<span class="source-line-no">743</span><span id="line-743">}</span>
+<span class="source-line-no">667</span><span id="line-667">  @Deprecated</span>
+<span class="source-line-no">668</span><span id="line-668">  public void addOnDisposeListener( @Nonnull final Object key, @Nonnull final SafeProcedure action )</span>
+<span class="source-line-no">669</span><span id="line-669">  {</span>
+<span class="source-line-no">670</span><span id="line-670">    addOnDisposeListener( key, action, true );</span>
+<span class="source-line-no">671</span><span id="line-671">  }</span>
+<span class="source-line-no">672</span><span id="line-672"></span>
+<span class="source-line-no">673</span><span id="line-673">  /**</span>
+<span class="source-line-no">674</span><span id="line-674">   * Add the listener to notify list under key.</span>
+<span class="source-line-no">675</span><span id="line-675">   * This method MUST NOT be invoked after {@link #dispose()} has been invoked.</span>
+<span class="source-line-no">676</span><span id="line-676">   * This method should not be invoked if another listener has been added with the same key without</span>
+<span class="source-line-no">677</span><span id="line-677">   * being removed.</span>
+<span class="source-line-no">678</span><span id="line-678">   *</span>
+<span class="source-line-no">679</span><span id="line-679">   * &lt;p&gt;If the key implements {@link Disposable} and {@link Disposable#isDisposed()} returns &lt;code&gt;true&lt;/code&gt;</span>
+<span class="source-line-no">680</span><span id="line-680">   * when invoking the calback then the callback will be skipped. This rare situation only occurs when there is</span>
+<span class="source-line-no">681</span><span id="line-681">   * circular dependency in the object model usually involving {@link CascadeDispose}.&lt;/p&gt;</span>
+<span class="source-line-no">682</span><span id="line-682">   *</span>
+<span class="source-line-no">683</span><span id="line-683">   * @param key    the key to uniquely identify listener.</span>
+<span class="source-line-no">684</span><span id="line-684">   * @param action the listener callback.</span>
+<span class="source-line-no">685</span><span id="line-685">   */</span>
+<span class="source-line-no">686</span><span id="line-686">  public void addOnDisposeListener( @Nonnull final Object key, @Nonnull final SafeProcedure action, final boolean errorIfDuplicate )</span>
+<span class="source-line-no">687</span><span id="line-687">  {</span>
+<span class="source-line-no">688</span><span id="line-688">    assert null != _onDisposeListeners;</span>
+<span class="source-line-no">689</span><span id="line-689">    if ( Arez.shouldCheckApiInvariants() )</span>
+<span class="source-line-no">690</span><span id="line-690">    {</span>
+<span class="source-line-no">691</span><span id="line-691">      invariant( this::isNotDisposed,</span>
+<span class="source-line-no">692</span><span id="line-692">                 () -&gt; "Arez-0170: Attempting to add OnDispose listener but ComponentKernel has been disposed." );</span>
+<span class="source-line-no">693</span><span id="line-693">      invariant( () -&gt; !errorIfDuplicate || !_onDisposeListeners.containsKey( key ),</span>
+<span class="source-line-no">694</span><span id="line-694">                 () -&gt; "Arez-0166: Attempting to add OnDispose listener with key '" + key +</span>
+<span class="source-line-no">695</span><span id="line-695">                       "' but a listener with that key already exists." );</span>
+<span class="source-line-no">696</span><span id="line-696">    }</span>
+<span class="source-line-no">697</span><span id="line-697">    _onDisposeListeners.put( key, action );</span>
+<span class="source-line-no">698</span><span id="line-698">  }</span>
+<span class="source-line-no">699</span><span id="line-699"></span>
+<span class="source-line-no">700</span><span id="line-700">  @Deprecated</span>
+<span class="source-line-no">701</span><span id="line-701">  public void removeOnDisposeListener( @Nonnull final Object key )</span>
+<span class="source-line-no">702</span><span id="line-702">  {</span>
+<span class="source-line-no">703</span><span id="line-703">    removeOnDisposeListener( key, true );</span>
+<span class="source-line-no">704</span><span id="line-704">  }</span>
+<span class="source-line-no">705</span><span id="line-705"></span>
+<span class="source-line-no">706</span><span id="line-706">  /**</span>
+<span class="source-line-no">707</span><span id="line-707">   * Remove the listener with specified key from the notify list.</span>
+<span class="source-line-no">708</span><span id="line-708">   * This method should only be invoked when a listener has been added for specific key using</span>
+<span class="source-line-no">709</span><span id="line-709">   * {@link #addOnDisposeListener(Object, SafeProcedure, boolean)} and has not been removed by another</span>
+<span class="source-line-no">710</span><span id="line-710">   * call to this method.</span>
+<span class="source-line-no">711</span><span id="line-711">   *</span>
+<span class="source-line-no">712</span><span id="line-712">   * @param key the key under which the listener was previously added.</span>
+<span class="source-line-no">713</span><span id="line-713">   * @param errorIfMissing generate an assertion error if no such key exists.</span>
+<span class="source-line-no">714</span><span id="line-714">   */</span>
+<span class="source-line-no">715</span><span id="line-715">  public void removeOnDisposeListener( @Nonnull final Object key, final boolean errorIfMissing )</span>
+<span class="source-line-no">716</span><span id="line-716">  {</span>
+<span class="source-line-no">717</span><span id="line-717">    assert null != _onDisposeListeners;</span>
+<span class="source-line-no">718</span><span id="line-718">    // This method can be called when the notifier is disposed to avoid the caller (i.e. per-component</span>
+<span class="source-line-no">719</span><span id="line-719">    // generated code) from checking the disposed state of the notifier before invoking this method.</span>
+<span class="source-line-no">720</span><span id="line-720">    // This is necessary in a few rare circumstances but requiring the caller to check before invocation</span>
+<span class="source-line-no">721</span><span id="line-721">    // increases the generated code size.</span>
+<span class="source-line-no">722</span><span id="line-722">    final SafeProcedure removed = _onDisposeListeners.remove( key );</span>
+<span class="source-line-no">723</span><span id="line-723">    if ( Arez.shouldCheckApiInvariants() )</span>
+<span class="source-line-no">724</span><span id="line-724">    {</span>
+<span class="source-line-no">725</span><span id="line-725">      invariant( () -&gt; !errorIfMissing || null != removed,</span>
+<span class="source-line-no">726</span><span id="line-726">                 () -&gt; "Arez-0167: Attempting to remove OnDispose listener with key '" + key +</span>
+<span class="source-line-no">727</span><span id="line-727">                       "' but no such listener exists." );</span>
+<span class="source-line-no">728</span><span id="line-728">    }</span>
+<span class="source-line-no">729</span><span id="line-729">  }</span>
+<span class="source-line-no">730</span><span id="line-730"></span>
+<span class="source-line-no">731</span><span id="line-731">  boolean hasOnDisposeListeners()</span>
+<span class="source-line-no">732</span><span id="line-732">  {</span>
+<span class="source-line-no">733</span><span id="line-733">    return null != _onDisposeListeners;</span>
+<span class="source-line-no">734</span><span id="line-734">  }</span>
+<span class="source-line-no">735</span><span id="line-735"></span>
+<span class="source-line-no">736</span><span id="line-736">  @Nonnull</span>
+<span class="source-line-no">737</span><span id="line-737">  Map&lt;Object, SafeProcedure&gt; getOnDisposeListeners()</span>
+<span class="source-line-no">738</span><span id="line-738">  {</span>
+<span class="source-line-no">739</span><span id="line-739">    assert null != _onDisposeListeners;</span>
+<span class="source-line-no">740</span><span id="line-740">    return _onDisposeListeners;</span>
+<span class="source-line-no">741</span><span id="line-741">  }</span>
+<span class="source-line-no">742</span><span id="line-742"></span>
+<span class="source-line-no">743</span><span id="line-743">  @Nonnull</span>
+<span class="source-line-no">744</span><span id="line-744">  @Override</span>
+<span class="source-line-no">745</span><span id="line-745">  public String toString()</span>
+<span class="source-line-no">746</span><span id="line-746">  {</span>
+<span class="source-line-no">747</span><span id="line-747">    if ( Arez.areNamesEnabled() )</span>
+<span class="source-line-no">748</span><span id="line-748">    {</span>
+<span class="source-line-no">749</span><span id="line-749">      return getName();</span>
+<span class="source-line-no">750</span><span id="line-750">    }</span>
+<span class="source-line-no">751</span><span id="line-751">    else</span>
+<span class="source-line-no">752</span><span id="line-752">    {</span>
+<span class="source-line-no">753</span><span id="line-753">      return super.toString();</span>
+<span class="source-line-no">754</span><span id="line-754">    }</span>
+<span class="source-line-no">755</span><span id="line-755">  }</span>
+<span class="source-line-no">756</span><span id="line-756">}</span>
 
 
 

@@ -31,7 +31,7 @@
 <span class="source-line-no">018</span><span id="line-18">public interface DisposeNotifier</span>
 <span class="source-line-no">019</span><span id="line-19">{</span>
 <span class="source-line-no">020</span><span id="line-20">  /**</span>
-<span class="source-line-no">021</span><span id="line-21">   * Add the listener to notify list under key.</span>
+<span class="source-line-no">021</span><span id="line-21">   * Add the listener to the notify list under key.</span>
 <span class="source-line-no">022</span><span id="line-22">   * This method MUST NOT be invoked after the component has been disposed.</span>
 <span class="source-line-no">023</span><span id="line-23">   * This method should not be invoked if another listener has been added with the same key without</span>
 <span class="source-line-no">024</span><span id="line-24">   * being removed.</span>
@@ -40,40 +40,42 @@
 <span class="source-line-no">027</span><span id="line-27">   * when invoking the calback then the callback will be skipped. This rare situation only occurs when there is</span>
 <span class="source-line-no">028</span><span id="line-28">   * circular dependency in the object model usually involving {@link CascadeDispose}.&lt;/p&gt;</span>
 <span class="source-line-no">029</span><span id="line-29">   *</span>
-<span class="source-line-no">030</span><span id="line-30">   * @param key    the key to uniquely identify listener.</span>
-<span class="source-line-no">031</span><span id="line-31">   * @param action the listener callback.</span>
-<span class="source-line-no">032</span><span id="line-32">   */</span>
-<span class="source-line-no">033</span><span id="line-33">  void addOnDisposeListener( @Nonnull Object key, @Nonnull SafeProcedure action );</span>
-<span class="source-line-no">034</span><span id="line-34"></span>
-<span class="source-line-no">035</span><span id="line-35">  /**</span>
-<span class="source-line-no">036</span><span id="line-36">   * Remove the listener with specified key from the notify list.</span>
-<span class="source-line-no">037</span><span id="line-37">   * This method should only be invoked when a listener has been added for specific key using</span>
-<span class="source-line-no">038</span><span id="line-38">   * {@link #addOnDisposeListener(Object, SafeProcedure)} and has not been removed by another</span>
-<span class="source-line-no">039</span><span id="line-39">   * call to this method.</span>
-<span class="source-line-no">040</span><span id="line-40">   *</span>
-<span class="source-line-no">041</span><span id="line-41">   * @param key the key under which the listener was previously added.</span>
-<span class="source-line-no">042</span><span id="line-42">   */</span>
-<span class="source-line-no">043</span><span id="line-43">  void removeOnDisposeListener( @Nonnull Object key );</span>
-<span class="source-line-no">044</span><span id="line-44"></span>
-<span class="source-line-no">045</span><span id="line-45">  /**</span>
-<span class="source-line-no">046</span><span id="line-46">   * Cast the specified object to an instance of DisposeNotifier.</span>
-<span class="source-line-no">047</span><span id="line-47">   * Invariant checks will verify that the cast is valid before proceeding.</span>
-<span class="source-line-no">048</span><span id="line-48">   *</span>
-<span class="source-line-no">049</span><span id="line-49">   * @param object the object.</span>
-<span class="source-line-no">050</span><span id="line-50">   * @return the object cast to DisposeNotifier.</span>
-<span class="source-line-no">051</span><span id="line-51">   */</span>
-<span class="source-line-no">052</span><span id="line-52">  @Nonnull</span>
-<span class="source-line-no">053</span><span id="line-53">  static DisposeNotifier asDisposeNotifier( @Nonnull final Object object )</span>
-<span class="source-line-no">054</span><span id="line-54">  {</span>
-<span class="source-line-no">055</span><span id="line-55">    if ( Arez.shouldCheckApiInvariants() )</span>
-<span class="source-line-no">056</span><span id="line-56">    {</span>
-<span class="source-line-no">057</span><span id="line-57">      apiInvariant( () -&gt; object instanceof DisposeNotifier,</span>
-<span class="source-line-no">058</span><span id="line-58">                    () -&gt; "Arez-0178: Object passed to asDisposeNotifier does not implement " +</span>
-<span class="source-line-no">059</span><span id="line-59">                          "DisposeNotifier. Object: " + object );</span>
-<span class="source-line-no">060</span><span id="line-60">    }</span>
-<span class="source-line-no">061</span><span id="line-61">    return (DisposeNotifier) object;</span>
-<span class="source-line-no">062</span><span id="line-62">  }</span>
-<span class="source-line-no">063</span><span id="line-63">}</span>
+<span class="source-line-no">030</span><span id="line-30">   * @param key              the key to uniquely identify listener.</span>
+<span class="source-line-no">031</span><span id="line-31">   * @param action           the listener callback.</span>
+<span class="source-line-no">032</span><span id="line-32">   * @param errorIfDuplicate generate an assertion error if duplicate key inserted.</span>
+<span class="source-line-no">033</span><span id="line-33">   */</span>
+<span class="source-line-no">034</span><span id="line-34">  void addOnDisposeListener( @Nonnull Object key, @Nonnull SafeProcedure action, boolean errorIfDuplicate );</span>
+<span class="source-line-no">035</span><span id="line-35"></span>
+<span class="source-line-no">036</span><span id="line-36">  /**</span>
+<span class="source-line-no">037</span><span id="line-37">   * Remove the listener with the specified key from the notify list.</span>
+<span class="source-line-no">038</span><span id="line-38">   * This method should only be invoked when a listener has been added for specific key using</span>
+<span class="source-line-no">039</span><span id="line-39">   * {@link #addOnDisposeListener(Object, SafeProcedure, boolean)} and has not been removed by another</span>
+<span class="source-line-no">040</span><span id="line-40">   * call to this method.</span>
+<span class="source-line-no">041</span><span id="line-41">   *</span>
+<span class="source-line-no">042</span><span id="line-42">   * @param key            the key under which the listener was previously added.</span>
+<span class="source-line-no">043</span><span id="line-43">   * @param errorIfMissing generate an assertion error if no such key exists.</span>
+<span class="source-line-no">044</span><span id="line-44">   */</span>
+<span class="source-line-no">045</span><span id="line-45">  void removeOnDisposeListener( @Nonnull Object key, boolean errorIfMissing );</span>
+<span class="source-line-no">046</span><span id="line-46"></span>
+<span class="source-line-no">047</span><span id="line-47">  /**</span>
+<span class="source-line-no">048</span><span id="line-48">   * Cast the specified object to an instance of DisposeNotifier.</span>
+<span class="source-line-no">049</span><span id="line-49">   * Invariant checks will verify that the cast is valid before proceeding.</span>
+<span class="source-line-no">050</span><span id="line-50">   *</span>
+<span class="source-line-no">051</span><span id="line-51">   * @param object the object.</span>
+<span class="source-line-no">052</span><span id="line-52">   * @return the object cast to DisposeNotifier.</span>
+<span class="source-line-no">053</span><span id="line-53">   */</span>
+<span class="source-line-no">054</span><span id="line-54">  @Nonnull</span>
+<span class="source-line-no">055</span><span id="line-55">  static DisposeNotifier asDisposeNotifier( @Nonnull final Object object )</span>
+<span class="source-line-no">056</span><span id="line-56">  {</span>
+<span class="source-line-no">057</span><span id="line-57">    if ( Arez.shouldCheckApiInvariants() )</span>
+<span class="source-line-no">058</span><span id="line-58">    {</span>
+<span class="source-line-no">059</span><span id="line-59">      apiInvariant( () -&gt; object instanceof DisposeNotifier,</span>
+<span class="source-line-no">060</span><span id="line-60">                    () -&gt; "Arez-0178: Object passed to asDisposeNotifier does not implement " +</span>
+<span class="source-line-no">061</span><span id="line-61">                          "DisposeNotifier. Object: " + object );</span>
+<span class="source-line-no">062</span><span id="line-62">    }</span>
+<span class="source-line-no">063</span><span id="line-63">    return (DisposeNotifier) object;</span>
+<span class="source-line-no">064</span><span id="line-64">  }</span>
+<span class="source-line-no">065</span><span id="line-65">}</span>
 
 
 

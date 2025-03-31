@@ -320,22 +320,24 @@
 <span class="source-line-no">307</span><span id="line-307">  {</span>
 <span class="source-line-no">308</span><span id="line-308">    DisposeNotifier</span>
 <span class="source-line-no">309</span><span id="line-309">      .asDisposeNotifier( entity )</span>
-<span class="source-line-no">310</span><span id="line-310">      .addOnDisposeListener( this, () -&gt; {</span>
-<span class="source-line-no">311</span><span id="line-311">        getEntitiesObservableValue().preReportChanged();</span>
-<span class="source-line-no">312</span><span id="line-312">        detach( entity, false );</span>
-<span class="source-line-no">313</span><span id="line-313">        getEntitiesObservableValue().reportChanged();</span>
-<span class="source-line-no">314</span><span id="line-314">      } );</span>
-<span class="source-line-no">315</span><span id="line-315">  }</span>
-<span class="source-line-no">316</span><span id="line-316"></span>
-<span class="source-line-no">317</span><span id="line-317">  private void detachEntity( @Nonnull final T entity, final boolean disposeOnDetach )</span>
-<span class="source-line-no">318</span><span id="line-318">  {</span>
-<span class="source-line-no">319</span><span id="line-319">    DisposeNotifier.asDisposeNotifier( entity ).removeOnDisposeListener( this );</span>
-<span class="source-line-no">320</span><span id="line-320">    if ( disposeOnDetach )</span>
-<span class="source-line-no">321</span><span id="line-321">    {</span>
-<span class="source-line-no">322</span><span id="line-322">      Disposable.dispose( entity );</span>
-<span class="source-line-no">323</span><span id="line-323">    }</span>
-<span class="source-line-no">324</span><span id="line-324">  }</span>
-<span class="source-line-no">325</span><span id="line-325">}</span>
+<span class="source-line-no">310</span><span id="line-310">      .addOnDisposeListener( this,</span>
+<span class="source-line-no">311</span><span id="line-311">                             () -&gt; {</span>
+<span class="source-line-no">312</span><span id="line-312">                               getEntitiesObservableValue().preReportChanged();</span>
+<span class="source-line-no">313</span><span id="line-313">                               detach( entity, false );</span>
+<span class="source-line-no">314</span><span id="line-314">                               getEntitiesObservableValue().reportChanged();</span>
+<span class="source-line-no">315</span><span id="line-315">                             },</span>
+<span class="source-line-no">316</span><span id="line-316">                             true );</span>
+<span class="source-line-no">317</span><span id="line-317">  }</span>
+<span class="source-line-no">318</span><span id="line-318"></span>
+<span class="source-line-no">319</span><span id="line-319">  private void detachEntity( @Nonnull final T entity, final boolean disposeOnDetach )</span>
+<span class="source-line-no">320</span><span id="line-320">  {</span>
+<span class="source-line-no">321</span><span id="line-321">    DisposeNotifier.asDisposeNotifier( entity ).removeOnDisposeListener( this, true );</span>
+<span class="source-line-no">322</span><span id="line-322">    if ( disposeOnDetach )</span>
+<span class="source-line-no">323</span><span id="line-323">    {</span>
+<span class="source-line-no">324</span><span id="line-324">      Disposable.dispose( entity );</span>
+<span class="source-line-no">325</span><span id="line-325">    }</span>
+<span class="source-line-no">326</span><span id="line-326">  }</span>
+<span class="source-line-no">327</span><span id="line-327">}</span>
 
 
 

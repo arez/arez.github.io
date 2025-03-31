@@ -31,6 +31,7 @@ loadScripts(document, 'script');</script>
 <li><a href="package-summary.html">Package</a></li>
 <li class="nav-bar-cell1-rev">Class</li>
 <li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../deprecated-list.html">Deprecated</a></li>
 <li><a href="../../index-all.html">Index</a></li>
 <li><a href="../../help-doc.html#class">Help</a></li>
 </ul>
@@ -66,8 +67,8 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
-<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
+<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
 </span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/Memoize.html#line-41">Memoize</a></span></div>
 <div class="block">Methods marked with this annotation are <a href="https://en.wikipedia.org/wiki/Memoization">memoized</a> while
  activated which typically means they have an observer. These methods are typically backed with one or more
@@ -121,7 +122,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">A flag indicating whether the computable should be "kept alive".</div>
 </div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#name()" class="member-name-link">name</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">Return the root name of the element value relative to the component.</div>
@@ -161,7 +162,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="name()">
 <h3>name</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Memoize.html#line-54">name</a></span></div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> </span><span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Memoize.html#line-54">name</a></span></div>
 <div class="block">Return the root name of the element value relative to the component.
  If the method has parameters then the name will be used in combination with a sequence
  when naming the synthesized <a href="../ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances. The value must conform to
@@ -234,7 +235,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="depType()">
 <h3>depType</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="DepType.html" title="enum class in arez.annotations">DepType</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Memoize.html#line-97">depType</a></span></div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> </span><span class="return-type"><a href="DepType.html" title="enum class in arez.annotations">DepType</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Memoize.html#line-97">depType</a></span></div>
 <div class="block">Enum indicating whether the value of the computable is derived from arez elements and/or external dependencies.
  If set to <a href="DepType.html#AREZ"><code>DepType.AREZ</code></a> then Arez will verify that the method annotated by this annotation accesses arez
  elements (i.e. instances of <a href="../ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> or instances of <a href="../ComputableValue.html" title="class in arez"><code>ComputableValue</code></a>). If set to

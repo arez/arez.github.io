@@ -31,6 +31,7 @@ loadScripts(document, 'script');</script>
 <li>Package</li>
 <li>Class</li>
 <li><a href="overview-tree.html">Tree</a></li>
+<li><a href="deprecated-list.html">Deprecated</a></li>
 <li class="nav-bar-cell1-rev">Index</li>
 <li><a href="help-doc.html#index">Help</a></li>
 </ul>
@@ -139,11 +140,15 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Add error handler to the list of error handlers called.</div>
 </dd>
-<dt><a href="arez/component/DisposeNotifier.html#addOnDisposeListener(java.lang.Object,arez.SafeProcedure)" class="member-name-link">addOnDisposeListener(Object, SafeProcedure)</a> - Method in interface arez.component.<a href="arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></dt>
-<dd>
-<div class="block">Add the listener to notify list under key.</div>
-</dd>
 <dt><a href="arez/component/internal/ComponentKernel.html#addOnDisposeListener(java.lang.Object,arez.SafeProcedure)" class="member-name-link">addOnDisposeListener(Object, SafeProcedure)</a> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+</dd>
+<dt><a href="arez/component/DisposeNotifier.html#addOnDisposeListener(java.lang.Object,arez.SafeProcedure,boolean)" class="member-name-link">addOnDisposeListener(Object, SafeProcedure, boolean)</a> - Method in interface arez.component.<a href="arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></dt>
+<dd>
+<div class="block">Add the listener to the notify list under key.</div>
+</dd>
+<dt><a href="arez/component/internal/ComponentKernel.html#addOnDisposeListener(java.lang.Object,arez.SafeProcedure,boolean)" class="member-name-link">addOnDisposeListener(Object, SafeProcedure, boolean)</a> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
 <div class="block">Add the listener to notify list under key.</div>
 </dd>
@@ -2514,11 +2519,15 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Remove error handler from list of existing error handlers.</div>
 </dd>
-<dt><a href="arez/component/DisposeNotifier.html#removeOnDisposeListener(java.lang.Object)" class="member-name-link">removeOnDisposeListener(Object)</a> - Method in interface arez.component.<a href="arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></dt>
-<dd>
-<div class="block">Remove the listener with specified key from the notify list.</div>
-</dd>
 <dt><a href="arez/component/internal/ComponentKernel.html#removeOnDisposeListener(java.lang.Object)" class="member-name-link">removeOnDisposeListener(Object)</a> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+</dd>
+<dt><a href="arez/component/DisposeNotifier.html#removeOnDisposeListener(java.lang.Object,boolean)" class="member-name-link">removeOnDisposeListener(Object, boolean)</a> - Method in interface arez.component.<a href="arez/component/DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></dt>
+<dd>
+<div class="block">Remove the listener with the specified key from the notify list.</div>
+</dd>
+<dt><a href="arez/component/internal/ComponentKernel.html#removeOnDisposeListener(java.lang.Object,boolean)" class="member-name-link">removeOnDisposeListener(Object, boolean)</a> - Method in class arez.component.internal.<a href="arez/component/internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></dt>
 <dd>
 <div class="block">Remove the listener with specified key from the notify list.</div>
 </dd>
@@ -2579,7 +2588,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/annotations/ArezComponent.html#requireEquals()" class="member-name-link">requireEquals()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/ArezComponent.html" title="annotation interface in arez.annotations">ArezComponent</a></dt>
 <dd>
-<div class="block">Indicate whether the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link"><code>Object.equals(Object)</code></a> methods need to be implemented.</div>
+<div class="block">Indicate whether the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link"><code>Object.equals(Object)</code></a> methods need to be implemented.</div>
 </dd>
 <dt><a href="arez/annotations/ArezComponent.html#requireId()" class="member-name-link">requireId()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/ArezComponent.html" title="annotation interface in arez.annotations">ArezComponent</a></dt>
 <dd>
