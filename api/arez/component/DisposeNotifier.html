@@ -95,19 +95,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#addOnDisposeListener(java.lang.Object,arez.SafeProcedure,boolean)" class="member-name-link">addOnDisposeListener</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#addOnDisposeListener(java.lang.Object,arez.SafeProcedure,boolean)" class="member-name-link">addOnDisposeListener</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
  <a href="../SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action,
  boolean&nbsp;errorIfDuplicate)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Add the listener to the notify list under key.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#asDisposeNotifier(java.lang.Object)" class="member-name-link">asDisposeNotifier</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#asDisposeNotifier(java.lang.Object)" class="member-name-link">asDisposeNotifier</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Cast the specified object to an instance of DisposeNotifier.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#removeOnDisposeListener(java.lang.Object,boolean)" class="member-name-link">removeOnDisposeListener</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#removeOnDisposeListener(java.lang.Object,boolean)" class="member-name-link">removeOnDisposeListener</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
  boolean&nbsp;errorIfMissing)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Remove the listener with the specified key from the notify list.</div>
@@ -129,8 +129,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addOnDisposeListener(java.lang.Object,arez.SafeProcedure,boolean)">
 <h3>addOnDisposeListener</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/DisposeNotifier.html#line-34">addOnDisposeListener</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> <a href="../SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action,
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/DisposeNotifier.html#line-34">addOnDisposeListener</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
+ @Nonnull <a href="../SafeProcedure.html" title="interface in arez">SafeProcedure</a>&nbsp;action,
  boolean&nbsp;errorIfDuplicate)</span></div>
 <div class="block">Add the listener to the notify list under key.
  This method MUST NOT be invoked after the component has been disposed.
@@ -151,7 +151,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="removeOnDisposeListener(java.lang.Object,boolean)">
 <h3>removeOnDisposeListener</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/DisposeNotifier.html#line-45">removeOnDisposeListener</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/DisposeNotifier.html#line-45">removeOnDisposeListener</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
  boolean&nbsp;errorIfMissing)</span></div>
 <div class="block">Remove the listener with the specified key from the notify list.
  This method should only be invoked when a listener has been added for specific key using
@@ -167,7 +167,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="asDisposeNotifier(java.lang.Object)">
 <h3>asDisposeNotifier</h3>
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> </span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/DisposeNotifier.html#line-54">asDisposeNotifier</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="DisposeNotifier.html" title="interface in arez.component">DisposeNotifier</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/DisposeNotifier.html#line-54">asDisposeNotifier</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
 <div class="block">Cast the specified object to an instance of DisposeNotifier.
  Invariant checks will verify that the cast is valid before proceeding.</div>
 <dl class="notes">

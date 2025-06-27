@@ -67,8 +67,8 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
+<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
+<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
 </span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-36">Observable</a></span></div>
 <div class="block">Annotation applied to methods that expose an ObservableValue value in Arez.
  Methods annotated with this either query state or mutate state. The query
@@ -118,7 +118,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Indicate whether the generated component class should add a parameter to the constructor to initialize this property.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#name()" class="member-name-link">name</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">Return the name of the ObservableValue relative to the component.</div>
@@ -153,7 +153,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="name()">
 <h3>name</h3>
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> </span><span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-50">name</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-50">name</a></span></div>
 <div class="block">Return the name of the ObservableValue relative to the component. If not specified
  will default to the name of the property by convention as described above.
  The value must conform to the requirements of a java identifier.
@@ -194,7 +194,7 @@ loadScripts(document, 'script');</script>
  This parameter should only be set to <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a> when the observable property is defined by a
  pair of abstract methods. If set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then an initializer will be added for an
  observable property if it is defined by a pair of abstract methods and the values is annotated with the
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link"><code>Nonnull</code></a> annotation and it is not annotated by <a href="Inverse.html" title="annotation interface in arez.annotations"><code>Inverse</code></a>.
+ <code>Nonnull</code> annotation and it is not annotated by <a href="Inverse.html" title="annotation interface in arez.annotations"><code>Inverse</code></a>.
 
  <p>The initializer parameters will be added as additional parameters at the end of the parameter list in
  the generated classes constructors. The initializers will be defined in the order that the observable
