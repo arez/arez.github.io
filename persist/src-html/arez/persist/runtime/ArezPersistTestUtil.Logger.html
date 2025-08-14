@@ -43,7 +43,7 @@
 <span class="source-line-no">030</span><span id="line-30">   */</span>
 <span class="source-line-no">031</span><span id="line-31">  public static void resetConfig( final boolean production )</span>
 <span class="source-line-no">032</span><span id="line-32">  {</span>
-<span class="source-line-no">033</span><span id="line-33">    if ( Config.isProductionEnvironment() )</span>
+<span class="source-line-no">033</span><span id="line-33">    if ( ArezPersistConfig.isProductionEnvironment() )</span>
 <span class="source-line-no">034</span><span id="line-34">    {</span>
 <span class="source-line-no">035</span><span id="line-35">      throw new IllegalStateException( "Unable to reset config as ArezPersist is in production mode" );</span>
 <span class="source-line-no">036</span><span id="line-36">    }</span>
@@ -77,7 +77,7 @@
 <span class="source-line-no">064</span><span id="line-64">   */</span>
 <span class="source-line-no">065</span><span id="line-65">  public static void setLogger( @Nullable final Logger logger )</span>
 <span class="source-line-no">066</span><span id="line-66">  {</span>
-<span class="source-line-no">067</span><span id="line-67">    if ( Config.isProductionEnvironment() )</span>
+<span class="source-line-no">067</span><span id="line-67">    if ( ArezPersistConfig.isProductionEnvironment() )</span>
 <span class="source-line-no">068</span><span id="line-68">    {</span>
 <span class="source-line-no">069</span><span id="line-69">      throw new IllegalStateException( "Unable to call ArezTestUtil.setLogger() as ArezPersist is in production mode" );</span>
 <span class="source-line-no">070</span><span id="line-70">    }</span>
@@ -144,7 +144,7 @@
 <span class="source-line-no">131</span><span id="line-131">  @SuppressWarnings( "NonJREEmulationClassesInClientCode" )</span>
 <span class="source-line-no">132</span><span id="line-132">  private static void setConstant( @Nonnull final String fieldName, final boolean value )</span>
 <span class="source-line-no">133</span><span id="line-133">  {</span>
-<span class="source-line-no">134</span><span id="line-134">    if ( Config.isProductionEnvironment() )</span>
+<span class="source-line-no">134</span><span id="line-134">    if ( ArezPersistConfig.isProductionEnvironment() )</span>
 <span class="source-line-no">135</span><span id="line-135">    {</span>
 <span class="source-line-no">136</span><span id="line-136">      throw new IllegalStateException( "Unable to change constant " + fieldName +</span>
 <span class="source-line-no">137</span><span id="line-137">                                       " as ArezPersist is in production mode" );</span>
@@ -153,7 +153,7 @@
 <span class="source-line-no">140</span><span id="line-140">    {</span>
 <span class="source-line-no">141</span><span id="line-141">      try</span>
 <span class="source-line-no">142</span><span id="line-142">      {</span>
-<span class="source-line-no">143</span><span id="line-143">        final Field field = Config.class.getDeclaredField( fieldName );</span>
+<span class="source-line-no">143</span><span id="line-143">        final Field field = ArezPersistConfig.class.getDeclaredField( fieldName );</span>
 <span class="source-line-no">144</span><span id="line-144">        field.setAccessible( true );</span>
 <span class="source-line-no">145</span><span id="line-145">        field.set( null, value );</span>
 <span class="source-line-no">146</span><span id="line-146">      }</span>

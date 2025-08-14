@@ -39,7 +39,7 @@
 <span class="source-line-no">026</span><span id="line-26">  @OmitSymbol</span>
 <span class="source-line-no">027</span><span id="line-27">  public static boolean shouldCheckApiInvariants()</span>
 <span class="source-line-no">028</span><span id="line-28">  {</span>
-<span class="source-line-no">029</span><span id="line-29">    return Config.shouldCheckApiInvariants();</span>
+<span class="source-line-no">029</span><span id="line-29">    return ArezPersistConfig.shouldCheckApiInvariants();</span>
 <span class="source-line-no">030</span><span id="line-30">  }</span>
 <span class="source-line-no">031</span><span id="line-31"></span>
 <span class="source-line-no">032</span><span id="line-32">  /**</span>
@@ -50,7 +50,7 @@
 <span class="source-line-no">037</span><span id="line-37">  @OmitSymbol</span>
 <span class="source-line-no">038</span><span id="line-38">  public static boolean isApplicationStoreEnabled()</span>
 <span class="source-line-no">039</span><span id="line-39">  {</span>
-<span class="source-line-no">040</span><span id="line-40">    return Config.isApplicationStoreEnabled();</span>
+<span class="source-line-no">040</span><span id="line-40">    return ArezPersistConfig.isApplicationStoreEnabled();</span>
 <span class="source-line-no">041</span><span id="line-41">  }</span>
 <span class="source-line-no">042</span><span id="line-42"></span>
 <span class="source-line-no">043</span><span id="line-43">  /**</span>
@@ -193,33 +193,34 @@
 <span class="source-line-no">180</span><span id="line-180">   * @return the action to invoke to deregister converter.</span>
 <span class="source-line-no">181</span><span id="line-181">   * @param &lt;A&gt; the type of the value.</span>
 <span class="source-line-no">182</span><span id="line-182">   */</span>
-<span class="source-line-no">183</span><span id="line-183">  public static &lt;A&gt; SafeProcedure registerConverter( @Nonnull final Class&lt;A&gt; type,</span>
-<span class="source-line-no">184</span><span id="line-184">                                                     @Nonnull final Converter&lt;A, ?&gt; converter )</span>
-<span class="source-line-no">185</span><span id="line-185">  {</span>
-<span class="source-line-no">186</span><span id="line-186">    return Registry.registerConverter( type, converter );</span>
-<span class="source-line-no">187</span><span id="line-187">  }</span>
-<span class="source-line-no">188</span><span id="line-188"></span>
-<span class="source-line-no">189</span><span id="line-189">  /**</span>
-<span class="source-line-no">190</span><span id="line-190">   * Return the converter registered for the specified application type or the identity converter if none are specified.</span>
-<span class="source-line-no">191</span><span id="line-191">   *</span>
-<span class="source-line-no">192</span><span id="line-192">   * @param type the application type.</span>
-<span class="source-line-no">193</span><span id="line-193">   * @return the converter if any.</span>
-<span class="source-line-no">194</span><span id="line-194">   * @param &lt;A&gt; the type of the value.</span>
-<span class="source-line-no">195</span><span id="line-195">   */</span>
-<span class="source-line-no">196</span><span id="line-196">  @Nonnull</span>
-<span class="source-line-no">197</span><span id="line-197">  public static &lt;A&gt; Converter&lt;A, ?&gt; getConverter( @Nonnull final Class&lt;A&gt; type )</span>
-<span class="source-line-no">198</span><span id="line-198">  {</span>
-<span class="source-line-no">199</span><span id="line-199">    return Registry.getConverter( type );</span>
-<span class="source-line-no">200</span><span id="line-200">  }</span>
-<span class="source-line-no">201</span><span id="line-201"></span>
-<span class="source-line-no">202</span><span id="line-202">  static void registerApplicationStoreIfEnabled()</span>
-<span class="source-line-no">203</span><span id="line-203">  {</span>
-<span class="source-line-no">204</span><span id="line-204">    if ( isApplicationStoreEnabled() )</span>
-<span class="source-line-no">205</span><span id="line-205">    {</span>
-<span class="source-line-no">206</span><span id="line-206">      registerStore( StoreTypes.APPLICATION, new NoopStorageService() );</span>
-<span class="source-line-no">207</span><span id="line-207">    }</span>
-<span class="source-line-no">208</span><span id="line-208">  }</span>
-<span class="source-line-no">209</span><span id="line-209">}</span>
+<span class="source-line-no">183</span><span id="line-183">  @Nonnull</span>
+<span class="source-line-no">184</span><span id="line-184">  public static &lt;A&gt; SafeProcedure registerConverter( @Nonnull final Class&lt;A&gt; type,</span>
+<span class="source-line-no">185</span><span id="line-185">                                                     @Nonnull final Converter&lt;A, ?&gt; converter )</span>
+<span class="source-line-no">186</span><span id="line-186">  {</span>
+<span class="source-line-no">187</span><span id="line-187">    return Registry.registerConverter( type, converter );</span>
+<span class="source-line-no">188</span><span id="line-188">  }</span>
+<span class="source-line-no">189</span><span id="line-189"></span>
+<span class="source-line-no">190</span><span id="line-190">  /**</span>
+<span class="source-line-no">191</span><span id="line-191">   * Return the converter registered for the specified application type or the identity converter if none are specified.</span>
+<span class="source-line-no">192</span><span id="line-192">   *</span>
+<span class="source-line-no">193</span><span id="line-193">   * @param type the application type.</span>
+<span class="source-line-no">194</span><span id="line-194">   * @return the converter if any.</span>
+<span class="source-line-no">195</span><span id="line-195">   * @param &lt;A&gt; the type of the value.</span>
+<span class="source-line-no">196</span><span id="line-196">   */</span>
+<span class="source-line-no">197</span><span id="line-197">  @Nonnull</span>
+<span class="source-line-no">198</span><span id="line-198">  public static &lt;A&gt; Converter&lt;A, ?&gt; getConverter( @Nonnull final Class&lt;A&gt; type )</span>
+<span class="source-line-no">199</span><span id="line-199">  {</span>
+<span class="source-line-no">200</span><span id="line-200">    return Registry.getConverter( type );</span>
+<span class="source-line-no">201</span><span id="line-201">  }</span>
+<span class="source-line-no">202</span><span id="line-202"></span>
+<span class="source-line-no">203</span><span id="line-203">  static void registerApplicationStoreIfEnabled()</span>
+<span class="source-line-no">204</span><span id="line-204">  {</span>
+<span class="source-line-no">205</span><span id="line-205">    if ( isApplicationStoreEnabled() )</span>
+<span class="source-line-no">206</span><span id="line-206">    {</span>
+<span class="source-line-no">207</span><span id="line-207">      registerStore( StoreTypes.APPLICATION, new NoopStorageService() );</span>
+<span class="source-line-no">208</span><span id="line-208">    }</span>
+<span class="source-line-no">209</span><span id="line-209">  }</span>
+<span class="source-line-no">210</span><span id="line-210">}</span>
 
 
 

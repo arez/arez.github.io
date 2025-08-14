@@ -66,8 +66,8 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html#TYPE" title="class or interface in java.lang.annotation" class="external-link">TYPE</a>)
+<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
+<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#TYPE" title="class or interface in java.lang.annotation" class="external-link">TYPE</a>)
 </span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/persist/PersistType.html#line-11">PersistType</a></span></div>
 <div class="block">Annotation applied to arez components that triggers the generation of persistence code.</div>
 </section>
@@ -82,12 +82,12 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Optional Element</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#defaultStore()" class="member-name-link">defaultStore</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">The key identifying the default store where the observable data is stored.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#name()" class="member-name-link">name</a></code></div>
 <div class="col-last odd-row-color">
 <div class="block">Return the name used to persist the type.</div>
@@ -112,7 +112,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="name()">
 <h3>name</h3>
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> </span><span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/persist/PersistType.html#line-25">name</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/persist/PersistType.html#line-25">name</a></span></div>
 <div class="block">Return the name used to persist the type.
  If not specified, then the simple name of the class will be used. The name must comply with the
  requirements for a java identifier.
@@ -132,7 +132,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="defaultStore()">
 <h3>defaultStore</h3>
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> </span><span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/persist/PersistType.html#line-35">defaultStore</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/persist/PersistType.html#line-35">defaultStore</a></span></div>
 <div class="block">The key identifying the default store where the observable data is stored.
  Individual properties annotated with the <a href="Persist.html" title="annotation interface in arez.persist"><code>Persist</code></a> annotation can still override the store used.
  The name of the defaultStore must comply with the requirements for a java identifier.</div>
