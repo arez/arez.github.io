@@ -67,8 +67,8 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
-<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
+<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
 </span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/ComponentStateRef.html#line-35">ComponentStateRef</a></span></div>
 <div class="block">Annotate the method that will be overridden to return true if the component is in the specified state.
  This is useful when the component must validate methods are only called in certain states or to change
@@ -85,14 +85,14 @@ loadScripts(document, 'script');</script>
  <li>Must be accessible to the class annotated by the <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
  <li>
    Should not be public as not expected to be invoked outside the component. A warning will be generated but can
-   be suppressed by the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressArezWarnings.html" title="annotation interface in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key
+   be suppressed by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressArezWarnings.html" title="annotation interface in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key
    "Arez:PublicRefMethod". This warning is also suppressed by the annotation processor if it is implementing
    an interface method.
  </li>
  <li>
    Should not be protected if in the class annotated with the <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> annotation as the method is not
    expected to be invoked outside the component. A warning will be generated but can be suppressed by the
-   <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressArezWarnings.html" title="annotation interface in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:ProtectedMethod".
+   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressArezWarnings.html" title="annotation interface in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:ProtectedMethod".
  </li>
  </ul></div>
 </section>
@@ -127,7 +127,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="value()">
 <h3>value</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="State.html" title="enum class in arez.annotations">State</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ComponentStateRef.html#line-44">value</a></span></div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> </span><span class="return-type"><a href="State.html" title="enum class in arez.annotations">State</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ComponentStateRef.html#line-44">value</a></span></div>
 <div class="block">Return the component state which will cause the annotated method to return true.</div>
 <dl class="notes">
 <dt>Returns:</dt>

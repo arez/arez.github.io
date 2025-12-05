@@ -2432,7 +2432,7 @@
 <span class="source-line-no">2419</span><span id="line-2419">                                      final boolean returnsResult,</span>
 <span class="source-line-no">2420</span><span id="line-2420">                                      final Object result )</span>
 <span class="source-line-no">2421</span><span id="line-2421">  {</span>
-<span class="source-line-no">2422</span><span id="line-2422">    final long duration = System.currentTimeMillis() - startedAt;</span>
+<span class="source-line-no">2422</span><span id="line-2422">    final int duration = Math.max( 0, (int) ( System.currentTimeMillis() - startedAt ) );</span>
 <span class="source-line-no">2423</span><span id="line-2423">    assert null != name;</span>
 <span class="source-line-no">2424</span><span id="line-2424">    final Object[] params = null == parameters ? new Object[ 0 ] : parameters;</span>
 <span class="source-line-no">2425</span><span id="line-2425">    getSpy().reportSpyEvent( new ActionCompleteEvent( name,</span>
@@ -2441,7 +2441,7 @@
 <span class="source-line-no">2428</span><span id="line-2428">                                                      returnsResult,</span>
 <span class="source-line-no">2429</span><span id="line-2429">                                                      result,</span>
 <span class="source-line-no">2430</span><span id="line-2430">                                                      t,</span>
-<span class="source-line-no">2431</span><span id="line-2431">                                                      (int) duration ) );</span>
+<span class="source-line-no">2431</span><span id="line-2431">                                                      duration ) );</span>
 <span class="source-line-no">2432</span><span id="line-2432">  }</span>
 <span class="source-line-no">2433</span><span id="line-2433"></span>
 <span class="source-line-no">2434</span><span id="line-2434">  @OmitSymbol</span>

@@ -192,8 +192,8 @@
 <span class="source-line-no">179</span><span id="line-179">    }</span>
 <span class="source-line-no">180</span><span id="line-180">    if ( willPropagateSpyEvents() )</span>
 <span class="source-line-no">181</span><span id="line-181">    {</span>
-<span class="source-line-no">182</span><span id="line-182">      final long duration = System.currentTimeMillis() - startedAt;</span>
-<span class="source-line-no">183</span><span id="line-183">      getSpy().reportSpyEvent( new TaskCompleteEvent( asInfo(), error, (int) duration ) );</span>
+<span class="source-line-no">182</span><span id="line-182">      final int duration = Math.max( 0, (int) ( System.currentTimeMillis() - startedAt ) );</span>
+<span class="source-line-no">183</span><span id="line-183">      getSpy().reportSpyEvent( new TaskCompleteEvent( asInfo(), error, duration ) );</span>
 <span class="source-line-no">184</span><span id="line-184">    }</span>
 <span class="source-line-no">185</span><span id="line-185">  }</span>
 <span class="source-line-no">186</span><span id="line-186"></span>

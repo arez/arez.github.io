@@ -618,10 +618,10 @@
 <span class="source-line-no">605</span><span id="line-605">  {</span>
 <span class="source-line-no">606</span><span id="line-606">    if ( isNotDisposed() )</span>
 <span class="source-line-no">607</span><span id="line-607">    {</span>
-<span class="source-line-no">608</span><span id="line-608">      final long start;</span>
+<span class="source-line-no">608</span><span id="line-608">      final long startedAt;</span>
 <span class="source-line-no">609</span><span id="line-609">      if ( willPropagateSpyEvents() )</span>
 <span class="source-line-no">610</span><span id="line-610">      {</span>
-<span class="source-line-no">611</span><span id="line-611">        start = System.currentTimeMillis();</span>
+<span class="source-line-no">611</span><span id="line-611">        startedAt = System.currentTimeMillis();</span>
 <span class="source-line-no">612</span><span id="line-612">        if ( isComputableValue() )</span>
 <span class="source-line-no">613</span><span id="line-613">        {</span>
 <span class="source-line-no">614</span><span id="line-614">          reportSpyEvent( new ComputeStartEvent( getComputableValue().asInfo() ) );</span>
@@ -633,7 +633,7 @@
 <span class="source-line-no">620</span><span id="line-620">      }</span>
 <span class="source-line-no">621</span><span id="line-621">      else</span>
 <span class="source-line-no">622</span><span id="line-622">      {</span>
-<span class="source-line-no">623</span><span id="line-623">        start = 0;</span>
+<span class="source-line-no">623</span><span id="line-623">        startedAt = 0;</span>
 <span class="source-line-no">624</span><span id="line-624">      }</span>
 <span class="source-line-no">625</span><span id="line-625">      Throwable error = null;</span>
 <span class="source-line-no">626</span><span id="line-626">      try</span>
@@ -672,20 +672,20 @@
 <span class="source-line-no">659</span><span id="line-659">      }</span>
 <span class="source-line-no">660</span><span id="line-660">      // start == 0 implies that spy events were enabled as part of observer, and thus we can skip this</span>
 <span class="source-line-no">661</span><span id="line-661">      // chain of events</span>
-<span class="source-line-no">662</span><span id="line-662">      if ( willPropagateSpyEvents() &amp;&amp; 0 != start )</span>
+<span class="source-line-no">662</span><span id="line-662">      if ( willPropagateSpyEvents() &amp;&amp; 0 != startedAt )</span>
 <span class="source-line-no">663</span><span id="line-663">      {</span>
-<span class="source-line-no">664</span><span id="line-664">        final long duration = System.currentTimeMillis() - start;</span>
+<span class="source-line-no">664</span><span id="line-664">        final int duration = Math.max( 0, (int) ( System.currentTimeMillis() - startedAt ) );</span>
 <span class="source-line-no">665</span><span id="line-665">        if ( isComputableValue() )</span>
 <span class="source-line-no">666</span><span id="line-666">        {</span>
 <span class="source-line-no">667</span><span id="line-667">          final ComputableValue&lt;?&gt; computableValue = getComputableValue();</span>
 <span class="source-line-no">668</span><span id="line-668">          reportSpyEvent( new ComputeCompleteEvent( computableValue.asInfo(),</span>
 <span class="source-line-no">669</span><span id="line-669">                                                    noReportResults() ? null : computableValue.getValue(),</span>
 <span class="source-line-no">670</span><span id="line-670">                                                    computableValue.getError(),</span>
-<span class="source-line-no">671</span><span id="line-671">                                                    (int) duration ) );</span>
+<span class="source-line-no">671</span><span id="line-671">                                                    duration ) );</span>
 <span class="source-line-no">672</span><span id="line-672">        }</span>
 <span class="source-line-no">673</span><span id="line-673">        else</span>
 <span class="source-line-no">674</span><span id="line-674">        {</span>
-<span class="source-line-no">675</span><span id="line-675">          reportSpyEvent( new ObserveCompleteEvent( asInfo(), error, (int) duration ) );</span>
+<span class="source-line-no">675</span><span id="line-675">          reportSpyEvent( new ObserveCompleteEvent( asInfo(), error, duration ) );</span>
 <span class="source-line-no">676</span><span id="line-676">        }</span>
 <span class="source-line-no">677</span><span id="line-677">      }</span>
 <span class="source-line-no">678</span><span id="line-678">    }</span>
