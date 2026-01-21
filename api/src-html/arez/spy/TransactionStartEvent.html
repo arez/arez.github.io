@@ -64,8 +64,9 @@
 <span class="source-line-no">051</span><span id="line-51">    map.put( "mutation", isMutation() );</span>
 <span class="source-line-no">052</span><span id="line-52">    final ObserverInfo tracker = getTracker();</span>
 <span class="source-line-no">053</span><span id="line-53">    map.put( "tracker", null == tracker ? null : tracker.getName() );</span>
-<span class="source-line-no">054</span><span id="line-54">  }</span>
-<span class="source-line-no">055</span><span id="line-55">}</span>
+<span class="source-line-no">054</span><span id="line-54">    SpyEventUtil.maybeAddZone( map );</span>
+<span class="source-line-no">055</span><span id="line-55">  }</span>
+<span class="source-line-no">056</span><span id="line-56">}</span>
 
 
 

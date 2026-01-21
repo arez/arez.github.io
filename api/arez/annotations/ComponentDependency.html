@@ -67,8 +67,8 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>({<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html#FIELD" title="class or interface in java.lang.annotation" class="external-link">FIELD</a>})
+<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
+<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>({<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>,<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#FIELD" title="class or interface in java.lang.annotation" class="external-link">FIELD</a>})
 </span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/ComponentDependency.html#line-45">ComponentDependency</a></span></div>
 <div class="block">Methods and fields marked with this annotation are dependencies of the component.
  If the dependency is disposed then the component takes an action to cascade the dispose
@@ -158,12 +158,12 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action()">
 <h3>action</h3>
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> </span><span class="return-type"><a href="ComponentDependency.Action.html" title="enum class in arez.annotations">ComponentDependency.Action</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ComponentDependency.html#line-73">action</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="ComponentDependency.Action.html" title="enum class in arez.annotations">ComponentDependency.Action</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ComponentDependency.html#line-73">action</a></span></div>
 <div class="block">Return the action to take when the dependency is disposed.
  A <a href="ComponentDependency.Action.html#CASCADE"><code>ComponentDependency.Action.CASCADE</code></a> value indicates that the component should be deleted, while a
  <a href="ComponentDependency.Action.html#SET_NULL"><code>ComponentDependency.Action.SET_NULL</code></a> value indicates that the observable field should be set to null.
  The <a href="ComponentDependency.Action.html#SET_NULL"><code>ComponentDependency.Action.SET_NULL</code></a> is only valid on <a href="Observable.html" title="annotation interface in arez.annotations"><code>Observable</code></a> properties that have an
- associated setter and are not annotated with <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link"><code>Nonnull</code></a>.</div>
+ associated setter and are not annotated with <code>Nonnull</code>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the action to take when the dependency is disposed.</dd>

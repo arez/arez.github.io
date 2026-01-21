@@ -126,6 +126,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Flags that can be passed to configure actions.</div>
 </dd>
+<dt><a href="arez/spy/ActionSkippedEvent.html" class="type-name-link" title="class in arez.spy">ActionSkippedEvent</a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
+<dd>
+<div class="block">Notification when Action is skipped.</div>
+</dd>
+<dt><a href="arez/spy/ActionSkippedEvent.html#%3Cinit%3E(java.lang.String,boolean,java.lang.Object%5B%5D)" class="member-name-link">ActionSkippedEvent(String, boolean, Object[])</a> - Constructor for class arez.spy.<a href="arez/spy/ActionSkippedEvent.html" title="class in arez.spy">ActionSkippedEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="arez/spy/ActionStartEvent.html" class="type-name-link" title="class in arez.spy">ActionStartEvent</a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification when Action starts.</div>
@@ -680,6 +686,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a new zone.</div>
 </dd>
+<dt><a href="arez/Arez.html#createZone(java.lang.String)" class="member-name-link">createZone(String)</a> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
+<dd>
+<div class="block">Create a new named or unnamed zone.</div>
+</dd>
+<dt><a href="arez/Arez.html#currentZone()" class="member-name-link">currentZone()</a> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
+<dd>
+<div class="block">Return the current zone.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:D">D</h2>
 <dl class="index">
@@ -1226,6 +1240,8 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/spy/ActionCompleteEvent.html#getName()" class="member-name-link">getName()</a> - Method in class arez.spy.<a href="arez/spy/ActionCompleteEvent.html" title="class in arez.spy">ActionCompleteEvent</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="arez/spy/ActionSkippedEvent.html#getName()" class="member-name-link">getName()</a> - Method in class arez.spy.<a href="arez/spy/ActionSkippedEvent.html" title="class in arez.spy">ActionSkippedEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="arez/spy/ActionStartEvent.html#getName()" class="member-name-link">getName()</a> - Method in class arez.spy.<a href="arez/spy/ActionStartEvent.html" title="class in arez.spy">ActionStartEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/spy/ElementInfo.html#getName()" class="member-name-link">getName()</a> - Method in interface arez.spy.<a href="arez/spy/ElementInfo.html" title="interface in arez.spy">ElementInfo</a></dt>
@@ -1240,6 +1256,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/spy/TransactionStartEvent.html#getName()" class="member-name-link">getName()</a> - Method in class arez.spy.<a href="arez/spy/TransactionStartEvent.html" title="class in arez.spy">TransactionStartEvent</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="arez/Zone.html#getName()" class="member-name-link">getName()</a> - Method in class arez.<a href="arez/Zone.html" title="class in arez">Zone</a></dt>
+<dd>
+<div class="block">Return the name of the zone if available.</div>
+</dd>
 <dt><a href="arez/spy/ObservableValueChangeEvent.html#getObservableValue()" class="member-name-link">getObservableValue()</a> - Method in class arez.spy.<a href="arez/spy/ObservableValueChangeEvent.html" title="class in arez.spy">ObservableValueChangeEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/spy/ObservableValueCreateEvent.html#getObservableValue()" class="member-name-link">getObservableValue()</a> - Method in class arez.spy.<a href="arez/spy/ObservableValueCreateEvent.html" title="class in arez.spy">ObservableValueCreateEvent</a></dt>
@@ -1279,6 +1299,8 @@ loadScripts(document, 'script');</script>
 <dt><a href="arez/processor/ArezProcessor.html#getOptionPrefix()" class="member-name-link">getOptionPrefix()</a> - Method in class arez.processor.<a href="arez/processor/ArezProcessor.html" title="class in arez.processor">ArezProcessor</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/spy/ActionCompleteEvent.html#getParameters()" class="member-name-link">getParameters()</a> - Method in class arez.spy.<a href="arez/spy/ActionCompleteEvent.html" title="class in arez.spy">ActionCompleteEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ActionSkippedEvent.html#getParameters()" class="member-name-link">getParameters()</a> - Method in class arez.spy.<a href="arez/spy/ActionSkippedEvent.html" title="class in arez.spy">ActionSkippedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/spy/ActionStartEvent.html#getParameters()" class="member-name-link">getParameters()</a> - Method in class arez.spy.<a href="arez/spy/ActionStartEvent.html" title="class in arez.spy">ActionStartEvent</a></dt>
 <dd>&nbsp;</dd>
@@ -1666,6 +1688,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Return true if a task interceptor can be specified.</div>
 </dd>
 <dt><a href="arez/spy/ActionCompleteEvent.html#isTracked()" class="member-name-link">isTracked()</a> - Method in class arez.spy.<a href="arez/spy/ActionCompleteEvent.html" title="class in arez.spy">ActionCompleteEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ActionSkippedEvent.html#isTracked()" class="member-name-link">isTracked()</a> - Method in class arez.spy.<a href="arez/spy/ActionSkippedEvent.html" title="class in arez.spy">ActionSkippedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/spy/ActionStartEvent.html#isTracked()" class="member-name-link">isTracked()</a> - Method in class arez.spy.<a href="arez/spy/ActionStartEvent.html" title="class in arez.spy">ActionStartEvent</a></dt>
 <dd>&nbsp;</dd>
@@ -2588,7 +2612,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/annotations/ArezComponent.html#requireEquals()" class="member-name-link">requireEquals()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/ArezComponent.html" title="annotation interface in arez.annotations">ArezComponent</a></dt>
 <dd>
-<div class="block">Indicate whether the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link"><code>Object.equals(Object)</code></a> methods need to be implemented.</div>
+<div class="block">Indicate whether the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link"><code>Object.equals(Object)</code></a> methods need to be implemented.</div>
 </dd>
 <dt><a href="arez/annotations/ArezComponent.html#requireId()" class="member-name-link">requireId()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/ArezComponent.html" title="annotation interface in arez.annotations">ArezComponent</a></dt>
 <dd>
@@ -2823,6 +2847,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Return true if component will prevent default actions when hash.</div>
 </dd>
+<dt><a href="arez/annotations/Action.html#skipIfDisposed()" class="member-name-link">skipIfDisposed()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/Action.html" title="annotation interface in arez.annotations">Action</a></dt>
+<dd>
+<div class="block">True if the action will be skipped if the owning component is disposed.</div>
+</dd>
 <dt><a href="arez/spy/Spy.html" class="type-name-link" title="interface in arez.spy">Spy</a> - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Interface for interacting with spy system.</div>
@@ -2895,6 +2923,8 @@ loadScripts(document, 'script');</script>
 <div class="block">The time allowed to acquire the geolocation, defined by PositionOptions.timeout information was reached before the information was obtained.</div>
 </dd>
 <dt><a href="arez/spy/ActionCompleteEvent.html#toMap(java.util.Map)" class="member-name-link">toMap(Map&lt;String, Object&gt;)</a> - Method in class arez.spy.<a href="arez/spy/ActionCompleteEvent.html" title="class in arez.spy">ActionCompleteEvent</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/spy/ActionSkippedEvent.html#toMap(java.util.Map)" class="member-name-link">toMap(Map&lt;String, Object&gt;)</a> - Method in class arez.spy.<a href="arez/spy/ActionSkippedEvent.html" title="class in arez.spy">ActionSkippedEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="arez/spy/ActionStartEvent.html#toMap(java.util.Map)" class="member-name-link">toMap(Map&lt;String, Object&gt;)</a> - Method in class arez.spy.<a href="arez/spy/ActionStartEvent.html" title="class in arez.spy">ActionStartEvent</a></dt>
 <dd>&nbsp;</dd>

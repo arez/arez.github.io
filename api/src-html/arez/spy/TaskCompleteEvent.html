@@ -67,8 +67,9 @@
 <span class="source-line-no">054</span><span id="line-54">    final String message =</span>
 <span class="source-line-no">055</span><span id="line-55">      null == throwable ? null : null == throwable.getMessage() ? throwable.toString() : throwable.getMessage();</span>
 <span class="source-line-no">056</span><span id="line-56">    map.put( "errorMessage", message );</span>
-<span class="source-line-no">057</span><span id="line-57">  }</span>
-<span class="source-line-no">058</span><span id="line-58">}</span>
+<span class="source-line-no">057</span><span id="line-57">    SpyEventUtil.maybeAddZone( map );</span>
+<span class="source-line-no">058</span><span id="line-58">  }</span>
+<span class="source-line-no">059</span><span id="line-59">}</span>
 
 
 

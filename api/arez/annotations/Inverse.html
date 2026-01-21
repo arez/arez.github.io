@@ -67,16 +67,16 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
+<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
+<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
 </span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/Inverse.html#line-27">Inverse</a></span></div>
 <div class="block">The Inverse annotation is used to annotate the reverse direction of the relationship annotated
  by the <a href="Reference.html" title="annotation interface in arez.annotations"><code>Reference</code></a> annotation. The <code>Inverse</code> annotation MUST be paired with a
  reference. The method annotated with this annotation must return a class annotated with
- the <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> annotation or a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" title="class or interface in java.util" class="external-link"><code>Collection</code></a>, a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="class or interface in java.util" class="external-link"><code>List</code></a> or a
- <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html" title="class or interface in java.util" class="external-link"><code>Set</code></a> where the type parameter refers to a class annotated with the
+ the <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> annotation or a <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link"><code>Collection</code></a>, a <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link"><code>List</code></a> or a
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link"><code>Set</code></a> where the type parameter refers to a class annotated with the
  <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> annotation. If the method returns a non-collection type then the type
- must also be annotated with either <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link"><code>Nonnull</code></a> or <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html" title="class or interface in javax.annotation" class="external-link"><code>Nullable</code></a>.
+ must also be annotated with either <code>Nonnull</code> or <code>Nullable</code>.
 
  <p>The method must also conform to the following constraints:</p>
  <ul>
@@ -99,12 +99,12 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Optional Element</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#name()" class="member-name-link">name</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">Return the name of the inverse relative to the component.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#referenceName()" class="member-name-link">referenceName</a></code></div>
 <div class="col-last odd-row-color">
 <div class="block">Return the name of the reference that the inverse is associated with.</div>
@@ -124,7 +124,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="name()">
 <h3>name</h3>
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> </span><span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Inverse.html#line-38">name</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Inverse.html#line-38">name</a></span></div>
 <div class="block">Return the name of the inverse relative to the component. The value must conform
  to the requirements of a java identifier. If not specified, the name will be derived by assuming
  the naming convention "get[Name]" or failing that the name will be the method name.</div>
@@ -141,7 +141,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="referenceName()">
 <h3>referenceName</h3>
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html" title="class or interface in javax.annotation" class="external-link">@Nonnull</a> </span><span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Inverse.html#line-50">referenceName</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Inverse.html#line-50">referenceName</a></span></div>
 <div class="block">Return the name of the reference that the inverse is associated with. The value must conform
  to the requirements of a java identifier. If not specified, the name will be derived by assuming
  that the reference name is the camelCase name of the class on which the <a href="Inverse.html" title="annotation interface in arez.annotations"><code>Inverse</code></a> annotation

@@ -74,8 +74,9 @@
 <span class="source-line-no">061</span><span id="line-61">    final ObserverInfo tracker = getTracker();</span>
 <span class="source-line-no">062</span><span id="line-62">    map.put( "tracker", null == tracker ? null : tracker.getName() );</span>
 <span class="source-line-no">063</span><span id="line-63">    map.put( "duration", getDuration() );</span>
-<span class="source-line-no">064</span><span id="line-64">  }</span>
-<span class="source-line-no">065</span><span id="line-65">}</span>
+<span class="source-line-no">064</span><span id="line-64">    SpyEventUtil.maybeAddZone( map );</span>
+<span class="source-line-no">065</span><span id="line-65">  }</span>
+<span class="source-line-no">066</span><span id="line-66">}</span>
 
 
 

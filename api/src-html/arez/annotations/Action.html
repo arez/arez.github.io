@@ -85,7 +85,17 @@
 <span class="source-line-no">072</span><span id="line-72">   * @return true to verify action reads or writes observable data.</span>
 <span class="source-line-no">073</span><span id="line-73">   */</span>
 <span class="source-line-no">074</span><span id="line-74">  boolean verifyRequired() default true;</span>
-<span class="source-line-no">075</span><span id="line-75">}</span>
+<span class="source-line-no">075</span><span id="line-75"></span>
+<span class="source-line-no">076</span><span id="line-76">  /**</span>
+<span class="source-line-no">077</span><span id="line-77">   * True if the action will be skipped if the owning component is disposed. The default is false, in which case an</span>
+<span class="source-line-no">078</span><span id="line-78">   * invariant will verify that the action is not called on a disposed component. If this parameter is true, then</span>
+<span class="source-line-no">079</span><span id="line-79">   * the action must be a void method.</span>
+<span class="source-line-no">080</span><span id="line-80">   *</span>
+<span class="source-line-no">081</span><span id="line-81">   * @return true if the action will be skipped if the owning component is disposed, false if the component must not</span>
+<span class="source-line-no">082</span><span id="line-82">   * be disposed.</span>
+<span class="source-line-no">083</span><span id="line-83">   */</span>
+<span class="source-line-no">084</span><span id="line-84">  boolean skipIfDisposed() default false;</span>
+<span class="source-line-no">085</span><span id="line-85">}</span>
 
 
 
