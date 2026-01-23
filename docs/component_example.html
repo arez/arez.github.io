@@ -68,7 +68,9 @@ easier to document the component in javadocs. For example:</p>
 wil define the field and method bodies appropriately and it will initialize the field to the normal java
 default value (i.e. <code>null</code>, <code>0</code> or <code>false</code> depending on the type of the field.) You can also get the annotation
 processor to initialize the value of the property with a value passed in through the constructor by
-specifying the <code>initializer</code> parameter on the <code>@Observable</code> annotation. For example:</p>
+specifying the <code>initializer</code> parameter on the <code>@Observable</code> annotation. For abstract observables you can
+also supply an initial value via the <a href="/api/arez/annotations/ObservableInitial.html"><code>@ObservableInitial</code></a>
+annotation on a static field or static method. For example:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TrainTicket</span>
 </span>{

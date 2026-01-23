@@ -76,52 +76,56 @@
 <span class="source-line-no">063</span><span id="line-63">   * This parameter should only be set to {@link Feature#ENABLE} when the observable property is defined by a</span>
 <span class="source-line-no">064</span><span id="line-64">   * pair of abstract methods. If set to {@link Feature#AUTODETECT} then an initializer will be added for an</span>
 <span class="source-line-no">065</span><span id="line-65">   * observable property if it is defined by a pair of abstract methods and the values is annotated with the</span>
-<span class="source-line-no">066</span><span id="line-66">   * {@link javax.annotation.Nonnull} annotation and it is not annotated by {@link Inverse}.</span>
-<span class="source-line-no">067</span><span id="line-67">   *</span>
-<span class="source-line-no">068</span><span id="line-68">   * &lt;p&gt;The initializer parameters will be added as additional parameters at the end of the parameter list in</span>
-<span class="source-line-no">069</span><span id="line-69">   * the generated classes constructors. The initializers will be defined in the order that the observable</span>
-<span class="source-line-no">070</span><span id="line-70">   * properties are declared. They properties be assigned after the parent constructor has been invoked.&lt;/p&gt;</span>
-<span class="source-line-no">071</span><span id="line-71">   *</span>
-<span class="source-line-no">072</span><span id="line-72">   * @return flag controlling whether a parameter should be added to the constructor to initialize the property.</span>
-<span class="source-line-no">073</span><span id="line-73">   */</span>
-<span class="source-line-no">074</span><span id="line-74">  Feature initializer() default Feature.AUTODETECT;</span>
-<span class="source-line-no">075</span><span id="line-75"></span>
-<span class="source-line-no">076</span><span id="line-76">  /**</span>
-<span class="source-line-no">077</span><span id="line-77">   * Indicate whether the observable can be read outside a transaction.</span>
-<span class="source-line-no">078</span><span id="line-78">   * If the value is {@link Feature#AUTODETECT} then the value will be derived from the</span>
-<span class="source-line-no">079</span><span id="line-79">   * {@link ArezComponent#defaultReadOutsideTransaction()} parameter on the {@link ArezComponent} annotation. If</span>
-<span class="source-line-no">080</span><span id="line-80">   * the value is set to {@link Feature#ENABLE} then the observable can be read outside a transaction and the</span>
-<span class="source-line-no">081</span><span id="line-81">   * {@link ObservableValue#reportObserved()} will only be invoked if the observables is accessed from within</span>
-<span class="source-line-no">082</span><span id="line-82">   * a tracking transaction (i.e. when an {@link arez.Observer} or {@link arez.ComputableValue} creates the</span>
-<span class="source-line-no">083</span><span id="line-83">   * transaction). Thus, {@link Action} annotated methods that only access observables that set the</span>
-<span class="source-line-no">084</span><span id="line-84">   * readOutsideTransaction parameter to {@link Feature#ENABLE} and neither access nor modify other arez elements</span>
-<span class="source-line-no">085</span><span id="line-85">   * no longer need to be annotated with {@link Action} annotations.</span>
-<span class="source-line-no">086</span><span id="line-86">   *</span>
-<span class="source-line-no">087</span><span id="line-87">   * @return flag that determines whether the observable allows reads outside a transaction, false to require a transaction to read the observable.</span>
-<span class="source-line-no">088</span><span id="line-88">   */</span>
-<span class="source-line-no">089</span><span id="line-89">  Feature readOutsideTransaction() default Feature.AUTODETECT;</span>
-<span class="source-line-no">090</span><span id="line-90"></span>
-<span class="source-line-no">091</span><span id="line-91">  /**</span>
-<span class="source-line-no">092</span><span id="line-92">   * Return true if the observable will create an action if the write occurs outside a transaction.</span>
-<span class="source-line-no">093</span><span id="line-93">   *</span>
-<span class="source-line-no">094</span><span id="line-94">   * @return true to allow writes to create an action if needed, false to require a transaction to write observable.</span>
-<span class="source-line-no">095</span><span id="line-95">   */</span>
-<span class="source-line-no">096</span><span id="line-96">  Feature writeOutsideTransaction() default Feature.AUTODETECT;</span>
-<span class="source-line-no">097</span><span id="line-97"></span>
-<span class="source-line-no">098</span><span id="line-98">  /**</span>
-<span class="source-line-no">099</span><span id="line-99">   * Return false if the setter should verify observable value has changed before propagating change.</span>
-<span class="source-line-no">100</span><span id="line-100">   * In some scenarios, the setter method will modify the value before updating the observable or may</span>
-<span class="source-line-no">101</span><span id="line-101">   * decide to abort the update. This setting will force the generated code to check the value of the</span>
-<span class="source-line-no">102</span><span id="line-102">   * observable property after the setter and only invoke {@link ObservableValue#reportChanged()} if</span>
-<span class="source-line-no">103</span><span id="line-103">   * a change has actually occurred.</span>
-<span class="source-line-no">104</span><span id="line-104">   *</span>
-<span class="source-line-no">105</span><span id="line-105">   * &lt;p&gt;This parameter should not be set to false if the associated setter is abstract. It is also</span>
-<span class="source-line-no">106</span><span id="line-106">   * invalid to set this value to false if {@link #expectSetter()} is false.&lt;/p&gt;</span>
-<span class="source-line-no">107</span><span id="line-107">   *</span>
-<span class="source-line-no">108</span><span id="line-108">   * @return false if the setter should verify observable value has changed before propagating change.</span>
-<span class="source-line-no">109</span><span id="line-109">   */</span>
-<span class="source-line-no">110</span><span id="line-110">  boolean setterAlwaysMutates() default true;</span>
-<span class="source-line-no">111</span><span id="line-111">}</span>
+<span class="source-line-no">066</span><span id="line-66">   * {@link Nonnull} annotation and it is not annotated by {@link Inverse}.</span>
+<span class="source-line-no">067</span><span id="line-67">   * It is an error to set this parameter to {@link Feature#ENABLE} when the property has an</span>
+<span class="source-line-no">068</span><span id="line-68">   * {@link ObservableInitial} annotation. If {@link ObservableInitial} is present and this parameter is</span>
+<span class="source-line-no">069</span><span id="line-69">   * {@link Feature#AUTODETECT}, the initializer is treated as {@link Feature#DISABLE}.</span>
+<span class="source-line-no">070</span><span id="line-70">   *</span>
+<span class="source-line-no">071</span><span id="line-71">   * &lt;p&gt;The initializer parameters will be added as additional parameters at the end of the parameter list in</span>
+<span class="source-line-no">072</span><span id="line-72">   * the generated classes constructors. The initializers will be defined in the order that the observable</span>
+<span class="source-line-no">073</span><span id="line-73">   * properties are declared. They properties be assigned after the parent constructor has been invoked.&lt;/p&gt;</span>
+<span class="source-line-no">074</span><span id="line-74">   *</span>
+<span class="source-line-no">075</span><span id="line-75">   * @return flag controlling whether a parameter should be added to the constructor to initialize the property.</span>
+<span class="source-line-no">076</span><span id="line-76">   */</span>
+<span class="source-line-no">077</span><span id="line-77">  @Nonnull</span>
+<span class="source-line-no">078</span><span id="line-78">  Feature initializer() default Feature.AUTODETECT;</span>
+<span class="source-line-no">079</span><span id="line-79"></span>
+<span class="source-line-no">080</span><span id="line-80">  /**</span>
+<span class="source-line-no">081</span><span id="line-81">   * Indicate whether the observable can be read outside a transaction.</span>
+<span class="source-line-no">082</span><span id="line-82">   * If the value is {@link Feature#AUTODETECT} then the value will be derived from the</span>
+<span class="source-line-no">083</span><span id="line-83">   * {@link ArezComponent#defaultReadOutsideTransaction()} parameter on the {@link ArezComponent} annotation. If</span>
+<span class="source-line-no">084</span><span id="line-84">   * the value is set to {@link Feature#ENABLE} then the observable can be read outside a transaction and the</span>
+<span class="source-line-no">085</span><span id="line-85">   * {@link ObservableValue#reportObserved()} will only be invoked if the observables is accessed from within</span>
+<span class="source-line-no">086</span><span id="line-86">   * a tracking transaction (i.e. when an {@link arez.Observer} or {@link arez.ComputableValue} creates the</span>
+<span class="source-line-no">087</span><span id="line-87">   * transaction). Thus, {@link Action} annotated methods that only access observables that set the</span>
+<span class="source-line-no">088</span><span id="line-88">   * readOutsideTransaction parameter to {@link Feature#ENABLE} and neither access nor modify other arez elements</span>
+<span class="source-line-no">089</span><span id="line-89">   * no longer need to be annotated with {@link Action} annotations.</span>
+<span class="source-line-no">090</span><span id="line-90">   *</span>
+<span class="source-line-no">091</span><span id="line-91">   * @return flag that determines whether the observable allows reads outside a transaction, false to require a transaction to read the observable.</span>
+<span class="source-line-no">092</span><span id="line-92">   */</span>
+<span class="source-line-no">093</span><span id="line-93">  Feature readOutsideTransaction() default Feature.AUTODETECT;</span>
+<span class="source-line-no">094</span><span id="line-94"></span>
+<span class="source-line-no">095</span><span id="line-95">  /**</span>
+<span class="source-line-no">096</span><span id="line-96">   * Return true if the observable will create an action if the write occurs outside a transaction.</span>
+<span class="source-line-no">097</span><span id="line-97">   *</span>
+<span class="source-line-no">098</span><span id="line-98">   * @return true to allow writes to create an action if needed, false to require a transaction to write observable.</span>
+<span class="source-line-no">099</span><span id="line-99">   */</span>
+<span class="source-line-no">100</span><span id="line-100">  Feature writeOutsideTransaction() default Feature.AUTODETECT;</span>
+<span class="source-line-no">101</span><span id="line-101"></span>
+<span class="source-line-no">102</span><span id="line-102">  /**</span>
+<span class="source-line-no">103</span><span id="line-103">   * Return false if the setter should verify observable value has changed before propagating change.</span>
+<span class="source-line-no">104</span><span id="line-104">   * In some scenarios, the setter method will modify the value before updating the observable or may</span>
+<span class="source-line-no">105</span><span id="line-105">   * decide to abort the update. This setting will force the generated code to check the value of the</span>
+<span class="source-line-no">106</span><span id="line-106">   * observable property after the setter and only invoke {@link ObservableValue#reportChanged()} if</span>
+<span class="source-line-no">107</span><span id="line-107">   * a change has actually occurred.</span>
+<span class="source-line-no">108</span><span id="line-108">   *</span>
+<span class="source-line-no">109</span><span id="line-109">   * &lt;p&gt;This parameter should not be set to false if the associated setter is abstract. It is also</span>
+<span class="source-line-no">110</span><span id="line-110">   * invalid to set this value to false if {@link #expectSetter()} is false.&lt;/p&gt;</span>
+<span class="source-line-no">111</span><span id="line-111">   *</span>
+<span class="source-line-no">112</span><span id="line-112">   * @return false if the setter should verify observable value has changed before propagating change.</span>
+<span class="source-line-no">113</span><span id="line-113">   */</span>
+<span class="source-line-no">114</span><span id="line-114">  boolean setterAlwaysMutates() default true;</span>
+<span class="source-line-no">115</span><span id="line-115">}</span>
 
 
 

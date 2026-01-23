@@ -25,7 +25,7 @@
 <span class="source-line-no">012</span><span id="line-12"> * the {@link ArezComponent} annotation or a {@link java.util.Collection}, a {@link java.util.List} or a</span>
 <span class="source-line-no">013</span><span id="line-13"> * {@link java.util.Set} where the type parameter refers to a class annotated with the</span>
 <span class="source-line-no">014</span><span id="line-14"> * {@link ArezComponent} annotation. If the method returns a non-collection type then the type</span>
-<span class="source-line-no">015</span><span id="line-15"> * must also be annotated with either {@link javax.annotation.Nonnull} or {@link javax.annotation.Nullable}.</span>
+<span class="source-line-no">015</span><span id="line-15"> * must also be annotated with either {@link Nonnull} or {@link javax.annotation.Nullable}.</span>
 <span class="source-line-no">016</span><span id="line-16"> *</span>
 <span class="source-line-no">017</span><span id="line-17"> * &lt;p&gt;The method must also conform to the following constraints:&lt;/p&gt;</span>
 <span class="source-line-no">018</span><span id="line-18"> * &lt;ul&gt;</span>
@@ -54,8 +54,8 @@
 <span class="source-line-no">041</span><span id="line-41">  /**</span>
 <span class="source-line-no">042</span><span id="line-42">   * Return the name of the reference that the inverse is associated with. The value must conform</span>
 <span class="source-line-no">043</span><span id="line-43">   * to the requirements of a java identifier. If not specified, the name will be derived by assuming</span>
-<span class="source-line-no">044</span><span id="line-44">   * that the reference name is the camelCase name of the class on which the {@link Inverse} annotation</span>
-<span class="source-line-no">045</span><span id="line-45">   * appears unless the {@link Inverse} appears on an interface in which case it is the class annotated</span>
+<span class="source-line-no">044</span><span id="line-44">   * that the reference name is the camelCase name of the class on which the {@code Inverse} annotation</span>
+<span class="source-line-no">045</span><span id="line-45">   * appears unless the {@code Inverse} appears on an interface in which case it is the class annotated</span>
 <span class="source-line-no">046</span><span id="line-46">   * with {@link ArezComponent}.</span>
 <span class="source-line-no">047</span><span id="line-47">   *</span>
 <span class="source-line-no">048</span><span id="line-48">   * @return the name of the reference relative to the component.</span>

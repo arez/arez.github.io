@@ -189,12 +189,15 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="initializer()">
 <h3>initializer</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-74">initializer</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-77">initializer</a></span></div>
 <div class="block">Indicate whether the generated component class should add a parameter to the constructor to initialize this property.
  This parameter should only be set to <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a> when the observable property is defined by a
  pair of abstract methods. If set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then an initializer will be added for an
  observable property if it is defined by a pair of abstract methods and the values is annotated with the
  <code>Nonnull</code> annotation and it is not annotated by <a href="Inverse.html" title="annotation interface in arez.annotations"><code>Inverse</code></a>.
+ It is an error to set this parameter to <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a> when the property has an
+ <a href="ObservableInitial.html" title="annotation interface in arez.annotations"><code>ObservableInitial</code></a> annotation. If <a href="ObservableInitial.html" title="annotation interface in arez.annotations"><code>ObservableInitial</code></a> is present and this parameter is
+ <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a>, the initializer is treated as <a href="Feature.html#DISABLE"><code>Feature.DISABLE</code></a>.
 
  <p>The initializer parameters will be added as additional parameters at the end of the parameter list in
  the generated classes constructors. The initializers will be defined in the order that the observable
@@ -212,7 +215,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="readOutsideTransaction()">
 <h3>readOutsideTransaction</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-89">readOutsideTransaction</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-93">readOutsideTransaction</a></span></div>
 <div class="block">Indicate whether the observable can be read outside a transaction.
  If the value is <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the value will be derived from the
  <a href="ArezComponent.html#defaultReadOutsideTransaction()"><code>ArezComponent.defaultReadOutsideTransaction()</code></a> parameter on the <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> annotation. If
@@ -235,7 +238,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeOutsideTransaction()">
 <h3>writeOutsideTransaction</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-96">writeOutsideTransaction</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-100">writeOutsideTransaction</a></span></div>
 <div class="block">Return true if the observable will create an action if the write occurs outside a transaction.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -250,7 +253,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setterAlwaysMutates()">
 <h3>setterAlwaysMutates</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-110">setterAlwaysMutates</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observable.html#line-114">setterAlwaysMutates</a></span></div>
 <div class="block">Return false if the setter should verify observable value has changed before propagating change.
  In some scenarios, the setter method will modify the value before updating the observable or may
  decide to abort the update. This setting will force the generated code to check the value of the
