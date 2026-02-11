@@ -174,6 +174,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Return true if observable properties, computable properties or query results that are of type collection are wrapped in unmodifiable variant prior to returning.</div>
 </dd>
+<dt><a href="arez/EqualityComparator.html#areEqual(java.lang.Object,java.lang.Object)" class="member-name-link">areEqual(Object, Object)</a> - Method in interface arez.<a href="arez/EqualityComparator.html" title="interface in arez">EqualityComparator</a></dt>
+<dd>
+<div class="block">Return true if the supplied values are considered equal.</div>
+</dd>
+<dt><a href="arez/ObjectsDeepEqualsComparator.html#areEqual(java.lang.Object,java.lang.Object)" class="member-name-link">areEqual(Object, Object)</a> - Method in class arez.<a href="arez/ObjectsDeepEqualsComparator.html" title="class in arez">ObjectsDeepEqualsComparator</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/ObjectsEqualsComparator.html#areEqual(java.lang.Object,java.lang.Object)" class="member-name-link">areEqual(Object, Object)</a> - Method in class arez.<a href="arez/ObjectsEqualsComparator.html" title="class in arez">ObjectsEqualsComparator</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="arez/Arez.html#areNamesEnabled()" class="member-name-link">areNamesEnabled()</a> - Static method in class arez.<a href="arez/Arez.html" title="class in arez">Arez</a></dt>
 <dd>
 <div class="block">Return true if user should pass names into API methods, false if should pass null.</div>
@@ -552,6 +560,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a ComputableValue with specified parameters.</div>
 </dd>
+<dt><a href="arez/ArezContext.html#computable(arez.Component,java.lang.String,arez.SafeFunction,int,arez.EqualityComparator)" class="member-name-link">computable(Component, String, SafeFunction&lt;T&gt;, int, EqualityComparator)</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
+<dd>
+<div class="block">Create a ComputableValue with specified parameters.</div>
+</dd>
 <dt><a href="arez/ArezContext.html#computable(arez.SafeFunction)" class="member-name-link">computable(SafeFunction&lt;T&gt;)</a> - Method in class arez.<a href="arez/ArezContext.html" title="class in arez">ArezContext</a></dt>
 <dd>
 <div class="block">Create a ComputableValue with specified parameters.</div>
@@ -923,6 +935,19 @@ loadScripts(document, 'script');</script>
 <dt><a href="arez/component/internal/AbstractRepository.html#entitiesValue()" class="member-name-link">entitiesValue()</a> - Method in class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>
 <div class="block">Return a stream of all entities in the container.</div>
+</dd>
+<dt><a href="arez/annotations/Memoize.html#equalityComparator()" class="member-name-link">equalityComparator()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/Memoize.html" title="annotation interface in arez.annotations">Memoize</a></dt>
+<dd>
+<div class="block">Return the strategy used to compare computed values when deciding whether to
+ propagate a change.</div>
+</dd>
+<dt><a href="arez/annotations/Observable.html#equalityComparator()" class="member-name-link">equalityComparator()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/Observable.html" title="annotation interface in arez.annotations">Observable</a></dt>
+<dd>
+<div class="block">Return the strategy used to compare values when checking whether the observable has changed.</div>
+</dd>
+<dt><a href="arez/EqualityComparator.html" class="type-name-link" title="interface in arez">EqualityComparator</a> - Interface in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">Strategy interface used to determine whether two values are equal.</div>
 </dd>
 <dt><a href="arez/dom/Dimension.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class arez.dom.<a href="arez/dom/Dimension.html" title="class in arez.dom">Dimension</a></dt>
 <dd>&nbsp;</dd>
@@ -1834,6 +1859,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create the Memoize method cache.</div>
 </dd>
+<dt><a href="arez/component/internal/MemoizeCache.html#%3Cinit%3E(arez.ArezContext,arez.Component,java.lang.String,arez.component.internal.MemoizeCache.Function,int,int,arez.EqualityComparator)" class="member-name-link">MemoizeCache(ArezContext, Component, String, MemoizeCache.Function&lt;T&gt;, int, int, EqualityComparator)</a> - Constructor for class arez.component.internal.<a href="arez/component/internal/MemoizeCache.html" title="class in arez.component.internal">MemoizeCache</a></dt>
+<dd>
+<div class="block">Create the Memoize method cache.</div>
+</dd>
 <dt><a href="arez/component/internal/MemoizeCache.Function.html" class="type-name-link" title="interface in arez.component.internal">MemoizeCache.Function</a>&lt;<a href="arez/component/internal/MemoizeCache.Function.html" title="type parameter in MemoizeCache.Function">T</a>&gt; - Interface in <a href="arez/component/internal/package-summary.html">arez.component.internal</a></dt>
 <dd>
 <div class="block">Functional interface for calculating memoizable value.</div>
@@ -2025,6 +2054,18 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:O">O</h2>
 <dl class="index">
+<dt><a href="arez/ObjectsDeepEqualsComparator.html" class="type-name-link" title="class in arez">ObjectsDeepEqualsComparator</a> - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">Equality comparator that delegates to <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Objects.html#deepEquals(java.lang.Object,java.lang.Object)" title="class or interface in java.util" class="external-link"><code>Objects.deepEquals(Object, Object)</code></a>.</div>
+</dd>
+<dt><a href="arez/ObjectsDeepEqualsComparator.html#%3Cinit%3E()" class="member-name-link">ObjectsDeepEqualsComparator()</a> - Constructor for class arez.<a href="arez/ObjectsDeepEqualsComparator.html" title="class in arez">ObjectsDeepEqualsComparator</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="arez/ObjectsEqualsComparator.html" class="type-name-link" title="class in arez">ObjectsEqualsComparator</a> - Class in <a href="arez/package-summary.html">arez</a></dt>
+<dd>
+<div class="block">Equality comparator that delegates to <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Objects.html#equals(java.lang.Object,java.lang.Object)" title="class or interface in java.util" class="external-link"><code>Objects.equals(Object, Object)</code></a>.</div>
+</dd>
+<dt><a href="arez/ObjectsEqualsComparator.html#%3Cinit%3E()" class="member-name-link">ObjectsEqualsComparator()</a> - Constructor for class arez.<a href="arez/ObjectsEqualsComparator.html" title="class in arez">ObjectsEqualsComparator</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="arez/annotations/ArezComponent.html#observable()" class="member-name-link">observable()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/ArezComponent.html" title="annotation interface in arez.annotations">ArezComponent</a></dt>
 <dd>
 <div class="block">The enum to control whether the component should support being "observed" by implementing the
