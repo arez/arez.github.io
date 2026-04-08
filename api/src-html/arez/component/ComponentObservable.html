@@ -35,47 +35,45 @@
 <span class="source-line-no">022</span><span id="line-22"></span>
 <span class="source-line-no">023</span><span id="line-23">  /**</span>
 <span class="source-line-no">024</span><span id="line-24">   * Invoke {@link #observe()} on the supplied object if any.</span>
-<span class="source-line-no">025</span><span id="line-25">   * If a null object is passed into this method then it will return true.</span>
-<span class="source-line-no">026</span><span id="line-26">   * If an object that is not an instance of {@link ComponentObservable} is passed into this method then it will return true.</span>
-<span class="source-line-no">027</span><span id="line-27">   *</span>
-<span class="source-line-no">028</span><span id="line-28">   * @param object the object to observe if any.</span>
-<span class="source-line-no">029</span><span id="line-29">   * @return false if the component is not disposing or disposed, true otherwise.</span>
-<span class="source-line-no">030</span><span id="line-30">   */</span>
-<span class="source-line-no">031</span><span id="line-31">  static boolean observe( @Nonnull final Object object )</span>
-<span class="source-line-no">032</span><span id="line-32">  {</span>
-<span class="source-line-no">033</span><span id="line-33">    return asComponentObservable( object ).observe();</span>
-<span class="source-line-no">034</span><span id="line-34">  }</span>
-<span class="source-line-no">035</span><span id="line-35"></span>
-<span class="source-line-no">036</span><span id="line-36">  /**</span>
-<span class="source-line-no">037</span><span id="line-37">   * Return true if {@link #observe(Object)} returns false for the same parameter.</span>
-<span class="source-line-no">038</span><span id="line-38">   *</span>
-<span class="source-line-no">039</span><span id="line-39">   * @param object the object to observe if any.</span>
-<span class="source-line-no">040</span><span id="line-40">   * @return true if {@link #observe(Object)} returns false for the same parameter, false otherwise.</span>
-<span class="source-line-no">041</span><span id="line-41">   */</span>
-<span class="source-line-no">042</span><span id="line-42">  static boolean notObserved( @Nonnull final Object object )</span>
-<span class="source-line-no">043</span><span id="line-43">  {</span>
-<span class="source-line-no">044</span><span id="line-44">    return !observe( object );</span>
-<span class="source-line-no">045</span><span id="line-45">  }</span>
-<span class="source-line-no">046</span><span id="line-46"></span>
-<span class="source-line-no">047</span><span id="line-47">  /**</span>
-<span class="source-line-no">048</span><span id="line-48">   * Cast specified object to an instance of ComponentObservable.</span>
-<span class="source-line-no">049</span><span id="line-49">   * Invariant checks will verify that the cast is valid before proceeding.</span>
-<span class="source-line-no">050</span><span id="line-50">   *</span>
-<span class="source-line-no">051</span><span id="line-51">   * @param object the object.</span>
-<span class="source-line-no">052</span><span id="line-52">   * @return the object cast to ComponentObservable.</span>
-<span class="source-line-no">053</span><span id="line-53">   */</span>
-<span class="source-line-no">054</span><span id="line-54">  @Nonnull</span>
-<span class="source-line-no">055</span><span id="line-55">  static ComponentObservable asComponentObservable( @Nonnull final Object object )</span>
-<span class="source-line-no">056</span><span id="line-56">  {</span>
-<span class="source-line-no">057</span><span id="line-57">    if ( Arez.shouldCheckApiInvariants() )</span>
-<span class="source-line-no">058</span><span id="line-58">    {</span>
-<span class="source-line-no">059</span><span id="line-59">      apiInvariant( () -&gt; object instanceof ComponentObservable,</span>
-<span class="source-line-no">060</span><span id="line-60">                    () -&gt; "Arez-0179: Object passed to asComponentObservable does not implement " +</span>
-<span class="source-line-no">061</span><span id="line-61">                          "ComponentObservable. Object: " + object );</span>
-<span class="source-line-no">062</span><span id="line-62">    }</span>
-<span class="source-line-no">063</span><span id="line-63">    return (ComponentObservable) object;</span>
-<span class="source-line-no">064</span><span id="line-64">  }</span>
-<span class="source-line-no">065</span><span id="line-65">}</span>
+<span class="source-line-no">025</span><span id="line-25">   *</span>
+<span class="source-line-no">026</span><span id="line-26">   * @param object the object to observe if any.</span>
+<span class="source-line-no">027</span><span id="line-27">   * @return false if the component is not disposing or disposed, true otherwise.</span>
+<span class="source-line-no">028</span><span id="line-28">   */</span>
+<span class="source-line-no">029</span><span id="line-29">  static boolean observe( @Nonnull final Object object )</span>
+<span class="source-line-no">030</span><span id="line-30">  {</span>
+<span class="source-line-no">031</span><span id="line-31">    return asComponentObservable( object ).observe();</span>
+<span class="source-line-no">032</span><span id="line-32">  }</span>
+<span class="source-line-no">033</span><span id="line-33"></span>
+<span class="source-line-no">034</span><span id="line-34">  /**</span>
+<span class="source-line-no">035</span><span id="line-35">   * Return true if {@link #observe(Object)} returns false for the same parameter.</span>
+<span class="source-line-no">036</span><span id="line-36">   *</span>
+<span class="source-line-no">037</span><span id="line-37">   * @param object the object to observe if any.</span>
+<span class="source-line-no">038</span><span id="line-38">   * @return true if {@link #observe(Object)} returns false for the same parameter, false otherwise.</span>
+<span class="source-line-no">039</span><span id="line-39">   */</span>
+<span class="source-line-no">040</span><span id="line-40">  static boolean notObserved( @Nonnull final Object object )</span>
+<span class="source-line-no">041</span><span id="line-41">  {</span>
+<span class="source-line-no">042</span><span id="line-42">    return !observe( object );</span>
+<span class="source-line-no">043</span><span id="line-43">  }</span>
+<span class="source-line-no">044</span><span id="line-44"></span>
+<span class="source-line-no">045</span><span id="line-45">  /**</span>
+<span class="source-line-no">046</span><span id="line-46">   * Cast specified object to an instance of ComponentObservable.</span>
+<span class="source-line-no">047</span><span id="line-47">   * Invariant checks will verify that the cast is valid before proceeding.</span>
+<span class="source-line-no">048</span><span id="line-48">   *</span>
+<span class="source-line-no">049</span><span id="line-49">   * @param object the object.</span>
+<span class="source-line-no">050</span><span id="line-50">   * @return the object cast to ComponentObservable.</span>
+<span class="source-line-no">051</span><span id="line-51">   */</span>
+<span class="source-line-no">052</span><span id="line-52">  @Nonnull</span>
+<span class="source-line-no">053</span><span id="line-53">  static ComponentObservable asComponentObservable( @Nonnull final Object object )</span>
+<span class="source-line-no">054</span><span id="line-54">  {</span>
+<span class="source-line-no">055</span><span id="line-55">    if ( Arez.shouldCheckApiInvariants() )</span>
+<span class="source-line-no">056</span><span id="line-56">    {</span>
+<span class="source-line-no">057</span><span id="line-57">      apiInvariant( () -&gt; object instanceof ComponentObservable,</span>
+<span class="source-line-no">058</span><span id="line-58">                    () -&gt; "Arez-0179: Object passed to asComponentObservable does not implement " +</span>
+<span class="source-line-no">059</span><span id="line-59">                          "ComponentObservable. Object: " + object );</span>
+<span class="source-line-no">060</span><span id="line-60">    }</span>
+<span class="source-line-no">061</span><span id="line-61">    return (ComponentObservable) object;</span>
+<span class="source-line-no">062</span><span id="line-62">  }</span>
+<span class="source-line-no">063</span><span id="line-63">}</span>
 
 
 

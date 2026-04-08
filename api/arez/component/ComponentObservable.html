@@ -145,10 +145,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observe(java.lang.Object)">
 <h3>observe</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-31">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
-<div class="block">Invoke <a href="#observe()"><code>observe()</code></a> on the supplied object if any.
- If a null object is passed into this method then it will return true.
- If an object that is not an instance of <a href="ComponentObservable.html" title="interface in arez.component"><code>ComponentObservable</code></a> is passed into this method then it will return true.</div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-29">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
+<div class="block">Invoke <a href="#observe()"><code>observe()</code></a> on the supplied object if any.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>object</code> - the object to observe if any.</dd>
@@ -160,7 +158,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="notObserved(java.lang.Object)">
 <h3>notObserved</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-42">notObserved</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-40">notObserved</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
 <div class="block">Return true if <a href="#observe(java.lang.Object)"><code>observe(Object)</code></a> returns false for the same parameter.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -173,7 +171,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="asComponentObservable(java.lang.Object)">
 <h3>asComponentObservable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="ComponentObservable.html" title="interface in arez.component">ComponentObservable</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-54">asComponentObservable</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="ComponentObservable.html" title="interface in arez.component">ComponentObservable</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-52">asComponentObservable</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
 <div class="block">Cast specified object to an instance of ComponentObservable.
  Invariant checks will verify that the cast is valid before proceeding.</div>
 <dl class="notes">
