@@ -52,7 +52,7 @@ loadScripts(document, 'script');</script>
 <div class="flex-content">
 <main role="main">
 <div id="all-packages-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="all-packages-table-tab0" role="tab" aria-selected="true" aria-controls="all-packages-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('all-packages-table', 'all-packages-table', 2)" class="active-table-tab">All Packages</button><button id="all-packages-table-tab1" role="tab" aria-selected="false" aria-controls="all-packages-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-packages-table', 'all-packages-table-tab1', 2)" class="table-tab">Core Packages</button><button id="all-packages-table-tab2" role="tab" aria-selected="false" aria-controls="all-packages-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-packages-table', 'all-packages-table-tab2', 2)" class="table-tab">Component Packages</button><button id="all-packages-table-tab3" role="tab" aria-selected="false" aria-controls="all-packages-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-packages-table', 'all-packages-table-tab3', 2)" class="table-tab">Extras Packages</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="all-packages-table-tab0" role="tab" aria-selected="true" aria-controls="all-packages-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('all-packages-table', 'all-packages-table', 2)" class="active-table-tab">All Packages</button><button id="all-packages-table-tab1" role="tab" aria-selected="false" aria-controls="all-packages-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-packages-table', 'all-packages-table-tab1', 2)" class="table-tab">Core Packages</button><button id="all-packages-table-tab2" role="tab" aria-selected="false" aria-controls="all-packages-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-packages-table', 'all-packages-table-tab2', 2)" class="table-tab">Component Packages</button><button id="all-packages-table-tab3" role="tab" aria-selected="false" aria-controls="all-packages-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-packages-table', 'all-packages-table-tab3', 2)" class="table-tab">Persist Packages</button><button id="all-packages-table-tab4" role="tab" aria-selected="false" aria-controls="all-packages-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-packages-table', 'all-packages-table-tab4', 2)" class="table-tab">Extras Packages</button></div>
 <div id="all-packages-table.tabpanel" role="tabpanel">
 <div class="summary-table two-column-summary" aria-labelledby="all-packages-table-tab0">
 <div class="table-header col-first">Package</div>
@@ -73,20 +73,36 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color all-packages-table all-packages-table-tab2">
 <div class="block">This package contains internal implementation classes required to support the component model used by Arez.</div>
 </div>
-<div class="col-first even-row-color all-packages-table all-packages-table-tab3"><a href="arez/dom/package-summary.html">arez.dom</a></div>
-<div class="col-last even-row-color all-packages-table all-packages-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color all-packages-table all-packages-table-tab4"><a href="arez/dom/package-summary.html">arez.dom</a></div>
+<div class="col-last even-row-color all-packages-table all-packages-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color all-packages-table all-packages-table-tab3"><a href="arez/persist/package-summary.html">arez.persist</a></div>
+<div class="col-last odd-row-color all-packages-table all-packages-table-tab3">
+<div class="block">Arez-Persist annotations and constants.</div>
+</div>
+<div class="col-first even-row-color all-packages-table all-packages-table-tab3"><a href="arez/persist/processor/package-summary.html">arez.persist.processor</a></div>
+<div class="col-last even-row-color all-packages-table all-packages-table-tab3">
+<div class="block">Processor for the arez.persist annotations.</div>
+</div>
+<div class="col-first odd-row-color all-packages-table all-packages-table-tab3"><a href="arez/persist/runtime/package-summary.html">arez.persist.runtime</a></div>
+<div class="col-last odd-row-color all-packages-table all-packages-table-tab3">
+<div class="block">Arez-Persist runtime infrastructure.</div>
+</div>
+<div class="col-first even-row-color all-packages-table all-packages-table-tab3"><a href="arez/persist/runtime/browser/package-summary.html">arez.persist.runtime.browser</a></div>
+<div class="col-last even-row-color all-packages-table all-packages-table-tab3">
+<div class="block">Browser-specific runtime infrastructure.</div>
+</div>
 <div class="col-first odd-row-color all-packages-table all-packages-table-tab2"><a href="arez/processor/package-summary.html">arez.processor</a></div>
 <div class="col-last odd-row-color all-packages-table all-packages-table-tab2">
 <div class="block">Processor for the arez.annotations.ArezComponent annotation.</div>
 </div>
-<div class="col-first even-row-color all-packages-table all-packages-table-tab3"><a href="arez/promise/package-summary.html">arez.promise</a></div>
-<div class="col-last even-row-color all-packages-table all-packages-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color all-packages-table all-packages-table-tab4"><a href="arez/promise/package-summary.html">arez.promise</a></div>
+<div class="col-last even-row-color all-packages-table all-packages-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color all-packages-table all-packages-table-tab1"><a href="arez/spy/package-summary.html">arez.spy</a></div>
 <div class="col-last odd-row-color all-packages-table all-packages-table-tab1">
 <div class="block">Spy events and introspection utilities.</div>
 </div>
-<div class="col-first even-row-color all-packages-table all-packages-table-tab3"><a href="arez/testng/package-summary.html">arez.testng</a></div>
-<div class="col-last even-row-color all-packages-table all-packages-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color all-packages-table all-packages-table-tab4"><a href="arez/testng/package-summary.html">arez.testng</a></div>
+<div class="col-last even-row-color all-packages-table all-packages-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>

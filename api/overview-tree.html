@@ -56,6 +56,10 @@ loadScripts(document, 'script');</script>
 <li><a href="arez/component/package-tree.html">arez.component</a>, </li>
 <li><a href="arez/component/internal/package-tree.html">arez.component.internal</a>, </li>
 <li><a href="arez/dom/package-tree.html">arez.dom</a>, </li>
+<li><a href="arez/persist/package-tree.html">arez.persist</a>, </li>
+<li><a href="arez/persist/processor/package-tree.html">arez.persist.processor</a>, </li>
+<li><a href="arez/persist/runtime/package-tree.html">arez.persist.runtime</a>, </li>
+<li><a href="arez/persist/runtime/browser/package-tree.html">arez.persist.runtime.browser</a>, </li>
 <li><a href="arez/processor/package-tree.html">arez.processor</a>, </li>
 <li><a href="arez/promise/package-tree.html">arez.promise</a>, </li>
 <li><a href="arez/spy/package-tree.html">arez.spy</a>, </li>
@@ -71,6 +75,7 @@ loadScripts(document, 'script');</script>
 <ul>
 <li class="circle">org.realityforge.proton.AbstractStandardProcessor
 <ul>
+<li class="circle">arez.persist.processor.<a href="arez/persist/processor/ArezPersistProcessor.html" class="type-name-link" title="class in arez.persist.processor">ArezPersistProcessor</a></li>
 <li class="circle">arez.processor.<a href="arez/processor/ArezProcessor.html" class="type-name-link" title="class in arez.processor">ArezProcessor</a></li>
 </ul>
 </li>
@@ -83,6 +88,9 @@ loadScripts(document, 'script');</script>
 <li class="circle">arez.spy.<a href="arez/spy/ActionStartEvent.html" class="type-name-link" title="class in arez.spy">ActionStartEvent</a> (implements arez.spy.<a href="arez/spy/SerializableEvent.html" title="interface in arez.spy">SerializableEvent</a>)</li>
 <li class="circle">arez.<a href="arez/Arez.html" class="type-name-link" title="class in arez">Arez</a></li>
 <li class="circle">arez.<a href="arez/ArezContext.html" class="type-name-link" title="class in arez">ArezContext</a></li>
+<li class="circle">arez.persist.runtime.<a href="arez/persist/runtime/ArezPersist.html" class="type-name-link" title="class in arez.persist.runtime">ArezPersist</a></li>
+<li class="circle">arez.persist.runtime.browser.<a href="arez/persist/runtime/browser/ArezPersistBrowserUtil.html" class="type-name-link" title="class in arez.persist.runtime.browser">ArezPersistBrowserUtil</a></li>
+<li class="circle">arez.persist.runtime.<a href="arez/persist/runtime/ArezPersistTestUtil.html" class="type-name-link" title="class in arez.persist.runtime">ArezPersistTestUtil</a></li>
 <li class="circle">arez.testng.<a href="arez/testng/ArezTestHook.html" class="type-name-link" title="class in arez.testng">ArezTestHook</a> (implements org.testng.IHookable)</li>
 <li class="circle">arez.<a href="arez/ArezTestUtil.html" class="type-name-link" title="class in arez">ArezTestUtil</a></li>
 <li class="circle">arez.dom.<a href="arez/dom/BrowserLocation.html" class="type-name-link" title="class in arez.dom">BrowserLocation</a></li>
@@ -134,6 +142,10 @@ loadScripts(document, 'script');</script>
 <li class="circle">arez.spy.<a href="arez/spy/ObserveStartEvent.html" class="type-name-link" title="class in arez.spy">ObserveStartEvent</a> (implements arez.spy.<a href="arez/spy/SerializableEvent.html" title="interface in arez.spy">SerializableEvent</a>)</li>
 <li class="circle">arez.dom.<a href="arez/dom/Position.html" class="type-name-link" title="class in arez.dom">Position</a></li>
 <li class="circle">arez.<a href="arez/SchedulerLock.html" class="type-name-link" title="class in arez">SchedulerLock</a> (implements arez.<a href="arez/Disposable.html" title="interface in arez">Disposable</a>)</li>
+<li class="circle">arez.persist.runtime.<a href="arez/persist/runtime/Scope.html" class="type-name-link" title="class in arez.persist.runtime">Scope</a></li>
+<li class="circle">arez.persist.runtime.<a href="arez/persist/runtime/StorageService.Entry.html" class="type-name-link" title="class in arez.persist.runtime">StorageService.Entry</a></li>
+<li class="circle">arez.persist.runtime.<a href="arez/persist/runtime/Store.html" class="type-name-link" title="class in arez.persist.runtime">Store</a></li>
+<li class="circle">arez.persist.<a href="arez/persist/StoreTypes.html" class="type-name-link" title="class in arez.persist">StoreTypes</a></li>
 <li class="circle">arez.<a href="arez/Task.Flags.html" class="type-name-link" title="class in arez">Task.Flags</a></li>
 <li class="circle">arez.spy.<a href="arez/spy/TaskCompleteEvent.html" class="type-name-link" title="class in arez.spy">TaskCompleteEvent</a> (implements arez.spy.<a href="arez/spy/SerializableEvent.html" title="interface in arez.spy">SerializableEvent</a>)</li>
 <li class="circle">arez.spy.<a href="arez/spy/TaskStartEvent.html" class="type-name-link" title="class in arez.spy">TaskStartEvent</a> (implements arez.spy.<a href="arez/spy/SerializableEvent.html" title="interface in arez.spy">SerializableEvent</a>)</li>
@@ -157,6 +169,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">arez.spy.<a href="arez/spy/TransactionCompleteEvent.html" class="type-name-link" title="class in arez.spy">TransactionCompleteEvent</a> (implements arez.spy.<a href="arez/spy/SerializableEvent.html" title="interface in arez.spy">SerializableEvent</a>)</li>
 <li class="circle">arez.spy.<a href="arez/spy/TransactionStartEvent.html" class="type-name-link" title="class in arez.spy">TransactionStartEvent</a> (implements arez.spy.<a href="arez/spy/SerializableEvent.html" title="interface in arez.spy">SerializableEvent</a>)</li>
 <li class="circle">arez.component.<a href="arez/component/TypeBasedLocator.html" class="type-name-link" title="class in arez.component">TypeBasedLocator</a> (implements arez.<a href="arez/Locator.html" title="interface in arez">Locator</a>)</li>
+<li class="circle">arez.persist.runtime.<a href="arez/persist/runtime/TypeConverter.html" class="type-name-link" title="class in arez.persist.runtime">TypeConverter</a></li>
 <li class="circle">arez.dom.<a href="arez/dom/WindowSize.html" class="type-name-link" title="class in arez.dom">WindowSize</a></li>
 <li class="circle">arez.<a href="arez/Zone.html" class="type-name-link" title="class in arez">Zone</a></li>
 </ul>
@@ -166,8 +179,10 @@ loadScripts(document, 'script');</script>
 <section class="hierarchy">
 <h2 title="Interface Hierarchy">Interface Hierarchy</h2>
 <ul>
+<li class="circle">arez.persist.runtime.<a href="arez/persist/runtime/ArezPersistTestUtil.Logger.html" class="type-name-link" title="interface in arez.persist.runtime">ArezPersistTestUtil.Logger</a></li>
 <li class="circle">arez.<a href="arez/ArezTestUtil.Logger.html" class="type-name-link" title="interface in arez">ArezTestUtil.Logger</a></li>
 <li class="circle">arez.component.<a href="arez/component/ComponentObservable.html" class="type-name-link" title="interface in arez.component">ComponentObservable</a></li>
+<li class="circle">arez.persist.runtime.<a href="arez/persist/runtime/Converter.html" class="type-name-link" title="interface in arez.persist.runtime">Converter</a>&lt;A,<wbr>E&gt;</li>
 <li class="circle">arez.<a href="arez/Disposable.html" class="type-name-link" title="interface in arez">Disposable</a></li>
 <li class="circle">arez.component.<a href="arez/component/DisposeNotifier.html" class="type-name-link" title="interface in arez.component">DisposeNotifier</a></li>
 <li class="circle">arez.spy.<a href="arez/spy/ElementInfo.html" class="type-name-link" title="interface in arez.spy">ElementInfo</a>
@@ -204,6 +219,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">arez.spy.<a href="arez/spy/SerializableEvent.html" class="type-name-link" title="interface in arez.spy">SerializableEvent</a></li>
 <li class="circle">arez.spy.<a href="arez/spy/Spy.html" class="type-name-link" title="interface in arez.spy">Spy</a></li>
 <li class="circle">arez.spy.<a href="arez/spy/SpyEventHandler.html" class="type-name-link" title="interface in arez.spy">SpyEventHandler</a></li>
+<li class="circle">arez.persist.runtime.<a href="arez/persist/runtime/StorageService.html" class="type-name-link" title="interface in arez.persist.runtime">StorageService</a></li>
 <li class="circle">arez.<a href="arez/TaskInterceptor.html" class="type-name-link" title="interface in arez">TaskInterceptor</a></li>
 <li class="circle">arez.spy.<a href="arez/spy/TransactionInfo.html" class="type-name-link" title="interface in arez.spy">TransactionInfo</a></li>
 <li class="circle">arez.component.<a href="arez/component/Verifiable.html" class="type-name-link" title="interface in arez.component">Verifiable</a></li>
@@ -238,6 +254,9 @@ loadScripts(document, 'script');</script>
 <li class="circle">arez.annotations.<a href="arez/annotations/OnActivate.html" class="type-name-link" title="annotation interface in arez.annotations">OnActivate</a> (implements java.lang.annotation.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>)</li>
 <li class="circle">arez.annotations.<a href="arez/annotations/OnDeactivate.html" class="type-name-link" title="annotation interface in arez.annotations">OnDeactivate</a> (implements java.lang.annotation.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>)</li>
 <li class="circle">arez.annotations.<a href="arez/annotations/OnDepsChange.html" class="type-name-link" title="annotation interface in arez.annotations">OnDepsChange</a> (implements java.lang.annotation.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>)</li>
+<li class="circle">arez.persist.<a href="arez/persist/Persist.html" class="type-name-link" title="annotation interface in arez.persist">Persist</a> (implements java.lang.annotation.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>)</li>
+<li class="circle">arez.persist.<a href="arez/persist/PersistId.html" class="type-name-link" title="annotation interface in arez.persist">PersistId</a> (implements java.lang.annotation.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>)</li>
+<li class="circle">arez.persist.<a href="arez/persist/PersistType.html" class="type-name-link" title="annotation interface in arez.persist">PersistType</a> (implements java.lang.annotation.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>)</li>
 <li class="circle">arez.annotations.<a href="arez/annotations/PostConstruct.html" class="type-name-link" title="annotation interface in arez.annotations">PostConstruct</a> (implements java.lang.annotation.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>)</li>
 <li class="circle">arez.annotations.<a href="arez/annotations/PostDispose.html" class="type-name-link" title="annotation interface in arez.annotations">PostDispose</a> (implements java.lang.annotation.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>)</li>
 <li class="circle">arez.annotations.<a href="arez/annotations/PostInverseAdd.html" class="type-name-link" title="annotation interface in arez.annotations">PostInverseAdd</a> (implements java.lang.annotation.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>)</li>

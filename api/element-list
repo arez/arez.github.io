@@ -3,6 +3,10 @@ arez.annotations
 arez.component
 arez.component.internal
 arez.dom
+arez.persist
+arez.persist.processor
+arez.persist.runtime
+arez.persist.runtime.browser
 arez.processor
 arez.promise
 arez.spy
