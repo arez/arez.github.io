@@ -13,6 +13,10 @@ Arez annotation and have not been overridden are processed as part of this step.
 a similar lifecycle. In development mode <a href="/docs/native_components.html">native components</a> are typically enabled and
 components have a common name from which all elements contained in the component use as the name prefix. Components
 instances also define a unique identifier that can be supplied by the developer or synthesized by the runtime.</p>
+<p>Components can also opt into liveness-managed disposal via
+<a href="/api/arez/annotations/ArezComponent.html#disposeOnDeactivate--"><code>@ArezComponent.disposeOnDeactivate</code></a>. When enabled,
+the component should not also be owned via <a href="/api/arez/annotations/CascadeDispose.html"><code>@CascadeDispose</code></a>; mixing those
+models triggers the suppressable warning <code>Arez:ConflictingDisposeModel</code>.</p>
 <p>It is recommended that you review the <a href="/api/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a> API documentation for the full
 description of how the annotation is used. However there are several other annotations that are component-level
 concerns. These are <a href="/docs/at_component_id.html">@ComponentId</a> for defining identity and the

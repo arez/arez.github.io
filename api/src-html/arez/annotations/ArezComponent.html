@@ -118,89 +118,92 @@
 <span class="source-line-no">105</span><span id="line-105">   * Return true if the component should dispose itself once it is no longer "observed".</span>
 <span class="source-line-no">106</span><span id="line-106">   * By "observed" it means that the component will have {@link arez.component.ComponentObservable#observe(Object)}</span>
 <span class="source-line-no">107</span><span id="line-107">   * called on it. This parameter MUST be false if {@link #observable()} has the value {@link Feature#DISABLE}.</span>
-<span class="source-line-no">108</span><span id="line-108">   *</span>
-<span class="source-line-no">109</span><span id="line-109">   * @return true if the component should dispose itself once it is no longer "observed".</span>
-<span class="source-line-no">110</span><span id="line-110">   */</span>
-<span class="source-line-no">111</span><span id="line-111">  boolean disposeOnDeactivate() default false;</span>
-<span class="source-line-no">112</span><span id="line-112"></span>
-<span class="source-line-no">113</span><span id="line-113">  /**</span>
-<span class="source-line-no">114</span><span id="line-114">   * Enum controlling whether sting integration is enabled. If enabled, the annotation processor will</span>
-<span class="source-line-no">115</span><span id="line-115">   * add sting annotations to the generated component implementation. If the value of this parameter is</span>
-<span class="source-line-no">116</span><span id="line-116">   * {@link Feature#AUTODETECT} then sting integration will be enabled if the {@link #service()} resolves</span>
-<span class="source-line-no">117</span><span id="line-117">   * to {@link Feature#ENABLE} and the {@code sting.Injector} class is present on the classpath.</span>
-<span class="source-line-no">118</span><span id="line-118">   *</span>
-<span class="source-line-no">119</span><span id="line-119">   * @return an enum controlling whether a sting integration is enabled.</span>
-<span class="source-line-no">120</span><span id="line-120">   */</span>
-<span class="source-line-no">121</span><span id="line-121">  Feature sting() default Feature.AUTODETECT;</span>
-<span class="source-line-no">122</span><span id="line-122"></span>
-<span class="source-line-no">123</span><span id="line-123">  /**</span>
-<span class="source-line-no">124</span><span id="line-124">   * Indicate whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods need to be implemented.</span>
-<span class="source-line-no">125</span><span id="line-125">   * If set to {@link Feature#AUTODETECT} then the methods will not be generated.</span>
-<span class="source-line-no">126</span><span id="line-126">   *</span>
-<span class="source-line-no">127</span><span id="line-127">   * @return an enum whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods need to be implemented.</span>
-<span class="source-line-no">128</span><span id="line-128">   */</span>
-<span class="source-line-no">129</span><span id="line-129">  Feature requireEquals() default Feature.AUTODETECT;</span>
-<span class="source-line-no">130</span><span id="line-130"></span>
-<span class="source-line-no">131</span><span id="line-131">  /**</span>
-<span class="source-line-no">132</span><span id="line-132">   * Indicates whether the component should support access of the id via {@link arez.component.Identifiable#getArezId(Object)}.</span>
-<span class="source-line-no">133</span><span id="line-133">   * The {@link Feature#AUTODETECT} will be treated as {@link Feature#ENABLE}. This feature must be enabled in</span>
-<span class="source-line-no">134</span><span id="line-134">   * the following scenarios:</span>
-<span class="source-line-no">135</span><span id="line-135">   *</span>
-<span class="source-line-no">136</span><span id="line-136">   * &lt;ul&gt;</span>
-<span class="source-line-no">137</span><span id="line-137">   * &lt;li&gt;a method annotated with the {@link Inverse} annotation is present.&lt;/li&gt;</span>
-<span class="source-line-no">138</span><span id="line-138">   * &lt;li&gt;a method annotated with the {@link ComponentId} annotation is present.&lt;/li&gt;</span>
-<span class="source-line-no">139</span><span id="line-139">   * &lt;li&gt;a method annotated with the {@link ComponentIdRef} annotation is present.&lt;/li&gt;</span>
-<span class="source-line-no">140</span><span id="line-140">   * &lt;/ul&gt;</span>
-<span class="source-line-no">141</span><span id="line-141">   *</span>
-<span class="source-line-no">142</span><span id="line-142">   * @return enum controlling whether a unique if of the component can be accessed via {@link arez.component.Identifiable#getArezId(Object)}.</span>
-<span class="source-line-no">143</span><span id="line-143">   */</span>
-<span class="source-line-no">144</span><span id="line-144">  Feature requireId() default Feature.AUTODETECT;</span>
-<span class="source-line-no">145</span><span id="line-145"></span>
-<span class="source-line-no">146</span><span id="line-146">  /**</span>
-<span class="source-line-no">147</span><span id="line-147">   * Indicates whether the component should implement the interface {@link arez.component.Verifiable}.</span>
-<span class="source-line-no">148</span><span id="line-148">   * This feature is ignored unless {@link Arez#isVerifyEnabled()} is true. The {@link Feature#AUTODETECT}</span>
-<span class="source-line-no">149</span><span id="line-149">   * value will enable this feature if the component has any {@link Reference} methods or any {@link Inverse} methods.</span>
-<span class="source-line-no">150</span><span id="line-150">   *</span>
-<span class="source-line-no">151</span><span id="line-151">   * @return enum that indicates whether the component should implement the interface {@link arez.component.Verifiable}.</span>
-<span class="source-line-no">152</span><span id="line-152">   */</span>
-<span class="source-line-no">153</span><span id="line-153">  Feature verify() default Feature.AUTODETECT;</span>
-<span class="source-line-no">154</span><span id="line-154"></span>
-<span class="source-line-no">155</span><span id="line-155">  /**</span>
-<span class="source-line-no">156</span><span id="line-156">   * Indicate whether references to the component should also be annotated with {@link CascadeDispose} or {@link ComponentDependency}.</span>
-<span class="source-line-no">157</span><span id="line-157">   * This is used to ensure that when a component is disposed that any reference to the component from another</span>
-<span class="source-line-no">158</span><span id="line-158">   * component is rectified. The annotation processor will warn if the above rules are violated.</span>
-<span class="source-line-no">159</span><span id="line-159">   * {@link Feature#ENABLE} will tell the annotation to warn if references to component are invalid.</span>
-<span class="source-line-no">160</span><span id="line-160">   * {@link Feature#DISABLE} disables the warning. {@link Feature#AUTODETECT} will enable the warning if</span>
-<span class="source-line-no">161</span><span id="line-161">   * the {@link #disposeNotifier()} resolves to {@link Feature#ENABLE}.</span>
-<span class="source-line-no">162</span><span id="line-162">   *</span>
-<span class="source-line-no">163</span><span id="line-163">   * @return enum controlling whether a references to components should be explicitly managed.</span>
-<span class="source-line-no">164</span><span id="line-164">   */</span>
-<span class="source-line-no">165</span><span id="line-165">  Feature verifyReferencesToComponent() default Feature.AUTODETECT;</span>
-<span class="source-line-no">166</span><span id="line-166"></span>
-<span class="source-line-no">167</span><span id="line-167">  /**</span>
-<span class="source-line-no">168</span><span id="line-168">   * The default priority used by {@link Memoize} and {@link Observe} annotated methods.</span>
-<span class="source-line-no">169</span><span id="line-169">   * This parameter should only be specified if there are {@link Memoize} or {@link Observe} annotated</span>
-<span class="source-line-no">170</span><span id="line-170">   * methods present on the component.</span>
-<span class="source-line-no">171</span><span id="line-171">   *</span>
-<span class="source-line-no">172</span><span id="line-172">   * @return the default priority used by {@link Memoize} and {@link Observe} annotated methods.</span>
-<span class="source-line-no">173</span><span id="line-173">   */</span>
-<span class="source-line-no">174</span><span id="line-174">  Priority defaultPriority() default Priority.NORMAL;</span>
-<span class="source-line-no">175</span><span id="line-175"></span>
-<span class="source-line-no">176</span><span id="line-176">  /**</span>
-<span class="source-line-no">177</span><span id="line-177">   * The default value for the readOutsideTransaction parameter of {@link Memoize} and {@link Observable}</span>
-<span class="source-line-no">178</span><span id="line-178">   * annotated methods.</span>
-<span class="source-line-no">179</span><span id="line-179">   *</span>
-<span class="source-line-no">180</span><span id="line-180">   * @return The flag indicating whether the default is to allow reads outside a transaction or to require a transaction to read observables and memoized values.</span>
-<span class="source-line-no">181</span><span id="line-181">   */</span>
-<span class="source-line-no">182</span><span id="line-182">  Feature defaultReadOutsideTransaction() default Feature.AUTODETECT;</span>
-<span class="source-line-no">183</span><span id="line-183"></span>
-<span class="source-line-no">184</span><span id="line-184">  /**</span>
-<span class="source-line-no">185</span><span id="line-185">   * The default value for the writeOutsideTransaction parameter of {@link Observable} annotated methods.</span>
-<span class="source-line-no">186</span><span id="line-186">   *</span>
-<span class="source-line-no">187</span><span id="line-187">   * @return The flag indicating whether the default is to allow writes outside a transaction or to require a transaction to write observables values.</span>
-<span class="source-line-no">188</span><span id="line-188">   */</span>
-<span class="source-line-no">189</span><span id="line-189">  Feature defaultWriteOutsideTransaction() default Feature.AUTODETECT;</span>
-<span class="source-line-no">190</span><span id="line-190">}</span>
+<span class="source-line-no">108</span><span id="line-108">   * Components configured in this mode should not also be explicitly disposed by an owning component via</span>
+<span class="source-line-no">109</span><span id="line-109">   * {@link CascadeDispose}, otherwise the annotation processor will emit the suppressable warning</span>
+<span class="source-line-no">110</span><span id="line-110">   * {@code "Arez:ConflictingDisposeModel"}.</span>
+<span class="source-line-no">111</span><span id="line-111">   *</span>
+<span class="source-line-no">112</span><span id="line-112">   * @return true if the component should dispose itself once it is no longer "observed".</span>
+<span class="source-line-no">113</span><span id="line-113">   */</span>
+<span class="source-line-no">114</span><span id="line-114">  boolean disposeOnDeactivate() default false;</span>
+<span class="source-line-no">115</span><span id="line-115"></span>
+<span class="source-line-no">116</span><span id="line-116">  /**</span>
+<span class="source-line-no">117</span><span id="line-117">   * Enum controlling whether sting integration is enabled. If enabled, the annotation processor will</span>
+<span class="source-line-no">118</span><span id="line-118">   * add sting annotations to the generated component implementation. If the value of this parameter is</span>
+<span class="source-line-no">119</span><span id="line-119">   * {@link Feature#AUTODETECT} then sting integration will be enabled if the {@link #service()} resolves</span>
+<span class="source-line-no">120</span><span id="line-120">   * to {@link Feature#ENABLE} and the {@code sting.Injector} class is present on the classpath.</span>
+<span class="source-line-no">121</span><span id="line-121">   *</span>
+<span class="source-line-no">122</span><span id="line-122">   * @return an enum controlling whether a sting integration is enabled.</span>
+<span class="source-line-no">123</span><span id="line-123">   */</span>
+<span class="source-line-no">124</span><span id="line-124">  Feature sting() default Feature.AUTODETECT;</span>
+<span class="source-line-no">125</span><span id="line-125"></span>
+<span class="source-line-no">126</span><span id="line-126">  /**</span>
+<span class="source-line-no">127</span><span id="line-127">   * Indicate whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods need to be implemented.</span>
+<span class="source-line-no">128</span><span id="line-128">   * If set to {@link Feature#AUTODETECT} then the methods will not be generated.</span>
+<span class="source-line-no">129</span><span id="line-129">   *</span>
+<span class="source-line-no">130</span><span id="line-130">   * @return an enum whether the {@link Object#hashCode()} and {@link Object#equals(Object)} methods need to be implemented.</span>
+<span class="source-line-no">131</span><span id="line-131">   */</span>
+<span class="source-line-no">132</span><span id="line-132">  Feature requireEquals() default Feature.AUTODETECT;</span>
+<span class="source-line-no">133</span><span id="line-133"></span>
+<span class="source-line-no">134</span><span id="line-134">  /**</span>
+<span class="source-line-no">135</span><span id="line-135">   * Indicates whether the component should support access of the id via {@link arez.component.Identifiable#getArezId(Object)}.</span>
+<span class="source-line-no">136</span><span id="line-136">   * The {@link Feature#AUTODETECT} will be treated as {@link Feature#ENABLE}. This feature must be enabled in</span>
+<span class="source-line-no">137</span><span id="line-137">   * the following scenarios:</span>
+<span class="source-line-no">138</span><span id="line-138">   *</span>
+<span class="source-line-no">139</span><span id="line-139">   * &lt;ul&gt;</span>
+<span class="source-line-no">140</span><span id="line-140">   * &lt;li&gt;a method annotated with the {@link Inverse} annotation is present.&lt;/li&gt;</span>
+<span class="source-line-no">141</span><span id="line-141">   * &lt;li&gt;a method annotated with the {@link ComponentId} annotation is present.&lt;/li&gt;</span>
+<span class="source-line-no">142</span><span id="line-142">   * &lt;li&gt;a method annotated with the {@link ComponentIdRef} annotation is present.&lt;/li&gt;</span>
+<span class="source-line-no">143</span><span id="line-143">   * &lt;/ul&gt;</span>
+<span class="source-line-no">144</span><span id="line-144">   *</span>
+<span class="source-line-no">145</span><span id="line-145">   * @return enum controlling whether a unique if of the component can be accessed via {@link arez.component.Identifiable#getArezId(Object)}.</span>
+<span class="source-line-no">146</span><span id="line-146">   */</span>
+<span class="source-line-no">147</span><span id="line-147">  Feature requireId() default Feature.AUTODETECT;</span>
+<span class="source-line-no">148</span><span id="line-148"></span>
+<span class="source-line-no">149</span><span id="line-149">  /**</span>
+<span class="source-line-no">150</span><span id="line-150">   * Indicates whether the component should implement the interface {@link arez.component.Verifiable}.</span>
+<span class="source-line-no">151</span><span id="line-151">   * This feature is ignored unless {@link Arez#isVerifyEnabled()} is true. The {@link Feature#AUTODETECT}</span>
+<span class="source-line-no">152</span><span id="line-152">   * value will enable this feature if the component has any {@link Reference} methods or any {@link Inverse} methods.</span>
+<span class="source-line-no">153</span><span id="line-153">   *</span>
+<span class="source-line-no">154</span><span id="line-154">   * @return enum that indicates whether the component should implement the interface {@link arez.component.Verifiable}.</span>
+<span class="source-line-no">155</span><span id="line-155">   */</span>
+<span class="source-line-no">156</span><span id="line-156">  Feature verify() default Feature.AUTODETECT;</span>
+<span class="source-line-no">157</span><span id="line-157"></span>
+<span class="source-line-no">158</span><span id="line-158">  /**</span>
+<span class="source-line-no">159</span><span id="line-159">   * Indicate whether references to the component should also be annotated with {@link CascadeDispose} or {@link ComponentDependency}.</span>
+<span class="source-line-no">160</span><span id="line-160">   * This is used to ensure that when a component is disposed that any reference to the component from another</span>
+<span class="source-line-no">161</span><span id="line-161">   * component is rectified. The annotation processor will warn if the above rules are violated.</span>
+<span class="source-line-no">162</span><span id="line-162">   * {@link Feature#ENABLE} will tell the annotation to warn if references to component are invalid.</span>
+<span class="source-line-no">163</span><span id="line-163">   * {@link Feature#DISABLE} disables the warning. {@link Feature#AUTODETECT} will enable the warning if</span>
+<span class="source-line-no">164</span><span id="line-164">   * the {@link #disposeNotifier()} resolves to {@link Feature#ENABLE}.</span>
+<span class="source-line-no">165</span><span id="line-165">   *</span>
+<span class="source-line-no">166</span><span id="line-166">   * @return enum controlling whether a references to components should be explicitly managed.</span>
+<span class="source-line-no">167</span><span id="line-167">   */</span>
+<span class="source-line-no">168</span><span id="line-168">  Feature verifyReferencesToComponent() default Feature.AUTODETECT;</span>
+<span class="source-line-no">169</span><span id="line-169"></span>
+<span class="source-line-no">170</span><span id="line-170">  /**</span>
+<span class="source-line-no">171</span><span id="line-171">   * The default priority used by {@link Memoize} and {@link Observe} annotated methods.</span>
+<span class="source-line-no">172</span><span id="line-172">   * This parameter should only be specified if there are {@link Memoize} or {@link Observe} annotated</span>
+<span class="source-line-no">173</span><span id="line-173">   * methods present on the component.</span>
+<span class="source-line-no">174</span><span id="line-174">   *</span>
+<span class="source-line-no">175</span><span id="line-175">   * @return the default priority used by {@link Memoize} and {@link Observe} annotated methods.</span>
+<span class="source-line-no">176</span><span id="line-176">   */</span>
+<span class="source-line-no">177</span><span id="line-177">  Priority defaultPriority() default Priority.NORMAL;</span>
+<span class="source-line-no">178</span><span id="line-178"></span>
+<span class="source-line-no">179</span><span id="line-179">  /**</span>
+<span class="source-line-no">180</span><span id="line-180">   * The default value for the readOutsideTransaction parameter of {@link Memoize} and {@link Observable}</span>
+<span class="source-line-no">181</span><span id="line-181">   * annotated methods.</span>
+<span class="source-line-no">182</span><span id="line-182">   *</span>
+<span class="source-line-no">183</span><span id="line-183">   * @return The flag indicating whether the default is to allow reads outside a transaction or to require a transaction to read observables and memoized values.</span>
+<span class="source-line-no">184</span><span id="line-184">   */</span>
+<span class="source-line-no">185</span><span id="line-185">  Feature defaultReadOutsideTransaction() default Feature.AUTODETECT;</span>
+<span class="source-line-no">186</span><span id="line-186"></span>
+<span class="source-line-no">187</span><span id="line-187">  /**</span>
+<span class="source-line-no">188</span><span id="line-188">   * The default value for the writeOutsideTransaction parameter of {@link Observable} annotated methods.</span>
+<span class="source-line-no">189</span><span id="line-189">   *</span>
+<span class="source-line-no">190</span><span id="line-190">   * @return The flag indicating whether the default is to allow writes outside a transaction or to require a transaction to write observables values.</span>
+<span class="source-line-no">191</span><span id="line-191">   */</span>
+<span class="source-line-no">192</span><span id="line-192">  Feature defaultWriteOutsideTransaction() default Feature.AUTODETECT;</span>
+<span class="source-line-no">193</span><span id="line-193">}</span>
 
 
 

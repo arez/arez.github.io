@@ -296,10 +296,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="disposeOnDeactivate()">
 <h3>disposeOnDeactivate</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-111">disposeOnDeactivate</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-114">disposeOnDeactivate</a></span></div>
 <div class="block">Return true if the component should dispose itself once it is no longer "observed".
  By "observed" it means that the component will have <a href="../component/ComponentObservable.html#observe(java.lang.Object)"><code>ComponentObservable.observe(Object)</code></a>
- called on it. This parameter MUST be false if <a href="#observable()"><code>observable()</code></a> has the value <a href="Feature.html#DISABLE"><code>Feature.DISABLE</code></a>.</div>
+ called on it. This parameter MUST be false if <a href="#observable()"><code>observable()</code></a> has the value <a href="Feature.html#DISABLE"><code>Feature.DISABLE</code></a>.
+ Components configured in this mode should not also be explicitly disposed by an owning component via
+ <a href="CascadeDispose.html" title="annotation interface in arez.annotations"><code>CascadeDispose</code></a>, otherwise the annotation processor will emit the suppressable warning
+ <code>"Arez:ConflictingDisposeModel"</code>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>true if the component should dispose itself once it is no longer "observed".</dd>
@@ -313,7 +316,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="sting()">
 <h3>sting</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-121">sting</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-124">sting</a></span></div>
 <div class="block">Enum controlling whether sting integration is enabled. If enabled, the annotation processor will
  add sting annotations to the generated component implementation. If the value of this parameter is
  <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then sting integration will be enabled if the <a href="#service()"><code>service()</code></a> resolves
@@ -331,7 +334,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="requireEquals()">
 <h3>requireEquals</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-129">requireEquals</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-132">requireEquals</a></span></div>
 <div class="block">Indicate whether the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link"><code>Object.hashCode()</code></a> and <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link"><code>Object.equals(Object)</code></a> methods need to be implemented.
  If set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the methods will not be generated.</div>
 <dl class="notes">
@@ -347,7 +350,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="requireId()">
 <h3>requireId</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-144">requireId</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-147">requireId</a></span></div>
 <div class="block">Indicates whether the component should support access of the id via <a href="../component/Identifiable.html#getArezId(java.lang.Object)"><code>Identifiable.getArezId(Object)</code></a>.
  The <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will be treated as <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a>. This feature must be enabled in
  the following scenarios:
@@ -370,7 +373,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="verify()">
 <h3>verify</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-153">verify</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-156">verify</a></span></div>
 <div class="block">Indicates whether the component should implement the interface <a href="../component/Verifiable.html" title="interface in arez.component"><code>Verifiable</code></a>.
  This feature is ignored unless <a href="../Arez.html#isVerifyEnabled()"><code>Arez.isVerifyEnabled()</code></a> is true. The <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a>
  value will enable this feature if the component has any <a href="Reference.html" title="annotation interface in arez.annotations"><code>Reference</code></a> methods or any <a href="Inverse.html" title="annotation interface in arez.annotations"><code>Inverse</code></a> methods.</div>
@@ -387,7 +390,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="verifyReferencesToComponent()">
 <h3>verifyReferencesToComponent</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-165">verifyReferencesToComponent</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-168">verifyReferencesToComponent</a></span></div>
 <div class="block">Indicate whether references to the component should also be annotated with <a href="CascadeDispose.html" title="annotation interface in arez.annotations"><code>CascadeDispose</code></a> or <a href="ComponentDependency.html" title="annotation interface in arez.annotations"><code>ComponentDependency</code></a>.
  This is used to ensure that when a component is disposed that any reference to the component from another
  component is rectified. The annotation processor will warn if the above rules are violated.
@@ -407,7 +410,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="defaultPriority()">
 <h3>defaultPriority</h3>
-<div class="member-signature"><span class="return-type"><a href="Priority.html" title="enum class in arez.annotations">Priority</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-174">defaultPriority</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Priority.html" title="enum class in arez.annotations">Priority</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-177">defaultPriority</a></span></div>
 <div class="block">The default priority used by <a href="Memoize.html" title="annotation interface in arez.annotations"><code>Memoize</code></a> and <a href="Observe.html" title="annotation interface in arez.annotations"><code>Observe</code></a> annotated methods.
  This parameter should only be specified if there are <a href="Memoize.html" title="annotation interface in arez.annotations"><code>Memoize</code></a> or <a href="Observe.html" title="annotation interface in arez.annotations"><code>Observe</code></a> annotated
  methods present on the component.</div>
@@ -424,7 +427,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="defaultReadOutsideTransaction()">
 <h3>defaultReadOutsideTransaction</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-182">defaultReadOutsideTransaction</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-185">defaultReadOutsideTransaction</a></span></div>
 <div class="block">The default value for the readOutsideTransaction parameter of <a href="Memoize.html" title="annotation interface in arez.annotations"><code>Memoize</code></a> and <a href="Observable.html" title="annotation interface in arez.annotations"><code>Observable</code></a>
  annotated methods.</div>
 <dl class="notes">
@@ -440,7 +443,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="defaultWriteOutsideTransaction()">
 <h3>defaultWriteOutsideTransaction</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-189">defaultWriteOutsideTransaction</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ArezComponent.html#line-192">defaultWriteOutsideTransaction</a></span></div>
 <div class="block">The default value for the writeOutsideTransaction parameter of <a href="Observable.html" title="annotation interface in arez.annotations"><code>Observable</code></a> annotated methods.</div>
 <dl class="notes">
 <dt>Returns:</dt>

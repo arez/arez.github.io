@@ -7,6 +7,10 @@
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/arez/arez/tree/master/docs/at_cascade_dispose.md" target="_blank">Edit</a><h1>@CascadeDispose</h1></header><article><div><span><p>The <a href="/api/arez/annotations/CascadeDispose.html"><code>@CascadeDispose</code></a> annotation is used to mark fields that contain values that must
 be disposed when the component is disposed. This is a short-hand way of cleaning up arez components and other
 resources that have been created or are owned by the component when the component is disposed.</p>
+<p>If the target is an <a href="/api/arez/annotations/ArezComponent.html"><code>@ArezComponent</code></a> configured with
+<a href="/api/arez/annotations/ArezComponent.html#disposeOnDeactivate--"><code>disposeOnDeactivate = true</code></a> then the annotation processor
+will emit the suppressable warning <code>Arez:ConflictingDisposeModel</code>. Disposal should be managed either by liveness
+or explicitly, but not both.</p>
 <p>if the <a href="/api/arez/annotations/CascadeDispose.html"><code>@CascadeDispose</code></a> annotation did not exist, the component author would be responsible
 for cleaning up the resource manually in a method annotated with <a href="/api/arez/annotations/PreDispose.html"><code>@PreDispose</code></a>.</p>
 <p>An example using manual mechanisms for disposing a sub-resource of a component:</p>
