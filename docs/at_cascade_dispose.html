@@ -39,6 +39,8 @@ leak an inevitably some amount of time was spent detecting and fixing the proble
 and the annotation processor generates the code required for disposing the sub-component. In practice this
 resulted in less time chasing down resource leaks and slightly less code to maintain. The only disadvantage
 was that the fields have to be made non-private so that the generated sub-class can access the field.</p>
+<p>For field visibility, prefer package access. The annotation processor emits suppressable warnings for <code>public</code> fields
+and for <code>protected</code> fields unless the field is inherited from a parent class in a different package.</p>
 <p>For example:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyService</span>

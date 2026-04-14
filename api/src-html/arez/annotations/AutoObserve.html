@@ -28,8 +28,8 @@
 <span class="source-line-no">015</span><span id="line-15"> *</span>
 <span class="source-line-no">016</span><span id="line-16"> * &lt;p&gt;It should be noted that it is preferable for the field that defines the observed component to be marked</span>
 <span class="source-line-no">017</span><span id="line-17"> * with this annotation rather than the method accessor. The reason is that the annotation processor will issue</span>
-<span class="source-line-no">018</span><span id="line-18"> * a warning if a field that the processor identifies as a potential dependency is not annotated with</span>
-<span class="source-line-no">019</span><span id="line-19"> * {@link ComponentDependency}, {@link CascadeDispose} or {@link AutoObserve}.&lt;/p&gt;</span>
+<span class="source-line-no">018</span><span id="line-18"> * a warning if a field that the processor identifies as a potential dependency if it is not annotated with</span>
+<span class="source-line-no">019</span><span id="line-19"> * {@link AutoObserve}, {@link CascadeDispose} or {@link ComponentDependency}.&lt;/p&gt;</span>
 <span class="source-line-no">020</span><span id="line-20"> *</span>
 <span class="source-line-no">021</span><span id="line-21"> * &lt;p&gt;If the element annotated is a method then the method must comply with the additional constraints:&lt;/p&gt;</span>
 <span class="source-line-no">022</span><span id="line-22"> * &lt;ul&gt;</span>
@@ -53,25 +53,31 @@
 <span class="source-line-no">040</span><span id="line-40"> * &lt;li&gt;Must be compatible with {@link ComponentObservable}, unless {@link #validateTypeAtRuntime()} is</span>
 <span class="source-line-no">041</span><span id="line-41"> *     &lt;code&gt;true&lt;/code&gt;&lt;/li&gt;</span>
 <span class="source-line-no">042</span><span id="line-42"> * &lt;li&gt;Must be accessible to the class annotated by the {@link ArezComponent} annotation.&lt;/li&gt;</span>
-<span class="source-line-no">043</span><span id="line-43"> * &lt;/ul&gt;</span>
-<span class="source-line-no">044</span><span id="line-44"> *</span>
-<span class="source-line-no">045</span><span id="line-45"> * &lt;p&gt;If {@link #validateTypeAtRuntime()} is set to &lt;code&gt;true&lt;/code&gt; then the declared type of the field or method</span>
-<span class="source-line-no">046</span><span id="line-46"> * must be annotated with {@link ActAsComponent}. In this mode, type compatibility is validated at runtime</span>
-<span class="source-line-no">047</span><span id="line-47"> * rather than compile time.&lt;/p&gt;</span>
-<span class="source-line-no">048</span><span id="line-48"> */</span>
-<span class="source-line-no">049</span><span id="line-49">@Documented</span>
-<span class="source-line-no">050</span><span id="line-50">@Target( { ElementType.METHOD, ElementType.FIELD } )</span>
-<span class="source-line-no">051</span><span id="line-51">public @interface AutoObserve</span>
-<span class="source-line-no">052</span><span id="line-52">{</span>
-<span class="source-line-no">053</span><span id="line-53">  /**</span>
-<span class="source-line-no">054</span><span id="line-54">   * Return true and the value of the annotated field or method will be validated at runtime rather than compile time.</span>
-<span class="source-line-no">055</span><span id="line-55">   * This is useful when the declared type is annotated with {@link ActAsComponent} but the runtime value is known</span>
-<span class="source-line-no">056</span><span id="line-56">   * to implement {@link ComponentObservable}.</span>
-<span class="source-line-no">057</span><span id="line-57">   *</span>
-<span class="source-line-no">058</span><span id="line-58">   * @return true to defer validation of types until runtime.</span>
-<span class="source-line-no">059</span><span id="line-59">   */</span>
-<span class="source-line-no">060</span><span id="line-60">  boolean validateTypeAtRuntime() default false;</span>
-<span class="source-line-no">061</span><span id="line-61">}</span>
+<span class="source-line-no">043</span><span id="line-43"> * &lt;li&gt;Should not be public. A warning will be generated but can be suppressed by the {@link SuppressWarnings} or {@link SuppressArezWarnings} annotations with a key "Arez:PublicField".&lt;/li&gt;</span>
+<span class="source-line-no">044</span><span id="line-44"> * &lt;li&gt;</span>
+<span class="source-line-no">045</span><span id="line-45"> *   Should not be protected if in the class annotated with the {@link ArezComponent} annotation as the field is not</span>
+<span class="source-line-no">046</span><span id="line-46"> *   expected to be accessed outside the component. A warning will be generated but can be suppressed by the</span>
+<span class="source-line-no">047</span><span id="line-47"> *   {@link SuppressWarnings} or {@link SuppressArezWarnings} annotations with a key "Arez:ProtectedField".</span>
+<span class="source-line-no">048</span><span id="line-48"> * &lt;/li&gt;</span>
+<span class="source-line-no">049</span><span id="line-49"> * &lt;/ul&gt;</span>
+<span class="source-line-no">050</span><span id="line-50"> *</span>
+<span class="source-line-no">051</span><span id="line-51"> * &lt;p&gt;If {@link #validateTypeAtRuntime()} is set to &lt;code&gt;true&lt;/code&gt; then the declared type of the field or method</span>
+<span class="source-line-no">052</span><span id="line-52"> * must be annotated with {@link ActAsComponent}. In this mode, type compatibility is validated at runtime</span>
+<span class="source-line-no">053</span><span id="line-53"> * rather than compile time.&lt;/p&gt;</span>
+<span class="source-line-no">054</span><span id="line-54"> */</span>
+<span class="source-line-no">055</span><span id="line-55">@Documented</span>
+<span class="source-line-no">056</span><span id="line-56">@Target( { ElementType.METHOD, ElementType.FIELD } )</span>
+<span class="source-line-no">057</span><span id="line-57">public @interface AutoObserve</span>
+<span class="source-line-no">058</span><span id="line-58">{</span>
+<span class="source-line-no">059</span><span id="line-59">  /**</span>
+<span class="source-line-no">060</span><span id="line-60">   * Return true and the value of the annotated field or method will be validated at runtime rather than compile time.</span>
+<span class="source-line-no">061</span><span id="line-61">   * This is useful when the declared type is annotated with {@link ActAsComponent} but the runtime value is known</span>
+<span class="source-line-no">062</span><span id="line-62">   * to implement {@link ComponentObservable}.</span>
+<span class="source-line-no">063</span><span id="line-63">   *</span>
+<span class="source-line-no">064</span><span id="line-64">   * @return true to defer validation of types until runtime.</span>
+<span class="source-line-no">065</span><span id="line-65">   */</span>
+<span class="source-line-no">066</span><span id="line-66">  boolean validateTypeAtRuntime() default false;</span>
+<span class="source-line-no">067</span><span id="line-67">}</span>
 
 
 

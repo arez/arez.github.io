@@ -69,7 +69,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>({<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>,<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#FIELD" title="class or interface in java.lang.annotation" class="external-link">FIELD</a>})
-</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/ComponentDependency.html#line-45">ComponentDependency</a></span></div>
+</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/ComponentDependency.html#line-51">ComponentDependency</a></span></div>
 <div class="block">Methods and fields marked with this annotation are dependencies of the component.
  If the dependency is disposed then the component takes an action to cascade the dispose
  or null the property referencing the dependency. The dependency MUST implement the
@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
  <p>It should be noted that it is preferable for the field that defines the dependency is marked
  with this annotation rather than the method accessor. The reason is that the annotation processor
  will issue a warning if a field that the processor identifies as a potential dependency if it is
- not annotated with <a href="ComponentDependency.html" title="annotation interface in arez.annotations"><code>ComponentDependency</code></a> or <a href="CascadeDispose.html" title="annotation interface in arez.annotations"><code>CascadeDispose</code></a>.</p>
+ not annotated with <a href="AutoObserve.html" title="annotation interface in arez.annotations"><code>AutoObserve</code></a>, <a href="CascadeDispose.html" title="annotation interface in arez.annotations"><code>CascadeDispose</code></a> or <a href="ComponentDependency.html" title="annotation interface in arez.annotations"><code>ComponentDependency</code></a>.</p>
 
  <p>If the element annotated is a method then the method must comply with the additional constraints:</p>
  <ul>
@@ -103,6 +103,12 @@ loadScripts(document, 'script');</script>
  <li>Must not be private</li>
  <li>Must not be static</li>
  <li>Must be accessible to the class annotated by the <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
+ <li>Should not be public. A warning will be generated but can be suppressed by the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressArezWarnings.html" title="annotation interface in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:PublicField".</li>
+ <li>
+   Should not be protected if in the class annotated with the <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> annotation as the field is not
+   expected to be accessed outside the component. A warning will be generated but can be suppressed by the
+   <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressArezWarnings.html" title="annotation interface in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:ProtectedField".
+ </li>
  </ul></div>
 </section>
 <section class="summary">
@@ -158,7 +164,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="action()">
 <h3>action</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="ComponentDependency.Action.html" title="enum class in arez.annotations">ComponentDependency.Action</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ComponentDependency.html#line-73">action</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="ComponentDependency.Action.html" title="enum class in arez.annotations">ComponentDependency.Action</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ComponentDependency.html#line-79">action</a></span></div>
 <div class="block">Return the action to take when the dependency is disposed.
  A <a href="ComponentDependency.Action.html#CASCADE"><code>ComponentDependency.Action.CASCADE</code></a> value indicates that the component should be deleted, while a
  <a href="ComponentDependency.Action.html#SET_NULL"><code>ComponentDependency.Action.SET_NULL</code></a> value indicates that the observable field should be set to null.
@@ -177,7 +183,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="validateTypeAtRuntime()">
 <h3>validateTypeAtRuntime</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ComponentDependency.html#line-83">validateTypeAtRuntime</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ComponentDependency.html#line-89">validateTypeAtRuntime</a></span></div>
 <div class="block">Return true and the value of the annotated field will be validated at runtime rather than at compile time.
  This is useful when the field is defined by an interface but the underlying field is guaranteed to implement
  <a href="../component/DisposeNotifier.html" title="interface in arez.component"><code>DisposeNotifier</code></a> at runtime.</div>
