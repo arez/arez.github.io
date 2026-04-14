@@ -104,6 +104,70 @@ annotation.</p>
 <li><a href="/api/arez/ObjectsDeepEqualsComparator.html"><code>ObjectsDeepEqualsComparator</code></a></li>
 <li>A custom implementation of <a href="/api/arez/EqualityComparator.html"><code>EqualityComparator</code></a></li>
 </ul>
+<p>If the observable type is reused in multiple places, annotate the exact declared type with
+<a href="/api/arez/annotations/DefaultEqualityComparator.html"><code>@DefaultEqualityComparator</code></a> and leave the
+<code>equalityComparator</code> parameter unset. The processor will derive the comparator from the declared
+type and reuse it for both <a href="/api/arez/annotations/Observable.html"><code>@Observable</code></a> and
+<a href="/api/arez/annotations/Memoize.html"><code>@Memoize</code></a> methods.</p>
+<p>For example:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
+<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyModel</span>
+</span>{
+  <span class="hljs-meta">@DefaultEqualityComparator</span>( TagComparator<span class="hljs-class">.<span class="hljs-keyword">class</span> )
+  <span class="hljs-title">static</span> <span class="hljs-title">final</span> <span class="hljs-title">class</span> <span class="hljs-title">Tag</span>
+  </span>{
+    <span class="hljs-meta">@Nonnull</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String _value;
+
+    Tag( <span class="hljs-meta">@Nonnull</span> <span class="hljs-keyword">final</span> String value )
+    {
+      _value = value;
+    }
+
+    <span class="hljs-meta">@Nonnull</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span>
+    </span>{
+      <span class="hljs-keyword">return</span> _value;
+    }
+  }
+
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TagComparator</span>
+    <span class="hljs-keyword">implements</span> <span class="hljs-title">EqualityComparator</span>
+  </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">areEqual</span><span class="hljs-params">( <span class="hljs-keyword">final</span> Object oldValue, <span class="hljs-keyword">final</span> Object newValue )</span>
+    </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span> == oldValue || <span class="hljs-keyword">null</span> == newValue ?
+             oldValue == newValue :
+             oldValue.toString().equalsIgnoreCase( newValue.toString() );
+    }
+  }
+
+  <span class="hljs-meta">@Nonnull</span>
+  <span class="hljs-keyword">private</span> Tag _searchTerm = <span class="hljs-keyword">new</span> Tag( <span class="hljs-string">""</span> );
+
+  <span class="hljs-meta">@Observable</span>( setterAlwaysMutates = <span class="hljs-keyword">false</span> )
+  <span class="hljs-meta">@Nonnull</span>
+  <span class="hljs-function">Tag <span class="hljs-title">getSearchTerm</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _searchTerm;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setSearchTerm</span><span class="hljs-params">( @Nonnull <span class="hljs-keyword">final</span> Tag searchTerm )</span>
+  </span>{
+    _searchTerm = searchTerm;
+  }
+
+  <span class="hljs-meta">@Memoize</span>
+  <span class="hljs-meta">@Nonnull</span>
+  <span class="hljs-function">Tag <span class="hljs-title">getNormalizedSearchTerm</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Tag( getSearchTerm().toString().trim() );
+  }
+}</code></pre></p>
+<p>The type-level default only applies to the exact declared type. Arrays, JDK types, third-party
+types, and unannotated supertypes still require an explicit <code>equalityComparator</code>.</p>
 <h2><a class="anchor" aria-hidden="true" name="custom-change-propagation"></a><a href="#custom-change-propagation" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom change propagation</h2>
 <p>Sometimes you want to integrate Arez into systems that have existing change propagation mechanisms. For
 example, Arez was integrated in a java variant of React called <a href="https://react4j.github.io">React4j</a>. React4j

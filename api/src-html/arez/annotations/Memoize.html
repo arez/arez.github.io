@@ -15,131 +15,137 @@
 <span class="source-line-no">002</span><span id="line-2"></span>
 <span class="source-line-no">003</span><span id="line-3">import arez.ComputableValue;</span>
 <span class="source-line-no">004</span><span id="line-4">import arez.EqualityComparator;</span>
-<span class="source-line-no">005</span><span id="line-5">import arez.ObjectsEqualsComparator;</span>
-<span class="source-line-no">006</span><span id="line-6">import java.lang.annotation.Documented;</span>
-<span class="source-line-no">007</span><span id="line-7">import java.lang.annotation.ElementType;</span>
-<span class="source-line-no">008</span><span id="line-8">import java.lang.annotation.Target;</span>
-<span class="source-line-no">009</span><span id="line-9">import javax.annotation.Nonnull;</span>
-<span class="source-line-no">010</span><span id="line-10"></span>
-<span class="source-line-no">011</span><span id="line-11">/**</span>
-<span class="source-line-no">012</span><span id="line-12"> * Methods marked with this annotation are &lt;a href="https://en.wikipedia.org/wiki/Memoization"&gt;memoized&lt;/a&gt; while</span>
-<span class="source-line-no">013</span><span id="line-13"> * activated which typically means they have an observer. These methods are typically backed with one or more</span>
-<span class="source-line-no">014</span><span id="line-14"> * {@link ComputableValue} instances.</span>
-<span class="source-line-no">015</span><span id="line-15"> *</span>
-<span class="source-line-no">016</span><span id="line-16"> * &lt;p&gt;The return value should be derived from the method parameters and any other {@link Observable} properties</span>
-<span class="source-line-no">017</span><span id="line-17"> * or {@link Memoize} properties accessed within the scope of the method. The he value returned by the method</span>
-<span class="source-line-no">018</span><span id="line-18"> * should not change unless the state of the {@link Observable} properties or {@link Memoize} properties change.</span>
-<span class="source-line-no">019</span><span id="line-19"> * If the return value can change outside of the above scenarios it is important to set the {@link #depType()}</span>
-<span class="source-line-no">020</span><span id="line-20"> * to {@link DepType#AREZ_OR_EXTERNAL} and explicitly report possible changes to the derived value by invoking</span>
-<span class="source-line-no">021</span><span id="line-21"> * the {@link ComputableValue#reportPossiblyChanged()} on the {@link ComputableValue} returned from a method</span>
-<span class="source-line-no">022</span><span id="line-22"> * annotated by the {@link ComputableValueRef} that is linked to the method marked with this annotation.&lt;/p&gt;</span>
-<span class="source-line-no">023</span><span id="line-23"> *</span>
-<span class="source-line-no">024</span><span id="line-24"> * &lt;p&gt;The method is wrapped in a READ_ONLY transaction and thus can not modify other state in the system.&lt;/p&gt;</span>
-<span class="source-line-no">025</span><span id="line-25"> *</span>
-<span class="source-line-no">026</span><span id="line-26"> * &lt;p&gt;The enhanced method is implemented by creating a separate {@link ComputableValue} instance for each unique</span>
-<span class="source-line-no">027</span><span id="line-27"> * combination of parameters that are passed to the method. When the {@link ComputableValue} is deactivated, a hook</span>
-<span class="source-line-no">028</span><span id="line-28"> * triggers that removes the {@link ComputableValue} from the local cache. If the method has zero parameter then</span>
-<span class="source-line-no">029</span><span id="line-29"> * the method is backed by a single {@link ComputableValue} instance.&lt;/p&gt;</span>
-<span class="source-line-no">030</span><span id="line-30"> *</span>
-<span class="source-line-no">031</span><span id="line-31"> * &lt;p&gt;The method that is annotated with this annotation must comply with the additional constraints:&lt;/p&gt;</span>
-<span class="source-line-no">032</span><span id="line-32"> * &lt;ul&gt;</span>
-<span class="source-line-no">033</span><span id="line-33"> * &lt;li&gt;Must not be annotated with any other arez annotation&lt;/li&gt;</span>
-<span class="source-line-no">034</span><span id="line-34"> * &lt;li&gt;Must return a value&lt;/li&gt;</span>
-<span class="source-line-no">035</span><span id="line-35"> * &lt;li&gt;Must not be private&lt;/li&gt;</span>
-<span class="source-line-no">036</span><span id="line-36"> * &lt;li&gt;Must not be static&lt;/li&gt;</span>
-<span class="source-line-no">037</span><span id="line-37"> * &lt;li&gt;Must not be final&lt;/li&gt;</span>
-<span class="source-line-no">038</span><span id="line-38"> * &lt;li&gt;Must not be abstract&lt;/li&gt;</span>
-<span class="source-line-no">039</span><span id="line-39"> * &lt;li&gt;Must not throw exceptions&lt;/li&gt;</span>
-<span class="source-line-no">040</span><span id="line-40"> * &lt;li&gt;Must be accessible to the class annotated by the {@link ArezComponent} annotation.&lt;/li&gt;</span>
-<span class="source-line-no">041</span><span id="line-41"> * &lt;/ul&gt;</span>
-<span class="source-line-no">042</span><span id="line-42"> */</span>
-<span class="source-line-no">043</span><span id="line-43">@Documented</span>
-<span class="source-line-no">044</span><span id="line-44">@Target( ElementType.METHOD )</span>
-<span class="source-line-no">045</span><span id="line-45">public @interface Memoize</span>
-<span class="source-line-no">046</span><span id="line-46">{</span>
-<span class="source-line-no">047</span><span id="line-47">  /**</span>
-<span class="source-line-no">048</span><span id="line-48">   * Return the root name of the element value relative to the component.</span>
-<span class="source-line-no">049</span><span id="line-49">   * If the method has parameters then the name will be used in combination with a sequence</span>
-<span class="source-line-no">050</span><span id="line-50">   * when naming the synthesized {@link ComputableValue} instances. The value must conform to</span>
-<span class="source-line-no">051</span><span id="line-51">   * the requirements of a java identifier. The name must also be unique across {@link Observable}s,</span>
-<span class="source-line-no">052</span><span id="line-52">   * {@code Memoize}s and {@link Action}s within the scope of the {@link ArezComponent} annotated element.</span>
-<span class="source-line-no">053</span><span id="line-53">   *</span>
-<span class="source-line-no">054</span><span id="line-54">   * @return the root name of the element relative to the component.</span>
-<span class="source-line-no">055</span><span id="line-55">   */</span>
-<span class="source-line-no">056</span><span id="line-56">  @Nonnull</span>
-<span class="source-line-no">057</span><span id="line-57">  String name() default "&lt;default&gt;";</span>
-<span class="source-line-no">058</span><span id="line-58"></span>
-<span class="source-line-no">059</span><span id="line-59">  /**</span>
-<span class="source-line-no">060</span><span id="line-60">   * A flag indicating whether the computable should be "kept alive". A computable that is kept alive</span>
-<span class="source-line-no">061</span><span id="line-61">   * is activated on creation and never deactivates. This is useful if the computable property is only</span>
-<span class="source-line-no">062</span><span id="line-62">   * accessed from within actions but should be kept up to date and not recomputed on each access.</span>
-<span class="source-line-no">063</span><span id="line-63">   * This MUST not be set if the target method has any parameters as can not keep computed value active</span>
-<span class="source-line-no">064</span><span id="line-64">   * if parameter values are unknown.</span>
-<span class="source-line-no">065</span><span id="line-65">   *</span>
-<span class="source-line-no">066</span><span id="line-66">   * @return true to keep computable alive.</span>
-<span class="source-line-no">067</span><span id="line-67">   */</span>
-<span class="source-line-no">068</span><span id="line-68">  boolean keepAlive() default false;</span>
-<span class="source-line-no">069</span><span id="line-69"></span>
-<span class="source-line-no">070</span><span id="line-70">  /**</span>
-<span class="source-line-no">071</span><span id="line-71">   * The priority of the underlying ComputableValue observer.</span>
-<span class="source-line-no">072</span><span id="line-72">   *</span>
-<span class="source-line-no">073</span><span id="line-73">   * @return the priority of the ComputableValue observer.</span>
-<span class="source-line-no">074</span><span id="line-74">   */</span>
-<span class="source-line-no">075</span><span id="line-75">  Priority priority() default Priority.DEFAULT;</span>
-<span class="source-line-no">076</span><span id="line-76"></span>
-<span class="source-line-no">077</span><span id="line-77">  /**</span>
-<span class="source-line-no">078</span><span id="line-78">   * Flag controlling whether the underlying observer can observe ComputableValue instances with lower priorities.</span>
-<span class="source-line-no">079</span><span id="line-79">   * The default value of false will result in an invariant failure (in development mode) if a lower priority</span>
-<span class="source-line-no">080</span><span id="line-80">   * dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher</span>
-<span class="source-line-no">081</span><span id="line-81">   * priority observer is dependent upon a lower priority computable value. If the value is true then the no</span>
-<span class="source-line-no">082</span><span id="line-82">   * invariant failure is triggered and the component relies on the component author to handle possible priority</span>
-<span class="source-line-no">083</span><span id="line-83">   * inversion.</span>
-<span class="source-line-no">084</span><span id="line-84">   *</span>
-<span class="source-line-no">085</span><span id="line-85">   * @return false if observing lower priority dependencies should result in invariant failure in development mode.</span>
-<span class="source-line-no">086</span><span id="line-86">   */</span>
-<span class="source-line-no">087</span><span id="line-87">  boolean observeLowerPriorityDependencies() default false;</span>
-<span class="source-line-no">088</span><span id="line-88"></span>
-<span class="source-line-no">089</span><span id="line-89">  /**</span>
-<span class="source-line-no">090</span><span id="line-90">   * Enum indicating whether the value of the computable is derived from arez elements and/or external dependencies.</span>
-<span class="source-line-no">091</span><span id="line-91">   * If set to {@link DepType#AREZ} then Arez will verify that the method annotated by this annotation accesses arez</span>
-<span class="source-line-no">092</span><span id="line-92">   * elements (i.e. instances of {@link arez.ObservableValue} or instances of {@link ComputableValue}). If set to</span>
-<span class="source-line-no">093</span><span id="line-93">   * {@link DepType#AREZ_OR_NONE} then the runtime will allow computable to exist with no dependencies. If set</span>
-<span class="source-line-no">094</span><span id="line-94">   * to {@link DepType#AREZ_OR_EXTERNAL} then the component must define a {@link ComputableValueRef} method and should invoke</span>
-<span class="source-line-no">095</span><span id="line-95">   * {@link ComputableValue#reportPossiblyChanged()} when the non-arez dependencies are changed.</span>
-<span class="source-line-no">096</span><span id="line-96">   *</span>
-<span class="source-line-no">097</span><span id="line-97">   * @return the types of dependencies allowed on the computable.</span>
-<span class="source-line-no">098</span><span id="line-98">   */</span>
-<span class="source-line-no">099</span><span id="line-99">  @Nonnull</span>
-<span class="source-line-no">100</span><span id="line-100">  DepType depType() default DepType.AREZ;</span>
-<span class="source-line-no">101</span><span id="line-101"></span>
-<span class="source-line-no">102</span><span id="line-102">  /**</span>
-<span class="source-line-no">103</span><span id="line-103">   * Return true if the return value of the memoized value should be reported to the Arez spy subsystem.</span>
-<span class="source-line-no">104</span><span id="line-104">   * It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.</span>
-<span class="source-line-no">105</span><span id="line-105">   *</span>
-<span class="source-line-no">106</span><span id="line-106">   * @return true to report the return value, false otherwise.</span>
-<span class="source-line-no">107</span><span id="line-107">   */</span>
-<span class="source-line-no">108</span><span id="line-108">  boolean reportResult() default true;</span>
-<span class="source-line-no">109</span><span id="line-109"></span>
-<span class="source-line-no">110</span><span id="line-110">  /**</span>
-<span class="source-line-no">111</span><span id="line-111">   * Indicate whether the memoized value can be read outside a transaction.</span>
-<span class="source-line-no">112</span><span id="line-112">   * If the value is {@link Feature#AUTODETECT} then the value will be derived from the</span>
-<span class="source-line-no">113</span><span id="line-113">   * {@link ArezComponent#defaultReadOutsideTransaction()} parameter on the {@link ArezComponent} annotation. If</span>
-<span class="source-line-no">114</span><span id="line-114">   * the value is set to {@link Feature#ENABLE} then the memoized value can be read outside a transaction. It should</span>
-<span class="source-line-no">115</span><span id="line-115">   * be noted that in this scenario the memoized value will be recalculated each time it is accessed.</span>
-<span class="source-line-no">116</span><span id="line-116">   *</span>
-<span class="source-line-no">117</span><span id="line-117">   * @return flag that determines whether the memoized value allows reads outside a transaction, false to require a transaction to read the memoized value.</span>
-<span class="source-line-no">118</span><span id="line-118">   */</span>
-<span class="source-line-no">119</span><span id="line-119">  Feature readOutsideTransaction() default Feature.AUTODETECT;</span>
-<span class="source-line-no">120</span><span id="line-120"></span>
-<span class="source-line-no">121</span><span id="line-121">  /**</span>
-<span class="source-line-no">122</span><span id="line-122">   * Return the strategy used to compare computed values when deciding whether to</span>
-<span class="source-line-no">123</span><span id="line-123">   * propagate a change.</span>
-<span class="source-line-no">124</span><span id="line-124">   *</span>
-<span class="source-line-no">125</span><span id="line-125">   * @return the comparator type used when checking whether values are equal.</span>
-<span class="source-line-no">126</span><span id="line-126">   */</span>
-<span class="source-line-no">127</span><span id="line-127">  @Nonnull</span>
-<span class="source-line-no">128</span><span id="line-128">  Class&lt;? extends EqualityComparator&gt; equalityComparator() default ObjectsEqualsComparator.class;</span>
-<span class="source-line-no">129</span><span id="line-129">}</span>
+<span class="source-line-no">005</span><span id="line-5">import java.lang.annotation.Documented;</span>
+<span class="source-line-no">006</span><span id="line-6">import java.lang.annotation.ElementType;</span>
+<span class="source-line-no">007</span><span id="line-7">import java.lang.annotation.Target;</span>
+<span class="source-line-no">008</span><span id="line-8">import javax.annotation.Nonnull;</span>
+<span class="source-line-no">009</span><span id="line-9"></span>
+<span class="source-line-no">010</span><span id="line-10">/**</span>
+<span class="source-line-no">011</span><span id="line-11"> * Methods marked with this annotation are &lt;a href="https://en.wikipedia.org/wiki/Memoization"&gt;memoized&lt;/a&gt; while</span>
+<span class="source-line-no">012</span><span id="line-12"> * activated which typically means they have an observer. These methods are typically backed with one or more</span>
+<span class="source-line-no">013</span><span id="line-13"> * {@link ComputableValue} instances.</span>
+<span class="source-line-no">014</span><span id="line-14"> *</span>
+<span class="source-line-no">015</span><span id="line-15"> * &lt;p&gt;The return value should be derived from the method parameters and any other {@link Observable} properties</span>
+<span class="source-line-no">016</span><span id="line-16"> * or {@link Memoize} properties accessed within the scope of the method. The he value returned by the method</span>
+<span class="source-line-no">017</span><span id="line-17"> * should not change unless the state of the {@link Observable} properties or {@link Memoize} properties change.</span>
+<span class="source-line-no">018</span><span id="line-18"> * If the return value can change outside of the above scenarios it is important to set the {@link #depType()}</span>
+<span class="source-line-no">019</span><span id="line-19"> * to {@link DepType#AREZ_OR_EXTERNAL} and explicitly report possible changes to the derived value by invoking</span>
+<span class="source-line-no">020</span><span id="line-20"> * the {@link ComputableValue#reportPossiblyChanged()} on the {@link ComputableValue} returned from a method</span>
+<span class="source-line-no">021</span><span id="line-21"> * annotated by the {@link ComputableValueRef} that is linked to the method marked with this annotation.&lt;/p&gt;</span>
+<span class="source-line-no">022</span><span id="line-22"> *</span>
+<span class="source-line-no">023</span><span id="line-23"> * &lt;p&gt;The method is wrapped in a READ_ONLY transaction and thus can not modify other state in the system.&lt;/p&gt;</span>
+<span class="source-line-no">024</span><span id="line-24"> *</span>
+<span class="source-line-no">025</span><span id="line-25"> * &lt;p&gt;The enhanced method is implemented by creating a separate {@link ComputableValue} instance for each unique</span>
+<span class="source-line-no">026</span><span id="line-26"> * combination of parameters that are passed to the method. When the {@link ComputableValue} is deactivated, a hook</span>
+<span class="source-line-no">027</span><span id="line-27"> * triggers that removes the {@link ComputableValue} from the local cache. If the method has zero parameter then</span>
+<span class="source-line-no">028</span><span id="line-28"> * the method is backed by a single {@link ComputableValue} instance.&lt;/p&gt;</span>
+<span class="source-line-no">029</span><span id="line-29"> *</span>
+<span class="source-line-no">030</span><span id="line-30"> * &lt;p&gt;The method that is annotated with this annotation must comply with the additional constraints:&lt;/p&gt;</span>
+<span class="source-line-no">031</span><span id="line-31"> * &lt;ul&gt;</span>
+<span class="source-line-no">032</span><span id="line-32"> * &lt;li&gt;Must not be annotated with any other arez annotation&lt;/li&gt;</span>
+<span class="source-line-no">033</span><span id="line-33"> * &lt;li&gt;Must return a value&lt;/li&gt;</span>
+<span class="source-line-no">034</span><span id="line-34"> * &lt;li&gt;Must not be private&lt;/li&gt;</span>
+<span class="source-line-no">035</span><span id="line-35"> * &lt;li&gt;Must not be static&lt;/li&gt;</span>
+<span class="source-line-no">036</span><span id="line-36"> * &lt;li&gt;Must not be final&lt;/li&gt;</span>
+<span class="source-line-no">037</span><span id="line-37"> * &lt;li&gt;Must not be abstract&lt;/li&gt;</span>
+<span class="source-line-no">038</span><span id="line-38"> * &lt;li&gt;Must not throw exceptions&lt;/li&gt;</span>
+<span class="source-line-no">039</span><span id="line-39"> * &lt;li&gt;Must be accessible to the class annotated by the {@link ArezComponent} annotation.&lt;/li&gt;</span>
+<span class="source-line-no">040</span><span id="line-40"> * &lt;/ul&gt;</span>
+<span class="source-line-no">041</span><span id="line-41"> */</span>
+<span class="source-line-no">042</span><span id="line-42">@Documented</span>
+<span class="source-line-no">043</span><span id="line-43">@Target( ElementType.METHOD )</span>
+<span class="source-line-no">044</span><span id="line-44">public @interface Memoize</span>
+<span class="source-line-no">045</span><span id="line-45">{</span>
+<span class="source-line-no">046</span><span id="line-46">  /**</span>
+<span class="source-line-no">047</span><span id="line-47">   * Return the root name of the element value relative to the component.</span>
+<span class="source-line-no">048</span><span id="line-48">   * If the method has parameters then the name will be used in combination with a sequence</span>
+<span class="source-line-no">049</span><span id="line-49">   * when naming the synthesized {@link ComputableValue} instances. The value must conform to</span>
+<span class="source-line-no">050</span><span id="line-50">   * the requirements of a java identifier. The name must also be unique across {@link Observable}s,</span>
+<span class="source-line-no">051</span><span id="line-51">   * {@code Memoize}s and {@link Action}s within the scope of the {@link ArezComponent} annotated element.</span>
+<span class="source-line-no">052</span><span id="line-52">   *</span>
+<span class="source-line-no">053</span><span id="line-53">   * @return the root name of the element relative to the component.</span>
+<span class="source-line-no">054</span><span id="line-54">   */</span>
+<span class="source-line-no">055</span><span id="line-55">  @Nonnull</span>
+<span class="source-line-no">056</span><span id="line-56">  String name() default "&lt;default&gt;";</span>
+<span class="source-line-no">057</span><span id="line-57"></span>
+<span class="source-line-no">058</span><span id="line-58">  /**</span>
+<span class="source-line-no">059</span><span id="line-59">   * A flag indicating whether the computable should be "kept alive". A computable that is kept alive</span>
+<span class="source-line-no">060</span><span id="line-60">   * is activated on creation and never deactivates. This is useful if the computable property is only</span>
+<span class="source-line-no">061</span><span id="line-61">   * accessed from within actions but should be kept up to date and not recomputed on each access.</span>
+<span class="source-line-no">062</span><span id="line-62">   * This MUST not be set if the target method has any parameters as can not keep computed value active</span>
+<span class="source-line-no">063</span><span id="line-63">   * if parameter values are unknown.</span>
+<span class="source-line-no">064</span><span id="line-64">   *</span>
+<span class="source-line-no">065</span><span id="line-65">   * @return true to keep computable alive.</span>
+<span class="source-line-no">066</span><span id="line-66">   */</span>
+<span class="source-line-no">067</span><span id="line-67">  boolean keepAlive() default false;</span>
+<span class="source-line-no">068</span><span id="line-68"></span>
+<span class="source-line-no">069</span><span id="line-69">  /**</span>
+<span class="source-line-no">070</span><span id="line-70">   * The priority of the underlying ComputableValue observer.</span>
+<span class="source-line-no">071</span><span id="line-71">   *</span>
+<span class="source-line-no">072</span><span id="line-72">   * @return the priority of the ComputableValue observer.</span>
+<span class="source-line-no">073</span><span id="line-73">   */</span>
+<span class="source-line-no">074</span><span id="line-74">  Priority priority() default Priority.DEFAULT;</span>
+<span class="source-line-no">075</span><span id="line-75"></span>
+<span class="source-line-no">076</span><span id="line-76">  /**</span>
+<span class="source-line-no">077</span><span id="line-77">   * Flag controlling whether the underlying observer can observe ComputableValue instances with lower priorities.</span>
+<span class="source-line-no">078</span><span id="line-78">   * The default value of false will result in an invariant failure (in development mode) if a lower priority</span>
+<span class="source-line-no">079</span><span id="line-79">   * dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher</span>
+<span class="source-line-no">080</span><span id="line-80">   * priority observer is dependent upon a lower priority computable value. If the value is true then the no</span>
+<span class="source-line-no">081</span><span id="line-81">   * invariant failure is triggered and the component relies on the component author to handle possible priority</span>
+<span class="source-line-no">082</span><span id="line-82">   * inversion.</span>
+<span class="source-line-no">083</span><span id="line-83">   *</span>
+<span class="source-line-no">084</span><span id="line-84">   * @return false if observing lower priority dependencies should result in invariant failure in development mode.</span>
+<span class="source-line-no">085</span><span id="line-85">   */</span>
+<span class="source-line-no">086</span><span id="line-86">  boolean observeLowerPriorityDependencies() default false;</span>
+<span class="source-line-no">087</span><span id="line-87"></span>
+<span class="source-line-no">088</span><span id="line-88">  /**</span>
+<span class="source-line-no">089</span><span id="line-89">   * Enum indicating whether the value of the computable is derived from arez elements and/or external dependencies.</span>
+<span class="source-line-no">090</span><span id="line-90">   * If set to {@link DepType#AREZ} then Arez will verify that the method annotated by this annotation accesses arez</span>
+<span class="source-line-no">091</span><span id="line-91">   * elements (i.e. instances of {@link arez.ObservableValue} or instances of {@link ComputableValue}). If set to</span>
+<span class="source-line-no">092</span><span id="line-92">   * {@link DepType#AREZ_OR_NONE} then the runtime will allow computable to exist with no dependencies. If set</span>
+<span class="source-line-no">093</span><span id="line-93">   * to {@link DepType#AREZ_OR_EXTERNAL} then the component must define a {@link ComputableValueRef} method and should invoke</span>
+<span class="source-line-no">094</span><span id="line-94">   * {@link ComputableValue#reportPossiblyChanged()} when the non-arez dependencies are changed.</span>
+<span class="source-line-no">095</span><span id="line-95">   *</span>
+<span class="source-line-no">096</span><span id="line-96">   * @return the types of dependencies allowed on the computable.</span>
+<span class="source-line-no">097</span><span id="line-97">   */</span>
+<span class="source-line-no">098</span><span id="line-98">  @Nonnull</span>
+<span class="source-line-no">099</span><span id="line-99">  DepType depType() default DepType.AREZ;</span>
+<span class="source-line-no">100</span><span id="line-100"></span>
+<span class="source-line-no">101</span><span id="line-101">  /**</span>
+<span class="source-line-no">102</span><span id="line-102">   * Return true if the return value of the memoized value should be reported to the Arez spy subsystem.</span>
+<span class="source-line-no">103</span><span id="line-103">   * It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.</span>
+<span class="source-line-no">104</span><span id="line-104">   *</span>
+<span class="source-line-no">105</span><span id="line-105">   * @return true to report the return value, false otherwise.</span>
+<span class="source-line-no">106</span><span id="line-106">   */</span>
+<span class="source-line-no">107</span><span id="line-107">  boolean reportResult() default true;</span>
+<span class="source-line-no">108</span><span id="line-108"></span>
+<span class="source-line-no">109</span><span id="line-109">  /**</span>
+<span class="source-line-no">110</span><span id="line-110">   * Indicate whether the memoized value can be read outside a transaction.</span>
+<span class="source-line-no">111</span><span id="line-111">   * If the value is {@link Feature#AUTODETECT} then the value will be derived from the</span>
+<span class="source-line-no">112</span><span id="line-112">   * {@link ArezComponent#defaultReadOutsideTransaction()} parameter on the {@link ArezComponent} annotation. If</span>
+<span class="source-line-no">113</span><span id="line-113">   * the value is set to {@link Feature#ENABLE} then the memoized value can be read outside a transaction. It should</span>
+<span class="source-line-no">114</span><span id="line-114">   * be noted that in this scenario the memoized value will be recalculated each time it is accessed.</span>
+<span class="source-line-no">115</span><span id="line-115">   *</span>
+<span class="source-line-no">116</span><span id="line-116">   * @return flag that determines whether the memoized value allows reads outside a transaction, false to require a transaction to read the memoized value.</span>
+<span class="source-line-no">117</span><span id="line-117">   */</span>
+<span class="source-line-no">118</span><span id="line-118">  Feature readOutsideTransaction() default Feature.AUTODETECT;</span>
+<span class="source-line-no">119</span><span id="line-119"></span>
+<span class="source-line-no">120</span><span id="line-120">  /**</span>
+<span class="source-line-no">121</span><span id="line-121">   * Return the strategy used to compare computed values when deciding whether to</span>
+<span class="source-line-no">122</span><span id="line-122">   * propagate a change. If this parameter is left as {@link EqualityComparator} then the</span>
+<span class="source-line-no">123</span><span id="line-123">   * annotation processor will derive the comparator from the exact declared return type when</span>
+<span class="source-line-no">124</span><span id="line-124">   * that type is annotated with {@link DefaultEqualityComparator}. If no type-level default is</span>
+<span class="source-line-no">125</span><span id="line-125">   * present then {@link arez.ObjectsEqualsComparator} will be used.</span>
+<span class="source-line-no">126</span><span id="line-126">   *</span>
+<span class="source-line-no">127</span><span id="line-127">   * &lt;p&gt;Explicitly specifying a comparator on the annotation overrides any type-level default.</span>
+<span class="source-line-no">128</span><span id="line-128">   * Type-level defaults are not derived for arrays, type-use annotations, or supertypes and</span>
+<span class="source-line-no">129</span><span id="line-129">   * interfaces other than the exact declared type.&lt;/p&gt;</span>
+<span class="source-line-no">130</span><span id="line-130">   *</span>
+<span class="source-line-no">131</span><span id="line-131">   * @return the comparator type used when checking whether values are equal.</span>
+<span class="source-line-no">132</span><span id="line-132">   */</span>
+<span class="source-line-no">133</span><span id="line-133">  @Nonnull</span>
+<span class="source-line-no">134</span><span id="line-134">  Class&lt;? extends EqualityComparator&gt; equalityComparator() default EqualityComparator.class;</span>
+<span class="source-line-no">135</span><span id="line-135">}</span>
 
 
 
