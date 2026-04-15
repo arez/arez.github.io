@@ -47,22 +47,25 @@
 <span class="source-line-no">034</span><span id="line-34"> * &lt;p&gt;If the annotated method has a parameter of type {@link arez.Observer} then the underlying {@link arez.Observer}</span>
 <span class="source-line-no">035</span><span id="line-35"> * instance associated with the {@link Observe}/{@link OnDepsChange} annotated method is passed to the method when</span>
 <span class="source-line-no">036</span><span id="line-36"> * dependencies change. This is extremely useful when implementing asynchronous callbacks.&lt;/p&gt;</span>
-<span class="source-line-no">037</span><span id="line-37"> */</span>
-<span class="source-line-no">038</span><span id="line-38">@Documented</span>
-<span class="source-line-no">039</span><span id="line-39">@Target( ElementType.METHOD )</span>
-<span class="source-line-no">040</span><span id="line-40">public @interface OnDepsChange</span>
-<span class="source-line-no">041</span><span id="line-41">{</span>
-<span class="source-line-no">042</span><span id="line-42">  /**</span>
-<span class="source-line-no">043</span><span id="line-43">   * Return the name of the paired Tracked relative to the component.</span>
-<span class="source-line-no">044</span><span id="line-44">   * The value must conform to the requirements of a java identifier.</span>
-<span class="source-line-no">045</span><span id="line-45">   * The name need not be specified. If the {@link Observe} annotated method is</span>
-<span class="source-line-no">046</span><span id="line-46">   * named "render" then this will default to being named "onRenderDepsChange".</span>
-<span class="source-line-no">047</span><span id="line-47">   *</span>
-<span class="source-line-no">048</span><span id="line-48">   * @return the name of the paired {@link Observe} annotated method relative to the component.</span>
-<span class="source-line-no">049</span><span id="line-49">   */</span>
-<span class="source-line-no">050</span><span id="line-50">  @Nonnull</span>
-<span class="source-line-no">051</span><span id="line-51">  String name() default "&lt;default&gt;";</span>
-<span class="source-line-no">052</span><span id="line-52">}</span>
+<span class="source-line-no">037</span><span id="line-37"> *</span>
+<span class="source-line-no">038</span><span id="line-38"> * &lt;p&gt;This annotation is only supported on elements contained within a type annotated by</span>
+<span class="source-line-no">039</span><span id="line-39"> * {@link ArezComponent} or {@link ArezComponentLike}. Other usages will fail compilation.&lt;/p&gt;</span>
+<span class="source-line-no">040</span><span id="line-40"> */</span>
+<span class="source-line-no">041</span><span id="line-41">@Documented</span>
+<span class="source-line-no">042</span><span id="line-42">@Target( ElementType.METHOD )</span>
+<span class="source-line-no">043</span><span id="line-43">public @interface OnDepsChange</span>
+<span class="source-line-no">044</span><span id="line-44">{</span>
+<span class="source-line-no">045</span><span id="line-45">  /**</span>
+<span class="source-line-no">046</span><span id="line-46">   * Return the name of the paired Tracked relative to the component.</span>
+<span class="source-line-no">047</span><span id="line-47">   * The value must conform to the requirements of a java identifier.</span>
+<span class="source-line-no">048</span><span id="line-48">   * The name need not be specified. If the {@link Observe} annotated method is</span>
+<span class="source-line-no">049</span><span id="line-49">   * named "render" then this will default to being named "onRenderDepsChange".</span>
+<span class="source-line-no">050</span><span id="line-50">   *</span>
+<span class="source-line-no">051</span><span id="line-51">   * @return the name of the paired {@link Observe} annotated method relative to the component.</span>
+<span class="source-line-no">052</span><span id="line-52">   */</span>
+<span class="source-line-no">053</span><span id="line-53">  @Nonnull</span>
+<span class="source-line-no">054</span><span id="line-54">  String name() default "&lt;default&gt;";</span>
+<span class="source-line-no">055</span><span id="line-55">}</span>
 
 
 

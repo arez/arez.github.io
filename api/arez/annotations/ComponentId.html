@@ -69,7 +69,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
-</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/ComponentId.html#line-38">ComponentId</a></span></div>
+</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/ComponentId.html#line-41">ComponentId</a></span></div>
 <div class="block">Annotate the method that should return the Id for Arez component.
 
  <p>This annotation should appear at most once on a component. The
@@ -98,7 +98,10 @@ loadScripts(document, 'script');</script>
  <li>Must not be abstract</li>
  <li>Must not throw exceptions</li>
  <li>Must be accessible to the class annotated by the <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
- </ul></div>
+ </ul>
+
+ <p>This annotation is only supported on elements contained within a type annotated by
+ <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> or <a href="ArezComponentLike.html" title="annotation interface in arez.annotations"><code>ArezComponentLike</code></a>. Other usages will fail compilation.</p></div>
 </section>
 <!-- ========= END OF CLASS DATA ========= -->
 </main>

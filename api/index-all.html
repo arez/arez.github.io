@@ -59,10 +59,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/component/internal/AbstractRepository.html#%3Cinit%3E()" class="member-name-link">AbstractRepository()</a> - Constructor for class arez.component.internal.<a href="arez/component/internal/AbstractRepository.html" title="class in arez.component.internal">AbstractRepository</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="arez/annotations/ActAsComponent.html" class="type-name-link" title="annotation interface in arez.annotations">ActAsComponent</a> - Annotation Interface in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
+<dt><a href="arez/annotations/ActAsArezComponent.html" class="type-name-link" title="annotation interface in arez.annotations">ActAsArezComponent</a> - Annotation Interface in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
-<div class="block">Annotation added to a class or interface that indicates that the type should be treated as
- a component when verifying references to type.</div>
+<div class="block">Annotation applied to a framework-defined type annotation to indicate that the annotated type should be treated
+ as an Arez-compatible container.</div>
 </dd>
 <dt><a href="arez/annotations/ComponentDependency.html#action()" class="member-name-link">action()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/ComponentDependency.html" title="annotation interface in arez.annotations">ComponentDependency</a></dt>
 <dd>
@@ -312,6 +312,11 @@ loadScripts(document, 'script');</script>
 <dt><a href="arez/annotations/ArezComponent.html" class="type-name-link" title="annotation interface in arez.annotations">ArezComponent</a> - Annotation Interface in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Annotation that marks classes or interfaces to be processed by Arez annotation processor.</div>
+</dd>
+<dt><a href="arez/annotations/ArezComponentLike.html" class="type-name-link" title="annotation interface in arez.annotations">ArezComponentLike</a> - Annotation Interface in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
+<dd>
+<div class="block">Annotation added to a class or interface that indicates that the type should be treated as
+ component-like for Arez processor validation.</div>
 </dd>
 <dt><a href="arez/ArezContext.html" class="type-name-link" title="class in arez">ArezContext</a> - Class in <a href="arez/package-summary.html">arez</a></dt>
 <dd>
@@ -2016,6 +2021,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Return true if the media query matches, false otherwise.</div>
 </dd>
+<dt><a href="arez/component/ComponentObservable.html#maybeObserve(java.lang.Object)" class="member-name-link">maybeObserve(Object)</a> - Static method in interface arez.component.<a href="arez/component/ComponentObservable.html" title="interface in arez.component">ComponentObservable</a></dt>
+<dd>
+<div class="block">Invoke <a href="arez/component/ComponentObservable.html#observe()"><code>ComponentObservable.observe()</code></a> on the supplied object if not null.</div>
+</dd>
 <dt><a href="arez/dom/MediaQuery.html" class="type-name-link" title="class in arez.dom">MediaQuery</a> - Class in <a href="arez/dom/package-summary.html">arez.dom</a></dt>
 <dd>
 <div class="block">An observable model that indicates whether a window matches a CSS media query.</div>
@@ -2359,7 +2368,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/component/ComponentObservable.html#observe(java.lang.Object)" class="member-name-link">observe(Object)</a> - Static method in interface arez.component.<a href="arez/component/ComponentObservable.html" title="interface in arez.component">ComponentObservable</a></dt>
 <dd>
-<div class="block">Invoke <a href="arez/component/ComponentObservable.html#observe()"><code>ComponentObservable.observe()</code></a> on the supplied object if any.</div>
+<div class="block">Invoke <a href="arez/component/ComponentObservable.html#observe()"><code>ComponentObservable.observe()</code></a> on the supplied object.</div>
 </dd>
 <dt><a href="arez/annotations/Observe.html" class="type-name-link" title="annotation interface in arez.annotations">Observe</a> - Annotation Interface in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>

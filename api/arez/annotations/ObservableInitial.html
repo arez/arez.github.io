@@ -69,7 +69,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>({<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>,<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#FIELD" title="class or interface in java.lang.annotation" class="external-link">FIELD</a>})
-</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/ObservableInitial.html#line-19">ObservableInitial</a></span></div>
+</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/ObservableInitial.html#line-22">ObservableInitial</a></span></div>
 <div class="block">Annotation applied to a static field or static method that supplies the initial value for an
  <a href="Observable.html" title="annotation interface in arez.annotations"><code>Observable</code></a> property.
 
@@ -78,7 +78,10 @@ loadScripts(document, 'script');</script>
  when constructing the generated component and removes the need to pass the value via the constructor.</p>
 
  <p>If the associated <a href="Observable.html" title="annotation interface in arez.annotations"><code>Observable</code></a> getter is annotated with <code>Nonnull</code> then
- the annotated field or method should also be annotated with <code>Nonnull</code>.</p></div>
+ the annotated field or method should also be annotated with <code>Nonnull</code>.</p>
+
+ <p>This annotation is only supported on elements contained within a type annotated by
+ <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> or <a href="ArezComponentLike.html" title="annotation interface in arez.annotations"><code>ArezComponentLike</code></a>. Other usages will fail compilation.</p></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -111,7 +114,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="name()">
 <h3>name</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ObservableInitial.html#line-34">name</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/ObservableInitial.html#line-37">name</a></span></div>
 <div class="block">Return the name of the associated Observable.
 
  <p>If the annotation is applied to a method, this value will be derived if the method name matches

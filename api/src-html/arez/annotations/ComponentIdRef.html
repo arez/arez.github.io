@@ -28,12 +28,15 @@
 <span class="source-line-no">015</span><span id="line-15"> * &lt;li&gt;Must return a value that has the same type as returned by the method annotated by {@link ComponentId} or an &lt;code&gt;int&lt;/code&gt;.&lt;/li&gt;</span>
 <span class="source-line-no">016</span><span id="line-16"> * &lt;li&gt;Must be accessible to the class annotated by the {@link ArezComponent} annotation.&lt;/li&gt;</span>
 <span class="source-line-no">017</span><span id="line-17"> * &lt;/ul&gt;</span>
-<span class="source-line-no">018</span><span id="line-18"> */</span>
-<span class="source-line-no">019</span><span id="line-19">@Documented</span>
-<span class="source-line-no">020</span><span id="line-20">@Target( ElementType.METHOD )</span>
-<span class="source-line-no">021</span><span id="line-21">public @interface ComponentIdRef</span>
-<span class="source-line-no">022</span><span id="line-22">{</span>
-<span class="source-line-no">023</span><span id="line-23">}</span>
+<span class="source-line-no">018</span><span id="line-18"> *</span>
+<span class="source-line-no">019</span><span id="line-19"> * &lt;p&gt;This annotation is only supported on elements contained within a type annotated by</span>
+<span class="source-line-no">020</span><span id="line-20"> * {@link ArezComponent} or {@link ArezComponentLike}. Other usages will fail compilation.&lt;/p&gt;</span>
+<span class="source-line-no">021</span><span id="line-21"> */</span>
+<span class="source-line-no">022</span><span id="line-22">@Documented</span>
+<span class="source-line-no">023</span><span id="line-23">@Target( ElementType.METHOD )</span>
+<span class="source-line-no">024</span><span id="line-24">public @interface ComponentIdRef</span>
+<span class="source-line-no">025</span><span id="line-25">{</span>
+<span class="source-line-no">026</span><span id="line-26">}</span>
 
 
 

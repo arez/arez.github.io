@@ -62,22 +62,25 @@
 <span class="source-line-no">049</span><span id="line-49"> * &lt;/ul&gt;</span>
 <span class="source-line-no">050</span><span id="line-50"> *</span>
 <span class="source-line-no">051</span><span id="line-51"> * &lt;p&gt;If {@link #validateTypeAtRuntime()} is set to &lt;code&gt;true&lt;/code&gt; then the declared type of the field or method</span>
-<span class="source-line-no">052</span><span id="line-52"> * must be annotated with {@link ActAsComponent}. In this mode, type compatibility is validated at runtime</span>
-<span class="source-line-no">053</span><span id="line-53"> * rather than compile time.&lt;/p&gt;</span>
-<span class="source-line-no">054</span><span id="line-54"> */</span>
-<span class="source-line-no">055</span><span id="line-55">@Documented</span>
-<span class="source-line-no">056</span><span id="line-56">@Target( { ElementType.METHOD, ElementType.FIELD } )</span>
-<span class="source-line-no">057</span><span id="line-57">public @interface AutoObserve</span>
-<span class="source-line-no">058</span><span id="line-58">{</span>
-<span class="source-line-no">059</span><span id="line-59">  /**</span>
-<span class="source-line-no">060</span><span id="line-60">   * Return true and the value of the annotated field or method will be validated at runtime rather than compile time.</span>
-<span class="source-line-no">061</span><span id="line-61">   * This is useful when the declared type is annotated with {@link ActAsComponent} but the runtime value is known</span>
-<span class="source-line-no">062</span><span id="line-62">   * to implement {@link ComponentObservable}.</span>
-<span class="source-line-no">063</span><span id="line-63">   *</span>
-<span class="source-line-no">064</span><span id="line-64">   * @return true to defer validation of types until runtime.</span>
-<span class="source-line-no">065</span><span id="line-65">   */</span>
-<span class="source-line-no">066</span><span id="line-66">  boolean validateTypeAtRuntime() default false;</span>
-<span class="source-line-no">067</span><span id="line-67">}</span>
+<span class="source-line-no">052</span><span id="line-52"> * must be annotated with {@link ArezComponentLike}. In this mode, type compatibility is validated at runtime</span>
+<span class="source-line-no">053</span><span id="line-53"> * rather than compile time while still treating the declared type as component-like for validation only.&lt;/p&gt;</span>
+<span class="source-line-no">054</span><span id="line-54"> *</span>
+<span class="source-line-no">055</span><span id="line-55"> * &lt;p&gt;This annotation is only supported on elements contained within a type annotated by</span>
+<span class="source-line-no">056</span><span id="line-56"> * {@link ArezComponent} or {@link ArezComponentLike}. Other usages will fail compilation.&lt;/p&gt;</span>
+<span class="source-line-no">057</span><span id="line-57"> */</span>
+<span class="source-line-no">058</span><span id="line-58">@Documented</span>
+<span class="source-line-no">059</span><span id="line-59">@Target( { ElementType.METHOD, ElementType.FIELD } )</span>
+<span class="source-line-no">060</span><span id="line-60">public @interface AutoObserve</span>
+<span class="source-line-no">061</span><span id="line-61">{</span>
+<span class="source-line-no">062</span><span id="line-62">  /**</span>
+<span class="source-line-no">063</span><span id="line-63">   * Return true and the value of the annotated field or method will be validated at runtime rather than compile time.</span>
+<span class="source-line-no">064</span><span id="line-64">   * This is useful when the declared type is annotated with {@link ArezComponentLike} but the runtime value is</span>
+<span class="source-line-no">065</span><span id="line-65">   * known to implement {@link ComponentObservable}.</span>
+<span class="source-line-no">066</span><span id="line-66">   *</span>
+<span class="source-line-no">067</span><span id="line-67">   * @return true to defer validation of types until runtime.</span>
+<span class="source-line-no">068</span><span id="line-68">   */</span>
+<span class="source-line-no">069</span><span id="line-69">  boolean validateTypeAtRuntime() default false;</span>
+<span class="source-line-no">070</span><span id="line-70">}</span>
 
 
 

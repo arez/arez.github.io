@@ -403,13 +403,13 @@
 <span class="source-line-no">390</span><span id="line-390">    assert ElementKind.METHOD == element.getKind();</span>
 <span class="source-line-no">391</span><span id="line-391">    final Element type = element.getEnclosingElement();</span>
 <span class="source-line-no">392</span><span id="line-392">    if ( !AnnotationsUtil.hasAnnotationOfType( type, Constants.AREZ_COMPONENT_CLASSNAME ) &amp;&amp;</span>
-<span class="source-line-no">393</span><span id="line-393">         !AnnotationsUtil.hasAnnotationOfType( type, Constants.ACT_AS_COMPONENT_CLASSNAME ) )</span>
+<span class="source-line-no">393</span><span id="line-393">         !AnnotationsUtil.hasAnnotationOfType( type, Constants.AREZ_COMPONENT_LIKE_CLASSNAME ) )</span>
 <span class="source-line-no">394</span><span id="line-394">    {</span>
 <span class="source-line-no">395</span><span id="line-395">      reportError( env,</span>
 <span class="source-line-no">396</span><span id="line-396">                   MemberChecks.must( Constants.PERSIST_ID_CLASSNAME,</span>
 <span class="source-line-no">397</span><span id="line-397">                                      "be enclosed within a type annotated by either the " +</span>
 <span class="source-line-no">398</span><span id="line-398">                                      Constants.AREZ_COMPONENT_CLASSNAME + " annotation or the " +</span>
-<span class="source-line-no">399</span><span id="line-399">                                      Constants.ACT_AS_COMPONENT_CLASSNAME + " annotation" ),</span>
+<span class="source-line-no">399</span><span id="line-399">                                      Constants.AREZ_COMPONENT_LIKE_CLASSNAME + " annotation" ),</span>
 <span class="source-line-no">400</span><span id="line-400">                   element );</span>
 <span class="source-line-no">401</span><span id="line-401">    }</span>
 <span class="source-line-no">402</span><span id="line-402"></span>

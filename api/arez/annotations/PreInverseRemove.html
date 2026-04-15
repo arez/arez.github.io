@@ -69,7 +69,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
-</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/PreInverseRemove.html#line-39">PreInverseRemove</a></span></div>
+</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/PreInverseRemove.html#line-42">PreInverseRemove</a></span></div>
 <div class="block">Identifies a method that will be invoked before an inverse reference is removed from a component.
  This method MUST be paired with a method annotated with <a href="Inverse.html" title="annotation interface in arez.annotations"><code>Inverse</code></a> with the same name.
 
@@ -98,7 +98,10 @@ loadScripts(document, 'script');</script>
    expected to be invoked outside the component. A warning will be generated but can be suppressed by the
    <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressArezWarnings.html" title="annotation interface in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:ProtectedMethod".
  </li>
- </ul></div>
+ </ul>
+
+ <p>This annotation is only supported on elements contained within a type annotated by
+ <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> or <a href="ArezComponentLike.html" title="annotation interface in arez.annotations"><code>ArezComponentLike</code></a>. Other usages will fail compilation.</p></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -131,7 +134,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="name()">
 <h3>name</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/PreInverseRemove.html#line-50">name</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/PreInverseRemove.html#line-53">name</a></span></div>
 <div class="block">Return the name of the Inverse that this method is associated with.
  This value will be derived if the method name matches the pattern "on[Name]Remove",
  otherwise it must be specified.</div>

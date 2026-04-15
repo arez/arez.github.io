@@ -91,43 +91,46 @@
 <span class="source-line-no">078</span><span id="line-78"> * &lt;li&gt;Must not throw exceptions&lt;/li&gt;</span>
 <span class="source-line-no">079</span><span id="line-79"> * &lt;li&gt;Must be accessible to the class annotated by the {@link ArezComponent} annotation.&lt;/li&gt;</span>
 <span class="source-line-no">080</span><span id="line-80"> * &lt;/ul&gt;</span>
-<span class="source-line-no">081</span><span id="line-81"> */</span>
-<span class="source-line-no">082</span><span id="line-82">@Documented</span>
-<span class="source-line-no">083</span><span id="line-83">@Target( ElementType.METHOD )</span>
-<span class="source-line-no">084</span><span id="line-84">public @interface MemoizeContextParameter</span>
-<span class="source-line-no">085</span><span id="line-85">{</span>
-<span class="source-line-no">086</span><span id="line-86">  /**</span>
-<span class="source-line-no">087</span><span id="line-87">   * Return the name of the context parameter.</span>
-<span class="source-line-no">088</span><span id="line-88">   * If not specified, then the name will be derived from the name of the method.</span>
-<span class="source-line-no">089</span><span id="line-89">   * &lt;ul&gt;</span>
-<span class="source-line-no">090</span><span id="line-90">   *   &lt;li&gt;To derive the name from a push method then remove the "push" prefix.&lt;/li&gt;</span>
-<span class="source-line-no">091</span><span id="line-91">   *   &lt;li&gt;To derive the name from a pop method then remove the "pop" prefix.&lt;/li&gt;</span>
-<span class="source-line-no">092</span><span id="line-92">   *   &lt;li&gt;To derive the name from a capture method then remove the optional "capture" prefix else just use the method name if no such prefix.&lt;/li&gt;</span>
-<span class="source-line-no">093</span><span id="line-93">   * &lt;/ul&gt;</span>
-<span class="source-line-no">094</span><span id="line-94">   *</span>
-<span class="source-line-no">095</span><span id="line-95">   * @return the name of the context parameter.</span>
-<span class="source-line-no">096</span><span id="line-96">   */</span>
-<span class="source-line-no">097</span><span id="line-97">  @Nonnull</span>
-<span class="source-line-no">098</span><span id="line-98">  String name() default "&lt;default&gt;";</span>
-<span class="source-line-no">099</span><span id="line-99"></span>
-<span class="source-line-no">100</span><span id="line-100">  /**</span>
-<span class="source-line-no">101</span><span id="line-101">   * Return a regular expression for matching the arez names of memoized methods where this context parameter is tracked.</span>
-<span class="source-line-no">102</span><span id="line-102">   *</span>
-<span class="source-line-no">103</span><span id="line-103">   * @return a regular expression for matching arez name of memoized methods.</span>
-<span class="source-line-no">104</span><span id="line-104">   */</span>
-<span class="source-line-no">105</span><span id="line-105">  @Nonnull</span>
-<span class="source-line-no">106</span><span id="line-106">  @Language( "RegExp" )</span>
-<span class="source-line-no">107</span><span id="line-107">  String pattern() default ".*";</span>
-<span class="source-line-no">108</span><span id="line-108"></span>
-<span class="source-line-no">109</span><span id="line-109">  /**</span>
-<span class="source-line-no">110</span><span id="line-110">   * Return true if the component does not need to have {@link Memoize} annotated methods match.</span>
-<span class="source-line-no">111</span><span id="line-111">   * Otherwise, if no {@link Memoize} annotated methods match the {@link #pattern()} then the annotation</span>
-<span class="source-line-no">112</span><span id="line-112">   * processor will generate an error.</span>
-<span class="source-line-no">113</span><span id="line-113">   *</span>
-<span class="source-line-no">114</span><span id="line-114">   * @return true if the memoized methods must match annotation, false otherwise.</span>
-<span class="source-line-no">115</span><span id="line-115">   */</span>
-<span class="source-line-no">116</span><span id="line-116">  boolean allowEmpty() default false;</span>
-<span class="source-line-no">117</span><span id="line-117">}</span>
+<span class="source-line-no">081</span><span id="line-81"> *</span>
+<span class="source-line-no">082</span><span id="line-82"> * &lt;p&gt;This annotation is only supported on elements contained within a type annotated by</span>
+<span class="source-line-no">083</span><span id="line-83"> * {@link ArezComponent} or {@link ArezComponentLike}. Other usages will fail compilation.&lt;/p&gt;</span>
+<span class="source-line-no">084</span><span id="line-84"> */</span>
+<span class="source-line-no">085</span><span id="line-85">@Documented</span>
+<span class="source-line-no">086</span><span id="line-86">@Target( ElementType.METHOD )</span>
+<span class="source-line-no">087</span><span id="line-87">public @interface MemoizeContextParameter</span>
+<span class="source-line-no">088</span><span id="line-88">{</span>
+<span class="source-line-no">089</span><span id="line-89">  /**</span>
+<span class="source-line-no">090</span><span id="line-90">   * Return the name of the context parameter.</span>
+<span class="source-line-no">091</span><span id="line-91">   * If not specified, then the name will be derived from the name of the method.</span>
+<span class="source-line-no">092</span><span id="line-92">   * &lt;ul&gt;</span>
+<span class="source-line-no">093</span><span id="line-93">   *   &lt;li&gt;To derive the name from a push method then remove the "push" prefix.&lt;/li&gt;</span>
+<span class="source-line-no">094</span><span id="line-94">   *   &lt;li&gt;To derive the name from a pop method then remove the "pop" prefix.&lt;/li&gt;</span>
+<span class="source-line-no">095</span><span id="line-95">   *   &lt;li&gt;To derive the name from a capture method then remove the optional "capture" prefix else just use the method name if no such prefix.&lt;/li&gt;</span>
+<span class="source-line-no">096</span><span id="line-96">   * &lt;/ul&gt;</span>
+<span class="source-line-no">097</span><span id="line-97">   *</span>
+<span class="source-line-no">098</span><span id="line-98">   * @return the name of the context parameter.</span>
+<span class="source-line-no">099</span><span id="line-99">   */</span>
+<span class="source-line-no">100</span><span id="line-100">  @Nonnull</span>
+<span class="source-line-no">101</span><span id="line-101">  String name() default "&lt;default&gt;";</span>
+<span class="source-line-no">102</span><span id="line-102"></span>
+<span class="source-line-no">103</span><span id="line-103">  /**</span>
+<span class="source-line-no">104</span><span id="line-104">   * Return a regular expression for matching the arez names of memoized methods where this context parameter is tracked.</span>
+<span class="source-line-no">105</span><span id="line-105">   *</span>
+<span class="source-line-no">106</span><span id="line-106">   * @return a regular expression for matching arez name of memoized methods.</span>
+<span class="source-line-no">107</span><span id="line-107">   */</span>
+<span class="source-line-no">108</span><span id="line-108">  @Nonnull</span>
+<span class="source-line-no">109</span><span id="line-109">  @Language( "RegExp" )</span>
+<span class="source-line-no">110</span><span id="line-110">  String pattern() default ".*";</span>
+<span class="source-line-no">111</span><span id="line-111"></span>
+<span class="source-line-no">112</span><span id="line-112">  /**</span>
+<span class="source-line-no">113</span><span id="line-113">   * Return true if the component does not need to have {@link Memoize} annotated methods match.</span>
+<span class="source-line-no">114</span><span id="line-114">   * Otherwise, if no {@link Memoize} annotated methods match the {@link #pattern()} then the annotation</span>
+<span class="source-line-no">115</span><span id="line-115">   * processor will generate an error.</span>
+<span class="source-line-no">116</span><span id="line-116">   *</span>
+<span class="source-line-no">117</span><span id="line-117">   * @return true if the memoized methods must match annotation, false otherwise.</span>
+<span class="source-line-no">118</span><span id="line-118">   */</span>
+<span class="source-line-no">119</span><span id="line-119">  boolean allowEmpty() default false;</span>
+<span class="source-line-no">120</span><span id="line-120">}</span>
 
 
 

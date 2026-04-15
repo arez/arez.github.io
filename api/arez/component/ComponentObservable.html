@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="internal/ComponentKernel.html" title="class in arez.component.internal">ComponentKernel</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-11">ComponentObservable</a></span></div>
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-12">ComponentObservable</a></span></div>
 <div class="block">Interface implemented by components so that observers can observe the component without
  observing a particular property.</div>
 </section>
@@ -100,19 +100,24 @@ loadScripts(document, 'script');</script>
 <div class="block">Cast specified object to an instance of ComponentObservable.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#notObserved(java.lang.Object)" class="member-name-link">notObserved</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#maybeObserve(java.lang.Object)" class="member-name-link">maybeObserve</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
+<div class="block">Invoke <a href="#observe()"><code>observe()</code></a> on the supplied object if not null.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#notObserved(java.lang.Object)" class="member-name-link">notObserved</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Return true if <a href="#observe(java.lang.Object)"><code>observe(Object)</code></a> returns false for the same parameter.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#observe()" class="member-name-link">observe</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#observe()" class="member-name-link">observe</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Return true if the component is "alive" a.k.a.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#observe(java.lang.Object)" class="member-name-link">observe</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
-<div class="block">Invoke <a href="#observe()"><code>observe()</code></a> on the supplied object if any.</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#observe(java.lang.Object)" class="member-name-link">observe</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="block">Invoke <a href="#observe()"><code>observe()</code></a> on the supplied object.</div>
 </div>
 </div>
 </div>
@@ -131,7 +136,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observe()">
 <h3>observe</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-21">observe</a></span>()</div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-22">observe</a></span>()</div>
 <div class="block">Return true if the component is "alive" a.k.a. not disposing or disposed.
  This method MUST be invoked within a non-DISPOSE transaction and will add
  the component as a dependency if the transaction is tracking, unless
@@ -145,20 +150,33 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observe(java.lang.Object)">
 <h3>observe</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-29">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
-<div class="block">Invoke <a href="#observe()"><code>observe()</code></a> on the supplied object if any.</div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-30">observe</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
+<div class="block">Invoke <a href="#observe()"><code>observe()</code></a> on the supplied object.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>object</code> - the object to observe if any.</dd>
+<dd><code>object</code> - the object to observe.</dd>
 <dt>Returns:</dt>
-<dd>false if the component is not disposing or disposed, true otherwise.</dd>
+<dd>true if the component is not disposing or disposed, false otherwise.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="maybeObserve(java.lang.Object)">
+<h3>maybeObserve</h3>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-41">maybeObserve</a></span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
+<div class="block">Invoke <a href="#observe()"><code>observe()</code></a> on the supplied object if not null.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>object</code> - the object to observe if not null.</dd>
+<dt>Returns:</dt>
+<dd>true if the component is not null, disposing or disposed, false otherwise.</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="notObserved(java.lang.Object)">
 <h3>notObserved</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-40">notObserved</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-52">notObserved</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
 <div class="block">Return true if <a href="#observe(java.lang.Object)"><code>observe(Object)</code></a> returns false for the same parameter.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -171,7 +189,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="asComponentObservable(java.lang.Object)">
 <h3>asComponentObservable</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="ComponentObservable.html" title="interface in arez.component">ComponentObservable</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-52">asComponentObservable</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="ComponentObservable.html" title="interface in arez.component">ComponentObservable</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/component/ComponentObservable.html#line-64">asComponentObservable</a></span><wbr><span class="parameters">(@Nonnull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
 <div class="block">Cast specified object to an instance of ComponentObservable.
  Invariant checks will verify that the cast is valid before proceeding.</div>
 <dl class="notes">

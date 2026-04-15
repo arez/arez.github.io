@@ -69,7 +69,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
-</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/ComponentNameRef.html#line-37">ComponentNameRef</a></span></div>
+</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/ComponentNameRef.html#line-40">ComponentNameRef</a></span></div>
 <div class="block">Annotate the method that will be overridden to provide the "name" of the Arez component.
  This is useful when the user wants to manually create Arez elements (i.e. <a href="../ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> instances,
  <a href="../Observer.html" title="class in arez"><code>Observer</code></a> instances or <a href="../ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances etc) and wants to use the same naming
@@ -94,7 +94,10 @@ loadScripts(document, 'script');</script>
    expected to be invoked outside the component. A warning will be generated but can be suppressed by the
    <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressArezWarnings.html" title="annotation interface in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:ProtectedMethod".
  </li>
- </ul></div>
+ </ul>
+
+ <p>This annotation is only supported on elements contained within a type annotated by
+ <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> or <a href="ArezComponentLike.html" title="annotation interface in arez.annotations"><code>ArezComponentLike</code></a>. Other usages will fail compilation.</p></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>

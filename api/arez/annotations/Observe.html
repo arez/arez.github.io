@@ -69,7 +69,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
-</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-37">Observe</a></span></div>
+</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-40">Observe</a></span></div>
 <div class="block">Annotation that marks a method as observed.
  Any <a href="../ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> instances or <a href="../ComputableValue.html" title="class in arez"><code>ComputableValue</code></a> instances accessed within the
  scope of the method will be added as a dependency of the observer. If any of these dependencies are changed
@@ -94,7 +94,10 @@ loadScripts(document, 'script');</script>
  <li>Must not return a value</li>
  <li>Must not throw exceptions</li>
  <li>Must be accessible to the class annotated by the <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> annotation.</li>
- </ul></div>
+ </ul>
+
+ <p>This annotation is only supported on elements contained within a type annotated by
+ <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> or <a href="ArezComponentLike.html" title="annotation interface in arez.annotations"><code>ArezComponentLike</code></a>. Other usages will fail compilation.</p></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -167,7 +170,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="name()">
 <h3>name</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-50">name</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-53">name</a></span></div>
 <div class="block">Return the name of the Observer relative to the component.
  The value must conform to the requirements of a java identifier.
  The name must also be unique across <a href="Observable.html" title="annotation interface in arez.annotations"><code>Observable</code></a>s,
@@ -186,7 +189,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="mutation()">
 <h3>mutation</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-60">mutation</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-63">mutation</a></span></div>
 <div class="block">Does the observer's tracking method change arez state or not.
  Observers are primarily used to reflect Arez state onto external systems (i.e. views, network layers etc.)
  and thus the default value is false thus making the transaction mode read-only.</div>
@@ -203,7 +206,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="priority()">
 <h3>priority</h3>
-<div class="member-signature"><span class="return-type"><a href="Priority.html" title="enum class in arez.annotations">Priority</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-67">priority</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Priority.html" title="enum class in arez.annotations">Priority</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-70">priority</a></span></div>
 <div class="block">The priority of the underlying observer</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -218,7 +221,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="executor()">
 <h3>executor</h3>
-<div class="member-signature"><span class="return-type"><a href="Executor.html" title="enum class in arez.annotations">Executor</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-74">executor</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Executor.html" title="enum class in arez.annotations">Executor</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-77">executor</a></span></div>
 <div class="block">The actor responsible for calling the observed method.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -233,7 +236,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observeLowerPriorityDependencies()">
 <h3>observeLowerPriorityDependencies</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-86">observeLowerPriorityDependencies</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-89">observeLowerPriorityDependencies</a></span></div>
 <div class="block">Flag controlling whether the observer can observe ComputableValue instances with lower priorities.
  The default value of false will result in an invariant failure (in development mode) if a lower priority
  dependency is observed by the observer. This is to prevent priority inversion when scheduling a higher
@@ -253,7 +256,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="nestedActionsAllowed()">
 <h3>nestedActionsAllowed</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-100">nestedActionsAllowed</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-103">nestedActionsAllowed</a></span></div>
 <div class="block">Can the observer invoke actions.
  An action that specifies <a href="Action.html#requireNewTransaction()"><code>Action.requireNewTransaction()</code></a> as true will start a new transaction
  and any observables accessed within the action will not be dependencies of the observer. Sometimes this
@@ -275,7 +278,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="reportParameters()">
 <h3>reportParameters</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-108">reportParameters</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-111">reportParameters</a></span></div>
 <div class="block">Return true if the parameters should be reported to the core Arez runtime.
  It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.</div>
 <dl class="notes">
@@ -291,7 +294,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="reportResult()">
 <h3>reportResult</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-118">reportResult</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-121">reportResult</a></span></div>
 <div class="block">Return true if the return value of the observed function (if any) should be reported to the Arez spy subsystem.
  It is useful to disable reporting for large, circular or just uninteresting parameters to the spy infrastructure.
  This is only useful if the value of <a href="#executor()"><code>executor()</code></a> is set to <a href="Executor.html#EXTERNAL"><code>Executor.EXTERNAL</code></a> as otherwise the
@@ -309,7 +312,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="depType()">
 <h3>depType</h3>
-<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="DepType.html" title="enum class in arez.annotations">DepType</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-131">depType</a></span></div>
+<div class="member-signature"><span class="annotations">@Nonnull </span><span class="return-type"><a href="DepType.html" title="enum class in arez.annotations">DepType</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Observe.html#line-134">depType</a></span></div>
 <div class="block">Enum indicating whether the Observer is derived from arez elements and/or external dependencies.
  If set to <a href="DepType.html#AREZ"><code>DepType.AREZ</code></a> then the arez runtime will verify that the method annotated by this
  annotation accesses arez elements (i.e. instances of <a href="../ObservableValue.html" title="class in arez"><code>ObservableValue</code></a> or instances of

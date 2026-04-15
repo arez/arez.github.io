@@ -69,7 +69,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>({<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>,<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#FIELD" title="class or interface in java.lang.annotation" class="external-link">FIELD</a>})
-</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/CascadeDispose.html#line-42">CascadeDispose</a></span></div>
+</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/arez/annotations/CascadeDispose.html#line-45">CascadeDispose</a></span></div>
 <div class="block">Methods and fields annotated by this annotation should be disposed when the component is disposed.
  The dispose occurs after the <a href="PreDispose.html" title="annotation interface in arez.annotations"><code>PreDispose</code></a> method.
 
@@ -102,7 +102,10 @@ loadScripts(document, 'script');</script>
    expected to be accessed outside the component. A warning will be generated but can be suppressed by the
    <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressArezWarnings.html" title="annotation interface in arez.annotations"><code>SuppressArezWarnings</code></a> annotations with a key "Arez:ProtectedField".
  </li>
- </ul></div>
+ </ul>
+
+ <p>This annotation is only supported on elements contained within a type annotated by
+ <a href="ArezComponent.html" title="annotation interface in arez.annotations"><code>ArezComponent</code></a> or <a href="ArezComponentLike.html" title="annotation interface in arez.annotations"><code>ArezComponentLike</code></a>. Other usages will fail compilation.</p></div>
 </section>
 <!-- ========= END OF CLASS DATA ========= -->
 </main>
