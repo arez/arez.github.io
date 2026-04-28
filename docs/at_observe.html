@@ -18,6 +18,7 @@ Australian dollars as the value changes over time. Assuming the currency is obse
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurrencyView</span>
 </span>{
   <span class="hljs-meta">@CascadeDispose</span>
+  <span class="hljs-meta">@Nonnull</span>
   <span class="hljs-keyword">final</span> Currency bitcoin = <span class="hljs-keyword">new</span> Arez_Currency();
 
   <span class="hljs-meta">@Observe</span>
@@ -45,6 +46,7 @@ could be achieved with code such as:</p>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurrencyView</span>
 </span>{
   <span class="hljs-meta">@CascadeDispose</span>
+  <span class="hljs-meta">@Nonnull</span>
   <span class="hljs-keyword">final</span> Currency bitcoin = <span class="hljs-keyword">new</span> Arez_Currency();
 
   <span class="hljs-meta">@Observe</span>
