@@ -807,6 +807,10 @@ loadScripts(document, 'script');</script>
 <div class="block">The default value for the readOutsideTransaction parameter of <a href="arez/annotations/Memoize.html" title="annotation interface in arez.annotations"><code>Memoize</code></a> and <a href="arez/annotations/Observable.html" title="annotation interface in arez.annotations"><code>Observable</code></a>
  annotated methods.</div>
 </dd>
+<dt><a href="arez/annotations/ArezComponent.html#defaultSkipIfDisposed()" class="member-name-link">defaultSkipIfDisposed()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/ArezComponent.html" title="annotation interface in arez.annotations">ArezComponent</a></dt>
+<dd>
+<div class="block">The default value for the skipIfDisposed parameter of <a href="arez/annotations/Action.html" title="annotation interface in arez.annotations"><code>Action</code></a> annotated methods.</div>
+</dd>
 <dt><a href="arez/persist/PersistType.html#defaultStore()" class="member-name-link">defaultStore()</a> - Element in annotation interface arez.persist.<a href="arez/persist/PersistType.html" title="annotation interface in arez.persist">PersistType</a></dt>
 <dd>
 <div class="block">The key identifying the default store where the observable data is stored.</div>
@@ -3212,7 +3216,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="arez/annotations/Action.html#skipIfDisposed()" class="member-name-link">skipIfDisposed()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/Action.html" title="annotation interface in arez.annotations">Action</a></dt>
 <dd>
-<div class="block">True if the action will be skipped if the owning component is disposed.</div>
+<div class="block">Flag indicating whether the action will be skipped if the owning component is disposing or disposed.</div>
 </dd>
 <dt><a href="arez/spy/Spy.html" class="type-name-link" title="interface in arez.spy">Spy</a> - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>

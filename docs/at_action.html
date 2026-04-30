@@ -11,7 +11,10 @@ is <code>true</code> or <code>false</code>. By default actions use read-write tr
 <p>The annotation also defines parameters that control the name of the action and whether the methods parameters
 are logged during development mode. See the <a href="/api/arez/annotations/Action.html"><code>@Action</code></a> API documentation for further details.
 Use <a href="/api/arez/annotations/Action.html#skipIfDisposed"><code>@Action.skipIfDisposed</code></a> to skip an action when the owning component
-is disposing or disposed; the action must be void and the skip emits a spy event.</p>
+is disposing or disposed; the action must be void and the skip emits a spy event. The parameter is of type
+<a href="/api/arez/annotations/Feature.html"><code>Feature</code></a>. If it is left as <code>AUTODETECT</code> then it inherits from
+<a href="/api/arez/annotations/ArezComponent.html#defaultSkipIfDisposed--"><code>@ArezComponent.defaultSkipIfDisposed</code></a>, and if the
+component default is also <code>AUTODETECT</code> then the effective behavior is <code>DISABLE</code>.</p>
 <p>Actions are usually invoked in response to an event in the system, whether that been in response to a user
 action or a network response.</p>
 <p>An example:</p>

@@ -121,10 +121,10 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">True if the action should always start a new transaction.</div>
 </div>
-<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-first odd-row-color"><code><a href="Feature.html" title="enum class in arez.annotations">Feature</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#skipIfDisposed()" class="member-name-link">skipIfDisposed</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">True if the action will be skipped if the owning component is disposed.</div>
+<div class="block">Flag indicating whether the action will be skipped if the owning component is disposing or disposed.</div>
 </div>
 <div class="col-first even-row-color"><code>boolean</code></div>
 <div class="col-second even-row-color"><code><a href="#verifyRequired()" class="member-name-link">verifyRequired</a></code></div>
@@ -245,18 +245,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="skipIfDisposed()">
 <h3>skipIfDisposed</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Action.html#line-87">skipIfDisposed</a></span></div>
-<div class="block">True if the action will be skipped if the owning component is disposed. The default is false, in which case an
- invariant will verify that the action is not called on a disposed component. If this parameter is true, then
- the action must be a void method.</div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in arez.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/arez/annotations/Action.html#line-88">skipIfDisposed</a></span></div>
+<div class="block">Flag indicating whether the action will be skipped if the owning component is disposing or disposed.
+ If set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the value is inherited from the
+ <a href="ArezComponent.html#defaultSkipIfDisposed()"><code>ArezComponent.defaultSkipIfDisposed()</code></a> parameter on the containing component. If that value is also
+ <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the effective value is treated as <a href="Feature.html#DISABLE"><code>Feature.DISABLE</code></a>. If the effective
+ value is <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then the action must be a void method.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>true if the action will be skipped if the owning component is disposed, false if the component must not
- be disposed.</dd>
+<dd>the flag indicating whether the action will be skipped if the owning component is disposing or disposed.</dd>
 </dl>
 <dl class="notes">
 <dt>Default:</dt>
-<dd>false</dd>
+<dd>AUTODETECT</dd>
 </dl>
 </section>
 </li>
