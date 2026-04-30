@@ -33,8 +33,8 @@ adds sting annotations onto the generated component class. If the value of the
 <p>The Arez component author can also add the <code>@Eager</code>, <code>@Typed</code> and <code>@Named</code> annotations from Sting onto the component
 and these will be copied to the generated component class. The Arez component can be registered with the injector via
 the <code>includes</code> parameter of the injector. (Although the next release of Sting will eliminate this requirement.)</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@Injector</span>( includes = MyService<span class="hljs-class">.<span class="hljs-keyword">class</span> )
-<span class="hljs-title">public</span> <span class="hljs-title">interface</span> <span class="hljs-title">ExampleStingInjector</span>
+<p><pre><code class="hljs"><span class="hljs-meta">@Injector</span>( includes = MyService<span class="hljs-class">.<span class="hljs-keyword">class</span>, <span class="hljs-title">fragmentOnly</span> </span>= <span class="hljs-keyword">false</span> )
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ExampleStingInjector</span>
 </span>{
   <span class="hljs-function">ExampleConsumer <span class="hljs-title">getExampleConsumer</span><span class="hljs-params">()</span></span>;
 }</code></pre></p>
