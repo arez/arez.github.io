@@ -174,6 +174,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Return true if the component does not need to have <a href="arez/annotations/Memoize.html" title="annotation interface in arez.annotations"><code>Memoize</code></a> annotated methods match.</div>
 </dd>
+<dt><a href="arez/annotations/TrackingMode.html#ANY" class="member-name-link">ANY</a> - Enum constant in enum class arez.annotations.<a href="arez/annotations/TrackingMode.html" title="enum class in arez.annotations">TrackingMode</a></dt>
+<dd>
+<div class="block">Any active transaction is acceptable.</div>
+</dd>
+<dt><a href="arez/annotations/TransactionMode.html#ANY" class="member-name-link">ANY</a> - Enum constant in enum class arez.annotations.<a href="arez/annotations/TransactionMode.html" title="enum class in arez.annotations">TransactionMode</a></dt>
+<dd>
+<div class="block">Any active transaction is acceptable.</div>
+</dd>
 <dt><a href="arez/persist/StoreTypes.html#APPLICATION" class="member-name-link">APPLICATION</a> - Static variable in class arez.persist.<a href="arez/persist/StoreTypes.html" title="class in arez.persist">StoreTypes</a></dt>
 <dd>
 <div class="block">The property is persisted in memory and will be lost when the application is reloaded.</div>
@@ -2063,6 +2071,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Annotation applied to methods that define a single "contextual" parameter to one or more <a href="arez/annotations/Memoize.html" title="annotation interface in arez.annotations"><code>Memoize</code></a>
  annotated methods.</div>
 </dd>
+<dt><a href="arez/annotations/RequiresTransaction.html#mode()" class="member-name-link">mode()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/RequiresTransaction.html" title="annotation interface in arez.annotations">RequiresTransaction</a></dt>
+<dd>
+<div class="block">Return the required mode of the existing transaction.</div>
+</dd>
 <dt><a href="arez/annotations/Multiplicity.html" class="type-name-link" title="enum class in arez.annotations">Multiplicity</a> - Enum Class in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
 <dd>
 <div class="block">Defines the multiplicity of the <a href="arez/annotations/Inverse.html" title="annotation interface in arez.annotations"><code>Inverse</code></a> relationship for <a href="arez/annotations/Reference.html" title="annotation interface in arez.annotations"><code>Reference</code></a>.</div>
@@ -2217,6 +2229,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="arez/ArezTestUtil.html#noEnforceTransactionType()" class="member-name-link">noEnforceTransactionType()</a> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
 <div class="block">Set the `arez.enforce_transaction_type` setting to false.</div>
+</dd>
+<dt><a href="arez/annotations/TrackingMode.html#NON_TRACKING" class="member-name-link">NON_TRACKING</a> - Enum constant in enum class arez.annotations.<a href="arez/annotations/TrackingMode.html" title="enum class in arez.annotations">TrackingMode</a></dt>
+<dd>
+<div class="block">A non-tracking transaction is required.</div>
 </dd>
 <dt><a href="arez/ArezTestUtil.html#noPurgeTasksWhenRunawayDetected()" class="member-name-link">noPurgeTasksWhenRunawayDetected()</a> - Static method in class arez.<a href="arez/ArezTestUtil.html" title="class in arez">ArezTestUtil</a></dt>
 <dd>
@@ -2752,6 +2768,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Exception generated when the reaction is executing.</div>
 </dd>
+<dt><a href="arez/annotations/TransactionMode.html#READ_ONLY" class="member-name-link">READ_ONLY</a> - Enum constant in enum class arez.annotations.<a href="arez/annotations/TransactionMode.html" title="enum class in arez.annotations">TransactionMode</a></dt>
+<dd>
+<div class="block">A read-only transaction is required.</div>
+</dd>
 <dt><a href="arez/ActionFlags.html#READ_ONLY" class="member-name-link">READ_ONLY</a> - Static variable in class arez.<a href="arez/ActionFlags.html" title="class in arez">ActionFlags</a></dt>
 <dd>
 <div class="block">The action can only read arez state.</div>
@@ -2763,6 +2783,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="arez/ComputableValue.Flags.html#READ_OUTSIDE_TRANSACTION" class="member-name-link">READ_OUTSIDE_TRANSACTION</a> - Static variable in class arez.<a href="arez/ComputableValue.Flags.html" title="class in arez">ComputableValue.Flags</a></dt>
 <dd>
 <div class="block">Flag indicating that the ComputableValue be accessed outside a transaction.</div>
+</dd>
+<dt><a href="arez/annotations/TransactionMode.html#READ_WRITE" class="member-name-link">READ_WRITE</a> - Enum constant in enum class arez.annotations.<a href="arez/annotations/TransactionMode.html" title="enum class in arez.annotations">TransactionMode</a></dt>
+<dd>
+<div class="block">A read-write transaction is required.</div>
 </dd>
 <dt><a href="arez/ActionFlags.html#READ_WRITE" class="member-name-link">READ_WRITE</a> - Static variable in class arez.<a href="arez/ActionFlags.html" title="class in arez">ActionFlags</a></dt>
 <dd>
@@ -2944,6 +2968,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="arez/annotations/Action.html#requireNewTransaction()" class="member-name-link">requireNewTransaction()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/Action.html" title="annotation interface in arez.annotations">Action</a></dt>
 <dd>
 <div class="block">True if the action should always start a new transaction.</div>
+</dd>
+<dt><a href="arez/annotations/RequiresTransaction.html" class="type-name-link" title="annotation interface in arez.annotations">RequiresTransaction</a> - Annotation Interface in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
+<dd>
+<div class="block">Annotation that marks a method as requiring an existing Arez transaction.</div>
 </dd>
 <dt><a href="arez/dom/BrowserLocation.html#resetBrowserLocation()" class="member-name-link">resetBrowserLocation()</a> - Method in class arez.dom.<a href="arez/dom/BrowserLocation.html" title="class in arez.dom">BrowserLocation</a></dt>
 <dd>
@@ -3401,6 +3429,18 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a tracking observer.</div>
 </dd>
+<dt><a href="arez/annotations/RequiresTransaction.html#tracking()" class="member-name-link">tracking()</a> - Element in annotation interface arez.annotations.<a href="arez/annotations/RequiresTransaction.html" title="annotation interface in arez.annotations">RequiresTransaction</a></dt>
+<dd>
+<div class="block">Return the required tracking state of the existing transaction.</div>
+</dd>
+<dt><a href="arez/annotations/TrackingMode.html#TRACKING" class="member-name-link">TRACKING</a> - Enum constant in enum class arez.annotations.<a href="arez/annotations/TrackingMode.html" title="enum class in arez.annotations">TrackingMode</a></dt>
+<dd>
+<div class="block">A tracking transaction is required.</div>
+</dd>
+<dt><a href="arez/annotations/TrackingMode.html" class="type-name-link" title="enum class in arez.annotations">TrackingMode</a> - Enum Class in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
+<dd>
+<div class="block">Enum describing the required tracking state of an existing transaction.</div>
+</dd>
 <dt><a href="arez/spy/TransactionCompleteEvent.html" class="type-name-link" title="class in arez.spy">TransactionCompleteEvent</a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Notification when Transaction completes.</div>
@@ -3410,6 +3450,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="arez/spy/TransactionInfo.html" class="type-name-link" title="interface in arez.spy">TransactionInfo</a> - Interface in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
 <div class="block">Spy interface into transaction data.</div>
+</dd>
+<dt><a href="arez/annotations/TransactionMode.html" class="type-name-link" title="enum class in arez.annotations">TransactionMode</a> - Enum Class in <a href="arez/annotations/package-summary.html">arez.annotations</a></dt>
+<dd>
+<div class="block">Enum describing the required mode of an existing transaction.</div>
 </dd>
 <dt><a href="arez/spy/TransactionStartEvent.html" class="type-name-link" title="class in arez.spy">TransactionStartEvent</a> - Class in <a href="arez/spy/package-summary.html">arez.spy</a></dt>
 <dd>
@@ -3489,6 +3533,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
 </dd>
+<dt><a href="arez/annotations/TrackingMode.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class arez.annotations.<a href="arez/annotations/TrackingMode.html" title="enum class in arez.annotations">TrackingMode</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
+<dt><a href="arez/annotations/TransactionMode.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class arez.annotations.<a href="arez/annotations/TransactionMode.html" title="enum class in arez.annotations">TransactionMode</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
 <dt><a href="arez/dom/DocumentVisibility.Visibility.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class arez.dom.<a href="arez/dom/DocumentVisibility.Visibility.html" title="enum class in arez.dom">DocumentVisibility.Visibility</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
@@ -3541,6 +3593,16 @@ the order they are declared.</div>
 the order they are declared.</div>
 </dd>
 <dt><a href="arez/annotations/State.html#values()" class="member-name-link">values()</a> - Static method in enum class arez.annotations.<a href="arez/annotations/State.html" title="enum class in arez.annotations">State</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
+</dd>
+<dt><a href="arez/annotations/TrackingMode.html#values()" class="member-name-link">values()</a> - Static method in enum class arez.annotations.<a href="arez/annotations/TrackingMode.html" title="enum class in arez.annotations">TrackingMode</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
+</dd>
+<dt><a href="arez/annotations/TransactionMode.html#values()" class="member-name-link">values()</a> - Static method in enum class arez.annotations.<a href="arez/annotations/TransactionMode.html" title="enum class in arez.annotations">TransactionMode</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum class, in
 the order they are declared.</div>
