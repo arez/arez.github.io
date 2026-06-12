@@ -55,6 +55,26 @@ snippet to configure the maven compiler plugin from within the <code>pom.xml</co
   <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
 </code></pre>
+<h3><a class="anchor" aria-hidden="true" name="optional-generated-source-formatting"></a><a href="#optional-generated-source-formatting" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional Generated Source Formatting</h3>
+<p>By default, the Arez processor writes the standard JavaPoet generated source. To format generated
+Arez component source, pass the literal annotation processor option
+<code>-Aarez.format_generated_source=true</code>. Any other value, or omitting the option, leaves generated
+source unformatted.</p>
+<p>The formatter dependencies are shaded inside the <code>arez-processor</code> artifact, but the formatter uses
+JDK compiler internals. On JDK 16 and later, the JVM running <code>javac</code> and annotation processing must
+receive these exports when formatting is enabled:</p>
+<pre><code class="hljs css text">--<span class="hljs-built_in">add</span>-exports=jdk.<span class="hljs-keyword">compiler</span>/<span class="hljs-keyword">com</span>.<span class="hljs-keyword">sun</span>.tools.javac.api=ALL-UNNAMED
+--<span class="hljs-built_in">add</span>-exports=jdk.<span class="hljs-keyword">compiler</span>/<span class="hljs-keyword">com</span>.<span class="hljs-keyword">sun</span>.tools.javac.code=ALL-UNNAMED
+--<span class="hljs-built_in">add</span>-exports=jdk.<span class="hljs-keyword">compiler</span>/<span class="hljs-keyword">com</span>.<span class="hljs-keyword">sun</span>.tools.javac.<span class="hljs-keyword">file</span>=ALL-UNNAMED
+--<span class="hljs-built_in">add</span>-exports=jdk.<span class="hljs-keyword">compiler</span>/<span class="hljs-keyword">com</span>.<span class="hljs-keyword">sun</span>.tools.javac.parser=ALL-UNNAMED
+--<span class="hljs-built_in">add</span>-exports=jdk.<span class="hljs-keyword">compiler</span>/<span class="hljs-keyword">com</span>.<span class="hljs-keyword">sun</span>.tools.javac.tree=ALL-UNNAMED
+--<span class="hljs-built_in">add</span>-exports=jdk.<span class="hljs-keyword">compiler</span>/<span class="hljs-keyword">com</span>.<span class="hljs-keyword">sun</span>.tools.javac.util=ALL-UNNAMED
+</code></pre>
+<p>For Maven, put the <code>--add-exports</code> flags in <code>.mvn/jvm.config</code> or <code>MAVEN_OPTS</code> so they reach the
+Maven JVM that runs annotation processing. If the compiler plugin forks <code>javac</code>, pass the same
+exports with <code>-J</code>, for example
+<code>-J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</code>, so they reach the forked
+compiler JVM.</p>
 <h2><a class="anchor" aria-hidden="true" name="configure-your-ide"></a><a href="#configure-your-ide" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure your IDE</h2>
 <p>It is expected that most Arez applications are developed from within an IDE. The configuration of the IDE
 can be done by importing the <code>pom.xml</code> into the IDE but further customizations will often need to be done by
