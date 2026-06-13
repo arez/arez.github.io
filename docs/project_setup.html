@@ -21,7 +21,7 @@ your Maven project, simply add the following to your <code>pom.xml</code>:</p>
     <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.realityforge.arez<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>arez-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.246<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.247<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
     ...
   <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
@@ -45,7 +45,7 @@ snippet to configure the maven compiler plugin from within the <code>pom.xml</co
             <span class="hljs-tag">&lt;<span class="hljs-name">path</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.realityforge.arez<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>arez-processor<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.246<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.247<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">annotationProcessorPaths</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
@@ -60,9 +60,10 @@ snippet to configure the maven compiler plugin from within the <code>pom.xml</co
 Arez component source, pass the literal annotation processor option
 <code>-Aarez.format_generated_source=true</code>. Any other value, or omitting the option, leaves generated
 source unformatted.</p>
-<p>The formatter dependencies are shaded inside the <code>arez-processor</code> artifact, but the formatter uses
-JDK compiler internals. On JDK 16 and later, the JVM running <code>javac</code> and annotation processing must
-receive these exports when formatting is enabled:</p>
+<p>The persist processor supports the same behavior via <code>-Aarez.persist.format_generated_source=true</code>.</p>
+<p>The formatter support is supplied by Proton and shaded inside the <code>arez-processor</code> artifact, but the
+formatter uses JDK compiler internals. On JDK 16 and later, the JVM running <code>javac</code> and annotation
+processing must receive these exports when formatting is enabled:</p>
 <pre><code class="hljs css text">--<span class="hljs-built_in">add</span>-exports=jdk.<span class="hljs-keyword">compiler</span>/<span class="hljs-keyword">com</span>.<span class="hljs-keyword">sun</span>.tools.javac.api=ALL-UNNAMED
 --<span class="hljs-built_in">add</span>-exports=jdk.<span class="hljs-keyword">compiler</span>/<span class="hljs-keyword">com</span>.<span class="hljs-keyword">sun</span>.tools.javac.code=ALL-UNNAMED
 --<span class="hljs-built_in">add</span>-exports=jdk.<span class="hljs-keyword">compiler</span>/<span class="hljs-keyword">com</span>.<span class="hljs-keyword">sun</span>.tools.javac.<span class="hljs-keyword">file</span>=ALL-UNNAMED
